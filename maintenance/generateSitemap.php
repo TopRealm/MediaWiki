@@ -384,6 +384,7 @@ class GenerateSitemap extends Maintenance {
 				$entry = $this->fileEntry( $title->getCanonicalURL(), $date, $this->priority( $namespace ) );
 				$length += strlen( $entry );
 				$this->write( $this->file, $entry );
+				/*
 				// generate pages for language variants
 				if ( $langConverter->hasVariants() ) {
 					$variants = $langConverter->getVariants();
@@ -400,6 +401,7 @@ class GenerateSitemap extends Maintenance {
 						$this->write( $this->file, $entry );
 					}
 				}
+				*/
 			}
 
 			if ( $skippedNoindex > 0 ) {
