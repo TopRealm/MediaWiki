@@ -28,6 +28,10 @@ ysarxiv-settings
 oauthkeys
 /.well-known
 /matomo-tracking-code.js
+
+# For Test Environment Only
+LocalSettings.php
+
 # sitemaps
 /sitemap
 
