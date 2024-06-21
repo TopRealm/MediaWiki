@@ -36,10 +36,6 @@
 	"config-sidebar-license": "Копийар",
 	"config-sidebar-upgrade": "Карлайаккхар",
 	"config-env-php": "ДӀахӀоттийна верси PHP: $1.",
-<<<<<<< HEAD
-	"config-env-icu": "ICU $1 дӀахӀоттийна (Unicode $2 ловш йу).",
-=======
->>>>>>> origin/1.39.7-test
 	"config-no-fts3": "'''Тергам бе''': SQLite гулйина хуттург йоцуш [//sqlite.org/fts3.html FTS3] — лахар болхбеш хир дац оцу бухца.",
 	"config-no-cli-uri": "'''ДӀахьедар''': <code>--scriptpath</code> параметр йазйина йац, иза Ӏадйитаран кепаца лелош йу: <code>$1</code> .",
 	"config-using-server": "«<nowiki>$1</nowiki>» серверан цӀе лелош йу.",
@@ -152,10 +148,6 @@
 	"config-skins-screenshots": "$1 (скриншоташ: $2)",
 	"config-extensions-requires": "$1 (оьшу $2)",
 	"config-screenshot": "скриншот",
-<<<<<<< HEAD
-	"config-ext-skins-more-info": "Ма-дарра",
-=======
->>>>>>> origin/1.39.7-test
 	"mainpagetext": "<strong>MediaWiki кхиамца дӀахӀоттийна.</strong>",
 	"mainpagedocfooter": "ХӀокху викица болх муха бо гойтуш йолу информаци йу [https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents куьйгаллин агӀонгахь].\n\n== Болх болор ==\n* [https://www.mediawiki.org/wiki/Special:MyLanguage/Manual:Configuration_settings Хила мега нисдаран гӀирсийн могӀам];\n* [https://www.mediawiki.org/wiki/Special:MyLanguage/Manual:FAQ MediaWiki лаьцна сих-сиха луш долу хаттарш а, жоьпаш а];\n* [https://lists.wikimedia.org/postorius/lists/mediawiki-announce.lists.wikimedia.org/ MediaWiki керла версеш йаьлча хаамаш кхехьийтар].\n* [https://www.mediawiki.org/wiki/Special:MyLanguage/Localisation#Translation_resources MediaWiki шен матте гочйар]\n* [https://www.mediawiki.org/wiki/Special:MyLanguage/Manual:Combating_spam Хьажа, спамах муха ларйан йеза шайн вики]"
 }

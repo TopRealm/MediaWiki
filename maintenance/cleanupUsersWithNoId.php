@@ -99,15 +99,20 @@ class CleanupUsersWithNoId extends LoggedUpdateMaintenance {
 	 * @return string[] [ string $next, string $display ]
 	 */
 	private function makeNextCond( $dbw, $indexFields, $row ) {
+		$next = '';
 		$display = [];
-		$conds = [];
-		foreach ( $indexFields as $field ) {
+		for ( $i = count( $indexFields ) - 1; $i >= 0; $i-- ) {
+			$field = $indexFields[$i];
 			$display[] = $field . '=' . $row->$field;
-			$conds[ $field ] = $row->$field;
+			$value = $dbw->addQuotes( $row->$field );
+			if ( $next === '' ) {
+				$next = "$field > $value";
+			} else {
+				$next = "$field > $value OR $field = $value AND ($next)";
+			}
 		}
-		$display = implode( ' ', $display );
-		$conds = $dbw->buildComparison( '>', $conds );
-		return [ $conds, $display ];
+		$display = implode( ' ', array_reverse( $display ) );
+		return [ $next, $display ];
 	}
 
 	/**
@@ -142,8 +147,8 @@ class CleanupUsersWithNoId extends LoggedUpdateMaintenance {
 		$next = '1=1';
 		$countAssigned = 0;
 		$countPrefixed = 0;
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
-		$userIdentityLookup = MediaWikiServices::getInstance()->getUserIdentityLookup();
 		while ( true ) {
 			// Fetch the rows needing update
 			$res = $dbw->newSelectQueryBuilder()
@@ -167,15 +172,13 @@ class CleanupUsersWithNoId extends LoggedUpdateMaintenance {
 
 				$id = 0;
 				if ( $this->assign ) {
-					$userIdentity = $userIdentityLookup->getUserIdentityByName( $name );
-					if ( !$userIdentity || !$userIdentity->isRegistered() ) {
+					$id = User::idFromName( $name );
+					if ( !$id ) {
 						// See if any extension wants to create it.
 						if ( !isset( $this->triedCreations[$name] ) ) {
 							$this->triedCreations[$name] = true;
 							if ( !$this->getHookRunner()->onImportHandleUnknownUser( $name ) ) {
-								$userIdentity = $userIdentityLookup
-									->getUserIdentityByName( $name, IDBAccessObject::READ_LATEST );
-								$id = $userIdentity ? $userIdentity->getId() : 0;
+								$id = User::idFromName( $name, User::READ_LATEST );
 							}
 						}
 					}
@@ -201,9 +204,9 @@ class CleanupUsersWithNoId extends LoggedUpdateMaintenance {
 			}
 
 			// @phan-suppress-next-line PhanTypeMismatchArgumentNullable,PhanPossiblyUndeclaredVariable row is set
-			[ $next, $display ] = $this->makeNextCond( $dbw, $orderby, $row );
+			list( $next, $display ) = $this->makeNextCond( $dbw, $orderby, $row );
 			$this->output( "... $display\n" );
-			$this->waitForReplication();
+			$lbFactory->waitForReplication();
 		}
 
 		$this->output(

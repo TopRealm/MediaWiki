@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\Search\ParserOutputSearchDataExtractor;
-use MediaWiki\Title\Title;
 
 /**
  * @group Search

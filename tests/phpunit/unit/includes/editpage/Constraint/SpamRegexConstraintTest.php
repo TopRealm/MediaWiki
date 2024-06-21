@@ -21,7 +21,6 @@
 use MediaWiki\EditPage\Constraint\IEditConstraint;
 use MediaWiki\EditPage\Constraint\SpamRegexConstraint;
 use MediaWiki\EditPage\SpamChecker;
-use MediaWiki\Title\Title;
 use Psr\Log\LogLevel;
 use Psr\Log\NullLogger;
 

@@ -3,7 +3,6 @@
 namespace MediaWiki\Tests\Maintenance;
 
 use Config;
-use HashConfig;
 use Maintenance;
 use MediaWiki\MediaWikiServices;
 use PHPUnit\Framework\Assert;
@@ -498,7 +497,7 @@ class MaintenanceTest extends MaintenanceBaseTestCase {
 	 * @covers Maintenance::setConfig
 	 */
 	public function testSetConfig() {
-		$conf = new HashConfig();
+		$conf = $this->createMock( Config::class );
 		$this->maintenance->setConfig( $conf );
 		$this->assertSame( $conf, $this->maintenance->getConfig() );
 	}

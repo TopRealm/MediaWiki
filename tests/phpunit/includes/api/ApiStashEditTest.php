@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\Storage\PageEditStash;
-use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
 use Psr\Log\NullLogger;
 use Wikimedia\TestingAccessWrapper;
@@ -89,7 +88,7 @@ class ApiStashEditTest extends ApiTestCase {
 			$this->assertSame( $expectedHash, $hash );
 
 			if ( isset( $params['stashedtexthash'] ) ) {
-				$this->assertSame( $expectedHash, $params['stashedtexthash'] );
+				$this->assertSame( $params['stashedtexthash'], $expectedHash );
 			}
 		} else {
 			$this->assertSame( $origText, $this->getStashedText( $expectedHash ) );
@@ -192,7 +191,7 @@ class ApiStashEditTest extends ApiTestCase {
 
 	public function testPageWithNoRevisions() {
 		$name = ucfirst( __FUNCTION__ );
-		$revRecord = $this->editPage( $name, '' )->getNewRevision();
+		$revRecord = $this->editPage( $name, '' )->value['revision-record'];
 
 		$this->setExpectedApiException( [ 'apierror-missingrev-pageid', $revRecord->getPageId() ] );
 
@@ -210,7 +209,7 @@ class ApiStashEditTest extends ApiTestCase {
 
 	public function testExistingPage() {
 		$name = ucfirst( __FUNCTION__ );
-		$revRecord = $this->editPage( $name, '' )->getNewRevision();
+		$revRecord = $this->editPage( $name, '' )->value['revision-record'];
 
 		$this->doStash( [ 'title' => $name, 'baserevid' => $revRecord->getId() ] );
 	}
@@ -219,7 +218,7 @@ class ApiStashEditTest extends ApiTestCase {
 		$this->markTestSkippedIfNoDiff3();
 
 		$name = ucfirst( __FUNCTION__ );
-		$oldRevRecord = $this->editPage( $name, "A\n\nB" )->getNewRevision();
+		$oldRevRecord = $this->editPage( $name, "A\n\nB" )->value['revision-record'];
 		$this->editPage( $name, "A\n\nC" );
 
 		$this->doStash( [
@@ -231,7 +230,7 @@ class ApiStashEditTest extends ApiTestCase {
 
 	public function testEditConflict() {
 		$name = ucfirst( __FUNCTION__ );
-		$oldRevRecord = $this->editPage( $name, 'A' )->getNewRevision();
+		$oldRevRecord = $this->editPage( $name, 'A' )->value['revision-record'];
 		$this->editPage( $name, 'B' );
 
 		$this->doStash( [
@@ -252,7 +251,7 @@ class ApiStashEditTest extends ApiTestCase {
 			'',
 			NS_MAIN,
 			$performer
-		)->getNewRevision();
+		)->value['revision-record'];
 		$this->editPage(
 			$title,
 			new WikitextContent( 'Text' ),
@@ -269,7 +268,7 @@ class ApiStashEditTest extends ApiTestCase {
 
 	public function testDeletedRevision() {
 		$name = ucfirst( __FUNCTION__ );
-		$oldRevRecord = $this->editPage( $name, 'A' )->getNewRevision();
+		$oldRevRecord = $this->editPage( $name, 'A' )->value['revision-record'];
 		$this->editPage( $name, 'B' );
 
 		$this->setExpectedApiException(
@@ -287,7 +286,7 @@ class ApiStashEditTest extends ApiTestCase {
 
 	public function testDeletedRevisionSection() {
 		$name = ucfirst( __FUNCTION__ );
-		$oldRevRecord = $this->editPage( $name, 'A' )->getNewRevision();
+		$oldRevRecord = $this->editPage( $name, 'A' )->value['revision-record'];
 		$this->editPage( $name, 'B' );
 
 		$this->setExpectedApiException( 'apierror-sectionreplacefailed' );
@@ -385,11 +384,11 @@ class ApiStashEditTest extends ApiTestCase {
 			$this->getServiceContainer()->getPageEditStash() );
 		$cache = $editStash->cache;
 
-		$editInfo = $editStash->unserializeStashInfo( $cache->get( $key ) );
+		$editInfo = $cache->get( $key );
 		$editInfo->output->setCacheTime( wfTimestamp( TS_MW,
 			wfTimestamp( TS_UNIX, $editInfo->output->getCacheTime() ) - $howOld - 1 ) );
 
-		$cache->set( $key, $editStash->serializeStashInfo( $editInfo ) );
+		$cache->set( $key, $editInfo );
 	}
 
 	public function testCheckCacheOldNoEdits() {

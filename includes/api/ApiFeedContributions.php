@@ -23,7 +23,6 @@
 use MediaWiki\Api\ApiHookRunner;
 use MediaWiki\Cache\LinkBatchFactory;
 use MediaWiki\CommentFormatter\CommentFormatter;
-use MediaWiki\Feed\FeedItem;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\MainConfigNames;
@@ -32,8 +31,6 @@ use MediaWiki\Revision\RevisionAccessException;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\RevisionStore;
 use MediaWiki\Revision\SlotRecord;
-use MediaWiki\Title\Title;
-use MediaWiki\User\ActorMigration;
 use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserRigorOptions;
 use Wikimedia\ParamValidator\ParamValidator;
@@ -285,7 +282,7 @@ class ApiFeedContributions extends ApiBase {
 			// XXX: we could get an HTML representation of the content via getParserOutput, but that may
 			//     contain JS magic and generally may not be suitable for inclusion in a feed.
 			//     Perhaps Content should have a getDescriptiveHtml method and/or a getSourceText method.
-			// Compare also MediaWiki\Feed\FeedUtils::formatDiffRow.
+			// Compare also FeedUtils::formatDiffRow.
 			$html = '';
 		}
 

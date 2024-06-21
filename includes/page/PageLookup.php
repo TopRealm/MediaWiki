@@ -12,7 +12,6 @@ use MediaWiki\Linker\LinkTarget;
  * Default implementation is PageStore.
  *
  * @since 1.36
- * @ingroup Page
  */
 interface PageLookup extends IDBAccessObject {
 

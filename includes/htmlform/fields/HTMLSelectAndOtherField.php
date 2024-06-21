@@ -1,7 +1,5 @@
 <?php
 
-use MediaWiki\Html\Html;
-
 /**
  * Double field with a dropdown list constructed from a system message in the format
  *     * Optgroup header
@@ -35,7 +33,8 @@ class HTMLSelectAndOtherField extends HTMLSelectField {
 		parent::__construct( $params );
 
 		if ( $this->getOptions() === null ) {
-			throw new InvalidArgumentException( 'HTMLSelectAndOtherField called without any options' );
+			// Sulk
+			throw new MWException( 'HTMLSelectAndOtherField called without any options' );
 		}
 		if ( !in_array( 'other', $this->mOptions, true ) ) {
 			// Have 'other' always as first element
@@ -174,7 +173,7 @@ class HTMLSelectAndOtherField extends HTMLSelectField {
 			$text = $final;
 			foreach ( $this->mFlatOptions as $option ) {
 				$match = $option . $this->msg( 'colon-separator' )->inContentLanguage()->text();
-				if ( str_starts_with( $final, $match ) ) {
+				if ( strpos( $final, $match ) === 0 ) {
 					$list = $option;
 					$text = substr( $final, strlen( $match ) );
 					break;

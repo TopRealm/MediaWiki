@@ -229,11 +229,7 @@
 	"anontalkpagetext": "----\n<em>Tüü shia ee'iyalayaaka süpülajanaka suyorolo na ka'yataayakalü manüliakai nnojoyüikai nukumalain wane kuwenta nümüin aka eesü süpüla nnojolüin ni'yataain sümaa.</em>\nSütüma tia, acheküshi waapain tü nüjepüseka IP süpüla wayaatüinjachi.\nEesü süpüla kojuyain na ka'yataayakalü ee wanaawain nejepüseka IP.\nMa'aka piale'en wane ka'yataayakalü ee manüliain otta sotulee paa'in süka aluwataanüin pütchi nnojotka pansain pümüin, [[Special:CreateAccount|pukumalaa wane kuwenta]] sia [[Special:UserLogin|o'ttain pi'yataainka]] süpüla pülatirüin ma'aka maa'awain na waneeirua ka'yataayakalü pünainmüin.",
 	"noarticletext": "Müinma yaa nnojotsü ashajünüin sulu'u ee'iyalayaaka tüü. Eesü süpüla [[Special:Search/{{PAGENAME}}|püchajaain sünüliaka ee'iyalayaaka tüü]] sulu'upünaa waneeirua ee'iyalayaakalü, otta <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} achajawaa sulu'upünaa süchikanain wanaawaka sümaa]</span>, akaisa'a nnojotsü eein paa'in süpüla pükumajüinjatü ee'iyalayaaka tüü.",
 	"noarticletext-nopermission": "Müinma yaa nnojotsü ashajünüin sulu'u ee'iyalayaaka tüü. Eesü süpüla [[Special:Search/{{PAGENAME}}|püchajaain sünüliaka ee'iyalayaaka tüü]] sulu'upünaa waneeirua ee'iyalayaakalü, otta <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} achajawaa sulu'upünaa süchikanain wanaawaka sümaa]</span>, akaisa'a nnojotsü eein paa'in süpüla pükumajüinjatü ee'iyalayaaka tüü.",
-<<<<<<< HEAD
-	"userpage-userdoesnotexist-view": "Na ashajüikalee \"$1\" manüliasalü sulu'u wikikaa tüü.",
-=======
 	"userpage-userdoesnotexist-view": "Chi ka'yataayakalü \"$1\" nnojoishi sulu'uin kanüliamaasüka.",
->>>>>>> origin/1.39.7-test
 	"clearyourcache": "<strong>Ashajuushi:</strong>süchikejee pünaajain, eesü süpüla cho'ujaain ejeketüjaain putuma ouunte'eriaka süma'anaka asanaalü walekerülü'ü süpüla pi'rüinjatü awanajuushi sünain.\n* <strong>Firefox / Safari:</strong> Püjütta ka'amairu tü ajüttiaapalaka <em>Shift</em> sünain püjüttüin ajüttiaapalaka <em>Ejeketüjaa</em>, otta püjütta <em>Ctrl+F5</em> joo <em>Ctrl+R</em> (<em>⌘+R</em> sünain wane mac)\n* <strong>Google Chrome:</strong> Püjütta <em>Ctrl+Shift+R</em>(<em>⌘+Shift-R</em> sünain wane Mac)\n* <strong>Internet Explorer/Edge:</strong> ka'amaa sünain püjüttüin <em>Ctrl</em> sünain püjüttüin wanaa sümaa <em>Ejeketüjaa</em>, joo püjütta <em>Ctrl+F5</em>\n* <strong>Opera:</strong> Püjütta <em>Ctrl+F5</em>.",
 	"previewnote": "<strong>Nnojo motuin paa'in tü shia ne'e wane analayaa motsomüin.</strong>\n¡Pü'wanajaainka nnojoyulian anaajünüin!",
 	"continue-editing": "O'unaa sünain eere anaatawa",
@@ -658,12 +654,5 @@
 	"nstab-mainpage": "Ee'iyalaaya a'laülaasü",
 	"skin-action-protect": "Eisalajaa",
 	"skin-action-delete": "Ojuichajaa",
-	"skin-action-move": "Ansülaa",
-	"blockedtext-made-by": "A'alijitnüsü pünülia nutuma $1.",
-	"blockedtext-reason-comment": "Süka jamüin <em>$1</em>",
-	"blockedtext-start-time": "A'alijitneerü pünüliayaasüka sünainjee: $1",
-	"blockedtext-expiration-time": "Jutateerü suchukuwa'a pünüliayaasüka sünainjee: $1",
-	"blockedtext-intended-blockee": "A'alijitnüsü nünülia: $1",
-	"blockedtext-contact-blocker-admin": "Paashajaa nümaa $1 otta namaa na waneeirua [[{{MediaWiki:Grouppage-sysop}}|na akumajuliikana]] süpüla aakalaa tü alijitnuushika puulia.",
-	"blockedtext-include-details-queries": "Analu'ulu putuma shii'ire pi'itaain supushuwa'a tü achuntunakaa pümüin wanaa sümaa püsakirüin saa'ujee wane kasa."
+	"skin-action-move": "Ansülaa"
 }

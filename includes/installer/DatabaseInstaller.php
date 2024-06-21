@@ -21,10 +21,8 @@
  * @ingroup Installer
  */
 
-use MediaWiki\Html\Html;
 use Wikimedia\AtEase\AtEase;
 use Wikimedia\Rdbms\Database;
-use Wikimedia\Rdbms\DatabaseDomain;
 use Wikimedia\Rdbms\DBConnectionError;
 use Wikimedia\Rdbms\DBExpectedError;
 use Wikimedia\Rdbms\IDatabase;
@@ -141,7 +139,7 @@ abstract class DatabaseInstaller {
 	 * If the DB type has no settings beyond those already configured with
 	 * getConnectForm(), this should return false.
 	 * @stable to override
-	 * @return string|false
+	 * @return string|bool
 	 */
 	public function getSettingsForm() {
 		return false;
@@ -208,7 +206,7 @@ abstract class DatabaseInstaller {
 	 *
 	 * @param string $sourceFileMethod
 	 * @param string $stepName
-	 * @param string|false $tableThatMustNotExist
+	 * @param bool|string $tableThatMustNotExist
 	 * @return Status
 	 */
 	private function stepApplySourceFile(
@@ -220,7 +218,7 @@ abstract class DatabaseInstaller {
 		if ( !$status->isOK() ) {
 			return $status;
 		}
-		$this->selectDatabase( $this->db, $this->getVar( 'wgDBname' ) );
+		$this->db->selectDB( $this->getVar( 'wgDBname' ) );
 
 		if ( $tableThatMustNotExist && $this->db->tableExists( $tableThatMustNotExist, __METHOD__ ) ) {
 			$status->warning( "config-$stepName-tables-exist" );
@@ -674,7 +672,7 @@ abstract class DatabaseInstaller {
 		}
 
 		try {
-			$this->selectDatabase( $this->db, $this->getVar( 'wgDBname' ) );
+			$this->db->selectDB( $this->getVar( 'wgDBname' ) );
 		} catch ( DBConnectionError $e ) {
 			// Don't catch DBConnectionError
 			throw $e;
@@ -723,7 +721,7 @@ abstract class DatabaseInstaller {
 
 	/**
 	 * Get a standard web-user fieldset
-	 * @param string|false $noCreateMsg Message to display instead of the creation checkbox.
+	 * @param string|bool $noCreateMsg Message to display instead of the creation checkbox.
 	 *   Set this to false to show a creation checkbox (default).
 	 *
 	 * @return string
@@ -783,7 +781,7 @@ abstract class DatabaseInstaller {
 		if ( !$status->isOK() ) {
 			return $status;
 		}
-		$this->selectDatabase( $this->db, $this->getVar( 'wgDBname' ) );
+		$this->db->selectDB( $this->getVar( 'wgDBname' ) );
 
 		if ( $this->db->selectRow( 'interwiki', '1', [], __METHOD__ ) ) {
 			$status->warning( 'config-install-interwiki-exists' );
@@ -817,25 +815,5 @@ abstract class DatabaseInstaller {
 
 	public function outputHandler( $string ) {
 		return htmlspecialchars( $string );
-	}
-
-	/**
-	 * @param Database $conn
-	 * @param string $database
-	 * @return bool
-	 * @since 1.39
-	 */
-	protected function selectDatabase( Database $conn, string $database ) {
-		$schema = $conn->dbSchema();
-		$prefix = $conn->tablePrefix();
-
-		$conn->selectDomain( new DatabaseDomain(
-			$database,
-			// DatabaseDomain uses null for unspecified schemas
-			( $schema !== '' ) ? $schema : null,
-			$prefix
-		) );
-
-		return true;
 	}
 }

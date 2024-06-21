@@ -15,13 +15,8 @@
 			"Wikicology",
 			"아라",
 			"Aderiqueza",
-<<<<<<< HEAD
-			"BigDareLibrary",
-			"AG202"
-=======
 			"AG202",
 			"BigDareLibrary"
->>>>>>> origin/1.39.7-test
 		]
 	},
 	"tog-underline": "Ìfàlàsábẹ́ àwọn àjápọ̀:",
@@ -559,7 +554,7 @@
 	"summary-preview": "Àkọ́yẹ̀wò àkótán àtúnṣe:",
 	"previewerrortext": "Àsìṣe kan ṣẹlẹ̀ nígbà tí à ún gbìyànjú láti ṣàtúngbéyẹ̀wò àwọn àtúnṣe yín.",
 	"blockedtitle": "Ìdínà oníṣe",
-	"blockedtext-partial": "<strong>Orúkọ olùmúlò yín tàbí àdírẹ́ẹ̀sì IP yín tijẹ́ dídílọ́nà láti ṣe èyí. Síbẹ̀síbẹ̀ ẹ sì le ṣe àwọn ùnkankan  lórí ibí wẹ́ẹ̀bù yìí, fún àpẹrẹ ẹ lè ṣàtùnṣe àwọn ojú-ìwé bákan.</strong> \n\nẸ lè wo àlàyé lẹ́ẹ̀kúnrẹ́rẹ́ ìdínà náà nínú [[Special:MyContributions|àwọn àfikún àpamọ́]].\n\n{{int:blockedtext\n-made-by|$1}}\n\n{{int:blockedtext-reason-comment|$2}}.\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n*{{int:blockedtext-block-id|$5}}",
+	"blockedtext-partial": "<strong>Orúkọ oníṣe yín tàbí àdírẹ́ẹ̀sì IP yín tijẹ́ dídílọ́nà láti ṣe èyí. Ẹ sì le ṣàtùnṣe àwọn ojúewé míràn lórí wiki yìí.</strong> Ẹ lè wo àlàyé lẹ́ẹ̀kúnrẹ́rẹ́ ìdínà náà nínú [[Special:MyContributions|àwọn àfikún ìforúkọpamọ́]].\n\nÌdínà náà wá látọwọ́ $1.\n\nÌdíẹ̀ tó sọ ni <em>$2</em>.\n\n* Ìbẹ̀rẹ̀ ìdínà: $8\n* Ìparí ìdínà: $6\n* Ẹni tí a fẹ́ dínà: $7\n* ID ìdínà #$5",
 	"blockedtext": "<strong>Orúkọ oníṣe yín tàbí àdírẹ́sì IP yín ti jẹ́ dídílọ́nà.</strong>\n\n$1 ni ó ṣe ìdínà ọ̀hún.\nÌdí tó fun ni <em>$2</em>.\n\n* Ìbẹ̀rẹ̀ ìdínà: $8\n* Òpin ìdínà: $6\n* Ẹni tó dí lọ́nà: $7\n\nẸ ṣ'èránṣẹ́ sí $1 tàbí [[{{MediaWiki:Grouppage-sysop}}|alámùójútó]] mìíràn láti fọ̀rọ̀wérọ̀ lórí ìdínà ọ̀ún.\nẸ le lo \"{{int:emailuser}}\" tí àdírẹ́sì e-mail tó dájú bá wà nínú [[Special:Preferences|àwọn ìfẹ́ràn ìforúkọpamọ́]] yín tí wọn kò sì ti dínà yín láti lò ó.\nÀdírẹ́sì IP yín lọ́wọ́lọ́wọ́ ni $3, bẹ́ ẹ̀ sì ni ID fún ìdínà yín ni #$5.\nẸ jọ̀wọ́ ẹ fi gbogbo àlàyé ẹ̀kúnrẹ́rẹ́ òkè yìí kún ìbérè tí ẹ bá ṣe.",
 	"autoblockedtext": "Àdírẹ́sì IP yín ti jẹ́ dídílọ́nà ní fúnrararẹ̀ nítorí pé ó ti jẹ́ lílò látọwọ́ oníṣe míràn tí ó jẹ́ dídílọ́nà látọwọ́ $1.\nÌdíẹ̀ tó ṣe jẹ́ bẹ́ẹ̀ nìyí:\n\n:<em>$2</em>\n\n\n* Ìbẹ̀rẹ̀ ìdínà: $8\n* Ìparí ìdínà: $6\n* Ẹni tí a fẹ́ dínà: $7\n\nẸ le ránṣẹ́ sí $1 tàbí ìkan nínú [[{{MediaWiki:Grouppage-sysop}}|àwọn olùmójútó]] mìíràn láti fọ̀rọ̀wérọ̀ lórí ìdínà ọ̀ún.\n\nẸ le lo ìní \"{{int:emailuser}}\" tí ẹ bá ní àdírẹ́sì email tó dájú nínú [[Special:Preferences|àwọn ìfẹ́ràn]] yín tí wọn kò sì ti dínà yín láti lò ó.\n\nÀdírẹ́sì IP yín lọ́wọ́lọ́wọ́ ni $3, bẹ́ ẹ̀ sì ni ID fún ìdínà yín ni #$5.\nẸ jọ̀wọ́ ẹ fi gbogbo àlàyé ẹ̀kúnrẹ́rẹ́ òkè yìí pọ̀mọ́ ìbérè tí ẹ bá ṣe.",
 	"blockednoreason": "kó sí àlàyé kankan",
@@ -1385,7 +1380,6 @@
 	"filehist-dimensions": "Àwọn ìwọ̀n",
 	"filehist-filesize": "Ìtóbi fáìlì",
 	"filehist-comment": "Àríwí",
-	"filehist-missing": "Fáìlì kò sí",
 	"imagelinks": "Ìlò fáìlì",
 	"linkstoimage": "{{PLURAL:$1|Ojúewé kan yìí|Àwọn ojúewé $1 wọ̀nyí}} únlo fáìlì yí:",
 	"linkstoimage-more": "{{PLURAL:$1|Ojúewé|Àwọn ojúewé}} tó pọ̀ju $1 lọ ló únlo fáìlì yìí.\nÀtòjọ ìṣàlẹ̀ yìí ṣàfihàn {{PLURAL:$1|ojúewé àkọ́kọ́|ojúewé $1 àkọ́kọ́}} tó únlo fáìlì yìí nìkan.\n[[Special:WhatLinksHere/$2|Àtòjọ kíkúnrẹ́rẹ́]] wà nígbèéwọ́.",
@@ -2551,6 +2545,10 @@
 	"logentry-upload-upload": "$1 {{GENDER:$2|ṣe ìkósókè}} $3",
 	"logentry-upload-overwrite": "$1 {{GENDER:$2|s'àkówọlé}} ẹ̀yà tuntun $3",
 	"rightsnone": "(kòsí)",
+	"feedback-adding": "Ìfikún ìdáhùn sí ojúewé...",
+	"feedback-bugcheck": "Ó dáa bẹ́ẹ̀! Ẹ rí pé kò í ṣe ìkan nínú [$1 àwọn ìsòrò tí a ti mọ̀ tẹ́lẹ̀].",
+	"feedback-bugnew": "Mo ti yẹ́wò. Fi ìsòrò sùn",
+	"feedback-bugornote": "Tí ẹ bá ti ṣetán láti ṣàlàyé ìsòrò iṣẹ́ẹ̀rọ́ lẹ́ẹ̀kúnrẹ́rẹ́ ẹ jọ̀wọ́ [$1 ẹ sọ irú ìsòro náà]\nBíbẹ̀ẹ̀kọ́, ẹ le lo fọ́ọ̀mù ìsàlẹ̀. Ẹjọ́ yín yíò jẹ́ fífikún mọ́ ojúewé \"[$3 $2]\", bákannáà mọ́ orúkọ oníṣe yín.",
 	"feedback-cancel": "Fagilé",
 	"feedback-close": "Ṣetán",
 	"feedback-error1": "Àsìṣe: Èsì aláìdámọ́ látọ̀dọ̀ API",
@@ -2603,11 +2601,5 @@
 	"skin-action-protect": "Àbò",
 	"skin-action-undelete": "Ìmúkúrò ìparẹ́",
 	"skin-action-delete": "Ìparẹ́",
-	"skin-action-move": "Ìyípòdà",
-	"renameuserold": "Orúkọ oníṣe ìsinsìnyí:",
-	"renameusernew": "Orúkọ oníṣe tuntun:",
-	"renameuserwarnings": "Àwọn ìkìlọ̀:",
-	"renameusersubmit": "Fúnsílẹ̀",
-	"renameusererrordoesnotexist": "Oníṣe \"<nowiki>$1</nowiki>\" kò sí.",
-	"renameusererrorexists": "Oníṣe \"<nowiki>$1</nowiki>\" tilẹ̀ wà tẹ́lẹ̀."
+	"skin-action-move": "Ìyípòdà"
 }

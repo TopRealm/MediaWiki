@@ -18,10 +18,6 @@
  * @file
  */
 
-use MediaWiki\Html\Html;
-use MediaWiki\Html\TemplateParser;
-use MediaWiki\Title\Title;
-
 /**
  * Generic template for use with Mustache templates.
  * @since 1.35
@@ -104,7 +100,7 @@ class SkinMustache extends SkinTemplate {
 			'html-user-language-attributes' => $this->prepareUserLanguageAttributes(),
 
 			// links
-			'link-mainpage' => Title::newMainPage()->getLocalURL(),
+			'link-mainpage' => Title::newMainPage()->getLocalUrl(),
 		];
 
 		foreach ( $this->options['messages'] ?? [] as $message ) {

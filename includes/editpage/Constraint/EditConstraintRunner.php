@@ -46,7 +46,7 @@ class EditConstraintRunner {
 	private $constraints = [];
 
 	/**
-	 * @var IEditConstraint|false
+	 * @var IEditConstraint|bool
 	 *
 	 * The constraint that failed, so that its status can be fetched, or false if none failed.
 	 */

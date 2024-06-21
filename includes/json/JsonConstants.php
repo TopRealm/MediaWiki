@@ -32,9 +32,4 @@ interface JsonConstants {
 	 * Name of the property where the class information is stored.
 	 */
 	public const TYPE_ANNOTATION = '_type_';
-	/**
-	 * Name of the marker property to indicate that array contents
-	 * need to be examined during unserialization.
-	 */
-	public const COMPLEX_ANNOTATION = '_complex_';
 }

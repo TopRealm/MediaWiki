@@ -20,7 +20,6 @@
  * @file
  */
 
-use MediaWiki\CommentFormatter\CommentFormatter;
 use MediaWiki\Content\IContentHandlerFactory;
 use MediaWiki\Content\Renderer\ContentRenderer;
 use MediaWiki\Content\Transform\ContentTransformer;
@@ -30,10 +29,7 @@ use MediaWiki\Revision\RevisionStore;
 use MediaWiki\Revision\SlotRoleRegistry;
 use MediaWiki\Storage\NameTableAccessException;
 use MediaWiki\Storage\NameTableStore;
-use MediaWiki\Title\Title;
-use MediaWiki\User\ActorMigration;
 use Wikimedia\ParamValidator\ParamValidator;
-use Wikimedia\Rdbms\Platform\ISQLPlatform;
 
 /**
  * A query action to enumerate revisions of a given page, or show top revisions
@@ -65,7 +61,6 @@ class ApiQueryRevisions extends ApiQueryRevisionsBase {
 	 * @param ActorMigration $actorMigration
 	 * @param ContentRenderer $contentRenderer
 	 * @param ContentTransformer $contentTransformer
-	 * @param CommentFormatter $commentFormatter
 	 */
 	public function __construct(
 		ApiQuery $query,
@@ -77,8 +72,7 @@ class ApiQueryRevisions extends ApiQueryRevisionsBase {
 		NameTableStore $changeTagDefStore,
 		ActorMigration $actorMigration,
 		ContentRenderer $contentRenderer,
-		ContentTransformer $contentTransformer,
-		CommentFormatter $commentFormatter
+		ContentTransformer $contentTransformer
 	) {
 		parent::__construct(
 			$query,
@@ -89,8 +83,7 @@ class ApiQueryRevisions extends ApiQueryRevisionsBase {
 			$parserFactory,
 			$slotRoleRegistry,
 			$contentRenderer,
-			$contentTransformer,
-			$commentFormatter
+			$contentTransformer
 		);
 		$this->revisionStore = $revisionStore;
 		$this->changeTagDefStore = $changeTagDefStore;
@@ -225,14 +218,16 @@ class ApiQueryRevisions extends ApiQueryRevisionsBase {
 			$this->requireMaxOneParameter( $params, 'user', 'excludeuser' );
 
 			if ( $params['continue'] !== null ) {
-				$cont = $this->parseContinueParamOrDie( $params['continue'], [ 'timestamp', 'int' ] );
-				$op = ( $params['dir'] === 'newer' ? '>=' : '<=' );
-				$continueTimestamp = $db->timestamp( $cont[0] );
+				$cont = explode( '|', $params['continue'] );
+				$this->dieContinueUsageIf( count( $cont ) != 2 );
+				$op = ( $params['dir'] === 'newer' ? '>' : '<' );
+				$continueTimestamp = $db->addQuotes( $db->timestamp( $cont[0] ) );
 				$continueId = (int)$cont[1];
-				$this->addWhere( $db->buildComparison( $op, [
-					$tsField => $continueTimestamp,
-					$idField => $continueId,
-				] ) );
+				$this->dieContinueUsageIf( $continueId != $cont[1] );
+				$this->addWhere( "$tsField $op $continueTimestamp OR " .
+					"($tsField = $continueTimestamp AND " .
+					"$idField $op= $continueId)"
+				);
 			}
 
 			// Convert startid/endid to timestamps (T163532)
@@ -259,7 +254,7 @@ class ApiQueryRevisions extends ApiQueryRevisionsBase {
 						__METHOD__
 					),
 				], $db::UNION_DISTINCT );
-				$res = $db->query( $sql, __METHOD__, ISQLPlatform::QUERY_CHANGE_NONE );
+				$res = $db->query( $sql, __METHOD__ );
 				foreach ( $res as $row ) {
 					if ( (int)$row->id === (int)$params['startid'] ) {
 						$params['start'] = $row->ts;
@@ -281,30 +276,26 @@ class ApiQueryRevisions extends ApiQueryRevisionsBase {
 
 				// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset False positive
 				if ( $params['start'] !== null ) {
-					$op = ( $params['dir'] === 'newer' ? '>=' : '<=' );
+					$op = ( $params['dir'] === 'newer' ? '>' : '<' );
 					// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset False positive
-					$ts = $db->timestampOrNull( $params['start'] );
+					$ts = $db->addQuotes( $db->timestampOrNull( $params['start'] ) );
 					if ( $params['startid'] !== null ) {
-						$this->addWhere( $db->buildComparison( $op, [
-							$tsField => $ts,
-							$idField => (int)$params['startid'],
-						] ) );
+						$this->addWhere( "$tsField $op $ts OR "
+							. "$tsField = $ts AND $idField $op= " . (int)$params['startid'] );
 					} else {
-						$this->addWhere( $db->buildComparison( $op, [ $tsField => $ts ] ) );
+						$this->addWhere( "$tsField $op= $ts" );
 					}
 				}
 				// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset False positive
 				if ( $params['end'] !== null ) {
-					$op = ( $params['dir'] === 'newer' ? '<=' : '>=' ); // Yes, opposite of the above
+					$op = ( $params['dir'] === 'newer' ? '<' : '>' ); // Yes, opposite of the above
 					// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset False positive
-					$ts = $db->timestampOrNull( $params['end'] );
+					$ts = $db->addQuotes( $db->timestampOrNull( $params['end'] ) );
 					if ( $params['endid'] !== null ) {
-						$this->addWhere( $db->buildComparison( $op, [
-							$tsField => $ts,
-							$idField => (int)$params['endid'],
-						] ) );
+						$this->addWhere( "$tsField $op $ts OR "
+							. "$tsField = $ts AND $idField $op= " . (int)$params['endid'] );
 					} else {
-						$this->addWhere( $db->buildComparison( $op, [ $tsField => $ts ] ) );
+						$this->addWhere( "$tsField $op= $ts" );
 					}
 				}
 			} else {
@@ -378,11 +369,15 @@ class ApiQueryRevisions extends ApiQueryRevisionsBase {
 			$this->addWhereFld( 'rev_page', $pageids );
 
 			if ( $params['continue'] !== null ) {
-				$cont = $this->parseContinueParamOrDie( $params['continue'], [ 'int', 'int' ] );
-				$this->addWhere( $db->buildComparison( '>=', [
-					'rev_page' => $cont[0],
-					'rev_id' => $cont[1],
-				] ) );
+				$cont = explode( '|', $params['continue'] );
+				$this->dieContinueUsageIf( count( $cont ) != 2 );
+				$pageid = (int)$cont[0];
+				$revid = (int)$cont[1];
+				$this->addWhere(
+					"rev_page > $pageid OR " .
+					"(rev_page = $pageid AND " .
+					"rev_id >= $revid)"
+				);
 			}
 			$this->addOption( 'ORDER BY', [
 				'rev_page',

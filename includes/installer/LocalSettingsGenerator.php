@@ -1,5 +1,7 @@
 <?php
 /**
+ * Generator for LocalSettings.php file.
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -16,10 +18,11 @@
  * http://www.gnu.org/copyleft/gpl.html
  *
  * @file
+ * @ingroup Installer
  */
 
 /**
- * Generate the LocalSettings.php file.
+ * Class for generating LocalSettings.php file.
  *
  * @ingroup Installer
  * @since 1.17
@@ -325,7 +328,7 @@ class LocalSettingsGenerator {
 # installer. If you make manual changes, please keep track in case you
 # need to recreate them later.
 #
-# See includes/MainConfigSchema.php for all configurable settings
+# See docs/Configuration.md for all configurable settings
 # and their default values, but don't forget to make changes in _this_
 # file, not there.
 #

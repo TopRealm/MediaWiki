@@ -23,7 +23,6 @@
 
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Title\Title;
 
 class SqlSearchResult extends RevisionSearchResult {
 	/** @var string[] */

@@ -21,13 +21,10 @@
  * @ingroup Search
  */
 
-use MediaWiki\Title\Title;
-
 /**
  * @ingroup Search
  */
 class SearchResultSet extends BaseSearchResultSet {
-
 	use SearchResultSetTrait;
 
 	protected $containedSyntax = false;

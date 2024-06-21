@@ -21,7 +21,6 @@
 namespace MediaWiki\ResourceLoader;
 
 use Config;
-use ExtensionRegistry;
 
 /**
  * Module for codex that has direction-specific style files and a static helper function for
@@ -32,33 +31,25 @@ use ExtensionRegistry;
  */
 class CodexModule extends FileModule {
 
-	protected $themeStyles = [];
-	protected $themeStylesAdded = false;
-
-	protected static $builtinSkinThemeMap = [
-		'default' => 'wikimedia-ui'
-	];
+	protected $dirSpecificStyles = [];
 
 	public function __construct( array $options = [], $localBasePath = null, $remoteBasePath = null ) {
-		if ( isset( $options['themeStyles'] ) ) {
-			$this->themeStyles = $options['themeStyles'];
+		if ( isset( $options['dirSpecificStyles'] ) ) {
+			$this->dirSpecificStyles = $options['dirSpecificStyles'];
 		}
 
 		parent::__construct( $options, $localBasePath, $remoteBasePath );
 	}
 
 	public function getStyleFiles( Context $context ) {
-		if ( !$this->themeStylesAdded ) {
-			// Add theme styles
-			$themeMap = static::$builtinSkinThemeMap +
-				ExtensionRegistry::getInstance()->getAttribute( 'SkinCodexThemes' );
-			$theme = $themeMap[ $context->getSkin() ] ?? $themeMap[ 'default' ];
-			$dir = $context->getDirection();
-			$styles = $this->themeStyles[ $theme ][ $dir ];
-			$this->styles = array_merge( $this->styles, (array)$styles );
-			// Remember we added the theme styles so we don't add them twice if getStyleFiles() is called twice
-			$this->themeStylesAdded = true;
+		// Add direction-specific styles
+		$dir = $context->getDirection();
+		if ( isset( $this->dirSpecificStyles[ $dir ] ) ) {
+			$this->styles = array_merge( $this->styles, (array)$this->dirSpecificStyles[ $dir ] );
+			// Empty dirSpecificStyles so we don't add them twice if getStyleFiles() is called twice
+			$this->dirSpecificStyles = [];
 		}
+
 		return parent::getStyleFiles( $context );
 	}
 

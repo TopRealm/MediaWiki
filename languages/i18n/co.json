@@ -114,7 +114,6 @@
 	"permalink": "Ligame permanente",
 	"print": "Stampà",
 	"view": "Vede",
-	"viewcontribs": "Vede i cuntributi di l'utilizatore",
 	"skin-view-view": "Leghje",
 	"skin-view-foreign": "Vede nantu à $1",
 	"edit": "Mudificà",
@@ -261,11 +260,7 @@
 	"showpreview": "Previsualizà",
 	"showdiff": "Mustrà i cambiamenti",
 	"anoneditwarning": "<strong>Attenti:</strong> Ùn sì micca cunnessu/a. U to indirizzu IP sarà visibile publicamente sì faci qualsiasi mudificazione. Sè <strong>[$1 faci a cunnessione]</strong> o <strong>[$2 un registramentu]</strong>, e to mudifiche saranu salvate à nome d'utilizatore toiu, accantu ad altri benefizii.",
-<<<<<<< HEAD
-	"anonpreviewwarning": "<em>Ùn site micca entratu. U vostru indirizzu IP serà salvatu in a cronolugia di a pagina.</em>",
-=======
 	"anonpreviewwarning": "<em>Ùn sì micca entratu. U to indirizzu IP serà salvatu in a cronolugia di a pagina.</em>",
->>>>>>> origin/1.39.7-test
 	"loginreqlink": "cunnessione",
 	"accmailtitle": "Parulla secreta inviata.",
 	"accmailtext": "A parulla secreta per \"$1\" hè stata inviata à l'indirizzu $2.",
@@ -711,6 +706,5 @@
 	"nstab-mainpage": "Pàgina maestra",
 	"skin-action-protect": "Pruteghje",
 	"skin-action-delete": "Supprimà",
-	"skin-action-move": "Cullucà",
-	"logentry-renameuser-renameuser": "$1 {{GENDER:$2|renamed}} user $4 ({{PLURAL:$6|$6 edit|$6 edits}}) to {{GENDER:$7|$5}}"
+	"skin-action-move": "Cullucà"
 }

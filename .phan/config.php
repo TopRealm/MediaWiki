@@ -27,12 +27,9 @@ $cfg['minimum_target_php_version'] = '7.4.3';
 
 $cfg['file_list'] = array_merge(
 	$cfg['file_list'],
-<<<<<<< HEAD
-=======
 	class_exists( PEAR::class ) ? [] : [ '.phan/stubs/mail.php' ],
 	defined( 'PASSWORD_ARGON2ID' ) ? [] : [ '.phan/stubs/password.php' ],
 	class_exists( ValueError::class ) ? [] : [ '.phan/stubs/ValueError.php' ],
->>>>>>> origin/1.39.7-test
 	class_exists( Socket::class ) ? [] : [ '.phan/stubs/Socket.php' ],
 	class_exists( ReturnTypeWillChange::class ) ? [] : [ '.phan/stubs/ReturnTypeWillChange.php' ],
 	class_exists( AllowDynamicProperties::class ) ? [] : [ '.phan/stubs/AllowDynamicProperties.php' ],
@@ -51,11 +48,10 @@ $cfg['file_list'] = array_merge(
 $cfg['exclude_file_list'] = array_merge(
 	$cfg['exclude_file_list'],
 	[
-		// Avoid microsoft/tolerant-php-parser dependency
-		'maintenance/findDeprecated.php',
-		'maintenance/CodeCleanerGlobalsPass.php',
-		// Avoid nikic/php-parser dependency
-		'maintenance/shell.php',
+		// This file has invalid PHP syntax
+		'vendor/squizlabs/php_codesniffer/src/Standards/PSR2/Tests/Methods/MethodDeclarationUnitTest.inc',
+		// This file implements a polyfill for the JsonUnserializable class
+		'vendor/php-parallel-lint/php-parallel-lint/src/polyfill.php'
 	]
 );
 
@@ -72,24 +68,24 @@ if ( PHP_VERSION_ID >= 80000 ) {
 		]
 	);
 }
-<<<<<<< HEAD
-=======
 
 $cfg['analyzed_file_extensions'] = array_merge(
 	$cfg['analyzed_file_extensions'] ?? [ 'php' ],
 	[ 'inc' ]
 );
->>>>>>> origin/1.39.7-test
 
 $cfg['autoload_internal_extension_signatures'] = [
+	'dom' => '.phan/internal_stubs/dom.phan_php',
 	'excimer' => '.phan/internal_stubs/excimer.php',
 	'imagick' => '.phan/internal_stubs/imagick.phan_php',
 	'memcached' => '.phan/internal_stubs/memcached.phan_php',
+	'oci8' => '.phan/internal_stubs/oci8.phan_php',
 	'pcntl' => '.phan/internal_stubs/pcntl.phan_php',
 	'pgsql' => '.phan/internal_stubs/pgsql.phan_php',
 	'redis' => '.phan/internal_stubs/redis.phan_php',
 	'sockets' => '.phan/internal_stubs/sockets.phan_php',
-	'tideways_xhprof' => '.phan/internal_stubs/tideways_xhprof.phan_php',
+	'sqlsrv' => '.phan/internal_stubs/sqlsrv.phan_php',
+	'tideways' => '.phan/internal_stubs/tideways.phan_php',
 	'wikidiff2' => '.phan/internal_stubs/wikidiff.php'
 ];
 
@@ -99,47 +95,12 @@ $cfg['directory_list'] = [
 	'maintenance/',
 	'mw-config/',
 	'resources/',
+	'vendor/',
 	'tests/common/',
 	'tests/parser/',
 	'tests/phpunit/mocks/',
 	// Do NOT add .phan/stubs/ here: stubs are conditionally loaded in file_list
 ];
-
-// Include only direct production dependencies in vendor/
-// Omit dev dependencies and most indirect dependencies
-
-$composerJson = json_decode(
-	file_get_contents( __DIR__ . '/../composer.json' ),
-	true
-);
-
-$directDeps = [];
-foreach ( $composerJson['require'] as $dep => $version ) {
-	$parts = explode( '/', $dep );
-	if ( count( $parts ) === 2 ) {
-		$directDeps[] = $dep;
-	}
-}
-
-// This is a list of all composer packages that are referenced by core but
-// are not listed as requirements in composer.json.
-$indirectDeps = [
-	'composer/spdx-licenses',
-	'doctrine/dbal',
-	'doctrine/sql-formatter',
-	'guzzlehttp/psr7',
-	'pear/net_url2',
-	'pear/pear-core-minimal',
-	'phpunit/phpunit',
-	'psr/http-message',
-	'seld/jsonlint',
-	'wikimedia/testing-access-wrapper',
-	'wikimedia/zest-css',
-];
-
-foreach ( [ ...$directDeps, ...$indirectDeps ] as $dep ) {
-	$cfg['directory_list'][] = "vendor/$dep";
-}
 
 $cfg['exclude_analysis_directory_list'] = [
 	'vendor/',
@@ -179,7 +140,6 @@ $cfg['ignore_undeclared_variables_in_global_scope'] = true;
 // remove them from here as well, so phan complains when something tries to use them.
 $cfg['globals_type_map'] = array_merge( $cfg['globals_type_map'], [
 	'IP' => 'string',
-	'wgTitle' => 'MediaWiki\Title\Title',
 	'wgGalleryOptions' => 'array',
 	'wgDummyLanguageCodes' => 'string[]',
 	'wgNamespaceProtection' => 'array<int,string|string[]>',
@@ -194,6 +154,7 @@ $cfg['globals_type_map'] = array_merge( $cfg['globals_type_map'], [
 	'wgLogActionsHandlers' => 'array<string,class-string>',
 	'wgPasswordPolicy' => 'array<string,array<string,string|array>>',
 	'wgVirtualRestConfig' => 'array<string,array>',
+	'wgWANObjectCaches' => 'array[]',
 	'wgLocalInterwikis' => 'string[]',
 	'wgDebugLogGroups' => 'string|false|array{destination:string,sample?:int,level:int}',
 	'wgCookiePrefix' => 'string|false',

@@ -1,10 +1,7 @@
 <?php
 /**
  * Definition of a mapping for the search index field.
- *
- * Must not be implemented directly by extensions, extend SearchIndexFieldDefinition instead.
- *
- * @stable to type
+ * @unstable for implementation, extensions should subclass the SearchIndexFieldDefinition.
  * @since 1.28
  */
 interface SearchIndexField {

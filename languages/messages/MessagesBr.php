@@ -1,6 +1,8 @@
 <?php
 /** Breton (brezhoneg)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  */
@@ -106,7 +108,6 @@ $specialPageAliases = [
 	'Recentchanges'             => [ 'KemmoùDiwezhañ' ],
 	'Recentchangeslinked'       => [ 'KemmoùKar' ],
 	'Redirect'                  => [ 'Adkas' ],
-	'Renameuser' => [ 'AdenevelImplijer' ],
 	'Revisiondelete'            => [ 'StummoùDiverket' ],
 	'Search'                    => [ 'Klask' ],
 	'Shortpages'                => [ 'PajennoùBerr' ],

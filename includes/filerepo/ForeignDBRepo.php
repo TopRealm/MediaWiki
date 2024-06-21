@@ -21,8 +21,8 @@
  * @ingroup FileRepo
  */
 
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Storage\BlobStore;
+use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\DatabaseDomain;
 use Wikimedia\Rdbms\IDatabase;
 
@@ -109,8 +109,7 @@ class ForeignDBRepo extends LocalRepo {
 		];
 
 		return static function ( $index ) use ( $type, $params ) {
-			$factory = MediaWikiServices::getInstance()->getDatabaseFactory();
-			return $factory->create( $type, $params );
+			return Database::factory( $type, $params );
 		};
 	}
 

@@ -33,7 +33,6 @@ use Wikimedia\IPUtils;
 use Wikimedia\Rdbms\DBQueryError;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\ILoadBalancer;
-use Wikimedia\Rdbms\IReadableDatabase;
 
 /**
  * Service for interacting with the actor table.
@@ -147,7 +146,7 @@ class ActorStore implements UserIdentityLookup, ActorNormalization {
 		// from ActorMigration aliases to proper join with the actor table,
 		// we should use ::newActorFromRow more, and eventually deprecate this method.
 		$userId = $userId === null ? 0 : (int)$userId;
-		$name ??= '';
+		$name = $name ?? '';
 		if ( $actorId === null ) {
 			throw new InvalidArgumentException( "Actor ID is null for {$name} and {$userId}" );
 		}
@@ -292,11 +291,11 @@ class ActorStore implements UserIdentityLookup, ActorNormalization {
 	 * Find the actor_id of the given $user.
 	 *
 	 * @param UserIdentity $user
-	 * @param IReadableDatabase $db The database connection to operate on.
+	 * @param IDatabase $db The database connection to operate on.
 	 *        The database must correspond to ActorStore's wiki ID.
 	 * @return int|null
 	 */
-	public function findActorId( UserIdentity $user, IReadableDatabase $db ): ?int {
+	public function findActorId( UserIdentity $user, IDatabase $db ): ?int {
 		// TODO: we want to assert this user belongs to the correct wiki,
 		// but User objects are always local and we used to use them
 		// on a non-local DB connection. We need to first deprecate this
@@ -345,14 +344,14 @@ class ActorStore implements UserIdentityLookup, ActorNormalization {
 	 * Find actor_id of the given $user using the passed $db connection.
 	 *
 	 * @param string $name
-	 * @param IReadableDatabase $db The database connection to operate on.
+	 * @param IDatabase $db The database connection to operate on.
 	 *        The database must correspond to ActorStore's wiki ID.
 	 * @param array $queryOptions
 	 * @return int|null
 	 */
 	private function findActorIdInternal(
 		string $name,
-		IReadableDatabase $db,
+		IDatabase $db,
 		array $queryOptions = []
 	): ?int {
 		// Note: UserIdentity::getActorId will be deprecated and removed,
@@ -674,7 +673,7 @@ class ActorStore implements UserIdentityLookup, ActorNormalization {
 
 	/**
 	 * Throws an exception if the given database connection does not belong to the wiki this
-	 * ActorStore is bound to.
+	 * RevisionStore is bound to.
 	 *
 	 * @param IDatabase $db
 	 */

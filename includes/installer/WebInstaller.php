@@ -21,7 +21,6 @@
  * @ingroup Installer
  */
 
-use MediaWiki\Html\Html;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\MediaWikiServices;
 
@@ -976,7 +975,7 @@ class WebInstaller extends Installer {
 		}
 
 		$s = "<ul>\n";
-		foreach ( $items as $item ) {
+		foreach ( $items as $value => $item ) {
 			$s .= "<li>$item</li>\n";
 		}
 		$s .= "</ul>\n";
@@ -1247,17 +1246,18 @@ class WebInstaller extends Installer {
 	 */
 	protected static function infoBox( $rawHtml, $icon, $alt, $class = '' ) {
 		$s = Html::openElement( 'div', [ 'class' => 'mw-installer-box-left' ] ) .
-			Html::element( 'img',
-				[
-					'src' => $icon,
-					'alt' => $alt,
-				]
-			) .
-			Html::closeElement( 'div' ) .
-			Html::openElement( 'div', [ 'class' => 'mw-installer-box-right' ] ) .
-			$rawHtml .
-			Html::closeElement( 'div' ) .
-			Html::element( 'div', [ 'style' => 'clear: left;' ], ' ' );
+				Html::element( 'img',
+					[
+						'src' => $icon,
+						'alt' => $alt,
+					]
+				) .
+				Html::closeElement( 'div' );
+
+		$s .= Html::openElement( 'div', [ 'class' => 'mw-installer-box-right' ] ) .
+				$rawHtml .
+				Html::closeElement( 'div' );
+		$s .= Html::element( 'div', [ 'style' => 'clear: left;' ], ' ' );
 
 		return Html::warningBox( $s, $class )
 			. Html::element( 'div', [ 'style' => 'clear: left;' ], ' ' );

@@ -1,6 +1,8 @@
 <?php
 /** Turkish (Türkçe)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  *
@@ -162,7 +164,6 @@ $specialPageAliases = [
 	'Randomredirect'            => [ 'RastgeleYönlendirme' ],
 	'Recentchanges'             => [ 'SonDeğişiklikler' ],
 	'Recentchangeslinked'       => [ 'İlgiliDeğişiklikler' ],
-	'Renameuser'                => [ 'KullanıcıAdınıDeğiştir', 'KullanıcıİsminiDeğiştir' ],
 	'Revisiondelete'            => [ 'RevizyonSil' ],
 	'Search'                    => [ 'Ara', 'Arama' ],
 	'Shortpages'                => [ 'KısaSayfalar' ],

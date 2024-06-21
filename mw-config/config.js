@@ -202,7 +202,9 @@
 							.text( $preview.data( 'main-page' ) )
 					)
 				);
-				$( '<nav>' ).append( $menu ).appendTo( $sidebar );
+				var $nav = $( '<nav>' );
+				$nav.append( $menu );
+				$nav.appendTo( $sidebar );
 			}
 			var $main = $( '<div>' ).addClass( 'logo-main' );
 			if ( data.icon ) {
@@ -225,7 +227,9 @@
 				// * logo-tagline
 				$el.addClass( 'logo-' + key ).appendTo( $container );
 			} );
-			$preview.empty().append( $sidebar, $main );
+			$preview.empty();
+			$preview.append( $sidebar );
+			$preview.append( $main );
 		}
 
 		/**

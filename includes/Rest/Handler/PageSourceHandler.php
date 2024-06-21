@@ -2,14 +2,14 @@
 
 namespace MediaWiki\Rest\Handler;
 
+use Config;
 use LogicException;
+use MediaWiki\Page\PageLookup;
 use MediaWiki\Page\PageReference;
-use MediaWiki\Page\RedirectStore;
-use MediaWiki\Rest\Handler\Helper\PageContentHelper;
-use MediaWiki\Rest\Handler\Helper\PageRestHelperFactory;
 use MediaWiki\Rest\LocalizedHttpException;
 use MediaWiki\Rest\Response;
 use MediaWiki\Rest\SimpleHandler;
+use MediaWiki\Revision\RevisionLookup;
 use TitleFormatter;
 use Wikimedia\Assert\Assert;
 
@@ -19,7 +19,6 @@ use Wikimedia\Assert\Assert;
  * - /page/{title}/bare
  */
 class PageSourceHandler extends SimpleHandler {
-	use PageRedirectHandlerTrait;
 
 	/** @var TitleFormatter */
 	private $titleFormatter;
@@ -27,17 +26,19 @@ class PageSourceHandler extends SimpleHandler {
 	/** @var PageContentHelper */
 	private $contentHelper;
 
-	/** @var RedirectStore */
-	private $redirectStore;
-
 	public function __construct(
+		Config $config,
+		RevisionLookup $revisionLookup,
 		TitleFormatter $titleFormatter,
-		RedirectStore $redirectStore,
-		PageRestHelperFactory $helperFactory
+		PageLookup $pageLookup
 	) {
 		$this->titleFormatter = $titleFormatter;
-		$this->redirectStore = $redirectStore;
-		$this->contentHelper = $helperFactory->newPageContentHelper();
+		$this->contentHelper = new PageContentHelper(
+			$config,
+			$revisionLookup,
+			$titleFormatter,
+			$pageLookup
+		);
 	}
 
 	protected function postValidationSetup() {
@@ -61,22 +62,12 @@ class PageSourceHandler extends SimpleHandler {
 	 */
 	public function run(): Response {
 		$this->contentHelper->checkAccess();
+
 		$page = $this->contentHelper->getPage();
 
 		// The call to $this->contentHelper->getPage() should not return null if
 		// $this->contentHelper->checkAccess() did not throw.
 		Assert::invariant( $page !== null, 'Page should be known' );
-
-		'@phan-var \MediaWiki\Page\ExistingPageRecord $page';
-		$redirectResponse = $this->createNormalizationRedirectResponseIfNeeded(
-			$page,
-			$this->contentHelper->getTitleText(),
-			$this->titleFormatter
-		);
-
-		if ( $redirectResponse !== null ) {
-			return $redirectResponse;
-		}
 
 		$outputMode = $this->getOutputMode();
 		switch ( $outputMode ) {
@@ -91,19 +82,6 @@ class PageSourceHandler extends SimpleHandler {
 				break;
 			default:
 				throw new LogicException( "Unknown HTML type $outputMode" );
-		}
-
-		if ( $page ) {
-			// If param redirect=no is present, that means this page can be a redirect
-			// check for a redirectTargetUrl and send it to the body as `redirect_target`
-			'@phan-var \MediaWiki\Page\ExistingPageRecord $page';
-			$redirectTargetUrl = $this->getWikiRedirectTargetUrl(
-				$page, $this->redirectStore, $this->titleFormatter
-			);
-
-			if ( $redirectTargetUrl ) {
-				$body['redirect_target'] = $redirectTargetUrl;
-			}
 		}
 
 		$response = $this->getResponseFactory()->createJson( $body );

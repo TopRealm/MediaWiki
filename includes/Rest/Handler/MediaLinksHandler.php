@@ -11,7 +11,7 @@ use MediaWiki\Rest\SimpleHandler;
 use RepoGroup;
 use Wikimedia\Message\MessageValue;
 use Wikimedia\ParamValidator\ParamValidator;
-use Wikimedia\Rdbms\ILBFactory;
+use Wikimedia\Rdbms\ILoadBalancer;
 
 /**
  * Handler class for Core REST API endpoints that perform operations on revisions
@@ -22,8 +22,8 @@ class MediaLinksHandler extends SimpleHandler {
 	/** int The maximum number of media links to return */
 	private const MAX_NUM_LINKS = 100;
 
-	/** @var ILBFactory */
-	private $lbFactory;
+	/** @var ILoadBalancer */
+	private $loadBalancer;
 
 	/** @var RepoGroup */
 	private $repoGroup;
@@ -37,16 +37,16 @@ class MediaLinksHandler extends SimpleHandler {
 	private $page = false;
 
 	/**
-	 * @param ILBFactory $lbFactory
+	 * @param ILoadBalancer $loadBalancer
 	 * @param RepoGroup $repoGroup
 	 * @param PageLookup $pageLookup
 	 */
 	public function __construct(
-		ILBFactory $lbFactory,
+		ILoadBalancer $loadBalancer,
 		RepoGroup $repoGroup,
 		PageLookup $pageLookup
 	) {
-		$this->lbFactory = $lbFactory;
+		$this->loadBalancer = $loadBalancer;
 		$this->repoGroup = $repoGroup;
 		$this->pageLookup = $pageLookup;
 	}
@@ -103,13 +103,17 @@ class MediaLinksHandler extends SimpleHandler {
 	 * @return array the results
 	 */
 	private function getDbResults( int $pageId ) {
-		return $this->lbFactory->getReplicaDatabase()->newSelectQueryBuilder()
-			->select( 'il_to' )
-			->from( 'imagelinks' )
-			->where( [ 'il_from' => $pageId ] )
-			->orderBy( 'il_to' )
-			->limit( self::MAX_NUM_LINKS + 1 )
-			->caller( __METHOD__ )->fetchFieldValues();
+		$dbr = $this->loadBalancer->getConnectionRef( DB_REPLICA );
+		return $dbr->selectFieldValues(
+			'imagelinks',
+			'il_to',
+			[ 'il_from' => $pageId ],
+			__METHOD__,
+			[
+				'ORDER BY' => 'il_to',
+				'LIMIT' => self::MAX_NUM_LINKS + 1,
+			]
+		);
 	}
 
 	/**
@@ -128,7 +132,7 @@ class MediaLinksHandler extends SimpleHandler {
 		}, $results );
 
 		$files = $this->repoGroup->findFiles( $findTitles );
-		[ $maxWidth, $maxHeight ] = self::getImageLimitsFromOption(
+		list( $maxWidth, $maxHeight ) = self::getImageLimitsFromOption(
 			$this->getAuthority()->getUser(),
 			'imagesize'
 		);
@@ -184,7 +188,11 @@ class MediaLinksHandler extends SimpleHandler {
 	 */
 	protected function getLastModified(): ?string {
 		$page = $this->getPage();
-		return $page ? $page->getTouched() : null;
+		if ( !$page ) {
+			return null;
+		}
+
+		return $page->getTouched();
 	}
 
 	/**

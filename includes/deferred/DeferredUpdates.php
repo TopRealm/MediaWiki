@@ -166,10 +166,11 @@ class DeferredUpdates {
 	 * of the innermost in-progress update on the stack.
 	 *
 	 * @internal For use by MediaWiki, Maintenance, JobRunner, JobExecutor
+	 * @param string|null $unused Previously for an "enqueue" mode
 	 * @param int $stage Which updates to process. One of
 	 *  (DeferredUpdates::PRESEND, DeferredUpdates::POSTSEND, DeferredUpdates::ALL)
 	 */
-	public static function doUpdates( $stage = self::ALL ) {
+	public static function doUpdates( $unused = null, $stage = self::ALL ) {
 		$services = MediaWikiServices::getInstance();
 		$stats = $services->getStatsdDataFactory();
 		$lbf = $services->getDBLoadBalancerFactory();
@@ -277,7 +278,7 @@ class DeferredUpdates {
 
 		// Run the updates for this context if they will have outer transaction scope
 		if ( !self::areDatabaseTransactionsActive() ) {
-			self::doUpdates( self::ALL );
+			self::doUpdates( null, self::ALL );
 
 			return true;
 		}

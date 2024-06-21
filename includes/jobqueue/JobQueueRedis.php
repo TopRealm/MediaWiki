@@ -21,7 +21,6 @@
  */
 
 use MediaWiki\Logger\LoggerFactory;
-use MediaWiki\WikiMap\WikiMap;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -310,7 +309,7 @@ LUA;
 
 	/**
 	 * @see JobQueue::doPop()
-	 * @return RunnableJob|false
+	 * @return RunnableJob|bool
 	 * @throws JobQueueError
 	 */
 	protected function doPop() {
@@ -515,7 +514,7 @@ LUA;
 
 	/**
 	 * @see JobQueue::getAllQueuedJobs()
-	 * @return Iterator<RunnableJob>
+	 * @return Iterator
 	 * @throws JobQueueError
 	 */
 	public function getAllQueuedJobs() {
@@ -531,7 +530,7 @@ LUA;
 
 	/**
 	 * @see JobQueue::getAllDelayedJobs()
-	 * @return Iterator<RunnableJob>
+	 * @return Iterator
 	 * @throws JobQueueError
 	 */
 	public function getAllDelayedJobs() {
@@ -547,7 +546,7 @@ LUA;
 
 	/**
 	 * @see JobQueue::getAllAcquiredJobs()
-	 * @return Iterator<RunnableJob>
+	 * @return Iterator
 	 * @throws JobQueueError
 	 */
 	public function getAllAcquiredJobs() {
@@ -563,7 +562,7 @@ LUA;
 
 	/**
 	 * @see JobQueue::getAllAbandonedJobs()
-	 * @return Iterator<RunnableJob>
+	 * @return Iterator
 	 * @throws JobQueueError
 	 */
 	public function getAllAbandonedJobs() {
@@ -580,7 +579,7 @@ LUA;
 	/**
 	 * @param RedisConnRef $conn
 	 * @param array $uids List of job UUIDs
-	 * @return MappedIterator<RunnableJob>
+	 * @return MappedIterator
 	 */
 	protected function getJobIterator( RedisConnRef $conn, array $uids ) {
 		return new MappedIterator(
@@ -629,7 +628,7 @@ LUA;
 	 *
 	 * @param string $uid
 	 * @param RedisConnRef|Redis $conn
-	 * @return RunnableJob|false Returns false if the job does not exist
+	 * @return RunnableJob|bool Returns false if the job does not exist
 	 * @throws JobQueueError
 	 * @throws UnexpectedValueException
 	 */
@@ -704,7 +703,7 @@ LUA;
 
 	/**
 	 * @param array $fields
-	 * @return RunnableJob|false
+	 * @return RunnableJob|bool
 	 */
 	protected function getJobFromFields( array $fields ) {
 		$params = $fields['params'];
@@ -738,7 +737,7 @@ LUA;
 
 	/**
 	 * @param string $blob
-	 * @return array|false Unserialized version of $blob or false
+	 * @return array|bool Unserialized version of $blob or false
 	 */
 	protected function unserialize( $blob ) {
 		$fields = unserialize( $blob );

@@ -182,7 +182,6 @@
 	"permalink": "Ingàncio fìsso",
 	"print": "Stànpa",
 	"view": "Vizoalìzza",
-	"viewcontribs": "Véddi i contribûti",
 	"skin-view-view": "Lêzi",
 	"skin-view-foreign": "Véddi in sce $1",
 	"edit": "Modìfica",
@@ -199,8 +198,6 @@
 	"skin-action-unprotect": "Càngia a proteçión",
 	"unprotect": "Càngia a proteçión",
 	"newpage": "Nêuva pàgina",
-	"newpage-desc": "Incomensâ 'na nêuva pàgina pe 'n argoménto ch'o l'é stæto domandòu.",
-	"view-missing-pages": "Véddi e pàgine chi màncan",
 	"talkpagelinktext": "discusción",
 	"specialpage": "Pàgina speciâle",
 	"personaltools": "Struménti personæ",
@@ -646,13 +643,8 @@
 	"summary-preview": "Anteprìmma de l'ògètto da modìfica:",
 	"previewerrortext": "Gh'é stæto 'n erô tànto che s'amiâva de mostrâ l'anteprìmma.",
 	"blockedtitle": "L'uténte o l'é blocòu",
-<<<<<<< HEAD
-	"blockedtext-partial": "<strong>A-a to uténsa ò indirìsso IP gh'é stæto vietòu de fâ sta cösa chîe. Fòscia ti peu ancón fâ de l'âtro inte sto scîto, cómme modificâ de pàgine.</strong>\n\nTi peu amiâ tùtti i detàlli do blòcco in sce [[Special:MyContributions|contribûti uténte]].\n\n{{int:blockedtext-made-by|$1}}\n\n{{int:blockedtext-reason-comment|$2}}.\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n*{{int:blockedtext-block-id|$5}}",
-	"blockedtext": "<strong>O tò nómme uténte ò indirìsso IP o l'é stæto blocòu.</strong>\n\n{{int:blockedtext-made-by|$1}}\n{{int:blockedtext-reason-comment|$2}}.\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n{{int:blockedtext-contact-blocker-admin|$1}}\nTi ti pêu dêuviâ o comàndo \"{{int:emailuser}}\" se ti t'æ 'n indirìsso de pòsta eletrònica registròu inte tò [[Special:Preferences|preferénse]], se ti no t'ê stæto blocòu in quésta fonçión ascì.\n\nO tò indirìsso IP o l'é $3 e l'ID do to blòcco o l'é #$5.\nPe piâxéi, pe domandâ de informaçioìn, specificâ i doî valoî sórvia minsonæ ascì.",
-=======
 	"blockedtext-partial": "<strong>A-a to utensa ò adresso IP gh'è stæto vietou de fâ sta cosa chie. Foscia ti poeu ancon fâ de l'atro inte sto scito, comme modificâ de paggine.</strong> Ti poeu amiâ tutti i detalli do blocco insce [[Special:MyContributions|contributi utente]].\n\nO blocco o l'è stæto fæto da $1.\n\nA raxon fornia a l'è <em>$2</em>.\n\n* Comenso do blocco: $8\n* Terme do blocco: $6\n* Destinataio do blocco: $7\n* ID Blocco #$5",
 	"blockedtext": "<strong>O tò nómme uténte ò indirìsso IP o l'é stæto blocòu.</strong>\n\nO blòcco o l'é stæto fæto da $1. A raxón dæta a l'é <em>$2</em>.\n\n* Prinçìpio do blòcco: $8\n* Fìn do blòcco: $6\n* Uténte blocòu: $7\n\nO l'è poscìbile contatâ $1 ò 'n âtro [[{{MediaWiki:Grouppage-sysop}}|aministratô]] pe discùtte in sciô blòcco.\n\nTi ti pêu dêuviâ o comàndo \"{{int:emailuser}}\" se ti t'æ 'n indirìsso de pòsta eletrònica registròu inte tò [[Special:Preferences|preferénse]], se ti no t'ê stæto blocòu in quésta fonçión ascì.\n\nO tò indirìsso IP o l'é $3 e l'ID do to blòcco o l'é #$5.\nPe piâxéi, pe domandâ de informaçioìn, specificâ i doî valoî sórvia minsonæ ascì.",
->>>>>>> origin/1.39.7-test
 	"autoblockedtext": "O teu addresso IP o l'è stæto bloccòu outomaticamente perché o l'ea za usòu da 'n âtro utente, bloccòu da $1.\nA raxon dæta a l'è stæta:\n\n:''$2''\n\n* Prinsippio do blòcco: $8\n* Fin do blòcco: $6\n\nTi peu contattâ $1 ò un âtro\n[[{{MediaWiki:Grouppage-sysop}}|amministratô]] pe discutte o blòcco.\n\nDanni a mente a che no ti pêu ûsâ o comando \"manda 'na e-mail a sto utente\" se non ti g'hæ 'n addresso de posta elettronega registròu in te têu [[Special:Preferences|preferense]] e se ti no t'ê stæto bloccòu ascì.\n\nO to adresso IP o l'è $3, e o to blòcco ID o l'è #$5. Pe piaxei, pe domandâ informaçioin, speçifficali tutti doî.",
 	"systemblockedtext": "O to nomme utente ò l'adresso IP o l'è stæto blocou aotomaticamente da MediaWiki.\nA raxon do blocco a l'è:\n\n:''$2''\n\n* Començo do blocco: $8\n* Scadença do blocco: $6\n* Intervallo de blocco: $7\n\nL'adresso IP attoale o l'è $3.\nSe prega de specificâ tutti i dettalli chì incluxi into compilâ qualunque recesta de ciarimenti.",
 	"blockednoreason": "nisciùnn-a motivaçión dæta",
@@ -677,13 +669,8 @@
 	"missing-revision-permission": "A revixón $1 a l'é de 'na pàgina scancelâ. Ti ti peu [{{fullurl:{{#Special:Undelete}}|target=$3&timestamp=$2&diff=prev}} véddila chi]; pe ciù detàggi amiâ a-o [{{fullurl:{{#Special:Log}}/delete|page=$3}} regìstro de scancelaçioìn].",
 	"missing-revision": "A versción #$1 da pàgina \"{{FULLPAGENAME}}\" a no l'exìste.\n\nQuésto o l'acàpita de sòlito quànte l'é sciacòu 'n ligàmme a 'na vêgia versción de 'na pàgina ch'a l'é stæta scancelâ.\n\nI detàggi pêuan êse atrovæ into [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} regìstro de scancelaçioìn].",
 	"missing-revision-content": "No l'é stæto poscìbile de caregâ o contegnûo da versción $1 da pàgina \"$2\".",
-<<<<<<< HEAD
-	"userpage-userdoesnotexist": "L'uténsa \"$1\" a no l'é registrâ inte sta wiki chi.\nTi ti veu creâ o modificâ pe dindavéi sta pàgina chi?",
-	"userpage-userdoesnotexist-view": "L'uténsa \"$1\" a no l'é registrâ in sce quésta wiki.",
-=======
 	"userpage-userdoesnotexist": "L'utensa \"$1\" a no corisponde a un utente registròu.\nTi veu davei creâ o modificâ sta paggina?",
 	"userpage-userdoesnotexist-view": "L'uténsa \"$1\" a no l'é registrâ.",
->>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "St'{{GENDER:$1|uténte}} o l'é a-o moménto blocòu.\nL'ùrtimo eleménto into regìstro di blòcchi o l'é riportòu chi aprêuvo pe informaçión:",
 	"clearyourcache": "<strong>Nòtta:</strong> dòppo avéi publicòu, o poriéiva êse necesâio netezâ a cache do pròpio motô de riçèrca pe védde i cangiaménti. \n* <strong>Firefox / Safari:</strong> têgni sciacòu o tàsto de maióscole <em>Shift</em> e sciàcca <em>Ricàrega</em>, òpû <em>Ctrl-F5</em> ò <em>Ctrl-R</em> (<em>⌘-R</em> inti Mac)\n* <strong>Google Chrome:</strong> sciàcca <em>Ctrl-Shift-R</em> (<em>⌘-Shift-R</em> inti Mac)\n* <strong>Internet Explorer / Edge:</strong> têgni sciacòu o tàsto <em>Ctrl</em> e sciàcca <em>Agiórna</em>, òpû sciàcca <em>Ctrl-F5</em>\n* <strong>Opera:</strong> sciàcca <em>Ctrl-F5</em>.",
 	"usercssyoucanpreview": "<strong>Sugeriménto:</strong> adêuvia o poméllo \"{{int:showpreview}}\" pe provâ o tò nêuvo CSS prìmma de pubricâlo.",
@@ -890,17 +877,9 @@
 	"revdelete-hide-comment": "Ògètto da modìfica",
 	"revdelete-hide-user": "Nómme ò indirìsso IP de l'outô",
 	"revdelete-hide-restricted": "Ascóndi i dæti a-i aministratoî ascì",
-<<<<<<< HEAD
-	"revdelete-radio-same": "No cangiâ",
-	"revdelete-radio-set": "Ascóndi",
-	"revdelete-radio-unset": "Móstra",
-	"revdelete-radio-set-suppress": "Soprìmmi",
-	"revdelete-radio-unset-suppress": "Anùlla sopresción",
-=======
 	"revdelete-radio-same": "(no cangiâ)",
 	"revdelete-radio-set": "Ascóndi",
 	"revdelete-radio-unset": "Móstra",
->>>>>>> origin/1.39.7-test
 	"revdelete-suppress": "Ascóndi i dæti a-i aministratoî ascì",
 	"revdelete-unsuppress": "Lêva e limitaçioìn in scê verscioìn ripristinæ",
 	"revdelete-log": "Raxón:",
@@ -968,10 +947,6 @@
 	"lineno": "Lìnia $1:",
 	"compareselectedversions": "Confrónta e verscioìn seleçionæ",
 	"showhideselectedversions": "Móstra/ascóndi verscioìn seleçionæ",
-<<<<<<< HEAD
-	"showhideselectedfileversions": "Móstra/ascóndi verscioìn seleçionæ",
-=======
->>>>>>> origin/1.39.7-test
 	"editundo": "anùlla",
 	"diff-empty": "(Nisciùnn-a diferénsa)",
 	"diff-multi-sameuser": "({{PLURAL:$1|Ina versción intermédia|$1 verscioìn intermédie}} de 'n mæximo uténte {{PLURAL:$1|a no l'é mostrâ|no són móstræ}})",
@@ -980,11 +955,6 @@
 	"diff-paragraph-moved-tonew": "O tò paràgrafo o l'é stæto mesciòu. Sciàcca pe pasâ a-a nêuva poxiçión.",
 	"diff-paragraph-moved-toold": "O paràgrafo o l'é stæto mesciòu. Sciàcca chi pe pasâ a-a vêgia poxiçión.",
 	"difference-missing-revision": "{{PLURAL:$2|'Na versción|$2 verscioìn}} de quésta diferénsa ($1) {{PLURAL:$2|a no l'é stæta atrovâ|no són stæte atrovæ}}.\n\nQuésto o sucêde a l'ûzo se inta cronologîa ti sciàcchi 'n vêgio ingàncio a 'na pàgina scasâ.\n\nI detàggi ti-i peu atrovâ into [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} regìstro de scancelaçioìn].",
-<<<<<<< HEAD
-	"difference-bad-old-revision": "O contegnûo da vêgia versción o mànca ò o l'é danezòu.",
-	"difference-bad-new-revision": "O contegnûo da nêuva versción o mànca ò o l'é danezòu.",
-=======
->>>>>>> origin/1.39.7-test
 	"searchresults": "Rizultâti da riçèrca",
 	"search-filter-title-prefix": "Riçercòu sôlo che inte pàgine co-in tìtolo ch'o coménsa con \"$1\"",
 	"search-filter-title-prefix-reset": "Çèrca inte tùtte e pàgine",
@@ -1024,10 +994,6 @@
 	"search-relatedarticle": "Corelæ",
 	"search-invalid-sort-order": "Órdine de vizoalizaçión de $1 non riconosciûo, saiâ apricòu l'órdine predefinîo.\nI órdini de vizoalizaçión vàlidi són: $2",
 	"search-unknown-profile": "O profî de riçèrca $1 o l'é sconosciûo, saiâ dêuviòu o profî de riçèrca predefinîo.",
-<<<<<<< HEAD
-	"search-thumbnail-alt": "Miniatûa pe $1",
-=======
->>>>>>> origin/1.39.7-test
 	"searchrelated": "corelæ",
 	"searchall": "tùtti",
 	"showingresults": "Chì appreuvo se mostra a-o mascimo {{PLURAL:$1|'''1''' risultou|'''$1''' risultæ}} a partî da-o nummero '''$2'''.",
@@ -1078,11 +1044,6 @@
 	"prefs-email": "Opçioìn e-mail",
 	"prefs-rendering": "Câa",
 	"prefs-searchmisc": "Generâ",
-<<<<<<< HEAD
-	"searchprefs": "Çèrca preferénse",
-	"searchprefs-noresults": "Nisciùn rizultâto",
-=======
->>>>>>> origin/1.39.7-test
 	"saveprefs": "Sàrva",
 	"restoreprefs": "Ripristinâ tùtte e inpostaçioìn predefinîe",
 	"prefs-editing": "Cazélla de modìfica",
@@ -1090,17 +1051,6 @@
 	"recentchangesdays": "Nùmero de giórni da mostrâ inte ùrtime modìfiche:",
 	"recentchangesdays-max": "Màscimo $1 {{PLURAL:$1|giórno|giórni}}",
 	"recentchangescount": "Nùmero de modìfiche da mostrâ inte ùrtime modìfiche, cronologîe e regìstri, pe inpostaçión predefinîa:",
-<<<<<<< HEAD
-	"prefs-back-title": "Tórna a-e preferénse",
-	"prefs-description-personal": "Contròlla cómme ti te móstri, te conétti e comùnichi",
-	"prefs-description-rendering": "Configurâ têma, dimenscioìn e inpostaçioìn de letûa.",
-	"prefs-description-editing": "Personalìzza o mòddo de fâ, traciâ e controlâ e modìfiche.",
-	"prefs-description-rc": "Personalìzza o feed di ùrtimi cangiaménti.",
-	"prefs-description-watchlist": "Gestìsci e personalìzza a lìsta de pàgine che ti t'amîi.",
-	"prefs-description-searchoptions": "Çèrni o fonçionaménto do conpletaménto outomàtico e di rizultâti.",
-	"prefs-description-misc": "Personalìzza l'ìndice di contegnûi.",
-=======
->>>>>>> origin/1.39.7-test
 	"prefs-help-recentchangescount": "Nùmero màscimo: 1000",
 	"prefs-help-watchlist-token2": "Sta chi a l'é a ciâve segrétta pò-u feed web di tò òservæ.\nChi se sæ a conósce, o saiâ in gràddo de lêze i tò òservæ, dónca no stâ a condivìddila. [[Special:ResetTokens|Sciàcca chi se ti gh'æ de bezéugno de reinpostâla]].",
 	"prefs-help-tokenmanagement": "Ti peu vizoalizâ e reinpostâ a ciâve segrétta pi-â tò uténsa ch'a peu intrâ a-o feed web di tò òservæ speciâli. Chi se sæ a conósce a ciâve o saiâ in gràddo de lêze i tò òservæ speciâli, dónca no condivìddila.",
@@ -1115,10 +1065,6 @@
 	"timezoneuseserverdefault": "Adêuvia l'ôa predefinîa da wiki ($1)",
 	"timezoneuseoffset": "Âtro (diferénsa d'ôa da UTC)",
 	"timezone-useoffset-placeholder": "Valoî d'ezénpio: \"-07:00\" ò \"01:00\"",
-<<<<<<< HEAD
-	"timezone-invalid": "Fûzo orâio ò diferénsa d'ôa no vàlidi",
-=======
->>>>>>> origin/1.39.7-test
 	"servertime": "Ôa do server:",
 	"guesstimezone": "Dêuvia l'ôa do navegatô",
 	"timezoneregion-africa": "Àfrica",
@@ -1307,15 +1253,9 @@
 	"right-suppressrevision": "Védde, ascónde e repigiâ de verscioìn specìfiche de pàgine a quæ se sæ uténte",
 	"right-viewsuppressed": "Védde de verscioìn ascôze a quæ se sæ uténte",
 	"right-suppressionlog": "Vizoalìzza i regìstri privæ",
-<<<<<<< HEAD
-	"right-block": "Blòcca ò sblòcca di âtri uténti da-a modìfica",
-	"right-blockemail": "Blòcca ò sblòcca 'n uténte da-o mandâ de e-mail",
-	"right-hideuser": "Blòcca ò sblòcca 'n nómme uténte, ascondéndolo a-o pùbrico",
-=======
 	"right-block": "Blocca e modifiche di atri utenti",
 	"right-blockemail": "Impedisce a un utente de mandâ de email",
 	"right-hideuser": "Blocca un nomme utente, ascondendolo a-o pubbrico",
->>>>>>> origin/1.39.7-test
 	"right-ipblock-exempt": "Ignorâ i blòcchi di IP, i blòcchi outomàtichi e i blòcchi de range de IP",
 	"right-unblockself": "Sblòcca lê mæximo",
 	"right-protect": "Càngia e inpostaçioìn de proteçión e modìfica pàgine protètte ricorscivaménte",
@@ -1336,11 +1276,7 @@
 	"right-viewmywatchlist": "Vizoalìzza i tò òservæ speciâli",
 	"right-editmywatchlist": "Modìfica i tò òservæ speciâli (notâ che çèrte açioìn poriàn ancón azónze de pàgine sénsa quésto drîto ascì)",
 	"right-viewmyprivateinfo": "Vizoalìzza i tò dæti personæ (prezénpio: indirìsso e-mail, nómme vêo)",
-<<<<<<< HEAD
-	"right-editmyprivateinfo": "Càngia i tò dæti personæ (prezénpio: indirìsso de pòsta eletrònica, nómme vêo) e domànda e-mail de reinpostaçión da pòula segrétta",
-=======
 	"right-editmyprivateinfo": "Cangia i tò dæti personæ (presempio: addresso de pòsta elettrònica, nomme veo)",
->>>>>>> origin/1.39.7-test
 	"right-editmyoptions": "Modìfica e tò preferénse",
 	"right-rollback": "Anùlla rapidaménte e modìfiche de l'ùrtimo uténte ch'o l'à modificòu 'na pàgina in particolâ",
 	"right-markbotedits": "Màrca e modìfiche sogètte a rollback cómme fæte da bot",
@@ -1382,11 +1318,7 @@
 	"grant-editsiteconfig": "Modìfica i CSS/JS uténte e scîto",
 	"grant-editpage": "Modìfica pàgine ch'exìstan",
 	"grant-editprotected": "Modìfica pàgine protètte",
-<<<<<<< HEAD
-	"grant-highvolume": "Modìfiche mascîve bot",
-=======
 	"grant-highvolume": "Modiffiche mascive",
->>>>>>> origin/1.39.7-test
 	"grant-import": "Inpòrta verscioìn",
 	"grant-mergehistory": "Unìsce cronologîe",
 	"grant-oversight": "Ascónde i uténti e soprìmme e verscioìn",
@@ -1426,17 +1358,6 @@
 	"action-writeapi": "dêuviâ e API in scritûa",
 	"action-delete": "scasâ sta pàgina chi",
 	"action-delete-redirect": "soviascrîve i rindirìssi co-ina sôla versción in cronologîa",
-<<<<<<< HEAD
-	"action-deleterevision": "scasâ ò repigiâ specìfiche verscioìn de pàgine",
-	"action-deletelogentry": "scasâ ò repigiâ e specìfiche vôxe de regìstro",
-	"action-deletedhistory": "vizoalizâ i metadæti de vôxe scasæ da cronologîa de 'na pàgina",
-	"action-deletedtext": "vizoalizâ o tèsto ò e modìfiche de verscioìn scasæ",
-	"action-browsearchive": "çercâ pàgine scasæ",
-	"action-undelete": "repigiâ pàgine",
-	"action-suppressrevision": "védde, ascónde ò repigiâ verscioìn specìfiche de pàgine a 'n quæ se sæ uténte",
-	"action-suppressionlog": "védde quésto regìstro privòu",
-	"action-block": "blocâ ò sblocâ st'uténte chi da-a modìfica",
-=======
 	"action-deleterevision": "scassâ verscioin",
 	"action-deletelogentry": "scassâ e voxe de registro",
 	"action-deletedhistory": "vixualizzâ a cronologia scassâ de 'na paggina",
@@ -1446,7 +1367,6 @@
 	"action-suppressrevision": "rivedde e ripristinâ e verscioin ascose",
 	"action-suppressionlog": "védde quésto regìstro privòu",
 	"action-block": "bloccâ st'utente in scrittua",
->>>>>>> origin/1.39.7-test
 	"action-protect": "cangiâ i livélli de proteçión pe sta pàgina chi",
 	"action-rollback": "annulâ rapidaménte e modìfiche de l'ùrtimo uténte ch'o l'à modificòu 'na çèrta pàgina",
 	"action-import": "inportâ de pàgine da 'n'âtra wiki",
@@ -1473,11 +1393,7 @@
 	"action-apihighlimits": "dêuvia di lìmiti ciù èrti pe-e interogaçioìn API",
 	"action-autoconfirmed": "no êse sogètto a-o lìmite de açioìn pe IP",
 	"action-bigdelete": "scasâ e pàgine con de cronologîe lónghe",
-<<<<<<< HEAD
-	"action-blockemail": "blocâ ò sblocâ 'n uténte da-o mandâ de e-mail",
-=======
 	"action-blockemail": "impedî a 'n utente de mandâ de email",
->>>>>>> origin/1.39.7-test
 	"action-bot": "êse tratòu cómme 'n procèsso outomatizòu",
 	"action-editprotected": "modificâ de pàgine protètte con \"{{int:protect-level-sysop}}\"",
 	"action-editsemiprotected": "modificâ de pàgine protètte con \"{{int:protect-level-autoconfirmed}}\"",
@@ -1493,11 +1409,7 @@
 	"action-editmyuserjs": "modificâ i pròppi file JavaScript",
 	"action-editmyuserjsredirect": "modificâ i pròppi file JavaScript ch'én di rindirìssi",
 	"action-viewsuppressed": "védde e verscioìn ascôze de quæ se sæ uténte",
-<<<<<<< HEAD
-	"action-hideuser": "blocâ ò sblocâ 'n nómme uténte, ascondéndolo ò mostràndolo a-o pùbrico",
-=======
 	"action-hideuser": "bloccâ 'n nomme utente, ascondendolo a-o pubbrico",
->>>>>>> origin/1.39.7-test
 	"action-ipblock-exempt": "ignorâ i blòcchi di IP, i blòcchi outomàtichi e i blòcchi a intervàlli",
 	"action-unblockself": "sblocâse da lê",
 	"action-noratelimit": "no êse sogètto a di lìmiti d'intervàllo",
@@ -1640,12 +1552,7 @@
 	"rcfilters-filter-previousrevision-label": "No l'ùrtima versción",
 	"rcfilters-filter-previousrevision-description": "Tùtte e modìfiche che no són a \"versción prezénte\".",
 	"rcfilters-filter-excluded": "Esclûzo",
-<<<<<<< HEAD
-	"rcfilters-tag-prefix-namespace-inverted": "<strong>:no</strong> :$1",
-	"rcfilters-tag-prefix-tags-inverted": "<strong>no</strong> #$1",
-=======
 	"rcfilters-tag-prefix-namespace-inverted": "<strong>:non</strong> $1",
->>>>>>> origin/1.39.7-test
 	"rcfilters-exclude-button-off": "Esclùddi seleçionæ",
 	"rcfilters-exclude-button-on": "Esclûzo i seleçionæ",
 	"rcfilters-view-tags": "Modìfiche etichetæ",
@@ -1979,7 +1886,6 @@
 	"filehist-dimensions": "Dimenscioìn",
 	"filehist-filesize": "Dimenscion do file",
 	"filehist-comment": "Coménti",
-	"filehist-missing": "nisciùn file",
 	"imagelinks": "Utilìzzo do file",
 	"linkstoimage": "{{PLURAL:$1|A pàgina chi de sótta a contêgne|E $1 pàgine chi de sótta contêgnan}} di ligàmmi a sto file chi:",
 	"linkstoimage-more": "Ciù de $1 {{PLURAL:$1|pàgina a dêuvia|pàgine dêuvian}} sto file chi.\nA lìsta chi de sótta a fa védde sôlo {{PLURAL:$1|a prìmma pàgina ch'a dêuvia|e prìmme $1 pàgine che dêuvian}} sto file chi.\nL'é disponìbile 'na [[Special:WhatLinksHere/$2|lìsta conplêta]].",
@@ -2168,10 +2074,6 @@
 	"notargettext": "No t'æ indicòu 'na pàgina ò 'n uténte òbietîvo dónde ezegoî sta fonçión chi.",
 	"nopagetitle": "A pàgina de destinaçión a no l'exìste",
 	"nopagetext": "A pàgina domandâ a no l'exìste.",
-<<<<<<< HEAD
-	"badrevision": "O tèsto de sta versción chi o mànca ò o l'é danezòu.",
-=======
->>>>>>> origin/1.39.7-test
 	"pager-newer-n": "{{PLURAL:$1|1 ciù recénte|$1 ciù recénti}}",
 	"pager-older-n": "{{PLURAL:$1|1 ciù vêgio|$1 ciù vêgi}}",
 	"suppress": "Soprìmmi",
@@ -2570,10 +2472,7 @@
 	"undeletehistorynoadmin": "Sta pàgina chi a l'é stæta scancelâ.\nA raxón da scancelaçión a l'é mostrâ chi de sótta, con di detàggi di uténti ch'àn modificòu sta pàgina chi prìmma de scancelaçión. I tèsti de verscioìn scancelæ pêuan véddili sôlo i aministratoî.",
 	"undelete-revision": "Versción scancelâ da pàgina $1, inserîa o $4 a $5 da $3:",
 	"undeleterevision-missing": "Versción erâ o ch'a mànca.\nO ligàmme o l'è eròu o dónque a versción a l'é stæta za repigiâ ò eliminâ da l'archìvio.",
-<<<<<<< HEAD
-=======
 	"undeleterevision-duplicate-revid": "No s'è posciuo ripristinâ {{PLURAL:$1|una verscion|$1 verscioin}}, percose {{PLURAL:$1|o so}} <code>rev_id</code> o l'ea za in doeuvia.",
->>>>>>> origin/1.39.7-test
 	"undelete-nodiff": "No l'é stæto trovòu nisciùnn-a versción de prìmma.",
 	"undeletebtn": "Ricùpera",
 	"undeletelink": "fa védde/repìggia",
@@ -2611,10 +2510,8 @@
 	"contributions": "Contribûti de l'uténte",
 	"tool-link-contributions": "Contribûti {{GENDER:$1|uténte}}",
 	"contributions-title": "Contribûti de $1",
-	"contribute-title": "Contribûti de l'uténte",
 	"mycontris": "contribûti",
 	"anoncontribs": "contribûti",
-	"contribute": "Contriboìsci",
 	"contribsub2": "Pe {{GENDER:$3|$1}} ($2)",
 	"contributions-subtitle": "Pe {{GENDER:$3|$1}}",
 	"contributions-userdoesnotexist": "L'uténsa \"$1\" a no l'é registrâ.",
@@ -2650,10 +2547,6 @@
 	"whatlinkshere-page": "Pàgina:",
 	"linkshere": "Pàgine con di ligàmmi a <strong>$2</strong>:",
 	"nolinkshere": "Nisciùnn-a pàgina a gh'à di ligàmmi con <strong>$2</strong>.",
-<<<<<<< HEAD
-	"nolinkshere-filter": "Nisciùnn-a pàgina a gh'à di ligàmmi con <strong>$2</strong> chi sodìsfe i critêi da riçèrca.",
-=======
->>>>>>> origin/1.39.7-test
 	"nolinkshere-ns": "Nisciùnn-a pàgina con di ligàmmi a <strong>$2</strong> into namespace seleçionòu.",
 	"isredirect": "rindirìsso",
 	"istemplate": "incluxón",
@@ -2868,19 +2761,8 @@
 	"movesubpage": "{{PLURAL:$1|Sotopàgina|Sotopàgine}}",
 	"movesubpagetext": "Sta pàgina chi a gh'à $1 {{PLURAL:$1|sotopàgina mostrâ|sotopàgine mostræ}} chi de sótta.",
 	"movesubpagetalktext": "A pàgina de discusción corispondénte a gh'à $1 {{PLURAL:$1|sotopàgina mostrâ|sotopàgine mostræ}} chi aprêuvo.",
-<<<<<<< HEAD
-	"movesubpagetext-truncated": "{{PLURAL:$1|A prìmma sotopàgina pe sta pàgina chi a l'é mostrâ|E prìmme sotopàgine pe sta pàgina chi són mostræ}} chi de sótta.",
-	"movesubpagetalktext-truncated": "{{PLURAL:$1|A prìmma sotopàgina pi-â pàgina de discusción corispondénte a l'é mostrâ|E prìmme sotopàgine pi-â pàgina de discusción corispondénte són mostræ}} chi de sótta.",
 	"movenosubpage": "Sta pàgina chi a no gh'à de sotopàgine.",
 	"movereason": "Raxón:",
-	"moveotherreason": "Âtra raxón ò raxón de ciù:",
-	"movereasonotherlist": "'N'âtra raxón",
-	"movepage-reason-dropdown": "* Raxoìn comùnn-e pò-u mesciaménto\n** Tìtolo eròu",
-	"movepage-edit-reasonlist": "Modìfica e raxoìn pò-u mesciaménto",
-=======
-	"movenosubpage": "Sta pàgina chi a no gh'à de sotopàgine.",
-	"movereason": "Raxón:",
->>>>>>> origin/1.39.7-test
 	"revertmove": "riprìstina",
 	"delete_and_move_text": "A pàgina specificâ cómme destinaçión \"[[:$1]]\" a l'exìste za. Ti veu mîga scancelâla pe fâ röso pò-u stramûo?",
 	"delete_redirect_and_move_text": "A pàgina specificâ cómme destinaçión \"[[:$1]]\"  a l'exìste za cómme rindirìsso.\nTi ti veu scancelâla p'andâ avànti co-o mesciaménto?",
@@ -3109,7 +2991,6 @@
 	"pageinfo-default-sort": "Critêio d'ordenaménto predefinîo",
 	"pageinfo-length": "Longhéssa da pàgina (in byte)",
 	"pageinfo-namespace": "Namespace",
-	"pageinfo-namespace-id": "ID namespace",
 	"pageinfo-article-id": "ID da pàgina",
 	"pageinfo-language": "Léngoa do contegnûo da pàgina",
 	"pageinfo-language-change": "càngia",
@@ -3238,11 +3119,7 @@
 	"metadata-help": "Sto file chi o contêgne de informaçioìn de ciù, mìsse fòscia da-a fòtocàmera ò da-o scàner dêuviòu pi-â sò creaçión ò digitalizaçión. Sò-u file o l'é stæto cangiòu, çèrti detàggi poriéivan no corispónde a-i cangiaménti fæti.",
 	"metadata-expand": "Fâ védde detàggi",
 	"metadata-collapse": "Ascónde detàggi",
-<<<<<<< HEAD
-	"metadata-fields": "I cànpi relatîvi a-i metadæti EXIF scrîti chi de sótta saiàn in sciâ pàgina de l'inmàgine quànde a tabélla di metadæti a saiâ inta fórma cùrta. De default, i âtri cànpi saiàn ascôxi.\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude\n* dc-rights\n* copyrightowner\n* usageterms\n* webstatement\n* licenseurl\n* attributionurl\n* preferredattributionname\n* credit\n* jpegfilecomment\n* pngfilecomment\n* giffilecomment\n* usercomment\n* citydest\n* citycreated\n* headline\n* source\n* locationdest\n* dc-contributor\n* dc-coverage\n* dc-publisher\n* dc-relation\n* label\n* nickname\n* personinimage\n* disclaimer\n* event\n* objectname",
-=======
 	"metadata-fields": "I cànpi relativi a-i metadæti EXIF elencæ inte 'sto messaggio saiàn in sciâ pàgina de l'inmàgine quande a tabella di metadæti a saiâ inta forma cùrta. Cómme predefinîo, i âtri cànpi saiàn ascoxi.\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude",
->>>>>>> origin/1.39.7-test
 	"namespacesall": "tùtti",
 	"monthsall": "tùtti",
 	"confirmemail": "Confèrma l'indirìsso e-mail",
@@ -3282,11 +3159,7 @@
 	"confirm-watch-button": "OK",
 	"confirm-watch-top": "Azónze sta pàgina chi a-a tò lìsta di òservæ speciâli?",
 	"confirm-watch-label": "Perîodo de ténpo inti òservæ speciâli:",
-<<<<<<< HEAD
-	"watchlist-expiry-options": "infinîo:infinite,'na setemànn-a:1 week,'n méize:1 month,tréi méixi:3 months,sêi méixi:6 months,1 ànno:1 year",
-=======
 	"watchlist-expiry-options": "Permanentemente:infinite,'na seteman-a:1 week,un meize:1 month,trei meixi:3 months,sêi meixi:6 months",
->>>>>>> origin/1.39.7-test
 	"watchlist-expires-in-aria-label": "Eleménto in scadenénsa da-i òservæ speciâli",
 	"confirm-watch-button-expiry": "Métti sótta òservaçión",
 	"confirm-unwatch-button": "OK",
@@ -3401,10 +3274,6 @@
 	"version-entrypoints-header-entrypoint": "Pónti d'intrâ",
 	"version-entrypoints-header-url": "URL",
 	"version-libraries": "Libràie instalæ",
-<<<<<<< HEAD
-	"version-libraries-client": "Instalaçión de libràie client-side",
-=======
->>>>>>> origin/1.39.7-test
 	"version-libraries-library": "Libràia",
 	"version-libraries-version": "Versción",
 	"version-libraries-license": "Licénsa",
@@ -3722,14 +3591,11 @@
 	"logentry-tag-update-logentry": "$1 {{GENDER:$2|o|a|o/a}} l'à agiornòu i etichétte da vôxe de regìstro $5 da pàgina $3 ({{PLURAL:$7|azónta|azónte}} $6; {{PLURAL:$9|levâ|levæ}} $8)",
 	"rightsnone": "(nisciùn)",
 	"rightslogentry-temporary-group": "$1 (tenporànio, scìn a $2)",
-<<<<<<< HEAD
-=======
 	"feedback-adding": "Inseimento do feedback inta paggina...",
 	"feedback-back": "Inderê",
 	"feedback-bugcheck": "Ottimo! Controlla solo ch'o no segge za fra-i [$1 bug conosciui].",
 	"feedback-bugnew": "Controllo effettuou. Segnalla un noeuvo bug",
 	"feedback-bugornote": "Se t'ê pronto a descrive o problema tecnico riscontrou de maibea precisa, [$1 segnalla o bug]. In alternativa, ti poeu doeuviâ o moddulo semplificou sottostante. O to commento inseio o saiâ azonto a-a paggina \"[$3 $2]\", insemme a-o to nomme utente.",
->>>>>>> origin/1.39.7-test
 	"feedback-cancel": "Anùlla",
 	"feedback-close": "Fæto",
 	"feedback-external-bug-report-button": "Documénta 'n problêma técnico",
@@ -3747,15 +3613,8 @@
 	"feedback-useragent": "Agénte uténte:",
 	"searchsuggest-search": "Çèrca inte {{SITENAME}}",
 	"searchsuggest-containing": "Çèrca e pàgine che contêgnan",
-<<<<<<< HEAD
-	"search-match-redirect-label": "Væ a-a corispondénsa ezàtta inta riçèrca",
-	"search-match-redirect-help": "Seleçiónn-a p'êse mandòu a 'na pàgina quànde o tìtolo da pàgina trovâ o corispónde a quéllo che t'àivi çercòu.",
-	"search-thumbnail-extra-namespaces-label": "Fa védde e miniatûe inte Speciâle:Riçèrca in sciô Desktop",
-	"search-thumbnail-extra-namespaces-message": "Fa védde e miniatûe inta pàgina {{#special:search}} pe-i rizultâti {{PLURAL:$2|do|di}} namespace $1",
-=======
 	"search-match-redirect-label": "Rendrissâ a-i rizultæ coretti durante a serchia",
 	"search-match-redirect-help": "Selession-a pe ese rendrissou a 'na paggina quande o tittolo da paggina trovâ o corisponde a 'lo che t'aivi sercou.",
->>>>>>> origin/1.39.7-test
 	"searchlimit-label": "Nùmero de rizultâti de riçèrca pe ògni pàgina:",
 	"searchlimit-help": "Nùmero màscimo: $1",
 	"api-clientside-error-noconnect": "Inposcìbile conétise a-o server. Asegûite chi-â tò conesción internet a fonçiónn-e e prêuva tórna.",
@@ -3860,11 +3719,6 @@
 	"json-error-invalid-property-name": "Nómme propiêtæ indicòu no vàlido",
 	"json-error-utf16": "Caràteri UTF-8 defórmi, fòscia mâ codificæ",
 	"headline-anchor-title": "Ligàmme a sta seçión chi",
-<<<<<<< HEAD
-	"special-tab-contribute-short": "Contriboìsci",
-	"special-tab-contributions-short": "Véddi i contribûti",
-=======
->>>>>>> origin/1.39.7-test
 	"special-characters-group-latin": "Latìn",
 	"special-characters-group-latinextended": "Latìn estéizo",
 	"special-characters-group-ipa": "IPA",
@@ -4113,49 +3967,5 @@
 	"newpages-showhide-bots": "$1 i bot",
 	"newpages-showhide-patrolled": "$1 e modìfiche controlæ",
 	"newpages-showhide-redirect": "rindirìssi $1",
-<<<<<<< HEAD
-	"newpages-showhide-registered": "$1 i uténti registræ",
-	"blockedtext-made-by": "O blòcco o l'é stæto efetoòu da $1.",
-	"blockedtext-reason-comment": "A raxón dæta a l'é <em>$1</em>",
-	"blockedtext-start-time": "Prinçìpio do blòccoː $1",
-	"blockedtext-expiration-time": "Fìn do blòccoː $1",
-	"blockedtext-expiration-longest-block": "Scadénsa do blòcco ciù lóngo: $1",
-	"blockedtext-intended-blockee": "Uténte blocòuː $1",
-	"blockedtext-contact-blocker-admin": "Ti ti peu contatâ $1 ò 'n âtro [[{{MediaWiki:Grouppage-sysop}}|aministratô]] pe discùtte do blòcco.",
-	"blockedtext-block-ip": "O tò indirìsso IP atoâle o l'é $1",
-	"blockedtext-block-id": "ID blòcco #$1.",
-	"blockedtext-include-details-queries": "Pe piâxéi, inclùddi tùtti i detàggi de d'âto inte ògni domànda de spiegaçioìn.",
-	"renameuser": "Rinòmina uténte",
-	"renameuser-linkoncontribs": "rinòmina {{GENDER:$1|uténte}}",
-	"renameuser-linkoncontribs-text": "Rinòmina st'{{GENDER:$1|uténte}} chi",
-	"renameuserold": "Nómme uténte prezénte:",
-	"renameusernew": "Nêuvo nómme uténte:",
-	"renameuserreason": "Raxón:",
-	"renameusermove": "Rinòmina ànche a pàgina uténte, a pàgina de discusción e-e relatîve sotapàgine",
-	"renameusersuppress": "No creâ rindirìssi a-o nêuvo nómme",
-	"renameuserreserve": "Inpedìsci l'utilìzzo do vêgio nómme in futûo",
-	"renameuserwarnings": "Avîsi:",
-	"renameuserconfirm": "Scì, rinòmina st'uténte chi",
-	"renameusersubmit": "Mànda",
-	"renameusererrordoesnotexist": "L'uténte \"<nowiki>$1</nowiki>\" o no l'exìste.",
-	"renameusererrorexists": "{{GENDER:$1|L'uténte}} \"<nowiki>$1</nowiki>\" o l'exìste za.",
-	"renameusererrorinvalid": "O nómme uténte \"<nowiki>$1</nowiki>\" o no l'é vàlido!",
-	"renameuser-error-request": "Gh'é stæto 'n problêma inta riceçión domànda. Tórna inderê e prêuva tórna.",
-	"renameuser-error-same-user": "No l'é stæto poscìbile rinominâ 'n uténte a-o mæximo nómme ch'o gh'àiva za.",
-	"renameusersuccess": "L'uténte \"<nowiki>$1</nowiki>\" {{GENDER:$2|o l'é stæto rinominòu|a l'é stæta rinominâ}} inte \"<nowiki>$2</nowiki>\"",
-	"renameuser-page-exists": "A pàgina $1 a gh'é za e a no peu êse soviascrîta in mòddo outomàtico.",
-	"renameuser-page-moved": "A pàgina $1 a l'é stæta mesciâ a $2.",
-	"renameuser-page-unmoved": "A pàgina $1 a no peu êse mesciâ inte $2.",
-	"renameuser-warning-currentblock": "St'uténte chi o l'é [$1 a-o moménto blocòu].",
-	"log-name-renameuser": "Uténti rinominæ",
-	"log-description-renameuser": "Chi de sótta gh'é a lìsta di cangiaménti a-i nómmi uténte.",
-	"logentry-renameuser-renameuser": "$1 {{GENDER:$2|o|a|o/a}} l'à rinominòu l'uténte $4 (con {{PLURAL:$6|$6 contribûto|$6 contribûti}}) inte {{GENDER:$7|$5}}",
-	"logentry-renameuser-renameuser-legacier": "$1 {{GENDER:$2|o|a|o/a}} l'à rinominòu l'uténte $4 inte {{GENDER:$7|$5}}",
-	"renameuser-move-log": "Pàgina mesciâ outomaticaménte inta rinòmina {{GENDER:$2|de l'uténte}} \"[[User:$1|$1]]\" a \"[[User:$2|$2]]\"",
-	"action-renameuser": "rinominâ i uténti",
-	"right-renameuser": "Rinòmina i uténti",
-	"renameuser-renamed-notice": "St'uténte chi o l'é stæto rinominòu.\nO regìstro de rinòmine o l'é riportòu chi de sótta pe informaçión."
-=======
 	"newpages-showhide-registered": "$1 i uténti registræ"
->>>>>>> origin/1.39.7-test
 }

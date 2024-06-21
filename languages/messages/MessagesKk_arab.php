@@ -1,6 +1,8 @@
 <?php
 /** Kazakh (Arabic script) (قازاقشا (تٴوتە))
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  *

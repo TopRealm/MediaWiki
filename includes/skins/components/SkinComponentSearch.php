@@ -3,14 +3,14 @@
 namespace MediaWiki\Skin;
 
 use Config;
-use MediaWiki\Html\Html;
-use MediaWiki\Linker\Linker;
+use Html;
+use Linker;
 use MediaWiki\MainConfigNames;
-use MediaWiki\Title\Title;
 use Message;
 use MessageLocalizer;
 use MWException;
 use SpecialPage;
+use Title;
 use User;
 
 /**

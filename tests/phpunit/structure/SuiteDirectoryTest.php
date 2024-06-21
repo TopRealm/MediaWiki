@@ -3,7 +3,6 @@
 /**
  * The tests here verify that phpunit/suite.xml covers all of the tests under /tests/phpunit
  * @group medium
- * @coversNothing
  */
 class SuiteDirectoryTest extends PHPUnit\Framework\TestCase {
 
@@ -70,7 +69,7 @@ class SuiteDirectoryTest extends PHPUnit\Framework\TestCase {
 	}
 
 	private function isDirectoryIncluded( $dir, array $suiteInfos ) {
-		foreach ( $suiteInfos as [ $generalDirs, $excludedDirs ] ) {
+		foreach ( $suiteInfos as list( $generalDirs, $excludedDirs ) ) {
 			$found = false;
 			foreach ( $generalDirs as $generalDir ) {
 				if ( $this->isSameOrChildOfDirectory( $dir, $generalDir ) ) {

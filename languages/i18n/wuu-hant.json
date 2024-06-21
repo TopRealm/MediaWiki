@@ -619,10 +619,6 @@
 	"summary-preview": "編輯摘要个預覽：",
 	"previewerrortext": "嘗試預覽儂个更改个辰光發生哉錯誤。",
 	"blockedtitle": "用戶畀查封",
-<<<<<<< HEAD
-	"blockedtext-partial": "<strong>儂个用戶名或IP位址畀禁止做箇事體哉。儂作興仍舊好勒本站做別樣事體，譬方說編輯特定頁面。</strong>\n\n儂好勒[[Special:MyContributions|帳號貢獻]]望完整个查封細節。\n\n\n{{int:blockedtext-made-by|$1}}\n\n{{int:blockedtext-reason-comment|$2}}。\n\n* {{int:blockedtext-start-time|$8}}\n* {{int:blockedtext-expiration-time|$6}}\n* {{int:blockedtext-intended-blockee|$7}}\n\n* {{int:blockedtext-block-id|$5}}",
-=======
->>>>>>> origin/1.39.7-test
 	"blockednoreason": "朆畀出原因",
 	"blockedtext-composite-ids": "相應个查封ID：$1（儂个IP位址作興也畀寫進黑名單哉）",
 	"blockedtext-composite-no-ids": "儂个IP位址出現勒多隻封禁名單裡向",
@@ -644,11 +640,6 @@
 	"missing-revision-permission": "修訂版本#$1屬於一個已經畀刪除个頁面。儂可以[{{fullurl:{{#Special:Undelete}}|target=$3&timestamp=$2&diff=prev}} 查看箇个頁面]。具體情況勒[{{fullurl:{{#Special:Log}}/delete|page=$3}} 刪除日誌]。",
 	"missing-revision": "「{{FULLPAGENAME}}」个版本#$1弗存在。\n\n箇一般是因為進入仔一個已經畀刪除个頁面个歷史連結。具體个資訊可以勒[{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} 刪除日誌]中尋哉。",
 	"missing-revision-content": "沒辦法加載「$2」頁修改ID是「$1」个內容。",
-<<<<<<< HEAD
-	"userpage-userdoesnotexist": "!!FUZZY!!用戶帳戶「<nowiki>$1</nowiki>」弗曾建立。請垃拉建立／編輯迭个頁面前頭先檢查一記。",
-	"userpage-userdoesnotexist-view": "用戶帳戶「$1」弗曾建立。",
-=======
->>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "箇位{{GENDER:$1|用戶}}箇歇畀封鎖垃許。下頭有最近个封鎖紀錄以供參考：",
 	"clearyourcache": "<strong>注意：</strong>垃拉保存之後，儂作興要清除瀏覽器个快取才好看見改變。\n* <strong>Firefox或Safari：</strong>撳牢「Shift」个同時點擊「刷新」，或撳「Ctrl-F5」或「Ctrl-R」（Mac上是「⌘-R」）\n* <strong>Google Chrome：</strong>撳「Ctrl-Shift-R」（Mac上是「⌘-Shift-R」）\n* <strong>Internet Explorer / Edge：</strong>撳牢「Ctrl」个同時點擊「刷新」，或撳「Ctrl-F5」\n* <strong>Opera：</strong>去到<em>菜單 → 設定</em>（Mac上是<em>Opera → 偏好設定</em>），再轉到<em>隱私&安全 → 清除瀏覽資料 → 快取个圖片搭檔案</em>。",
 	"usercssyoucanpreview": "'''提示：''' 垃拉保存之前請用「{{int:showpreview}}」撳鈕來測試新 CSS 。",
@@ -842,10 +833,6 @@
 	"revdelete-hide-comment": "編輯摘要",
 	"revdelete-hide-user": "編者个用戶名/IP位址",
 	"revdelete-hide-restricted": "同時阻止管理員與其他用戶查看資料",
-<<<<<<< HEAD
-	"revdelete-radio-same": "（弗更改）",
-=======
->>>>>>> origin/1.39.7-test
 	"revdelete-radio-set": "囥脫",
 	"revdelete-radio-unset": "可見",
 	"revdelete-suppress": "阻止管理員搭其他用戶查看資料",
@@ -1119,10 +1106,6 @@
 	"right-viewmywatchlist": "望自家个關注表",
 	"right-editmywatchlist": "編輯儂个監視列表（麻煩留意即使缺少箇个權限，某些操作還會添加頁面到監視列表）",
 	"right-viewmyprivateinfo": "望自家个私人資料（譬方說電郵地址、真名字）",
-<<<<<<< HEAD
-	"right-editmyprivateinfo": "!!FUZZY!!編輯自家个私人資料（譬方說電郵地址、真名字）",
-=======
->>>>>>> origin/1.39.7-test
 	"right-editmyoptions": "編輯儂个個人設定",
 	"right-patrol": "拿別人家个編輯標記成已巡查",
 	"right-sendemail": "發郵件畀各許人",
@@ -1151,11 +1134,6 @@
 	"action-reupload": "箇檔案以舊換新",
 	"action-upload_by_url": "從URL傳檔案",
 	"action-delete": "刪箇頁",
-<<<<<<< HEAD
-	"action-deleterevision": "刪脫或還原修訂",
-	"action-deletedhistory": "!!FUZZY!!望頁面刪脫个歷史",
-=======
->>>>>>> origin/1.39.7-test
 	"action-browsearchive": "尋刪脫个頁面",
 	"action-undelete": "還原頁面",
 	"action-protect": "保護",
@@ -1715,10 +1693,6 @@
 	"metadata-help": "箇文件裏另外附帶訊息。許訊息無數是數碼相機或掃描機裏摑到帶來。\n\n生是箇文件有變動，許訊息無數便不準哉。",
 	"metadata-expand": "顯示詳細資料",
 	"metadata-collapse": "隱藏詳細資料",
-<<<<<<< HEAD
-	"metadata-fields": "!!FUZZY!!垃拉本資訊裡向列出个圖像元資料域包含垃拉圖片顯示頁面，來元資料表損壞个辰光只顯示下頭眼資訊。別个元資料預設囥脫。\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude",
-=======
->>>>>>> origin/1.39.7-test
 	"namespacesall": "全部",
 	"monthsall": "全部",
 	"confirmemail": "確認電子郵件地址",
@@ -1816,17 +1790,5 @@
 	"skin-action-protect": "保護",
 	"skin-action-undelete": "取消刪除",
 	"skin-action-delete": "刪除",
-<<<<<<< HEAD
-	"skin-action-move": "移動",
-	"blockedtext-made-by": "畀$1查封脫。",
-	"blockedtext-reason-comment": "畀出个原因是<em>$1</em>",
-	"blockedtext-start-time": "查封開始辰光：$1",
-	"blockedtext-expiration-time": "查封到期辰光：$1",
-	"blockedtext-intended-blockee": "目標查封對象：$1",
-	"blockedtext-contact-blocker-admin": "儂可以聯絡$1或者其他个[[{{MediaWiki:Grouppage-sysop}}|管理員]]，討論箇趟查封。",
-	"blockedtext-block-id": "查封ID是#$1。",
-	"blockedtext-include-details-queries": "請垃拉儂个查詢裡向注明以上所有資料。"
-=======
 	"skin-action-move": "移動"
->>>>>>> origin/1.39.7-test
 }

@@ -22,7 +22,6 @@
 
 use MediaWiki\Languages\LanguageFactory;
 use MediaWiki\Languages\LanguageNameUtils;
-use MediaWiki\Title\Title;
 use Wikimedia\ParamValidator\ParamValidator;
 
 /**
@@ -123,7 +122,8 @@ class ApiQueryAllMessages extends ApiQueryBase {
 			$skip = false;
 			$messages_filtered = [];
 			foreach ( $messages_target as $message ) {
-				if ( str_starts_with( $message, $params['prefix'] ) ) {
+				// === 0: must be at beginning of string (position 0)
+				if ( strpos( $message, $params['prefix'] ) === 0 ) {
 					if ( !$skip ) {
 						$skip = true;
 					}
@@ -139,7 +139,8 @@ class ApiQueryAllMessages extends ApiQueryBase {
 		if ( isset( $params['filter'] ) ) {
 			$messages_filtered = [];
 			foreach ( $messages_target as $message ) {
-				if ( str_contains( $message, $params['filter'] ) ) {
+				// !== is used because filter can be at the beginning of the string
+				if ( strpos( $message, $params['filter'] ) !== false ) {
 					$messages_filtered[] = $message;
 				}
 			}

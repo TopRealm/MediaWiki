@@ -125,7 +125,7 @@ class LocalFileDeleteBatch {
 	 */
 	protected function getHashes( StatusValue $status ): array {
 		$hashes = [];
-		[ $oldRels, $deleteCurrent ] = $this->getOldRels();
+		list( $oldRels, $deleteCurrent ) = $this->getOldRels();
 
 		if ( $deleteCurrent ) {
 			$hashes['.'] = $this->file->getSha1();
@@ -191,7 +191,7 @@ class LocalFileDeleteBatch {
 		$ext = $this->file->getExtension();
 		$dotExt = $ext === '' ? '' : ".$ext";
 		$encExt = $dbw->addQuotes( $dotExt );
-		[ $oldRels, $deleteCurrent ] = $this->getOldRels();
+		list( $oldRels, $deleteCurrent ) = $this->getOldRels();
 
 		// Bitfields to further suppress the content
 		if ( $this->suppress ) {
@@ -290,7 +290,7 @@ class LocalFileDeleteBatch {
 
 	private function doDBDeletes() {
 		$dbw = $this->file->repo->getPrimaryDB();
-		[ $oldRels, $deleteCurrent ] = $this->getOldRels();
+		list( $oldRels, $deleteCurrent ) = $this->getOldRels();
 
 		if ( count( $oldRels ) ) {
 			$dbw->delete( 'oldimage',

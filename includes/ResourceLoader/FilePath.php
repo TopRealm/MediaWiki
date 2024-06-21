@@ -33,13 +33,13 @@ use RuntimeException;
  */
 class FilePath {
 	/** @var string|null Local base path */
-	protected ?string $localBasePath;
+	protected $localBasePath;
 
 	/** @var string|null Remote base path */
-	protected ?string $remoteBasePath;
+	protected $remoteBasePath;
 
 	/** @var string Path to the file */
-	protected string $path;
+	protected $path;
 
 	/**
 	 * @param string $path Relative path to the file, no leading slash.
@@ -47,7 +47,7 @@ class FilePath {
 	 * @param string|null $remoteBasePath Base path to prepend when generating a remote path.
 	 *   Should not have a trailing slash unless at web document root.
 	 */
-	public function __construct( string $path, ?string $localBasePath = null, ?string $remoteBasePath = null ) {
+	public function __construct( $path, $localBasePath = null, $remoteBasePath = null ) {
 		$this->path = $path;
 		$this->localBasePath = $localBasePath;
 		$this->remoteBasePath = $remoteBasePath;
@@ -58,7 +58,7 @@ class FilePath {
 	 * @throws RuntimeException If the base path was not provided. You must either provide the base
 	 *   path in the constructor, or use getPath() instead and add the base path from a FileModule.
 	 */
-	public function getLocalPath(): string {
+	public function getLocalPath() {
 		if ( $this->localBasePath === null ) {
 			throw new RuntimeException( 'Base path was not provided' );
 		}
@@ -70,7 +70,7 @@ class FilePath {
 	 * @throws RuntimeException If the base path was not provided. You must either provide the base
 	 *   path in the constructor, or use getPath() instead and add the base path from a FileModule.
 	 */
-	public function getRemotePath(): string {
+	public function getRemotePath() {
 		if ( $this->remoteBasePath === null ) {
 			throw new RuntimeException( 'Base path was not provided' );
 		}
@@ -83,17 +83,17 @@ class FilePath {
 	}
 
 	/** @return string|null */
-	public function getLocalBasePath(): ?string {
+	public function getLocalBasePath() {
 		return $this->localBasePath;
 	}
 
 	/** @return string|null */
-	public function getRemoteBasePath(): ?string {
+	public function getRemoteBasePath() {
 		return $this->remoteBasePath;
 	}
 
 	/** @return string */
-	public function getPath(): string {
+	public function getPath() {
 		return $this->path;
 	}
 }

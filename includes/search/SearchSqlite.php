@@ -63,7 +63,7 @@ class SearchSqlite extends SearchDatabase {
 				$filteredText, $m, PREG_SET_ORDER ) ) {
 			foreach ( $m as $bits ) {
 				AtEase::suppressWarnings();
-				[ /* all */, $modifier, $term, $nonQuoted, $wildcard ] = $bits;
+				list( /* all */, $modifier, $term, $nonQuoted, $wildcard ) = $bits;
 				AtEase::restoreWarnings();
 
 				if ( $nonQuoted != '' ) {

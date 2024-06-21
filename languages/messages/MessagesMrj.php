@@ -1,6 +1,8 @@
 <?php
 /** Hill Mari (кырык мары)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  *

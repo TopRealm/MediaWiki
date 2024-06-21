@@ -1,8 +1,6 @@
 <?php
 
 use MediaWiki\MainConfigNames;
-use MediaWiki\Title\Title;
-use MediaWiki\WikiMap\WikiMap;
 
 /**
  * @coversDefaultClass LocalRepo

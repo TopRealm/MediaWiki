@@ -20,7 +20,6 @@
  * @file
  */
 
-use MediaWiki\Html\Html;
 use MediaWiki\Logger\LegacyLogger;
 use MediaWiki\ResourceLoader\ResourceLoader;
 use Wikimedia\WrappedString;

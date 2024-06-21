@@ -7,6 +7,7 @@ use MediaWiki\Rest\HeaderParser\IfNoneMatch;
 use Wikimedia\Timestamp\ConvertibleTimestamp;
 
 class ConditionalHeaderUtil {
+	private $validatorsHaveBeenSet = false;
 	private $varnishETagHack = true;
 	private $eTag;
 	private $lastModified;
@@ -27,13 +28,17 @@ class ConditionalHeaderUtil {
 	 *   the resource exists if an ETag was specified for it.
 	 */
 	public function setValidators( $eTag, $lastModified, $hasRepresentation ) {
+		$this->validatorsHaveBeenSet = true;
 		$this->eTag = $eTag;
 		if ( $lastModified === null ) {
 			$this->lastModified = null;
 		} else {
 			$this->lastModified = (int)ConvertibleTimestamp::convert( TS_UNIX, $lastModified );
 		}
-		$this->hasRepresentation = $hasRepresentation ?? ( $eTag !== null );
+		if ( $hasRepresentation === null ) {
+			$hasRepresentation = $eTag !== null;
+		}
+		$this->hasRepresentation = $hasRepresentation;
 	}
 
 	/**
@@ -94,9 +99,6 @@ class ConditionalHeaderUtil {
 		if ( $request->hasHeader( 'If-None-Match' ) ) {
 			$inm = $request->getHeader( 'If-None-Match' );
 			foreach ( $parser->parseHeaderList( $inm ) as $tag ) {
-				if ( $tag['whole'] === '*' && $this->hasRepresentation ) {
-					return $getOrHead ? 304 : 412;
-				}
 				if ( $this->weakCompare( $resourceTag, $tag ) ) {
 					if ( $getOrHead ) {
 						return 304;

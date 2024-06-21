@@ -62,7 +62,7 @@ class SpecialUnlockdb extends FormSpecialPage {
 
 	protected function alterForm( HTMLForm $form ) {
 		$form->setWrapperLegend( false )
-			->setHeaderHtml( $this->msg( 'unlockdbtext' )->parseAsBlock() )
+			->setHeaderText( $this->msg( 'unlockdbtext' )->parseAsBlock() )
 			->setSubmitTextMsg( 'unlockbtn' );
 	}
 

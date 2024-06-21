@@ -2,7 +2,6 @@
 
 use MediaWiki\HookContainer\ProtectedHookAccessorTrait;
 use MediaWiki\MainConfigNames;
-use MediaWiki\Title\Title;
 
 /**
  * Helper functions for the login form that need to be shared with other special pages

@@ -4,9 +4,6 @@
  * Recommended options from:
  * https://www.mediawiki.org/wiki/Manual:Coding_conventions/SVG#Exemplified_safe_configuration
  */
-
-'use strict';
-
 module.exports = {
 	plugins: [
 		{

@@ -15,6 +15,7 @@ use Wikimedia\Message\MessageValue;
  * Generates standardized response objects.
  */
 class ResponseFactory {
+	private const CT_PLAIN = 'text/plain; charset=utf-8';
 	private const CT_HTML = 'text/html; charset=utf-8';
 	private const CT_JSON = 'application/json';
 
@@ -75,7 +76,7 @@ class ResponseFactory {
 	 * @return Response
 	 */
 	public function createJson( $value, $contentType = null ) {
-		$contentType ??= self::CT_JSON;
+		$contentType = $contentType ?? self::CT_JSON;
 		$response = new Response( $this->encodeJson( $value ) );
 		$response->setHeader( 'Content-Type', $contentType );
 		return $response;
@@ -222,9 +223,7 @@ class ResponseFactory {
 			$response = $this->createLocalizedHttpError(
 				$exception->getCode(),
 				$exception->getMessageValue(),
-				$exception->getErrorData() + [
-					'errorKey' => $exception->getErrorKey(),
-				]
+				(array)$exception->getErrorData()
 			);
 		} elseif ( $exception instanceof ResponseException ) {
 			return $exception->getResponse();
@@ -240,7 +239,7 @@ class ResponseFactory {
 					$exception->getCode(),
 					array_merge(
 						[ 'message' => $exception->getMessage() ],
-						$exception->getErrorData()
+						(array)$exception->getErrorData()
 					)
 				);
 			}

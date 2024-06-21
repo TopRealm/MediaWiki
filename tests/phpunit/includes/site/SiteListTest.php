@@ -209,8 +209,7 @@ class SiteListTest extends MediaWikiIntegrationTestCase {
 	 *
 	 * @param SiteList $list
 	 * @covers SiteList::getSerializationData
-	 * @covers SiteList::__serialize
-	 * @covers SiteList::__unserialize
+	 * @covers SiteList::unserialize
 	 */
 	public function testSerialization( SiteList $list ) {
 		$serialization = serialize( $list );

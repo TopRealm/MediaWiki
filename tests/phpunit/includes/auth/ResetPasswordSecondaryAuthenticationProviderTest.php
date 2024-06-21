@@ -4,8 +4,9 @@ namespace MediaWiki\Auth;
 
 use DynamicPropertyTestHelper;
 use MediaWiki\Tests\Unit\Auth\AuthenticationProviderTestTrait;
-use MediaWiki\Tests\Unit\DummyServicesTrait;
 use MediaWiki\User\UserNameUtils;
+use Psr\Container\ContainerInterface;
+use Wikimedia\ObjectFactory\ObjectFactory;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -14,7 +15,6 @@ use Wikimedia\TestingAccessWrapper;
  */
 class ResetPasswordSecondaryAuthenticationProviderTest extends \MediaWikiIntegrationTestCase {
 	use AuthenticationProviderTestTrait;
-	use DummyServicesTrait;
 
 	/**
 	 * @dataProvider provideGetAuthenticationRequests
@@ -94,9 +94,9 @@ class ResetPasswordSecondaryAuthenticationProviderTest extends \MediaWikiIntegra
 		] );
 		$mwServices = $this->getServiceContainer();
 		$manager = new AuthManager(
-			new \MediaWiki\Request\FauxRequest,
+			new \FauxRequest,
 			$config,
-			$this->getDummyObjectFactory(),
+			new ObjectFactory( $this->createNoOpAbstractMock( ContainerInterface::class ) ),
 			$this->createHookContainer(),
 			$mwServices->getReadOnlyMode(),
 			$this->createNoOpMock( UserNameUtils::class ),

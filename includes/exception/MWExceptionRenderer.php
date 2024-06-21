@@ -18,7 +18,6 @@
  * @file
  */
 
-use MediaWiki\Html\Html;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use Wikimedia\AtEase;
@@ -121,7 +120,7 @@ class MWExceptionRenderer {
 					$message .= 'Original exception: ' .
 						MWExceptionHandler::getPublicLogMessage( $e );
 					$message .= "\n\nException caught inside exception handler.\n\n" .
-						self::getShowBacktraceError();
+						self::getShowBacktraceError( $e );
 				}
 				$message .= "\n";
 			} elseif ( $showExceptionDetails ) {
@@ -230,7 +229,7 @@ class MWExceptionRenderer {
 				) ),
 				'',
 				'mw-content-ltr'
-			) . "<!-- " . wordwrap( self::getShowBacktraceError(), 50 ) . " -->";
+			) . "<!-- " . wordwrap( self::getShowBacktraceError( $e ), 50 ) . " -->";
 		}
 
 		return $html;
@@ -271,14 +270,15 @@ class MWExceptionRenderer {
 				"\nBacktrace:\n" .
 				MWExceptionHandler::getRedactedTraceAsString( $e ) . "\n";
 		} else {
-			return self::getShowBacktraceError() . "\n";
+			return self::getShowBacktraceError( $e ) . "\n";
 		}
 	}
 
 	/**
+	 * @param Throwable $e
 	 * @return string
 	 */
-	private static function getShowBacktraceError() {
+	private static function getShowBacktraceError( Throwable $e ) {
 		$var = '$wgShowExceptionDetails = true;';
 		return "Set $var at the bottom of LocalSettings.php to show detailed debugging information.";
 	}

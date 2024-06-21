@@ -22,7 +22,6 @@
  * @author PhiLiP <philip.npc@gmail.com>
  */
 
-use MediaWiki\Html\Html;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MainConfigNames;
@@ -30,8 +29,6 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageReference;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
-use MediaWiki\StubObject\StubUserLang;
-use MediaWiki\Title\Title;
 
 /**
  * Base class for multi-variant language conversion.
@@ -44,7 +41,7 @@ abstract class LanguageConverter implements ILanguageConverter {
 	/**
 	 * languages supporting variants
 	 * @since 1.20
-	 * @var string[]
+	 * @var array
 	 */
 	public static $languagesWithVariants = [
 		'ban',
@@ -54,57 +51,31 @@ abstract class LanguageConverter implements ILanguageConverter {
 		'iu',
 		'kk',
 		'ku',
-		'sh',
 		'shi',
 		'sr',
 		'tg',
-		'tly',
 		'uz',
 		'zh',
 	];
 
-	/**
-	 * static default variant of languages supporting variants
-	 * for use with DefaultOptionsLookup.php
-	 * @since 1.40
-	 * @var array<string,string>
-	 */
-	public static $languagesWithStaticDefaultVariant = [
-		'ban' => 'ban',
-		'en' => 'en',
-		'crh' => 'crh',
-		'gan' => 'gan',
-		'iu' => 'iu',
-		'kk' => 'kk',
-		'ku' => 'ku',
-		'sh' => 'sh-latn',
-		'shi' => 'shi',
-		'sr' => 'sr',
-		'tg' => 'tg',
-		'tly' => 'tly',
-		'uz' => 'uz',
-		'zh' => 'zh',
-	];
-
-	/** @var bool */
 	private $mTablesLoaded = false;
-	/** @var ReplacementArray[]|bool[] */
+
+	/**
+	 * @var ReplacementArray[]|bool[]
+	 */
 	protected $mTables = [];
-	/** @var Language|StubUserLang */
+
+	/**
+	 * @var Language|StubUserLang
+	 */
 	private $mLangObj;
-	/** @var bool */
+
 	private $mUcfirst = false;
-	/** @var string|false */
 	private $mConvRuleTitle = false;
-	/** @var string|null */
 	private $mURLVariant;
-	/** @var string|null */
 	private $mUserVariant;
-	/** @var string|null */
 	private $mHeaderVariant;
-	/** @var int */
 	private $mMaxDepth = 10;
-	/** @var string|null */
 	private $mVarSeparatorPattern;
 
 	private const CACHE_VERSION_KEY = 'VERSION 7';
@@ -155,27 +126,12 @@ abstract class LanguageConverter implements ILanguageConverter {
 	}
 
 	/**
-	 * Get the language code with converter (the "main" language code).
-	 * Page language code would be the same of the language code with converter.
-	 * Note that this code might not included as one of the variant languages.
+	 * Get main language code.
 	 * @since 1.36
 	 *
 	 * @return string
 	 */
 	abstract public function getMainCode(): string;
-
-	/**
-	 * Get static default variant.
-	 * For use of specify the default variant form when it differents from the
-	 *  default "unconverted/mixed-variant form".
-	 * @since 1.40
-	 *
-	 * @return string
-	 */
-	protected function getStaticDefaultVariant(): string {
-		$code = $this->getMainCode();
-		return self::$languagesWithStaticDefaultVariant[$code] ?? $code;
-	}
 
 	/**
 	 * Get supported variants of the language.
@@ -313,10 +269,10 @@ abstract class LanguageConverter implements ILanguageConverter {
 	 *
 	 * @param string $variant The language code of the variant
 	 * @return string|array The code of the fallback language or the
-	 *   static default variant if there is no fallback
+	 *   main code if there is no fallback
 	 */
 	public function getVariantFallbacks( $variant ) {
-		return $this->getVariantsFallbacks()[$variant] ?? $this->getStaticDefaultVariant();
+		return $this->getVariantsFallbacks()[$variant] ?? $this->getMainCode();
 	}
 
 	/**
@@ -332,26 +288,25 @@ abstract class LanguageConverter implements ILanguageConverter {
 	 * @return string The preferred language code
 	 */
 	public function getPreferredVariant() {
+		$defaultLanguageVariant = MediaWikiServices::getInstance()->getMainConfig()->get(
+			MainConfigNames::DefaultLanguageVariant );
+
 		$req = $this->getURLVariant();
 
 		Hooks::runner()->onGetLangPreferredVariant( $req );
 
-		if ( !$req ) {
-			$user = RequestContext::getMain()->getUser();
-			// NOTE: For some calls there may not be a context user or session that is safe
-			// to use, see (T235360)
-			// Use case: During autocreation, UserNameUtils::isUsable is called which uses interface
-			// messages for reserved usernames.
-			if ( $user->isSafeToLoad() && $user->isRegistered() ) {
-				$req = $this->getUserVariant( $user );
-			} else {
-				$req = $this->getHeaderVariant();
-			}
+		$user = RequestContext::getMain()->getUser();
+		// NOTE: For some calls there may not be a context user or session that is safe
+		// to use, see (T235360)
+		// Use case: During autocreation, UserNameUtils::isUsable is called which uses interface
+		// messages for reserved usernames.
+		if ( $user->isSafeToLoad() && $user->isRegistered() && !$req ) {
+			$req = $this->getUserVariant( $user );
+		} elseif ( !$req ) {
+			$req = $this->getHeaderVariant();
 		}
 
-		$defaultLanguageVariant = MediaWikiServices::getInstance()->getMainConfig()
-			->get( MainConfigNames::DefaultLanguageVariant );
-		if ( !$req && $defaultLanguageVariant ) {
+		if ( $defaultLanguageVariant && !$req ) {
 			$req = $this->validateVariant( $defaultLanguageVariant );
 		}
 
@@ -361,7 +316,10 @@ abstract class LanguageConverter implements ILanguageConverter {
 		// not memoized (i.e. there return value is not cached) since
 		// new information might appear during processing after this
 		// is first called.
-		return $req ?? $this->getStaticDefaultVariant();
+		if ( $req ) {
+			return $req;
+		}
+		return $this->getMainCode();
 	}
 
 	/**
@@ -372,13 +330,20 @@ abstract class LanguageConverter implements ILanguageConverter {
 		$defaultLanguageVariant = MediaWikiServices::getInstance()->getMainConfig()->get(
 			MainConfigNames::DefaultLanguageVariant );
 
-		$req = $this->getURLVariant() ?? $this->getHeaderVariant();
+		$req = $this->getURLVariant();
 
-		if ( !$req && $defaultLanguageVariant ) {
+		if ( !$req ) {
+			$req = $this->getHeaderVariant();
+		}
+
+		if ( $defaultLanguageVariant && !$req ) {
 			$req = $this->validateVariant( $defaultLanguageVariant );
 		}
 
-		return $req ?? $this->getStaticDefaultVariant();
+		if ( $req ) {
+			return $req;
+		}
+		return $this->getMainCode();
 	}
 
 	/**
@@ -387,7 +352,7 @@ abstract class LanguageConverter implements ILanguageConverter {
 	 * which does a strict test.
 	 *
 	 * @param string|null $variant The variant to validate
-	 * @return string|null Returns an equivalent valid variant code if possible,
+	 * @return mixed Returns an equivalent valid variant code if possible,
 	 *   null otherwise
 	 */
 	public function validateVariant( $variant = null ) {
@@ -416,7 +381,7 @@ abstract class LanguageConverter implements ILanguageConverter {
 	/**
 	 * Get the variant specified in the URL
 	 *
-	 * @return string|null Variant if one found, null otherwise
+	 * @return mixed Variant if one found, null otherwise
 	 */
 	public function getURLVariant() {
 		global $wgRequest;
@@ -440,13 +405,13 @@ abstract class LanguageConverter implements ILanguageConverter {
 	 * Determine if the user has a variant set.
 	 *
 	 * @param User $user
-	 * @return string|null Variant if one found, null otherwise
+	 * @return mixed Variant if one found, null otherwise
 	 */
 	protected function getUserVariant( User $user ) {
 		// This should only be called within the class after the user is known to be
 		// safe to load and logged in, but check just in case.
 		if ( !$user->isSafeToLoad() ) {
-			return null;
+			return false;
 		}
 
 		if ( !$this->mUserVariant ) {
@@ -454,7 +419,7 @@ abstract class LanguageConverter implements ILanguageConverter {
 			if ( $user->isRegistered() ) {
 				// Get language variant preference from logged in users
 				if (
-					$this->getMainCode() ===
+					$this->getMainCode() ==
 					$services->getContentLanguage()->getCode()
 				) {
 					$optionName = 'variant';
@@ -477,7 +442,7 @@ abstract class LanguageConverter implements ILanguageConverter {
 	/**
 	 * Determine the language variant from the Accept-Language header.
 	 *
-	 * @return string|null Variant if one found, null otherwise
+	 * @return mixed Variant if one found, null otherwise
 	 */
 	protected function getHeaderVariant() {
 		global $wgRequest;
@@ -504,10 +469,7 @@ abstract class LanguageConverter implements ILanguageConverter {
 			// We record these fallback variants, and process
 			// them later.
 			$fallbacks = $this->getVariantFallbacks( $language );
-			if (
-				is_string( $fallbacks ) &&
-				$fallbacks !== $this->getStaticDefaultVariant()
-			) {
+			if ( is_string( $fallbacks ) && $fallbacks !== $this->getMainCode() ) {
 				$fallbackLanguages[] = $fallbacks;
 			} elseif ( is_array( $fallbacks ) ) {
 				$fallbackLanguages =
@@ -809,7 +771,9 @@ abstract class LanguageConverter implements ILanguageConverter {
 			return '';
 		}
 
-		$variant ??= $this->getPreferredVariant();
+		if ( $variant === null ) {
+			$variant = $this->getPreferredVariant();
+		}
 
 		$cache = MediaWikiServices::getInstance()->getLocalServerObjectCache();
 		$key = $cache->makeKey( 'languageconverter', 'namespace-text', $index, $variant );
@@ -884,20 +848,16 @@ abstract class LanguageConverter implements ILanguageConverter {
 	 * @param string $text Text to be converted, already html escaped
 	 * @param-taint $text exec_html
 	 * @param string $variant The target variant code
-	 * @param bool $clearState Whether to clear the converter title before
-	 *   conversion (defaults to true)
 	 * @return string Converted text
 	 * @return-taint escaped
 	 */
-	public function convertTo( $text, $variant, bool $clearState = true ) {
+	public function convertTo( $text, $variant ) {
 		$languageConverterFactory = MediaWikiServices::getInstance()->getLanguageConverterFactory();
 		if ( $languageConverterFactory->isConversionDisabled() ) {
 			return $text;
 		}
 		// Reset converter state for a new converter run.
-		if ( $clearState ) {
-			$this->mConvRuleTitle = false;
-		}
+		$this->mConvRuleTitle = false;
 		return $this->recursiveConvertTopLevel( $text, $variant );
 	}
 

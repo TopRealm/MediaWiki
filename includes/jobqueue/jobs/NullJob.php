@@ -1,5 +1,7 @@
 <?php
 /**
+ * Degenerate job that does nothing.
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -16,18 +18,15 @@
  * http://www.gnu.org/copyleft/gpl.html
  *
  * @file
+ * @ingroup JobQueue
  */
 
 use MediaWiki\MediaWikiServices;
 
 /**
- * No-op job that does nothing.
- *
- * This is used for testing purposes, e.g. to measure overall system
- * performance of the JobQueue system, lock contention, etc.
- *
- * This job can optionally recursively re-queue itself a number of times
- * or spend a fixed amount of time idling in execution time.
+ * Degenerate job that does nothing, but can optionally replace itself
+ * in the queue and/or sleep for a brief time period. These can be used
+ * to represent "no-op" jobs or test lock contention and performance.
  *
  * @par Example:
  * Inserting a null job in the configured job queue:
@@ -37,12 +36,12 @@ use MediaWiki\MediaWikiServices;
  * > $job = new NullJob( [ 'lives' => 10 ] );
  * > $queue->push( $job );
  * @endcode
- *
- * You can confirm the job has been enqueued via maintenance/showJobs.php:
- *
+ * You can then confirm the job has been enqueued by using the showJobs.php
+ * maintenance utility:
  * @code
  * $ php maintenance/showJobs.php --group
  * null: 1 queue; 0 claimed (0 active, 0 abandoned)
+ * $
  * @endcode
  *
  * @ingroup JobQueue

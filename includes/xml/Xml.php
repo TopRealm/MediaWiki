@@ -20,7 +20,6 @@
  * @file
  */
 
-use MediaWiki\Html\Html;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
@@ -149,7 +148,10 @@ class Xml {
 		global $wgLang;
 		$options = [];
 
-		$data = new XmlSelect( 'month', $id, $selected ?? '' );
+		if ( $selected === null ) {
+			$selected = '';
+		}
+		$data = new XmlSelect( 'month', $id, $selected );
 
 		if ( $allmonths !== null ) {
 			$options[wfMessage( 'monthsall' )->text()] = $allmonths;
@@ -387,7 +389,7 @@ class Xml {
 	public static function inputLabel( $label, $name, $id, $size = false,
 		$value = false, $attribs = []
 	) {
-		[ $label, $input ] = self::inputLabelSep( $label, $name, $id, $size, $value, $attribs );
+		list( $label, $input ) = self::inputLabelSep( $label, $name, $id, $size, $value, $attribs );
 		return $label . "\u{00A0}" . $input;
 	}
 

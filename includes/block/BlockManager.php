@@ -26,7 +26,6 @@ use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\HookContainer\HookRunner;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Permissions\PermissionManager;
-use MediaWiki\Request\WebResponse;
 use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserIdentity;
 use Message;
@@ -34,6 +33,7 @@ use MWCryptHash;
 use Psr\Log\LoggerInterface;
 use User;
 use WebRequest;
+use WebResponse;
 use Wikimedia\IPSet;
 use Wikimedia\IPUtils;
 
@@ -354,7 +354,7 @@ class BlockManager {
 	 *
 	 * @param UserIdentity $user
 	 * @param WebRequest $request
-	 * @return DatabaseBlock|false The block object, or false if none could be loaded.
+	 * @return DatabaseBlock|bool The block object, or false if none could be loaded.
 	 */
 	private function getBlockFromCookieValue(
 		UserIdentity $user,
@@ -501,7 +501,7 @@ class BlockManager {
 	 * Wrapper for mocking in tests.
 	 *
 	 * @param string $hostname DNSBL query
-	 * @return string[]|false IPv4 array, or false if the IP is not blacklisted
+	 * @return string[]|bool IPv4 array, or false if the IP is not blacklisted
 	 */
 	protected function checkHost( $hostname ) {
 		return gethostbynamel( $hostname );

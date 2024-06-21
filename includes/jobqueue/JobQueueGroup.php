@@ -1,5 +1,7 @@
 <?php
 /**
+ * Job queue base code.
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -19,16 +21,21 @@
  */
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\WikiMap\WikiMap;
 use Wikimedia\UUID\GlobalIdGenerator;
 
 /**
- * Handle enqueueing of background jobs.
+ * Class to handle enqueueing of background jobs
  *
  * @ingroup JobQueue
  * @since 1.21
  */
 class JobQueueGroup {
+	/**
+	 * @var JobQueueGroup[]
+	 * @deprecated since 1.37
+	 */
+	protected static $instances = [];
+
 	/** @var MapCacheLRU */
 	protected $cache;
 
@@ -97,6 +104,26 @@ class JobQueueGroup {
 		$this->statsdDataFactory = $statsdDataFactory;
 		$this->wanCache = $wanCache;
 		$this->globalIdGenerator = $globalIdGenerator;
+	}
+
+	/**
+	 * @deprecated since 1.37 Use JobQueueGroupFactory::makeJobQueueGroup (hard deprecated since 1.39)
+	 * @param bool|string $domain Wiki domain ID
+	 * @return JobQueueGroup
+	 */
+	public static function singleton( $domain = false ) {
+		wfDeprecated( __METHOD__, '1.37' );
+		return MediaWikiServices::getInstance()->getJobQueueGroupFactory()->makeJobQueueGroup( $domain );
+	}
+
+	/**
+	 * Destroy the singleton instances
+	 *
+	 * @deprecated since 1.37 (hard deprecated since 1.39)
+	 * @return void
+	 */
+	public static function destroySingletons() {
+		wfDeprecated( __METHOD__, '1.37' );
 	}
 
 	/**
@@ -222,7 +249,7 @@ class JobQueueGroup {
 	 * @param int|string $qtype JobQueueGroup::TYPE_* constant or job type string
 	 * @param int $flags Bitfield of JobQueueGroup::USE_* constants
 	 * @param array $ignored List of job types to ignore
-	 * @return RunnableJob|false Returns false on failure
+	 * @return RunnableJob|bool Returns false on failure
 	 */
 	public function pop( $qtype = self::TYPE_DEFAULT, $flags = 0, array $ignored = [] ) {
 		$job = false;
@@ -283,13 +310,11 @@ class JobQueueGroup {
 	 * Register the "root job" of a given job into the queue for de-duplication.
 	 * This should only be called right *after* all the new jobs have been inserted.
 	 *
-	 * @deprecated since 1.40
 	 * @param RunnableJob $job
 	 * @return bool
 	 */
 	public function deduplicateRootJob( RunnableJob $job ) {
-		wfDeprecated( __METHOD__, '1.40' );
-		return true;
+		return $this->get( $job->getType() )->deduplicateRootJob( $job );
 	}
 
 	/**

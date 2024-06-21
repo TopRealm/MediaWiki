@@ -1,6 +1,8 @@
 <?php
 /** Macedonian (македонски)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  *
@@ -170,7 +172,6 @@ $specialPageAliases = [
 	'Recentchanges'             => [ 'СкорешниПромени' ],
 	'Recentchangeslinked'       => [ 'ПоврзаниПромени' ],
 	'Redirect'                  => [ 'Пренасочување' ],
-	'Renameuser'                => [ 'ПреименувајКорисник' ],
 	'ResetTokens'               => [ 'ВратиОдновоЗнаци' ],
 	'Revisiondelete'            => [ 'БришењеПреработка' ],
 	'RunJobs'                   => [ 'ПуштиЗадачи' ],

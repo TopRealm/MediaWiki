@@ -19,19 +19,12 @@
  * @author Niklas Laxström
  */
 
-use MediaWiki\Language\RawMessage;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\UserGroupMembershipParam;
 use MediaWiki\Page\PageReference;
 use MediaWiki\Page\PageReferenceValue;
-<<<<<<< HEAD
-use MediaWiki\StubObject\StubUserLang;
-use MediaWiki\Title\Title;
-use Wikimedia\Assert\Assert;
-=======
->>>>>>> origin/1.39.7-test
 
 /**
  * The Message class deals with fetching and processing of interface message
@@ -178,9 +171,9 @@ class Message implements MessageSpecifier, Serializable {
 	/**
 	 * In which language to get this message. Overrides the $interface setting.
 	 *
-	 * @var Language|null Explicit language object, or null for user language
+	 * @var Language|false Explicit language object, or false for user language
 	 */
-	protected $language = null;
+	protected $language = false;
 
 	/**
 	 * @var string The message key. If $keysToTry has more than one element,
@@ -255,7 +248,7 @@ class Message implements MessageSpecifier, Serializable {
 		$this->parameters = array_values( $params );
 		// User language is only resolved in getLanguage(). This helps preserve the
 		// semantic intent of "user language" across serialize() and unserialize().
-		$this->language = $language;
+		$this->language = $language ?: false;
 	}
 
 	/**
@@ -275,7 +268,7 @@ class Message implements MessageSpecifier, Serializable {
 	public function __serialize() {
 		return [
 			'interface' => $this->interface,
-			'language' => $this->language ? $this->language->getCode() : null,
+			'language' => $this->language ? $this->language->getCode() : false,
 			'key' => $this->key,
 			'keysToTry' => $this->keysToTry,
 			'parameters' => $this->parameters,
@@ -316,7 +309,7 @@ class Message implements MessageSpecifier, Serializable {
 		$this->language = $data['language']
 			? MediaWikiServices::getInstance()->getLanguageFactory()
 				->getLanguage( $data['language'] )
-			: null;
+			: false;
 
 		// Since 1.35, the key 'titlevalue' is set, instead of 'titlestr'.
 		if ( isset( $data['titlevalue'] ) ) {
@@ -387,8 +380,8 @@ class Message implements MessageSpecifier, Serializable {
 	 * @return Language
 	 */
 	public function getLanguage() {
-		// Defaults to null which means current user language
-		return $this->language ?? RequestContext::getMain()->getLanguage();
+		// Defaults to false which means current user language
+		return $this->language ?: RequestContext::getMain()->getLanguage();
 	}
 
 	/**
@@ -834,6 +827,7 @@ class Message implements MessageSpecifier, Serializable {
 	 * @since 1.17
 	 * @param Language|StubUserLang|string $lang Language code or Language object.
 	 * @return Message $this
+	 * @throws MWException
 	 */
 	public function inLanguage( $lang ) {
 		$previousLanguage = $this->language;
@@ -846,10 +840,12 @@ class Message implements MessageSpecifier, Serializable {
 					->getLanguage( $lang );
 			}
 		} elseif ( $lang instanceof StubUserLang ) {
-			$this->language = null;
+			$this->language = false;
 		} else {
-			// Always throws. Moved here as an optimization.
-			Assert::parameterType( [ Language::class, StubUserLang::class, 'string' ], $lang, '$lang' );
+			$type = gettype( $lang );
+			throw new MWException( __METHOD__ . " must be "
+				. "passed a String or Language object; $type given"
+			);
 		}
 
 		if ( $this->language !== $previousLanguage ) {
@@ -1131,7 +1127,7 @@ class Message implements MessageSpecifier, Serializable {
 	 * @since 1.17
 	 *
 	 * @param mixed $raw
-	 * @param-taint $raw html,exec_html
+	 * @param-taint $raw html,raw_param
 	 *
 	 * @return array Array with a single "raw" key.
 	 */
@@ -1306,7 +1302,7 @@ class Message implements MessageSpecifier, Serializable {
 		$marker = $format === self::FORMAT_ESCAPED ? '$' : '$\'"';
 		$replacementKeys = [];
 		foreach ( $this->parameters as $n => $param ) {
-			[ $paramType, $value ] = $this->extractParam( $param, $format );
+			list( $paramType, $value ) = $this->extractParam( $param, $format );
 			if ( $type === 'before' ) {
 				if ( $paramType === 'before' ) {
 					$replacementKeys['$' . ( $n + 1 )] = $value;
@@ -1433,14 +1429,12 @@ class Message implements MessageSpecifier, Serializable {
 
 		return $out instanceof ParserOutput
 			? $out->getText( [
-				'allowTOC' => false,
 				'enableSectionEditLinks' => false,
 				// Wrapping messages in an extra <div> is probably not expected. If
 				// they're outside the content area they probably shouldn't be
 				// targeted by CSS that's targeting the parser output, and if
 				// they're inside they already are from the outer div.
 				'unwrap' => true,
-				'userLang' => $this->getLanguage(),
 			] )
 			: $out;
 	}
@@ -1549,7 +1543,7 @@ class Message implements MessageSpecifier, Serializable {
 		$vars = [];
 		$list = [];
 		foreach ( $params as $n => $p ) {
-			[ $type, $value ] = $this->extractParam( $p, $format );
+			list( $type, $value ) = $this->extractParam( $p, $format );
 			$types[$type] = true;
 			$list[] = $value;
 			$vars[] = '$' . ( $n + 1 );

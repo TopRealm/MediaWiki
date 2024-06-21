@@ -2,27 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Anna",
-<<<<<<< HEAD
-			"Gtbot2007",
-			"Keenan Pepper",
-			"Kita",
-			"LesVisages",
-			"Robin van der Vliet",
-			"SpanishSnake",
-			"Spenĉjo",
-			"Tansin",
-			"Tbodt",
-=======
 			"Kita",
 			"Tansin",
->>>>>>> origin/1.39.7-test
 			"Tepo",
 			"Weko",
 			"http://tokipona.wikia.com sysops",
 			"janTepo",
-<<<<<<< HEAD
-			"שוקו מוקה",
-=======
 			"Gtbot2007",
 			"LesVisages",
 			"Robin van der Vliet",
@@ -31,7 +16,6 @@
 			"Tbodt",
 			"Spenĉjo",
 			"Keenan Pepper",
->>>>>>> origin/1.39.7-test
 			"20kdc",
 			"Frzzl",
 			"Earldridge Jazzed Pineda",
@@ -123,10 +107,7 @@
 	"period-am": "tenpo pi suno kama",
 	"period-pm": "tenpo pi suno tawa",
 	"pagecategories": "{{PLURAL:$1|kulupu}}",
-<<<<<<< HEAD
-=======
 	"pagecategorieslink": "ilo:kulupu_lipu",
->>>>>>> origin/1.39.7-test
 	"category_header": "kulupu \"$1\" la lipu",
 	"subcategories": "insa pi kulupu ni la kulupu ante",
 	"category-media-header": "ijo lon kulupu \"$1\"",
@@ -153,10 +134,7 @@
 	"navigation": "lipu suli",
 	"and": "&#32;en",
 	"faq": "wile sona pi jan mute",
-<<<<<<< HEAD
-=======
 	"sitetitle": "{{SITENAME}}",
->>>>>>> origin/1.39.7-test
 	"actions": "pali",
 	"namespaces": "nimi lipu",
 	"variants": "ante tan toki",
@@ -193,17 +171,10 @@
 	"skin-action-unprotect": "jan ale o ken ante e lipu ni",
 	"unprotect": "jan ale o ken ante e lipu ni",
 	"newpage": "lipu sin",
-<<<<<<< HEAD
-	"view-missing-pages": "o lukin e lipu len",
-	"talkpagelinktext": "toki",
-	"specialpage": "lipu ilo",
-	"personaltools": "ilo sina",
-=======
 	"talkpagelinktext": "toki",
 	"specialpage": "lipu ilo",
 	"personaltools": "ilo sina",
 	"addsection": "+",
->>>>>>> origin/1.39.7-test
 	"talk": "toki",
 	"views": "nasin lukin",
 	"toolbox": "ilo",
@@ -221,10 +192,7 @@
 	"redirectedfrom": "(tan $1)",
 	"redirectpagesub": "lipu li tawa lipu ante",
 	"redirectto": "tawa",
-<<<<<<< HEAD
-=======
 	"talkpageheader": "-",
->>>>>>> origin/1.39.7-test
 	"lastmodifiedat": "lipu ni li ante lon tenpo $2 lon tenpo $1 li ante sin ala.",
 	"viewcount": "jan li lukin e lipu ni lon {{PLURAL:$1|tenpo $1}}.",
 	"protectedpage": "lipu awen",
@@ -256,10 +224,7 @@
 	"badaccess-groups": "pali ni li ken ala tan ni: jan pi {{PLURAL:$2|kulupu ni}} taso li ken: $1.",
 	"ok": "pona",
 	"pagetitle": "$1 - lipu {{SITENAME}}",
-<<<<<<< HEAD
-=======
 	"pagetitle-view-mainpage": "{{SITENAME}}",
->>>>>>> origin/1.39.7-test
 	"backlinksubtitle": "← $1",
 	"retrievedfrom": "tan $1",
 	"youhavenewmessages": "jan li $1{{PLURAL:$3|| mute}} tawa sina ($2).",
@@ -273,11 +238,7 @@
 	"editlink": "o ante",
 	"viewsourcelink": "o lukin e toki ilo",
 	"editsectionhint": "o ante e wan: $1",
-<<<<<<< HEAD
-	"toc": "poki pi kipisi lipu",
-=======
 	"toc": "poki lawa",
->>>>>>> origin/1.39.7-test
 	"showtoc": "o suli e poki ni.",
 	"hidetoc": "o lili e poki ni",
 	"collapsible-collapse": "o lili",
@@ -288,12 +249,9 @@
 	"thisisdeleted": "sine wile ala wile lukin anu sin e lipu \"$1\"",
 	"viewdeleted": "lukin ala lukin e $1?",
 	"restorelink": "{{PLURAL:$1|ante weka}}",
-<<<<<<< HEAD
-=======
 	"sitenotice": "-",
 	"anonnotice": "-",
 	"newsectionheaderdefaultlevel": "== $1 ==",
->>>>>>> origin/1.39.7-test
 	"red-link-title": "$1 (lipu li lon ala)",
 	"sort-descending": "suli o nanpa wan",
 	"sort-ascending": "lili o nanpa wan",
@@ -387,13 +345,6 @@
 	"createacct-submit": "o pali e sijelo",
 	"createacct-another-submit": "o pali e sijelo",
 	"createacct-benefit-heading": "jan pali pi lipu {{SITENAME}} li sama sina.",
-<<<<<<< HEAD
-	"createacct-benefit-body1": "{{PLURAL:$1|li nanpa ante}}",
-	"createacct-benefit-body2": "{{PLURAL:$1|li nanpa lipu}}",
-	"createacct-benefit-body3": "{{PLURAL:$1|jan pali}} pi tenpo poka",
-	"createaccounterror": "mi ken ala pali e sijelo: $1",
-	"loginsuccesstitle": "lon sijelo",
-=======
 	"createacct-benefit-icon1": "icon-edits",
 	"createacct-benefit-head1": "{{NUMBEROFEDITS}}",
 	"createacct-benefit-body1": "{{PLURAL:$1|li nanpa ante}}",
@@ -407,7 +358,6 @@
 	"nocookiesforlogin": "{{int:nocookieslogin}}",
 	"loginsuccesstitle": "lon sijelo",
 	"emailsender": "{{SITENAME}}",
->>>>>>> origin/1.39.7-test
 	"loginlanguagelabel": "toki: $1",
 	"pt-login": "o lon sijelo",
 	"pt-login-button": "o lon sijelo",
@@ -436,10 +386,7 @@
 	"editing": "sina ante e lipu \"$1\"",
 	"editingsection": "sina ante e wan pi lipu \"$1\"",
 	"editingcomment": "sina pana e wan sin tawa lipu \"$1\"",
-<<<<<<< HEAD
-=======
 	"editnotice-notext": "-",
->>>>>>> origin/1.39.7-test
 	"yourdiff": "ante",
 	"copyrightwarning": "o sona e ni: lipu ken $2 (o lukin e $1) li lawa e ale lon {{SITENAME}} ni. jan li ken ante e toki sina li ken pana e ona tawa jan ante. sina wile ala e ni la, o sitelen ala lon lipu ni.\nkin la sina toki e ni: toki sina ni li tan sina taso, anu tan lipu pi ken ale.\n'''jan ante li wile ala la, o pana ala e toki ona tawa lipu ni!'''",
 	"templatesused": "{{PLURAL:$1|ilo ni}} li lon lipu ni:",
@@ -452,10 +399,7 @@
 	"content-model-javascript": "toki ilo JavaScript",
 	"content-model-css": "toki ilo CSS",
 	"content-model-json": "toki ilo JSON",
-<<<<<<< HEAD
-=======
 	"createaccount-hook-aborted": "$1",
->>>>>>> origin/1.39.7-test
 	"cur": "ni",
 	"next": "kama",
 	"last": "pini",
@@ -542,10 +486,7 @@
 	"enhancedrc-history": "tenpo pini",
 	"recentchanges": "tenpo poka la pali sin",
 	"recentchanges-summary": "ilo ni li pana e ni: jan li ante e lipu seme lon tenpo poka?",
-<<<<<<< HEAD
-=======
 	"recentchangestext": "-",
->>>>>>> origin/1.39.7-test
 	"recentchanges-feed-description": "ilo ni li pana e ni: jan li ante e lipu seme lon tenpo poka?",
 	"recentchanges-label-newpage": "ante ni li lon e lipu sin",
 	"recentchanges-label-minor": "ante ni li lili",
@@ -553,10 +494,7 @@
 	"recentchanges-label-plusminus": "nanpa pi suli lipu li ante ni",
 	"recentchanges-legend-heading": "<strong>nimi lili pi ilo ni:</strong>",
 	"recentchanges-legend-newpage": "{{int:recentchanges-label-newpage}} (o lukin kin e [[Special:NewPages|kulupu pi lipu sin]])",
-<<<<<<< HEAD
-=======
 	"recentchanges-legend-unpatrolled": "{{int:recentchanges-label-unpatrolled}}",
->>>>>>> origin/1.39.7-test
 	"recentchanges-legend-watchlistexpiry": "tenpo lili la sina lukin e lipu ni",
 	"recentchanges-submit": "o suli",
 	"rcfilters-legend-heading": "<strong>nimi lili pi ilo ni:</strong>",
@@ -633,10 +571,7 @@
 	"pager-newer-n": "{{PLURAL:$1|ante sin $1}}",
 	"pager-older-n": "{{PLURAL:$1|ante pini $1}}",
 	"booksources-search": "o alasa",
-<<<<<<< HEAD
-=======
 	"rfcurl": "https://tools.ietf.org/html/rfc$1",
->>>>>>> origin/1.39.7-test
 	"log": "jan li pali wawa seme",
 	"logeventslist-submit": "o suli",
 	"logempty": "ala li lon.",
@@ -736,10 +671,7 @@
 	"diff-form": "ante",
 	"deletepage": "o weka",
 	"htmlform-submit": "o pana",
-<<<<<<< HEAD
-=======
 	"1movedto2": "li ante e nimi [[$1]] tawa nimi [[$2]]",
->>>>>>> origin/1.39.7-test
 	"feedback-close": "pini",
 	"searchsuggest-search": "o alasa lon lipu {{SITENAME}}",
 	"searchsuggest-containing": "o alasa e ni lon insa:",

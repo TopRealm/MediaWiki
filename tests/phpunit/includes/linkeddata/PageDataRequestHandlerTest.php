@@ -1,9 +1,6 @@
 <?php
 
 use MediaWiki\MainConfigNames;
-use MediaWiki\Request\FauxRequest;
-use MediaWiki\Request\FauxResponse;
-use MediaWiki\Title\Title;
 
 /**
  * @covers PageDataRequestHandler

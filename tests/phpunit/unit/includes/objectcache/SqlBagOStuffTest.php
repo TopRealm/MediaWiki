@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @covers SqlBagOStuff
- * @group BagOStuff
- */
 class SqlBagOStuffTest extends MediaWikiUnitTestCase {
 	public static function provideMakeKey() {
 		yield [ 'local', 'first', [ 'second', 'third' ],
@@ -24,6 +20,7 @@ class SqlBagOStuffTest extends MediaWikiUnitTestCase {
 	 * @param string $class
 	 * @param array $components
 	 * @param string $expected
+	 * @covers SqlBagOStuff::makeKeyInternal
 	 * @dataProvider SqlBagOStuffTest::provideMakeKey
 	 */
 	public function testMakeKey(

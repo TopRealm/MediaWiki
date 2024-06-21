@@ -89,7 +89,7 @@ class BlockListPagerTest extends MediaWikiIntegrationTestCase {
 		MWTimestamp::setFakeTime( MWTimestamp::time() );
 
 		$value = $name === 'ipb_timestamp' ? MWTimestamp::time() : '';
-		$expected ??= MWTimestamp::getInstance()->format( 'H:i, j F Y' );
+		$expected = $expected ?? MWTimestamp::getInstance()->format( 'H:i, j F Y' );
 
 		$row = $row ?: (object)[];
 		$pager = $this->getBlockListPager();
@@ -257,7 +257,7 @@ class BlockListPagerTest extends MediaWikiIntegrationTestCase {
 		];
 
 		foreach ( $links as $link ) {
-			$this->assertNull( $wrappedlinkCache->entries->get( $link ) );
+			$this->assertNull( $wrappedlinkCache->badLinks->get( $link ) );
 		}
 
 		$row = (object)[
@@ -273,7 +273,7 @@ class BlockListPagerTest extends MediaWikiIntegrationTestCase {
 		$pager->preprocessResults( new FakeResultWrapper( [ $row ] ) );
 
 		foreach ( $links as $link ) {
-			$this->assertTrue( $wrappedlinkCache->isBadLink( $link ), "Bad link [[$link]]" );
+			$this->assertSame( 1, $wrappedlinkCache->badLinks->get( $link ), "Bad link [[$link]]" );
 		}
 
 		// Test sitewide blocks.

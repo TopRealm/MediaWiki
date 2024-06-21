@@ -69,7 +69,7 @@ class JobQueueFederated extends JobQueue {
 	 *                          different partition queues. This improves availability
 	 *                          during failure, at the cost of added latency and somewhat
 	 *                          less reliable job de-duplication mechanisms.
-	 * @throws MWException When the configuration is invalid.
+	 * @throws MWException
 	 */
 	protected function __construct( array $params ) {
 		parent::__construct( $params );

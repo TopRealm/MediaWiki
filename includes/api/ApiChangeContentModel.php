@@ -2,7 +2,6 @@
 
 use MediaWiki\Content\IContentHandlerFactory;
 use MediaWiki\Page\ContentModelChangeFactory;
-use MediaWiki\Title\Title;
 use Wikimedia\ParamValidator\ParamValidator;
 
 /**

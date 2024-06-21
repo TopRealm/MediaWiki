@@ -22,7 +22,6 @@
  */
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\WikiMap\WikiMap;
 
 require_once __DIR__ . '/Maintenance.php';
 
@@ -66,10 +65,10 @@ class CopyJobQueue extends Maintenance {
 			$src = JobQueue::factory( $baseConfig + $wgJobQueueMigrationConfig[$srcKey] );
 			$dst = JobQueue::factory( $baseConfig + $wgJobQueueMigrationConfig[$dstKey] );
 
-			[ $total, $totalOK ] = $this->copyJobs( $src, $dst, $src->getAllQueuedJobs() );
+			list( $total, $totalOK ) = $this->copyJobs( $src, $dst, $src->getAllQueuedJobs() );
 			$this->output( "Copied $totalOK/$total queued $type jobs.\n" );
 
-			[ $total, $totalOK ] = $this->copyJobs( $src, $dst, $src->getAllDelayedJobs() );
+			list( $total, $totalOK ) = $this->copyJobs( $src, $dst, $src->getAllDelayedJobs() );
 			$this->output( "Copied $totalOK/$total delayed $type jobs.\n" );
 		}
 	}

@@ -20,9 +20,6 @@
  * @file
  */
 
-use MediaWiki\Feed\ChannelFeed;
-use MediaWiki\Feed\FeedItem;
-
 /**
  * This printer is used to wrap an instance of the Feed class
  * @ingroup API
@@ -59,7 +56,7 @@ class ApiFormatFeedWrapper extends ApiFormatBase {
 	}
 
 	/**
-	 * MediaWiki\Feed\ChannelFeed doesn't give us a method to print errors in a friendly
+	 * ChannelFeed doesn't give us a method to print errors in a friendly
 	 * manner, so just punt errors to the default printer.
 	 * @return bool
 	 */
@@ -70,7 +67,7 @@ class ApiFormatFeedWrapper extends ApiFormatBase {
 	/**
 	 * This class expects the result data to be in a custom format set by self::setResult()
 	 * $result['_feed'] - an instance of one of the $wgFeedClasses classes
-	 * $result['_feeditems'] - an array of MediaWiki\Feed\FeedItem instances
+	 * $result['_feeditems'] - an array of FeedItem instances
 	 * @param bool $unused
 	 */
 	public function initPrinter( $unused = false ) {
@@ -94,7 +91,7 @@ class ApiFormatFeedWrapper extends ApiFormatBase {
 	/**
 	 * This class expects the result data to be in a custom format set by self::setResult()
 	 * $result['_feed'] - an instance of one of the $wgFeedClasses classes
-	 * $result['_feeditems'] - an array of MediaWiki\Feed\FeedItem instances
+	 * $result['_feeditems'] - an array of FeedItem instances
 	 */
 	public function execute() {
 		$data = $this->getResult()->getResultData();

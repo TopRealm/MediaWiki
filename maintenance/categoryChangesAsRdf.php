@@ -16,13 +16,10 @@
  * http://www.gnu.org/copyleft/gpl.html
  *
  */
-
-use MediaWiki\Category\CategoriesRdf;
 use MediaWiki\MainConfigNames;
 use Wikimedia\Purtle\RdfWriter;
 use Wikimedia\Purtle\TurtleRdfWriter;
 use Wikimedia\Rdbms\IDatabase;
-use Wikimedia\Rdbms\IReadableDatabase;
 
 require_once __DIR__ . '/Maintenance.php';
 
@@ -307,7 +304,7 @@ SPARQL;
 		$it->addJoinConditions( [
 			'page' => [ 'JOIN', 'rc_cur_id = page_id' ],
 		] );
-		$this->addIndex( $it );
+		$this->addIndex( $it, $dbr );
 		return $it;
 	}
 
@@ -334,7 +331,7 @@ SPARQL;
 			// this means they were restored, thus restoring handler will pick it up.
 			'NOT EXISTS (SELECT * FROM page WHERE page_id = rc_cur_id)',
 		] );
-		$this->addIndex( $it );
+		$this->addIndex( $it, $dbr );
 		$it->setFetchColumns( [ 'rc_cur_id', 'rc_title' ] );
 		$it->setCaller( $fname );
 		return $it;
@@ -357,7 +354,7 @@ SPARQL;
 			// We will only fetch ones that have page record
 			'EXISTS (SELECT page_id FROM page WHERE page_id = rc_cur_id)',
 		] );
-		$this->addIndex( $it );
+		$this->addIndex( $it, $dbr );
 		return $it;
 	}
 
@@ -375,16 +372,16 @@ SPARQL;
 			'rc_new' => 0,
 			'rc_type' => $type,
 		] );
-		$this->addIndex( $it );
+		$this->addIndex( $it, $dbr );
 		return $it;
 	}
 
 	/**
 	 * Add timestamp limits to iterator
 	 * @param BatchRowIterator $it Iterator
-	 * @param IReadableDatabase $dbr
+	 * @param IDatabase $dbr
 	 */
-	private function addTimestampConditions( BatchRowIterator $it, IReadableDatabase $dbr ) {
+	private function addTimestampConditions( BatchRowIterator $it, IDatabase $dbr ) {
 		$it->addConditions( [
 			'rc_timestamp >= ' . $dbr->addQuotes( $dbr->timestamp( $this->startTS ) ),
 			'rc_timestamp < ' . $dbr->addQuotes( $dbr->timestamp( $this->endTS ) ),
@@ -394,8 +391,9 @@ SPARQL;
 	/**
 	 * Need to force index, somehow on terbium the optimizer chooses wrong one
 	 * @param BatchRowIterator $it
+	 * @param IDatabase $dbr
 	 */
-	private function addIndex( BatchRowIterator $it ) {
+	private function addIndex( BatchRowIterator $it, IDatabase $dbr ) {
 		$it->addOptions( [
 			'USE INDEX' => [ 'recentchanges' => 'rc_new_name_timestamp' ]
 		] );

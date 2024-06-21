@@ -1,6 +1,8 @@
 <?php
 /** Megleno-Romanian (Latin script) (Vlăheşte)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  *

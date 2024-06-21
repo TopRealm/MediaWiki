@@ -3,7 +3,7 @@
 namespace MediaWiki\ParamValidator\TypeDef;
 
 use MediaWiki\Linker\LinkTarget;
-use MediaWiki\Title\TitleFactory;
+use TitleFactory;
 use Wikimedia\Message\MessageValue;
 use Wikimedia\ParamValidator\Callbacks;
 use Wikimedia\ParamValidator\ParamValidator;

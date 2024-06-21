@@ -21,7 +21,6 @@
  * @ingroup SpecialPage
  */
 
-use MediaWiki\Language\RawMessage;
 use MediaWiki\User\UserFactory;
 use Wikimedia\ScopedCallback;
 
@@ -82,7 +81,7 @@ class SpecialConfirmEmail extends UnlistedSpecialPage {
 				$this->getOutput()->addWikiMsg( 'confirmemail_noemail' );
 			}
 		} else {
-			$scope = $trxProfiler->silenceForScope( $trxProfiler::EXPECTATION_REPLICAS_ONLY );
+			$scope = $trxProfiler->silenceForScope();
 			$this->attemptConfirm( $code );
 			ScopedCallback::consume( $scope );
 		}

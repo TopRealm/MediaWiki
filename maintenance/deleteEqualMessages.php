@@ -19,10 +19,7 @@
  * @ingroup Maintenance
  */
 
-use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\StubObject\StubGlobalUser;
-use MediaWiki\Title\Title;
 
 require_once __DIR__ . '/Maintenance.php';
 
@@ -45,7 +42,7 @@ class DeleteEqualMessages extends Maintenance {
 	}
 
 	/**
-	 * @param string|false $langCode See --lang-code option.
+	 * @param string|bool $langCode See --lang-code option.
 	 * @param array &$messageInfo
 	 */
 	protected function fetchMessageInfo( $langCode, array &$messageInfo ) {
@@ -122,7 +119,7 @@ class DeleteEqualMessages extends Maintenance {
 		// Load message information
 		if ( $langCode ) {
 			$langCodes = $services->getLanguageNameUtils()
-				->getLanguageNames( LanguageNameUtils::AUTONYMS, LanguageNameUtils::SUPPORTED );
+				->getLanguageNames( null, 'mwfile' );
 			if ( $langCode === '*' ) {
 				// All valid lang-code subpages in NS_MEDIAWIKI that
 				// override the messsages in that language
@@ -186,9 +183,10 @@ class DeleteEqualMessages extends Maintenance {
 		// Handle deletion
 		$this->output( "\n...deleting equal messages (this may take a long time!)..." );
 		$dbw = $this->getDB( DB_PRIMARY );
+		$lbFactory = $services->getDBLoadBalancerFactory();
 		$wikiPageFactory = $services->getWikiPageFactory();
 		foreach ( $messageInfo['results'] as $result ) {
-			$this->waitForReplication();
+			$lbFactory->waitForReplication();
 			$dbw->ping();
 			$title = Title::makeTitle( NS_MEDIAWIKI, $result['title'] );
 			$this->output( "\n* [[$title]]" );

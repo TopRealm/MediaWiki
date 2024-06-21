@@ -25,7 +25,6 @@
 use MediaWiki\Cache\LinkBatchFactory;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Title\Title;
 use Wikimedia\ParamValidator\ParamValidator;
 
 /**
@@ -79,7 +78,7 @@ class ApiOpenSearch extends ApiBase {
 				$format = $allowedParams['format'][ParamValidator::PARAM_DEFAULT];
 			}
 
-			if ( str_ends_with( $format, 'fm' ) ) {
+			if ( substr( $format, -2 ) === 'fm' ) {
 				$this->format = substr( $format, 0, -2 );
 				$this->fm = 'fm';
 			} else {
@@ -192,7 +191,7 @@ class ApiOpenSearch extends ApiBase {
 				$dbkey = $title->getDBkey();
 				$from = null;
 				if ( isset( $redirects[$ns][$dbkey] ) ) {
-					[ $ns, $dbkey ] = $redirects[$ns][$dbkey];
+					list( $ns, $dbkey ) = $redirects[$ns][$dbkey];
 					$from = $title;
 					$title = Title::makeTitle( $ns, $dbkey );
 				}

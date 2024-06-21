@@ -75,31 +75,13 @@ class WatchedItemQueryServiceUnitTest extends MediaWikiUnitTestCase {
 				return implode( $sqlConj, $conds );
 			} );
 
-		$mock->method( 'buildComparison' )
-			->with(
-				$this->isType( 'string' ),
-				$this->isType( 'array' )
-			)
-			->willReturnCallback( static function ( string $op, array $conds ) {
-				$sql = '';
-				foreach ( array_reverse( $conds ) as $field => $value ) {
-					if ( $sql === '' ) {
-						$sql = "$field $op '$value'";
-						$op = rtrim( $op, '=' );
-					} else {
-						$sql = "$field $op '$value' OR ($field = '$value' AND ($sql))";
-					}
-				}
-				return $sql;
-			} );
-
 		$mock->method( 'addQuotes' )
 			->willReturnCallback( static function ( $value ) {
 				return "'$value'";
 			} );
 
 		$mock->method( 'timestamp' )
-			->willReturnArgument( 0 );
+			->will( $this->returnArgument( 0 ) );
 
 		$mock->method( 'bitAnd' )
 			->willReturnCallback( static function ( $a, $b ) {
@@ -250,7 +232,7 @@ class WatchedItemQueryServiceUnitTest extends MediaWikiUnitTestCase {
 		$this->assertIsArray( $items );
 		$this->assertCount( 2, $items );
 
-		foreach ( $items as [ $watchedItem, $recentChangeInfo ] ) {
+		foreach ( $items as list( $watchedItem, $recentChangeInfo ) ) {
 			$this->assertInstanceOf( WatchedItem::class, $watchedItem );
 			$this->assertIsArray( $recentChangeInfo );
 		}
@@ -409,7 +391,7 @@ class WatchedItemQueryServiceUnitTest extends MediaWikiUnitTestCase {
 		$this->assertIsArray( $items );
 		$this->assertCount( 2, $items );
 
-		foreach ( $items as [ $watchedItem, $recentChangeInfo ] ) {
+		foreach ( $items as list( $watchedItem, $recentChangeInfo ) ) {
 			$this->assertInstanceOf( WatchedItem::class, $watchedItem );
 			$this->assertIsArray( $recentChangeInfo );
 		}
@@ -755,7 +737,7 @@ class WatchedItemQueryServiceUnitTest extends MediaWikiUnitTestCase {
 				[],
 				[],
 				[
-					"rc_timestamp < '20151212010101' OR (rc_timestamp = '20151212010101' AND (rc_id <= '123'))"
+					"(rc_timestamp < '20151212010101') OR ((rc_timestamp = '20151212010101') AND (rc_id <= 123))"
 				],
 				[ 'ORDER BY' => [ 'rc_timestamp DESC', 'rc_id DESC' ] ],
 				[],
@@ -766,7 +748,7 @@ class WatchedItemQueryServiceUnitTest extends MediaWikiUnitTestCase {
 				[],
 				[],
 				[
-					"rc_timestamp > '20151212010101' OR (rc_timestamp = '20151212010101' AND (rc_id >= '123'))"
+					"(rc_timestamp > '20151212010101') OR ((rc_timestamp = '20151212010101') AND (rc_id >= 123))"
 				],
 				[ 'ORDER BY' => [ 'rc_timestamp', 'rc_id' ] ],
 				[],
@@ -777,7 +759,7 @@ class WatchedItemQueryServiceUnitTest extends MediaWikiUnitTestCase {
 				[],
 				[],
 				[
-					"rc_timestamp < '20151212010101' OR (rc_timestamp = '20151212010101' AND (rc_id <= '123'))"
+					"(rc_timestamp < '20151212010101') OR ((rc_timestamp = '20151212010101') AND (rc_id <= 123))"
 				],
 				[ 'ORDER BY' => [ 'rc_timestamp DESC', 'rc_id DESC' ] ],
 				[],
@@ -1451,7 +1433,7 @@ class WatchedItemQueryServiceUnitTest extends MediaWikiUnitTestCase {
 					'from' => new TitleValue( 0, 'SomeDbKey' ),
 					'sort' => WatchedItemQueryService::SORT_ASC
 				],
-				[ "wl_namespace > '0' OR (wl_namespace = '0' AND (wl_title >= 'SomeDbKey'))", ],
+				[ "(wl_namespace > 0) OR ((wl_namespace = 0) AND (wl_title >= 'SomeDbKey'))", ],
 				[ 'ORDER BY' => [ 'wl_namespace ASC', 'wl_title ASC' ] ]
 			],
 			[
@@ -1459,7 +1441,7 @@ class WatchedItemQueryServiceUnitTest extends MediaWikiUnitTestCase {
 					'from' => new TitleValue( 0, 'SomeDbKey' ),
 					'sort' => WatchedItemQueryService::SORT_DESC,
 				],
-				[ "wl_namespace < '0' OR (wl_namespace = '0' AND (wl_title <= 'SomeDbKey'))", ],
+				[ "(wl_namespace < 0) OR ((wl_namespace = 0) AND (wl_title <= 'SomeDbKey'))", ],
 				[ 'ORDER BY' => [ 'wl_namespace DESC', 'wl_title DESC' ] ]
 			],
 			[
@@ -1467,7 +1449,7 @@ class WatchedItemQueryServiceUnitTest extends MediaWikiUnitTestCase {
 					'until' => new TitleValue( 0, 'SomeDbKey' ),
 					'sort' => WatchedItemQueryService::SORT_ASC
 				],
-				[ "wl_namespace < '0' OR (wl_namespace = '0' AND (wl_title <= 'SomeDbKey'))", ],
+				[ "(wl_namespace < 0) OR ((wl_namespace = 0) AND (wl_title <= 'SomeDbKey'))", ],
 				[ 'ORDER BY' => [ 'wl_namespace ASC', 'wl_title ASC' ] ]
 			],
 			[
@@ -1475,7 +1457,7 @@ class WatchedItemQueryServiceUnitTest extends MediaWikiUnitTestCase {
 					'until' => new TitleValue( 0, 'SomeDbKey' ),
 					'sort' => WatchedItemQueryService::SORT_DESC
 				],
-				[ "wl_namespace > '0' OR (wl_namespace = '0' AND (wl_title >= 'SomeDbKey'))", ],
+				[ "(wl_namespace > 0) OR ((wl_namespace = 0) AND (wl_title >= 'SomeDbKey'))", ],
 				[ 'ORDER BY' => [ 'wl_namespace DESC', 'wl_title DESC' ] ]
 			],
 			[
@@ -1486,9 +1468,9 @@ class WatchedItemQueryServiceUnitTest extends MediaWikiUnitTestCase {
 					'sort' => WatchedItemQueryService::SORT_ASC
 				],
 				[
-					"wl_namespace > '0' OR (wl_namespace = '0' AND (wl_title >= 'AnotherDbKey'))",
-					"wl_namespace < '0' OR (wl_namespace = '0' AND (wl_title <= 'SomeOtherDbKey'))",
-					"wl_namespace > '0' OR (wl_namespace = '0' AND (wl_title >= 'SomeDbKey'))",
+					"(wl_namespace > 0) OR ((wl_namespace = 0) AND (wl_title >= 'AnotherDbKey'))",
+					"(wl_namespace < 0) OR ((wl_namespace = 0) AND (wl_title <= 'SomeOtherDbKey'))",
+					"(wl_namespace > 0) OR ((wl_namespace = 0) AND (wl_title >= 'SomeDbKey'))",
 				],
 				[ 'ORDER BY' => [ 'wl_namespace ASC', 'wl_title ASC' ] ]
 			],
@@ -1500,9 +1482,9 @@ class WatchedItemQueryServiceUnitTest extends MediaWikiUnitTestCase {
 					'sort' => WatchedItemQueryService::SORT_DESC
 				],
 				[
-					"wl_namespace < '0' OR (wl_namespace = '0' AND (wl_title <= 'SomeOtherDbKey'))",
-					"wl_namespace > '0' OR (wl_namespace = '0' AND (wl_title >= 'AnotherDbKey'))",
-					"wl_namespace < '0' OR (wl_namespace = '0' AND (wl_title <= 'SomeDbKey'))",
+					"(wl_namespace < 0) OR ((wl_namespace = 0) AND (wl_title <= 'SomeOtherDbKey'))",
+					"(wl_namespace > 0) OR ((wl_namespace = 0) AND (wl_title >= 'AnotherDbKey'))",
+					"(wl_namespace < 0) OR ((wl_namespace = 0) AND (wl_title <= 'SomeDbKey'))",
 				],
 				[ 'ORDER BY' => [ 'wl_namespace DESC', 'wl_title DESC' ] ]
 			],

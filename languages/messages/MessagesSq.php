@@ -1,6 +1,8 @@
 <?php
 /** Albanian (shqip)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  *
@@ -103,7 +105,6 @@ $specialPageAliases = [
 	'Protectedtitles'           => [ 'TitujTëMbrojtur', 'TitujteMbrojtur' ],
 	'Randompage'                => [ 'ArtikullIRastësishëm', 'Rastësishme', 'FaqeRastësishme' ],
 	'Recentchanges'             => [ 'NdryshimeSëFundmi' ],
-	'Renameuser'                => [ 'RiemërtoPërdorues' ],
 	'Search'                    => [ 'Kërko', 'Kërkim' ],
 	'Shortpages'                => [ 'FaqeTëShkurtra', 'FasheteShkurta' ],
 	'Specialpages'              => [ 'FaqetSpeciale' ],

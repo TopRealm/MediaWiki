@@ -19,16 +19,11 @@
  * @ingroup Pager
  */
 
-use MediaWiki\Cache\LinkBatchFactory;
-use MediaWiki\CommentFormatter\CommentFormatter;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\HookContainer\HookRunner;
-use MediaWiki\Html\Html;
-use MediaWiki\Linker\Linker;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Revision\RevisionFactory;
 use MediaWiki\Revision\RevisionRecord;
-use MediaWiki\Title\Title;
 use Wikimedia\Rdbms\FakeResultWrapper;
 use Wikimedia\Rdbms\ILoadBalancer;
 use Wikimedia\Rdbms\IResultWrapper;
@@ -55,11 +50,8 @@ class DeletedContribsPager extends ReverseChronologicalPager {
 	 */
 	public $namespace = '';
 
-	/** @var string[] */
-	private $formattedComments = [];
-
-	/** @var RevisionRecord[] Cached revisions by ID */
-	private $revisions = [];
+	/** @var CommentStore */
+	private $commentStore;
 
 	/** @var HookRunner */
 	private $hookRunner;
@@ -67,36 +59,29 @@ class DeletedContribsPager extends ReverseChronologicalPager {
 	/** @var RevisionFactory */
 	private $revisionFactory;
 
-	/** @var CommentFormatter */
-	private $commentFormatter;
-
-	/** @var LinkBatchFactory */
-	private $linkBatchFactory;
-
 	/**
 	 * @param IContextSource $context
+	 * @param CommentStore $commentStore
 	 * @param HookContainer $hookContainer
 	 * @param LinkRenderer $linkRenderer
 	 * @param ILoadBalancer $loadBalancer
 	 * @param RevisionFactory $revisionFactory
-	 * @param CommentFormatter $commentFormatter
-	 * @param LinkBatchFactory $linkBatchFactory
 	 * @param string $target
 	 * @param string|int $namespace
 	 */
 	public function __construct(
 		IContextSource $context,
+		CommentStore $commentStore,
 		HookContainer $hookContainer,
 		LinkRenderer $linkRenderer,
 		ILoadBalancer $loadBalancer,
 		RevisionFactory $revisionFactory,
-		CommentFormatter $commentFormatter,
-		LinkBatchFactory $linkBatchFactory,
 		$target,
 		$namespace
 	) {
+		// Set database before parent constructor to avoid setting it there with wfGetDB
+		$this->mDb = $loadBalancer->getConnectionRef( ILoadBalancer::DB_REPLICA, 'contributions' );
 		parent::__construct( $context, $linkRenderer );
-
 		$msgs = [ 'deletionlog', 'undeleteviewlink', 'diff' ];
 		foreach ( $msgs as $msg ) {
 			$this->messages[$msg] = $this->msg( $msg )->text();
@@ -104,9 +89,8 @@ class DeletedContribsPager extends ReverseChronologicalPager {
 		$this->target = $target;
 		$this->namespace = $namespace;
 		$this->hookRunner = new HookRunner( $hookContainer );
+		$this->commentStore = $commentStore;
 		$this->revisionFactory = $revisionFactory;
-		$this->commentFormatter = $commentFormatter;
-		$this->linkBatchFactory = $linkBatchFactory;
 	}
 
 	public function getDefaultQuery() {
@@ -146,43 +130,6 @@ class DeletedContribsPager extends ReverseChronologicalPager {
 		);
 
 		return $queryInfo;
-	}
-
-	protected function doBatchLookups() {
-		// Do a link batch query
-		$this->mResult->seek( 0 );
-		$revisions = [];
-		$linkBatch = $this->linkBatchFactory->newLinkBatch();
-		// Give some pointers to make (last) links
-		$revisionRows = [];
-		foreach ( $this->mResult as $row ) {
-			if ( $this->revisionFactory->isRevisionRow( $row, 'archive' ) ) {
-				$revisionRows[] = $row;
-				$linkBatch->add( $row->ar_namespace, $row->ar_title );
-			}
-		}
-		// Cannot combine both loops, because RevisionFactory::newRevisionFromArchiveRow needs
-		// the title information in LinkCache to avoid extra db queries
-		$linkBatch->execute();
-
-		foreach ( $revisionRows as $row ) {
-			$revisions[$row->ar_rev_id] = $this->revisionFactory->newRevisionFromArchiveRow(
-				$row,
-				RevisionFactory::READ_NORMAL,
-				Title::makeTitle( $row->ar_namespace, $row->ar_title )
-			);
-		}
-
-		$this->formattedComments = $this->commentFormatter->createRevisionBatch()
-			->authority( $this->getAuthority() )
-			->revisions( $revisions )
-			->execute();
-
-		// For performance, save the revision objects for later.
-		// The array is indexed by rev_id. doBatchLookups() may be called
-		// multiple times with different results, so merge the revisions array,
-		// ignoring any duplicates.
-		$this->revisions += $revisions;
 	}
 
 	/**
@@ -226,13 +173,6 @@ class DeletedContribsPager extends ReverseChronologicalPager {
 		$result = array_values( $result );
 
 		return new FakeResultWrapper( $result );
-	}
-
-	/**
-	 * @return string[]
-	 */
-	protected function getExtraSortFields() {
-		return [ 'ar_id' ];
 	}
 
 	public function getIndexField() {
@@ -288,8 +228,12 @@ class DeletedContribsPager extends ReverseChronologicalPager {
 		$attribs = [];
 
 		if ( $this->revisionFactory->isRevisionRow( $row, 'archive' ) ) {
-			$attribs['data-mw-revid'] = $row->ar_rev_id;
-			[ $ret, $classes ] = $this->formatRevisionRow( $row );
+			$revRecord = $this->revisionFactory->newRevisionFromArchiveRow( $row );
+			$revId = $revRecord->getId();
+			if ( $revId ) {
+				$attribs['data-mw-revid'] = $revId;
+				[ $ret, $classes ] = $this->formatRevisionRow( $row );
+			}
 		}
 
 		// Let extensions add data
@@ -328,7 +272,7 @@ class DeletedContribsPager extends ReverseChronologicalPager {
 
 		$linkRenderer = $this->getLinkRenderer();
 
-		$revRecord = $this->revisions[$row->ar_rev_id] ?? $this->revisionFactory->newRevisionFromArchiveRow(
+		$revRecord = $this->revisionFactory->newRevisionFromArchiveRow(
 				$row,
 				RevisionFactory::READ_NORMAL,
 				$page
@@ -369,9 +313,7 @@ class DeletedContribsPager extends ReverseChronologicalPager {
 			$last = htmlspecialchars( $this->messages['diff'] );
 		}
 
-		$comment = $row->ar_rev_id
-			? $this->formattedComments[$row->ar_rev_id]
-			: $this->commentFormatter->formatRevision( $revRecord, $user );
+		$comment = Linker::revComment( $revRecord );
 		$date = $this->getLanguage()->userTimeAndDate( $revRecord->getTimestamp(), $user );
 
 		if ( !$this->getAuthority()->isAllowed( 'undelete' ) ||
@@ -421,7 +363,7 @@ class DeletedContribsPager extends ReverseChronologicalPager {
 		);
 
 		// Tags, if any.
-		[ $tagSummary, $classes ] = ChangeTags::formatSummaryRow(
+		list( $tagSummary, $classes ) = ChangeTags::formatSummaryRow(
 			$row->ts_tags,
 			'deletedcontributions',
 			$this->getContext()

@@ -21,11 +21,8 @@
  * @ingroup SpecialPage
  */
 
-use MediaWiki\Html\FormOptions;
-use MediaWiki\Html\Html;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Request\DerivativeRequest;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserOptionsLookup;
 use MediaWiki\Watchlist\WatchlistManager;
@@ -40,13 +37,6 @@ use Wikimedia\Rdbms\IResultWrapper;
  * @ingroup SpecialPage
  */
 class SpecialWatchlist extends ChangesListSpecialPage {
-	/** @var array */
-	public const WATCHLIST_TAB_PATHS = [
-		'Special:Watchlist',
-		'Special:EditWatchlist',
-		'Special:EditWatchlist/raw',
-		'Special:EditWatchlist/clear'
-	];
 
 	/** @var WatchedItemStoreInterface */
 	private $watchedItemStore;
@@ -164,9 +154,9 @@ class SpecialWatchlist extends ChangesListSpecialPage {
 	 */
 	public function getSubpagesForPrefixSearch() {
 		return [
+			'clear',
 			'edit',
 			'raw',
-			'clear',
 		];
 	}
 
@@ -448,8 +438,7 @@ class SpecialWatchlist extends ChangesListSpecialPage {
 			$conds,
 			$join_conds,
 			$query_options,
-			$tagFilter,
-			$opts['inverttags']
+			$tagFilter
 		);
 
 		$this->runMainQueryHook( $tables, $fields, $conds, $query_options, $join_conds, $opts );
@@ -628,40 +617,6 @@ class SpecialWatchlist extends ChangesListSpecialPage {
 	}
 
 	/**
-	 * @inheritDoc
-	 */
-	public function getAssociatedNavigationLinks() {
-		return self::WATCHLIST_TAB_PATHS;
-	}
-
-	/**
-	 * @param SpecialPage $specialPage
-	 * @param string $path
-	 * @return string
-	 */
-	public static function getShortDescriptionHelper( SpecialPage $specialPage, string $path = '' ): string {
-		switch ( $path ) {
-			case 'Watchlist':
-				return $specialPage->msg( 'watchlisttools-view' )->text();
-			case 'EditWatchlist':
-				return $specialPage->msg( 'watchlisttools-edit' )->text();
-			case 'EditWatchlist/raw':
-				return $specialPage->msg( 'watchlisttools-raw' )->text();
-			case 'EditWatchlist/clear':
-				return $specialPage->msg( 'watchlisttools-clear' )->text();
-			default:
-				return $path;
-		}
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function getShortDescription( string $path = '' ): string {
-		return self::getShortDescriptionHelper( $this, $path );
-	}
-
-	/**
 	 * Set the text to be displayed above the changes
 	 *
 	 * @param FormOptions $opts
@@ -670,15 +625,6 @@ class SpecialWatchlist extends ChangesListSpecialPage {
 	public function doHeader( $opts, $numRows ) {
 		$user = $this->getUser();
 		$out = $this->getOutput();
-		$skin = $this->getSkin();
-		// For legacy skins render the tabs in the subtitle
-		$subpageSubtitle = $skin->supportsMenu( 'associated-pages' ) ? '' :
-			' ' .
-			SpecialEditWatchlist::buildTools(
-					null,
-					$this->getLinkRenderer(),
-					$this->currentMode
-				);
 
 		$out->addSubtitle(
 			Html::element(
@@ -691,7 +637,12 @@ class SpecialWatchlist extends ChangesListSpecialPage {
 				// Empty string parameter can be removed when all messages
 				// are updated to not use $2
 				$this->msg( 'watchlistfor2', $this->getUser()->getName(), '' )->text()
-			) . $subpageSubtitle
+			) . ' ' .
+			SpecialEditWatchlist::buildTools(
+				$this->getLanguage(),
+				$this->getLinkRenderer(),
+				$this->currentMode
+			)
 		);
 
 		$this->setTopText( $opts );

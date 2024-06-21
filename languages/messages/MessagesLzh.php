@@ -1,6 +1,8 @@
 <?php
 /** Literary Chinese (文言)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  *

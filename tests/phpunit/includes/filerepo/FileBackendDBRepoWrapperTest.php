@@ -1,7 +1,5 @@
 <?php
 
-use MediaWiki\WikiMap\WikiMap;
-
 class FileBackendDBRepoWrapperTest extends MediaWikiIntegrationTestCase {
 	protected $backendName = 'foo-backend';
 	protected $repoName = 'pureTestRepo';
@@ -18,7 +16,7 @@ class FileBackendDBRepoWrapperTest extends MediaWikiIntegrationTestCase {
 		$originalPath,
 		$expectedBackendPath,
 		$message ) {
-		[ $dbMock, $backendMock, $wrapperMock ] = $mocks;
+		list( $dbMock, $backendMock, $wrapperMock ) = $mocks;
 
 		$dbMock->expects( $dbReadsExpected )
 			->method( 'selectField' )
@@ -89,7 +87,7 @@ class FileBackendDBRepoWrapperTest extends MediaWikiIntegrationTestCase {
 	 * @covers FileBackendDBRepoWrapper::getFileContentsMulti
 	 */
 	public function testGetFileContentsMulti() {
-		[ $dbMock, $backendMock, $wrapperMock ] = $this->getMocks();
+		list( $dbMock, $backendMock, $wrapperMock ) = $this->getMocks();
 
 		$sha1Path = 'mwstore://' . $this->backendName . '/' . $this->repoName
 			. '-original/9/6/2/96246614d75ba1703bdfd5d7660bb57407aaf5d9';

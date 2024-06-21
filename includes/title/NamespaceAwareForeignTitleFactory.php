@@ -95,7 +95,7 @@ class NamespaceAwareForeignTitleFactory implements ForeignTitleFactory {
 		$isNamespacePartValid = isset( $this->foreignNamespacesFlipped[$key] );
 
 		if ( count( $pieces ) === 2 && $isNamespacePartValid ) {
-			[ $namespaceName, $pageName ] = $pieces;
+			list( $namespaceName, $pageName ) = $pieces;
 			$ns = $this->foreignNamespacesFlipped[$key];
 		} else {
 			$namespaceName = '';

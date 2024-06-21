@@ -12,10 +12,10 @@ class DeletePage extends Page {
 		super.openTitle( title, { action: 'delete' } );
 	}
 
-	async delete( title, reason ) {
-		await this.open( title );
-		await this.reason.setValue( reason );
-		await this.submit.click();
+	delete( title, reason ) {
+		this.open( title );
+		this.reason.setValue( reason );
+		this.submit.click();
 	}
 }
 

@@ -18,7 +18,6 @@
  * @file
  */
 
-use MediaWiki\Category\Category;
 use MediaWiki\MediaWikiServices;
 
 /**

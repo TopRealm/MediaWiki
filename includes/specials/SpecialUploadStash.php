@@ -20,10 +20,8 @@
  * @file
  */
 
-use MediaWiki\Html\Html;
 use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\MainConfigNames;
-use MediaWiki\Utils\UrlUtils;
 use Wikimedia\RequestTimeout\TimeoutException;
 
 /**
@@ -49,9 +47,6 @@ class SpecialUploadStash extends UnlistedSpecialPage {
 	/** @var HttpRequestFactory */
 	private $httpRequestFactory;
 
-	/** @var UrlUtils */
-	private $urlUtils;
-
 	/**
 	 * Since we are directly writing the file to STDOUT,
 	 * we should not be reading in really big files and serving them out.
@@ -67,17 +62,14 @@ class SpecialUploadStash extends UnlistedSpecialPage {
 	/**
 	 * @param RepoGroup $repoGroup
 	 * @param HttpRequestFactory $httpRequestFactory
-	 * @param UrlUtils $urlUtils
 	 */
 	public function __construct(
 		RepoGroup $repoGroup,
-		HttpRequestFactory $httpRequestFactory,
-		UrlUtils $urlUtils
+		HttpRequestFactory $httpRequestFactory
 	) {
 		parent::__construct( 'UploadStash', 'upload' );
 		$this->localRepo = $repoGroup->getLocalRepo();
 		$this->httpRequestFactory = $httpRequestFactory;
-		$this->urlUtils = $urlUtils;
 	}
 
 	public function doesWrites() {
@@ -185,6 +177,7 @@ class SpecialUploadStash extends UnlistedSpecialPage {
 	 * @param array $params
 	 */
 	private function outputThumbFromStash( $file, $params ) {
+		$flags = 0;
 		// this config option, if it exists, points to a "scaler", as you might find in
 		// the Wikimedia Foundation cluster. See outputRemoteScaledThumb(). This
 		// is part of our horrible NFS-based system, we create a file on a mount
@@ -193,9 +186,9 @@ class SpecialUploadStash extends UnlistedSpecialPage {
 		if ( $file->getRepo()->getThumbProxyUrl()
 			|| $this->getConfig()->get( MainConfigNames::UploadStashScalerBaseUrl )
 		) {
-			$this->outputRemoteScaledThumb( $file, $params );
+			$this->outputRemoteScaledThumb( $file, $params, $flags );
 		} else {
-			$this->outputLocallyScaledThumb( $file, $params );
+			$this->outputLocallyScaledThumb( $file, $params, $flags );
 		}
 	}
 
@@ -204,13 +197,16 @@ class SpecialUploadStash extends UnlistedSpecialPage {
 	 * and output it to STDOUT.
 	 * @param File $file
 	 * @param array $params Scaling parameters ( e.g. [ width => '50' ] );
+	 * @param int $flags Scaling flags ( see File:: constants )
 	 * @throws MWException|UploadStashFileNotFoundException
 	 */
-	private function outputLocallyScaledThumb( $file, $params ) {
+	private function outputLocallyScaledThumb( $file, $params, $flags ) {
 		// n.b. this is stupid, we insist on re-transforming the file every time we are invoked. We rely
 		// on HTTP caching to ensure this doesn't happen.
 
-		$thumbnailImage = $file->transform( $params, File::RENDER_NOW );
+		$flags |= File::RENDER_NOW;
+
+		$thumbnailImage = $file->transform( $params, $flags );
 		if ( !$thumbnailImage ) {
 			throw new UploadStashFileNotFoundException(
 				$this->msg( 'uploadstash-file-not-found-no-thumb' )
@@ -247,9 +243,10 @@ class SpecialUploadStash extends UnlistedSpecialPage {
 	 *
 	 * @param File $file
 	 * @param array $params Scaling parameters ( e.g. [ width => '50' ] );
+	 * @param int $flags Scaling flags ( see File:: constants )
 	 * @throws MWException
 	 */
-	private function outputRemoteScaledThumb( $file, $params ) {
+	private function outputRemoteScaledThumb( $file, $params, $flags ) {
 		// We need to use generateThumbName() instead of thumbName(), because
 		// the suffix needs to match the file name for the remote thumbnailer
 		// to work
@@ -272,7 +269,7 @@ class SpecialUploadStash extends UnlistedSpecialPage {
 				// this is apparently a protocol-relative URL, which makes no sense in this context,
 				// since this is used for communication that's internal to the application.
 				// default to http.
-				$scalerBaseUrl = $this->urlUtils->expand( $scalerBaseUrl, PROTO_CANONICAL );
+				$scalerBaseUrl = wfExpandUrl( $scalerBaseUrl, PROTO_CANONICAL );
 			}
 
 			$scalerThumbUrl = $scalerBaseUrl . '/' . $file->getUrlRel() .

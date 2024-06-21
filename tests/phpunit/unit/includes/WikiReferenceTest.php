@@ -1,7 +1,5 @@
 <?php
 
-use MediaWiki\WikiMap\WikiReference;
-
 /**
  * @covers WikiReference
  */

@@ -1,5 +1,7 @@
 <?php
 /**
+ * Clear the cache of interwiki prefixes for all local wikis.
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -19,12 +21,12 @@
  * @ingroup Maintenance
  */
 
-use MediaWiki\MediaWikiServices;
+use MediaWiki\MainConfigNames;
 
 require_once __DIR__ . '/Maintenance.php';
 
 /**
- * Clear the cache of interwiki prefixes.
+ * Maintenance script to clear the cache of interwiki prefixes for all local wikis.
  *
  * @ingroup Maintenance
  */
@@ -36,20 +38,25 @@ class ClearInterwikiCache extends Maintenance {
 	}
 
 	public function execute() {
-		$lookup = MediaWikiServices::getInstance()->getInterwikiLookup();
-
 		$dbr = $this->getDB( DB_REPLICA );
-		$prefixes = $dbr->newSelectQueryBuilder()
+		$cache = ObjectCache::getLocalClusterInstance();
+		$res = $dbr->newSelectQueryBuilder()
 			->select( 'iw_prefix' )
 			->from( 'interwiki' )
 			->caller( __METHOD__ )
-			->fetchFieldValues();
-
-		foreach ( $prefixes as $prefix ) {
-			$this->output( "...$prefix\n" );
-			$lookup->invalidateCache( $prefix );
+			->fetchResultSet();
+		$prefixes = [];
+		foreach ( $res as $row ) {
+			$prefixes[] = $row->iw_prefix;
 		}
-		$this->output( "done\n" );
+
+		foreach ( $this->getConfig()->get( MainConfigNames::LocalDatabases ) as $wikiId ) {
+			$this->output( "$wikiId..." );
+			foreach ( $prefixes as $prefix ) {
+				$cache->delete( "$wikiId:interwiki:$prefix" );
+			}
+			$this->output( "done\n" );
+		}
 	}
 }
 

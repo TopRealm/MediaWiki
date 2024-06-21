@@ -3,7 +3,7 @@
 namespace MediaWiki\Hook;
 
 // phpcs:disable Squiz.Classes.ValidClassName.NotCamelCaps
-use MediaWiki\EditPage\EditPage;
+use EditPage;
 use Status;
 
 /**

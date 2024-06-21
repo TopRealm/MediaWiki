@@ -19,8 +19,6 @@
  * @ingroup RevisionDelete
  */
 
-use MediaWiki\Html\Html;
-use MediaWiki\Linker\Linker;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 
@@ -192,8 +190,7 @@ class RevDelFileItem extends RevDelItem {
 	 */
 	protected function getComment() {
 		if ( $this->file->userCan( File::DELETED_COMMENT, $this->list->getAuthority() ) ) {
-			$block = MediaWikiServices::getInstance()->getCommentFormatter()
-				->formatBlock( $this->file->getDescription() );
+			$block = Linker::commentBlock( $this->file->getDescription() );
 		} else {
 			$block = ' ' . $this->list->msg( 'rev-deleted-comment' )->escaped();
 		}

@@ -18,8 +18,6 @@
  * @file
  */
 
-use MediaWiki\Title\Title;
-
 /**
  * A class that extends LanguageConverter with specific behaviour.
  *

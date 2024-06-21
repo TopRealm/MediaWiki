@@ -160,10 +160,6 @@
 	"permalink": "Pranala permanen",
 	"print": "Citak",
 	"view": "Liyak",
-<<<<<<< HEAD
-	"viewcontribs": "Liyak kontribusi",
-=======
->>>>>>> origin/1.39.7-test
 	"skin-view-view": "Baca",
 	"skin-view-foreign": "Liyak di $1",
 	"edit": "Edit",
@@ -180,11 +176,6 @@
 	"skin-action-unprotect": "Ubah parlindungan",
 	"unprotect": "Ubah parlindungan",
 	"newpage": "Halaman anyar",
-<<<<<<< HEAD
-	"newpage-desc": "Guwai halaman anyar untuk topik sai kok tikilu.",
-	"view-missing-pages": "Liyak halaman sai kurang",
-=======
->>>>>>> origin/1.39.7-test
 	"talkpagelinktext": "ngumung",
 	"specialpage": "Halaman istimewa",
 	"personaltools": "Pakakas pribadi",
@@ -605,10 +596,6 @@
 	"anontalkpagetext": "----\n<em>Ija joda da halaman pembicaraan osai pangguna anonim sai makkung ngguwai akun atawa mak makaima.</em>\nRik sina, sikam tipaksa porlu makai alamat IP dilom bontuk angka untuk ngaidentifikasikona.\nAlamat IP juk sa mangkali tipakai jama-jama bak pira pangguna sai sumang.\nAman Niku joda da pangguna anonim rik ngarasa ndapokko komentar-komentar sai mak relevan untuk mu, payu [[Special:CreateAccount|ngguwai akun]] atawa [[Special:UserLogin|kuruk log]] untuk ngahindari karancuan rik pangguna anonim barihna di sumang harani.",
 	"noarticletext": "Ganta sa makka tulisan di halaman sija.\nNiku pandai [[Special:Search/{{PAGENAME}}|nyopok'i untuk judul halaman sija]] di halaman-halaman barih, <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} nyopok log terkait], atawa [{{fullurl:{{FULLPAGENAME}}|action=edit}} ngguwai halaman sija]</span>.",
 	"noarticletext-nopermission": "Ganta sa makka teks di halaman sija.\nNiku pandai [[Special:Search/{{PAGENAME}}|nyopok'i untuk judul halaman sija]] di halaman-halaman barih, atawa <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} nyopok log terkait]</span>, tapi Niku makka izin untuk ngguwai halaman sija.",
-<<<<<<< HEAD
-	"userpage-userdoesnotexist-view": "Akun pangguna \"$1\" Mak tidaftar di Wiki sija.",
-=======
->>>>>>> origin/1.39.7-test
 	"updated": "(Tianyari)",
 	"note": "<strong>Catatan:</strong>",
 	"previewnote": "<strong>Ingok da sija sa bih pratayang.</strong>\nParubahan mu makkung titerbitko!",
@@ -738,12 +725,6 @@
 	"revdelete-no-file": "Berkas sai tituju mak pahalu.",
 	"revdelete-show-file-confirm": "Yakin mak Niku haga ngaliyak revisi sai kok tihapus jak berkas \"<nowiki>$1</nowiki>\" jak $3 di $2?",
 	"revdelete-show-file-submit": "Yu",
-<<<<<<< HEAD
-	"revdelete-selected-text": "{{PLURAL:$1|Revisi tipilih}} jak [[:$2]]:",
-	"revdelete-selected-file": "{{PLURAL:$1|Versi berkas tipilih}} jak [[:$2]]:",
-	"logdelete-selected": "{{PLURAL:$1|Paristiwa log tipilih}}:",
-=======
->>>>>>> origin/1.39.7-test
 	"revdelete-text-text": "Revisi sai tihapus matuh timbul di halaman riwayat, tapi bagian jak konten tiyan jadi mak pandai tiakses untuk umum.",
 	"revdelete-text-file": "Versi berkas sai tihapus matuh timbul di halaman riwayat, tapi bagian jak konten tiyan jadi mak pandai tiakses untuk umum.",
 	"logdelete-text": "Acara log sai tihapus matuh timbul di log, tapi bagian jak konten tiyan jadi mak pandai tiakses untuk umum.",
@@ -755,16 +736,8 @@
 	"revdelete-hide-comment": "Ringkasan suntingan",
 	"revdelete-hide-user": "Golar pangguna/alamat IP editor",
 	"revdelete-hide-restricted": "Jamotko data jak pangurus rik pangguna barih",
-<<<<<<< HEAD
-	"revdelete-radio-same": "Dang ubah",
 	"revdelete-radio-set": "Tijamotko",
 	"revdelete-radio-unset": "Kaliyakan",
-	"revdelete-radio-set-suppress": "Baridil",
-	"revdelete-radio-unset-suppress": "Kacaiko baridil",
-=======
-	"revdelete-radio-set": "Tijamotko",
-	"revdelete-radio-unset": "Kaliyakan",
->>>>>>> origin/1.39.7-test
 	"revdelete-suppress": "Jamotko data jak pangurus rik pangguna barih",
 	"revdelete-unsuppress": "Copakko batasan di revisi sai tipulihko",
 	"revdelete-log": "Alasan:",
@@ -816,20 +789,11 @@
 	"lineno": "Baris $1:",
 	"compareselectedversions": "Bandingko versi tipilih",
 	"showhideselectedversions": "Jajakko/jamotko versi tipilih",
-<<<<<<< HEAD
-	"showhideselectedfileversions": "Ubah kapangliyakan versi berkas sai tipilih",
-=======
->>>>>>> origin/1.39.7-test
 	"editundo": "Ulohko",
 	"diff-empty": "(Makka kasumangan)",
 	"diff-multi-otherusers": "({{PLURAL:$1|Osai revisi parantara|$1 revisi parantara}} bak {{PLURAL:$2|osai pangguna barihna|$2 pangguna}} mak tijajakko)",
 	"diff-paragraph-moved-tonew": "Paragraf tialihko. Picit untuk lumpak guk lokasi ompai.",
 	"diff-paragraph-moved-toold": "Paragraf tialihko. Picit untuk lumpak guk lokasi lamo.",
-<<<<<<< HEAD
-	"difference-bad-old-revision": "Konten revisi lamo lobon atawa cadang.",
-	"difference-bad-new-revision": "Konten revisi ompai lobon atawa cadang.",
-=======
->>>>>>> origin/1.39.7-test
 	"searchresults": "Hasil pencarian",
 	"search-filter-title-prefix": "Bih nyopok halaman sai judulna tiawali rik \"$1\"",
 	"search-filter-title-prefix-reset": "Sopok di kaunyin halaman",
@@ -867,10 +831,6 @@
 	"search-interwiki-more": "(barih)",
 	"search-interwiki-more-results": "hasil barihna",
 	"search-relatedarticle": "Tikahik",
-<<<<<<< HEAD
-	"search-thumbnail-alt": "Tamnel untuk $1",
-=======
->>>>>>> origin/1.39.7-test
 	"searchrelated": "bukahikan",
 	"searchall": "Unyinna",
 	"search-showingresults": "{{PLURAL:$4|Hasil <strong>$1</strong> jak <strong>$3</strong>|Hasil <strong>$1 - $2</strong> jak <strong>$3</strong>}}",
@@ -918,20 +878,11 @@
 	"prefs-email": "Opsi email",
 	"prefs-rendering": "Tampilan",
 	"prefs-searchmisc": "Umum",
-<<<<<<< HEAD
-	"searchprefs": "Preferensi panyopokan",
-	"searchprefs-noresults": "Hasil nihil",
-=======
->>>>>>> origin/1.39.7-test
 	"saveprefs": "Simpan",
 	"restoreprefs": "Ulohko unyin guk setilan usungan",
 	"prefs-editing": "Pangeditan",
 	"searchresultshead": "Sopok",
 	"recentchangesdays": "Jumlah harani sai tijajakko di parubahan anyar:",
-<<<<<<< HEAD
-	"prefs-description-misc": "Sasuaiko daftar isi.",
-=======
->>>>>>> origin/1.39.7-test
 	"prefs-user-downloaddata-label": "Akses data akun:",
 	"prefs-user-downloaddata-info": "Data akun ku jak proyek hasa",
 	"prefs-user-restoreprefs-label": "Atur luwot pangaturan:",
@@ -939,10 +890,6 @@
 	"savedrights": "Kalompok hak pamakai {{GENDER:$1|$1}} kok tisimpan.",
 	"timezonelegend": "Zona waktu:",
 	"localtime": "Waktu satempat:",
-<<<<<<< HEAD
-	"timezone-invalid": "Zona atawa pangaturan waktu mak valid.",
-=======
->>>>>>> origin/1.39.7-test
 	"servertime": "Waktu paladin:",
 	"guesstimezone": "Isiko jak panjalajah web",
 	"timezoneregion-africa": "Afrika",
@@ -1108,12 +1055,6 @@
 	"right-suppressrevision": "Njajakko, njamotko rik ngurungko panjamotan revisi titamtu atas osai halaman jak pamakai",
 	"right-viewsuppressed": "Liyak revisi sai tijamotko jak kaunyin pamakai",
 	"right-suppressionlog": "Liyak log rusio",
-<<<<<<< HEAD
-	"right-block": "Blokir atawa bukak blokir pamakai barih jak pangeditan",
-	"right-blockemail": "Blokir atawa bukak blokir pamakai jak ngirimko email",
-	"right-hideuser": "Blokir atawa bukak blokir golar pamakai, jamotko atawa jajakko jak publik",
-=======
->>>>>>> origin/1.39.7-test
 	"right-ipblock-exempt": "Ngilingko pamblokiran IP, pamblokiran otomatis, rik rentang pamblokiran",
 	"right-unblockself": "Ngacaiko blokir diwik",
 	"right-protect": "Ngubah tingkat palindungan rik edit halaman sai tilindungi buruntun",
@@ -1134,10 +1075,6 @@
 	"right-viewmywatchlist": "Ngaliyak daftar pantauanmu diwik",
 	"right-editmywatchlist": "Edit daftar pantauanmu diwik (ingokko da man pira ngabungkal gawi matuh bakal nambahko halaman walaupun makka hak sija)",
 	"right-viewmyprivateinfo": "Ngaliyak data pribadimu diwik (misal: alamat email, golar asli)",
-<<<<<<< HEAD
-	"right-editmyprivateinfo": "Ngedit data pribadimu diwik (misal alamat email, golar asli) rik kilu email pangaturan ulang kata sandi",
-=======
->>>>>>> origin/1.39.7-test
 	"right-editmyoptions": "Ngedit preferensimu diwik",
 	"right-rollback": "Ngulohko nyara gancang editan-editan pamakai tarakhir sai ngedit halaman titamtu",
 	"right-markbotedits": "Nandai pangulohan revisi sabagai editan bot",
@@ -1179,10 +1116,6 @@
 	"grant-editsiteconfig": "Edit CSS/JS pamakai untuk kaunyin situs",
 	"grant-editpage": "Ngedit halaman sai uwat",
 	"grant-editprotected": "Ngedit halaman sai tilindungi",
-<<<<<<< HEAD
-	"grant-highvolume": "Akses volume langgar (bot).",
-=======
->>>>>>> origin/1.39.7-test
 	"grant-import": "Ngimpor revisi",
 	"grant-mergehistory": "Nggabungko sajarah halaman",
 	"grant-oversight": "Njamotko pamakai rik revisina",
@@ -1222,21 +1155,9 @@
 	"action-writeapi": "makai API tulis",
 	"action-delete": "ngahapus halaman sija",
 	"action-delete-redirect": "nimpa pangalihan revisi tunggal",
-<<<<<<< HEAD
-	"action-deleterevision": "hapus atawa urung hapus revisi halaman titamtu",
-	"action-deletelogentry": "hapus atawa urung hapus entri log titamtu",
-	"action-deletedhistory": "liyak metadata jak entri riwayat sai tihapus",
-	"action-deletedtext": "liyak tulisan sai tihapus atawa parubahan di antara revisi sai tihapus",
-	"action-browsearchive": "nyopok halaman-halaman sai kok tihapus",
-	"action-undelete": "ngaurungko panghapusan halaman",
-	"action-suppressrevision": "liyak, jamotko, atawa jajakko revisi halaman titamtu jak pamakai piya juga",
-	"action-suppressionlog": "ngaliyak log rahasia hasa",
-	"action-block": "blokir atawa mbukak blokir pamakai hasa jak panyuntingan",
-=======
 	"action-browsearchive": "nyopok halaman-halaman sai kok tihapus",
 	"action-undelete": "ngaurungko panghapusan halaman",
 	"action-suppressionlog": "ngaliyak log rahasia hasa",
->>>>>>> origin/1.39.7-test
 	"action-protect": "ngubah tingkat palindungan halaman hasa",
 	"action-rollback": "ngulohko nyara gancang editan-editan pamakai tarakhir sai ngedit halaman titamtu",
 	"action-import": "ngimpor halaman hasa jak wiki barih",
@@ -1263,10 +1184,6 @@
 	"action-apihighlimits": "makai batasan sai rada langgar dilom kueri API",
 	"action-autoconfirmed": "mak tipangaruh bak pambatasan bubasis IP",
 	"action-bigdelete": "ngahapus halaman rik lamon versi bahari",
-<<<<<<< HEAD
-	"action-blockemail": "blokir atawa bukak blokir pamakai mari mak pandai ngirim email",
-=======
->>>>>>> origin/1.39.7-test
 	"action-bot": "tiperlakuko sabagai samungkal proses otomatis",
 	"action-editprotected": "ngedit halaman sai tilindungi sabagai \"{{int:protect-level-sysop}}\"",
 	"action-editsemiprotected": "ngedit halaman sai tilindungi sabagai \"{{int:protect-level-autoconfirmed}}\"",
@@ -1282,10 +1199,6 @@
 	"action-editmyuserjs": "ngedit berkas JavaScript pamakaimu",
 	"action-editmyuserjsredirect": "ngedit berkas JavaScript dor diwik sai joda da pangalihan",
 	"action-viewsuppressed": "ngaliyak revisi sai tijamotko jak kaunyin pamakai",
-<<<<<<< HEAD
-	"action-hideuser": "blokir atawa bukak blokir golar pamakai, jamotko atawa jajakko jak publik",
-=======
->>>>>>> origin/1.39.7-test
 	"action-ipblock-exempt": "ngilingko pamblokiran IP, pamblokiran otomatis, rik rentang pamblokiran",
 	"action-unblockself": "ngacaiko blokir diwik",
 	"action-noratelimit": "mak dipangaruhi bak pambatasan jumlah editan",
@@ -1396,15 +1309,8 @@
 	"rcfilters-filter-watchlist-watched-description": "Parubahan di halaman dilom pantauanmu.",
 	"rcfilters-filter-watchlist-watchednew-label": "Parubahan daftar pantauan ompai",
 	"rcfilters-filter-watchlist-notwatched-label": "Makka dilom daftar pantauan",
-<<<<<<< HEAD
-	"rcfilters-filter-watchlist-notwatched-description": "Unyinna kacuali parubahan di halaman sai tipantau.",
 	"rcfilters-filtergroup-watchlistactivity": "Aktivitas daftar pantauan",
 	"rcfilters-filter-watchlistactivity-unseen-label": "Parubahan sai makkung tiliyak",
-	"rcfilters-filter-watchlistactivity-unseen-description": "Parubahan di halaman-halaman sai makkung Niku anjaui jak parubahan sina tijadi.",
-=======
-	"rcfilters-filtergroup-watchlistactivity": "Aktivitas daftar pantauan",
-	"rcfilters-filter-watchlistactivity-unseen-label": "Parubahan sai makkung tiliyak",
->>>>>>> origin/1.39.7-test
 	"rcfilters-filter-watchlistactivity-seen-label": "Parubahan sai kok radu tiliyak",
 	"rcfilters-filtergroup-changetype": "Jenis parubahan",
 	"rcfilters-filter-pageedits-label": "Editan halaman",
@@ -1418,11 +1324,6 @@
 	"rcfilters-filter-previousrevision-label": "Layon revisi paling ompai",
 	"rcfilters-filter-previousrevision-description": "Kaunyin parubahan sai layon joda da \"revisi paling ompai\".",
 	"rcfilters-filter-excluded": "Mak tikuruk",
-<<<<<<< HEAD
-	"rcfilters-tag-prefix-namespace-inverted": "<strong>layon</strong> :$1",
-	"rcfilters-tag-prefix-tags-inverted": "<strong>layon</strong> #$1",
-=======
->>>>>>> origin/1.39.7-test
 	"rcfilters-exclude-button-off": "Kacuali sai tipilih",
 	"rcfilters-exclude-button-on": "Kacuali sai tipilih",
 	"rcfilters-view-tags": "Editan titandai",
@@ -1436,13 +1337,7 @@
 	"rcfilters-watchlist-markseen-button": "Tandai kaunyin parubahan sabagai kaliyakan",
 	"rcfilters-watchlist-edit-watchlist-button": "Edit daftar pantauanmu",
 	"rcfilters-filter-showlinkedfrom-label": "Jajakko parubahan di halaman sai tikahikko jak",
-<<<<<<< HEAD
-	"rcfilters-filter-showlinkedfrom-option-label": "<strong>Halaman tikahik jak</strong> halaman tipilih",
 	"rcfilters-filter-showlinkedto-label": "Jajakko parubahan di halaman sai tikahikko guk",
-	"rcfilters-filter-showlinkedto-option-label": "<strong>Halaman tikahik guk</strong> halaman tipilih",
-=======
-	"rcfilters-filter-showlinkedto-label": "Jajakko parubahan di halaman sai tikahikko guk",
->>>>>>> origin/1.39.7-test
 	"rcfilters-target-page-placeholder": "Kurukko golar halaman (atawa kategori)",
 	"rcfilters-allcontents-label": "Kaunyin konten",
 	"rcfilters-alldiscussions-label": "Kaunyin rombakan",
@@ -1500,11 +1395,6 @@
 	"upload-tryagain-nostash": "Kirim berkas sai tiunggah ulang rik deskripsi sai tirubah",
 	"uploadnologin": "Makkung kuruk log",
 	"uploadnologintext": "Payu $1 untuk ngunggah berkas.",
-<<<<<<< HEAD
-	"upload_directory_missing": "Direktori pamuakan ($1) mak pahalu rik mak pandai tiguwai bak tukang ladin web.",
-	"upload_directory_read_only": "Direktori pamuakan ($1) mak pandai ditulis bak tukang ladin web.",
-=======
->>>>>>> origin/1.39.7-test
 	"uploaderror": "Upload Error",
 	"upload-permitted": "{{PLURAL:$2|Jenis|Jenis-jenis}} berkas sai tihinganko: $1.",
 	"upload-preferred": "{{PLURAL:$2|Jenis|Jenis-jenis}} berkas sai tisaranko: $1.",
@@ -1532,10 +1422,6 @@
 	"unknown-error": "Uwat samungkal kajadian error sai mak tikapandai.",
 	"tmp-create-error": "Mak pandai ngguwai berkas samantara.",
 	"tmp-write-error": "Error harak nulis berkas samantara.",
-<<<<<<< HEAD
-	"largefileserver": "Berkas hasa rada balak jak sai tiizinko bak tukang ladin.",
-=======
->>>>>>> origin/1.39.7-test
 	"uploadwarning": "Paringatan pangunggahan",
 	"uploadwarning-text": "Payu holaui katerangan berkas di bah ho rik cuba luwot.",
 	"uploadwarning-text-nostash": "Payu unggah luwot berkas hasa, ubah deskripsi di bah sa rik cuba luwot.",
@@ -1698,10 +1584,6 @@
 	"filehist-dimensions": "Dimensi",
 	"filehist-filesize": "Balak berkas",
 	"filehist-comment": "Komentar",
-<<<<<<< HEAD
-	"filehist-missing": "Berkas na makka",
-=======
->>>>>>> origin/1.39.7-test
 	"imagelinks": "Panggunaan berkas",
 	"linkstoimage": "{{PLURAL:$1|Halaman|$1 halaman}} sina makai berkas sa:",
 	"nolinkstoimage": "Makka halaman sai makai berkas hasa.",
@@ -1856,10 +1738,6 @@
 	"notargettext": "Niku mak namtuko halaman atawa pamakai tujuan fungsi hasa.",
 	"nopagetitle": "Makka halaman sasaran juk sina",
 	"nopagetext": "Halaman sai Niku tuju mak pahalu.",
-<<<<<<< HEAD
-	"badrevision": "Teks revisi hasa lobon atawa cadang.",
-=======
->>>>>>> origin/1.39.7-test
 	"pager-newer-n": "{{PLURAL:$1|1 anyar|$1 anyar}}",
 	"pager-older-n": "{{PLURAL:$1|$1 kok saka}}",
 	"suppress": "Nokon",
@@ -1972,38 +1850,7 @@
 	"activeusers-noresult": "Pamakai mak pahalu.",
 	"activeusers-submit": "Jajakko pamakai aktif",
 	"listgrouprights": "Daftar hak kalompok",
-<<<<<<< HEAD
-	"listgrouprights-group": "Kalompok",
-	"listgrouprights-rights": "Hak",
-	"listgrouprights-helppage": "Help:Hak akses",
 	"listgrouprights-members": "(daftar anggota)",
-	"listgrouprights-addgroup": "Nambahi {{PLURAL:$2|kalompok}}: $1",
-	"listgrouprights-removegroup": "Ngahapus {{PLURAL:$2|kalompok}}: $1",
-	"listgrouprights-addgroup-all": "Nambahi kaunyin kalompok",
-	"listgrouprights-removegroup-all": "Ngahapus kaunyin kalompok",
-	"listgrouprights-addgroup-self": "Pandai nambahi {{PLURAL:$2|grup| grup}} guk akun diwik: $1",
-	"listgrouprights-removegroup-self": "Ngahapus {{PLURAL:$2|kalompok}} jak akun diwik: $1",
-	"listgrouprights-addgroup-self-all": "Pandai nambahi kaunyin grup guk akun diwik",
-	"listgrouprights-removegroup-self-all": "Ngahapus kaunyin kalompok jak akun diwik",
-	"listgrouprights-namespaceprotection-header": "Batasan ruang golar",
-	"listgrouprights-namespaceprotection-namespace": "Ruang golar",
-	"listgrouprights-namespaceprotection-restrictedto": "Hak sai ngizinko pamakai untuk ngedit",
-	"listgrants": "Izin",
-	"listgrants-summary": "Di bah sa joda da daftar hak rik akses tikahik guk hak pamakaina. Pamakai pandai ngizinko aplikasi untuk makai akun tiyan, tapi rik izin tibatas budasarko hak sai tiunjukko bak pamakai. Aplikasi sai lapah sai ngawakili osai pamakai mak pandai makai hak sai makka di pamakai sina.\nMangkali nonti uwat [[{{MediaWiki:Listgrouprights-helppage}}|informasi tambahan]] tentang hak-hak individual.",
-	"listgrants-grant": "Izin",
-	"listgrants-rights": "Hak",
-	"trackingcategories": "Kategori palacak",
-	"trackingcategories-summary": "Halaman hasa ndaftarko kategori-kategori palacak sai sacara otomatis diguwai bak parangkat luyak MediaWiki. Golar kategori hasa pandai tiubah rik ngubah cawa sistem sai sasuai dilom ruang golar {{ns:8}}.",
-	"trackingcategories-msg": "Kategori palacak",
-	"trackingcategories-name": "Golar cawa",
-	"trackingcategories-desc": "Kriteria inklusi kategori",
-	"restricted-displaytitle-ignored": "Halaman-halaman rik pangilingan tampilan judul",
-	"restricted-displaytitle-ignored-desc": "Halaman hasa uwat pangilingan <code><nowiki>{{DISPLAYTITLE}}</nowiki></code> lah mak sasuai rik judul halaman aslina.",
-	"nonnumeric-formatnum": "Halaman rik argumen formatnum non-numerik",
-	"nonnumeric-formatnum-desc": "Halaman-halaman sai ngandung argumen non-numerik untuk fungsi parser formatnum.",
-=======
-	"listgrouprights-members": "(daftar anggota)",
->>>>>>> origin/1.39.7-test
 	"trackingcategories-nodesc": "Makka Deskripsi.",
 	"trackingcategories-disabled": "Kategori tinonaktifko",
 	"mailnologin": "Makka alamat email",
@@ -2043,29 +1890,8 @@
 	"watchlistnotwatchable": "Halaman mak pandai tipantau.",
 	"addwatch": "Tambahko guk daftar pantauan",
 	"updatewatchlist": "Anyari daftar pantauan",
-<<<<<<< HEAD
-	"addedwatchtext-short": "Halaman \"$1\" kok titambahko guk daftar pantauanmu.",
-	"addedwatchexpiry-options-label": "Periode waktu daftar pantauan:",
-	"addedwatchexpiryhours": "\"[[:$1]]\" rik halaman ngumungna kok titambahko guk [[Special:Watchlist|daftar pantauanmu]] untuk pira ngajam.",
-	"addedwatchexpiryhours-talk": "\"[[:$1]]\" rik halaman tikahikna kok titambahko guk [[Special:Watchlist|daftar pantauanmu]] untuk pira ngajam.",
-	"addedwatchexpirytext": "\"[[:$1]]\" rik halaman ngumungna kok titambahko guk [[Special:Watchlist|daftar pantauanmu]] untuk $2.",
-	"addedwatchexpirytext-talk": "\"[[:$1]]\" rik halaman tikahikna kok titambahko guk [[Special:Watchlist|daftar pantauanmu]] untuk $2.",
-	"addedwatchindefinitelytext": "\"[[:$1]]\" rik halaman ngumungna kok titambahko guk [[Special:Watchlist|daftar pantauanmu]] sacara permanen.",
-	"addedwatchindefinitelytext-talk": "\"[[:$1]]\" rik halaman tikahikna kok titambahko guk [[Special:Watchlist|daftar pantauanmu]] sacara permanen.",
-	"removewatch": "Hapus jak daftar pantauan",
-	"removedwatchtext": "\"[[:$1]]\" rik diskusina kok tihapus jak [[Special:Watchlist|daftar pantauanmu]].",
-	"removedwatchtext-talk": "\"[[:$1]]\" rik halaman tikahikna kok tihapus jak [[Special:Watchlist|daftar pantauanmu]].",
-	"removedwatchtext-short": "Halaman \"$1\" kok tihapus jak daftar pantauanmu.",
-	"watch": "Tindai",
-	"watchthispage": "Pantau halaman hasa",
-	"unwatch": "Urung Nindai",
-	"unwatchthispage": "Urung mantau halaman hasa",
-	"notanarticle": "Layon da samungkal halaman isi",
-	"notvisiblerev": "Revisi tarakhir bak pamakai barih kok tihapus",
-=======
 	"watch": "Tindai",
 	"unwatch": "Urung Nindai",
->>>>>>> origin/1.39.7-test
 	"watchlist-details": "Uwat {{PLURAL:$1|$1 halaman}} di daftar tindaian mu, (tikuruk halaman rombakan).",
 	"wlheader-showupdated": "Halaman-halaman sai kok burubah samenjak kunjungan tarakhir mu tijajakko rik \"huruf kodol\"<strong>kodol</strong>.",
 	"wlnote": "Dibah sa joda da  {{PLURAL:$1|parubahan|<strong>$1</strong> parubahan}} tarakhir dilom {{PLURAL:$2|jam|<strong>$2</strong> jam}}, per $3, $4.",
@@ -2208,17 +2034,5 @@
 	"special-characters-group-canadianaboriginal": "Aborigin Kanada",
 	"special-characters-group-runes": "Runi",
 	"paramvalidator-help-type-user-subtype-name": "golar pangguna",
-<<<<<<< HEAD
-	"nstab-mainpage": "Halaman Utamo",
-	"blockedtext-made-by": "Pamblokiran diguwai bak $1.",
-	"blockedtext-reason-comment": "Alasan sai tiunjukko joda da <em>$1</em>",
-	"blockedtext-start-time": "Awal pamblokiran: $1",
-	"blockedtext-expiration-time": "Kadaluwarsa pamblokiran: $1",
-	"blockedtext-intended-blockee": "Target pamblokiran: $1",
-	"blockedtext-contact-blocker-admin": "Niku pandai ngahubungi $1 atawa [[{{MediaWiki:Grouppage-sysop}}|pangurus]] untuk ngadiskusiko pamblokiran sina.",
-	"blockedtext-include-details-queries": "Harap kurukko unyin parincian dinggak dilom setiap partanyaan sai Niku ajuko.",
-	"renameusersubmit": "Kirim"
-=======
 	"nstab-mainpage": "Halaman Utamo"
->>>>>>> origin/1.39.7-test
 }

@@ -23,6 +23,8 @@
 
 require_once __DIR__ . '/Maintenance.php';
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * Maintenance script that refreshes category membership counts in the category
  * table.
@@ -196,7 +198,7 @@ TEXT
 			$affectedRows += $dbw->affectedRows();
 		}
 
-		$this->waitForReplication();
+		MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->waitForReplication();
 
 		return $affectedRows;
 	}

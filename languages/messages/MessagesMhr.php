@@ -1,6 +1,8 @@
 <?php
 /** Eastern Mari (олык марий)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  *

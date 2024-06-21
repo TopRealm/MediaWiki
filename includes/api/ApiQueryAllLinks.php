@@ -22,7 +22,6 @@
 
 use MediaWiki\Linker\LinksMigration;
 use MediaWiki\ParamValidator\TypeDef\NamespaceDef;
-use MediaWiki\Title\Title;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
@@ -133,7 +132,7 @@ class ApiQueryAllLinks extends ApiQueryGeneratorBase {
 		$nsField = $pfx . 'namespace';
 		$titleField = $pfx . $this->fieldTitle;
 		if ( isset( $this->linksMigration::$mapping[$this->table] ) ) {
-			[ $nsField, $titleField ] = $this->linksMigration->getTitleFields( $this->table );
+			list( $nsField, $titleField ) = $this->linksMigration->getTitleFields( $this->table );
 			$queryInfo = $this->linksMigration->getQueryInfo( $this->table );
 			$this->addTables( $queryInfo['tables'] );
 			$this->addJoinConds( $queryInfo['joins'] );
@@ -175,16 +174,21 @@ class ApiQueryAllLinks extends ApiQueryGeneratorBase {
 
 		$continue = $params['continue'] !== null;
 		if ( $continue ) {
-			$op = $params['dir'] == 'descending' ? '<=' : '>=';
+			$continueArr = explode( '|', $params['continue'] );
+			$op = $params['dir'] == 'descending' ? '<' : '>';
 			if ( $params['unique'] ) {
-				$cont = $this->parseContinueParamOrDie( $params['continue'], [ 'string' ] );
-				$this->addWhere( $db->buildComparison( $op, [ $titleField => $cont[0] ] ) );
+				$this->dieContinueUsageIf( count( $continueArr ) != 1 );
+				$continueTitle = $db->addQuotes( $continueArr[0] );
+				$this->addWhere( "{$titleField} $op= $continueTitle" );
 			} else {
-				$cont = $this->parseContinueParamOrDie( $params['continue'], [ 'string', 'int' ] );
-				$this->addWhere( $db->buildComparison( $op, [
-					$titleField => $cont[0],
-					"{$pfx}from" => $cont[1],
-				] ) );
+				$this->dieContinueUsageIf( count( $continueArr ) != 2 );
+				$continueTitle = $db->addQuotes( $continueArr[0] );
+				$continueFrom = (int)$continueArr[1];
+				$this->addWhere(
+					"{$titleField} $op $continueTitle OR " .
+					"({$titleField} = $continueTitle AND " .
+					"{$pfx}from $op= $continueFrom)"
+				);
 			}
 		}
 

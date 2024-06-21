@@ -24,7 +24,6 @@ use Wikimedia\Rdbms\ILoadBalancer;
  * @package MediaWiki\Rest\Handler
  */
 class LanguageLinksHandler extends SimpleHandler {
-	use PageRedirectHandlerTrait;
 
 	/** @var ILoadBalancer */
 	private $loadBalancer;
@@ -86,8 +85,6 @@ class LanguageLinksHandler extends SimpleHandler {
 	 */
 	public function run( $title ) {
 		$page = $this->getPage();
-		$params = $this->getValidatedParams();
-
 		if ( !$page ) {
 			throw new LocalizedHttpException(
 				new MessageValue( 'rest-nonexistent-title',
@@ -96,18 +93,6 @@ class LanguageLinksHandler extends SimpleHandler {
 				404
 			);
 		}
-
-		'@phan-var \MediaWiki\Page\ExistingPageRecord $page';
-		$redirectResponse = $this->createNormalizationRedirectResponseIfNeeded(
-			$page,
-			$params['title'] ?? null,
-			$this->titleFormatter
-		);
-
-		if ( $redirectResponse !== null ) {
-			return $redirectResponse;
-		}
-
 		if ( !$this->getAuthority()->authorizeRead( 'read', $page ) ) {
 			throw new LocalizedHttpException(
 				new MessageValue( 'rest-permission-denied-title',
@@ -122,12 +107,14 @@ class LanguageLinksHandler extends SimpleHandler {
 
 	private function fetchLinks( $pageId ) {
 		$result = [];
-		$res = $this->loadBalancer->getConnection( DB_REPLICA )->newSelectQueryBuilder()
-			->select( [ 'll_title', 'll_lang' ] )
-			->from( 'langlinks' )
-			->where( [ 'll_from' => $pageId ] )
-			->orderBy( 'll_lang' )
-			->caller( __METHOD__ )->fetchResultSet();
+		$res = $this->loadBalancer->getConnectionRef( DB_REPLICA )
+			->select(
+				'langlinks',
+				'*',
+				[ 'll_from' => $pageId ],
+				__METHOD__,
+				[ 'ORDER BY' => 'll_lang' ]
+			);
 		foreach ( $res as $item ) {
 			try {
 				$targetTitle = $this->titleParser->parseTitle( $item->ll_title );
@@ -176,7 +163,11 @@ class LanguageLinksHandler extends SimpleHandler {
 	 */
 	protected function getLastModified(): ?string {
 		$page = $this->getPage();
-		return $page ? $page->getTouched() : null;
+		if ( !$page ) {
+			return null;
+		}
+
+		return $page->getTouched();
 	}
 
 	/**

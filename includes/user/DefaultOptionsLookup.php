@@ -90,16 +90,11 @@ class DefaultOptionsLookup extends UserOptionsLookup {
 		$this->defaultOptions = $this->serviceOptions->get( MainConfigNames::DefaultUserOptions );
 
 		// Default language setting
-		// NOTE: don't use the content language code since the static default variant would
-		//  NOT always be the same as the content language code.
 		$contentLangCode = $this->contentLang->getCode();
-		$LangsWithStaticDefaultVariant = LanguageConverter::$languagesWithStaticDefaultVariant;
-		$staticDefaultVariant = $LangsWithStaticDefaultVariant[$contentLangCode] ?? $contentLangCode;
 		$this->defaultOptions['language'] = $contentLangCode;
-		$this->defaultOptions['variant'] = $staticDefaultVariant;
+		$this->defaultOptions['variant'] = $contentLangCode;
 		foreach ( LanguageConverter::$languagesWithVariants as $langCode ) {
-			$staticDefaultVariant = $LangsWithStaticDefaultVariant[$langCode] ?? $langCode;
-			$this->defaultOptions["variant-$langCode"] = $staticDefaultVariant;
+			$this->defaultOptions["variant-$langCode"] = $langCode;
 		}
 
 		// NOTE: don't use SearchEngineConfig::getSearchableNamespaces here,

@@ -27,7 +27,7 @@ trait TestAllServiceOptionsUsed {
 			'for TestAllServiceOptionsUsed to work.'
 		);
 
-		[ $expected, $actual ] = self::$serviceOptionsAccessLog;
+		list( $expected, $actual ) = self::$serviceOptionsAccessLog;
 
 		$expected = array_diff( $expected, $expectedUnused );
 

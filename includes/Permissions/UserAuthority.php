@@ -27,7 +27,6 @@ use MediaWiki\Page\PageIdentity;
 use MediaWiki\User\UserIdentity;
 use TitleValue;
 use User;
-use Wikimedia\DebugInfo\DebugInfoTrait;
 
 /**
  * Represents the authority of a given User. For anonymous visitors, this will typically
@@ -45,17 +44,13 @@ use Wikimedia\DebugInfo\DebugInfoTrait;
  */
 class UserAuthority implements Authority {
 
-	use DebugInfoTrait;
-
 	/**
 	 * @var PermissionManager
-	 * @noVarDump
 	 */
 	private $permissionManager;
 
 	/**
 	 * @var User
-	 * @noVarDump
 	 */
 	private $actor;
 

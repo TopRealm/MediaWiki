@@ -31,6 +31,15 @@ use WANObjectCache;
 use Wikimedia\Rdbms\Database;
 
 /**
+ * PHP 7.2 hack to work around the issue described at https://phabricator.wikimedia.org/T166010#5962098
+ * Load the ResourceLoader class when MessageBlobStore is loaded.
+ * phpcs:disable Generic.Files.OneObjectStructurePerFile.MultipleFound
+ * phpcs:disable MediaWiki.Files.ClassMatchesFilename.NotMatch
+ */
+class ResourceLoader72Hack extends ResourceLoader {
+}
+
+/**
  * This class generates message blobs for use by ResourceLoader.
  *
  * A message blob is a JSON object containing the interface messages for a
@@ -102,17 +111,20 @@ class MessageBlobStore implements LoggerAwareInterface {
 		// Each cache key for a message blob by module name and language code also has a generic
 		// check key without language code. This is used to invalidate any and all language subkeys
 		// that exist for a module from the updateMessage() method.
+		$cache = $this->wanCache;
 		$checkKeys = [
-			self::makeGlobalPurgeKey( $this->wanCache )
+			// Global check key, see clear()
+			$cache->makeGlobalKey( __CLASS__ )
 		];
 		$cacheKeys = [];
 		foreach ( $modules as $name => $module ) {
-			$cacheKey = $this->makeBlobCacheKey( $name, $lang, $module );
+			$cacheKey = $this->makeCacheKey( $module, $lang );
 			$cacheKeys[$name] = $cacheKey;
-			$checkKeys[$cacheKey][] = $this->makeModulePurgeKey( $name );
+			// Per-module check key, see updateMessage()
+			$checkKeys[$cacheKey][] = $cache->makeKey( __CLASS__, $name );
 		}
 		$curTTLs = [];
-		$result = $this->wanCache->getMulti( array_values( $cacheKeys ), $curTTLs, $checkKeys );
+		$result = $cache->getMulti( array_values( $cacheKeys ), $curTTLs, $checkKeys );
 
 		$blobs = [];
 		foreach ( $modules as $name => $module ) {
@@ -128,37 +140,15 @@ class MessageBlobStore implements LoggerAwareInterface {
 	}
 
 	/**
-	 * Global check key for ::clear()
-	 *
-	 * @param WANObjectCache $cache
-	 * @return string Cache key
-	 */
-	private static function makeGlobalPurgeKey( WANObjectCache $cache ) {
-		return $cache->makeGlobalKey( 'resourceloader-messageblob' );
-	}
-
-	/**
-	 * Per-module check key, for ::updateMessage()
-	 *
-	 * @param string $name
-	 * @return string Cache key
-	 */
-	private function makeModulePurgeKey( $name ) {
-		return $this->wanCache->makeKey( 'resourceloader-messageblob', $name );
-	}
-
-	/**
-	 * @param string $name
-	 * @param string $lang
+	 * @since 1.27
 	 * @param Module $module
+	 * @param string $lang
 	 * @return string Cache key
 	 */
-	private function makeBlobCacheKey( $name, $lang, Module $module ) {
+	private function makeCacheKey( Module $module, $lang ) {
 		$messages = array_values( array_unique( $module->getMessages() ) );
 		sort( $messages );
-		return $this->wanCache->makeKey( 'resourceloader-messageblob',
-			$name,
-			$lang,
+		return $this->wanCache->makeKey( __CLASS__, $module->getName(), $lang,
 			md5( json_encode( $messages ) )
 		);
 	}
@@ -190,16 +180,13 @@ class MessageBlobStore implements LoggerAwareInterface {
 	public function updateMessage( $key ): void {
 		$moduleNames = $this->resourceloader->getModulesByMessage( $key );
 		foreach ( $moduleNames as $moduleName ) {
-			// Use the default holdoff TTL to account for database replica DB lag
-			// which can affect MessageCache.
-			$this->wanCache->touchCheckKey( $this->makeModulePurgeKey( $moduleName ) );
+			// Uses a holdoff to account for database replica DB lag (for MessageCache)
+			$this->wanCache->touchCheckKey( $this->wanCache->makeKey( __CLASS__, $moduleName ) );
 		}
 	}
 
 	/**
 	 * Invalidate cache keys for all known modules.
-	 *
-	 * Used by purgeMessageBlobStore.php
 	 */
 	public function clear() {
 		self::clearGlobalCacheEntry( $this->wanCache );
@@ -208,19 +195,19 @@ class MessageBlobStore implements LoggerAwareInterface {
 	/**
 	 * Invalidate cache keys for all known modules.
 	 *
-	 * Used by LocalisationCache and DatabaseUpdater after regenerating l10n cache.
+	 * Called by LocalisationCache after cache is regenerated.
 	 *
 	 * @param WANObjectCache $cache
 	 */
 	public static function clearGlobalCacheEntry( WANObjectCache $cache ) {
-		// Disable holdoff TTL because:
+		// Disable hold-off because:
 		// - LocalisationCache is populated by messages on-disk and don't have DB lag,
 		//   thus there is no need for hold off. We only clear it after new localisation
 		//   updates are known to be deployed to all servers.
 		// - This global check key invalidates message blobs for all modules for all wikis
 		//   in cache contexts (e.g. languages, skins). Setting a hold-off on this key could
 		//   cause a cache stampede since no values would be stored for several seconds.
-		$cache->touchCheckKey( self::makeGlobalPurgeKey( $cache ), $cache::HOLDOFF_TTL_NONE );
+		$cache->touchCheckKey( $cache->makeGlobalKey( __CLASS__ ), $cache::HOLDOFF_TTL_NONE );
 	}
 
 	/**

@@ -1,6 +1,8 @@
 <?php
 /** Bulgarian (български)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  */
@@ -92,7 +94,6 @@ $specialPageAliases = [
 	'Randomredirect'            => [ 'Случайно_пренасочване' ],
 	'Recentchanges'             => [ 'Последни_промени' ],
 	'Recentchangeslinked'       => [ 'Свързани_промени' ],
-	'Renameuser'                => [ 'Преименуване' ],
 	'Revisiondelete'            => [ 'Изтриване_на_версии' ],
 	'Search'                    => [ 'Търсене' ],
 	'Shortpages'                => [ 'Кратки_страници' ],

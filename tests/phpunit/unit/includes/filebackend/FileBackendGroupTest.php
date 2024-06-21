@@ -3,13 +3,12 @@
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\FileBackend\FSFile\TempFSFileFactory;
 use MediaWiki\FileBackend\LockManager\LockManagerGroupFactory;
-use MediaWiki\Tests\Unit\DummyServicesTrait;
+use Wikimedia\ObjectFactory\ObjectFactory;
 
 /**
  * @coversDefaultClass FileBackendGroup
  */
 class FileBackendGroupTest extends MediaWikiUnitTestCase {
-	use DummyServicesTrait;
 	use FileBackendGroupTestTrait;
 
 	protected function setUp(): void {
@@ -85,7 +84,7 @@ class FileBackendGroupTest extends MediaWikiUnitTestCase {
 			$options['mimeAnalyzer'] ?? $this->createNoOpMock( MimeAnalyzer::class ),
 			$options['lmgFactory'] ?? $this->getLockManagerGroupFactory(),
 			$options['tmpFileFactory'] ?? $this->getTempFSFileFactory(),
-			$this->getDummyObjectFactory()
+			new ObjectFactory( $this->createNoOpMock( Psr\Container\ContainerInterface::class ) )
 		);
 	}
 

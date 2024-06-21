@@ -21,10 +21,7 @@
  * @ingroup SpecialPage
  */
 
-use MediaWiki\Html\FormOptions;
-use MediaWiki\Html\Html;
 use MediaWiki\MainConfigNames;
-use MediaWiki\Title\Title;
 use MediaWiki\User\UserOptionsLookup;
 use Wikimedia\Rdbms\ILoadBalancer;
 use Wikimedia\Rdbms\SelectQueryBuilder;
@@ -83,8 +80,6 @@ class SpecialRecentChangesLinked extends SpecialRecentChanges {
 	}
 
 	/**
-	 * FIXME: Port useful changes from SpecialRecentChanges
-	 *
 	 * @inheritDoc
 	 */
 	protected function doMainQuery( $tables, $select, $conds, $query_options,
@@ -116,7 +111,8 @@ class SpecialRecentChangesLinked extends SpecialRecentChanges {
 		 * merging the results, but the code we inherit from our parent class
 		 * expects only one result set so we use UNION instead.
 		 */
-		$dbr = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_REPLICA );
+
+		$dbr = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_REPLICA, 'recentchangeslinked' );
 		$id = $title->getArticleID();
 		$ns = $title->getNamespace();
 		$dbkey = $title->getDBkey();
@@ -141,12 +137,11 @@ class SpecialRecentChangesLinked extends SpecialRecentChanges {
 			$conds,
 			$join_conds,
 			$query_options,
-			$tagFilter,
-			$opts['inverttags']
+			$tagFilter
 		);
 
 		if ( $dbr->unionSupportsOrderAndLimit() ) {
-			if ( in_array( 'DISTINCT', $query_options ) ) {
+			if ( count( $tagFilter ) > 1 ) {
 				// ChangeTags::modifyDisplayQuery() will have added DISTINCT.
 				// To prevent this from causing query performance problems, we need to add
 				// a GROUP BY, and add rc_id to the ORDER BY.
@@ -242,7 +237,7 @@ class SpecialRecentChangesLinked extends SpecialRecentChanges {
 					// TODO: Move this to LinksMigration
 					if ( isset( $linksMigration::$mapping[$link_table] ) ) {
 						$queryInfo = $linksMigration->getQueryInfo( $link_table, $link_table );
-						[ $nsField, $titleField ] = $linksMigration->getTitleFields( $link_table );
+						list( $nsField, $titleField ) = $linksMigration->getTitleFields( $link_table );
 						if ( in_array( 'linktarget', $queryInfo['tables'] ) ) {
 							$joinTable = 'linktarget';
 						} else {
@@ -278,24 +273,25 @@ class SpecialRecentChangesLinked extends SpecialRecentChanges {
 			return false; // should never happen
 		}
 		if ( count( $subsql ) == 1 && $dbr->unionSupportsOrderAndLimit() ) {
-			return $subsql[0]
+			$sql = $subsql[0]
 				->setMaxExecutionTime( $this->getConfig()->get( MainConfigNames::MaxExecutionTimeForExpensiveQueries ) )
-				->caller( __METHOD__ )->fetchResultSet();
+				->getSQL();
 		} else {
 			$sqls = array_map( static function ( $queryBuilder ) {
 				return $queryBuilder->getSQL();
 			}, $subsql );
-			return $dbr->newSelectQueryBuilder()
+			$queryBuilder = $dbr->newSelectQueryBuilder()
 				->select( '*' )
 				->from(
-					new Subquery( $dbr->unionQueries( $sqls, $dbr::UNION_DISTINCT ) ),
+					(string)( new Subquery( $dbr->unionQueries( $sqls, $dbr::UNION_DISTINCT ) ) ),
 					'main'
 				)
 				->orderBy( 'rc_timestamp', SelectQueryBuilder::SORT_DESC )
 				->setMaxExecutionTime( $this->getConfig()->get( MainConfigNames::MaxExecutionTimeForExpensiveQueries ) )
-				->limit( $limit )
-				->caller( __METHOD__ )->fetchResultSet();
+				->limit( $limit );
+			$sql = $queryBuilder->getSQL();
 		}
+		return $dbr->query( $sql, __METHOD__ );
 	}
 
 	public function setTopText( FormOptions $opts ) {

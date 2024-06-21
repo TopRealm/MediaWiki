@@ -151,7 +151,6 @@ class StatusValue {
 	 * Each error is a (message:string or MessageSpecifier,params:array) map
 	 *
 	 * @return array[]
-	 * @phan-return array{type:'warning'|'error', message:string|MessageSpecifier, params:array}[]
 	 */
 	public function getErrors() {
 		return $this->errors;
@@ -195,7 +194,6 @@ class StatusValue {
 	 * parameters as separate array elements.
 	 *
 	 * @param array $newError
-	 * @phan-param array{type:'warning'|'error', message:string|MessageSpecifier, params:array} $newError
 	 * @return $this
 	 */
 	private function addError( array $newError ) {
@@ -240,7 +238,7 @@ class StatusValue {
 	 * @return $this
 	 */
 	public function warning( $message, ...$parameters ) {
-		$message = $this->normalizeMessage( $message );
+		$message = $this->normalizeMessage( $message, $parameters );
 
 		return $this->addError( [
 			'type' => 'warning',
@@ -258,7 +256,7 @@ class StatusValue {
 	 * @return $this
 	 */
 	public function error( $message, ...$parameters ) {
-		$message = $this->normalizeMessage( $message );
+		$message = $this->normalizeMessage( $message, $parameters );
 
 		return $this->addError( [
 			'type' => 'error',
@@ -316,7 +314,6 @@ class StatusValue {
 	 *
 	 * @param string $type
 	 * @return array[]
-	 * @phan-return array{type:'warning'|'error', message:string|MessageSpecifier, params:array}[]
 	 */
 	public function getErrorsByType( $type ) {
 		$result = [];
@@ -349,38 +346,6 @@ class StatusValue {
 			) {
 				return true;
 			} elseif ( $error['message'] === $message ) {
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	/**
-	 * Returns true if any other message than the specified ones  is present as a warning or error.
-	 *
-	 * @param string|MessageSpecifier|MessageValue ...$messages Messages to search for.
-	 *
-	 * @return bool
-	 */
-	public function hasMessagesExcept( ...$messages ) {
-		$exceptedKeys = [];
-		foreach ( $messages as $message ) {
-			if ( $message instanceof MessageSpecifier ) {
-				$message = $message->getKey();
-			} elseif ( $message instanceof MessageValue ) {
-				$message = $message->getKey();
-			}
-			$exceptedKeys[] = $message;
-		}
-
-		foreach ( $this->errors as $error ) {
-			if ( $error['message'] instanceof MessageSpecifier ) {
-				$actualKey = $error['message']->getKey();
-			} else {
-				$actualKey = $error['message'];
-			}
-			if ( !in_array( $actualKey, $exceptedKeys, true ) ) {
 				return true;
 			}
 		}
@@ -447,6 +412,7 @@ class StatusValue {
 		);
 		if ( count( $this->errors ) > 0 ) {
 			$hdr = sprintf( "+-%'-8s-+-%'-25s-+-%'-36s-+\n", "", "", "" );
+			$i = 1;
 			$out .= "\n";
 			$out .= $hdr;
 			foreach ( $this->errors as $error ) {
@@ -475,6 +441,8 @@ class StatusValue {
 						$paramsChunk
 					);
 				}
+
+				$i++;
 			}
 			$out .= $hdr;
 		}
@@ -535,10 +503,11 @@ class StatusValue {
 
 	/**
 	 * @param MessageSpecifier|MessageValue|string $message
+	 * @param array $parameters
 	 *
 	 * @return MessageSpecifier|string
 	 */
-	private function normalizeMessage( $message ) {
+	private function normalizeMessage( $message, array $parameters = [] ) {
 		if ( $message instanceof MessageValue ) {
 			$converter = new Converter();
 			return $converter->convertMessageValue( $message );

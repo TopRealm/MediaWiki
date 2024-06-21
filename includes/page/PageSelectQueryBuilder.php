@@ -145,15 +145,17 @@ class PageSelectQueryBuilder extends SelectQueryBuilder {
 	public function fetchPageRecords(): Iterator {
 		$this->fields( $this->pageStore->getSelectFields() );
 
-		$result = $this->fetchResultSet();
-		foreach ( $result as $row ) {
-			$rec = $this->pageStore->newPageRecordFromRow( $row );
-			if ( $this->linkCache ) {
-				$this->linkCache->addGoodLinkObjFromRow( $rec, $row );
+		return call_user_func( function () {
+			$result = $this->fetchResultSet();
+			foreach ( $result as $row ) {
+				$rec = $this->pageStore->newPageRecordFromRow( $row );
+				if ( $this->linkCache ) {
+					$this->linkCache->addGoodLinkObjFromRow( $rec, $row );
+				}
+				yield $rec;
 			}
-			yield $rec;
-		}
-		$result->free();
+			$result->free();
+		} );
 	}
 
 	/**

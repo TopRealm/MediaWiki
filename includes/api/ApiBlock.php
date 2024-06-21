@@ -32,8 +32,6 @@ use MediaWiki\Block\Restriction\PageRestriction;
 use MediaWiki\MainConfigNames;
 use MediaWiki\ParamValidator\TypeDef\TitleDef;
 use MediaWiki\ParamValidator\TypeDef\UserDef;
-use MediaWiki\Title\Title;
-use MediaWiki\Title\TitleFactory;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserIdentityLookup;
 use MediaWiki\User\UserOptionsLookup;
@@ -137,7 +135,7 @@ class ApiBlock extends ApiBase {
 				$this->dieWithError( [ 'apierror-nosuchuserid', $params['userid'] ], 'nosuchuserid' );
 			}
 		}
-		[ $target, $targetType ] = $this->blockUtils->parseBlockTarget( $target );
+		list( $target, $targetType ) = $this->blockUtils->parseBlockTarget( $target );
 
 		if (
 			$params['noemail'] &&

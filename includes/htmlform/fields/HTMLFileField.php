@@ -1,6 +1,5 @@
 <?php
 
-use MediaWiki\Html\Html;
 use OOUI\Widget;
 
 /**
@@ -49,13 +48,6 @@ class HTMLFileField extends HTMLFormField {
 
 	/**
 	 * @inheritDoc
-	 */
-	public function loadDataFromRequest( $request ) {
-		return $request->getUpload( $this->mName )->getName();
-	}
-
-	/**
-	 * @inheritDoc
 	 * @stable to override
 	 */
 	public function getInputHTML( $value ) {
@@ -87,7 +79,7 @@ class HTMLFileField extends HTMLFormField {
 
 		$attribs += $this->getAttributes( $allowedParams );
 
-		return Html::input( $this->mName, $value ?? '', 'file', $attribs );
+		return Html::input( $this->mName, $value, 'file', $attribs );
 	}
 
 	/**

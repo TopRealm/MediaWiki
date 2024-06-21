@@ -1,6 +1,8 @@
 <?php
 /** Ukrainian (українська)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  *
@@ -203,7 +205,6 @@ $specialPageAliases = [
 	'Recentchanges'             => [ 'Нові_редагування', 'Свежие_правки' ],
 	'Recentchangeslinked'       => [ 'Пов\'язані_редагування', 'Связанные_правки' ],
 	'Redirect'                  => [ 'Перенаправлення' ],
-	'Renameuser'                => [ 'Перейменувати_користувача', 'Переименовать_участника' ],
 	'Revisiondelete'            => [ 'Вилучити_редагування', 'Удаление_правки' ],
 	'Search'                    => [ 'Пошук', 'Поиск' ],
 	'Shortpages'                => [ 'Короткі_сторінки', 'Короткие_страницы' ],

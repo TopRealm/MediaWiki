@@ -20,8 +20,6 @@
 				config = $.extend( {
 					formatversion: 2,
 					action: 'parse',
-					// Minimize the JSON we get back, there is no way to access anything else anyway
-					prop: 'text',
 					contentmodel: 'wikitext'
 				}, additionalParams );
 

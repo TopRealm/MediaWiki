@@ -25,7 +25,6 @@
 
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
 use Wikimedia\AtEase\AtEase;
 use Wikimedia\Rdbms\IDatabase;
@@ -52,7 +51,7 @@ class DatabaseLogEntry extends LogEntryBase {
 	 * @return array
 	 */
 	public static function getSelectQueryData() {
-		$commentQuery = MediaWikiServices::getInstance()->getCommentStore()->getJoin( 'log_comment' );
+		$commentQuery = CommentStore::getStore()->getJoin( 'log_comment' );
 
 		$tables = array_merge(
 			[
@@ -241,8 +240,7 @@ class DatabaseLogEntry extends LogEntryBase {
 	}
 
 	public function getComment() {
-		return MediaWikiServices::getInstance()->getCommentStore()
-			->getComment( 'log_comment', $this->row )->text;
+		return CommentStore::getStore()->getComment( 'log_comment', $this->row )->text;
 	}
 
 	public function getDeleted() {

@@ -11,9 +11,8 @@ class PageLangLogFormatterTest extends LogFormatterTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		// Clear all hooks to disable cldr extension
-		$this->clearHooks();
-
+		// Disable cldr extension
+		$this->setMwGlobals( 'wgHooks', [] );
 		// Register LogHandler, see $wgPageLanguageUseDB in Setup.php
 		$this->overrideConfigValue(
 			MainConfigNames::LogActionsHandlers,

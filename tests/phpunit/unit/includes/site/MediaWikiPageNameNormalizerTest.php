@@ -1,7 +1,7 @@
 <?php
 
-use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\Site\MediaWikiPageNameNormalizer;
+use PHPUnit\Framework\Assert;
 
 /**
  * @covers MediaWiki\Site\MediaWikiPageNameNormalizer
@@ -34,11 +34,11 @@ class MediaWikiPageNameNormalizerTest extends MediaWikiUnitTestCase {
 	 * @dataProvider normalizePageTitleProvider
 	 */
 	public function testNormalizePageTitle( $expected, $pageName, $getResponse ) {
-		$httpRequestFactory = $this->createMock( HttpRequestFactory::class );
-		$httpRequestFactory->method( 'get' )
-			->willReturn( $getResponse );
+		MediaWikiPageNameNormalizerTestMockHttp::$response = $getResponse;
 
-		$normalizer = new MediaWikiPageNameNormalizer( $httpRequestFactory );
+		$normalizer = new MediaWikiPageNameNormalizer(
+			new MediaWikiPageNameNormalizerTestMockHttp()
+		);
 
 		$this->assertSame(
 			$expected,
@@ -93,4 +93,23 @@ class MediaWikiPageNameNormalizerTest extends MediaWikiUnitTestCase {
 		];
 	}
 
+}
+
+/**
+ * @private
+ * @see Http
+ */
+class MediaWikiPageNameNormalizerTestMockHttp extends Http {
+
+	/**
+	 * @var mixed
+	 */
+	public static $response;
+
+	public static function get( $url, array $options = [], $caller = __METHOD__ ) {
+		Assert::assertIsString( $url );
+		Assert::assertIsString( $caller );
+
+		return self::$response;
+	}
 }

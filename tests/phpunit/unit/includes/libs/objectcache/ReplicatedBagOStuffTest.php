@@ -3,9 +3,6 @@
 use Wikimedia\LightweightObjectStore\StorageAwareness;
 use Wikimedia\TestingAccessWrapper;
 
-/**
- * @covers ReplicatedBagOStuff
- */
 class ReplicatedBagOStuffTest extends \MediaWikiUnitTestCase {
 	/** @var HashBagOStuff */
 	private $writeCache;
@@ -26,6 +23,9 @@ class ReplicatedBagOStuffTest extends \MediaWikiUnitTestCase {
 		] );
 	}
 
+	/**
+	 * @covers ReplicatedBagOStuff::set
+	 */
 	public function testSet() {
 		$key = $this->cache->makeKey( 'a', 'key' );
 		$value = 'a value';
@@ -36,6 +36,9 @@ class ReplicatedBagOStuffTest extends \MediaWikiUnitTestCase {
 		$this->assertFalse( $this->readCache->get( $key ), 'Async replication' );
 	}
 
+	/**
+	 * @covers ReplicatedBagOStuff::get
+	 */
 	public function testGet() {
 		$key = $this->cache->makeKey( 'a', 'key' );
 
@@ -47,6 +50,9 @@ class ReplicatedBagOStuffTest extends \MediaWikiUnitTestCase {
 		$this->assertSame( $read, $this->cache->get( $key ), 'Async replication' );
 	}
 
+	/**
+	 * @covers ReplicatedBagOStuff::get
+	 */
 	public function testGetAbsent() {
 		$key = $this->cache->makeKey( 'a', 'key' );
 		$value = 'a value';
@@ -55,6 +61,10 @@ class ReplicatedBagOStuffTest extends \MediaWikiUnitTestCase {
 		$this->assertFalse( $this->cache->get( $key ), 'Async replication' );
 	}
 
+	/**
+	 * @covers ReplicatedBagOStuff::setMulti
+	 * @covers ReplicatedBagOStuff::getMulti
+	 */
 	public function testGetSetMulti() {
 		$keyA = $this->cache->makeKey( 'key', 'a' );
 		$keyB = $this->cache->makeKey( 'key', 'b' );
@@ -73,6 +83,10 @@ class ReplicatedBagOStuffTest extends \MediaWikiUnitTestCase {
 		);
 	}
 
+	/**
+	 * @covers ReplicatedBagOStuff::get
+	 * @covers ReplicatedBagOStuff::set
+	 */
 	public function testGetSetRaw() {
 		$key = 'a:key';
 		$value = 'a value';
@@ -84,6 +98,11 @@ class ReplicatedBagOStuffTest extends \MediaWikiUnitTestCase {
 		$this->assertFalse( $this->readCache->get( $key ) );
 	}
 
+	/**
+	 * @covers ReplicatedBagOStuff::watchErrors()
+	 * @covers ReplicatedBagOStuff::getLastError()
+	 * @covers ReplicatedBagOStuff::setLastError()
+	 */
 	public function testErrorHandling() {
 		$wCache = $this->createPartialMock( HashBagOStuff::class, [ 'set' ] );
 		$wCacheWrapper = TestingAccessWrapper::newFromObject( $wCache );

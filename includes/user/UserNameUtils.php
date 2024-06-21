@@ -136,7 +136,7 @@ class UserNameUtils implements UserRigorOptions {
 	public function isValid( string $name ): bool {
 		if ( $name === ''
 			|| $this->isIP( $name )
-			|| str_contains( $name, '/' )
+			|| strpos( $name, '/' ) !== false
 			|| strlen( $name ) > $this->options->get( MainConfigNames::MaxNameChars )
 			|| $name !== $this->contentLang->ucfirst( $name )
 		) {
@@ -196,7 +196,7 @@ class UserNameUtils implements UserRigorOptions {
 			$reservedUsernames = $this->options->get( MainConfigNames::ReservedUsernames );
 			$this->hookRunner->onUserGetReservedNames( $reservedUsernames );
 			foreach ( $reservedUsernames as &$reserved ) {
-				if ( str_starts_with( $reserved, 'msg:' ) ) {
+				if ( substr( $reserved, 0, 4 ) === 'msg:' ) {
 					$reserved = $this->textFormatter->format(
 						MessageValue::new( substr( $reserved, 4 ) )
 					);

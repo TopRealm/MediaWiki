@@ -32,9 +32,6 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageReference;
 use MediaWiki\Page\PageReferenceValue;
 use MediaWiki\Revision\SlotRecord;
-use MediaWiki\StubObject\StubObject;
-use MediaWiki\StubObject\StubUserLang;
-use MediaWiki\Title\Title;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 use Wikimedia\Rdbms\Database;
@@ -340,11 +337,7 @@ class MessageCache implements LoggerAwareInterface {
 
 		// A hash of the expected content is stored in a WAN cache key, providing a way
 		// to invalid the local cache on every server whenever a message page changes.
-<<<<<<< HEAD
-		[ $hash, $hashVolatile ] = $this->getValidationHash( $code );
-=======
 		list( $hash, $hashVolatile ) = $this->getValidationHash( $code );
->>>>>>> origin/1.39.7-test
 		$this->cacheVolatile[$code] = $hashVolatile;
 		$volatilityOnlyStaleness = false;
 
@@ -765,7 +758,7 @@ class MessageCache implements LoggerAwareInterface {
 			return;
 		}
 
-		[ $msg, $code ] = $this->figureMessage( $title );
+		list( $msg, $code ) = $this->figureMessage( $title );
 		if ( strpos( $title, '/' ) !== false && $code === $this->contLangCode ) {
 			// Content language overrides do not use the /<code> suffix
 			return;
@@ -795,7 +788,7 @@ class MessageCache implements LoggerAwareInterface {
 		// Allow one caller at a time to avoid race conditions
 		[ $scopedLock ] = $this->getReentrantScopedLock( $code );
 		if ( !$scopedLock ) {
-			foreach ( $replacements as [ $title ] ) {
+			foreach ( $replacements as list( $title ) ) {
 				$this->logger->error(
 					__METHOD__ . ': could not acquire lock to update {title} ({code})',
 					[ 'title' => $title, 'code' => $code ] );
@@ -818,7 +811,7 @@ class MessageCache implements LoggerAwareInterface {
 		// Can not inject the WikiPageFactory as it would break the installer since
 		// it instantiates MessageCache before the DB.
 		$wikiPageFactory = MediaWikiServices::getInstance()->getWikiPageFactory();
-		foreach ( $replacements as [ $title ] ) {
+		foreach ( $replacements as list( $title ) ) {
 			$page = $wikiPageFactory->newFromTitle( Title::makeTitle( NS_MEDIAWIKI, $title ) );
 			$page->loadPageData( $page::READ_LATEST );
 			$text = $this->getMessageTextFromContent( $page->getContent() );
@@ -867,7 +860,7 @@ class MessageCache implements LoggerAwareInterface {
 
 		// Purge the messages in the message blob store and fire any hook handlers
 		$blobStore = MediaWikiServices::getInstance()->getResourceLoader()->getMessageBlobStore();
-		foreach ( $replacements as [ $title, $msg ] ) {
+		foreach ( $replacements as list( $title, $msg ) ) {
 			$blobStore->updateMessage( $this->contLang->lcfirst( $msg ) );
 			$this->hookRunner->onMessageCacheReplace( $title, $newTextByTitle[$title] );
 		}
@@ -1053,7 +1046,10 @@ class MessageCache implements LoggerAwareInterface {
 			// Let's not load nonexistent languages for those
 			// They usually have more than one slash.
 			if ( count( $parts ) === 2 && $parts[1] !== '' ) {
-				$message = $this->localisationCache->getSubitem( $parts[1], 'messages', $parts[0] ) ?? false;
+				$message = $this->localisationCache->getSubitem( $parts[1], 'messages', $parts[0] );
+				if ( $message === null ) {
+					$message = false;
+				}
 			}
 		}
 
@@ -1386,7 +1382,7 @@ class MessageCache implements LoggerAwareInterface {
 	 * @param PageReference|null $page
 	 * @param bool $linestart Whether or not this is at the start of a line
 	 * @param bool $interface Whether this is an interface message
-	 * @param Language|StubUserLang|string|null $language Language code
+	 * @param Language|string|null $language Language code
 	 * @return ParserOutput|string
 	 */
 	public function parse( $text, PageReference $page = null, $linestart = true,
@@ -1527,8 +1523,10 @@ class MessageCache implements LoggerAwareInterface {
 	 * @since 1.29
 	 */
 	public function updateMessageOverride( LinkTarget $linkTarget, Content $content = null ) {
-		// treat null as not existing
-		$msgText = $this->getMessageTextFromContent( $content ) ?? false;
+		$msgText = $this->getMessageTextFromContent( $content );
+		if ( $msgText === null ) {
+			$msgText = false; // treat as not existing
+		}
 
 		$this->replace( $linkTarget->getDBkey(), $msgText );
 

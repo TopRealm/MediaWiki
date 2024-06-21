@@ -2,16 +2,16 @@
 
 namespace MediaWiki\HookContainer {
 
-	use MediaWiki\Tests\Unit\DummyServicesTrait;
 	use MediaWikiUnitTestCase;
+	use Psr\Container\ContainerInterface;
 	use UnexpectedValueException;
+	use Wikimedia\ObjectFactory\ObjectFactory;
 	use Wikimedia\ScopedCallback;
 
 	class HookContainerTest extends MediaWikiUnitTestCase {
-		use DummyServicesTrait;
 
 		/*
-		 * Creates a new hook container with StaticHookRegistry and empty ObjectFactory
+		 * Creates a new hook container with StaticHookRegistry and mocked ObjectFactory
 		 */
 		private function newHookContainer(
 			$oldHooks = null, $newHooks = null, $deprecatedHooksArray = []
@@ -29,11 +29,19 @@ namespace MediaWiki\HookContainer {
 				];
 				$newHooks = [ 'FooActionComplete' => [ $handler ] ];
 			}
-			// object factory with no services
-			$objectFactory = $this->getDummyObjectFactory();
+			$mockObjectFactory = $this->getObjectFactory();
 			$registry = new StaticHookRegistry( $oldHooks, $newHooks, $deprecatedHooksArray );
-			$hookContainer = new HookContainer( $registry, $objectFactory );
+			$hookContainer = new HookContainer( $registry, $mockObjectFactory );
 			return $hookContainer;
+		}
+
+		private function getObjectFactory() {
+			$mockServiceContainer = $this->createMock( ContainerInterface::class );
+			$mockServiceContainer->method( 'get' )
+				->willThrowException( new \RuntimeException );
+
+			$objectFactory = new ObjectFactory( $mockServiceContainer );
+			return $objectFactory;
 		}
 
 		/**
@@ -255,28 +263,6 @@ namespace MediaWiki\HookContainer {
 		}
 
 		/**
-		 * @covers \MediaWiki\HookContainer\HookContainer::getRegisteredHooks
-		 */
-		public function testGetRegisteredHooks() {
-			$configuredHooks = [ 'A' => 'strtoupper', 'X' => 'strtoupper' ];
-			$extensionHooks = [
-				'A' => [ 'handler' => 'Foo' ],
-				'Y' => [ 'handler' => 'Bar' ]
-			];
-
-			$hookContainer = new HookContainer(
-				new StaticHookRegistry( $configuredHooks, $extensionHooks ),
-				$this->getDummyObjectFactory()
-			);
-
-			$hookContainer->register( 'A', 'strtoupper' );
-			$hookContainer->register( 'Z', 'strtoupper' );
-
-			$expected = [ 'A', 'X', 'Y', 'Z' ];
-			$this->assertArrayEquals( $expected, $hookContainer->getRegisteredHooks() );
-		}
-
-		/**
 		 * @dataProvider provideRunLegacyErrors
 		 * @covers \MediaWiki\HookContainer\HookContainer::normalizeHandler
 		 * Test errors thrown with invalid handlers
@@ -410,37 +396,6 @@ namespace MediaWiki\HookContainer {
 			} );
 			$isRegistered = $hookContainer->isRegistered( 'FooActionComplete' );
 			$this->assertTrue( $isRegistered );
-		}
-
-		/**
-		 * @covers \MediaWiki\HookContainer\HookContainer::getHookNames
-		 */
-		public function testGetHookNames() {
-			$fooHandler = [ 'handler' => [
-				'name' => 'FooHookHandler',
-				'class' => 'FooExtension\\Hooks'
-			] ];
-
-			$container = $this->newHookContainer(
-				[
-					'A' => static function () {
-						// noop
-					}
-				],
-				[
-					'B' => $fooHandler
-				]
-			);
-
-			$container->register( 'C', 'strtoupper' );
-
-			$this->assertArrayEquals( [ 'A', 'B', 'C' ], $container->getHookNames() );
-
-			// make sure we are getting each hook name only once
-			$container->register( 'B', 'strtoupper' );
-			$container->register( 'A', 'strtoupper' );
-
-			$this->assertArrayEquals( [ 'A', 'B', 'C' ], $container->getHookNames() );
 		}
 
 		/**

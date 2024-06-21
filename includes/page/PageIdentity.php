@@ -20,7 +20,6 @@
 
 namespace MediaWiki\Page;
 
-use MediaWiki\Title\Title;
 use RuntimeException;
 use Wikimedia\Assert\PreconditionException;
 
@@ -59,8 +58,8 @@ use Wikimedia\Assert\PreconditionException;
  *   another wiki.
  *
  * @stable to type
+ *
  * @since 1.36
- * @ingroup Page
  */
 interface PageIdentity extends PageReference {
 

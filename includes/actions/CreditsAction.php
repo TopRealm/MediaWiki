@@ -23,8 +23,6 @@
  * @author <evan@wikitravel.org>
  */
 
-use MediaWiki\Html\Html;
-use MediaWiki\Linker\Linker;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\MainConfigNames;
 use MediaWiki\User\UserFactory;
@@ -42,18 +40,18 @@ class CreditsAction extends FormlessAction {
 	private $userFactory;
 
 	/**
-	 * @param Article $article
+	 * @param Page $page
 	 * @param IContextSource $context
 	 * @param LinkRenderer $linkRenderer
 	 * @param UserFactory $userFactory
 	 */
 	public function __construct(
-		Article $article,
+		Page $page,
 		IContextSource $context,
 		LinkRenderer $linkRenderer,
 		UserFactory $userFactory
 	) {
-		parent::__construct( $article, $context );
+		parent::__construct( $page, $context );
 		$this->linkRenderer = $linkRenderer;
 		$this->userFactory = $userFactory;
 	}

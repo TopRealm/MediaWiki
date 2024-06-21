@@ -1,9 +1,5 @@
 <?php
 
-<<<<<<< HEAD
-use MediaWiki\Html\ListToggle;
-=======
->>>>>>> origin/1.39.7-test
 use MediaWiki\Tests\Unit\FakeQqxMessageLocalizer;
 
 /**

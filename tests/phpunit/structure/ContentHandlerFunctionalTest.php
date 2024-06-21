@@ -26,7 +26,6 @@ use Wikimedia\TestingAccessWrapper;
 
 /**
  * @group Database
- * @coversNothing
  */
 class ContentHandlerFunctionalTest extends MediaWikiIntegrationTestCase {
 

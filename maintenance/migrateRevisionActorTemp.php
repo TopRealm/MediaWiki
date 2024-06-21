@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 require_once __DIR__ . '/Maintenance.php';
 
 /**
@@ -90,7 +92,7 @@ class MigrateRevisionActorTemp extends LoggedUpdateMaintenance {
 			$conds = [ 'rev_id > ' . $dbw->addQuotes( $last ) ];
 
 			// Sleep between batches for replication to catch up
-			$this->waitForReplication();
+			MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->waitForReplication();
 			$sleep = (int)$this->getOption( 'sleep', 0 );
 			if ( $sleep > 0 ) {
 				sleep( $sleep );

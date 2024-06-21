@@ -163,7 +163,7 @@ class AuthManagerTest extends \MediaWikiIntegrationTestCase {
 			$name = $prop->getName();
 			$usedMsg = ltrim( "$msg ($name)" );
 			if ( $name === 'message' && $expected->message ) {
-				$this->assertSame( $expected->message->__serialize(), $actual->message->__serialize(),
+				$this->assertSame( $expected->message->serialize(), $actual->message->serialize(),
 					$usedMsg );
 			} else {
 				$this->assertEquals( $expected->$name, $actual->$name, $usedMsg );
@@ -211,7 +211,7 @@ class AuthManagerTest extends \MediaWikiIntegrationTestCase {
 			$this->config = new \HashConfig();
 		}
 		if ( $regen || !$this->request ) {
-			$this->request = new \MediaWiki\Request\FauxRequest();
+			$this->request = new \FauxRequest();
 		}
 		if ( $regen || !$this->objectFactory ) {
 			$services = $this->createNoOpAbstractMock( ContainerInterface::class );
@@ -351,11 +351,11 @@ class AuthManagerTest extends \MediaWikiIntegrationTestCase {
 	public function testCanAuthenticateNow() {
 		$this->initializeManager();
 
-		[ $provider, $reset ] = $this->getMockSessionProvider( false );
+		list( $provider, $reset ) = $this->getMockSessionProvider( false );
 		$this->assertFalse( $this->manager->canAuthenticateNow() );
 		ScopedCallback::consume( $reset );
 
-		[ $provider, $reset ] = $this->getMockSessionProvider( true );
+		list( $provider, $reset ) = $this->getMockSessionProvider( true );
 		$this->assertTrue( $this->manager->canAuthenticateNow() );
 		ScopedCallback::consume( $reset );
 	}
@@ -400,7 +400,7 @@ class AuthManagerTest extends \MediaWikiIntegrationTestCase {
 		$provideUser = null;
 		$reauth = $mutableSession ? AuthManager::SEC_REAUTH : AuthManager::SEC_FAIL;
 
-		[ $provider, $reset ] = $this->getMockSessionProvider(
+		list( $provider, $reset ) = $this->getMockSessionProvider(
 			$mutableSession, [ 'provideSessionInfo' ]
 		);
 		$provider->method( 'provideSessionInfo' )
@@ -846,7 +846,7 @@ class AuthManagerTest extends \MediaWikiIntegrationTestCase {
 		$this->initializeManager();
 
 		// Immutable session
-		[ $provider, $reset ] = $this->getMockSessionProvider( false );
+		list( $provider, $reset ) = $this->getMockSessionProvider( false );
 		$this->hook( 'UserLoggedIn', UserLoggedInHook::class, $this->never() );
 		$this->request->getSession()->setSecret( 'AuthManager::authnState', 'test' );
 		try {
@@ -2338,8 +2338,11 @@ class AuthManagerTest extends \MediaWikiIntegrationTestCase {
 				}
 			}
 
-			$userIdentity = $this->userIdentityLookup->getUserIdentityByName( $username );
-			$this->assertSame( $created, $userIdentity && $userIdentity->isRegistered() );
+			if ( $created ) {
+				$this->assertNotNull( \User::idFromName( $username ) );
+			} else {
+				$this->assertNull( \User::idFromName( $username ) );
+			}
 
 			$first = false;
 		}

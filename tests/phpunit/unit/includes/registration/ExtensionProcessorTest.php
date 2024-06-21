@@ -901,7 +901,6 @@ class ExtensionProcessorTest extends MediaWikiUnitTestCase {
 							'localBasePath' => $dir,
 							'remoteExtPath' => 'Foo',
 							'scripts' => 'bar.js',
-							'targets' => [ 'test' ],
 						],
 					],
 				],
@@ -1053,6 +1052,10 @@ class ExtensionProcessorTest extends MediaWikiUnitTestCase {
 		$processor->extractInfo(
 			$this->extensionPath,
 			[
+				'ParserTestFiles' => [
+					'tests/parserTests.txt',
+					'tests/extraParserTests.txt',
+				],
 				'ServiceWiringFiles' => [
 					'includes/ServiceWiring.php'
 				],
@@ -1060,6 +1063,11 @@ class ExtensionProcessorTest extends MediaWikiUnitTestCase {
 			1
 		);
 		$globals = $processor->getExtractedInfo()['globals'];
+		$this->assertArrayHasKey( 'wgParserTestFiles', $globals );
+		$this->assertSame( [
+			"{$this->dirname}/tests/parserTests.txt",
+			"{$this->dirname}/tests/extraParserTests.txt"
+		], $globals['wgParserTestFiles'] );
 		$this->assertArrayHasKey( 'wgServiceWiringFiles', $globals );
 		$this->assertSame( [
 			"{$this->dirname}/includes/ServiceWiring.php"

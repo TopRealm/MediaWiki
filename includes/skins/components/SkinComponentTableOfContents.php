@@ -45,22 +45,21 @@ class SkinComponentTableOfContents implements SkinComponent {
 	private function getSectionsDataInternal( array $sections, int $toclevel = 1 ): array {
 		$data = [];
 		foreach ( $sections as $i => $section ) {
-			// Child section belongs to a higher parent.
-			if ( $section->tocLevel < $toclevel ) {
-				return $data;
-			}
-
 			// Set all the parent sections at the current top level.
-			if ( $section->tocLevel === $toclevel ) {
+			if ( $section['toclevel'] === $toclevel ) {
 				$childSections = $this->getSectionsDataInternal(
 					array_slice( $sections, $i + 1 ),
 					$toclevel + 1
 				);
-				$data[] = $section->toLegacy() + [
+				$data[] = $section + [
 					'array-sections' => $childSections,
 					'is-top-level-section' => $toclevel === 1,
 					'is-parent-section' => !empty( $childSections )
 				];
+			}
+			// Child section belongs to a higher parent.
+			if ( $section['toclevel'] < $toclevel ) {
+				return $data;
 			}
 		}
 		return $data;
@@ -77,25 +76,24 @@ class SkinComponentTableOfContents implements SkinComponent {
 	 *
 	 * @return array
 	 */
-	private function getTOCDataInternal(): array {
-		$tocData = $this->output->getTOCData();
+	private function getTOCData(): array {
 		// Return data only if TOC present T298796.
-		if ( $tocData === null ) {
+		if ( !$this->output->isTOCEnabled() ) {
 			return [];
 		}
 
-		$outputSections = $tocData->getSections();
+		$outputSections = $this->output->getSections();
 
-		return count( $outputSections ) > 0 ? [
+		return [
 			'number-section-count' => count( $outputSections ),
 			'array-sections' => $this->getSectionsDataInternal( $outputSections, 1 ),
-		] : [];
+		];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
 	public function getTemplateData(): array {
-		return $this->getTOCDataInternal();
+		return $this->getTOCData();
 	}
 }

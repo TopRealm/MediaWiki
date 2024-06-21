@@ -100,7 +100,7 @@ class DnsSrvDiscovererTest extends PHPUnit\Framework\TestCase {
 				[ 'target' => '.', 'port' => '1', 'pri' => '1', 'weight' => '1' ],
 			] );
 
-		$this->assertSame( [], $dsd->getServers() );
+		$this->assertEmpty( $dsd->getServers() );
 	}
 
 	private function mockResolver() {

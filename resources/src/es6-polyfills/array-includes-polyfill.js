@@ -1,4 +1,4 @@
-/* eslint-disable no-extend-native, no-bitwise, eqeqeq, es-x/no-string-prototype-includes, es-x/no-array-prototype-includes */
+/* eslint-disable no-extend-native, no-bitwise, eqeqeq */
 
 /**
  * Array.prototype.includes polyfill

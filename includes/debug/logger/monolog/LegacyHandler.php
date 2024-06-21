@@ -115,7 +115,7 @@ class LegacyHandler extends AbstractProcessingHandler {
 		$this->error = null;
 		set_error_handler( [ $this, 'errorTrap' ] );
 
-		if ( str_starts_with( $this->uri, 'udp:' ) ) {
+		if ( substr( $this->uri, 0, 4 ) == 'udp:' ) {
 			$parsed = parse_url( $this->uri );
 			if ( !isset( $parsed['host'] ) ) {
 				throw new UnexpectedValueException( sprintf(
@@ -207,7 +207,7 @@ class LegacyHandler extends AbstractProcessingHandler {
 					$text = substr( $text, 0, 65506 );
 				}
 
-				if ( !str_ends_with( $text, "\n" ) ) {
+				if ( substr( $text, -1 ) != "\n" ) {
 					$text .= "\n";
 				}
 

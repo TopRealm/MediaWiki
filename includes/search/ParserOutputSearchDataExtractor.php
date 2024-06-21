@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Search;
 
-use MediaWiki\Category\Category;
-use MediaWiki\Title\Title;
+use Category;
 use ParserOutput;
+use Title;
 
 /**
  * Extracts data from ParserOutput for indexing in the search engine.

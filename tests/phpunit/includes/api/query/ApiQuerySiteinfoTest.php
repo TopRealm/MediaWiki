@@ -2,7 +2,6 @@
 
 use MediaWiki\MainConfigNames;
 use MediaWiki\MainConfigSchema;
-use MediaWiki\Title\Title;
 use Wikimedia\Rdbms\LoadBalancer;
 use Wikimedia\TestingAccessWrapper;
 
@@ -67,9 +66,8 @@ class ApiQuerySiteinfoTest extends ApiTestCase {
 
 	public function testVariants() {
 		$contLang = $this->getServiceContainer()->getLanguageFactory()->getLanguage( 'zh' );
-		$converter = $this->getServiceContainer()->getLanguageConverterFactory()->getLanguageConverter( $contLang );
 		$this->setContentLang( $contLang );
-		$this->assertTrue( $converter->hasVariants() );
+		$this->assertTrue( $contLang->hasVariants() );
 
 		$data = $this->doQuery();
 
@@ -77,7 +75,7 @@ class ApiQuerySiteinfoTest extends ApiTestCase {
 			static function ( $code ) use ( $contLang ) {
 				return [ 'code' => $code, 'name' => $contLang->getVariantname( $code ) ];
 			},
-			$converter->getVariants()
+			$contLang->getVariants()
 		);
 
 		$this->assertSame( $expected, $data['variants'] );
@@ -137,9 +135,6 @@ class ApiQuerySiteinfoTest extends ApiTestCase {
 	}
 
 	public function testNamespaceAliases() {
-		// XXX: why does this fail when the en-x-piglatin variant is enabled?
-		$this->overrideConfigValue( MainConfigNames::UsePigLatinVariant, false );
-
 		$expected = $this->getServiceContainer()->getContentLanguage()->getNamespaceAliases();
 		$expected = array_map(
 			static function ( $key, $val ) {
@@ -227,10 +222,8 @@ class ApiQuerySiteinfoTest extends ApiTestCase {
 				'local' => true,
 				'trans' => true,
 				'language' => 'Recursion',
-				'bcp47' => 'self',
 				'localinterwiki' => true,
 				'extralanglink' => true,
-				'code' => 'self',
 				'linktext' => 'Self!',
 				'sitename' => 'Circular logic',
 				'url' => 'https://local.example/w/index.php?title=$1',
@@ -333,7 +326,6 @@ class ApiQuerySiteinfoTest extends ApiTestCase {
 		$names = array_column( $data, 'name' );
 
 		$this->assertSame( array_keys( $wgGroupPermissions ), $names );
-		$userAllGroups = $this->getServiceContainer()->getUserGroupManager()->listAllGroups();
 
 		foreach ( $data as $val ) {
 			if ( !$numInGroup ) {
@@ -355,7 +347,7 @@ class ApiQuerySiteinfoTest extends ApiTestCase {
 			if ( $val['name'] === 'viscount' ) {
 				$viscountFound = true;
 				$this->assertSame( [ 'perambulate' ], $val['rights'] );
-				$this->assertSame( $userAllGroups, $val['add'] );
+				$this->assertSame( User::getAllGroups(), $val['add'] );
 			} elseif ( $val['name'] === 'bot' ) {
 				$this->assertArrayNotHasKey( 'add', $val );
 				$this->assertArrayNotHasKey( 'remove', $val );
@@ -680,6 +672,8 @@ class ApiQuerySiteinfoTest extends ApiTestCase {
 	}
 
 	public function testGetHooks() {
+		global $wgHooks;
+
 		// Make sure there's something to report on
 		$this->setTemporaryHook( 'somehook',
 			static function () {
@@ -687,11 +681,12 @@ class ApiQuerySiteinfoTest extends ApiTestCase {
 			}
 		);
 
-		$hookContainer = $this->getServiceContainer()->getHookContainer();
-		$expectedNames = $hookContainer->getHookNames();
+		$expectedNames = $wgHooks;
+		ksort( $expectedNames );
+
 		$actualNames = array_column( $this->doQuery( 'showhooks' ), 'name' );
 
-		$this->assertArrayEquals( $expectedNames, $actualNames );
+		$this->assertSame( array_keys( $expectedNames ), $actualNames );
 	}
 
 	public function testContinuation() {

@@ -1,11 +1,9 @@
 <?php
 
 use MediaWiki\MainConfigNames;
-use MediaWiki\Request\FauxRequest;
 use MediaWiki\Revision\MutableRevisionRecord;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
-use MediaWiki\Title\Title;
 use PHPUnit\Framework\MockObject\MockObject;
 use Wikimedia\TestingAccessWrapper;
 
@@ -265,7 +263,13 @@ class ArticleViewTest extends MediaWikiIntegrationTestCase {
 	public function testViewOfOldRevisionFromCache() {
 		$this->overrideConfigValues( [
 			MainConfigNames::OldRevisionParserCacheExpireTime => 100500,
-			MainConfigNames::MainCacheType => CACHE_HASH,
+			MainConfigNames::MainWANCache => 'main',
+			MainConfigNames::WANObjectCaches => [
+				'main' => [
+					'class' => WANObjectCache::class,
+					'cacheId' => 'hash',
+				],
+			],
 		] );
 
 		$revisions = [];
@@ -358,107 +362,23 @@ class ArticleViewTest extends MediaWikiIntegrationTestCase {
 
 		$revDelList = $this->getRevDelRevisionList( $page->getTitle(), $idA );
 		$revDelList->setVisibility( [
-			'value' => [
-				RevisionRecord::DELETED_TEXT => 1,
-				RevisionRecord::DELETED_COMMENT => 1,
-				RevisionRecord::DELETED_USER => 1,
-			],
+			'value' => [ RevisionRecord::DELETED_TEXT => 1 ],
 			'comment' => "Testing",
 		] );
 
-		$realContext = RequestContext::getMain();
-		$oldUser = $realContext->getUser();
-		$oldLanguage = $realContext->getLanguage();
-
 		$article = new Article( $page->getTitle(), $idA );
-		$context = new DerivativeContext( $realContext );
+		$context = new DerivativeContext( $article->getContext() );
 		$article->setContext( $context );
 		$context->getOutput()->setTitle( $page->getTitle() );
 		$context->getRequest()->setVal( 'unhide', 1 );
 		$context->setUser( $this->getTestUser( [ 'sysop' ] )->getUser() );
-
-		// Need global user set to sysop, global state in Linker::revUserTools/Linker::revComment (T309479)
-		$realContext->setUser( $context->getUser() );
-		// Language is resetted in setUser
-		$this->setUserLang( $oldLanguage );
-
 		$article->view();
 
 		$output = $article->getContext()->getOutput();
-		$subtitle = $output->getSubtitle();
-		$html = $this->getHtml( $output );
+		$this->assertStringContainsString( 'rev-deleted-text-view', $this->getHtml( $output ) );
 
-		// Test that oldid is select, not the current version
-		$this->assertStringNotContainsString( 'Test B', $html );
-
-		// Warning about rev-del must exists
-		$this->assertStringContainsString( 'rev-deleted-text-view', $html );
-
-		// Test for the hidden values
-		$this->assertStringContainsString( 'Test A', $html );
-		$this->assertStringContainsString( $revisions[1]->getUser()->getName(), $subtitle );
-		$this->assertStringContainsString( '(parentheses: Rev 1)', $subtitle );
-
-		// Should not contain the rev-del messages
-		$this->assertStringNotContainsString( '(rev-deleted-user)', $subtitle );
-		$this->assertStringNotContainsString( '(rev-deleted-comment)', $subtitle );
-
-		$realContext->setUser( $oldUser );
-	}
-
-	public function testHiddenViewOfDeletedRevision() {
-		$revisions = [];
-		$page = $this->getPage( __METHOD__, [ 1 => 'Test A', 2 => 'Test B' ], $revisions );
-		$idA = $revisions[1]->getId();
-
-		$revDelList = $this->getRevDelRevisionList( $page->getTitle(), $idA );
-		$revDelList->setVisibility( [
-			'value' => [
-				RevisionRecord::DELETED_TEXT => 1,
-				RevisionRecord::DELETED_COMMENT => 1,
-				RevisionRecord::DELETED_USER => 1,
-			],
-			'comment' => "Testing",
-		] );
-
-		$realContext = RequestContext::getMain();
-		$oldUser = $realContext->getUser();
-		$oldLanguage = $realContext->getLanguage();
-
-		$article = new Article( $page->getTitle(), $idA );
-		$context = new DerivativeContext( $realContext );
-		$article->setContext( $context );
-		$context->getOutput()->setTitle( $page->getTitle() );
-		// No unhide=1 is set in this test case
-		$context->setUser( $this->getTestUser( [ 'sysop' ] )->getUser() );
-
-		// Need global user set to sysop, global state in Linker::revUserTools/Linker::revComment (T309479)
-		$realContext->setUser( $context->getUser() );
-		// Language is resetted in setUser
-		$this->setUserLang( $oldLanguage );
-
-		$article->view();
-
-		$output = $article->getContext()->getOutput();
-		$subtitle = $output->getSubtitle();
-		$html = $this->getHtml( $output );
-
-		// Test that oldid is select, not the current version
-		$this->assertStringNotContainsString( 'Test B', $html );
-
-		// Warning about rev-del must exists
-		$this->assertStringContainsString( 'rev-deleted-text-unhide', $html );
-
-		// Test for the rev-del messages
-		$this->assertStringContainsString( '(rev-deleted-user)', $subtitle );
-		$this->assertStringContainsString( '(rev-deleted-comment)', $subtitle );
-
-		// Should not contain the hidden values
-		$this->assertStringNotContainsString( 'Test A', $html );
-		$this->assertStringNotContainsString( $revisions[1]->getUser()->getName(), $subtitle );
-		$this->assertStringNotContainsString( '(parentheses: Rev 1)', $subtitle );
-
-		$realContext->setUser( $oldUser );
+		$this->assertStringContainsString( 'Test A', $this->getHtml( $output ) );
+		$this->assertStringNotContainsString( 'Test B', $this->getHtml( $output ) );
 	}
 
 	public function testViewMissingPage() {
@@ -692,7 +612,8 @@ class ArticleViewTest extends MediaWikiIntegrationTestCase {
 			$services->getDBLoadBalancerFactory(),
 			$services->getHookContainer(),
 			$services->getHtmlCacheUpdater(),
-			$services->getRevisionStore()
+			$services->getRevisionStore(),
+			$services->getMainWANObjectCache()
 		);
 	}
 }

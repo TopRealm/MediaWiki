@@ -1,13 +1,11 @@
 <?php
 
-use MediaWiki\Language\RawMessage;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\UserGroupMembershipParam;
 use MediaWiki\Page\PageReference;
 use MediaWiki\Page\PageReferenceValue;
 use MediaWiki\User\UserIdentityValue;
-use Wikimedia\Assert\ParameterTypeException;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -836,20 +834,20 @@ class MessageTest extends MediaWikiLangTestCase {
 	 */
 	public function testQqxPlaceholders() {
 		$this->assertSame(
-			'(test)',
-			wfMessage( 'test' )->inLanguage( 'qqx' )->text()
+			wfMessage( 'test' )->inLanguage( 'qqx' )->text(),
+			'(test)'
 		);
 		$this->assertSame(
-			'(test: a, b)',
-			wfMessage( 'test' )->params( 'a', 'b' )->inLanguage( 'qqx' )->text()
+			wfMessage( 'test' )->params( 'a', 'b' )->inLanguage( 'qqx' )->text(),
+			'(test: a, b)'
 		);
 		$this->assertSame(
-			'(test / other-test)',
-			wfMessageFallback( 'test', 'other-test' )->inLanguage( 'qqx' )->text()
+			wfMessageFallback( 'test', 'other-test' )->inLanguage( 'qqx' )->text(),
+			'(test / other-test)'
 		);
 		$this->assertSame(
-			'(test / other-test: a, b)',
-			wfMessageFallback( 'test', 'other-test' )->params( 'a', 'b' )->inLanguage( 'qqx' )->text()
+			wfMessageFallback( 'test', 'other-test' )->params( 'a', 'b' )->inLanguage( 'qqx' )->text(),
+			'(test / other-test: a, b)'
 		);
 	}
 
@@ -894,7 +892,7 @@ class MessageTest extends MediaWikiLangTestCase {
 	 * @covers Message::inLanguage
 	 */
 	public function testInLanguageThrows() {
-		$this->expectException( ParameterTypeException::class );
+		$this->expectException( MWException::class );
 		wfMessage( 'foo' )->inLanguage( 123 );
 	}
 
@@ -911,7 +909,7 @@ class MessageTest extends MediaWikiLangTestCase {
 		$this->assertSame( '(<a>foo</a>)', $msg->parse() );
 		$title = TestingAccessWrapper::newFromObject( $msg )->contextPage;
 		$this->assertInstanceOf( PageReference::class, $title );
-		$this->assertSame( 'Testing', $title->getDBkey() );
+		$this->assertSame( 'Testing', $title->getDbKey() );
 
 		$msg = new Message( 'mainpage' );
 		$msg->inLanguage( 'de' );

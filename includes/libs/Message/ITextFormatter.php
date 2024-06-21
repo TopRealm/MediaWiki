@@ -29,7 +29,6 @@ interface ITextFormatter {
 	 *
 	 * @param MessageValue $message
 	 * @return string
-	 * @return-taint tainted
 	 */
 	public function format( MessageValue $message );
 }

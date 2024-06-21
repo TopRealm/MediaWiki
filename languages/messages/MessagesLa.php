@@ -1,6 +1,8 @@
 <?php
 /** Latin (Latina)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  *
@@ -128,7 +130,6 @@ $specialPageAliases = [
 	'Recentchanges'             => [ 'Nuper_mutata', 'Mutationes_recentes' ],
 	'Recentchangeslinked'       => [ 'Nuper_mutata_annexorum' ],
 	'Redirect'                  => [ 'Redirectio' ],
-	'Renameuser'                => [ 'Usorem_renominare' ],
 	'Revisiondelete'            => [ 'Emendationem_delere' ],
 	'Search'                    => [ 'Quaerere' ],
 	'Shortpages'                => [ 'Paginae_breves' ],

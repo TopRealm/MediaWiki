@@ -3,7 +3,6 @@
 use MediaWiki\Block\DatabaseBlock;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Revision\SlotRecord;
-use MediaWiki\Title\Title;
 
 /**
  * @group API
@@ -68,7 +67,7 @@ class ApiMoveTest extends ApiTestCase {
 	 * @return int ID of created page
 	 */
 	protected function createPage( $name ) {
-		return $this->editPage( $name, 'Content' )->getNewRevision()->getPageId();
+		return $this->editPage( $name, 'Content' )->value['revision-record']->getPageId();
 	}
 
 	public function testFromWithFromid() {

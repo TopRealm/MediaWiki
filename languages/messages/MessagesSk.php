@@ -1,6 +1,8 @@
 <?php
 /** Slovak (slovenčina)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  *
@@ -113,7 +115,6 @@ $specialPageAliases = [
 	'Recentchangeslinked'       => [ 'SúvisiacePoslednéÚpravy' ],
 	'Redirect'                  => [ 'Presmerovanie' ],
 	'RemoveCredentials'         => [ 'OdstráneniePrihlasovacíchÚdajov' ],
-	'Renameuser'                => [ 'PremenovaťPoužívateľa' ],
 	'ResetTokens'               => [ 'ObnovaKľúčov' ],
 	'Revisiondelete'            => [ 'ZmazaťRevíziu' ],
 	'Search'                    => [ 'Hľadanie' ],

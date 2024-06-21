@@ -1,6 +1,5 @@
 <?php
 
-use MediaWiki\HookContainer\FauxGlobalHookArray;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\Logger\LegacyLogger;
 use MediaWiki\Logger\LegacySpi;
@@ -12,10 +11,7 @@ use MediaWiki\Page\PageIdentity;
 use MediaWiki\Page\ProperPageIdentity;
 use MediaWiki\Permissions\Authority;
 use MediaWiki\Permissions\UltimateAuthority;
-use MediaWiki\Request\FauxRequest;
 use MediaWiki\Revision\RevisionRecord;
-use MediaWiki\Storage\PageUpdateStatus;
-use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentityValue;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestResult;
@@ -68,9 +64,7 @@ abstract class MediaWikiIntegrationTestCase extends PHPUnit\Framework\TestCase {
 	public static $users;
 
 	/**
-	 * DB_PRIMARY handle to the main database connection used for integration tests
-	 *
-	 * Test classes should generally use {@link getDb()} instead of this property
+	 * Primary database
 	 *
 	 * @var Database
 	 * @since 1.18
@@ -216,20 +210,6 @@ abstract class MediaWikiIntegrationTestCase extends PHPUnit\Framework\TestCase {
 	}
 
 	/**
-	 * Get a DB_PRIMARY database connection reference on the current testing domain
-	 *
-	 * Since temporary tables are typically used, it is important to stick to a single
-	 * underlying connection. DBConnRef balance this concern while making sure that the
-	 * DB domain used for each caller matches expecations.
-	 *
-	 * @return IDatabase
-	 * @since 1.39
-	 */
-	protected function getDb() {
-		return MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
-	}
-
-	/**
 	 * Convenience method for getting an immutable test user
 	 *
 	 * @since 1.28
@@ -284,7 +264,7 @@ abstract class MediaWikiIntegrationTestCase extends PHPUnit\Framework\TestCase {
 
 		$title = ( $title === null ) ? 'UTPage' : $title;
 		$title = is_string( $title ) ? Title::newFromText( $title ) : $title;
-		$page = $this->getServiceContainer()->getWikiPageFactory()->newFromTitle( $title );
+		$page = WikiPage::factory( $title );
 
 		if ( !$page->exists() ) {
 			$user = static::getTestSysop()->getUser();
@@ -465,12 +445,12 @@ abstract class MediaWikiIntegrationTestCase extends PHPUnit\Framework\TestCase {
 
 		$wgRequest = RequestContext::getMain()->getRequest();
 		MediaWiki\Session\SessionManager::resetCache();
-
-		TestUserRegistry::clear();
 	}
 
 	public function run( TestResult $result = null ): TestResult {
-		$result ??= $this->createResult();
+		if ( $result === null ) {
+			$result = $this->createResult();
+		}
 
 		try {
 			$this->overrideMwServices();
@@ -487,7 +467,6 @@ abstract class MediaWikiIntegrationTestCase extends PHPUnit\Framework\TestCase {
 				$useTemporaryTables = !$this->getCliArg( 'use-normal-tables' );
 
 				$lb = MediaWikiServices::getInstance()->getDBLoadBalancer();
-				// Need a Database where the DB domain changes during table cloning
 				$this->db = $lb->getConnectionInternal( DB_PRIMARY );
 
 				$this->checkDbIsSupported();
@@ -894,25 +873,23 @@ abstract class MediaWikiIntegrationTestCase extends PHPUnit\Framework\TestCase {
 	 *
 	 * @note This will cause any existing service instances to be reset.
 	 *
-	 * @param string|int|BagOStuff $cache
+	 * @param string|BagOStuff $cache
+	 *
 	 * @return string|int The new value of the MainCacheType setting.
 	 */
 	protected function setMainCache( $cache ) {
 		if ( $cache instanceof BagOStuff ) {
-			$cacheId = 'UTCache';
-			ObjectCache::$instances[ $cacheId ] = $cache;
-		} else {
-			$cacheId = $cache;
-			$cache = ObjectCache::getInstance( $cacheId );
+			// ObjectCache::$instances is reset after each test by resetNonGlobalServices().
+			ObjectCache::$instances[ 'UTCache' ] = $cache;
+			$cache = 'UTCache';
 		}
 
-		if ( !is_string( $cacheId ) && !is_int( $cacheId ) ) {
-			throw new InvalidArgumentException( 'Bad type of $cache parameter: ' . get_debug_type( $cacheId ) );
+		if ( !is_string( $cache ) && !is_int( $cache ) ) {
+			throw new InvalidArgumentException( 'Bad type of $cache parameter: ' . get_debug_type( $cache ) );
 		}
 
-		$this->overrideConfigValue( MainConfigNames::MainCacheType, $cacheId );
-		$this->setService( '_LocalClusterCache', $cache );
-		return $cacheId;
+		$this->overrideConfigValue( MainConfigNames::MainCacheType, $cache );
+		return $cache;
 	}
 
 	/**
@@ -1056,19 +1033,12 @@ abstract class MediaWikiIntegrationTestCase extends PHPUnit\Framework\TestCase {
 		if ( !isset( $GLOBALS[$name] ) ) {
 			$merged = $values;
 		} else {
-			// NOTE: do not use array_merge, it screws up for numeric keys.
-			$merged = $GLOBALS[$name];
-
-			// HACK for fake $wgHooks. Replace it with the original array here,
-			// then let resetLegacyGlobals() turn it back into a fake.
-			if ( $merged instanceof FauxGlobalHookArray ) {
-				$merged = $merged->getOriginalArray();
-			}
-
-			if ( !is_array( $merged ) ) {
+			if ( !is_array( $GLOBALS[$name] ) ) {
 				throw new MWException( "MW global $name is not an array." );
 			}
 
+			// NOTE: do not use array_merge, it screws up for numeric keys.
+			$merged = $GLOBALS[$name];
 			foreach ( $values as $k => $v ) {
 				$merged[$k] = $v;
 			}
@@ -1119,7 +1089,7 @@ abstract class MediaWikiIntegrationTestCase extends PHPUnit\Framework\TestCase {
 			}
 		}
 
-		self::resetLegacyGlobals( $this->localServices );
+		self::resetLegacyGlobals();
 	}
 
 	/**
@@ -1196,7 +1166,7 @@ abstract class MediaWikiIntegrationTestCase extends PHPUnit\Framework\TestCase {
 			$newInstance->redefineService( $name, $callback );
 		}
 
-		self::resetLegacyGlobals( $newInstance );
+		self::resetLegacyGlobals();
 
 		return $newInstance;
 	}
@@ -1271,7 +1241,7 @@ abstract class MediaWikiIntegrationTestCase extends PHPUnit\Framework\TestCase {
 		}
 
 		// Provide a traditional hook point to allow extensions to configure services.
-		$newServices->getHookContainer()->run( 'MediaWikiServices', [ $newServices ] );
+		Hooks::runner()->onMediaWikiServices( $newServices );
 
 		// Use bootstrap config for all configuration.
 		// This allows config overrides via global variables to take effect.
@@ -1310,7 +1280,7 @@ abstract class MediaWikiIntegrationTestCase extends PHPUnit\Framework\TestCase {
 
 		MediaWikiServices::forceGlobalInstance( $newServices );
 
-		self::resetLegacyGlobals( $newServices );
+		self::resetLegacyGlobals();
 
 		return $newServices;
 	}
@@ -1340,27 +1310,13 @@ abstract class MediaWikiIntegrationTestCase extends PHPUnit\Framework\TestCase {
 		MediaWikiServices::forceGlobalInstance( self::$originalServices );
 		$currentServices->destroy();
 
-		self::resetLegacyGlobals( self::$originalServices );
+		self::resetLegacyGlobals();
 
 		return true;
 	}
 
-	private static function resetLegacyGlobals( MediaWikiServices $services ) {
-		global $wgHooks;
-
-		$hooks = $wgHooks instanceof FauxGlobalHookArray ? $wgHooks->getOriginalArray() : $wgHooks;
-
-		$wgHooks = new FauxGlobalHookArray(
-			$services->getHookContainer(),
-			$hooks
-		);
-
+	private static function resetLegacyGlobals() {
 		ParserOptions::clearStaticCache();
-
-		// User objects may hold service references!
-		RequestContext::getMain()->getUser()->clearInstanceCache();
-
-		TestUserRegistry::clearInstanceCaches();
 	}
 
 	/**
@@ -1577,7 +1533,7 @@ abstract class MediaWikiIntegrationTestCase extends PHPUnit\Framework\TestCase {
 		}
 		$comment = __METHOD__ . ': Sample page for unit test.';
 
-		$page = $this->getServiceContainer()->getWikiPageFactory()->newFromTitle( $title );
+		$page = WikiPage::factory( $title );
 		$page->doUserEditContent( ContentHandler::makeContent( $text, $title ), $user, $comment );
 
 		return [
@@ -1628,7 +1584,7 @@ abstract class MediaWikiIntegrationTestCase extends PHPUnit\Framework\TestCase {
 		$user = static::getTestSysop()->getUser();
 
 		// Make 1 page with 1 revision
-		$page = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( Title::makeTitle( NS_MAIN, 'UTPage' ) );
+		$page = WikiPage::factory( Title::newFromText( 'UTPage' ) );
 		if ( $page->getId() == 0 ) {
 			$page->doUserEditContent(
 				new WikitextContent( 'UTContent' ),
@@ -1704,14 +1660,12 @@ abstract class MediaWikiIntegrationTestCase extends PHPUnit\Framework\TestCase {
 		IMaintainableDatabase $db,
 		$prefix = null
 	) {
-		$prefix ??= self::getTestPrefixFor( $db );
+		if ( $prefix === null ) {
+			$prefix = self::getTestPrefixFor( $db );
+		}
+
 		$originalTablePrefix = DynamicPropertyTestHelper::getDynamicProperty( $db, 'originalTablePrefix' );
 
-<<<<<<< HEAD
-=======
-		$originalTablePrefix = DynamicPropertyTestHelper::getDynamicProperty( $db, 'originalTablePrefix' );
-
->>>>>>> origin/1.39.7-test
 		if ( $originalTablePrefix !== null ) {
 			return null;
 		}
@@ -1741,7 +1695,7 @@ abstract class MediaWikiIntegrationTestCase extends PHPUnit\Framework\TestCase {
 
 		self::$oldTablePrefix = $wgDBprefix;
 
-		$testPrefix ??= self::getTestPrefixFor( $db );
+		$testPrefix = $testPrefix ?? self::getTestPrefixFor( $db );
 
 		// switch to a temporary clone of the database
 		self::$useTemporaryTables = $useTemporaryTables ?? self::$useTemporaryTables;
@@ -2101,7 +2055,8 @@ abstract class MediaWikiIntegrationTestCase extends PHPUnit\Framework\TestCase {
 			$extraTables = [
 				'user' => [ 'user', 'user_groups', 'user_properties', 'actor' ],
 				'page' => [ 'page', 'revision', 'ip_changes', 'revision_comment_temp', 'comment', 'archive',
-					'slots', 'content', 'content_models', 'slot_roles', 'redirect', 'change_tag' ],
+					'slots', 'content', 'content_models', 'slot_roles',
+					'change_tag' ],
 				'logging' => [ 'logging', 'log_search', 'change_tag' ],
 			];
 			$coreDBDataTables = array_merge( $extraTables['user'], $extraTables['page'] );
@@ -2567,20 +2522,6 @@ abstract class MediaWikiIntegrationTestCase extends PHPUnit\Framework\TestCase {
 	}
 
 	/**
-	 * Remove all handlers for the given hooks for the duration of the current test case.
-	 * If called without any parameters, this clears all hooks.
-	 *
-	 * @param string[]|null $hookNames
-	 * @since 1.40
-	 */
-	protected function clearHooks( ?array $hookNames = null ) {
-		$hookNames ??= $this->localServices->getHookContainer()->getRegisteredHooks();
-		foreach ( $hookNames as $name ) {
-			$this->clearHook( $name );
-		}
-	}
-
-	/**
 	 * Remove a temporary hook previously added with setTemporaryHook().
 	 *
 	 * @note This is implemented to remove ALL handlers for the given hook
@@ -2600,7 +2541,7 @@ abstract class MediaWikiIntegrationTestCase extends PHPUnit\Framework\TestCase {
 	 * @param string $summary Optional summary string for the revision
 	 * @param int $defaultNs Optional namespace id
 	 * @param Authority|null $performer If null, static::getTestUser()->getAuthority() is used.
-	 * @return PageUpdateStatus Object as returned by WikiPage::doUserEditContent()
+	 * @return Status Object as returned by WikiPage::doUserEditContent()
 	 * @throws MWException If this test cases's needsDB() method doesn't return true.
 	 *         Test cases can use "@group Database" to enable database test support,
 	 *         or list the tables under testing in $this->tablesUsed, or override the
@@ -2632,6 +2573,10 @@ abstract class MediaWikiIntegrationTestCase extends PHPUnit\Framework\TestCase {
 			$page = $services->getWikiPageFactory()->newFromTitle( $title );
 		}
 
+		if ( $performer === null ) {
+			$performer = static::getTestUser()->getAuthority();
+		}
+
 		if ( is_string( $content ) ) {
 			$content = $services->getContentHandlerFactory()
 				->getContentHandler( $title->getContentModel() )
@@ -2640,7 +2585,7 @@ abstract class MediaWikiIntegrationTestCase extends PHPUnit\Framework\TestCase {
 
 		return $page->doUserEditContent(
 			$content,
-			$performer ?? static::getTestUser()->getAuthority(),
+			$performer,
 			$summary
 		);
 	}
@@ -2651,7 +2596,7 @@ abstract class MediaWikiIntegrationTestCase extends PHPUnit\Framework\TestCase {
 	 * @param Authority|null $deleter
 	 */
 	protected function deletePage( ProperPageIdentity $page, string $summary = '', Authority $deleter = null ): void {
-		$deleter ??= new UltimateAuthority( new UserIdentityValue( 0, 'MediaWiki default' ) );
+		$deleter = $deleter ?? new UltimateAuthority( new UserIdentityValue( 0, 'MediaWiki default' ) );
 		MediaWikiServices::getInstance()->getDeletePageFactory()
 			->newDeletePage( $page, $deleter )
 			->deleteUnsafe( $summary );

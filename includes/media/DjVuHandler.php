@@ -49,8 +49,9 @@ class DjVuHandler extends ImageHandler {
 			wfDebug( "DjVu is disabled, please set \$wgDjvuRenderer and \$wgDjvuDump" );
 
 			return false;
+		} else {
+			return true;
 		}
-		return true;
 	}
 
 	/**
@@ -123,8 +124,9 @@ class DjVuHandler extends ImageHandler {
 		$m = false;
 		if ( preg_match( '/^page(\d+)-(\d+)px$/', $str, $m ) ) {
 			return [ 'width' => $m[2], 'page' => $m[1] ];
+		} else {
+			return false;
 		}
-		return false;
 	}
 
 	/**
@@ -216,21 +218,22 @@ class DjVuHandler extends ImageHandler {
 		}
 		$cmd .= ' > ' . Shell::escape( $dstPath ) . ') 2>&1';
 		wfDebug( __METHOD__ . ": $cmd" );
-		$retval = 0;
+		$retval = '';
 		$err = wfShellExec( $cmd, $retval );
 
 		$removed = $this->removeBadFile( $dstPath, $retval );
-		if ( $retval !== 0 || $removed ) {
+		if ( $retval != 0 || $removed ) {
 			$this->logErrorForExternalProcess( $retval, $err, $cmd );
 			return new MediaTransformError( 'thumbnail_error', $width, $height, $err );
-		}
-		$params = [
-			'width' => $width,
-			'height' => $height,
-			'page' => $page
-		];
+		} else {
+			$params = [
+				'width' => $width,
+				'height' => $height,
+				'page' => $page
+			];
 
-		return new ThumbnailImage( $image, $dstUrl, $dstPath, $params );
+			return new ThumbnailImage( $image, $dstUrl, $dstPath, $params );
+		}
 	}
 
 	/**
@@ -267,11 +270,11 @@ class DjVuHandler extends ImageHandler {
 
 		if ( isset( $unser['error'] ) ) {
 			return false;
-		}
-		if ( isset( $unser['_error'] ) ) {
+		} elseif ( isset( $unser['_error'] ) ) {
 			return false;
+		} else {
+			return $unser;
 		}
-		return $unser;
 	}
 
 	/**
@@ -293,10 +296,12 @@ class DjVuHandler extends ImageHandler {
 			return false;
 		}
 
-		if ( !$gettext ) {
+		if ( $gettext ) {
+			return $metadata;
+		} else {
 			unset( $metadata['text'] );
+			return $metadata;
 		}
-		return $metadata;
 	}
 
 	public function getThumbType( $ext, $mime, $params = null ) {

@@ -92,7 +92,9 @@ class RequestFromGlobals extends RequestBase {
 	}
 
 	public function getUploadedFiles() {
-		$this->uploadedFiles ??= ServerRequest::normalizeFiles( $_FILES );
+		if ( $this->uploadedFiles === null ) {
+			$this->uploadedFiles = ServerRequest::normalizeFiles( $_FILES );
+		}
 		return $this->uploadedFiles;
 	}
 

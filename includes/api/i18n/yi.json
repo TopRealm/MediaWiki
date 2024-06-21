@@ -1,13 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-<<<<<<< HEAD
-			"Pacha Tchernof",
-			"פוילישער"
-=======
 			"פוילישער",
 			"Pacha Tchernof"
->>>>>>> origin/1.39.7-test
 		]
 	},
 	"apihelp-main-param-action": "וועלכע אקציע אויסצופירן.",

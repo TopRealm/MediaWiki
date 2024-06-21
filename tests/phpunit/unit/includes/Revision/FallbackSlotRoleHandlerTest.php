@@ -3,7 +3,7 @@
 namespace MediaWiki\Tests\Revision;
 
 use MediaWiki\Revision\FallbackSlotRoleHandler;
-use MediaWiki\Title\Title;
+use Title;
 
 /**
  * @covers \MediaWiki\Revision\FallbackSlotRoleHandler

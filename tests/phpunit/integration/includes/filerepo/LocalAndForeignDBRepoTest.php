@@ -1,7 +1,5 @@
 <?php
 
-use MediaWiki\WikiMap\WikiMap;
-
 class LocalAndForeignDBRepoTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * @covers LocalRepo::getSharedCacheKey

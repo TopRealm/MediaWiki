@@ -1,7 +1,5 @@
 <?php
 
-use MediaWiki\Html\FormOptions;
-
 /**
  * Test class for FormOptions methods.
  *

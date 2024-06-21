@@ -2,11 +2,11 @@
 
 namespace MediaWiki\Permissions;
 
+use CommentStore;
 use DBAccessObjectUtils;
 use IDBAccessObject;
 use LinkCache;
 use MediaWiki\Cache\CacheKeyHelper;
-use MediaWiki\CommentStore\CommentStore;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\HookContainer\HookRunner;
@@ -15,8 +15,8 @@ use MediaWiki\MainConfigNames;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Page\PageIdentityValue;
 use MediaWiki\Page\PageStore;
-use MediaWiki\Title\Title;
 use stdClass;
+use Title;
 use TitleValue;
 use WANObjectCache;
 use Wikimedia\Rdbms\Database;
@@ -334,8 +334,8 @@ class RestrictionStore {
 			return array_values( array_diff( $types, [ 'create' ] ) );
 		}
 
-		// Only the create restrictions apply to non-existing titles
-		return array_values( array_intersect( $types, [ 'create' ] ) );
+		// Only the create and upload restrictions apply to non-existing titles
+		return array_values( array_intersect( $types, [ 'create', 'upload' ] ) );
 	}
 
 	/**
@@ -374,11 +374,12 @@ class RestrictionStore {
 			$fname = __METHOD__;
 			$loadRestrictionsFromDb = static function ( IDatabase $dbr ) use ( $fname, $id ) {
 				return iterator_to_array(
-					$dbr->newSelectQueryBuilder()
-					->select( [ 'pr_type', 'pr_expiry', 'pr_level', 'pr_cascade' ] )
-					->from( 'page_restrictions' )
-					->where( [ 'pr_page' => $id ] )
-					->caller( $fname )->fetchResultSet()
+					$dbr->select(
+						'page_restrictions',
+						[ 'pr_type', 'pr_expiry', 'pr_level', 'pr_cascade' ],
+						[ 'pr_page' => $id ],
+						$fname
+					)
 				);
 			};
 
@@ -567,10 +568,6 @@ class RestrictionStore {
 	private function getCascadeProtectionSourcesInternal(
 		PageIdentity $page, bool $shortCircuit = false
 	) {
-		if ( !$page->canExist() ) {
-			return $shortCircuit ? false : [ [], [] ];
-		}
-
 		$cacheEntry = &$this->cache[CacheKeyHelper::getKeyForPage( $page )];
 
 		if ( !$shortCircuit && isset( $cacheEntry['cascade_sources'] ) ) {
@@ -579,33 +576,36 @@ class RestrictionStore {
 			return $cacheEntry['has_cascading'];
 		}
 
-		$dbr = $this->loadBalancer->getConnectionRef( DB_REPLICA );
-		$queryBuilder = $dbr->newSelectQueryBuilder();
-		$queryBuilder->select( [ 'pr_expiry' ] )
-			->from( 'page_restrictions' )
-			->where( [ 'pr_cascade' => 1 ] );
-
 		if ( $page->getNamespace() === NS_FILE ) {
 			// Files transclusion may receive cascading protection in the future
 			// see https://phabricator.wikimedia.org/T241453
-			$queryBuilder->join( 'imagelinks', null, 'il_from=pr_page' );
-			$queryBuilder->andWhere( [ 'il_to' => $page->getDBkey() ] );
+			$tables = [ 'imagelinks', 'page_restrictions' ];
+			$where_clauses = [
+				'il_to' => $page->getDBkey(),
+				'il_from=pr_page',
+				'pr_cascade' => 1
+			];
 		} else {
-			$queryBuilder->join( 'templatelinks', null, 'tl_from=pr_page' );
-			$queryBuilder->andWhere(
-				$this->linksMigration->getLinksConditions(
-					'templatelinks',
-					TitleValue::newFromPage( $page )
-				)
+			$tables = [ 'templatelinks', 'page_restrictions' ];
+			$where_clauses = $this->linksMigration->getLinksConditions(
+				'templatelinks',
+				TitleValue::newFromPage( $page )
 			);
+			$where_clauses[] = 'tl_from=pr_page';
+			$where_clauses['pr_cascade'] = 1;
 		}
 
-		if ( !$shortCircuit ) {
-			$queryBuilder->fields( [ 'pr_page', 'page_namespace', 'page_title', 'pr_type', 'pr_level' ] );
-			$queryBuilder->join( 'page', null, 'page_id=pr_page' );
+		if ( $shortCircuit ) {
+			$cols = [ 'pr_expiry' ];
+		} else {
+			$cols = [ 'pr_page', 'page_namespace', 'page_title',
+				'pr_expiry', 'pr_type', 'pr_level' ];
+			$where_clauses[] = 'page_id=pr_page';
+			$tables[] = 'page';
 		}
 
-		$res = $queryBuilder->caller( __METHOD__ )->fetchResultSet();
+		$dbr = $this->loadBalancer->getConnectionRef( DB_REPLICA );
+		$res = $dbr->select( $tables, $cols, $where_clauses, __METHOD__ );
 
 		$sources = [];
 		$pageRestrictions = [];

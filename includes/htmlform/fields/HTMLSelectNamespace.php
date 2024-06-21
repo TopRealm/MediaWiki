@@ -1,7 +1,4 @@
 <?php
-
-use MediaWiki\Html\Html;
-
 /**
  * Wrapper for Html::namespaceSelector to use in HTMLForm
  *

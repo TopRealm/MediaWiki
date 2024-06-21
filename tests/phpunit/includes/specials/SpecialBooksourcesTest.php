@@ -47,9 +47,9 @@ class SpecialBooksourcesTest extends SpecialPageTestBase {
 	 * @covers SpecialBookSources::execute
 	 */
 	public function testExecute() {
-		[ $html, ] = $this->executeSpecialPage( 'Invalid', null, 'qqx' );
+		list( $html, ) = $this->executeSpecialPage( 'Invalid', null, 'qqx' );
 		$this->assertStringContainsString( '(booksources-invalid-isbn)', $html );
-		[ $html, ] = $this->executeSpecialPage( '0-7475-3269-9', null, 'qqx' );
+		list( $html, ) = $this->executeSpecialPage( '0-7475-3269-9', null, 'qqx' );
 		$this->assertStringNotContainsString( '(booksources-invalid-isbn)', $html );
 		$this->assertStringContainsString( '(booksources-text)', $html );
 	}

@@ -31,9 +31,9 @@ use MediaWiki\Page\PageReference;
 use MediaWiki\Page\ProperPageIdentity;
 use Psr\Log\LoggerInterface;
 use Wikimedia\Assert\Assert;
+use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\ILoadBalancer;
 use Wikimedia\Rdbms\IResultWrapper;
-use Wikimedia\Rdbms\Platform\ISQLPlatform;
 
 /**
  * Class representing a list of titles
@@ -97,7 +97,7 @@ class LinkBatch {
 	 * @param ILoadBalancer|null $loadBalancer
 	 * @param LinksMigration|null $linksMigration
 	 * @param LoggerInterface|null $logger
-	 * @deprecated since 1.35 Use newLinkBatch of the LinkBatchFactory service instead, Hard-deprecated in 1.40
+	 * @deprecated since 1.35 Use makeLinkBatch of the LinkBatchFactory service instead
 	 */
 	public function __construct(
 		iterable $arr = [],
@@ -109,13 +109,6 @@ class LinkBatch {
 		?LinksMigration $linksMigration = null,
 		?LoggerInterface $logger = null
 	) {
-		if ( !$linkCache ) {
-			wfDeprecatedMsg(
-				__METHOD__ . ' without providing all services is deprecated',
-				'1.35'
-			);
-		}
-
 		$getServices = static function () {
 			// BC hack. Use a closure so this can be unit-tested.
 			return MediaWikiServices::getInstance();
@@ -182,6 +175,10 @@ class LinkBatch {
 			// T137083
 			return;
 		}
+		if ( !array_key_exists( $ns, $this->data ) ) {
+			$this->data[$ns] = [];
+		}
+
 		$this->data[$ns][strtr( $dbkey, ' ', '_' )] = 1;
 	}
 
@@ -267,7 +264,9 @@ class LinkBatch {
 
 		// For each returned entry, add it to the list of good links, and remove it from $remaining
 
-		$this->pageIdentities ??= [];
+		if ( $this->pageIdentities === null ) {
+			$this->pageIdentities = [];
+		}
 
 		$ids = [];
 		$remaining = $this->data;
@@ -325,7 +324,7 @@ class LinkBatch {
 
 	/**
 	 * Perform the existence test query, return a result wrapper with page_id fields
-	 * @return IResultWrapper|false
+	 * @return bool|IResultWrapper
 	 */
 	public function doQuery() {
 		if ( $this->isEmpty() ) {
@@ -333,18 +332,19 @@ class LinkBatch {
 		}
 
 		// This is similar to LinkHolderArray::replaceInternal
-		$dbr = $this->loadBalancer->getConnection( DB_REPLICA );
-		$queryBuilder = $dbr->newSelectQueryBuilder()
-			->select( LinkCache::getSelectFields() )
-			->from( 'page' )
-			->where( $this->constructSet( 'page', $dbr ) );
+		$dbr = $this->loadBalancer->getConnectionRef( DB_REPLICA );
+		$table = 'page';
+		$fields = LinkCache::getSelectFields();
 
+		$conds = $this->constructSet( 'page', $dbr );
+
+		// Do query
 		$caller = __METHOD__;
 		if ( strval( $this->caller ) !== '' ) {
 			$caller .= " (for {$this->caller})";
 		}
 
-		return $queryBuilder->caller( $caller )->fetchResultSet();
+		return $dbr->select( $table, $fields, $conds, $caller );
 	}
 
 	/**
@@ -370,12 +370,12 @@ class LinkBatch {
 	 * Construct a WHERE clause which will match all the given titles.
 	 *
 	 * @param string $prefix The appropriate table's field name prefix ('page', 'pl', etc)
-	 * @param ISQLPlatform $db DB object to use
-	 * @return string|false String with SQL where clause fragment, or false if no items.
+	 * @param IDatabase $db DB object to use
+	 * @return string|bool String with SQL where clause fragment, or false if no items.
 	 */
 	public function constructSet( $prefix, $db ) {
 		if ( isset( $this->linksMigration::$prefixToTableMapping[$prefix] ) ) {
-			[ $blNamespace, $blTitle ] = $this->linksMigration->getTitleFields(
+			list( $blNamespace, $blTitle ) = $this->linksMigration->getTitleFields(
 				$this->linksMigration::$prefixToTableMapping[$prefix]
 			);
 		} else {

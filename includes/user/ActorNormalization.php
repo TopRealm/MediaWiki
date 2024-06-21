@@ -24,7 +24,6 @@ use CannotCreateActorException;
 use InvalidArgumentException;
 use stdClass;
 use Wikimedia\Rdbms\IDatabase;
-use Wikimedia\Rdbms\IReadableDatabase;
 
 /**
  * Service for dealing with the actor table.
@@ -80,11 +79,11 @@ interface ActorNormalization {
 	 * Find the actor_id of the given $user.
 	 *
 	 * @param UserIdentity $user
-	 * @param IReadableDatabase $db The database connection to operate on.
+	 * @param IDatabase $db The database connection to operate on.
 	 *        The database must correspond to the wiki this ActorNormalization is bound to.
 	 * @return int|null
 	 */
-	public function findActorId( UserIdentity $user, IReadableDatabase $db ): ?int;
+	public function findActorId( UserIdentity $user, IDatabase $db ): ?int;
 
 	/**
 	 * Attempt to assign an actor ID to the given $user

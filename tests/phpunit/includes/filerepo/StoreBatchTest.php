@@ -1,7 +1,5 @@
 <?php
 
-use MediaWiki\WikiMap\WikiMap;
-
 /**
  * @group FileRepo
  * @group medium

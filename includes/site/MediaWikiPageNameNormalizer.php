@@ -1,5 +1,15 @@
 <?php
+
+namespace MediaWiki\Site;
+
+use FormatJson;
+use Http;
+use InvalidArgumentException;
+use UtfNormal\Validator;
+
 /**
+ * Service for normalizing a page name using a MediaWiki api.
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -15,21 +25,9 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  * http://www.gnu.org/copyleft/gpl.html
  *
- * @file
- */
-
-namespace MediaWiki\Site;
-
-use FormatJson;
-use InvalidArgumentException;
-use MediaWiki\Http\HttpRequestFactory;
-use MediaWiki\MediaWikiServices;
-use UtfNormal\Validator;
-
-/**
- * Service for normalizing a page name via a MediaWiki action API.
- *
  * @since 1.27
+ *
+ * @license GPL-2.0-or-later
  * @author John Erling Blad < jeblad@gmail.com >
  * @author Daniel Kinzler
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
@@ -41,18 +39,19 @@ class MediaWikiPageNameNormalizer {
 	public const NOFOLLOW_REDIRECT = 2;
 
 	/**
-	 * @var HttpRequestFactory
+	 * @var Http
 	 */
-	private $httpRequestFactory;
+	private $http;
 
 	/**
-	 * @param HttpRequestFactory|null $httpRequestFactory
+	 * @param Http|null $http
 	 */
-	public function __construct( $httpRequestFactory = null ) {
-		if ( !$httpRequestFactory instanceof HttpRequestFactory ) {
-			$httpRequestFactory = MediaWikiServices::getInstance()->getHttpRequestFactory();
+	public function __construct( Http $http = null ) {
+		if ( !$http ) {
+			$http = new Http();
 		}
-		$this->httpRequestFactory = $httpRequestFactory;
+
+		$this->http = $http;
 	}
 
 	/**
@@ -120,9 +119,9 @@ class MediaWikiPageNameNormalizer {
 
 		// Go on call the external site
 		// @todo we need a good way to specify a timeout here.
-		$ret = $this->httpRequestFactory->get( $url, [], __METHOD__ );
+		$ret = $this->http->get( $url, [], __METHOD__ );
 
-		if ( $ret === null ) {
+		if ( $ret === false ) {
 			wfDebugLog( "MediaWikiSite", "call to external site failed: $url" );
 			return false;
 		}

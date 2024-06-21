@@ -22,8 +22,8 @@
 
 use MediaWiki\MainConfigNames;
 use MediaWiki\Revision\RevisionRecord;
-use MediaWiki\Tests\Unit\DummyServicesTrait;
-use MediaWiki\Title\Title;
+use Psr\Container\ContainerInterface;
+use Wikimedia\ObjectFactory\ObjectFactory;
 
 /**
  * @group API
@@ -33,7 +33,6 @@ use MediaWiki\Title\Title;
  * @covers ApiParse
  */
 class ApiParseTest extends ApiTestCase {
-	use DummyServicesTrait;
 
 	protected static $pageId;
 	protected static $revIds = [];
@@ -42,17 +41,17 @@ class ApiParseTest extends ApiTestCase {
 		$title = Title::newFromText( __CLASS__ );
 
 		$status = $this->editPage( __CLASS__, 'Test for revdel' );
-		self::$pageId = $status->getNewRevision()->getPageId();
-		self::$revIds['revdel'] = $status->getNewRevision()->getId();
+		self::$pageId = $status->value['revision-record']->getPageId();
+		self::$revIds['revdel'] = $status->value['revision-record']->getId();
 
 		$status = $this->editPage( __CLASS__, 'Test for suppressed' );
-		self::$revIds['suppressed'] = $status->getNewRevision()->getId();
+		self::$revIds['suppressed'] = $status->value['revision-record']->getId();
 
 		$status = $this->editPage( __CLASS__, 'Test for oldid' );
-		self::$revIds['oldid'] = $status->getNewRevision()->getId();
+		self::$revIds['oldid'] = $status->value['revision-record']->getId();
 
 		$status = $this->editPage( __CLASS__, 'Test for latest' );
-		self::$revIds['latest'] = $status->getNewRevision()->getId();
+		self::$revIds['latest'] = $status->value['revision-record']->getId();
 
 		$this->revisionDelete( self::$revIds['revdel'] );
 		$this->revisionDelete(
@@ -91,7 +90,7 @@ class ApiParseTest extends ApiTestCase {
 	 *   no warnings
 	 */
 	protected function assertParsedToRegExp( $expected, array $res, $warnings = null ) {
-		$this->doAssertParsedTo( $expected, $res, $warnings, [ $this, 'assertMatchesRegularExpression' ] );
+		$this->doAssertParsedTo( $expected, $res, $warnings, [ $this, 'assertRegExp' ] );
 	}
 
 	private function doAssertParsedTo( $expected, array $res, $warnings, callable $callback ) {
@@ -111,14 +110,14 @@ class ApiParseTest extends ApiTestCase {
 
 			$unexpectedEnd = '#<!-- \nNewPP limit report|' .
 				'<!--\nTransclusion expansion time report#s';
-			$this->assertDoesNotMatchRegularExpression( $unexpectedEnd, $html );
+			$this->assertNotRegExp( $unexpectedEnd, $html );
 
 			$html = substr( $html, 0, strlen( $html ) - strlen( $expectedEnd ) );
 		} else {
 			$expectedEnd = '#\n<!-- \nNewPP limit report\n(?>.+?\n-->)\n' .
 				'<!--\nTransclusion expansion time report \(%,ms,calls,template\)\n(?>.*?\n-->)\n' .
 				'</div>$#s';
-			$this->assertMatchesRegularExpression( $expectedEnd, $html );
+			$this->assertRegExp( $expectedEnd, $html );
 
 			$html = preg_replace( $expectedEnd, '', $html );
 		}
@@ -164,7 +163,7 @@ class ApiParseTest extends ApiTestCase {
 	 * @todo Should this code be in MediaWikiIntegrationTestCase or something?
 	 */
 	protected function setupSkin() {
-		$factory = new SkinFactory( $this->getDummyObjectFactory(), [] );
+		$factory = new SkinFactory( new ObjectFactory( $this->createMock( ContainerInterface::class ) ), [] );
 		$factory->register( 'testing', 'Testing', function () {
 			$skin = $this->getMockBuilder( SkinFallback::class )
 				->onlyMethods( [ 'getDefaultModules' ] )
@@ -226,7 +225,7 @@ class ApiParseTest extends ApiTestCase {
 
 	public function testRevDelNoPermission() {
 		$this->expectException( ApiUsageException::class );
-		$this->expectExceptionMessage( "You don't have permission to view deleted text or changes between deleted revisions." );
+		$this->expectExceptionMessage( "You don't have permission to view deleted revision text." );
 
 		$this->doApiRequest( [
 			'action' => 'parse',
@@ -303,10 +302,10 @@ class ApiParseTest extends ApiTestCase {
 
 		$this->expectException( ApiUsageException::class );
 		$this->expectExceptionMessage(
-			"Missing content for page ID {$status->getNewRevision()->getPageId()}."
+			"Missing content for page ID {$status->value['revision-record']->getPageId()}."
 		);
 
-		$this->db->delete( 'revision', [ 'rev_id' => $status->getNewRevision()->getId() ] );
+		$this->db->delete( 'revision', [ 'rev_id' => $status->value['revision-record']->getId() ] );
 
 		// Ignore warning from WikiPage::getContentModel
 		@$this->doApiRequest( [
@@ -353,7 +352,7 @@ class ApiParseTest extends ApiTestCase {
 
 		// Can't use assertParsedTo because the parser output is different for
 		// redirects
-		$this->assertMatchesRegularExpression( "/Redirect to:.*$name 2/", $res[0]['parse']['text'] );
+		$this->assertRegExp( "/Redirect to:.*$name 2/", $res[0]['parse']['text'] );
 		$this->assertArrayNotHasKey( 'warnings', $res[0] );
 	}
 
@@ -376,7 +375,7 @@ class ApiParseTest extends ApiTestCase {
 		$name = ucfirst( __FUNCTION__ );
 
 		$id = $this->editPage( $name, "#REDIRECT [[$name 2]]" )
-			->getNewRevision()->getPageId();
+			->value['revision-record']->getPageId();
 		$this->editPage( "$name 2", "Some ''text''" );
 
 		$res = $this->doApiRequest( [
@@ -405,7 +404,7 @@ class ApiParseTest extends ApiTestCase {
 	public function testNonRedirectByIdOk() {
 		$name = ucfirst( __FUNCTION__ );
 
-		$id = $this->editPage( $name, "Some ''text''" )->getNewRevision()->getPageId();
+		$id = $this->editPage( $name, "Some ''text''" )->value['revision-record']->getPageId();
 
 		$res = $this->doApiRequest( [
 			'action' => 'parse',
@@ -593,7 +592,7 @@ class ApiParseTest extends ApiTestCase {
 		] );
 
 		// Just do a rough check
-		$this->assertMatchesRegularExpression( '#<!DOCTYPE.*<html.*<head.*</head>.*<body#s',
+		$this->assertRegExp( '#<!DOCTYPE.*<html.*<head.*</head>.*<body#s',
 			$res[0]['parse']['headhtml'] );
 		$this->assertArrayNotHasKey( 'warnings', $res[0] );
 	}
@@ -609,7 +608,7 @@ class ApiParseTest extends ApiTestCase {
 			'prop' => 'categorieshtml',
 		] );
 
-		$this->assertMatchesRegularExpression( "#Category.*Category:$name.*$name#",
+		$this->assertRegExp( "#Category.*Category:$name.*$name#",
 			$res[0]['parse']['categorieshtml'] );
 		$this->assertArrayNotHasKey( 'warnings', $res[0] );
 	}

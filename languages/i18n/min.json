@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"Af420",
 			"Amjad Khan",
 			"Ardzun",
 			"Baloch Khan",
@@ -25,10 +24,7 @@
 			"VoteITP",
 			"Zakiy",
 			"아라",
-<<<<<<< HEAD
-=======
 			"Af420",
->>>>>>> origin/1.39.7-test
 			"Base",
 			"Amire80"
 		]
@@ -1633,7 +1629,6 @@
 	"filehist-dimensions": "Dimensi",
 	"filehist-filesize": "Ukuaran berkas",
 	"filehist-comment": "Komentar",
-	"filehist-missing": "Berkas indak ado",
 	"imagelinks": "Pamakaian berkas",
 	"linkstoimage": "{{PLURAL:$1|Laman|$1 laman}} nan mamakai berkas ko:",
 	"linkstoimage-more": "Labiah dari $1 {{PLURAL:$1|laman}} ado pautan ka berkas ko.\nDaftar barikuik manunjuakan {{PLURAL:$1|$1 laman jo pautan langsuang}} ka berkas ko.\nAdo juo tasadio [[Special:WhatLinksHere/$2|daftar langkoknyo]].",
@@ -2332,7 +2327,7 @@
 	"metadata-help": "Berkas ko ado katarangan tambahan nan mungkin ditambahkan dek kamera digital atau pamindai nan dipakai untuak mambuek atau mandigitalisasi berkas ko. Jikok berkas ko lah mangalami parubahan, rincian nan ado mungkin indak sacaro jaleh manunjuakkan parubahan dari berkas tu.",
 	"metadata-expand": "Tunjuakan rincian tambahan",
 	"metadata-collapse": "Suruakan rincian tambahan",
-	"metadata-fields": "Tapak metadata gambar nan didata dalam pasan ko ka dimasuakan pado tampilan laman gambar sangkek tabel metadata disuruakan. \nNan lainnyo ka tasuruak sacaro baku.\n* make \n* model \n* datetimeoriginal \n* exposuretime \n* fnumber \n* isospeedratings \n* focallength \n* artist \n* copyright \n* imagedescription \n* gpslatitude \n* gpslongitude \n* gpsaltitude \n* dc-rights \n* copyrightowner \n* usageterms \n* webstatement \n* licenseurl \n* attributionurl \n* preferredattributionname \n* credit \n* jpegfilecomment \n* pngfilecomment \n* giffilecomment \n* usercomment \n* citydest \n* citycreated \n* headline \n* source \n* locationdest \n* dc-contributor \n* dc-coverage \n* dc-publisher \n* dc-relation \n* label \n* nickname \n* personinimage \n* disclaimer \n* event \n* objectname",
+	"metadata-fields": "Tapak metadata gambar nan didata dalam pasan ko ka dimasuakan pado tampilan laman gambar sangkek tabel metadata disuruakan. \nNan lainnyo ka tasuruak sacaro baku.\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude",
 	"namespacesall": "Sadonyo",
 	"monthsall": "sadonyo",
 	"imgmultipagenext": "Laman salanjuiknyo →",
@@ -2516,9 +2511,5 @@
 	"skin-action-protect": "Linduangkan",
 	"skin-action-undelete": "Pambatalan pangapuihan",
 	"skin-action-delete": "Hapuih",
-	"skin-action-move": "Pindahkan",
-	"log-name-renameuser": "Log panggantian namo pangguno",
-	"log-description-renameuser": "Di bawah ko log panggantian namo pangguno",
-	"renameuser-move-log": "Sacaro otomatih mamindahan laman wakatu mangganti namo pangguno \"[[User:$1|$1]]\" manjadi \"[[User:$2|$2]]\"",
-	"right-renameuser": "Mangganti namo pangguno"
+	"skin-action-move": "Pindahkan"
 }

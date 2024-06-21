@@ -72,7 +72,7 @@ class SwiftVirtualRESTService extends VirtualRESTService {
 
 	protected function applyAuthResponse( array $req ) {
 		$this->authSessionTimestamp = 0;
-		[ $rcode, $rdesc, $rhdrs, , ] = $req['response'];
+		list( $rcode, $rdesc, $rhdrs, $rbody, $rerr ) = $req['response'];
 		if ( $rcode >= 200 && $rcode <= 299 ) { // OK
 			$this->authCreds = [
 				'auth_token'  => $rhdrs['x-auth-token'],

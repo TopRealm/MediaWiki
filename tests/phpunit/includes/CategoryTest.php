@@ -1,8 +1,6 @@
 <?php
 
-use MediaWiki\Category\Category;
 use MediaWiki\MainConfigNames;
-use MediaWiki\Title\Title;
 
 /**
  * @group Database
@@ -104,7 +102,7 @@ class CategoryTest extends MediaWikiIntegrationTestCase {
 	 * @covers Category::newFromTitle()
 	 */
 	public function testNewFromTitle() {
-		$title = Title::makeTitle( NS_CATEGORY, 'Example' );
+		$title = Title::newFromText( 'Category:Example' );
 		$category = Category::newFromTitle( $title );
 		$this->assertSame( 'Example', $category->getName() );
 		$this->assertTrue( $title->isSamePageAs( $category->getPage() ) );
@@ -169,7 +167,7 @@ class CategoryTest extends MediaWikiIntegrationTestCase {
 
 		$category = Category::newFromRow(
 			$row,
-			Title::makeTitle( NS_CATEGORY, 'Example' )
+			Title::newFromText( NS_CATEGORY, 'Example' )
 		);
 
 		$this->assertFalse( $category->getID() );

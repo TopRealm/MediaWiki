@@ -54,10 +54,6 @@ class SpecialUserLogin extends LoginSignupSpecialPage {
 		return true;
 	}
 
-	public function isListed() {
-		return $this->getAuthManager()->canAuthenticateNow();
-	}
-
 	protected function getLoginSecurityLevel() {
 		return false;
 	}

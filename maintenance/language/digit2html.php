@@ -47,9 +47,8 @@ class Digit2Html extends Maintenance {
 	}
 
 	public function execute() {
-		$languageNameUtils = MediaWikiServices::getInstance()->getLanguageNameUtils();
 		foreach ( $this->mLangs as $code ) {
-			$filename = $languageNameUtils->getMessagesFileName( $code );
+			$filename = Language::getMessagesFileName( $code );
 			$this->output( "Loading language [$code] ..." );
 			unset( $digitTransformTable );
 			require_once $filename;

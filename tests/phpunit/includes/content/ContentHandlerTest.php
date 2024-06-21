@@ -1,15 +1,10 @@
 <?php
 
 use MediaWiki\Content\ValidationParams;
-use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Page\PageIdentityValue;
-use MediaWiki\Parser\MagicWordFactory;
-use MediaWiki\Title\Title;
-use MediaWiki\Title\TitleFactory;
 use Wikimedia\TestingAccessWrapper;
-use Wikimedia\UUID\GlobalIdGenerator;
 
 /**
  * @group ContentHandler
@@ -31,16 +26,7 @@ class ContentHandlerTest extends MediaWikiIntegrationTestCase {
 				12312 => 'testing',
 			],
 			MainConfigNames::ContentHandlers => [
-				CONTENT_MODEL_WIKITEXT => [
-					'class' => WikitextContentHandler::class,
-					'services' => [
-						'TitleFactory',
-						'ParserFactory',
-						'GlobalIdGenerator',
-						'LanguageNameUtils',
-						'MagicWordFactory',
-					],
-				],
+				CONTENT_MODEL_WIKITEXT => WikitextContentHandler::class,
 				CONTENT_MODEL_JAVASCRIPT => JavaScriptContentHandler::class,
 				CONTENT_MODEL_JSON => JsonContentHandler::class,
 				CONTENT_MODEL_CSS => CssContentHandler::class,
@@ -458,9 +444,9 @@ class ContentHandlerTest extends MediaWikiIntegrationTestCase {
 				$fields['testDataField'] = 'test content';
 			} );
 
-		$revision = $page->getRevisionRecord();
-		$output = $page->getContentHandler()->getParserOutputForIndexing( $page, null, $revision );
-		$data = $page->getContentHandler()->getDataForSearchIndex( $page, $output, $mockEngine, $revision );
+		$contentRenderer = $this->getServiceContainer()->getContentRenderer();
+		$output = $contentRenderer->getParserOutput( $page->getContent(), $title );
+		$data = $page->getContentHandler()->getDataForSearchIndex( $page, $output, $mockEngine );
 		$this->assertArrayHasKey( 'text', $data );
 		$this->assertArrayHasKey( 'text_bytes', $data );
 		$this->assertArrayHasKey( 'language', $data );
@@ -475,9 +461,8 @@ class ContentHandlerTest extends MediaWikiIntegrationTestCase {
 	public function testParserOutputForIndexing() {
 		$title = Title::newFromText( 'Smithee', NS_MAIN );
 		$page = $this->getServiceContainer()->getWikiPageFactory()->newFromTitle( $title );
-		$revision = $page->getRevisionRecord();
 
-		$out = $page->getContentHandler()->getParserOutputForIndexing( $page, null, $revision );
+		$out = $page->getContentHandler()->getParserOutputForIndexing( $page );
 		$this->assertInstanceOf( ParserOutput::class, $out );
 		$this->assertStringContainsString( 'one who smiths', $out->getRawText() );
 	}
@@ -501,14 +486,7 @@ class ContentHandlerTest extends MediaWikiIntegrationTestCase {
 		] );
 
 		// test default renderer
-		$contentHandler = new WikitextContentHandler(
-			CONTENT_MODEL_WIKITEXT,
-			$this->createMock( TitleFactory::class ),
-			$this->createMock( ParserFactory::class ),
-			$this->createMock( GlobalIdGenerator::class ),
-			$this->createMock( LanguageNameUtils::class ),
-			$this->createMock( MagicWordFactory::class )
-		);
+		$contentHandler = new WikitextContentHandler( CONTENT_MODEL_WIKITEXT );
 		$slotDiffRenderer = $contentHandler->getSlotDiffRenderer( RequestContext::getMain() );
 		$this->assertInstanceOf( TextSlotDiffRenderer::class, $slotDiffRenderer );
 	}
@@ -666,6 +644,6 @@ class ContentHandlerTest extends MediaWikiIntegrationTestCase {
 		$validateParams = new ValidationParams( $page, 0 );
 
 		$status = $contentHandler->validateSave( $content, $validateParams );
-		$this->assertEquals( $expectedResult, $status->isOK() );
+		$this->assertEquals( $expectedResult, $status->isOk() );
 	}
 }

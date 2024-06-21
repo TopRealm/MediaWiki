@@ -27,7 +27,6 @@ use MediaWiki\ChangeTags\Taggable;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageReference;
-use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
 use Wikimedia\Assert\Assert;
 use Wikimedia\IPUtils;
@@ -85,9 +84,6 @@ class ManualLogEntry extends LogEntryBase implements Taggable {
 
 	/** @var bool Whether this is a legacy log entry */
 	protected $legacy = false;
-
-	/** @var bool|null The bot flag in the recent changes will be set to this value */
-	protected $forceBotFlag = null;
 
 	/**
 	 * @stable to call
@@ -179,7 +175,7 @@ class ManualLogEntry extends LogEntryBase implements Taggable {
 	 * Set the timestamp of when the logged action took place.
 	 *
 	 * @since 1.19
-	 * @param string $timestamp Can be in any format accepted by ConvertibleTimestamp
+	 * @param string $timestamp
 	 */
 	public function setTimestamp( $timestamp ) {
 		$this->timestamp = $timestamp;
@@ -280,16 +276,6 @@ class ManualLogEntry extends LogEntryBase implements Taggable {
 	}
 
 	/**
-	 * Set the bot flag in the recent changes to this value.
-	 *
-	 * @since 1.40
-	 * @param bool $forceBotFlag
-	 */
-	public function setForceBotFlag( bool $forceBotFlag ): void {
-		$this->forceBotFlag = $forceBotFlag;
-	}
-
-	/**
 	 * Insert the entry into the `logging` table.
 	 *
 	 * @param IDatabase|null $dbw
@@ -299,13 +285,15 @@ class ManualLogEntry extends LogEntryBase implements Taggable {
 	public function insert( IDatabase $dbw = null ) {
 		$dbw = $dbw ?: wfGetDB( DB_PRIMARY );
 
-		$this->timestamp ??= wfTimestampNow();
+		if ( $this->timestamp === null ) {
+			$this->timestamp = wfTimestampNow();
+		}
 
-		$services = MediaWikiServices::getInstance();
-		$actorId = $services->getActorStore()->acquireActorId( $this->getPerformerIdentity(), $dbw );
+		$actorId = MediaWikiServices::getInstance()->getActorStore()
+			->acquireActorId( $this->getPerformerIdentity(), $dbw );
 
 		// Trim spaces on user supplied text
-		$comment = trim( $this->getComment() ?? '' );
+		$comment = trim( $this->getComment() );
 
 		$params = $this->getParameters();
 		$relations = $this->relations;
@@ -330,7 +318,7 @@ class ManualLogEntry extends LogEntryBase implements Taggable {
 		if ( isset( $this->deleted ) ) {
 			$data['log_deleted'] = $this->deleted;
 		}
-		$data += $services->getCommentStore()->insert( $dbw, 'log_comment', $comment );
+		$data += CommentStore::getStore()->insert( $dbw, 'log_comment', $comment );
 
 		$dbw->insert( 'logging', $data, __METHOD__ );
 		$this->id = $dbw->insertId();
@@ -397,8 +385,7 @@ class ManualLogEntry extends LogEntryBase implements Taggable {
 			$newId,
 			$formatter->getIRCActionComment(), // Used for IRC feeds
 			$this->getAssociatedRevId(), // Used for e.g. moves and uploads
-			$this->getIsPatrollable(),
-			$this->forceBotFlag
+			$this->getIsPatrollable()
 		);
 	}
 
@@ -495,7 +482,7 @@ class ManualLogEntry extends LogEntryBase implements Taggable {
 	}
 
 	/**
-	 * @return string|false TS_MW timestamp, a string with 14 digits
+	 * @return string|false
 	 */
 	public function getTimestamp() {
 		$ts = $this->timestamp ?? wfTimestampNow();

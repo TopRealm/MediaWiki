@@ -18,7 +18,6 @@
  * @file
  */
 
-use MediaWiki\Html\Html;
 use Wikimedia\WrappedString;
 use Wikimedia\WrappedStringList;
 
@@ -76,6 +75,7 @@ abstract class BaseTemplate extends QuickTemplate {
 	}
 
 	/**
+	 * @deprecated since 1.35 use Skin::getPersonalToolsForMakeListItem
 	 * @return array
 	 */
 	public function getPersonalTools() {
@@ -174,11 +174,44 @@ abstract class BaseTemplate extends QuickTemplate {
 	}
 
 	/**
-	 * Wrapper for Skin method.
+	 * @deprecated since 1.35 (emits deprecation warnings since 1.37), use Skin::getAfterPortlet directly
+	 * @param string $name
+	 */
+	protected function renderAfterPortlet( $name ) {
+		wfDeprecated( __METHOD__, '1.35' );
+		echo $this->getAfterPortlet( $name );
+	}
+
+	/**
+	 * Allows extensions to hook into known portlets and add stuff to them
 	 *
-	 * @param string $key of link
-	 * @param array $item to render
-	 * @param array $options for link
+	 * @deprecated since 1.35 (emits deprecation warnings since 1.37), use Skin::getAfterPortlet directly
+	 *
+	 * @param string $name
+	 *
+	 * @return string html
+	 * @since 1.29
+	 */
+	protected function getAfterPortlet( $name ) {
+		wfDeprecated( __METHOD__, '1.35' );
+		$html = '';
+		$content = '';
+		$this->getHookRunner()->onBaseTemplateAfterPortlet( $this, $name, $content );
+		$content .= $this->getSkin()->getAfterPortlet( $name );
+
+		if ( $content !== '' ) {
+			$html = Html::rawElement(
+				'div',
+				[ 'class' => [ 'after-portlet', 'after-portlet-' . $name ] ],
+				$content
+			);
+		}
+
+		return $html;
+	}
+
+	/**
+	 * @deprecated since 1.35 use Skin::makeLink
 	 * @return string
 	 */
 	protected function makeLink( $key, $item, $options = [] ) {
@@ -186,11 +219,7 @@ abstract class BaseTemplate extends QuickTemplate {
 	}
 
 	/**
-	 * Wrapper for Skin method.
-	 *
-	 * @param string $key of list item
-	 * @param array $item to render
-	 * @param array $options for list item
+	 * @deprecated since 1.35 use Skin::makeListItem
 	 * @return string
 	 */
 	public function makeListItem( $key, $item, $options = [] ) {
@@ -198,21 +227,14 @@ abstract class BaseTemplate extends QuickTemplate {
 	}
 
 	/**
-	 * Wrapper for Skin method.
-	 *
-	 * @param array $attrs
-	 * @return string
+	 * @deprecated since 1.35 use Skin::makeSearchInput
 	 */
 	protected function makeSearchInput( $attrs = [] ) {
 		return $this->getSkin()->makeSearchInput( $attrs );
 	}
 
 	/**
-	 * Wrapper for Skin method.
-	 *
-	 * @param string $mode
-	 * @param array $attrs
-	 * @return string
+	 * @deprecated since 1.35 use Skin::makeSearchButton
 	 */
 	protected function makeSearchButton( $mode, $attrs = [] ) {
 		return $this->getSkin()->makeSearchButton( $mode, $attrs );

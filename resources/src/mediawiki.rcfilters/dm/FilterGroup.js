@@ -26,8 +26,6 @@ var FilterItem = require( './FilterItem.js' ),
  *  groups. { min: x, max: y }
  * @cfg {number} [minValue] Minimum value for numeric groups
  * @cfg {string} [separator='|'] Value separator for 'string_options' groups
- * @cfg {boolean} [supportsAll=true] For 'string_options' groups, whether the magic 'all' value
- *  is understood to mean all options are selected.
  * @cfg {boolean} [active] Group is active
  * @cfg {boolean} [fullCoverage] This filters in this group collectively cover all results
  * @cfg {Object} [conflicts] Defines the conflicts for this filter group
@@ -57,7 +55,6 @@ FilterGroup = function MwRcfiltersDmFilterGroup( name, config ) {
 	this.allowArbitrary = !!config.allowArbitrary;
 	this.numericRange = config.range;
 	this.separator = config.separator || '|';
-	this.supportsAll = config.supportsAll === undefined ? true : !!config.supportsAll;
 	this.labelPrefixKey = config.labelPrefixKey;
 	this.visible = config.visible === undefined ? true : !!config.visible;
 
@@ -624,8 +621,7 @@ FilterGroup.prototype.getParamRepresentation = function ( filterRepresentation )
 			}
 		} );
 
-		result[ this.getName() ] = this.getSupportsAll() &&
-				values.length === Object.keys( filterRepresentation ).length ?
+		result[ this.getName() ] = ( values.length === Object.keys( filterRepresentation ).length ) ?
 			'all' : values.join( this.getSeparator() );
 	} else if ( this.getType() === 'single_option' ) {
 		result[ this.getName() ] = getSelectedParameter( filterRepresentation );
@@ -710,19 +706,22 @@ FilterGroup.prototype.getFilterRepresentation = function ( paramRepresentation )
 			// Allowed values
 			this.getItems().map( function ( filterItem ) {
 				return filterItem.getParamName();
-			} ),
-			this.getSupportsAll()
+			} )
 		);
 		// Translate the parameter values into a filter selection state
 		this.getItems().forEach( function ( filterItem ) {
-			// If the parameter is set to 'all', set all filters to true
+			// All true (either because all values are written or the term 'all' is written)
+			// is the same as all filters set to true
 			result[ filterItem.getName() ] = (
-				this.getSupportsAll() && paramValues.length === 1 && paramValues[ 0 ] === 'all'
+				// If it is the word 'all'
+				paramValues.length === 1 && paramValues[ 0 ] === 'all' ||
+				// All values are written
+				paramValues.length === model.getItemCount()
 			) ?
 				true :
 				// Otherwise, the filter is selected only if it appears in the parameter values
 				paramValues.indexOf( filterItem.getParamName() ) > -1;
-		}.bind( this ) );
+		} );
 	} else if ( this.getType() === 'single_option' ) {
 		// There is parameter that fits a single filter and if not, get the default
 		this.getItems().forEach( function ( filterItem ) {
@@ -884,15 +883,6 @@ FilterGroup.prototype.getTitle = function () {
  */
 FilterGroup.prototype.getSeparator = function () {
 	return this.separator;
-};
-
-/**
- * Check whether the group supports the magic 'all' value to indicate that all values are selected.
- *
- * @return {boolean} Group supports the magic 'all' value
- */
-FilterGroup.prototype.getSupportsAll = function () {
-	return this.supportsAll;
 };
 
 /**

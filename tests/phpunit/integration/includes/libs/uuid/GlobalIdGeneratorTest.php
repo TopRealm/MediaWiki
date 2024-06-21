@@ -6,7 +6,6 @@ use Wikimedia\UUID\GlobalIdGenerator;
 class GlobalIdGeneratorTest extends PHPUnit\Framework\TestCase {
 
 	use MediaWikiCoversValidator;
-	use MediaWikiTestCaseTrait;
 
 	/** @var GlobalIdGenerator */
 	private $globalIdGenerator;
@@ -87,7 +86,7 @@ class GlobalIdGeneratorTest extends PHPUnit\Framework\TestCase {
 		$ids = [];
 		for ( $i = 0; $i < 100; $i++ ) {
 			$id = $this->globalIdGenerator->newUUIDv1();
-			$this->assertMatchesRegularExpression(
+			$this->assertRegExp(
 				'!^[0-9a-f]{8}-[0-9a-f]{4}-1[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$!',
 				$id,
 				"UID $id has the right format"
@@ -95,14 +94,14 @@ class GlobalIdGeneratorTest extends PHPUnit\Framework\TestCase {
 			$ids[] = $id;
 
 			$id = $this->globalIdGenerator->newRawUUIDv1();
-			$this->assertMatchesRegularExpression(
+			$this->assertRegExp(
 				'!^[0-9a-f]{12}1[0-9a-f]{3}[89ab][0-9a-f]{15}$!',
 				$id,
 				"UID $id has the right format"
 			);
 
 			$id = $this->globalIdGenerator->newRawUUIDv1();
-			$this->assertMatchesRegularExpression(
+			$this->assertRegExp(
 				'!^[0-9a-f]{12}1[0-9a-f]{3}[89ab][0-9a-f]{15}$!',
 				$id,
 				"UID $id has the right format"
@@ -120,7 +119,7 @@ class GlobalIdGeneratorTest extends PHPUnit\Framework\TestCase {
 		for ( $i = 0; $i < 100; $i++ ) {
 			$id = $this->globalIdGenerator->newUUIDv4();
 			$ids[] = $id;
-			$this->assertMatchesRegularExpression(
+			$this->assertRegExp(
 				'!^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$!',
 				$id,
 				"UID $id has the right format"
@@ -136,7 +135,7 @@ class GlobalIdGeneratorTest extends PHPUnit\Framework\TestCase {
 	public function testRawUUIDv4() {
 		for ( $i = 0; $i < 100; $i++ ) {
 			$id = $this->globalIdGenerator->newRawUUIDv4();
-			$this->assertMatchesRegularExpression(
+			$this->assertRegExp(
 				'!^[0-9a-f]{12}4[0-9a-f]{3}[89ab][0-9a-f]{15}$!',
 				$id,
 				"UID $id has the right format"
@@ -145,7 +144,7 @@ class GlobalIdGeneratorTest extends PHPUnit\Framework\TestCase {
 
 		for ( $i = 0; $i < 100; $i++ ) {
 			$id = $this->globalIdGenerator->newRawUUIDv4( UIDGenerator::QUICK_RAND );
-			$this->assertMatchesRegularExpression(
+			$this->assertRegExp(
 				'!^[0-9a-f]{12}4[0-9a-f]{3}[89ab][0-9a-f]{15}$!',
 				$id,
 				"UID $id has the right format"

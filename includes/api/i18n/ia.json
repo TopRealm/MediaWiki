@@ -218,10 +218,6 @@
 	"apihelp-feedrecentchanges-param-hidemyself": "Celar cambiamentos facite per le usator actual.",
 	"apihelp-feedrecentchanges-param-hidecategorization": "Celar cambiamentos de membrato de categoria.",
 	"apihelp-feedrecentchanges-param-tagfilter": "Filtrar per etiquetta.",
-<<<<<<< HEAD
-	"apihelp-feedrecentchanges-param-inverttags": "Tote le modificationes excepte les etiquettate con le seligites.",
-=======
->>>>>>> origin/1.39.7-test
 	"apihelp-feedrecentchanges-param-target": "Monstrar solmente cambiamentos sur paginas ligate desde iste pagina.",
 	"apihelp-feedrecentchanges-param-showlinkedto": "Monstrar cambiamentos sur paginas ligate al pagina seligite in su loco.",
 	"apihelp-feedrecentchanges-example-simple": "Monstrar cambiamentos recente.",
@@ -963,10 +959,6 @@
 	"apihelp-query+languageinfo-paramvalue-prop-dir": "Le direction de scriptura del lingua (<code>ltr</code>, de sinistra a dextra, o <code>rtl</code>, de dextra a sinistra).",
 	"apihelp-query+languageinfo-paramvalue-prop-autonym": "Le autonymo del lingua, isto es, su nomine in ille lingua.",
 	"apihelp-query+languageinfo-paramvalue-prop-name": "Le nomine del lingua in le lingua specificate per le parametro <var>uselang</var>, con application de linguas de recurso si necessari.",
-<<<<<<< HEAD
-	"apihelp-query+languageinfo-paramvalue-prop-variantnames": "Le curte nomines de variantes de lingua usate pro ligamines de conversion de lingua.",
-=======
->>>>>>> origin/1.39.7-test
 	"apihelp-query+languageinfo-paramvalue-prop-fallbacks": "Le codices de lingua del linguas de recurso configurate pro iste lingua. Le recurso final implicite a 'en' non es includite (ma alcun linguas pote recurrer a 'en' explicitemente).",
 	"apihelp-query+languageinfo-paramvalue-prop-variants": "Le codices de lingua del variantes supportate per iste lingua.",
 	"apihelp-query+languageinfo-param-code": "Le codices de lingua del linguas que debe esser restituite, o <code>*</code> pro tote le linguas.",
@@ -1304,10 +1296,6 @@
 	"apihelp-query+userinfo-paramvalue-prop-unreadcount": "Adde le numero de paginas non legite sur le observatorio del usator (maximo $1; restitue <samp>$2</samp> si il ha plus).",
 	"apihelp-query+userinfo-paramvalue-prop-centralids": "Adde le IDs central e le stato de annexo pro le usator.",
 	"apihelp-query+userinfo-paramvalue-prop-latestcontrib": "Adde le data del ultime contribution del usator.",
-<<<<<<< HEAD
-	"apihelp-query+userinfo-paramvalue-prop-cancreateaccount": "Indica si le usator actual es autorisate a crear contos. Pro verificar si un conto specific pote esser create, usa [[Special:ApiHelp/query+users|<kbd>action=query&list=users&usprop=cancreate</kbd>]].",
-=======
->>>>>>> origin/1.39.7-test
 	"apihelp-query+userinfo-param-attachedwiki": "Con <kbd>$1prop=centralids</kbd>, indica si le usator es attachate con le wiki identificate per iste ID.",
 	"apihelp-query+userinfo-example-simple": "Obtener information sur le usator actual.",
 	"apihelp-query+userinfo-example-data": "Obtener information additional sur le usator actual.",
@@ -1323,10 +1311,6 @@
 	"apihelp-query+users-paramvalue-prop-emailable": "Etiquetta si le usator pote e vole reciper e-mail a transverso [[Special:Emailuser]].",
 	"apihelp-query+users-paramvalue-prop-gender": "Etiquetta le genere del usator. Restitue \"male\" (masculin), \"female\" (feminin) o \"unknown\" (incognite).",
 	"apihelp-query+users-paramvalue-prop-centralids": "Adde le IDs central e le stato de annexo pro le usator.",
-<<<<<<< HEAD
-	"apihelp-query+users-paramvalue-prop-cancreate": "Indica si un conto pro nomines de usator valide ma non registrate pote esser create. Pro verificar si le usator actual pote effectuar le creation del conto, usa [[Special:ApiHelp/query+userinfo|<kbd>action=query&meta=userinfo&uiprop=cancreateaccount</kbd>]].",
-=======
->>>>>>> origin/1.39.7-test
 	"apihelp-query+users-param-attachedwiki": "Con <kbd>$1prop=centralids</kbd>, indica si le usator es attachate con le wiki identificate per iste ID.",
 	"apihelp-query+users-param-users": "Un lista de usatores pro le quales obtener information.",
 	"apihelp-query+users-param-userids": "Un lista de identificatores de usator pro le quales obtener information.",

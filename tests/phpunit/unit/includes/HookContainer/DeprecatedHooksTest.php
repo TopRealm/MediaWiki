@@ -43,13 +43,13 @@ class DeprecatedHooksTest extends MediaWikiUnitTestCase {
 		$deprecatedHooks->markDeprecated( 'FooBaz', '1.31', 'ComponentFooBaz' );
 		$allDeprecated = $deprecatedHooks->getDeprecationInfo();
 		$this->assertArrayHasKey( 'FooBaz', $allDeprecated );
-		$this->assertEquals(
+		$this->assertContains(
 			[
 				'deprecatedVersion' => '1.31',
 				'component' => 'ComponentFooBaz',
 				'silent' => false
 			],
-			$allDeprecated['FooBaz']
+			$allDeprecated
 		);
 	}
 
@@ -73,21 +73,21 @@ class DeprecatedHooksTest extends MediaWikiUnitTestCase {
 
 		$this->assertNull( $deprecatedHooks->getDeprecationInfo( 'FooBazBaz' ) );
 		$this->assertEquals(
+			$hookDeprecationInfo,
 			[
 				'deprecatedVersion' => '1.21',
 				'component' => 'ComponentFooBar',
 				'silent' => false,
-			],
-			$hookDeprecationInfo
+			]
 		);
 
 		$this->assertEquals(
+			$deprecatedHooks->getDeprecationInfo( 'SoftlyDeprecated' ),
 			[
 				'deprecatedVersion' => '1.21',
 				'component' => 'ComponentFooBar',
 				'silent' => true,
-			],
-			$deprecatedHooks->getDeprecationInfo( 'SoftlyDeprecated' )
+			]
 		);
 
 		$this->assertCount(

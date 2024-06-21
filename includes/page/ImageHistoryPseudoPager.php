@@ -19,9 +19,7 @@
  */
 
 use MediaWiki\Cache\LinkBatchFactory;
-use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Title\Title;
 use Wikimedia\Timestamp\TimestampException;
 
 class ImageHistoryPseudoPager extends ReverseChronologicalPager {
@@ -73,7 +71,7 @@ class ImageHistoryPseudoPager extends ReverseChronologicalPager {
 		// Only display 10 revisions at once by default, otherwise the list is overwhelming
 		$this->mLimitsShown = array_merge( [ 10 ], $this->mLimitsShown );
 		$this->mDefaultLimit = 10;
-		[ $this->mLimit, /* $offset */ ] =
+		list( $this->mLimit, /* $offset */ ) =
 			$this->mRequest->getLimitOffsetForUser(
 				$this->getUser(),
 				$this->mDefaultLimit,
@@ -145,29 +143,13 @@ class ImageHistoryPseudoPager extends ReverseChronologicalPager {
 			$list = new ImageHistoryList( $this->mImagePage );
 			# Generate prev/next links
 			$navLink = $this->getNavigationBar();
-
-			$s = Html::element( 'h2', [ 'id' => 'filehistory' ], $this->msg( 'filehist' )->text() ) . "\n"
-				. Html::openElement( 'div', [ 'id' => 'mw-imagepage-section-filehistory' ] ) . "\n"
-				. $this->msg( 'filehist-help' )->parseAsBlock()
-				. $navLink . "\n";
-
-			$sList = $list->beginImageHistoryList();
-			$onlyCurrentFile = true;
+			$s = $list->beginImageHistoryList( $navLink );
 			// Skip rows there just for paging links
 			for ( $i = $this->mRange[0]; $i <= $this->mRange[1]; $i++ ) {
 				$file = $this->mHist[$i];
-				$sList .= $list->imageHistoryLine( !$file->isOld(), $file, $formattedComments[$i] );
-				$onlyCurrentFile = !$file->isOld();
+				$s .= $list->imageHistoryLine( !$file->isOld(), $file, $formattedComments[$i] );
 			}
-			$sList .= $list->endImageHistoryList();
-			if ( $onlyCurrentFile || !$this->mImg->isLocal() ) {
-				// It is not possible to revision-delete the current file or foreign files,
-				// if there is only the current file or the file is not local, show no buttons
-				$s .= $sList;
-			} else {
-				$s .= $this->wrapWithActionButtons( $sList );
-			}
-			$s .= $navLink . "\n" . Html::closeElement( 'div' ) . "\n";
+			$s .= $list->endImageHistoryList( $navLink );
 
 			if ( $list->getPreventClickjacking() ) {
 				$this->setPreventClickjacking( true );
@@ -187,7 +169,7 @@ class ImageHistoryPseudoPager extends ReverseChronologicalPager {
 		// Make sure the date (probably from user input) is valid; if not, drop it.
 		if ( $this->mOffset !== null ) {
 			try {
-				$this->mDb->timestamp( $this->mOffset );
+				$sadlyWeCannotPassThisTimestampDownTheStack = $this->mDb->timestamp( $this->mOffset );
 			} catch ( TimestampException $e ) {
 				$this->mOffset = null;
 			}
@@ -263,44 +245,6 @@ class ImageHistoryPseudoPager extends ReverseChronologicalPager {
 			$this->mFirstShown = $firstIndex;
 		}
 		$this->mQueryDone = true;
-	}
-
-	/**
-	 * Wrap the content with action buttons at begin and end if the user
-	 * is allow to use the action buttons.
-	 * @param string $formcontents
-	 * @return string
-	 */
-	private function wrapWithActionButtons( $formcontents ) {
-		if ( !$this->getAuthority()->isAllowed( 'deleterevision' ) ) {
-			return $formcontents;
-		}
-
-		# Show button to hide log entries
-		$s = Html::openElement(
-			'form',
-			[ 'action' => wfScript(), 'id' => 'mw-filehistory-deleterevision-submit' ]
-		) . "\n";
-		$s .= Html::hidden( 'target', $this->getTitle()->getPrefixedDBkey() ) . "\n";
-		$s .= Html::hidden( 'action', 'historysubmit' ) . "\n";
-		$s .= Html::hidden( 'type', 'oldimage' ) . "\n";
-		$this->setPreventClickjacking( true );
-
-		$buttons = Html::element(
-			'button',
-			[
-				'type' => 'submit',
-				'name' => 'revisiondelete',
-				'value' => '1',
-				'class' => "deleterevision-filehistory-submit mw-filehistory-deleterevision-button mw-ui-button"
-			],
-			$this->msg( 'showhideselectedfileversions' )->text()
-		) . "\n";
-
-		$s .= $buttons . $formcontents . $buttons;
-		$s .= Html::closeElement( 'form' );
-
-		return $s;
 	}
 
 	/**

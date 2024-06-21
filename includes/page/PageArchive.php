@@ -21,7 +21,6 @@
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\UndeletePage;
 use MediaWiki\Revision\RevisionRecord;
-use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IResultWrapper;
@@ -90,10 +89,8 @@ class PageArchive {
 		}, $results ) );
 		$conds = [
 			'ar_namespace' => $ns,
-			$dbr->makeList( [
-				'ar_title' => $condTitles,
-				'ar_title' . $dbr->buildLike( $termDb, $dbr->anyString() ),
-			], LIST_OR ),
+			$dbr->makeList( [ 'ar_title' => $condTitles ], LIST_OR ) . " OR ar_title " .
+			$dbr->buildLike( $termDb, $dbr->anyString() )
 		];
 
 		return self::listPages( $dbr, $conds );
@@ -277,7 +274,7 @@ class PageArchive {
 	 * @param bool $unsuppress
 	 * @param string|string[]|null $tags Change tags to add to log entry
 	 *   ($user should be able to add the specified tags before this is called)
-	 * @return array|false [ number of file revisions restored, number of image revisions
+	 * @return array|bool [ number of file revisions restored, number of image revisions
 	 *   restored, log message ] on success, false on failure.
 	 */
 	public function undeleteAsUser(

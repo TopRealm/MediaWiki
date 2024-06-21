@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\Revision\RevisionRecord;
-use MediaWiki\Title\Title;
 
 /**
  * A manually constructed search result, for use with FauxSearchResultSet.

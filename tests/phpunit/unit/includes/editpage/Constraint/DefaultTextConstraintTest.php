@@ -20,7 +20,6 @@
 
 use MediaWiki\EditPage\Constraint\DefaultTextConstraint;
 use MediaWiki\EditPage\Constraint\IEditConstraint;
-use MediaWiki\Title\Title;
 
 /**
  * Tests the DefaultTextConstraint

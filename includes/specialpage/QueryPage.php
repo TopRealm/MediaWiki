@@ -25,9 +25,6 @@ use MediaWiki\Cache\LinkBatchFactory;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Specials\SpecialMostImages;
-use MediaWiki\Specials\SpecialWantedFiles;
-use MediaWiki\Specials\SpecialWantedPages;
 use Wikimedia\Rdbms\DBError;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\ILoadBalancer;
@@ -104,7 +101,7 @@ abstract class QueryPage extends SpecialPage {
 				[ SpecialMediaStatistics::class, 'MediaStatistics', SpecialMediaStatistics::MAX_LIMIT ],
 				[ SpecialMIMESearch::class, 'MIMEsearch' ],
 				[ SpecialMostCategories::class, 'Mostcategories' ],
-				[ SpecialMostImages::class, 'Mostimages' ],
+				[ MostimagesPage::class, 'Mostimages' ],
 				[ SpecialMostInterwikis::class, 'Mostinterwikis' ],
 				[ SpecialMostLinkedCategories::class, 'Mostlinkedcategories' ],
 				[ SpecialMostLinkedTemplates::class, 'Mostlinkedtemplates' ],
@@ -119,8 +116,8 @@ abstract class QueryPage extends SpecialPage {
 				[ SpecialUnusedCategories::class, 'Unusedcategories' ],
 				[ SpecialUnusedImages::class, 'Unusedimages' ],
 				[ SpecialWantedCategories::class, 'Wantedcategories' ],
-				[ SpecialWantedFiles::class, 'Wantedfiles' ],
-				[ SpecialWantedPages::class, 'Wantedpages' ],
+				[ WantedFilesPage::class, 'Wantedfiles' ],
+				[ WantedPagesPage::class, 'Wantedpages' ],
 				[ SpecialWantedTemplates::class, 'Wantedtemplates' ],
 				[ SpecialUnwatchedPages::class, 'Unwatchedpages' ],
 				[ SpecialUnusedTemplates::class, 'Unusedtemplates' ],
@@ -154,7 +151,7 @@ abstract class QueryPage extends SpecialPage {
 	}
 
 	/**
-	 * Get a list of disabled query pages and their run mode
+	 * Get a list of query pages disabled and with it's run mode
 	 * @param Config $config
 	 * @return string[]
 	 */
@@ -415,7 +412,7 @@ abstract class QueryPage extends SpecialPage {
 				}
 
 				$dbw->doAtomicSection(
-					$fname,
+					__METHOD__,
 					function ( IDatabase $dbw, $fname ) use ( $vals ) {
 						// Clear out any old cached data
 						$dbw->delete( 'querycache',
@@ -459,7 +456,7 @@ abstract class QueryPage extends SpecialPage {
 	 */
 	protected function getRecacheDB() {
 		return $this->getDBLoadBalancer()
-			->getConnectionRef( ILoadBalancer::DB_REPLICA, 'vslow' );
+			->getConnectionRef( ILoadBalancer::DB_REPLICA, [ $this->getName(), 'QueryPage::recache', 'vslow' ] );
 	}
 
 	/**
@@ -653,7 +650,7 @@ abstract class QueryPage extends SpecialPage {
 	 * @return int[] list( $limit, $offset )
 	 */
 	protected function getLimitOffset() {
-		[ $limit, $offset ] = $this->getRequest()
+		list( $limit, $offset ) = $this->getRequest()
 			->getLimitOffsetForUser( $this->getUser() );
 		if ( $this->getConfig()->get( MainConfigNames::MiserMode ) ) {
 			$maxResults = $this->getMaxResults();
@@ -720,7 +717,7 @@ abstract class QueryPage extends SpecialPage {
 		$out->setSyndicated( $this->isSyndicated() );
 
 		if ( $this->limit == 0 && $this->offset == 0 ) {
-			[ $this->limit, $this->offset ] = $this->getLimitOffset();
+			list( $this->limit, $this->offset ) = $this->getLimitOffset();
 		}
 		$dbLimit = $this->getDBLimit( $this->limit, $this->offset );
 		// @todo Use doQuery()

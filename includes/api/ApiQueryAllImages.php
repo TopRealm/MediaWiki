@@ -27,7 +27,6 @@
 use MediaWiki\MainConfigNames;
 use MediaWiki\ParamValidator\TypeDef\UserDef;
 use MediaWiki\Permissions\GroupPermissionsLookup;
-use MediaWiki\Title\Title;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 use Wikimedia\Rdbms\IDatabase;
@@ -152,9 +151,11 @@ class ApiQueryAllImages extends ApiQueryGeneratorBase {
 
 			// Pagination
 			if ( $params['continue'] !== null ) {
-				$cont = $this->parseContinueParamOrDie( $params['continue'], [ 'string' ] );
-				$op = $ascendingOrder ? '>=' : '<=';
-				$this->addWhere( $db->buildComparison( $op, [ 'img_name' => $cont[0] ] ) );
+				$cont = explode( '|', $params['continue'] );
+				$this->dieContinueUsageIf( count( $cont ) != 1 );
+				$op = $ascendingOrder ? '>' : '<';
+				$continueFrom = $db->addQuotes( $cont[0] );
+				$this->addWhere( "img_name $op= $continueFrom" );
 			}
 
 			// Image filters
@@ -201,12 +202,15 @@ class ApiQueryAllImages extends ApiQueryGeneratorBase {
 			$this->addWhereRange( 'img_name', $ascendingOrder ? 'newer' : 'older', null, null );
 
 			if ( $params['continue'] !== null ) {
-				$cont = $this->parseContinueParamOrDie( $params['continue'], [ 'timestamp', 'string' ] );
-				$op = ( $ascendingOrder ? '>=' : '<=' );
-				$this->addWhere( $db->buildComparison( $op, [
-					'img_timestamp' => $db->timestamp( $cont[0] ),
-					'img_name' => $cont[1],
-				] ) );
+				$cont = explode( '|', $params['continue'] );
+				$this->dieContinueUsageIf( count( $cont ) != 2 );
+				$op = ( $ascendingOrder ? '>' : '<' );
+				$continueTimestamp = $db->addQuotes( $db->timestamp( $cont[0] ) );
+				$continueName = $db->addQuotes( $cont[1] );
+				$this->addWhere( "img_timestamp $op $continueTimestamp OR " .
+					"(img_timestamp = $continueTimestamp AND " .
+					"img_name $op= $continueName)"
+				);
 			}
 
 			// Image filters
@@ -261,7 +265,7 @@ class ApiQueryAllImages extends ApiQueryGeneratorBase {
 
 			$mimeConds = [];
 			foreach ( $params['mime'] as $mime ) {
-				[ $major, $minor ] = File::splitMime( $mime );
+				list( $major, $minor ) = File::splitMime( $mime );
 				$mimeConds[] = $db->makeList(
 					[
 						'img_major_mime' => $major,
@@ -282,6 +286,15 @@ class ApiQueryAllImages extends ApiQueryGeneratorBase {
 
 		$limit = $params['limit'];
 		$this->addOption( 'LIMIT', $limit + 1 );
+		$sortFlag = '';
+		if ( !$ascendingOrder ) {
+			$sortFlag = ' DESC';
+		}
+		if ( $params['sort'] == 'timestamp' ) {
+			$this->addOption( 'ORDER BY', 'img_timestamp' . $sortFlag );
+		} else {
+			$this->addOption( 'ORDER BY', 'img_name' . $sortFlag );
+		}
 
 		$res = $this->select( __METHOD__ );
 

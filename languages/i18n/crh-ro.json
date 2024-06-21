@@ -108,10 +108,6 @@
 	"permalink": "Pĭtkĭ körĭnĭşĭne baylanuw",
 	"print": "Basıp şıqaruw",
 	"view": "Körset",
-<<<<<<< HEAD
-	"viewcontribs": "Qatqılardı kör",
-=======
->>>>>>> origin/1.39.7-test
 	"skin-view-view": "Oquw",
 	"skin-view-foreign": "$1 qarañız",
 	"edit": "Deñĭştĭr",
@@ -287,10 +283,6 @@
 	"blockednoreason": "sebep bĭldĭrĭlmedĭ",
 	"loginreqlink": "kĭrĭş",
 	"newarticle": "(Cañı)",
-<<<<<<< HEAD
-	"userpage-userdoesnotexist-view": "Bo wikide \"$1\" qullanuwşısı qayıd bolmağan.",
-=======
->>>>>>> origin/1.39.7-test
 	"updated": "(Cañılandı)",
 	"note": "<strong>Not:</strong>",
 	"previewnote": "<strong>Sĭz şĭmdĭ Körselden qaraysıñız.</strong>\nDeñĭştĭrmeler taa saqlanmağan!",
@@ -342,10 +334,6 @@
 	"rev-delundel": "körsetüw/saqlaw",
 	"rev-showdeleted": "körsetüw",
 	"revdelete-show-file-submit": "Ya",
-<<<<<<< HEAD
-	"revdelete-radio-same": "Deñĭştĭrmeñĭz",
-=======
->>>>>>> origin/1.39.7-test
 	"revdelete-radio-set": "Saqlı",
 	"revdelete-radio-unset": "Körsetĭlgen",
 	"revdelete-log": "Sebep:",
@@ -394,10 +382,6 @@
 	"skin-preview": "Körselden qara",
 	"prefs-user-pages": "Qullanuwşı betlerĭ",
 	"prefs-rc": "Pĭtkĭ deñĭştĭrmeler",
-<<<<<<< HEAD
-	"searchprefs-noresults": "Netice yoq",
-=======
->>>>>>> origin/1.39.7-test
 	"saveprefs": "Saqlaw",
 	"searchresultshead": "Qıdır",
 	"timezonelegend": "Saat quşağı:",
@@ -479,10 +463,6 @@
 	"rcfilters-filter-newpages-label": "Bet yasaluwı",
 	"rcfilters-filter-newpages-description": "Cañı bet yasagan deñĭştĭrmeler.",
 	"rcfilters-filter-categorization-label": "Ulam deñĭştĭrmelerĭ",
-<<<<<<< HEAD
-	"rcfilters-filter-newuserlogactions-label": "Ğañî kullanuwşîlar",
-=======
->>>>>>> origin/1.39.7-test
 	"rcfilters-liveupdates-button": "Cañı deñĭştĭrmeler",
 	"rcfilters-watchlist-markseen-button": "Epĭsĭnĭ körĭngen dep belle",
 	"rcfilters-target-page-placeholder": "Bet (ya da ulam) atı kĭrsetĭñĭz",
@@ -578,10 +558,6 @@
 	"filehist-dimensions": "Boy",
 	"filehist-filesize": "Dosiya balabanlîgî",
 	"filehist-comment": "Yorum",
-<<<<<<< HEAD
-	"filehist-missing": "dosiya yoq",
-=======
->>>>>>> origin/1.39.7-test
 	"imagelinks": "Dosiya qullanuwı",
 	"sharedupload-desc-here": "Bo dosiyanıñ kelgen cerĭ $1 we belkĭde başqa tasawurlarda qullanıla. Taswirĭ [$2 dosiya taswir betĭnde] körsetĭle.",
 	"filepage-nofile": "Bo attı taşığan bĭr dosiya yoq.",
@@ -710,13 +686,5 @@
 	"revdelete-content-hid": "münderice saqlı",
 	"searchsuggest-search": "{{SITENAME}} ĭşĭnde qıdır",
 	"searchsuggest-containing": "Ĭşergen betlerdĭ qıdır",
-<<<<<<< HEAD
-	"duration-days": "$1 {{PLURAL:$1|kün}}",
-	"blockedtext-made-by": "Blok $1 tarapından etĭldĭ.",
-	"blockedtext-reason-comment": "Berĭlgen sebep <em>$1</em>",
-	"blockedtext-start-time": "Bloknıñ başlawı: $1",
-	"blockedtext-expiration-time": "Bloknıñ pĭtüwĭ: $1"
-=======
 	"duration-days": "$1 {{PLURAL:$1|kün}}"
->>>>>>> origin/1.39.7-test
 }

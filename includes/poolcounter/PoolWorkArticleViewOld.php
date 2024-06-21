@@ -29,6 +29,7 @@ use MediaWiki\Revision\RevisionRenderer;
  * @internal
  */
 class PoolWorkArticleViewOld extends PoolWorkArticleView {
+
 	/** @var RevisionOutputCache */
 	private $cache;
 

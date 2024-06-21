@@ -1,7 +1,4 @@
 <?php
-
-use MediaWiki\WikiMap\WikiMap;
-
 /**
  * Specificly for testing Media handlers. Sets up a FileRepo backend
  */

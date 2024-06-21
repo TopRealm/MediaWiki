@@ -2,10 +2,6 @@
 
 use MediaWiki\MainConfigNames;
 
-/**
- * @covers ObjectCache
- * @group BagOStuff
- */
 class ObjectCacheTest extends MediaWikiIntegrationTestCase {
 
 	protected function setUp(): void {
@@ -33,6 +29,7 @@ class ObjectCacheTest extends MediaWikiIntegrationTestCase {
 		$this->overrideConfigValue( MainConfigNames::ObjectCaches, $arr + $defaults );
 	}
 
+	/** @covers ObjectCache::newAnything */
 	public function testNewAnythingNothing() {
 		$this->assertInstanceOf(
 			SqlBagOStuff::class,
@@ -41,6 +38,7 @@ class ObjectCacheTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/** @covers ObjectCache::newAnything */
 	public function testNewAnythingHash() {
 		$this->setMainCache( CACHE_HASH );
 
@@ -51,6 +49,7 @@ class ObjectCacheTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/** @covers ObjectCache::newAnything */
 	public function testNewAnythingAccel() {
 		$this->setMainCache( CACHE_ACCEL );
 
@@ -61,12 +60,14 @@ class ObjectCacheTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/** @covers ObjectCache::newAnything */
 	public function testNewAnythingNoAccel() {
-		// Mock APC not being installed (T160519, T147161)
+		$this->setMainCache( CACHE_ACCEL );
+
 		$this->setCacheConfig( [
+			// Mock APC not being installed (T160519, T147161)
 			CACHE_ACCEL => [ 'class' => EmptyBagOStuff::class ]
 		] );
-		$this->setMainCache( CACHE_ACCEL );
 
 		$this->assertInstanceOf(
 			SqlBagOStuff::class,
@@ -75,14 +76,16 @@ class ObjectCacheTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/** @covers ObjectCache::newAnything */
 	public function testNewAnythingNoAccelNoDb() {
+		$this->setMainCache( CACHE_ACCEL );
+
 		$this->setCacheConfig( [
 			// Mock APC not being installed (T160519, T147161)
 			CACHE_ACCEL => [ 'class' => EmptyBagOStuff::class ]
 		] );
-		$this->setMainCache( CACHE_ACCEL );
 
-		$this->getServiceContainer()->disableStorage();
+		MediaWiki\MediaWikiServices::disableStorageBackend();
 
 		$this->assertInstanceOf(
 			EmptyBagOStuff::class,
@@ -91,8 +94,9 @@ class ObjectCacheTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/** @covers ObjectCache::newAnything */
 	public function testNewAnythingNothingNoDb() {
-		$this->getServiceContainer()->disableStorage();
+		MediaWiki\MediaWikiServices::disableStorageBackend();
 
 		$this->assertInstanceOf(
 			EmptyBagOStuff::class,

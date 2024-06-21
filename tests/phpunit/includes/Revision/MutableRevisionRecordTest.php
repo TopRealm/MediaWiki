@@ -6,9 +6,9 @@ use MediaWiki\Page\PageIdentity;
 use MediaWiki\Page\PageIdentityValue;
 use MediaWiki\Revision\MutableRevisionRecord;
 use MediaWiki\Revision\RevisionRecord;
-use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
 use MockTitleTrait;
+use Title;
 use TitleValue;
 use Wikimedia\Assert\PreconditionException;
 
@@ -38,7 +38,7 @@ class MutableRevisionRecordTest extends MediaWikiIntegrationTestCase {
 	 * @dataProvider provideConstructor
 	 *
 	 * @param PageIdentity $page
-	 * @param string|false $wikiId
+	 * @param bool $wikiId
 	 * @param string|null $expectedException
 	 */
 	public function testConstructorAndGetters(

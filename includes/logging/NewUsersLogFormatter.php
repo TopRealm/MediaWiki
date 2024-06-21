@@ -23,8 +23,6 @@
  * @since 1.22
  */
 
-use MediaWiki\Title\Title;
-
 /**
  * This class formats new user log entries.
  *

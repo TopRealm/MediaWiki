@@ -1,13 +1,11 @@
 <?php
 
-use MediaWiki\Title\Title;
-
 /**
  * A set of SearchEngine results.
+ * Must not be directly implemented by extension, please extend BaseSearchResultSet instead.
+ * This interface must only be used for type hinting.
  *
- * Must not be implemented directly by extensions, extend BaseSearchResultSet instead.
- *
- * @stable to type
+ * @unstable for implementation, extensions should extend the BaseSearchResultSet base class.
  * @see BaseSearchResultSet
  * @ingroup Search
  */

@@ -21,8 +21,6 @@
 
 namespace MediaWiki\Auth;
 
-use MediaWiki\Language\RawMessage;
-
 /**
  * This is a value object for authentication requests with a username and password
  * @stable to extend
@@ -90,7 +88,7 @@ class PasswordAuthenticationRequest extends AuthenticationRequest {
 	public function describeCredentials() {
 		return [
 			'provider' => wfMessage( 'authmanager-provider-password' ),
-			'account' => new RawMessage( '$1', [ $this->username ] ),
+			'account' => new \RawMessage( '$1', [ $this->username ] ),
 		];
 	}
 }

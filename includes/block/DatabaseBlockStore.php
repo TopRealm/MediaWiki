@@ -23,9 +23,9 @@
 namespace MediaWiki\Block;
 
 use AutoCommitUpdate;
+use CommentStore;
 use DeferredUpdates;
 use InvalidArgumentException;
-use MediaWiki\CommentStore\CommentStore;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\HookContainer\HookRunner;
@@ -35,6 +35,7 @@ use MediaWiki\User\UserFactory;
 use MWException;
 use Psr\Log\LoggerInterface;
 use ReadOnlyMode;
+use Wikimedia\Assert\Assert;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\ILoadBalancer;
 
@@ -44,8 +45,6 @@ use Wikimedia\Rdbms\ILoadBalancer;
  * @author DannyS712
  */
 class DatabaseBlockStore {
-	/** @var string|false */
-	private $wikiId;
 
 	/** @var ServiceOptions */
 	private $options;
@@ -93,7 +92,6 @@ class DatabaseBlockStore {
 	 * @param ILoadBalancer $loadBalancer
 	 * @param ReadOnlyMode $readOnlyMode
 	 * @param UserFactory $userFactory
-	 * @param string|false $wikiId
 	 */
 	public function __construct(
 		ServiceOptions $options,
@@ -104,12 +102,9 @@ class DatabaseBlockStore {
 		HookContainer $hookContainer,
 		ILoadBalancer $loadBalancer,
 		ReadOnlyMode $readOnlyMode,
-		UserFactory $userFactory,
-		$wikiId = DatabaseBlock::LOCAL
+		UserFactory $userFactory
 	) {
 		$options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
-
-		$this->wikiId = $wikiId;
 
 		$this->options = $options;
 		$this->logger = $logger;
@@ -132,7 +127,7 @@ class DatabaseBlockStore {
 			return;
 		}
 
-		$dbw = $this->loadBalancer->getConnectionRef( DB_PRIMARY, [], $this->wikiId );
+		$dbw = $this->loadBalancer->getConnectionRef( DB_PRIMARY );
 		$store = $this->blockRestrictionStore;
 		$limit = $this->options->get( MainConfigNames::UpdateRowsPerQuery );
 
@@ -160,10 +155,10 @@ class DatabaseBlockStore {
 	 * Throws an exception if the given database connection does not match the
 	 * given wiki ID.
 	 *
-	 * @param string|false $expectedWiki
 	 * @param ?IDatabase $db
+	 * @param string|false $expectedWiki
 	 */
-	private function checkDatabaseDomain( $expectedWiki, ?IDatabase $db = null ) {
+	private function checkDatabaseDomain( ?IDatabase $db, $expectedWiki ) {
 		if ( $db ) {
 			$dbDomain = $db->getDomainID();
 			$storeDomain = $this->loadBalancer->resolveDomainID( $expectedWiki );
@@ -173,7 +168,7 @@ class DatabaseBlockStore {
 				);
 			}
 		} else {
-			if ( $expectedWiki !== $this->wikiId ) {
+			if ( $expectedWiki !== Block::LOCAL ) {
 				throw new InvalidArgumentException(
 					"Must provide a database connection for wiki '$expectedWiki'."
 				);
@@ -201,13 +196,14 @@ class DatabaseBlockStore {
 			throw new MWException( 'Cannot insert a block without a blocker set' );
 		}
 
-		$this->checkDatabaseDomain( $block->getWikiId(), $database );
+		$this->checkDatabaseDomain( $database, $block->getWikiId() );
 
 		$this->logger->debug( 'Inserting block; timestamp ' . $block->getTimestamp() );
 
+		// TODO T258866 - consider passing the database
 		$this->purgeExpiredBlocks();
 
-		$dbw = $database ?: $this->loadBalancer->getConnectionRef( DB_PRIMARY, [], $this->wikiId );
+		$dbw = $database ?: $this->loadBalancer->getConnectionRef( DB_PRIMARY );
 		$row = $this->getArrayForDatabaseBlock( $block, $dbw );
 
 		$dbw->insert( 'ipblocks', $row, __METHOD__, [ 'IGNORE' ] );
@@ -256,14 +252,13 @@ class DatabaseBlockStore {
 				$targetUserIdentity = $block->getTargetUserIdentity();
 				if ( $targetUserIdentity ) {
 					$targetUser = $this->userFactory->newFromUserIdentity( $targetUserIdentity );
-					// TODO: respect the wiki the block belongs to here
 					// Change user login token to force them to be logged out.
 					$targetUser->setToken();
 					$targetUser->saveSettings();
 				}
 			}
 
-			return [ 'id' => $block->getId( $this->wikiId ), 'autoIds' => $autoBlockIds ];
+			return [ 'id' => $block->getId(), 'autoIds' => $autoBlockIds ];
 		}
 
 		return false;
@@ -280,17 +275,20 @@ class DatabaseBlockStore {
 	public function updateBlock( DatabaseBlock $block ) {
 		$this->logger->debug( 'Updating block; timestamp ' . $block->getTimestamp() );
 
-		$this->checkDatabaseDomain( $block->getWikiId() );
-
-		$blockId = $block->getId( $this->wikiId );
+		// We could allow cross-wiki updates here, just like we do in insertBlock().
+		Assert::parameter(
+			$block->getWikiId() === Block::LOCAL,
+			'$block->getWikiId()',
+			'must belong to the local wiki.'
+		);
+		$blockId = $block->getId();
 		if ( !$blockId ) {
 			throw new MWException(
 				__METHOD__ . " requires that a block id be set\n"
 			);
 		}
 
-		$dbw = $this->loadBalancer->getConnectionRef( DB_PRIMARY, [], $this->wikiId );
-
+		$dbw = $this->loadBalancer->getConnectionRef( DB_PRIMARY );
 		$row = $this->getArrayForDatabaseBlock( $block, $dbw );
 		$dbw->startAtomic( __METHOD__ );
 
@@ -362,16 +360,14 @@ class DatabaseBlockStore {
 			return false;
 		}
 
-		$this->checkDatabaseDomain( $block->getWikiId() );
-
-		$blockId = $block->getId( $this->wikiId );
+		$blockId = $block->getId();
 
 		if ( !$blockId ) {
 			throw new MWException(
 				__METHOD__ . " requires that a block id be set\n"
 			);
 		}
-		$dbw = $this->loadBalancer->getConnectionRef( DB_PRIMARY, [], $this->wikiId );
+		$dbw = $this->loadBalancer->getConnectionRef( DB_PRIMARY );
 
 		$this->blockRestrictionStore->deleteByParentBlockId( $blockId );
 		$dbw->delete(
@@ -405,7 +401,7 @@ class DatabaseBlockStore {
 		$expiry = $dbw->encodeExpiry( $block->getExpiry() );
 
 		if ( $block->getTargetUserIdentity() ) {
-			$userId = $block->getTargetUserIdentity()->getId( $this->wikiId );
+			$userId = $block->getTargetUserIdentity()->getId( $block->getWikiId() );
 		} else {
 			$userId = 0;
 		}
@@ -457,9 +453,9 @@ class DatabaseBlockStore {
 		if ( !$blocker ) {
 			throw new \RuntimeException( __METHOD__ . ': this block does not have a blocker' );
 		}
-		$dbw = $this->loadBalancer->getConnectionRef( DB_PRIMARY, [], $this->wikiId );
+		$dbw = $this->loadBalancer->getConnectionRef( DB_PRIMARY );
 		$blockerActor = $this->actorStoreFactory
-			->getActorNormalization( $this->wikiId )
+			->getActorNormalization()
 			->acquireActorId( $blocker, $dbw );
 		$blockArray = [
 			'ipb_by_actor'       => $blockerActor,
@@ -529,11 +525,11 @@ class DatabaseBlockStore {
 			return [];
 		}
 
-		$dbr = $this->loadBalancer->getConnectionRef( DB_REPLICA, [], $this->wikiId );
+		$dbr = $this->loadBalancer->getConnectionRef( DB_REPLICA );
 
 		$targetUser = $block->getTargetUserIdentity();
 		$actor = $targetUser ? $this->actorStoreFactory
-			->getActorNormalization( $this->wikiId )
+			->getActorNormalization( $block->getWikiId() )
 			->findActorId( $targetUser, $dbr ) : null;
 
 		if ( !$actor ) {

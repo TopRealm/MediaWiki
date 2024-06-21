@@ -110,7 +110,7 @@ class RevisionSlotsTest extends MediaWikiUnitTestCase {
 		$auxSlot = SlotRecord::newUnsaved( 'aux', new WikitextContent( 'B' ) );
 		$slots = $this->newRevisionSlots( [ $mainSlot, $auxSlot ] );
 
-		$this->assertSame( [ SlotRecord::MAIN, 'aux' ], $slots->getSlotRoles() );
+		$this->assertSame( [ 'main', 'aux' ], $slots->getSlotRoles() );
 	}
 
 	/**
@@ -131,7 +131,7 @@ class RevisionSlotsTest extends MediaWikiUnitTestCase {
 		$slotsArray = [ $mainSlot, $auxSlot ];
 		$slots = $this->newRevisionSlots( $slotsArray );
 
-		$this->assertEquals( [ SlotRecord::MAIN => $mainSlot, 'aux' => $auxSlot ], $slots->getSlots() );
+		$this->assertEquals( [ 'main' => $mainSlot, 'aux' => $auxSlot ], $slots->getSlots() );
 	}
 
 	/**
@@ -143,7 +143,7 @@ class RevisionSlotsTest extends MediaWikiUnitTestCase {
 		$slotsArray = [ $mainSlot, $auxSlot ];
 		$slots = $this->newRevisionSlots( $slotsArray );
 
-		$this->assertEquals( [ SlotRecord::MAIN => $mainSlot ], $slots->getPrimarySlots() );
+		$this->assertEquals( [ 'main' => $mainSlot ], $slots->getPrimarySlots() );
 	}
 
 	/**
@@ -177,7 +177,7 @@ class RevisionSlotsTest extends MediaWikiUnitTestCase {
 		$slotsArray = [ $mainSlot, $auxSlot ];
 		$slots = $this->newRevisionSlots( $slotsArray );
 
-		$this->assertEquals( [ SlotRecord::MAIN => $mainSlot ], $slots->getOriginalSlots() );
+		$this->assertEquals( [ 'main' => $mainSlot ], $slots->getOriginalSlots() );
 	}
 
 	public function provideComputeSize() {

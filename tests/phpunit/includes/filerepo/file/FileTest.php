@@ -2,7 +2,6 @@
 
 use MediaWiki\MainConfigNames;
 use MediaWiki\Page\PageIdentityValue;
-use MediaWiki\WikiMap\WikiMap;
 
 class FileTest extends MediaWikiMediaTestCase {
 
