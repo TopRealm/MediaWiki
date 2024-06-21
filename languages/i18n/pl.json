@@ -112,6 +112,12 @@
 			"Žekřil71pl",
 			"לערי ריינהארט",
 			"아라",
+<<<<<<< HEAD
+=======
+			"Kwiatek 123",
+			"SemanticPioneer",
+			"WarX",
+>>>>>>> origin/1.39.7-test
 			"Base",
 			"Amire80"
 		]
@@ -978,11 +984,17 @@
 	"revdelete-hide-comment": "Opis zmian",
 	"revdelete-hide-user": "Nazwa użytkownika/adres IP",
 	"revdelete-hide-restricted": "Ukryj informacje również przed administratorami",
+<<<<<<< HEAD
 	"revdelete-radio-same": "Bez zmian",
 	"revdelete-radio-set": "Ukryty",
 	"revdelete-radio-unset": "Widoczny",
 	"revdelete-radio-set-suppress": "Ukryj",
 	"revdelete-radio-unset-suppress": "Odkryj",
+=======
+	"revdelete-radio-same": "(bez zmian)",
+	"revdelete-radio-set": "Ukryty",
+	"revdelete-radio-unset": "Widoczny",
+>>>>>>> origin/1.39.7-test
 	"revdelete-suppress": "Ukryj informacje również przed administratorami",
 	"revdelete-unsuppress": "Wyłącz ukrywanie dla odtwarzanej historii zmian",
 	"revdelete-log": "Powód:",
@@ -1662,8 +1674,11 @@
 	"rcfilters-filter-categorization-description": "Dodanie lub usunięcie strony z kategorii",
 	"rcfilters-filter-logactions-label": "Działania rejestrowane",
 	"rcfilters-filter-logactions-description": "Działania administracyjne, tworzenie kont, usuwanie stron, przesyłanie plików…",
+<<<<<<< HEAD
 	"rcfilters-filter-newuserlogactions-label": "Nowi użytkownicy",
 	"rcfilters-filter-newuserlogactions-description": "Wpisy rejestru dotyczące tworzenia nowych kont. Działania rejestrowe muszą być wybrane.",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-hideminor-conflicts-typeofchange-global": "Filtr „Drobne zmiany” koliduje z jednym lub wieloma filtrami Rodzaju zmian, ponieważ niektóre rodzaje zmian nie mogą być uznawane za „drobne”. Kolidujące filtry zostały powyżej odpowiednio zaznaczone na pasku aktywnych filtrów.",
 	"rcfilters-hideminor-conflicts-typeofchange": "Niektóre rodzaje zmian nie mogą być uznawane za „drobne”, dlatego ten filtr koliduje z następującymi filtrami Rodzaju zmian: $1",
 	"rcfilters-typeofchange-conflicts-hideminor": "Ten filtr Rodzaju zmian koliduje z filtrem „Drobne zmiany”. Nie wszystkie zmiany mogą być uznawane za „drobne”.",

@@ -535,7 +535,11 @@ class LinksUpdateTest extends MediaWikiLangTestCase {
 	 */
 	public function testUpdate_templatelinks() {
 		/** @var ParserOutput $po */
+<<<<<<< HEAD
 		[ $t, $po ] = $this->makeTitleAndParserOutput( "Testing", self::$testingPageId );
+=======
+		list( $t, $po ) = $this->makeTitleAndParserOutput( "Testing", self::$testingPageId );
+>>>>>>> origin/1.39.7-test
 		$linkTargetLookup = MediaWikiServices::getInstance()->getLinkTargetLookup();
 
 		$target1 = Title::newFromText( "Template:T1" );

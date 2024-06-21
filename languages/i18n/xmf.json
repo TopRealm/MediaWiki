@@ -291,6 +291,10 @@
 	"site-atom-feed": "$1-იშ RSS არხი",
 	"page-rss-feed": "$1-იშ არხი RSS",
 	"page-atom-feed": "\"$1\"–იშ არხი Atom",
+<<<<<<< HEAD
+=======
+	"feed-atom": "Atom",
+>>>>>>> origin/1.39.7-test
 	"feed-rss": "RSS",
 	"red-link-title": "$1 (ხასჷლა ვა რე)",
 	"sort-descending": "რკებაშ მეჯინათ დონწყუალა",
@@ -731,6 +735,10 @@
 	"template-semiprotected": "(გვერდო თხილერი)",
 	"hiddencategories": "თე ხასჷლა ოკათუ {{PLURAL:$1|1 ტყობინაფილ კატეგორიას|$1 ტყობინაფილ კატეგორიეფს}}:",
 	"edittools": "<!-- თაქ დოდვალირი ტექსტი იძირებედას იჸი რედაქტირაფაშ დო ეხარგუაშ ფორმეფიშ გიმე. -->",
+<<<<<<< HEAD
+=======
+	"edittools-upload": "-",
+>>>>>>> origin/1.39.7-test
 	"nocreatetext": "თე ხასჷლას ვაშილებე ახალ ხასჷლაშ გოჭყაფა რინელი გოხურგუაშ გეშა. თქვა შეგილებჷნა დორთა დო რინელ ხასჷლაშ რედაქტირაფა ვარ-და [[Special:UserLogin|მიშულა დო ანგარიშიშ გოჭყაფა]]",
 	"nocreate-loggedin": "თქვა ვაგიღჷნა ალობა ახალ ხასჷლეფიშ გაჭყაფალო.",
 	"sectioneditnotsupported-title": "სექციაშ რედაქტირაფაქ ვემიხუჯინჷ",
@@ -774,6 +782,10 @@
 	"content-model-text": "რჩქვანელობური ტექსტი",
 	"content-model-javascript": "ჯავასკრიპტი",
 	"content-model-css": "CSS",
+<<<<<<< HEAD
+=======
+	"content-model-json": "JSON",
+>>>>>>> origin/1.39.7-test
 	"content-json-empty-object": "ცაიორი ობიექტი",
 	"content-json-empty-array": "ცაიორი ტაბლო",
 	"unsupported-content-model": "<strong>ხვილაფა:</strong> კონტენტიშ $1 მოდელი თე ვიკის ვა რე ხუჯდოკინელი.",
@@ -954,6 +966,7 @@
 	"mergehistory-reason": "სამანჯელი:",
 	"mergehistory-source-deleted-reason": "გაჭყაფური ხასჷლა ავტომატურო ილასჷ ისტორიაშ აკოკათუაშ უკული, თიში დინორეშ მოდელიშ გინოწურაფაშ ხუჯიშ უდუკინებაშ დო უდუსქილადუ ვერსიეფიშ გეშა",
 	"mergehistory-source-deleted": "თეშ მოხ, ხასჷლაქ [[:$1]] დილასჷ, თიშ ოძირაფალი ვერიეფიშ უღვენობაშ გეშა, დო თიში დინორეშ მოდელიშ გინოწურაფეფიშ დოტება ვა რე ხუჯდოკინელი.",
+	"mergehistory-revisionrow": "$1 ($2) $3 . . $4 $5 $6 $7",
 	"mergelog": "აკოკათეფიშ ჟურნალი",
 	"revertmerge": "აკოკათუაშ მოლასუა",
 	"mergelogpagetext": "გიმე წჷმორინაფილი რე ხასჷლაშ ბოლო აკოკათუაშ ერკებული",
@@ -973,8 +986,11 @@
 	"diff-paragraph-moved-tonew": "აბზაცი გინოღალირი რე. ქეგუნჭირით, ახალ ორენშა გინაულარო.",
 	"diff-paragraph-moved-toold": "აბზაცი გინოღალირი რე. ქეგუნჭირით, ჯვეშ ორენშა გინაულარო.",
 	"difference-missing-revision": "{{PLURAL:$2|$2 ვერსიაქ}} ათე ალაზჷმაფაშო ($1) {{PLURAL:$2|ვეგორჷ}}.\n\nთენა რჩქვანელობურო მუთმოხვადჷ, მუჟანსჷთ ვერსიეფიშ ალაზჷმაფაშ მოჯვეშებული რსხილით გინმურთ ხასჷლაშა დო ნამუქჷთ დილასჷნ.\nდეტალური ინფორმაცია შილებე ორდას [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} ლასირეფიშ ჟურნალს].",
+<<<<<<< HEAD
 	"difference-bad-old-revision": "ჯვეში ვერსიაშ დინორე ვა რე ვარ-და დოღამაკელი რე.",
 	"difference-bad-new-revision": "ახალი ვერსიაშ დინორე ვა რე ვარ-და დოღამაკელი რე.",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchresults": "გორუაშ მოღალირობეფი",
 	"search-filter-title-prefix": "გორუა ხვალე თი ხასჷლეფს, ნამუეფიშ ჯოხო იჭყაფჷ „$1-შე“",
 	"search-filter-title-prefix-reset": "არძა ხასჷლაშ გორუა",
@@ -1126,8 +1142,10 @@
 	"youremail": "ელ-ფოსტა:",
 	"username": "{{GENDER:$1|მახვარებუშ ჯოხო}}:",
 	"prefs-memberingroups": "{{PLURAL:$1|ბუნაშ}} {{GENDER:$2|მაკათური}}:",
+	"prefs-memberingroups-type": "$1",
 	"group-membership-link-with-expiry": "$1 ($2-შახ)",
 	"prefs-registration": "რეგისტრაციაშ ბორჯი:",
+	"prefs-registration-date-time": "$1",
 	"yourrealname": "ნანდული ჯოხო:",
 	"yourlanguage": "ნინა:",
 	"yourvariant": "დინორეშ ნინაშ ვარიანტი:",
@@ -1207,6 +1225,7 @@
 	"saveusergroups": "{{GENDER:$1|მახვარებუეფიშ}} ბუნეფიშ ჩუალა",
 	"userrights-groupsmember": "ბუნაშ მაკათური:",
 	"userrights-groupsmember-auto": "ნაგური მაკათური:",
+	"userrights-groupsmember-type": "$1",
 	"userrights-systemuser": "{{GENDER:$1|თე მახვარებუ}} რე სისტემური მახვარებუ",
 	"userrights-groups-help": "თქვა შეილებჷნა გოთირუაშ ბუნა, ნამუშათ მიშმურს {{GENDER:$1|ათე მახვარებუ}}.\n* დო ბუნაშ ჯოხოშ ელახ ქორე მოღანკუა-და — {{GENDER:$1|მაკათური}} თე ბუნაშ მაკათური რე.\n* დო მოღანკუა ვაუღჷ-და — {{GENDER:$1|მაკათური}} თე ბუნაშ მაკათური ვა რე.\n* სიმბოლო * შანენს, ნამჷ-და თქვა ვეშეილებჷნა {{GENDER:$1|მაკათურიშ}} ბუნაშე ეშალასუა, დო {{GENDER:$1|თის}} ქეგუძინათ ბუნას-და (ვარ-და მინი).\n* სიმბოლო # შანენს, ნამჷ-და თქვა შეილებჷნა ხვალე გინოდვალა, მარა ვეშეილებჷნა თე ბუნას მაკათურალაშ თებაშ ბორჯიშ გინოდვალა უმოსი უარდაში ხანიშა.",
 	"userrights-reason": "სამანჯელი:",
@@ -1214,6 +1233,10 @@
 	"userrights-nodatabase": "მუნაჩემეფიშ ბაზა $1 ვა რე, ვარ-და ვა რე ლოკალური.",
 	"userrights-changeable-col": "ჯგუფები, რომლებიც შეგიძლიათ შეცვალოთ",
 	"userrights-unchangeable-col": "ჯგუფები, რომლებიც არ შეგიძლიათ შეცვალოთ",
+<<<<<<< HEAD
+=======
+	"userrights-irreversible-marker": "$1*",
+>>>>>>> origin/1.39.7-test
 	"userrights-no-shorten-expiry-marker": "$1#",
 	"userrights-expiry-current": "ვადაშ გულაშ თარიღი რე $1",
 	"userrights-expiry-none": "უვადე",
@@ -1397,7 +1420,11 @@
 	"action-deletedtext": "ლასირი ვერსიაშ ტექსტიშ ვარ-და ლასირ ვერსიეფიშ შქას თირუეფიშ ძირაფა",
 	"action-browsearchive": "ლასირი ხასჷლეფიშ გორუა",
 	"action-undelete": "თე ხასჷლაშ კჷნ აკონწყუალა",
+<<<<<<< HEAD
 	"action-suppressrevision": "არძა მახვარებუშე ხასჷლეფიშ გიშაკერზაფილი ვერსიეფიშ ძირაფა ვარ-და ტყობინაფა",
+=======
+	"action-suppressrevision": "ხასჷლაშ თე ტყობინაფილი ვერსიეფიშ ძირაფა დო კჷნ ენწყუალა",
+>>>>>>> origin/1.39.7-test
 	"action-suppressionlog": "თე კერზო ჟურნალიშ ძირაფა",
 	"action-block": "თე მახვარებუშო რედაქტირაფაშ ბლოკუა ვარ-და ბლოკიშ მონწყუმა",
 	"action-protect": "თე ხასჷლაშ თხილუაშ პარამეტრიშ თირუა",
@@ -1471,6 +1498,7 @@
 	"recentchanges-label-plusminus": "თირუეფიშ ზჷმა ბაიტეფს",
 	"recentchanges-legend-heading": "<strong>ლეგენდა:</strong>",
 	"recentchanges-legend-newpage": "{{int:recentchanges-label-newpage}} (თაშნეშე ქოძირით [[Special:NewPages|ახალი ხასჷლეფიშ ერკებული]])",
+	"recentchanges-legend-plusminus": "(<em>±123</em>)",
 	"recentchanges-legend-watchlistexpiry": "ობორჯე კონტროლიშ გიმე მარენჯი ხასჷლეფი",
 	"recentchanges-submit": "ძირაფა",
 	"rcfilters-tag-remove": "'$1'-შ ლასუა",
@@ -1646,6 +1674,10 @@
 	"minoreditletter": "ჭ.რ.",
 	"newpageletter": "ახ.",
 	"boteditletter": "ბ",
+<<<<<<< HEAD
+=======
+	"unpatrolledletter": "!",
+>>>>>>> origin/1.39.7-test
 	"rc-change-size": "$1",
 	"rc-change-size-new": "ზჷმა თირუაშ უკული რე: {{PLURAL:$1|ბაიტი|ბაიტი}}",
 	"newsectionsummary": "/* $1 */ ახალი სექცია",
@@ -2152,6 +2184,7 @@
 	"apisandbox-request-selectformat-label": "ქაძირე მოთხირიშ მუნაჩემი, მუჭოთ:",
 	"apisandbox-request-format-url-label": "URL კოდიშ სტრინგი",
 	"apisandbox-request-url-label": "მოთხირიშ URL:",
+	"apisandbox-request-format-json-label": "JSON",
 	"apisandbox-request-json-label": "მითხით JSON:",
 	"apisandbox-request-format-php-label": "PHP წკარუა",
 	"apisandbox-request-php-label": "PHP წკარუაშ მოთხუალა:",
@@ -2258,6 +2291,7 @@
 	"listgrants-summary": "ათაქ მოჩამილი რე ალობეფიშ ერკბული, მახვარებუეფიშ ნებეფიშა ჭირინაფათ. მახვარებუეფს შეულებჷნა ქემკიარსხან აპლიკაციეფს დო გჷმირინუან თინეფიშ ანგარიში. აპლიკაცია ვეგჷმირინუანს თი ნებეფს, ნამუთ მახვარებუს ვაუღჷნ.\nინდივიდუალურ ნებეფიშ გეშა ქოძირით [[{{MediaWiki:Listgrouprights-helppage}}|გეძინელი ინფორმაცია]].",
 	"listgrants-grant": "ალობა",
 	"listgrants-rights": "ნებეფი",
+	"listgrants-grant-display": "$1 <code>($2)</code>",
 	"trackingcategories": "კატეგორიაშ გეჸუნაფა",
 	"trackingcategories-summary": "ათე ხასჷლას ერკებული რე დაკვირაფალი კატეგორიეფი, ნამუეფჷთ ავტომატურო გითმიფშაფჷნა MediaWiki-იშ პროგრამული უნარღელჸუათ. თინეფიშ ჯოხოშ გჷნოთირუა შილებე, ომანგე სისტემური გინაფაქ დითირუ-და, MediaWiki-იშ ჯოხოეფიშ ოფირჩას.",
 	"trackingcategories-msg": "კატეგორიაშ გეჸუნაფა",
@@ -2478,6 +2512,7 @@
 	"protect-fallback": "ხემიოჭირინაფუ რე ხვალე „$1-შ“ ნებაშ მოღვენი მახვარებუეფშო",
 	"protect-level-autoconfirmed": "ახალი დო ვარეგისტრირაფილი მახვარებუეფიშ ბლოკუა",
 	"protect-level-sysop": "ხვალე ადმინისტრატორეფი",
+	"protect-summary-desc": "[$1=$2] ($3)",
 	"protect-summary-cascade": "კასკადური",
 	"protect-expiring": "ვადა გალე $1 (UTC)",
 	"protect-expiring-local": "ვადაშ გულაშ თარიღი რე $1",
@@ -2519,6 +2554,10 @@
 	"undeletehistorynoadmin": "სტატია ლასირი რე.\nლასუსუაშ ბაძაძი დო თი მახვარებუეფიშ ერკებული, ნამუეფქჷთ დარედაქტირეს სტატია თიშ ლასუაშახინ, გიმე რე მოჩამილი.\nლასირი თირუეფიშ ტექსტიშ ძირაფა ხვალე ადმინისტრატორეფს შეულებჷნა.",
 	"undelete-revision": "სტატიაშ $1 ლასირი ვერსია ($4 $5-შე) მახვარებუშით $3:",
 	"undeleterevision-missing": "ჩილათერი ვარ-და ვაჸოფური ვერსია.\nშილებე, ჩილათერ რცხუშა გინორთით ვარ-და ვერსია კჷნ აკოდგინელ დო ვარ-და არქივშე ლასირი რე.",
+<<<<<<< HEAD
+=======
+	"undeleterevision-duplicate-revid": "{{PLURAL:$1|ართ თირუაქ|$1 თირუაქ}} ვეკინწყჷ, თიშენ, ნამჷ-და {{PLURAL:$1|თიში|თინეფიში}} <code>rev_id</code> უკვე გჷმირინუაფუ.",
+>>>>>>> origin/1.39.7-test
 	"undelete-nodiff": "კინოხიან თირუაქ ვამაგორეს.",
 	"undeletebtn": "ახალშო ეიონწყუალა",
 	"undeletelink": "ძირაფა/ეიონწყუალა",
@@ -2557,7 +2596,10 @@
 	"contributions": "მახვარებუშ მიშნაღელი თია",
 	"tool-link-contributions": "{{GENDER:$1|მახვარებუშ}} მიშნაღელ თია",
 	"contributions-title": "მახვარებუ $1-შ მიშნაღელი თია",
+<<<<<<< HEAD
 	"contribute-title": "მახვარებუშ მიშნაღელი თია",
+=======
+>>>>>>> origin/1.39.7-test
 	"mycontris": "ჩქიმი მიშნაღელი თია",
 	"anoncontribs": "მიშნაღელი თიეფი",
 	"contribute": "ავტორი",
@@ -2596,7 +2638,10 @@
 	"whatlinkshere-page": "ხასჷლა:",
 	"linkshere": "გეჸვენჯი ხასჷლეფი გინარცხუაფუ '''$2'''-ეფს",
 	"nolinkshere": "'''$2'''-ს რცხუ ვა რე.",
+<<<<<<< HEAD
 	"nolinkshere-filter": "ვა რე ხასჷლეფი, ნამუეფჷთ მერსხილი რე <strong>$2-შა</strong> მიმალ გორუაშ პარამეტრეფს.",
+=======
+>>>>>>> origin/1.39.7-test
 	"nolinkshere-ns": "გიშაგორულ ჯოხოეფიშ ოფირჩას ვა რე ხასჷლეფი, ნამუეფჷთ გინიწურაფუ '''$2-შა'''.",
 	"isredirect": "გინოწურაფაშ ხასჷლა",
 	"istemplate": "ტრანსკლუზია",
@@ -3063,7 +3108,10 @@
 	"pageinfo-default-sort": "სტანდარტული სორტირაფაშ კილა",
 	"pageinfo-length": "ხასჷლაშ სიგჷრძა (ბაიტეფს)",
 	"pageinfo-namespace": "ჯოხოეფიშ ოფირჩა",
+<<<<<<< HEAD
 	"pageinfo-namespace-id": "ჯოხოეფიშ ოფირჩაშ ID",
+=======
+>>>>>>> origin/1.39.7-test
 	"pageinfo-article-id": "ხასჷლაშ ID",
 	"pageinfo-language": "ხასჷლაშ დინორეშ ნინა",
 	"pageinfo-language-change": "თირუა",
@@ -3199,7 +3247,11 @@
 	"metadata-help": "თე ფაილს ოხოლჷ გეძინელი ინფორმაცია, ნამუთ ოეგებიეთ თი ცირფულ კამერაშე ვარ-და სკანერშე რე გეძინელჷ, ნამუთ რდჷ გჷმორინაფილი თე ფაილიშ გაჭყაფალო ვარ-და დაცირფაფალო. ფაილიშ ორიგინალი თირელი ქორენ-და, შილებე კანკალე დეტალი ვა გჷშაძირუანდას ფაილშა მიშაღალირჷ თირუეფს.",
 	"metadata-expand": "გეძინელი ინფორმაციაშ ძირაფა",
 	"metadata-collapse": "გეძინელი ინფორმაციაშ ტყობინაფა",
+<<<<<<< HEAD
 	"metadata-fields": "მეტამუნაჩემეფიშ ენარკებუ ათე გინაფას გეძინელი იჸუაფჷ სურათიშ ხასჷლას, მუჟანსჷთ მეტამუნაჩემეფიშ რცხილი გონწყუმილი რე.\nშხვეფიშ უპიჯალეთ ტყოფინაფილი იჸუაფჷ.\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude\n* dc-rights\n* copyrightowner\n* usageterms\n* webstatement\n* licenseurl\n* attributionurl\n* preferredattributionname\n* credit\n* jpegfilecomment\n* pngfilecomment\n* giffilecomment\n* usercomment\n* citydest\n* citycreated\n* headline\n* source\n* locationdest\n* dc-contributor\n* dc-coverage\n* dc-publisher\n* dc-relation\n* label\n* nickname\n* personinimage\n* disclaimer\n* event\n* objectname\n ისტ. Rusyn (rue)\tПоложкы метадат образчіків зазначены у тім повідомлїню будуть на сторінцї з пописом выписаны все. Жебы вказати другы, буде треба кликнути на  „зобразити детайлы“.\n* make \n* model \n* datetimeoriginal \n* exposuretime \n* fnumber \n* isospeedratings \n* focallength \n* artist \n* copyright \n* imagedescription \n* gpslatitude \n* gpslongitude \n* gpsaltitude \n* dc-rights \n* copyrightowner \n* usageterms \n* webstatement \n* licenseurl \n* attributionurl \n* preferredattributionname \n* credit \n* jpegfilecomment \n* pngfilecomment \n* giffilecomment \n* usercomment \n* citydest \n* citycreated \n* headline \n* source \n* locationdest \n* dc-contributor \n* dc-coverage \n* dc-publisher \n* dc-relation \n* label \n* nickname \n* personinimage \n* disclaimer \n* event \n* objectname",
+=======
+	"metadata-fields": "მეტამუნაჩემეფიშ ენარკებუ ათე გინაფას გეძინელი იჸუაფჷ სურათიშ ხასჷლას, მუჟანსჷთ მეტამუნაჩემეფიშ რცხილი გონწყუმილი რე.\nშხვეფიშ უპიჯალეთ ტყოფინაფილი იჸუაფჷ.\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude",
+>>>>>>> origin/1.39.7-test
 	"metadata-langitem": "<strong>$2:</strong> $1",
 	"namespacesall": "არძა",
 	"monthsall": "არძა",
@@ -3241,7 +3293,10 @@
 	"confirm-watch-button": "ჯგირი",
 	"confirm-watch-top": "ქეგუძინათო თე ხასჷლა თქვანი კონტროლიშ ერკებულს?",
 	"confirm-watch-label": "კონტროლიშ ერკებულიშ ბორჯიშ პერიოდი:",
+<<<<<<< HEAD
 	"watchlist-expiry-options": "სადღამუშიოთ:infinite,1 მარათ:1 week,1 თუთათ:1 month,3 თუთათ:3 months,6 თუთათ:6 months,1 წანათ:1 year",
+=======
+>>>>>>> origin/1.39.7-test
 	"watchlist-expires-in-aria-label": "ობორჯეთ რე კონტროლიშ ერკებულს",
 	"confirm-watch-button-expiry": "გაკონტროლი",
 	"confirm-unwatch-button": "ჯგირი",
@@ -3773,6 +3828,13 @@
 	"logentry-tag-update-logentry": "მახვარებუქ $1 {{GENDER:$2|მაახალჷ}} ხინტკეფი ხასჷლაშ $3 $5 დინნაჭარაშ ჟურნალს ({{PLURAL:$7|ქეგიაძინჷ}} $6; {{PLURAL:$9|დილასჷ}} $8)",
 	"rightsnone": "(აკა ვარი)",
 	"rightslogentry-temporary-group": "$1 (ობორჯეთ, $2-შახ)",
+<<<<<<< HEAD
+=======
+	"feedback-adding": "თქვანი ფასებაშ ჩუალა...",
+	"feedback-back": "უკახალე",
+	"feedback-bugcheck": "ჯგირი რე! ქორთხინთ, ხოლო ართშა გეგნაჯინით, ხომ ვა რე თაქ ნამთინი უკვე [$1 ნაჩინებუ ჩილათა].",
+	"feedback-bugornote": "დო თქვა ზათ რეთ დეტალურო ეჭარათ ტექნიკური პრობლემა-და, ქორთხინთ, [$1 ქუგმოგებაბეთ ჩილათაშ გეშა].\nაწმარენჯ შვანს თქვა შეილებჷნა ირგებუათ თე ლექინი ფორმათ. თქვანი კომენტარი ქეგიაძინჷ „[$3 $2]“ ხასჷლაშ თქვანი ჯოხოწკჷმა დო გჷმორინაფილჷ ბრაუზერწკჷმა ართო.",
+>>>>>>> origin/1.39.7-test
 	"feedback-cancel": "გოუქვაფა",
 	"feedback-close": "კეთებული რე",
 	"feedback-external-bug-report-button": "ტექნიკური დავალებაშ ჯღონუა",
@@ -3790,10 +3852,13 @@
 	"feedback-useragent": "მახვარებუშ აგენტი:",
 	"searchsuggest-search": "გორუა {{SITENAME}}ს",
 	"searchsuggest-containing": "ხასჷლეფიშ გორუა, ნამუთ იკათუანს",
+<<<<<<< HEAD
 	"search-match-redirect-label": "გინულა გორუაშ დრამტახილი აკოხვალამაშა",
 	"search-match-redirect-help": "გეგშაგორით ხასჷლაშა გინულა თიმ შვანს, მუჟანსჷთ ხასჷლაშ დუდჯოხო უხუჯანს თის, ნამუსჷთ თქვა გორუნთჷნ",
 	"search-thumbnail-extra-namespaces-label": "ქუმოძირე მინიატურეფი Special:Search-ის დესკტოპიშ ვერსიას",
 	"search-thumbnail-extra-namespaces-message": "ოძირანს მინიატურეფს $1-შო {{PLURAL:$2|ჯოხოეფიშ ოფირჩას}} შედეგეფიშ ხასჷლას {{#special:search}}",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchlimit-label": "ირ ხასჷლას ნაძირებუ გორუაშ მოღალობეფიშ მუდანობა:",
 	"searchlimit-help": "მაქსიმალური მუდანობა: $1",
 	"api-clientside-error-noconnect": "ვემიხუჯინჷ სერვერშა მერსხუაფაქ. დერწუმით, ნამჷ-და ინტერნეტ ჩართულჷ გაფჷნა დო კჷნ ქოცადით.",
@@ -4136,6 +4201,7 @@
 	"newpages-showhide-bots": "$1 ბოტეფი",
 	"newpages-showhide-patrolled": "$1 გინოჯინელი რედაქტირაფეფი",
 	"newpages-showhide-redirect": "$1 გინოწურაფეფი",
+<<<<<<< HEAD
 	"newpages-showhide-registered": "$1 რეგისტრირაფილი მახვარებუეფი",
 	"blockedtext-made-by": "ბლოკირ აფჷ ადმინისტრატორს $1",
 	"blockedtext-reason-comment": "ბაძაძი რე <em>$1</em>",
@@ -4176,4 +4242,7 @@
 	"action-renameuser": "მახვარებუეფიშ ჯოხოშ თირუა",
 	"right-renameuser": "მახვარებუეფიშ ჯოხოშ თირუა",
 	"renameuser-renamed-notice": "თე მახვარებუს ჯოხოქ გინათირჷ.\nგიმე მოჩამილი რე ჯოხოშ გინოთირუაშ ჟურნალი."
+=======
+	"newpages-showhide-registered": "$1 რეგისტრირაფილი მახვარებუეფი"
+>>>>>>> origin/1.39.7-test
 }

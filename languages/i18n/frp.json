@@ -438,7 +438,11 @@
 	"createaccountmail-help": "Sè pôt empleyér por fâre un comptio por n’ôtra pèrsona sen cognetre lo contresegno.",
 	"createacct-realname": "Veré nom (u chouèx)",
 	"createacct-reason": "Rêson (enregistrâye publicament)",
+<<<<<<< HEAD
 	"createacct-reason-ph": "Porquè que vos féte ‘n ôtro comptio",
+=======
+	"createacct-reason-ph": "Porquè que vos féte un ôtro comptio",
+>>>>>>> origin/1.39.7-test
 	"createacct-reason-help": "Mèssâjo montrâ sus lo jornâl de les crèacions de comptios utilisator",
 	"createacct-reason-confirm": "La rêson que vos éd buchiê ére n’adrèce èlèctronica. S’o est avouéc l’entencion, se vos plét tornâd cllicar dessus « Fâre un comptio ».",
 	"createacct-submit": "Féte voutron comptio",
@@ -624,7 +628,11 @@
 	"publishpage-start": "Publeyér la pâge…",
 	"publishchanges-start": "Publeyér los changements…",
 	"preview": "Apèrçu",
+<<<<<<< HEAD
 	"showpreview": "Montrar ‘n apèrçu",
+=======
+	"showpreview": "Montrar ’n apèrçu",
+>>>>>>> origin/1.39.7-test
 	"showdiff": "Montrar los changements",
 	"blankarticle": "<strong>Atencion :</strong> la pâge que vos éte aprés fâre est voueda.\nSe vos tornâd cllicar dessus « $1 », la pâge serat fêta sen gins de contegnu.",
 	"anoneditwarning": "<strong>Atencion :</strong> vos éte pas branchiê. Voutron adrèce IP serat visibla devant tot lo mondo se vos féte de changements. Se vos <strong>[$1 vos branchiéd]</strong> ou ben <strong>[$2 féte un comptio]</strong>, voutros changements seront atribuâs a voutron nom d’utilisator, ensemblo avouéc d’ôtros avantâjos.",
@@ -658,7 +666,11 @@
 	"accmailtext": "Un contresegno fêt per hasârd por [[User talk:$1|$1]] est étâ mandâ a $2. Pôt étre changiê dessus la pâge de <em>[[Special:ChangePassword|changement de contresegno]]</em> aprés branchement.",
 	"newarticle": "(Novél)",
 	"newarticletext": "Vos éd siuvu un lim de vers na pâge qu’ègziste p’oncor.\nPor fâre la pâge, buchiéd voutron tèxto dedens la bouèta ce-desot (vêde la [$1 pâge d’éde] por més d’enformacions).\nSe vos éte arrevâ{{GENDER:||ye}} ique per fôta, cllicâd dessus lo boton <strong>Devant</strong> de voutron navegator.",
+<<<<<<< HEAD
 	"anontalkpagetext": "----\n<em>O est la pâge de discussion a un utilisator anonimo qu’at p’oncor fêt un comptio ou ben que nen emplèye pas.</em>\nPor cen, nos devens empleyér son adrèce IP numerica por l’identifiar.\nN’adrèce IP d’ense pôt étre partagiêe per un mouél d’utilisators.\nSe vos éte {{GENDER:|‘n utilisator|n’utilisatosa}} anonim{{GENDER:|o|a}} et pués se vos constatâd que de comentèros que vos regârdont pas vos sont étâs adrèciês, se vos plét [[Special:CreateAccount|féte un comptio]] ou ben [[Special:UserLogin|branchiéd-vos]] por èvitar tota confusion que vint avouéc d’ôtros utilisators anonimos.",
+=======
+	"anontalkpagetext": "----\n<em>O est la pâge de discussion a un utilisator anonimo qu’at p’oncor fêt un comptio ou ben que nen emplèye pas.</em>\nPor cen, nos devens empleyér son adrèce IP numerica por o identifiar.\nN’adrèce IP d’ense pôt étre partagiêe per un mouél d’utilisators.\nSe vos éte {{GENDER:|un utilisator|n’utilisatosa}} anonim{{GENDER:|o|a}} et pués se vos constatâd que de comentèros que vos regârdont pas vos sont étâs adrèciês, se vos plét [[Special:CreateAccount|féte un comptio]] ou ben [[Special:UserLogin|branchiéd-vos]] por èvitar tota confusion que vint avouéc d’ôtros utilisators anonimos.",
+>>>>>>> origin/1.39.7-test
 	"noarticletext": "Ora y at gins de tèxto dedens cela pâge.\nVos pouede [[Special:Search/{{PAGENAME}}|fâre na rechèrche sus cél titro]] dedens les ôtres pâges,\n<span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} rechèrchiér sus los jornâls liyês]\nou ben [{{fullurl:{{FULLPAGENAME}}|action=edit}} fâre cela pâge]</span>.",
 	"noarticletext-nopermission": "Ora y at gins de tèxto dedens cela pâge.\nVos pouede [[Special:Search/{{PAGENAME}}|fâre na rechèrche sus cél titro]] dedens les ôtres pâges ou ben <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} rechèrchiér sus los jornâls liyês]</span>, mas vos éd pas la pèrmission de fâre cela pâge.",
 	"missing-revision-permission": "La vèrsion nº $1 est a na pâge suprimâye. Vos la pouede [{{fullurl:{{#Special:Undelete}}|target=$3&timestamp=$2&diff=prev}} fâre vêre] ; los dètalys pôvont étre trovâs sus lo [{{fullurl:{{#Special:Log}}/delete|page=$3}} jornâl de les suprèssions].",

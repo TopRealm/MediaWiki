@@ -51,6 +51,10 @@
 			"XXN",
 			"לערי ריינהארט",
 			"아라",
+<<<<<<< HEAD
+=======
+			"Matěj Suchánek",
+>>>>>>> origin/1.39.7-test
 			"Amire80",
 			"Alesaru",
 			"Heron702",
@@ -288,7 +292,11 @@
 	"versionrequired": "Este necesară versiunea $1 a MediaWiki",
 	"versionrequiredtext": "Versiunea $1 a MediaWiki este necesară pentru a folosi această pagină. Vedeți [[Special:Version|versiunea actuală]].",
 	"ok": "OK",
+<<<<<<< HEAD
 	"pagetitle": "$1 - {{SITENAME}}",
+=======
+	"pagetitle": "- $1 - {{SITENAME}}",
+>>>>>>> origin/1.39.7-test
 	"backlinksubtitle": "← $1",
 	"retrievedfrom": "Adus de la „$1”",
 	"youhavenewmessages": "{{PLURAL:$3|Aveți}} $1 ($2).",
@@ -3226,7 +3234,11 @@
 	"metadata-help": "Acest fișier conține informații suplimentare, introduse probabil de aparatul de fotografiat digital sau scanerul care l-a generat.\nDacă fișierul a fost modificat între timp, este posibil ca unele detalii să nu mai fie valabile.",
 	"metadata-expand": "Afișează detalii suplimentare",
 	"metadata-collapse": "Ascunde detalii suplimentare",
+<<<<<<< HEAD
 	"metadata-fields": "Câmpurile de metadate ale imaginii enumerate în acest mesaj vor fi incluse pe afișarea paginii de imagine atunci când tabelul de metadate este restrâns.\nAltele vor fi ascunse în mod implicit.\n* make\n* model\n* datetimeoriginal\n* timpul de expunere\n* fnumăr\n* izoviteze\n* distanță focală\n* artist\n* drept de autor\n* descriere imagine\n* gpslatitude\n* gpslongitude\n* gpsaltitude\n* dc-rights\n* proprietar de drepturi de autor\n* termeni de utilizare\n* declarație web\n* licență\n* attributionurl\n* preferredattributionname\n* credit\n* jpegfilecomment\n* pngfilecomment! N!* giffilecomment\n* usercomment\n* citydest\n* citycreated\n* titlu\n* sursă\n* locationdest\n* dc-contributor\n* dc-coverage!N !* dc-publisher\n* dc-relation\n* label\n* nickname\n* personinimage\n* disclaimer\n* event\n* objectname",
+=======
+	"metadata-fields": "Câmpurile cu metadatele imaginii listate mai jos vor fi incluse în pagina de afișare a imaginii atunci când tabelul cu metadate este restrâns.\nAltele vor fi ascunse implicit.\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude",
+>>>>>>> origin/1.39.7-test
 	"metadata-langitem": "<strong>$2:</strong> $1",
 	"namespacesall": "toate",
 	"monthsall": "toate",
@@ -4075,6 +4087,7 @@
 	"skin-action-undelete": "Recuperare",
 	"skin-action-delete": "Ștergere",
 	"skin-action-move": "Redenumire",
+<<<<<<< HEAD
 	"newpages-showhide-bots": "$1 roboți",
 	"renameuser": "Redenumire utilizator",
 	"renameuser-linkoncontribs": "redenumirea {{GENDER:$1|utilizatorului|utilizatoarei|utilizatorului}}",
@@ -4106,4 +4119,7 @@
 	"action-renameuser": "redenumește utilizatori",
 	"right-renameuser": "Redenumește utilizatori",
 	"renameuser-renamed-notice": "Acestui utilizator i-a fost schimbat numele.\nJurnalul redenumirilor este furnizat mai jos pentru referință."
+=======
+	"newpages-showhide-bots": "$1 roboți"
+>>>>>>> origin/1.39.7-test
 }

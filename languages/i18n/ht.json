@@ -15,7 +15,8 @@
 			"Schery19",
 			"Tisave",
 			"Urhixidur",
-			"아라"
+			"아라",
+			"Kitanago"
 		]
 	},
 	"tog-underline": "Souliyen lyen yo :",
@@ -493,8 +494,13 @@
 	"anontalkpagetext": "----\n<em>Ou nan paj diskisyon yon itilizatè anonim, ki poko kreye yon kont oubyen ki pa itilize pyès kont nan sistèm sa.</em>\nPou rezon sa, nou dwe itilize adrès IP l pou idantifye l.\nYon adrès IP kapab pataje ant plizyè itilizatè.\nSi w se yon itilizatè anonim e si ou wè ke ou resevwa komantè ki pa t pou ou, ou mèt [[Special:CreateAccount|kreye yon kont]] oubyen [[Special:UserLogin|konekte ou]] pou ou kapab anpeche konfizyon ak kontribitè anonim yo.",
 	"noarticletext": "Poko gen okenn tèks nan paj sa a pou kounye a.\nOu mèt fè yon [[Special:Search/{{PAGENAME}}|rechèch sou tit sa a]] nan lòt paj yo, <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} chèche nan operasyon ki gen rapò ak paj sa],\noubyen [{{fullurl:{{FULLPAGENAME}}|action=edit}} kreye paj sa a].",
 	"noarticletext-nopermission": "Poko gen okenn tèks nan paj sa a pou kounye a.\nOu mèt fè yon [[Special:Search/{{PAGENAME}}|echèch sou tit sa a]] nan lòt paj yo, oubyen <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} chèche nan operasyon ki gen rapò ak paj sa], men ou pa gen pèmisyon pou kreye paj sa a.",
+<<<<<<< HEAD
 	"userpage-userdoesnotexist": "Kont itilizatè \" $1 \" pa anrejistre sou wiki sa a.\nTanpri tcheke si w vle kreye/modifye paj sa a.",
 	"userpage-userdoesnotexist-view": "Kont itilizatè \"$1\" pa enskri sou wiki sa a.",
+=======
+	"userpage-userdoesnotexist": "Kont itilizatè « <nowiki>$1</nowiki> » sa pa anrejistre. Verifye toutbon ke ou vle kreye paj sa.",
+	"userpage-userdoesnotexist-view": "Itilizatè \"$1\" pa ekziste.",
+>>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "{{GENDER:$1|Itilizatè}} sa a bloke kounye a.\nDènye jounal pou blokaj yo parèt anba kòm referans :",
 	"clearyourcache": "<strong>Note bagay sa :</strong> aprè ou fin pibliye modifikasyon yo, sa ka rive ou oblije fòse chajman total kach navigatè entènèt ou an pou ou kapab wè chanjman yo.\n* <strong>Firefox / Safari :</strong> kenbe touch <em>Maj</em> pandan w ap klike sou bouton <em>Rafrechi/Aktyalize</em> oswa ou peze <em>Ctrl-F5</em> oubyen <em>Ctrl-R</em> (<em>⌘-R</em> sou sistèm Apple Mac)\n* <strong>Google Chrome :</strong> peze <em>Ctrl-Shift-R</em> (<em>⌘-Maj-R</em> sou sistèm Apple Mac)\n* <strong>Internet Explorer / Edge :</strong> kenbe touch <em>Ctrl</em> pandan w ap klike sou bouton <em>Rafrechi/Aktyalize</em>, oubyen peze <em>Ctrl-F5</em>.\n* <strong>Opera:</strong> peze <em>Ctrl-F5</em>.",
 	"usercssyoucanpreview": "<strong>Bagay ki ap sèvi w :</strong> Itilize bouton « {{int:showpreview}} » pou teste nouvo fèy CSS anvan ou pibliye l.",

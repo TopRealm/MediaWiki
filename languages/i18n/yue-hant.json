@@ -209,7 +209,10 @@
 	"permalink": "固定連結",
 	"print": "印",
 	"view": "睇",
+<<<<<<< HEAD
 	"viewcontribs": "睇貢獻",
+=======
+>>>>>>> origin/1.39.7-test
 	"skin-view-view": "閱",
 	"skin-view-foreign": "用 $1 睇",
 	"edit": "改",
@@ -226,7 +229,10 @@
 	"skin-action-unprotect": "改保護",
 	"unprotect": "改保護",
 	"newpage": "開新頁",
+<<<<<<< HEAD
 	"view-missing-pages": "睇唔見咗嘅頁面",
+=======
+>>>>>>> origin/1.39.7-test
 	"talkpagelinktext": "傾偈",
 	"specialpage": "特別頁",
 	"personaltools": "個人架生",
@@ -684,8 +690,11 @@
 	"noarticletext": "喺呢一頁而家並冇任何嘅文字，你可以喺其它嘅頁面中[[Special:Search/{{PAGENAME}}|搵呢一頁嘅標題]]，\n<span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} 搵有關嘅日誌]，\n或者[{{fullurl:{{FULLPAGENAME}}|action=edit}} 編輯呢一版]</span>。",
 	"noarticletext-nopermission": "呢一頁而家冇任何文字，你可以喺其它嘅頁面中[[Special:Search/{{PAGENAME}}|搵呢一頁嘅標題]]，或者<span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} 搵有關嘅日誌]</span>。",
 	"missing-revision": "The revision #$1 of the page named \"{{FULLPAGENAME}}\" does not exist.\n\nThis is usually caused by following an outdated history link to a page that has been deleted.\nDetails can be found in the [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} deletion log].\n\n《{{FULLPAGENAME}}》嘅編輯#$1唔存在。\n\n恁通常係因為一條過徂時嘅鏈接帶徂閣下去一個已經刪除徂嘅版。\n詳情請查閱[{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} 刪文紀錄]。",
+<<<<<<< HEAD
 	"userpage-userdoesnotexist": "用戶戶口「$1」喺呢個 wiki 度仲未開。開／改呢版之前請檢查一下先。",
 	"userpage-userdoesnotexist-view": "用戶戶口\"$1\"重未開喺呢個wiki。",
+=======
+>>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "呢位用戶而家封咗。\n下邊有最近一次封鎖紀錄以供參考：",
 	"clearyourcache": "<strong>注意：</strong>喺發布之後，你可能要先略過你嘅瀏覽器快取去睇到更改。\n* <strong>Firefox / Safari：</strong>㩒住<em>Shift</em>掣再撳<em>重新載入</em>，又或者㩒<em>Ctrl-F5</em>或者<em>Ctrl-R</em>（喺Mac㩒<em>Command-R</em>掣）\n* <strong>Google Chrome：</strong>㩒<em>Ctrl-Shift-R</em>（喺Mac㩒<em>Command-R</em>掣）\n* <strong>Internet Explorer / Edge：</strong>㩒住<em>Ctrl</em>掣再撳<em>重新整理</em>，又或者㩒<em>Ctrl-F5</em>\n* <strong>Opera：</strong>㩒<em>Ctrl-F5</em>。",
 	"usercssyoucanpreview": "<strong>提示：</strong>發佈前，用個「{{int:showpreview}}」掣嚟測試你嘅新 CSS。",
@@ -871,7 +880,10 @@
 	"revdelete-hide-comment": "隱藏摘要",
 	"revdelete-hide-user": "編輯者嘅用戶名／IP地址",
 	"revdelete-hide-restricted": "同時壓制由操作員同埋第啲用戶嘅資料",
+<<<<<<< HEAD
 	"revdelete-radio-same": "唔改",
+=======
+>>>>>>> origin/1.39.7-test
 	"revdelete-radio-set": "隱藏咗",
 	"revdelete-radio-unset": "顯示返",
 	"revdelete-suppress": "同時壓制由操作員以及其他用戶的資料",
@@ -973,7 +985,10 @@
 	"search-interwiki-more": "(多啲)",
 	"search-interwiki-more-results": "多啲結果",
 	"search-relatedarticle": "有拏褦",
+<<<<<<< HEAD
 	"search-thumbnail-alt": "$1 嘅縮圖",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchrelated": "有拏褦",
 	"searchall": "全部",
 	"showingresultsinrange": "下面顯示由第 <strong>$2</strong> 個到第 <strong>$3</strong> 個入面嘅第 {{PLURAL:$1|<strong>$1</strong> 個結果}}：",
@@ -1021,8 +1036,11 @@
 	"prefs-email": "電郵選項",
 	"prefs-rendering": "外觀",
 	"prefs-searchmisc": "一般",
+<<<<<<< HEAD
 	"searchprefs": "搵自訂喜好",
 	"searchprefs-noresults": "冇結果",
+=======
+>>>>>>> origin/1.39.7-test
 	"saveprefs": "儲存",
 	"restoreprefs": "回復全部預設設定",
 	"prefs-editing": "改嘢",
@@ -1030,7 +1048,10 @@
 	"recentchangesdays": "最近修改中嘅顯示日數：",
 	"recentchangesdays-max": "最多 $1 日",
 	"recentchangescount": "喺最近修改、版歷史同日誌度預設顯示嘅編輯數：",
+<<<<<<< HEAD
 	"prefs-back-title": "返去自訂喜好",
+=======
+>>>>>>> origin/1.39.7-test
 	"prefs-help-recentchangescount": "最大數目：1000",
 	"prefs-help-watchlist-token2": "呢個係網上訂閱你個監視清單嘅密匙。\n任何人只要知道個密匙，就會睇到你個監視清單，所以唔好畀人知。\n如果有需要嘅話，[[Special:ResetTokens|你可以重設佢]]。",
 	"prefs-user-downloaddata-label": "存取戶口數據：",
@@ -1043,7 +1064,10 @@
 	"timezoneuseserverdefault": "用維基預設值（$1）",
 	"timezoneuseoffset": "第啲（UTC時區偏移）",
 	"timezone-useoffset-placeholder": "數值例子：「-07:00」或者「01:00」",
+<<<<<<< HEAD
 	"timezone-invalid": "錯嘅時區或者時差。",
+=======
+>>>>>>> origin/1.39.7-test
 	"servertime": "伺機器時間:",
 	"guesstimezone": "由瀏覽器填上",
 	"timezoneregion-africa": "非洲",
@@ -1209,9 +1233,12 @@
 	"right-suppressrevision": "睇下、收埋同恢復任何用戶指定頁面版本",
 	"right-viewsuppressed": "睇所有用戶收埋咗嘅修訂",
 	"right-suppressionlog": "去睇私人嘅日誌",
+<<<<<<< HEAD
 	"right-block": "封鎖或解封第啲用戶嘅改嘢權限",
 	"right-blockemail": "封鎖或解封用戶寄電郵嘅權限",
 	"right-hideuser": "封鎖用戶名，對公眾隱藏",
+=======
+>>>>>>> origin/1.39.7-test
 	"right-ipblock-exempt": "繞過IP封鎖、自動封鎖同埋範圍封鎖",
 	"right-unblockself": "解封自己",
 	"right-protect": "改保護等級同埋編輯流水保護版",
@@ -1228,7 +1255,10 @@
 	"right-viewmywatchlist": "睇你自己嘅監視清單",
 	"right-editmywatchlist": "修改自己嘅監視清單。注意，就算無呢個權限，某啲操作仍然會加頁面去監視清單度。",
 	"right-viewmyprivateinfo": "睇下個人信息（例如電郵或真名）",
+<<<<<<< HEAD
 	"right-editmyprivateinfo": "修改自己嘅個人信息（例如電郵或真名）同請求重設密碼電郵",
+=======
+>>>>>>> origin/1.39.7-test
 	"right-editmyoptions": "改你嘅喜好設定",
 	"right-rollback": "快速反轉上位用戶對某一版嘅編輯",
 	"right-markbotedits": "標示反轉編輯做機械人編輯",
@@ -1269,7 +1299,10 @@
 	"grant-editsiteconfig": "改成個網站同用戶CSS/JS",
 	"grant-editpage": "改已經有嘅版",
 	"grant-editprotected": "改保護咗嘅版",
+<<<<<<< HEAD
 	"grant-highvolume": "大量操作（機械人）存取權",
+=======
+>>>>>>> origin/1.39.7-test
 	"grant-mergehistory": "合併編輯紀錄",
 	"grant-oversight": "收埋用戶同禁止顯示修訂",
 	"grant-protect": "保護同取消保護版面",
@@ -1303,6 +1336,7 @@
 	"action-upload_by_url": "由一個URL度上載檔案",
 	"action-writeapi": "用嚟寫API",
 	"action-delete": "剷走呢版",
+<<<<<<< HEAD
 	"action-deleterevision": "剷或還原版面修訂",
 	"action-deletelogentry": "剷或還原特定日誌項目",
 	"action-deletedhistory": "睇呢版嘅剷走歷史",
@@ -1312,6 +1346,11 @@
 	"action-suppressrevision": "翻睇同恢復呢個收埋咗嘅修訂",
 	"action-suppressionlog": "睇呢個私有日誌",
 	"action-block": "封鎖或解封呢位用戶嘅改嘢權限",
+=======
+	"action-browsearchive": "搵剷咗嘅版",
+	"action-undelete": "反剷呢一版",
+	"action-suppressionlog": "睇呢個私有日誌",
+>>>>>>> origin/1.39.7-test
 	"action-protect": "改呢版嘅保護等級",
 	"action-rollback": "快速反轉某版最後修改人嘅編輯",
 	"action-import": "由第啲wiki度倒入版",
@@ -1333,7 +1372,10 @@
 	"action-managechangetags": "從數據庫開或剷走啲符",
 	"action-applychangetags": "套用標籤到你嘅改動",
 	"action-purge": "清呢版個快取版本",
+<<<<<<< HEAD
 	"action-blockemail": "禁止或解禁用戶寄電郵",
+=======
+>>>>>>> origin/1.39.7-test
 	"action-editprotected": "改保護等級係「{{int:protect-level-sysop}}」嘅版面",
 	"nchanges": "$1次更改",
 	"enhancedrc-since-last-visit": "{{PLURAL:$1|你上次嚟之後}}有 $1 個",
@@ -1448,7 +1490,10 @@
 	"rcfilters-filter-categorization-description": "幫頁面加類或者減類嘅紀錄。",
 	"rcfilters-filter-logactions-label": "日誌操作",
 	"rcfilters-filter-logactions-description": "管理操作、開新戶口、刪頁、上傳等等。",
+<<<<<<< HEAD
 	"rcfilters-filter-newuserlogactions-label": "開新戶口",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-hideminor-conflicts-typeofchange-global": "「細修改」篩選條件同另一個或者幾個篩選條件有衝突，皆因有啲改動唔可以係「細修改」。衝突嘅篩選條件已經喺上面用緊嘅篩選條件嗰度標示。",
 	"rcfilters-hideminor-conflicts-typeofchange": "有啲改動唔可以係「細修改」，所以呢個篩選條件同呢啲篩選條件有衝突：$1",
 	"rcfilters-typeofchange-conflicts-hideminor": "呢個篩選條件同「細修改」篩選條件有衝突。有啲改動唔可以係「細修改」。",
@@ -1458,8 +1503,11 @@
 	"rcfilters-filter-previousrevision-label": "唔係最新嘅修訂",
 	"rcfilters-filter-previousrevision-description": "所有唔係最新修訂嘅改動。",
 	"rcfilters-filter-excluded": "除咗",
+<<<<<<< HEAD
 	"rcfilters-tag-prefix-namespace-inverted": "<strong>唔係</strong>:$1",
 	"rcfilters-tag-prefix-tags-inverted": "<strong>唔係</strong> #$1",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-exclude-button-off": "排除揀咗嘅",
 	"rcfilters-exclude-button-on": "排除揀咗嘅",
 	"rcfilters-view-tags": "有標籤嘅編輯",
@@ -1733,7 +1781,10 @@
 	"filehist-dimensions": "尺寸",
 	"filehist-filesize": "快勞大細",
 	"filehist-comment": "註解",
+<<<<<<< HEAD
 	"filehist-missing": "冇檔案",
+=======
+>>>>>>> origin/1.39.7-test
 	"imagelinks": "檔案用途",
 	"linkstoimage": "以下嘅$1版用到呢個檔：",
 	"linkstoimage-more": "多過$1{{PLURAL:$1|版用到}}呢個檔。\n下面嘅表只係列示咗用到呢個檔案嘅最頭$1版。\n一個完整嘅一覽[[Special:WhatLinksHere/$2|喺度]]。",
@@ -2284,10 +2335,15 @@
 	"contributions": "用戶貢獻",
 	"tool-link-contributions": "{{GENDER:$1|用戶}}貢獻",
 	"contributions-title": "$1嘅用戶貢獻",
+<<<<<<< HEAD
 	"contribute-title": "用戶貢獻",
 	"mycontris": "個人貢獻",
 	"anoncontribs": "貢獻",
 	"contribute": "貢獻",
+=======
+	"mycontris": "個人貢獻",
+	"anoncontribs": "貢獻",
+>>>>>>> origin/1.39.7-test
 	"contribsub2": "{{GENDER:$3|$1}}嘅貢獻 （$2）",
 	"contributions-userdoesnotexist": "用戶「$1」未有註冊。",
 	"nocontribs": "搵唔到符合呢啲條件嘅修改。",
@@ -2513,10 +2569,13 @@
 	"movesubpagetext": "呢版有$1版細頁列示如下。",
 	"movenosubpage": "呢版無細頁。",
 	"movereason": "原因",
+<<<<<<< HEAD
 	"moveotherreason": "第啲理由：",
 	"movereasonotherlist": "第啲理由",
 	"movepage-reason-dropdown": "* 常見原因\n** 錯標題",
 	"movepage-edit-reasonlist": "改搬版原因",
+=======
+>>>>>>> origin/1.39.7-test
 	"revertmove": "恢復",
 	"delete_and_move_text": "目標頁「[[:$1]]」已經存在。\n你要唔要刪咗佢空個位出嚟畀個搬文動作？",
 	"delete_and_move_confirm": "好，刪咗嗰個頁面",
@@ -2869,7 +2928,10 @@
 	"metadata-help": "呢個檔案有額外嘅資料。佢應該係數碼相機或者掃描器整出來嘅。如果佢整咗之後畀人改過，裏面嘅資料未必同改過之後相符。",
 	"metadata-expand": "打開詳細資料",
 	"metadata-collapse": "收埋詳細資料",
+<<<<<<< HEAD
 	"metadata-fields": "響呢個信息列出嘅EXIF元數據項目會喺圖像頁中包含起嚟，而且個元數據表除咗喺下面列出嘅項目之外，其它嘅項目預設會隱藏。\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude",
+=======
+>>>>>>> origin/1.39.7-test
 	"namespacesall": "全部",
 	"monthsall": "全部",
 	"confirmemail": "確認電郵地址",
@@ -2908,7 +2970,10 @@
 	"confirm-watch-button": "好",
 	"confirm-watch-top": "將呢一版加入你嘅監視清單？",
 	"confirm-watch-label": "監視期限：",
+<<<<<<< HEAD
 	"watchlist-expiry-options": "永久:infinite,1個禮拜:1 week,1個月:1 month,3個月:3 months,6個月:6 months,1年:1 year",
+=======
+>>>>>>> origin/1.39.7-test
 	"confirm-watch-button-expiry": "監視",
 	"confirm-unwatch-button": "好",
 	"confirm-unwatch-top": "喺你嘅監視清單度刪走呢一版？",
@@ -3256,8 +3321,11 @@
 	"json-error-syntax": "語法錯咗",
 	"json-error-utf8": "有格式唔啱嘅UTF-8字元，可能係唔正確編碼導致",
 	"headline-anchor-title": "連結到呢一節",
+<<<<<<< HEAD
 	"special-tab-contribute-short": "貢獻",
 	"special-tab-contributions-short": "睇貢獻",
+=======
+>>>>>>> origin/1.39.7-test
 	"special-characters-group-latin": "拉丁字母擴展",
 	"special-characters-group-latinextended": "拉丁字母擴展",
 	"special-characters-group-ipa": "IPA",
@@ -3359,6 +3427,7 @@
 	"newpages-showhide-bots": "$1機械人",
 	"newpages-showhide-patrolled": "$1巡過嘅修改",
 	"newpages-showhide-redirect": "$1跳轉",
+<<<<<<< HEAD
 	"newpages-showhide-registered": "$1註冊咗嘅用戶",
 	"blockedtext-made-by": "個封鎖係由$1經手嘅",
 	"blockedtext-reason-comment": "畀出嚟嘅理由係 <em>$1</em>",
@@ -3390,4 +3459,7 @@
 	"renameuser-move-log": "當由\"[[User:$1|$1]]\"改名做\"[[User:$2|$2]]\"嗰陣已經自動搬咗用戶頁",
 	"action-renameuser": "同用戶改名",
 	"right-renameuser": "改用戶名"
+=======
+	"newpages-showhide-registered": "$1註冊咗嘅用戶"
+>>>>>>> origin/1.39.7-test
 }

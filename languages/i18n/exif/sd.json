@@ -43,7 +43,10 @@
 	"exif-contact": "رابطي جي معلومات",
 	"exif-writer": "لکندڙ",
 	"exif-languagecode": "ٻولي",
+<<<<<<< HEAD
 	"exif-iimcategory": "زمرو",
+=======
+>>>>>>> origin/1.39.7-test
 	"exif-label": "ليبل",
 	"exif-disclaimer": "غيرجوابدارينامو",
 	"exif-copyrighted-true": "حق ۽ واسطا محفوظ",

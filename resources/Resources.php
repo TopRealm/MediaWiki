@@ -616,6 +616,43 @@ return [
 			'vue',
 		],
 		'es6' => true,
+<<<<<<< HEAD
+=======
+		'targets' => [ 'desktop', 'mobile' ],
+	],
+
+	'wvui' => [
+		'deprecated' => 'Deprecated in 1.39. Use `@wikimedia/codex` instead.',
+		'packageFiles' => [
+			'resources/src/wvui/wvui.js',
+			'resources/lib/wvui/wvui.commonjs2.js',
+		],
+		'styles' => [
+			'resources/lib/wvui/wvui.css',
+		],
+		'dependencies' => [
+			'vue',
+			'@vue/composition-api',
+		],
+		'es6' => true,
+		'targets' => [ 'desktop', 'mobile' ],
+	],
+
+	'wvui-search' => [
+		'deprecated' => 'Deprecated in 1.39. Use `@wikimedia/codex-search` instead.',
+		'packageFiles' => [
+			'resources/src/wvui/wvui-search.js',
+			'resources/lib/wvui/wvui-search.commonjs2.js',
+		],
+		'styles' => [
+			'resources/lib/wvui/wvui-search.css',
+		],
+		'dependencies' => [
+			'vue'
+		],
+		'es6' => true,
+		'targets' => [ 'desktop', 'mobile' ],
+>>>>>>> origin/1.39.7-test
 	],
 
 	'@wikimedia/codex' => [

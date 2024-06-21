@@ -23,7 +23,10 @@
 			"Volvox",
 			"Zinneke",
 			"לערי ריינהארט",
-			"아라"
+			"아라",
+			"1233qwer1234qwer4",
+			"Volvox",
+			"Amire80"
 		]
 	},
 	"tog-underline": "Linken ënnersträichen:",
@@ -1329,7 +1332,11 @@
 	"action-editmyuserjs": "Är eegen JavaScript-Fichieren änneren",
 	"action-editmyuserjsredirect": "Är eegen JavaScript-Fichieren déi Viruleedunge sinn änneren",
 	"action-viewsuppressed": "Versioune weisen, déi fir all Benotzer verstoppt sinn",
+<<<<<<< HEAD
 	"action-hideuser": "e Benotzernumm ze spären oder z'entspären a virun der Ëffentlechkeet ze verstoppen oder nees siichtbar ze maachen",
+=======
+	"action-hideuser": "e Benotzernumm spären, a virun der Ëffentlechkeet verstoppen",
+>>>>>>> origin/1.39.7-test
 	"action-ipblock-exempt": "IP-Spären, automatesche Spären a Späre vu Plage vun IPen ëmgoen",
 	"action-unblockself": "seng eege Spär ophiewen",
 	"action-reupload-own": "Fichieren iwwerschreiwen déi ee selwer eropgelueden huet",
@@ -2343,7 +2350,11 @@
 	"sp-contributions-blocked-notice-anon": "Dës IP-Adress ass elo gespaart.\nËnnendrënner steet déi lescht Aschreiwung an d'Spärlëscht:",
 	"sp-contributions-search": "No Kontributioune sichen",
 	"sp-contributions-username": "IP-Adress oder Benotzernumm:",
+<<<<<<< HEAD
 	"sp-contributions-toponly": "Nëmmen Ännerunge weisen, déi déi lescht Versioun sinn",
+=======
+	"sp-contributions-toponly": "Nëmmen Ännerunge weisen déi déi lescht Versioun sinn",
+>>>>>>> origin/1.39.7-test
 	"sp-contributions-newonly": "Nëmmen Ännerunge weisen, déi Säiten uleeën",
 	"sp-contributions-hideminor": "Kleng Ännerunge verstoppen",
 	"sp-contributions-submit": "Sichen",
@@ -2777,7 +2788,10 @@
 	"pageinfo-default-sort": "Standard-Zortéierschlëssel",
 	"pageinfo-length": "Gréisst vun der Säit (a Bytes)",
 	"pageinfo-namespace": "Nummraum",
+<<<<<<< HEAD
 	"pageinfo-namespace-id": "Nummraum-ID",
+=======
+>>>>>>> origin/1.39.7-test
 	"pageinfo-article-id": "ID (Nummer) vun der Säit",
 	"pageinfo-language": "Sprooch vum Inhalt vun der Säit",
 	"pageinfo-language-change": "änneren",
@@ -3561,6 +3575,7 @@
 	"skin-action-move": "Réckelen",
 	"newpages-showhide-bots": "Botte $1",
 	"newpages-showhide-redirect": "Viruleedungen $1",
+<<<<<<< HEAD
 	"newpages-showhide-registered": "Ugemellt Benotzer $1",
 	"blockedtext-made-by": "D'Spär gouf vum $1 gemaach.",
 	"blockedtext-reason-comment": "De Grond, deen ugi gouf, ass <em>$1</em>",
@@ -3601,4 +3616,7 @@
 	"action-renameuser": "Benotzer ëmbenennen",
 	"right-renameuser": "Erlaabt et Benotzer ëmzebenennen",
 	"renameuser-renamed-notice": "Dëse Benotzer gouf ëmbenannt.\nD'Logbuch mat den Ëmbenunngen ass hei ënnendrënner."
+=======
+	"newpages-showhide-registered": "Ugemellt Benotzer $1"
+>>>>>>> origin/1.39.7-test
 }

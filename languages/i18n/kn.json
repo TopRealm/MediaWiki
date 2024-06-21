@@ -42,7 +42,11 @@
 			"ಮಲ್ನಾಡಾಚ್ ಕೊಂಕ್ಣೊ",
 			"ಶಿವಕುಮಾರ್ ನಾಯಕ್",
 			"아라",
+<<<<<<< HEAD
 			"ChiK"
+=======
+			"Amire80"
+>>>>>>> origin/1.39.7-test
 		]
 	},
 	"tog-underline": "ಕೊಂಡಿಗಳ ಕೆಳಗೆ ಗೆರೆ ತೋರಿಸಿ",
@@ -637,7 +641,11 @@
 	"noarticletext": "ಈ ಪುಟದಲ್ಲಿ ಸದ್ಯಕ್ಕೆ ಏನೂ ಇಲ್ಲ.\nನೀವು ಇತರ ಪುಟಗಳಲ್ಲಿ [[Special:Search/{{PAGENAME}}|ಈ ಹೆಸರನ್ನು ಹುಡುಕಬಹುದು]],\n<span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} ಸಂಬಂಧಿತ ದಾಖಲೆಗಳನ್ನು ಹುಡುಕಬಹುದು],\nಅಥವ [{{fullurl:{{FULLPAGENAME}}|action=edit}} ಈ ಪುಟವನ್ನು ಸೃಷ್ಟಿಸಬಹುದು]</span>.",
 	"noarticletext-nopermission": "ಈ ಪುಟದಲ್ಲಿ ಸದ್ಯಕ್ಕೆ ಯಾವ ಪಠ್ಯವೂ ಇಲ್ಲ.\nನೀವು ಇತರ ಪುಟಗಳಲ್ಲಿ [[Special:Search/{{PAGENAME}}|ಈ ಶೀರ್ಷಿಕೆಗಾಗಿ ಹುಡುಕಬಹುದು]], ಅಥವಾ <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} ಸಂಬಂಧಿಸಿದ ದಾಖಲೆಗಳನ್ನು ಹುಡುಕಬಹುದು]</span>, ಆದರೆ ನಿಮಗೆ ಈ ಪುಟವನ್ನು ಸೃಷ್ಟಿಸಲು ಅನುಮತಿಯಿಲ್ಲ.",
 	"userpage-userdoesnotexist": "ಬಳಕೆದಾರ ಖಾತೆ \"$1\" ದಾಖಲಾಗಿಲ್ಲ. ನೀವು ಇದೇ ಪುಟವನ್ನು ಸೃಷ್ಟಿ/ಸಂಪಾದನೆ ಮಾಡಬೇಕೆಂದಿರುವಿರಿ ಎಂದು ಖಾತ್ರಿ ಮಾಡಿಕೊಳ್ಳಿ.",
+<<<<<<< HEAD
 	"userpage-userdoesnotexist-view": "ಬಳಕೆದಾರರ ಖಾತೆ \"$1\" ಈ ವಿಕಿಯಲ್ಲಿ ನೋಂದಣಿಯಾಗಿಲ್ಲ.",
+=======
+	"userpage-userdoesnotexist-view": "ಬಳಕೆದಾರ ಖಾತೆ \"$1\" ನೊಂದಣಿಯಾಗಿಲ್ಲ.",
+>>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "ಈ ಬಳಕೆದಾರರನ್ನು ಪ್ರಸ್ತುತವಾಗಿ ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ. \nಇತ್ತೀಚಿನ ನಿರ್ಬಂಧನೆಯ ದಾಖಲೆಯನ್ನು ಉಲ್ಲೇಖಕ್ಕಾಗಿ ಕೆಳಗೆ ಕೊಟ್ಟಿದೆ:",
 	"usercssyoucanpreview": "<strong>ಗಮನಿಸಿ:</strong> ಉಳಿಸುವ ಮುನ್ನ \"{{int:showpreview}}\" ಗುಂಡಿಯನ್ನು ಉಪಯೋಗಿಸಿ ನಿಮ್ಮ ಹೊಸ CSS ಅನ್ನು ಪ್ರಯೋಗ ಮಾಡಿ.",
 	"userjsyoucanpreview": "'''ಗಮನಿಸಿ:''' ಉಳಿಸುವ ಮುನ್ನ 'ಮುನ್ನೋಟ' ಗುಂಡಿಯನ್ನು ಉಪಯೋಗಿಸಿ ನಿಮ್ಮ ಹೊಸ JS ಅನ್ನು ಪ್ರಯೋಗ ಮಾಡಿ.",

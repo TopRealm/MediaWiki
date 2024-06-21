@@ -3708,6 +3708,7 @@
 	"skin-action-move": "გადატანა",
 	"newpages-showhide-bots": "$1 ბოტი",
 	"newpages-showhide-redirect": "$1 გადამისამართება",
+<<<<<<< HEAD
 	"newpages-showhide-registered": "$1 რეგისტრირებული მომხმარებელი",
 	"blockedtext-made-by": "დაბლოკილია $1-ის მიერ",
 	"blockedtext-reason-comment": "მიზეზი არის <em>$1</em>",
@@ -3747,4 +3748,7 @@
 	"action-renameuser": "მომხმარებლების სახელის გადარქმევა",
 	"right-renameuser": "მომხმარებლების სახელის გადარქმევა",
 	"renameuser-renamed-notice": "ამ მომხმარებელს სახელი გადაერქვა.\nქვემოთ მოყვანილია სახელის გადარქმევის ჟურნალი."
+=======
+	"newpages-showhide-registered": "$1 რეგისტრირებული მომხმარებელი"
+>>>>>>> origin/1.39.7-test
 }

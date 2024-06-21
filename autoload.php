@@ -920,7 +920,11 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Auth\\Throttler' => __DIR__ . '/includes/auth/Throttler.php',
 	'MediaWiki\\Auth\\UserDataAuthenticationRequest' => __DIR__ . '/includes/auth/UserDataAuthenticationRequest.php',
 	'MediaWiki\\Auth\\UsernameAuthenticationRequest' => __DIR__ . '/includes/auth/UsernameAuthenticationRequest.php',
+<<<<<<< HEAD
 	'MediaWiki\\BadFileLookup' => __DIR__ . '/includes/page/File/BadFileLookup.php',
+=======
+	'MediaWiki\\BadFileLookup' => __DIR__ . '/includes/BadFileLookup.php',
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Block\\AbstractBlock' => __DIR__ . '/includes/block/AbstractBlock.php',
 	'MediaWiki\\Block\\Block' => __DIR__ . '/includes/block/Block.php',
 	'MediaWiki\\Block\\BlockActionInfo' => __DIR__ . '/includes/block/BlockActionInfo.php',
@@ -936,7 +940,10 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Block\\CompositeBlock' => __DIR__ . '/includes/block/CompositeBlock.php',
 	'MediaWiki\\Block\\DatabaseBlock' => __DIR__ . '/includes/block/DatabaseBlock.php',
 	'MediaWiki\\Block\\DatabaseBlockStore' => __DIR__ . '/includes/block/DatabaseBlockStore.php',
+<<<<<<< HEAD
 	'MediaWiki\\Block\\DatabaseBlockStoreFactory' => __DIR__ . '/includes/block/DatabaseBlockStoreFactory.php',
+=======
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Block\\Hook\\AbortAutoblockHook' => __DIR__ . '/includes/block/Hook/AbortAutoblockHook.php',
 	'MediaWiki\\Block\\Hook\\GetAllBlockActionsHook' => __DIR__ . '/includes/block/Hook/GetAllBlockActionsHook.php',
 	'MediaWiki\\Block\\Hook\\GetUserBlockHook' => __DIR__ . '/includes/block/Hook/GetUserBlockHook.php',
@@ -961,10 +968,13 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Cache\\Hook\\MessageCache__getHook' => __DIR__ . '/includes/language/Hook/MessageCache__getHook.php',
 	'MediaWiki\\Cache\\Hook\\MessagesPreLoadHook' => __DIR__ . '/includes/language/Hook/MessagesPreLoadHook.php',
 	'MediaWiki\\Cache\\LinkBatchFactory' => __DIR__ . '/includes/cache/LinkBatchFactory.php',
+<<<<<<< HEAD
 	'MediaWiki\\Category\\CategoriesRdf' => __DIR__ . '/includes/Category/CategoriesRdf.php',
 	'MediaWiki\\Category\\Category' => __DIR__ . '/includes/Category/Category.php',
 	'MediaWiki\\Category\\CategoryViewer' => __DIR__ . '/includes/Category/CategoryViewer.php',
 	'MediaWiki\\Category\\TrackingCategories' => __DIR__ . '/includes/Category/TrackingCategories.php',
+=======
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\ChangeTags\\Hook\\ChangeTagAfterDeleteHook' => __DIR__ . '/includes/changetags/Hook/ChangeTagAfterDeleteHook.php',
 	'MediaWiki\\ChangeTags\\Hook\\ChangeTagCanCreateHook' => __DIR__ . '/includes/changetags/Hook/ChangeTagCanCreateHook.php',
 	'MediaWiki\\ChangeTags\\Hook\\ChangeTagCanDeleteHook' => __DIR__ . '/includes/changetags/Hook/ChangeTagCanDeleteHook.php',
@@ -983,9 +993,12 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\CommentFormatter\\RowCommentFormatter' => __DIR__ . '/includes/CommentFormatter/RowCommentFormatter.php',
 	'MediaWiki\\CommentFormatter\\RowCommentIterator' => __DIR__ . '/includes/CommentFormatter/RowCommentIterator.php',
 	'MediaWiki\\CommentFormatter\\StringCommentIterator' => __DIR__ . '/includes/CommentFormatter/StringCommentIterator.php',
+<<<<<<< HEAD
 	'MediaWiki\\CommentStore\\CommentStore' => __DIR__ . '/includes/CommentStore/CommentStore.php',
 	'MediaWiki\\CommentStore\\CommentStoreBase' => __DIR__ . '/includes/CommentStore/CommentStoreBase.php',
 	'MediaWiki\\CommentStore\\CommentStoreComment' => __DIR__ . '/includes/CommentStore/CommentStoreComment.php',
+=======
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Config\\ConfigRepository' => __DIR__ . '/includes/config/ConfigRepository.php',
 	'MediaWiki\\Config\\IterableConfig' => __DIR__ . '/includes/config/IterableConfig.php',
 	'MediaWiki\\Config\\ServiceOptions' => __DIR__ . '/includes/config/ServiceOptions.php',
@@ -1001,7 +1014,10 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Content\\Hook\\JsonValidateSaveHook' => __DIR__ . '/includes/content/Hook/JsonValidateSaveHook.php',
 	'MediaWiki\\Content\\Hook\\PageContentLanguageHook' => __DIR__ . '/includes/content/Hook/PageContentLanguageHook.php',
 	'MediaWiki\\Content\\Hook\\PlaceNewSectionHook' => __DIR__ . '/includes/content/Hook/PlaceNewSectionHook.php',
+<<<<<<< HEAD
 	'MediaWiki\\Content\\Hook\\SearchDataForIndex2Hook' => __DIR__ . '/includes/content/Hook/SearchDataForIndex2Hook.php',
+=======
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Content\\Hook\\SearchDataForIndexHook' => __DIR__ . '/includes/content/Hook/SearchDataForIndexHook.php',
 	'MediaWiki\\Content\\IContentHandlerFactory' => __DIR__ . '/includes/content/IContentHandlerFactory.php',
 	'MediaWiki\\Content\\Renderer\\ContentParseParams' => __DIR__ . '/includes/content/Renderer/ContentParseParams.php',
@@ -1073,19 +1089,28 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\EditPage\\Constraint\\UnicodeConstraint' => __DIR__ . '/includes/editpage/Constraint/UnicodeConstraint.php',
 	'MediaWiki\\EditPage\\Constraint\\UserBlockConstraint' => __DIR__ . '/includes/editpage/Constraint/UserBlockConstraint.php',
 	'MediaWiki\\EditPage\\Constraint\\UserRateLimitConstraint' => __DIR__ . '/includes/editpage/Constraint/UserRateLimitConstraint.php',
+<<<<<<< HEAD
 	'MediaWiki\\EditPage\\EditPage' => __DIR__ . '/includes/editpage/EditPage.php',
 	'MediaWiki\\EditPage\\IEditObject' => __DIR__ . '/includes/editpage/IEditObject.php',
 	'MediaWiki\\EditPage\\SpamChecker' => __DIR__ . '/includes/editpage/SpamChecker.php',
 	'MediaWiki\\EditPage\\TemplatesOnThisPageFormatter' => __DIR__ . '/includes/editpage/TemplatesOnThisPageFormatter.php',
+=======
+	'MediaWiki\\EditPage\\IEditObject' => __DIR__ . '/includes/editpage/IEditObject.php',
+	'MediaWiki\\EditPage\\SpamChecker' => __DIR__ . '/includes/editpage/SpamChecker.php',
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\EditPage\\TextConflictHelper' => __DIR__ . '/includes/editpage/TextConflictHelper.php',
 	'MediaWiki\\EditPage\\TextboxBuilder' => __DIR__ . '/includes/editpage/TextboxBuilder.php',
 	'MediaWiki\\Edit\\ParsoidOutputStash' => __DIR__ . '/includes/edit/ParsoidOutputStash.php',
 	'MediaWiki\\Edit\\PreparedEdit' => __DIR__ . '/includes/edit/PreparedEdit.php',
+<<<<<<< HEAD
 	'MediaWiki\\Edit\\SelserContext' => __DIR__ . '/includes/edit/SelserContext.php',
+=======
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Edit\\SimpleParsoidOutputStash' => __DIR__ . '/includes/edit/SimpleParsoidOutputStash.php',
 	'MediaWiki\\Emptiable' => __DIR__ . '/includes/Emptiable.php',
 	'MediaWiki\\Export\\WikiExporterFactory' => __DIR__ . '/includes/export/WikiExporterFactory.php',
 	'MediaWiki\\ExtensionInfo' => __DIR__ . '/includes/ExtensionInfo.php',
+<<<<<<< HEAD
 	'MediaWiki\\ExternalLinks\\LinkFilter' => __DIR__ . '/includes/ExternalLinks/LinkFilter.php',
 	'MediaWiki\\Feed\\AtomFeed' => __DIR__ . '/includes/Feed/AtomFeed.php',
 	'MediaWiki\\Feed\\ChannelFeed' => __DIR__ . '/includes/Feed/ChannelFeed.php',
@@ -1098,6 +1123,13 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\HookContainer\\DeprecatedHooks' => __DIR__ . '/includes/HookContainer/DeprecatedHooks.php',
 	'MediaWiki\\HookContainer\\FauxGlobalHookArray' => __DIR__ . '/includes/HookContainer/FauxGlobalHookArray.php',
 	'MediaWiki\\HookContainer\\FauxHookHandlerArray' => __DIR__ . '/includes/HookContainer/FauxHookHandlerArray.php',
+=======
+	'MediaWiki\\FileBackend\\FSFile\\TempFSFileFactory' => __DIR__ . '/includes/libs/filebackend/fsfile/TempFSFileFactory.php',
+	'MediaWiki\\FileBackend\\LockManager\\LockManagerGroupFactory' => __DIR__ . '/includes/filebackend/lockmanager/LockManagerGroupFactory.php',
+	'MediaWiki\\HeaderCallback' => __DIR__ . '/includes/HeaderCallback.php',
+	'MediaWiki\\HookContainer\\DeprecatedHooks' => __DIR__ . '/includes/HookContainer/DeprecatedHooks.php',
+	'MediaWiki\\HookContainer\\GlobalHookRegistry' => __DIR__ . '/includes/HookContainer/GlobalHookRegistry.php',
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\HookContainer\\HookContainer' => __DIR__ . '/includes/HookContainer/HookContainer.php',
 	'MediaWiki\\HookContainer\\HookRegistry' => __DIR__ . '/includes/HookContainer/HookRegistry.php',
 	'MediaWiki\\HookContainer\\HookRunner' => __DIR__ . '/includes/HookContainer/HookRunner.php',
@@ -1121,6 +1153,10 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Hook\\ArticleRevisionVisibilitySetHook' => __DIR__ . '/includes/revisiondelete/Hook/ArticleRevisionVisibilitySetHook.php',
 	'MediaWiki\\Hook\\ArticleUpdateBeforeRedirectHook' => __DIR__ . '/includes/Hook/ArticleUpdateBeforeRedirectHook.php',
 	'MediaWiki\\Hook\\BadImageHook' => __DIR__ . '/includes/Hook/BadImageHook.php',
+<<<<<<< HEAD
+=======
+	'MediaWiki\\Hook\\BaseTemplateAfterPortletHook' => __DIR__ . '/includes/skins/Hook/BaseTemplateAfterPortletHook.php',
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Hook\\BeforeInitializeHook' => __DIR__ . '/includes/Hook/BeforeInitializeHook.php',
 	'MediaWiki\\Hook\\BeforePageDisplayHook' => __DIR__ . '/includes/Hook/BeforePageDisplayHook.php',
 	'MediaWiki\\Hook\\BeforePageRedirectHook' => __DIR__ . '/includes/Hook/BeforePageRedirectHook.php',
@@ -1186,8 +1222,11 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Hook\\FileUploadHook' => __DIR__ . '/includes/filerepo/Hook/FileUploadHook.php',
 	'MediaWiki\\Hook\\FormatAutocommentsHook' => __DIR__ . '/includes/Hook/FormatAutocommentsHook.php',
 	'MediaWiki\\Hook\\GalleryGetModesHook' => __DIR__ . '/includes/gallery/Hook/GalleryGetModesHook.php',
+<<<<<<< HEAD
 	'MediaWiki\\Hook\\GetBlockErrorMessageKey' => __DIR__ . '/includes/Hook/GetBlockErrorMessageKeyHook.php',
 	'MediaWiki\\Hook\\GetBlockErrorMessageKeyHook' => __DIR__ . '/includes/Hook/GetBlockErrorMessageKeyHook.php',
+=======
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Hook\\GetCacheVaryCookiesHook' => __DIR__ . '/includes/Hook/GetCacheVaryCookiesHook.php',
 	'MediaWiki\\Hook\\GetCanonicalURLHook' => __DIR__ . '/includes/Hook/GetCanonicalURLHook.php',
 	'MediaWiki\\Hook\\GetDefaultSortkeyHook' => __DIR__ . '/includes/Hook/GetDefaultSortkeyHook.php',
@@ -1226,6 +1265,10 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Hook\\InfoActionHook' => __DIR__ . '/includes/actions/Hook/InfoActionHook.php',
 	'MediaWiki\\Hook\\InitializeArticleMaybeRedirectHook' => __DIR__ . '/includes/Hook/InitializeArticleMaybeRedirectHook.php',
 	'MediaWiki\\Hook\\InternalParseBeforeLinksHook' => __DIR__ . '/includes/parser/Hook/InternalParseBeforeLinksHook.php',
+<<<<<<< HEAD
+=======
+	'MediaWiki\\Hook\\InternalParseBeforeSanitizeHook' => __DIR__ . '/includes/parser/Hook/InternalParseBeforeSanitizeHook.php',
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Hook\\IsTrustedProxyHook' => __DIR__ . '/includes/Hook/IsTrustedProxyHook.php',
 	'MediaWiki\\Hook\\IsUploadAllowedFromUrlHook' => __DIR__ . '/includes/upload/Hook/IsUploadAllowedFromUrlHook.php',
 	'MediaWiki\\Hook\\IsValidEmailAddrHook' => __DIR__ . '/includes/parser/Hook/IsValidEmailAddrHook.php',
@@ -1235,6 +1278,10 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Hook\\LinkerMakeExternalImageHook' => __DIR__ . '/includes/Hook/LinkerMakeExternalImageHook.php',
 	'MediaWiki\\Hook\\LinkerMakeExternalLinkHook' => __DIR__ . '/includes/Hook/LinkerMakeExternalLinkHook.php',
 	'MediaWiki\\Hook\\LinkerMakeMediaLinkFileHook' => __DIR__ . '/includes/Hook/LinkerMakeMediaLinkFileHook.php',
+<<<<<<< HEAD
+=======
+	'MediaWiki\\Hook\\LinksUpdateAfterInsertHook' => __DIR__ . '/includes/deferred/Hook/LinksUpdateAfterInsertHook.php',
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Hook\\LinksUpdateCompleteHook' => __DIR__ . '/includes/deferred/Hook/LinksUpdateCompleteHook.php',
 	'MediaWiki\\Hook\\LinksUpdateHook' => __DIR__ . '/includes/deferred/Hook/LinksUpdateHook.php',
 	'MediaWiki\\Hook\\LocalFilePurgeThumbnailsHook' => __DIR__ . '/includes/filerepo/Hook/LocalFilePurgeThumbnailsHook.php',
@@ -1302,6 +1349,10 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Hook\\ParserOptionsRegisterHook' => __DIR__ . '/includes/parser/Hook/ParserOptionsRegisterHook.php',
 	'MediaWiki\\Hook\\ParserOutputPostCacheTransformHook' => __DIR__ . '/includes/parser/Hook/ParserOutputPostCacheTransformHook.php',
 	'MediaWiki\\Hook\\ParserPreSaveTransformCompleteHook' => __DIR__ . '/includes/parser/Hook/ParserPreSaveTransformCompleteHook.php',
+<<<<<<< HEAD
+=======
+	'MediaWiki\\Hook\\ParserSectionCreateHook' => __DIR__ . '/includes/parser/Hook/ParserSectionCreateHook.php',
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Hook\\ParserTestGlobalsHook' => __DIR__ . '/includes/Hook/ParserTestGlobalsHook.php',
 	'MediaWiki\\Hook\\ParserTestTablesHook' => __DIR__ . '/includes/Hook/ParserTestTablesHook.php',
 	'MediaWiki\\Hook\\PasswordPoliciesForUserHook' => __DIR__ . '/includes/password/Hook/PasswordPoliciesForUserHook.php',
@@ -1429,12 +1480,16 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Hook\\WikiExporter__dumpStableQueryHook' => __DIR__ . '/includes/export/Hook/WikiExporter__dumpStableQueryHook.php',
 	'MediaWiki\\Hook\\XmlDumpWriterOpenPageHook' => __DIR__ . '/includes/export/Hook/XmlDumpWriterOpenPageHook.php',
 	'MediaWiki\\Hook\\XmlDumpWriterWriteRevisionHook' => __DIR__ . '/includes/export/Hook/XmlDumpWriterWriteRevisionHook.php',
+<<<<<<< HEAD
 	'MediaWiki\\HtmlHelper' => __DIR__ . '/includes/Html/HtmlHelper.php',
 	'MediaWiki\\Html\\FormOptions' => __DIR__ . '/includes/Html/FormOptions.php',
 	'MediaWiki\\Html\\Html' => __DIR__ . '/includes/Html/Html.php',
 	'MediaWiki\\Html\\HtmlHelper' => __DIR__ . '/includes/Html/HtmlHelper.php',
 	'MediaWiki\\Html\\ListToggle' => __DIR__ . '/includes/Html/ListToggle.php',
 	'MediaWiki\\Html\\TemplateParser' => __DIR__ . '/includes/Html/TemplateParser.php',
+=======
+	'MediaWiki\\HtmlHelper' => __DIR__ . '/includes/HtmlHelper.php',
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Http\\HttpRequestFactory' => __DIR__ . '/includes/http/HttpRequestFactory.php',
 	'MediaWiki\\Http\\MwHttpRequestToResponseInterfaceAdapter' => __DIR__ . '/includes/http/MwHttpRequestToResponseInterfaceAdapter.php',
 	'MediaWiki\\Installer\\Hook\\LoadExtensionSchemaUpdatesHook' => __DIR__ . '/includes/installer/Hook/LoadExtensionSchemaUpdatesHook.php',
@@ -1444,7 +1499,10 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Interwiki\\InterwikiLookup' => __DIR__ . '/includes/interwiki/InterwikiLookup.php',
 	'MediaWiki\\Interwiki\\InterwikiLookupAdapter' => __DIR__ . '/includes/interwiki/InterwikiLookupAdapter.php',
 	'MediaWiki\\Interwiki\\NullInterwikiLookup' => __DIR__ . '/includes/interwiki/NullInterwikiLookup.php',
+<<<<<<< HEAD
 	'MediaWiki\\JobQueue\\JobFactory' => __DIR__ . '/includes/jobqueue/JobFactory.php',
+=======
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\JobQueue\\JobQueueGroupFactory' => __DIR__ . '/includes/jobqueue/JobQueueGroupFactory.php',
 	'MediaWiki\\Json\\JsonCodec' => __DIR__ . '/includes/json/JsonCodec.php',
 	'MediaWiki\\Json\\JsonConstants' => __DIR__ . '/includes/json/JsonConstants.php',
@@ -1452,7 +1510,10 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Json\\JsonUnserializable' => __DIR__ . '/includes/json/JsonUnserializable.php',
 	'MediaWiki\\Json\\JsonUnserializableTrait' => __DIR__ . '/includes/json/JsonUnserializableTrait.php',
 	'MediaWiki\\Json\\JsonUnserializer' => __DIR__ . '/includes/json/JsonUnserializer.php',
+<<<<<<< HEAD
 	'MediaWiki\\Language\\RawMessage' => __DIR__ . '/includes/language/RawMessage.php',
+=======
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Languages\\Data\\CrhExceptions' => __DIR__ . '/includes/languages/data/CrhExceptions.php',
 	'MediaWiki\\Languages\\Data\\Names' => __DIR__ . '/includes/languages/data/Names.php',
 	'MediaWiki\\Languages\\Data\\NormalizeAr' => __DIR__ . '/includes/languages/data/NormalizeAr.php',
@@ -1464,7 +1525,10 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Languages\\LanguageFactory' => __DIR__ . '/includes/language/LanguageFactory.php',
 	'MediaWiki\\Languages\\LanguageFallback' => __DIR__ . '/includes/language/LanguageFallback.php',
 	'MediaWiki\\Languages\\LanguageNameUtils' => __DIR__ . '/includes/language/LanguageNameUtils.php',
+<<<<<<< HEAD
 	'MediaWiki\\Linker\\DummyLinker' => __DIR__ . '/includes/linker/DummyLinker.php',
+=======
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Linker\\Hook\\HtmlPageLinkRendererBeginHook' => __DIR__ . '/includes/linker/Hook/HtmlPageLinkRendererBeginHook.php',
 	'MediaWiki\\Linker\\Hook\\HtmlPageLinkRendererEndHook' => __DIR__ . '/includes/linker/Hook/HtmlPageLinkRendererEndHook.php',
 	'MediaWiki\\Linker\\Hook\\LinkerGenerateRollbackLinkHook' => __DIR__ . '/includes/linker/Hook/LinkerGenerateRollbackLinkHook.php',
@@ -1473,7 +1537,10 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Linker\\LinkTarget' => __DIR__ . '/includes/linker/LinkTarget.php',
 	'MediaWiki\\Linker\\LinkTargetLookup' => __DIR__ . '/includes/linker/LinkTargetLookup.php',
 	'MediaWiki\\Linker\\LinkTargetStore' => __DIR__ . '/includes/linker/LinkTargetStore.php',
+<<<<<<< HEAD
 	'MediaWiki\\Linker\\Linker' => __DIR__ . '/includes/linker/Linker.php',
+=======
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Linker\\LinksMigration' => __DIR__ . '/includes/linker/LinksMigration.php',
 	'MediaWiki\\Logger\\ConsoleLogger' => __DIR__ . '/includes/debug/logger/ConsoleLogger.php',
 	'MediaWiki\\Logger\\ConsoleSpi' => __DIR__ . '/includes/debug/logger/ConsoleSpi.php',
@@ -1493,17 +1560,25 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Logger\\Monolog\\WikiProcessor' => __DIR__ . '/includes/debug/logger/monolog/WikiProcessor.php',
 	'MediaWiki\\Logger\\NullSpi' => __DIR__ . '/includes/debug/logger/NullSpi.php',
 	'MediaWiki\\Logger\\Spi' => __DIR__ . '/includes/debug/logger/Spi.php',
+<<<<<<< HEAD
 	'MediaWiki\\Mail\\EmailUser' => __DIR__ . '/includes/mail/EmailUser.php',
+=======
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Mail\\Emailer' => __DIR__ . '/includes/mail/Emailer.php',
 	'MediaWiki\\Mail\\IEmailer' => __DIR__ . '/includes/mail/IEmailer.php',
 	'MediaWiki\\Mail\\UserEmailContact' => __DIR__ . '/includes/mail/UserEmailContact.php',
 	'MediaWiki\\MainConfigNames' => __DIR__ . '/includes/MainConfigNames.php',
 	'MediaWiki\\MainConfigSchema' => __DIR__ . '/includes/MainConfigSchema.php',
+<<<<<<< HEAD
 	'MediaWiki\\Maintenance\\ForkController' => __DIR__ . '/includes/Maintenance/ForkController.php',
 	'MediaWiki\\Maintenance\\MaintenanceParameters' => __DIR__ . '/maintenance/includes/MaintenanceParameters.php',
 	'MediaWiki\\Maintenance\\MaintenanceRunner' => __DIR__ . '/maintenance/includes/MaintenanceRunner.php',
 	'MediaWiki\\Maintenance\\OrderedStreamingForkController' => __DIR__ . '/includes/Maintenance/OrderedStreamingForkController.php',
 	'MediaWiki\\Maintenance\\UndoLog' => __DIR__ . '/includes/Maintenance/UndoLog.php',
+=======
+	'MediaWiki\\Maintenance\\MaintenanceParameters' => __DIR__ . '/maintenance/includes/MaintenanceParameters.php',
+	'MediaWiki\\Maintenance\\MaintenanceRunner' => __DIR__ . '/maintenance/includes/MaintenanceRunner.php',
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\MediaWikiServices' => __DIR__ . '/includes/MediaWikiServices.php',
 	'MediaWiki\\Message\\Converter' => __DIR__ . '/includes/Message/Converter.php',
 	'MediaWiki\\Message\\MessageFormatterFactory' => __DIR__ . '/includes/Message/MessageFormatterFactory.php',
@@ -1516,8 +1591,11 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Page\\DeletePage' => __DIR__ . '/includes/page/DeletePage.php',
 	'MediaWiki\\Page\\DeletePageFactory' => __DIR__ . '/includes/page/DeletePageFactory.php',
 	'MediaWiki\\Page\\ExistingPageRecord' => __DIR__ . '/includes/page/ExistingPageRecord.php',
+<<<<<<< HEAD
 	'MediaWiki\\Page\\File\\BadFileLookup' => __DIR__ . '/includes/page/File/BadFileLookup.php',
 	'MediaWiki\\Page\\File\\FileDeleteForm' => __DIR__ . '/includes/page/File/FileDeleteForm.php',
+=======
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Page\\Hook\\ArticleConfirmDeleteHook' => __DIR__ . '/includes/page/Hook/ArticleConfirmDeleteHook.php',
 	'MediaWiki\\Page\\Hook\\ArticleDeleteAfterSuccessHook' => __DIR__ . '/includes/page/Hook/ArticleDeleteAfterSuccessHook.php',
 	'MediaWiki\\Page\\Hook\\ArticleDeleteCompleteHook' => __DIR__ . '/includes/page/Hook/ArticleDeleteCompleteHook.php',
@@ -1551,7 +1629,10 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Page\\Hook\\PageDeleteCompleteHook' => __DIR__ . '/includes/page/Hook/PageDeleteCompleteHook.php',
 	'MediaWiki\\Page\\Hook\\PageDeleteHook' => __DIR__ . '/includes/page/Hook/PageDeleteHook.php',
 	'MediaWiki\\Page\\Hook\\PageDeletionDataUpdatesHook' => __DIR__ . '/includes/page/Hook/PageDeletionDataUpdatesHook.php',
+<<<<<<< HEAD
 	'MediaWiki\\Page\\Hook\\PageUndeleteCompleteHook' => __DIR__ . '/includes/page/Hook/PageUndeleteCompleteHook.php',
+=======
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Page\\Hook\\PageUndeleteHook' => __DIR__ . '/includes/page/Hook/PageUndeleteHook.php',
 	'MediaWiki\\Page\\Hook\\PageViewUpdatesHook' => __DIR__ . '/includes/page/Hook/PageViewUpdatesHook.php',
 	'MediaWiki\\Page\\Hook\\RevisionFromEditCompleteHook' => __DIR__ . '/includes/page/Hook/RevisionFromEditCompleteHook.php',
@@ -1561,16 +1642,23 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Page\\Hook\\WikiPageDeletionUpdatesHook' => __DIR__ . '/includes/page/Hook/WikiPageDeletionUpdatesHook.php',
 	'MediaWiki\\Page\\Hook\\WikiPageFactoryHook' => __DIR__ . '/includes/page/Hook/WikiPageFactoryHook.php',
 	'MediaWiki\\Page\\LegacyArticleIdAccess' => __DIR__ . '/includes/page/LegacyArticleIdAccess.php',
+<<<<<<< HEAD
 	'MediaWiki\\Page\\MergeHistory' => __DIR__ . '/includes/page/MergeHistory.php',
 	'MediaWiki\\Page\\MergeHistoryFactory' => __DIR__ . '/includes/page/MergeHistoryFactory.php',
 	'MediaWiki\\Page\\MovePage' => __DIR__ . '/includes/page/MovePage.php',
+=======
+	'MediaWiki\\Page\\MergeHistoryFactory' => __DIR__ . '/includes/page/MergeHistoryFactory.php',
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Page\\MovePageFactory' => __DIR__ . '/includes/page/MovePageFactory.php',
 	'MediaWiki\\Page\\PageAssertionException' => __DIR__ . '/includes/page/PageAssertionException.php',
 	'MediaWiki\\Page\\PageCommandFactory' => __DIR__ . '/includes/page/PageCommandFactory.php',
 	'MediaWiki\\Page\\PageIdentity' => __DIR__ . '/includes/page/PageIdentity.php',
 	'MediaWiki\\Page\\PageIdentityValue' => __DIR__ . '/includes/page/PageIdentityValue.php',
 	'MediaWiki\\Page\\PageLookup' => __DIR__ . '/includes/page/PageLookup.php',
+<<<<<<< HEAD
 	'MediaWiki\\Page\\PageProps' => __DIR__ . '/includes/page/PageProps.php',
+=======
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Page\\PageRecord' => __DIR__ . '/includes/page/PageRecord.php',
 	'MediaWiki\\Page\\PageReference' => __DIR__ . '/includes/page/PageReference.php',
 	'MediaWiki\\Page\\PageReferenceValue' => __DIR__ . '/includes/page/PageReferenceValue.php',
@@ -1580,7 +1668,10 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Page\\PageStoreRecord' => __DIR__ . '/includes/page/PageStoreRecord.php',
 	'MediaWiki\\Page\\ParserOutputAccess' => __DIR__ . '/includes/page/ParserOutputAccess.php',
 	'MediaWiki\\Page\\ProperPageIdentity' => __DIR__ . '/includes/page/ProperPageIdentity.php',
+<<<<<<< HEAD
 	'MediaWiki\\Page\\ProtectionForm' => __DIR__ . '/includes/page/ProtectionForm.php',
+=======
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Page\\RedirectLookup' => __DIR__ . '/includes/page/RedirectLookup.php',
 	'MediaWiki\\Page\\RedirectStore' => __DIR__ . '/includes/page/RedirectStore.php',
 	'MediaWiki\\Page\\RollbackPage' => __DIR__ . '/includes/page/RollbackPage.php',
@@ -1592,9 +1683,12 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\ParamValidator\\TypeDef\\TagsDef' => __DIR__ . '/includes/ParamValidator/TypeDef/TagsDef.php',
 	'MediaWiki\\ParamValidator\\TypeDef\\TitleDef' => __DIR__ . '/includes/ParamValidator/TypeDef/TitleDef.php',
 	'MediaWiki\\ParamValidator\\TypeDef\\UserDef' => __DIR__ . '/includes/ParamValidator/TypeDef/UserDef.php',
+<<<<<<< HEAD
 	'MediaWiki\\Parser\\MagicWord' => __DIR__ . '/includes/parser/MagicWord.php',
 	'MediaWiki\\Parser\\MagicWordArray' => __DIR__ . '/includes/parser/MagicWordArray.php',
 	'MediaWiki\\Parser\\MagicWordFactory' => __DIR__ . '/includes/parser/MagicWordFactory.php',
+=======
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Parser\\ParserCacheFactory' => __DIR__ . '/includes/parser/ParserCacheFactory.php',
 	'MediaWiki\\Parser\\ParserCacheMetadata' => __DIR__ . '/includes/parser/ParserCacheMetadata.php',
 	'MediaWiki\\Parser\\ParserObserver' => __DIR__ . '/includes/parser/ParserObserver.php',
@@ -1604,11 +1698,17 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Parser\\Parsoid\\Config\\PageConfigFactory' => __DIR__ . '/includes/parser/Parsoid/Config/PageConfigFactory.php',
 	'MediaWiki\\Parser\\Parsoid\\Config\\PageContent' => __DIR__ . '/includes/parser/Parsoid/Config/PageContent.php',
 	'MediaWiki\\Parser\\Parsoid\\Config\\SiteConfig' => __DIR__ . '/includes/parser/Parsoid/Config/SiteConfig.php',
+<<<<<<< HEAD
 	'MediaWiki\\Parser\\Parsoid\\HtmlToContentTransform' => __DIR__ . '/includes/parser/Parsoid/HtmlToContentTransform.php',
 	'MediaWiki\\Parser\\Parsoid\\HtmlTransformFactory' => __DIR__ . '/includes/parser/Parsoid/HtmlTransformFactory.php',
 	'MediaWiki\\Parser\\Parsoid\\LanguageVariantConverter' => __DIR__ . '/includes/parser/Parsoid/LanguageVariantConverter.php',
 	'MediaWiki\\Parser\\Parsoid\\PageBundleJsonTrait' => __DIR__ . '/includes/parser/Parsoid/PageBundleJsonTrait.php',
 	'MediaWiki\\Parser\\Parsoid\\PageBundleParserOutputConverter' => __DIR__ . '/includes/parser/Parsoid/PageBundleParserOutputConverter.php',
+=======
+	'MediaWiki\\Parser\\Parsoid\\HTMLTransform' => __DIR__ . '/includes/parser/Parsoid/HTMLTransform.php',
+	'MediaWiki\\Parser\\Parsoid\\HTMLTransformFactory' => __DIR__ . '/includes/parser/Parsoid/HTMLTransformFactory.php',
+	'MediaWiki\\Parser\\Parsoid\\PageBundleJsonTrait' => __DIR__ . '/includes/parser/Parsoid/PageBundleJsonTrait.php',
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Parser\\Parsoid\\ParsoidOutputAccess' => __DIR__ . '/includes/parser/Parsoid/ParsoidOutputAccess.php',
 	'MediaWiki\\Parser\\Parsoid\\ParsoidRenderID' => __DIR__ . '/includes/parser/Parsoid/ParsoidRenderID.php',
 	'MediaWiki\\Parser\\Parsoid\\ParsoidServices' => __DIR__ . '/includes/parser/Parsoid/ParsoidServices.php',
@@ -1638,9 +1738,12 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Permissions\\SimpleAuthority' => __DIR__ . '/includes/Permissions/SimpleAuthority.php',
 	'MediaWiki\\Permissions\\UltimateAuthority' => __DIR__ . '/includes/Permissions/UltimateAuthority.php',
 	'MediaWiki\\Permissions\\UserAuthority' => __DIR__ . '/includes/Permissions/UserAuthority.php',
+<<<<<<< HEAD
 	'MediaWiki\\PoolCounter\\PoolCounterClient' => __DIR__ . '/includes/poolcounter/PoolCounterClient.php',
 	'MediaWiki\\PoolCounter\\PoolCounterConnectionManager' => __DIR__ . '/includes/poolcounter/PoolCounterConnectionManager.php',
 	'MediaWiki\\PoolCounter\\PoolCounterFactory' => __DIR__ . '/includes/poolcounter/PoolCounterFactory.php',
+=======
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Preferences\\DefaultPreferencesFactory' => __DIR__ . '/includes/preferences/DefaultPreferencesFactory.php',
 	'MediaWiki\\Preferences\\Filter' => __DIR__ . '/includes/preferences/Filter.php',
 	'MediaWiki\\Preferences\\Hook\\GetPreferencesHook' => __DIR__ . '/includes/preferences/Hook/GetPreferencesHook.php',
@@ -1653,6 +1756,7 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Preferences\\SignatureValidatorFactory' => __DIR__ . '/includes/preferences/SignatureValidatorFactory.php',
 	'MediaWiki\\Preferences\\TimezoneFilter' => __DIR__ . '/includes/preferences/TimezoneFilter.php',
 	'MediaWiki\\ProcOpenError' => __DIR__ . '/includes/exception/ProcOpenError.php',
+<<<<<<< HEAD
 	'MediaWiki\\RenameUser\\Hook\\RenameUserAbortHook' => __DIR__ . '/includes/RenameUser/Hook/RenameUserAbortHook.php',
 	'MediaWiki\\RenameUser\\Hook\\RenameUserCompleteHook' => __DIR__ . '/includes/RenameUser/Hook/RenameUserCompleteHook.php',
 	'MediaWiki\\RenameUser\\Hook\\RenameUserPreRenameHook' => __DIR__ . '/includes/RenameUser/Hook/RenameUserPreRenameHook.php',
@@ -1668,15 +1772,24 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Request\\PathRouter' => __DIR__ . '/includes/Request/PathRouter.php',
 	'MediaWiki\\Request\\WebRequestUpload' => __DIR__ . '/includes/Request/WebRequestUpload.php',
 	'MediaWiki\\Request\\WebResponse' => __DIR__ . '/includes/Request/WebResponse.php',
+=======
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\ResourceLoader\\CircularDependencyError' => __DIR__ . '/includes/ResourceLoader/CircularDependencyError.php',
 	'MediaWiki\\ResourceLoader\\ClientHtml' => __DIR__ . '/includes/ResourceLoader/ClientHtml.php',
 	'MediaWiki\\ResourceLoader\\CodexModule' => __DIR__ . '/includes/ResourceLoader/CodexModule.php',
 	'MediaWiki\\ResourceLoader\\Context' => __DIR__ . '/includes/ResourceLoader/Context.php',
+<<<<<<< HEAD
+=======
+	'MediaWiki\\ResourceLoader\\Context72Hack' => __DIR__ . '/includes/ResourceLoader/ResourceLoader.php',
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\ResourceLoader\\DerivativeContext' => __DIR__ . '/includes/ResourceLoader/DerivativeContext.php',
 	'MediaWiki\\ResourceLoader\\FileModule' => __DIR__ . '/includes/ResourceLoader/FileModule.php',
 	'MediaWiki\\ResourceLoader\\FilePath' => __DIR__ . '/includes/ResourceLoader/FilePath.php',
 	'MediaWiki\\ResourceLoader\\ForeignApiModule' => __DIR__ . '/includes/ResourceLoader/ForeignApiModule.php',
+<<<<<<< HEAD
 	'MediaWiki\\ResourceLoader\\ForeignResourceManager' => __DIR__ . '/includes/ResourceLoader/ForeignResourceManager.php',
+=======
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\ResourceLoader\\HookRunner' => __DIR__ . '/includes/ResourceLoader/HookRunner.php',
 	'MediaWiki\\ResourceLoader\\Hook\\ResourceLoaderExcludeUserOptionsHook' => __DIR__ . '/includes/ResourceLoader/Hook/ResourceLoaderExcludeUserOptionsHook.php',
 	'MediaWiki\\ResourceLoader\\Hook\\ResourceLoaderForeignApiModulesHook' => __DIR__ . '/includes/ResourceLoader/Hook/ResourceLoaderForeignApiModulesHook.php',
@@ -1685,6 +1798,10 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\ResourceLoader\\Hook\\ResourceLoaderRegisterModulesHook' => __DIR__ . '/includes/ResourceLoader/Hook/ResourceLoaderRegisterModulesHook.php',
 	'MediaWiki\\ResourceLoader\\Hook\\ResourceLoaderSiteModulePagesHook' => __DIR__ . '/includes/ResourceLoader/Hook/ResourceLoaderSiteModulePagesHook.php',
 	'MediaWiki\\ResourceLoader\\Hook\\ResourceLoaderSiteStylesModulePagesHook' => __DIR__ . '/includes/ResourceLoader/Hook/ResourceLoaderSiteStylesModulePagesHook.php',
+<<<<<<< HEAD
+=======
+	'MediaWiki\\ResourceLoader\\Hook\\ResourceLoaderTestModulesHook' => __DIR__ . '/includes/ResourceLoader/Hook/ResourceLoaderTestModulesHook.php',
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\ResourceLoader\\Image' => __DIR__ . '/includes/ResourceLoader/Image.php',
 	'MediaWiki\\ResourceLoader\\ImageModule' => __DIR__ . '/includes/ResourceLoader/ImageModule.php',
 	'MediaWiki\\ResourceLoader\\LanguageDataModule' => __DIR__ . '/includes/ResourceLoader/LanguageDataModule.php',
@@ -1697,6 +1814,10 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\ResourceLoader\\OOUIImageModule' => __DIR__ . '/includes/ResourceLoader/OOUIImageModule.php',
 	'MediaWiki\\ResourceLoader\\OOUIModule' => __DIR__ . '/includes/ResourceLoader/OOUIModule.php',
 	'MediaWiki\\ResourceLoader\\ResourceLoader' => __DIR__ . '/includes/ResourceLoader/ResourceLoader.php',
+<<<<<<< HEAD
+=======
+	'MediaWiki\\ResourceLoader\\ResourceLoader72Hack' => __DIR__ . '/includes/ResourceLoader/MessageBlobStore.php',
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\ResourceLoader\\SiteModule' => __DIR__ . '/includes/ResourceLoader/SiteModule.php',
 	'MediaWiki\\ResourceLoader\\SiteStylesModule' => __DIR__ . '/includes/ResourceLoader/SiteStylesModule.php',
 	'MediaWiki\\ResourceLoader\\SkinModule' => __DIR__ . '/includes/ResourceLoader/SkinModule.php',
@@ -1724,6 +1845,7 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Rest\\Handler\\ContributionsCountHandler' => __DIR__ . '/includes/Rest/Handler/ContributionsCountHandler.php',
 	'MediaWiki\\Rest\\Handler\\CreationHandler' => __DIR__ . '/includes/Rest/Handler/CreationHandler.php',
 	'MediaWiki\\Rest\\Handler\\EditHandler' => __DIR__ . '/includes/Rest/Handler/EditHandler.php',
+<<<<<<< HEAD
 	'MediaWiki\\Rest\\Handler\\Helper\\HtmlInputTransformHelper' => __DIR__ . '/includes/Rest/Handler/Helper/HtmlInputTransformHelper.php',
 	'MediaWiki\\Rest\\Handler\\Helper\\HtmlMessageOutputHelper' => __DIR__ . '/includes/Rest/Handler/Helper/HtmlMessageOutputHelper.php',
 	'MediaWiki\\Rest\\Handler\\Helper\\HtmlOutputHelper' => __DIR__ . '/includes/Rest/Handler/Helper/HtmlOutputHelper.php',
@@ -1748,6 +1870,20 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Rest\\Handler\\ParsoidFormatHelper' => __DIR__ . '/includes/Rest/Handler/Helper/ParsoidFormatHelper.php',
 	'MediaWiki\\Rest\\Handler\\ParsoidHandler' => __DIR__ . '/includes/Rest/Handler/ParsoidHandler.php',
 	'MediaWiki\\Rest\\Handler\\RevisionContentHelper' => __DIR__ . '/includes/Rest/Handler/Helper/RevisionContentHelper.php',
+=======
+	'MediaWiki\\Rest\\Handler\\LanguageLinksHandler' => __DIR__ . '/includes/Rest/Handler/LanguageLinksHandler.php',
+	'MediaWiki\\Rest\\Handler\\MediaFileHandler' => __DIR__ . '/includes/Rest/Handler/MediaFileHandler.php',
+	'MediaWiki\\Rest\\Handler\\MediaLinksHandler' => __DIR__ . '/includes/Rest/Handler/MediaLinksHandler.php',
+	'MediaWiki\\Rest\\Handler\\PageContentHelper' => __DIR__ . '/includes/Rest/Handler/PageContentHelper.php',
+	'MediaWiki\\Rest\\Handler\\PageHTMLHandler' => __DIR__ . '/includes/Rest/Handler/PageHTMLHandler.php',
+	'MediaWiki\\Rest\\Handler\\PageHistoryCountHandler' => __DIR__ . '/includes/Rest/Handler/PageHistoryCountHandler.php',
+	'MediaWiki\\Rest\\Handler\\PageHistoryHandler' => __DIR__ . '/includes/Rest/Handler/PageHistoryHandler.php',
+	'MediaWiki\\Rest\\Handler\\PageSourceHandler' => __DIR__ . '/includes/Rest/Handler/PageSourceHandler.php',
+	'MediaWiki\\Rest\\Handler\\ParsoidFormatHelper' => __DIR__ . '/includes/Rest/Handler/ParsoidFormatHelper.php',
+	'MediaWiki\\Rest\\Handler\\ParsoidHTMLHelper' => __DIR__ . '/includes/Rest/Handler/ParsoidHTMLHelper.php',
+	'MediaWiki\\Rest\\Handler\\ParsoidHandler' => __DIR__ . '/includes/Rest/Handler/ParsoidHandler.php',
+	'MediaWiki\\Rest\\Handler\\RevisionContentHelper' => __DIR__ . '/includes/Rest/Handler/RevisionContentHelper.php',
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Rest\\Handler\\RevisionHTMLHandler' => __DIR__ . '/includes/Rest/Handler/RevisionHTMLHandler.php',
 	'MediaWiki\\Rest\\Handler\\RevisionSourceHandler' => __DIR__ . '/includes/Rest/Handler/RevisionSourceHandler.php',
 	'MediaWiki\\Rest\\Handler\\SearchHandler' => __DIR__ . '/includes/Rest/Handler/SearchHandler.php',
@@ -1761,6 +1897,10 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Rest\\HeaderParser\\IfNoneMatch' => __DIR__ . '/includes/Rest/HeaderParser/IfNoneMatch.php',
 	'MediaWiki\\Rest\\HeaderParser\\Origin' => __DIR__ . '/includes/Rest/HeaderParser/Origin.php',
 	'MediaWiki\\Rest\\Hook\\SearchResultProvideDescriptionHook' => __DIR__ . '/includes/Rest/Hook/SearchResultProvideDescriptionHook.php',
+<<<<<<< HEAD
+=======
+	'MediaWiki\\Rest\\Hook\\SearchResultProvideThumbnailHook' => __DIR__ . '/includes/Rest/Hook/SearchResultProvideThumbnailHook.php',
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Rest\\HttpException' => __DIR__ . '/includes/Rest/HttpException.php',
 	'MediaWiki\\Rest\\JsonEncodingException' => __DIR__ . '/includes/Rest/JsonEncodingException.php',
 	'MediaWiki\\Rest\\LocalizedHttpException' => __DIR__ . '/includes/Rest/LocalizedHttpException.php',
@@ -1787,10 +1927,15 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Rest\\Validator\\JsonBodyValidator' => __DIR__ . '/includes/Rest/Validator/JsonBodyValidator.php',
 	'MediaWiki\\Rest\\Validator\\NullBodyValidator' => __DIR__ . '/includes/Rest/Validator/NullBodyValidator.php',
 	'MediaWiki\\Rest\\Validator\\ParamValidatorCallbacks' => __DIR__ . '/includes/Rest/Validator/ParamValidatorCallbacks.php',
+<<<<<<< HEAD
 	'MediaWiki\\Rest\\Validator\\UnsupportedContentTypeBodyValidator' => __DIR__ . '/includes/Rest/Validator/UnsupportedContentTypeBodyValidator.php',
 	'MediaWiki\\Rest\\Validator\\Validator' => __DIR__ . '/includes/Rest/Validator/Validator.php',
 	'MediaWiki\\Revision\\ArchivedRevisionLookup' => __DIR__ . '/includes/Revision/ArchivedRevisionLookup.php',
 	'MediaWiki\\Revision\\BadRevisionException' => __DIR__ . '/includes/Revision/BadRevisionException.php',
+=======
+	'MediaWiki\\Rest\\Validator\\Validator' => __DIR__ . '/includes/Rest/Validator/Validator.php',
+	'MediaWiki\\Revision\\ArchivedRevisionLookup' => __DIR__ . '/includes/Revision/ArchivedRevisionLookup.php',
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Revision\\ContributionsLookup' => __DIR__ . '/includes/Revision/ContributionsLookup.php',
 	'MediaWiki\\Revision\\ContributionsSegment' => __DIR__ . '/includes/Revision/ContributionsSegment.php',
 	'MediaWiki\\Revision\\FallbackSlotRoleHandler' => __DIR__ . '/includes/Revision/FallbackSlotRoleHandler.php',
@@ -1834,7 +1979,10 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Search\\Hook\\SpecialSearchPowerBoxHook' => __DIR__ . '/includes/search/Hook/SpecialSearchPowerBoxHook.php',
 	'MediaWiki\\Search\\Hook\\SpecialSearchProfileFormHook' => __DIR__ . '/includes/search/Hook/SpecialSearchProfileFormHook.php',
 	'MediaWiki\\Search\\ParserOutputSearchDataExtractor' => __DIR__ . '/includes/search/ParserOutputSearchDataExtractor.php',
+<<<<<<< HEAD
 	'MediaWiki\\Search\\SearchResultThumbnailProvider' => __DIR__ . '/includes/search/SearchResultThumbnailProvider.php',
+=======
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Search\\SearchWidgets\\BasicSearchResultSetWidget' => __DIR__ . '/includes/search/searchwidgets/BasicSearchResultSetWidget.php',
 	'MediaWiki\\Search\\SearchWidgets\\DidYouMeanWidget' => __DIR__ . '/includes/search/searchwidgets/DidYouMeanWidget.php',
 	'MediaWiki\\Search\\SearchWidgets\\FullSearchResultWidget' => __DIR__ . '/includes/search/searchwidgets/FullSearchResultWidget.php',
@@ -1845,13 +1993,20 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Search\\SearchWidgets\\SearchResultWidget' => __DIR__ . '/includes/search/searchwidgets/SearchResultWidget.php',
 	'MediaWiki\\Search\\SearchWidgets\\SimpleSearchResultSetWidget' => __DIR__ . '/includes/search/searchwidgets/SimpleSearchResultSetWidget.php',
 	'MediaWiki\\Search\\SearchWidgets\\SimpleSearchResultWidget' => __DIR__ . '/includes/search/searchwidgets/SimpleSearchResultWidget.php',
+<<<<<<< HEAD
 	'MediaWiki\\Search\\TitleMatcher' => __DIR__ . '/includes/search/TitleMatcher.php',
+=======
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Session\\BotPasswordSessionProvider' => __DIR__ . '/includes/session/BotPasswordSessionProvider.php',
 	'MediaWiki\\Session\\CookieSessionProvider' => __DIR__ . '/includes/session/CookieSessionProvider.php',
 	'MediaWiki\\Session\\CsrfTokenSet' => __DIR__ . '/includes/session/CsrfTokenSet.php',
 	'MediaWiki\\Session\\CsrfTokenSetProvider' => __DIR__ . '/includes/session/CsrfTokenSetProvider.php',
 	'MediaWiki\\Session\\Hook\\SessionCheckInfoHook' => __DIR__ . '/includes/session/Hook/SessionCheckInfoHook.php',
 	'MediaWiki\\Session\\Hook\\SessionMetadataHook' => __DIR__ . '/includes/session/Hook/SessionMetadataHook.php',
+<<<<<<< HEAD
+=======
+	'MediaWiki\\Session\\Hook\\UserSetCookiesHook' => __DIR__ . '/includes/session/Hook/UserSetCookiesHook.php',
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Session\\ImmutableSessionProviderWithCookie' => __DIR__ . '/includes/session/ImmutableSessionProviderWithCookie.php',
 	'MediaWiki\\Session\\MetadataMergeException' => __DIR__ . '/includes/session/MetadataMergeException.php',
 	'MediaWiki\\Session\\PHPSessionHandler' => __DIR__ . '/includes/session/PHPSessionHandler.php',
@@ -1930,6 +2085,7 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\SpecialPage\\Hook\\SpecialPage_initListHook' => __DIR__ . '/includes/specialpage/Hook/SpecialPage_initListHook.php',
 	'MediaWiki\\SpecialPage\\Hook\\WgQueryPagesHook' => __DIR__ . '/includes/specialpage/Hook/WgQueryPagesHook.php',
 	'MediaWiki\\SpecialPage\\SpecialPageFactory' => __DIR__ . '/includes/specialpage/SpecialPageFactory.php',
+<<<<<<< HEAD
 	'MediaWiki\\Specials\\Contribute\\Card\\ContributeCard' => __DIR__ . '/includes/specials/Contribute/Card/ContributeCard.php',
 	'MediaWiki\\Specials\\Contribute\\Card\\ContributeCardAction' => __DIR__ . '/includes/specials/Contribute/Card/ContributeCardAction.php',
 	'MediaWiki\\Specials\\Contribute\\Card\\ContributeCardActionLink' => __DIR__ . '/includes/specials/Contribute/Card/ContributeCardActionLink.php',
@@ -1941,6 +2097,8 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Specials\\SpecialWantedFiles' => __DIR__ . '/includes/specials/SpecialWantedFiles.php',
 	'MediaWiki\\Specials\\SpecialWantedPages' => __DIR__ . '/includes/specials/SpecialWantedPages.php',
 	'MediaWiki\\Storage\\BadBlobException' => __DIR__ . '/includes/Storage/BadBlobException.php',
+=======
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Storage\\BlobAccessException' => __DIR__ . '/includes/Storage/BlobAccessException.php',
 	'MediaWiki\\Storage\\BlobStore' => __DIR__ . '/includes/Storage/BlobStore.php',
 	'MediaWiki\\Storage\\BlobStoreFactory' => __DIR__ . '/includes/Storage/BlobStoreFactory.php',
@@ -1961,7 +2119,10 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Storage\\NameTableStoreFactory' => __DIR__ . '/includes/Storage/NameTableStoreFactory.php',
 	'MediaWiki\\Storage\\PageEditStash' => __DIR__ . '/includes/Storage/PageEditStash.php',
 	'MediaWiki\\Storage\\PageUpdateException' => __DIR__ . '/includes/Storage/PageUpdateException.php',
+<<<<<<< HEAD
 	'MediaWiki\\Storage\\PageUpdateStatus' => __DIR__ . '/includes/Storage/PageUpdateStatus.php',
+=======
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Storage\\PageUpdater' => __DIR__ . '/includes/Storage/PageUpdater.php',
 	'MediaWiki\\Storage\\PageUpdaterFactory' => __DIR__ . '/includes/Storage/PageUpdaterFactory.php',
 	'MediaWiki\\Storage\\PreparedUpdate' => __DIR__ . '/includes/Storage/PreparedUpdate.php',
@@ -1969,16 +2130,20 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Storage\\RevertedTagUpdateManager' => __DIR__ . '/includes/Storage/RevertedTagUpdateManager.php',
 	'MediaWiki\\Storage\\RevisionSlotsUpdate' => __DIR__ . '/includes/Storage/RevisionSlotsUpdate.php',
 	'MediaWiki\\Storage\\SqlBlobStore' => __DIR__ . '/includes/Storage/SqlBlobStore.php',
+<<<<<<< HEAD
 	'MediaWiki\\StubObject\\DeprecatedGlobal' => __DIR__ . '/includes/StubObject/DeprecatedGlobal.php',
 	'MediaWiki\\StubObject\\StubGlobalUser' => __DIR__ . '/includes/StubObject/StubGlobalUser.php',
 	'MediaWiki\\StubObject\\StubObject' => __DIR__ . '/includes/StubObject/StubObject.php',
 	'MediaWiki\\StubObject\\StubUserLang' => __DIR__ . '/includes/StubObject/StubUserLang.php',
+=======
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\Tidy\\RemexCompatBuilder' => __DIR__ . '/includes/tidy/RemexCompatBuilder.php',
 	'MediaWiki\\Tidy\\RemexCompatFormatter' => __DIR__ . '/includes/tidy/RemexCompatFormatter.php',
 	'MediaWiki\\Tidy\\RemexCompatMunger' => __DIR__ . '/includes/tidy/RemexCompatMunger.php',
 	'MediaWiki\\Tidy\\RemexDriver' => __DIR__ . '/includes/tidy/RemexDriver.php',
 	'MediaWiki\\Tidy\\RemexMungerData' => __DIR__ . '/includes/tidy/RemexMungerData.php',
 	'MediaWiki\\Tidy\\TidyDriverBase' => __DIR__ . '/includes/tidy/TidyDriverBase.php',
+<<<<<<< HEAD
 	'MediaWiki\\Title\\Title' => __DIR__ . '/includes/title/Title.php',
 	'MediaWiki\\Title\\TitleArray' => __DIR__ . '/includes/title/TitleArray.php',
 	'MediaWiki\\Title\\TitleArrayFromResult' => __DIR__ . '/includes/title/TitleArrayFromResult.php',
@@ -1986,6 +2151,10 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\User\\ActorCache' => __DIR__ . '/includes/user/ActorCache.php',
 	'MediaWiki\\User\\ActorMigration' => __DIR__ . '/includes/user/ActorMigration.php',
 	'MediaWiki\\User\\ActorMigrationBase' => __DIR__ . '/includes/user/ActorMigrationBase.php',
+=======
+	'MediaWiki\\Title\\Title' => __DIR__ . '/includes/Title.php',
+	'MediaWiki\\User\\ActorCache' => __DIR__ . '/includes/user/ActorCache.php',
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\User\\ActorNormalization' => __DIR__ . '/includes/user/ActorNormalization.php',
 	'MediaWiki\\User\\ActorStore' => __DIR__ . '/includes/user/ActorStore.php',
 	'MediaWiki\\User\\ActorStoreFactory' => __DIR__ . '/includes/user/ActorStoreFactory.php',
@@ -2015,6 +2184,10 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\User\\Hook\\UserIsLockedHook' => __DIR__ . '/includes/user/Hook/UserIsLockedHook.php',
 	'MediaWiki\\User\\Hook\\UserLoadAfterLoadFromSessionHook' => __DIR__ . '/includes/user/Hook/UserLoadAfterLoadFromSessionHook.php',
 	'MediaWiki\\User\\Hook\\UserLoadDefaultsHook' => __DIR__ . '/includes/user/Hook/UserLoadDefaultsHook.php',
+<<<<<<< HEAD
+=======
+	'MediaWiki\\User\\Hook\\UserLoadFromDatabaseHook' => __DIR__ . '/includes/user/Hook/UserLoadFromDatabaseHook.php',
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\User\\Hook\\UserLogoutHook' => __DIR__ . '/includes/user/Hook/UserLogoutHook.php',
 	'MediaWiki\\User\\Hook\\UserPrivilegedGroupsHook' => __DIR__ . '/includes/user/Hook/UserPrivilegedGroupsHook.php',
 	'MediaWiki\\User\\Hook\\UserRemoveGroupHook' => __DIR__ . '/includes/user/Hook/UserRemoveGroupHook.php',
@@ -2025,6 +2198,12 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\User\\Hook\\User__mailPasswordInternalHook' => __DIR__ . '/includes/user/Hook/User__mailPasswordInternalHook.php',
 	'MediaWiki\\User\\Options\\Hook\\LoadUserOptionsHook' => __DIR__ . '/includes/user/Options/Hook/LoadUserOptionsHook.php',
 	'MediaWiki\\User\\Options\\Hook\\SaveUserOptionsHook' => __DIR__ . '/includes/user/Options/Hook/SaveUserOptionsHook.php',
+<<<<<<< HEAD
+=======
+	'MediaWiki\\User\\Registration\\IUserRegistrationProvider' => __DIR__ . '/includes/user/Registration/IUserRegistrationProvider.php',
+	'MediaWiki\\User\\Registration\\LocalUserRegistrationProvider' => __DIR__ . '/includes/user/Registration/LocalUserRegistrationProvider.php',
+	'MediaWiki\\User\\Registration\\UserRegistrationLookup' => __DIR__ . '/includes/user/Registration/UserRegistrationLookup.php',
+>>>>>>> origin/1.39.7-test
 	'MediaWiki\\User\\StaticUserOptionsLookup' => __DIR__ . '/includes/user/StaticUserOptionsLookup.php',
 	'MediaWiki\\User\\TalkPageNotificationManager' => __DIR__ . '/includes/user/TalkPageNotificationManager.php',
 	'MediaWiki\\User\\TempUser\\CreateStatus' => __DIR__ . '/includes/user/TempUser/CreateStatus.php',
@@ -2075,8 +2254,11 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\Widget\\TitlesMultiselectWidget' => __DIR__ . '/includes/widget/TitlesMultiselectWidget.php',
 	'MediaWiki\\Widget\\UserInputWidget' => __DIR__ . '/includes/widget/UserInputWidget.php',
 	'MediaWiki\\Widget\\UsersMultiselectWidget' => __DIR__ . '/includes/widget/UsersMultiselectWidget.php',
+<<<<<<< HEAD
 	'MediaWiki\\WikiMap\\WikiMap' => __DIR__ . '/includes/WikiMap/WikiMap.php',
 	'MediaWiki\\WikiMap\\WikiReference' => __DIR__ . '/includes/WikiMap/WikiReference.php',
+=======
+>>>>>>> origin/1.39.7-test
 	'MediumSpecificBagOStuff' => __DIR__ . '/includes/libs/objectcache/MediumSpecificBagOStuff.php',
 	'MemcLockManager' => __DIR__ . '/includes/libs/lockmanager/MemcLockManager.php',
 	'MemcachedBagOStuff' => __DIR__ . '/includes/libs/objectcache/MemcachedBagOStuff.php',
@@ -2777,6 +2959,20 @@ $wgAutoloadLocalClasses = [
 	'Wikimedia\\Message\\MessageValue' => __DIR__ . '/includes/libs/Message/MessageValue.php',
 	'Wikimedia\\Message\\ParamType' => __DIR__ . '/includes/libs/Message/ParamType.php',
 	'Wikimedia\\Message\\ScalarParam' => __DIR__ . '/includes/libs/Message/ScalarParam.php',
+<<<<<<< HEAD
+=======
+	'Wikimedia\\Metrics\\CounterMetric' => __DIR__ . '/includes/libs/Metrics/CounterMetric.php',
+	'Wikimedia\\Metrics\\Exceptions\\InvalidConfigurationException' => __DIR__ . '/includes/libs/Metrics/Exceptions/InvalidConfigurationException.php',
+	'Wikimedia\\Metrics\\Exceptions\\InvalidLabelsException' => __DIR__ . '/includes/libs/Metrics/Exceptions/InvalidLabelsException.php',
+	'Wikimedia\\Metrics\\Exceptions\\UndefinedPrefixException' => __DIR__ . '/includes/libs/Metrics/Exceptions/UndefinedPrefixException.php',
+	'Wikimedia\\Metrics\\Exceptions\\UnsupportedFormatException' => __DIR__ . '/includes/libs/Metrics/Exceptions/UnsupportedFormatException.php',
+	'Wikimedia\\Metrics\\GaugeMetric' => __DIR__ . '/includes/libs/Metrics/GaugeMetric.php',
+	'Wikimedia\\Metrics\\MetricUtils' => __DIR__ . '/includes/libs/Metrics/MetricUtils.php',
+	'Wikimedia\\Metrics\\MetricsFactory' => __DIR__ . '/includes/libs/Metrics/MetricsFactory.php',
+	'Wikimedia\\Metrics\\NullMetric' => __DIR__ . '/includes/libs/Metrics/NullMetric.php',
+	'Wikimedia\\Metrics\\Sample' => __DIR__ . '/includes/libs/Metrics/Sample.php',
+	'Wikimedia\\Metrics\\TimingMetric' => __DIR__ . '/includes/libs/Metrics/TimingMetric.php',
+>>>>>>> origin/1.39.7-test
 	'Wikimedia\\Mime\\MimeMap' => __DIR__ . '/includes/libs/mime/MimeMap.php',
 	'Wikimedia\\Mime\\MimeMapMinimal' => __DIR__ . '/includes/libs/mime/MimeMapMinimal.php',
 	'Wikimedia\\NonSerializable\\NonSerializableTrait' => __DIR__ . '/includes/libs/NonSerializableTrait.php',
@@ -2898,6 +3094,7 @@ $wgAutoloadLocalClasses = [
 	'Wikimedia\\Rdbms\\UpdateQueryBuilder' => __DIR__ . '/includes/libs/rdbms/querybuilder/UpdateQueryBuilder.php',
 	'Wikimedia\\Reflection\\GhostFieldAccessTrait' => __DIR__ . '/includes/libs/GhostFieldAccessTrait.php',
 	'Wikimedia\\StaticArrayWriter' => __DIR__ . '/includes/libs/StaticArrayWriter.php',
+<<<<<<< HEAD
 	'Wikimedia\\Stats\\Emitters\\EmitterInterface' => __DIR__ . '/includes/libs/Stats/Emitters/EmitterInterface.php',
 	'Wikimedia\\Stats\\Emitters\\NullEmitter' => __DIR__ . '/includes/libs/Stats/Emitters/NullEmitter.php',
 	'Wikimedia\\Stats\\Emitters\\UDPEmitter' => __DIR__ . '/includes/libs/Stats/Emitters/UDPEmitter.php',
@@ -2920,6 +3117,8 @@ $wgAutoloadLocalClasses = [
 	'Wikimedia\\Stats\\StatsCache' => __DIR__ . '/includes/libs/Stats/StatsCache.php',
 	'Wikimedia\\Stats\\StatsFactory' => __DIR__ . '/includes/libs/Stats/StatsFactory.php',
 	'Wikimedia\\Stats\\StatsUtils' => __DIR__ . '/includes/libs/Stats/StatsUtils.php',
+=======
+>>>>>>> origin/1.39.7-test
 	'Wikimedia\\UUID\\GlobalIdGenerator' => __DIR__ . '/includes/libs/uuid/GlobalIdGenerator.php',
 	'Wikimedia\\WRStats\\ArrayStatsStore' => __DIR__ . '/includes/libs/WRStats/ArrayStatsStore.php',
 	'Wikimedia\\WRStats\\BagOStuffStatsStore' => __DIR__ . '/includes/libs/WRStats/BagOStuffStatsStore.php',

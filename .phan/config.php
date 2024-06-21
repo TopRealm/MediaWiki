@@ -27,6 +27,12 @@ $cfg['minimum_target_php_version'] = '7.4.3';
 
 $cfg['file_list'] = array_merge(
 	$cfg['file_list'],
+<<<<<<< HEAD
+=======
+	class_exists( PEAR::class ) ? [] : [ '.phan/stubs/mail.php' ],
+	defined( 'PASSWORD_ARGON2ID' ) ? [] : [ '.phan/stubs/password.php' ],
+	class_exists( ValueError::class ) ? [] : [ '.phan/stubs/ValueError.php' ],
+>>>>>>> origin/1.39.7-test
 	class_exists( Socket::class ) ? [] : [ '.phan/stubs/Socket.php' ],
 	class_exists( ReturnTypeWillChange::class ) ? [] : [ '.phan/stubs/ReturnTypeWillChange.php' ],
 	class_exists( AllowDynamicProperties::class ) ? [] : [ '.phan/stubs/AllowDynamicProperties.php' ],
@@ -66,6 +72,14 @@ if ( PHP_VERSION_ID >= 80000 ) {
 		]
 	);
 }
+<<<<<<< HEAD
+=======
+
+$cfg['analyzed_file_extensions'] = array_merge(
+	$cfg['analyzed_file_extensions'] ?? [ 'php' ],
+	[ 'inc' ]
+);
+>>>>>>> origin/1.39.7-test
 
 $cfg['autoload_internal_extension_signatures'] = [
 	'excimer' => '.phan/internal_stubs/excimer.php',
@@ -146,6 +160,13 @@ $cfg['exclude_analysis_directory_list'] = [
 	// empty array due to the version checking in T246594 not being currently used.
 	'includes/PHPVersionCheck.php',
 ];
+
+$cfg['suppress_issue_types'] = array_merge( $cfg['suppress_issue_types'], [
+	// approximate error count: 62
+	// Disabled temporarily as part of upgrade to PHP 7.4. Not actually an error,
+	// just not taking advantage of the ??= operator. Can be fixed in the near future.
+	'PhanPluginDuplicateExpressionAssignmentOperation',
+] );
 
 // Do not use aliases in core.
 // Use the correct name, because we don't need backward compatibility

@@ -38,8 +38,12 @@
 			"Hakimi97",
 			"Amire80",
 			"Lim Natee",
+<<<<<<< HEAD
 			"Song GK",
 			"Stress 043"
+=======
+			"Song GK"
+>>>>>>> origin/1.39.7-test
 		]
 	},
 	"tog-underline": "Garis bawah pautan:",
@@ -2525,6 +2529,10 @@
 	"undeletehistorynoadmin": "Laman ini telah dihapuskan.\nSebab penghapusan ditunjukkan dalam ringkasan di bawah, berserta butiran pengguna-pengguna yang telah menyunting laman ini sebelum penghapusan.\nTeks bagi semakan yang dihapuskan berikut hanya boleh dilihat oleh para penyelia.",
 	"undelete-revision": "Menghapuskan semakan bagi $1 (pada $4, $5) oleh $3:",
 	"undeleterevision-missing": "Semakan tidak sah atau tiada.\nAnda mungkin mempunyai pautan buruk, atau semakan mungkin telah dibatalkan atau dialih keluar daripada arkib.",
+<<<<<<< HEAD
+=======
+	"undeleterevision-duplicate-revid": "{{PLURAL:$1|Satu semakan|$1 semakan}} tidak dapat dipulihkan kerana <code>rev_id</code> {{PLURAL:$1|nya}} sedang digunakan.",
+>>>>>>> origin/1.39.7-test
 	"undelete-nodiff": "Tiada semakan sebelumnya.",
 	"undeletebtn": "Nyahhapus",
 	"undeletelink": "lihat/nyahhapus",
@@ -3669,8 +3677,11 @@
 	"feedback-useragent": "Ejen pengguna:",
 	"searchsuggest-search": "Cari {{SITENAME}}",
 	"searchsuggest-containing": "Cari halaman yang mengandungi...",
+<<<<<<< HEAD
 	"search-thumbnail-extra-namespaces-label": "Tunjukkan lakaran kenit dalam Khas:Cari pada Desktop",
 	"search-thumbnail-extra-namespaces-message": "Paparkan lakaran kenit untuk {{PLURAL:$2|ruang nama}} $1 hasil pada halaman {{#special:search}}.",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchlimit-label": "Bilangan hasil carian untuk dipaparkan pada setiap halaman:",
 	"searchlimit-help": "Bilangan maksimum: 500",
 	"api-clientside-error-timeout": "Pelayan tidak bergerak balas dalam tempoh yang diharapkan.",
@@ -3880,6 +3891,7 @@
 	"skin-action-move": "Pindah",
 	"newpages-showhide-bots": "$1 bot",
 	"newpages-showhide-redirect": "$1 lencongan",
+<<<<<<< HEAD
 	"newpages-showhide-registered": "$1 pengguna berdaftar",
 	"blockedtext-made-by": "Sekatan telah dibuat oleh $1.",
 	"blockedtext-reason-comment": "Sebab yang diberi ialah <em>$1</em>",
@@ -3919,4 +3931,7 @@
 	"action-renameuser": "menukar nama pengguna",
 	"right-renameuser": "Menukar nama pengguna",
 	"renameuser-renamed-notice": "Pengguna ini telah dinamakan semula.\nLog penukaran nama ditunjukkan di bawah sebagai rujukan."
+=======
+	"newpages-showhide-registered": "$1 pengguna berdaftar"
+>>>>>>> origin/1.39.7-test
 }

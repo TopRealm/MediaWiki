@@ -196,17 +196,30 @@
 			"Горан Анђелковић",
 			"לערי ריינהארט",
 			"아라",
+<<<<<<< HEAD
 			"Obscaeris",
 			"Wnagxsi",
 			"Iketsi",
+=======
+			"Gaultier",
+			"SleaY",
+			"Eleassar",
+			"Obscaeris",
+			"Iketsi",
+			"Wnagxsi",
+>>>>>>> origin/1.39.7-test
 			"Histnou",
 			"LD",
 			"MacOS Weed",
 			"TheresNoTime",
 			"Hecatonchire",
 			"Alien333",
+<<<<<<< HEAD
 			"Lofhi",
 			"Graineahumus"
+=======
+			"Lofhi"
+>>>>>>> origin/1.39.7-test
 		]
 	},
 	"tog-underline": "Soulignement des liens :",
@@ -1013,7 +1026,11 @@
 	"currentrev": "Version actuelle",
 	"currentrev-asof": "Dernière version du $2 à $3",
 	"revisionasof": "Version du $2 à $3",
+<<<<<<< HEAD
 	"revision-info": "Version datée du $1 par {{GENDER:$6|$2}}$7",
+=======
+	"revision-info": "Révision datée du $1 par {{GENDER:$6|$2}}$7",
+>>>>>>> origin/1.39.7-test
 	"previousrevision": "← Version précédente",
 	"nextrevision": "Version suivante →",
 	"currentrevisionlink": "Voir la version actuelle",
@@ -1633,7 +1650,11 @@
 	"action-editmyuserjs": "modifier vos propres fichiers JavaScript utilisateur",
 	"action-editmyuserjsredirect": "modifier vos propres fichiers JavaScript utilisateur qui sont des redirections",
 	"action-viewsuppressed": "visualiser les versions masquées de n’importe quel utilisateur",
+<<<<<<< HEAD
 	"action-hideuser": "bloquer ou débloquer un nom d’utilisateur, en le masquant ou en le révélant au public",
+=======
+	"action-hideuser": "bloquer un nom d’utilisateur, en le masquant au public",
+>>>>>>> origin/1.39.7-test
 	"action-ipblock-exempt": "contourner les blocages d’IP, blocages automatiques et blocages de plages d’IP",
 	"action-unblockself": "vous débloquer vous-même",
 	"action-noratelimit": "ne pas être impacté par les limites de taux",
@@ -3263,7 +3284,10 @@
 	"pageinfo-default-sort": "Clé de tri par défaut",
 	"pageinfo-length": "Taille de la page (en octets)",
 	"pageinfo-namespace": "Espace de noms",
+<<<<<<< HEAD
 	"pageinfo-namespace-id": "Identifiant dʼespace de noms",
+=======
+>>>>>>> origin/1.39.7-test
 	"pageinfo-article-id": "Identifiant de la page",
 	"pageinfo-language": "Langue du contenu de la page",
 	"pageinfo-language-change": "modifier",
@@ -4025,6 +4049,14 @@
 	"logentry-tag-update-logentry": "$1{{GENDER:$2|}} a mis à jour les balises de l’entrée de journal $5 de la page $3 ($6 {{PLURAL:$7|ajoutée|ajoutées}} ; $8 {{PLURAL:$9|supprimée|supprimées}})",
 	"rightsnone": "(aucun)",
 	"rightslogentry-temporary-group": "$1 (temporaire, jusqu’au $2)",
+<<<<<<< HEAD
+=======
+	"feedback-adding": "Ajout de vos commentaires à la page...",
+	"feedback-back": "Retour",
+	"feedback-bugcheck": "Formidable ! Vérifiez simplement que ce n‘est pas une des [$1 anomalies déjà connues].",
+	"feedback-bugnew": "J‘ai vérifié. Signaler une nouvelle anomalie",
+	"feedback-bugornote": "Si vous êtes prêt à décrire un problème technique en détail, veuillez [$1 signaler une anomalie].\nSinon, vous pouvez utiliser le formulaire simplifié ci-dessous. Votre commentaire sera ajouté à la page « [$3 $2] », avec votre nom d‘utilisateur.",
+>>>>>>> origin/1.39.7-test
 	"feedback-cancel": "Annuler",
 	"feedback-close": "Terminé",
 	"feedback-external-bug-report-button": "Déposer une tâche technique",
@@ -4412,6 +4444,7 @@
 	"newpages-showhide-bots": "$1 les robots",
 	"newpages-showhide-patrolled": "$1 les modifications patrouillées",
 	"newpages-showhide-redirect": "$1 les redirections",
+<<<<<<< HEAD
 	"newpages-showhide-registered": "$1 les utilisateurs inscrits",
 	"blockedtext-made-by": "Le blocage a été effectué par $1.",
 	"blockedtext-reason-comment": "Le motif invoqué est <em>$1</em>",
@@ -4453,4 +4486,7 @@
 	"action-renameuser": "renommer les utilisateurs",
 	"right-renameuser": "Renommer les utilisateurs",
 	"renameuser-renamed-notice": "Cet utilisateur a été renommé.\nLe journal des renommages est fourni ci-dessous à titre de référence."
+=======
+	"newpages-showhide-registered": "$1 les utilisateurs inscrits"
+>>>>>>> origin/1.39.7-test
 }

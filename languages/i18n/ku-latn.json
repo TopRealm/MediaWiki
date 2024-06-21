@@ -968,8 +968,13 @@
 	"action-movefile": "vê daneyê bigerîne",
 	"action-upload": "vê daneyê bar bike",
 	"action-delete": "vê rûpelê jê bibe",
+<<<<<<< HEAD
 	"action-deleterevision": "jêbirin an vegerandina jêbirinên guhartoyên rûpelan",
 	"action-deletedhistory": "dîtina metadaneya qeydên dîrokê yên jêbirî",
+=======
+	"action-deleterevision": "guhartoyan jê bibe",
+	"action-deletedhistory": "dîroka jêbirinê ya rûpelekê bibîne",
+>>>>>>> origin/1.39.7-test
 	"action-browsearchive": "li rûpelên jêbirî bigere",
 	"action-undelete": "rûpelan jê nebe",
 	"action-protect": "mîhengên parastinê biguhêre ji bo vê rûpelê",
@@ -1082,7 +1087,10 @@
 	"rcfilters-filter-categorization-description": "Tomarên li ser lêzêdekirin an jî jêbirinên rûpelan ji kategoriyan.",
 	"rcfilters-filter-logactions-label": "Guhartinên tomarkirî",
 	"rcfilters-filter-logactions-description": "Xebatên rêveberî, çêkirinên hesaban, jêbirinên rûpelan, barkirin…",
+<<<<<<< HEAD
 	"rcfilters-filter-newuserlogactions-label": "Bikarhênerên nû",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-filtergroup-lastrevision": "Guhartoyên herî nû",
 	"rcfilters-filter-lastrevision-label": "Guhartoya herî nû",
 	"rcfilters-filter-lastrevision-description": "Tenê guhartinên rûpelekî yên herî nû.",
@@ -1974,7 +1982,11 @@
 	"confirm-watch-button": "Temam",
 	"confirm-watch-top": "Vê rûpelê têxe nav lîsteya te ya şopandinê?",
 	"confirm-watch-label": "Wextê lîsteya şopandinê:",
+<<<<<<< HEAD
 	"watchlist-expiry-options": "Daîmî:infinite,1 hefte:1 week,1 meh:1 month,3 meh:3 months,6 meh:6 months, 1 sal:1 year",
+=======
+	"watchlist-expiry-options": "Daîmî:infinite,1 hefte:1 week,1 meh:1 month,3 meh:3 months,6 meh:6 months",
+>>>>>>> origin/1.39.7-test
 	"watchlist-expires-in-aria-label": "Hêmanên lîsteya şopandinê yên bi dawî dibin",
 	"confirm-watch-button-expiry": "Bişopîne",
 	"confirm-unwatch-button": "Baş e",
@@ -2215,6 +2227,7 @@
 	"skin-action-protect": "Biparêze",
 	"skin-action-undelete": "Jê nebe",
 	"skin-action-delete": "Jê bibe",
+<<<<<<< HEAD
 	"skin-action-move": "Nav biguhêre",
 	"renameuser": "Navê bikarhêner biguhêre",
 	"renameuser-linkoncontribs": "navê bikarhêner{{GENDER:$1|î|ê|iyê}} biguhêre",
@@ -2236,4 +2249,7 @@
 	"log-name-renameuser": "Guhartina navê bikarhêner",
 	"renameuser-move-log": "Otomatîk hate guhartin, ji ber ku {{GENDER:$2|bikarhêner}} \"[[User:$1|$1]]\" navê xwe guhart û kir \"[[User:$2|$2]]\"",
 	"right-renameuser": "Navê bikarhêneran biguhêre"
+=======
+	"skin-action-move": "Nav biguhêre"
+>>>>>>> origin/1.39.7-test
 }

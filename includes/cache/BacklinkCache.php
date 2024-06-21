@@ -213,7 +213,31 @@ class BacklinkCache {
 				$queryBuilder->limit( $max );
 			}
 
+<<<<<<< HEAD
 			$res = $queryBuilder->caller( __METHOD__ )->fetchResultSet();
+=======
+			if ( $select === 'ids' ) {
+				// Just select from the backlink table and ignore the page JOIN
+				$res = $this->getDB()->select(
+					$table,
+					[ 'page_id' => $fromField ],
+					array_filter( (array)$conds, static function ( $clause ) { // kind of janky
+						return !preg_match( '/(\b|=)page_id(\b|=)/', (string)$clause );
+					} ),
+					__METHOD__,
+					$options
+				);
+			} else {
+				// Select from the backlink table and JOIN with page title information
+				$res = $this->getDB()->select(
+					[ $table, 'page' ],
+					[ 'page_namespace', 'page_title', 'page_id' ],
+					$conds,
+					__METHOD__,
+					array_merge( [ 'STRAIGHT_JOIN' ], $options )
+				);
+			}
+>>>>>>> origin/1.39.7-test
 
 			if ( $select === 'all' && !$startId && !$endId && $res->numRows() < $max ) {
 				// The full results fit within the limit, so cache them

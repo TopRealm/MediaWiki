@@ -20,6 +20,11 @@
 			"Yupik",
 			"לערי ריינהארט",
 			"아라",
+<<<<<<< HEAD
+=======
+			"Lemetsara",
+			"Kimberli Mäkäräinen (WMNO)",
+>>>>>>> origin/1.39.7-test
 			"Ante75",
 			"Lea-Christine Sara",
 			"Caden99"
@@ -639,7 +644,10 @@
 	"summary-preview": "Čoahkkáigeasu ovdačájáhus:",
 	"previewerrortext": "Meattáhus iđii dan botta go gehččet ovdačájáhusa du rievdadusain ",
 	"blockedtitle": "Geavaheaddji lea hehttejuvvon",
+<<<<<<< HEAD
 	"blockedtext-partial": "<strong>Du geavaheaddjinamma dahje IP-čujuhus lea hehttejuvvon dan dahkamis. Sáhttá goittotge leat, ahte sáhtát vel dahkat earálágan áššiid dán siiddus nugo rievdadit ovttaskas siidduid.</strong>\n\nSivva dahje sivat hehttemii gávdnojit siiddus, mas leat du [[Special:MyContributions|dovddaldaga rievdadusat]].\n\n{{int:blockedtext-made-by|$1}}\n\n{{int:blockedtext-reason-comment|$2}}.\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n*{{int:blockedtext-block-id|$5}}",
+=======
+>>>>>>> origin/1.39.7-test
 	"blockednoreason": "sivva ii addojuvvon",
 	"blockedtext-composite-ids": "Áššáigullevaš hehttendovddaldagat: $1 (du iežat IP-čujuhus sáhttá maiddái gávdno hehttenlisttus)",
 	"blockedtext-composite-no-ids": "Du IP-čujuhus gávdno máŋggain hehttenlisttuin",
@@ -660,8 +668,13 @@
 	"missing-revision-permission": "$1 siidoveršuvdna gullá sihkkojuvvon siidui. Don sáhtát [{{fullurl:{{#Special:máhcahit}}|target=$3&timestamp=$2&diff=prev}} dan geahččat]; lassedieđut gávdnojit [{{fullurl:{{#Special:Logga}}/sihkkut|page=$3}} sihkkunloggas].",
 	"missing-revision": "Veršuvdna $1 siiddus man namma lea \"{{FULLPAGENAME}}\" ii gávdno.\nDasa lea dávjá sivvan ahte leat čuvvon boares historjá liŋkka dan siidui mii lea sihkkojuvvon. detálljat gávdnojit [{{fullurl:{{#Special:Logga}}/sihkkut|page={{FULLPAGENAMEE}}}} sihkkunloggas]. ",
 	"missing-revision-content": "Sisdoallu $1 veršuvnnas man namma lea $2 ii sáhte vižžot.",
+<<<<<<< HEAD
 	"userpage-userdoesnotexist": "Geavaheaddjedovddaldat \"$1\" ii leat registrerejuvvon dan wikis. Háliidatgo duođas ráhkadit/rievdadit dán siiddu?",
 	"userpage-userdoesnotexist-view": "Geavaheaddjidovddaldat \"$1\" ii leat registrerejuvvon dan wikis.",
+=======
+	"userpage-userdoesnotexist": "Geavaheaddjedovddaldat «$1» ii leat registrerejuvvon. Hálidatgo duođas rievdadit dán siiddu?",
+	"userpage-userdoesnotexist-view": "Geavaheaddjedovddaldat «$1» ii leat registrerejuvvon.",
+>>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "Dát {{GENDER:$1|geavaheaddji}} lea dál hehttejuvvon.\nDás vuollelis lea hehttenlogga ođđaseamos mearkkastat referánsan.",
 	"clearyourcache": "<strong>Fuomáš:</strong> Maŋŋel go almmuhat, soaitá leat dárbbašlaš sihkkut neahttalohkkii gaskaráju vai oainnat rievdadusaid. \n* <strong>Firefox / Safari:</strong> Doala <em>Shift</em> dan botta go deattát <em>Reload</em>, dahje deaddil <em>Ctrl-F5</em> dahje <em>Ctrl-R</em> (<em>⌘-R</em> Mac'as)\n* <strong>Google Chrome:</strong> Deaddil <em>Ctrl-Shift-R</em> (<em>⌘-Shift-R</em> Mac'as)\n* <strong>Internet Explorer / Edge:</strong> Doala <em>Ctrl</em> dan botta go deattát <em>Álggat ođđasit</em>, dahje deaddil <em>Ctrl-F5</em>\n* <strong>Opera:</strong> deaddil <em>Ctrl-F5</em>.",
 	"usercssyoucanpreview": "<strong>Cavgileapmi:</strong> Ane \"{{int:showpreview}}\" -boalu geahččalan dihte du ođđa CSS ovdal almmuhat.",
@@ -835,11 +848,16 @@
 	"revdelete-hide-comment": "Čoahkkáigeassu",
 	"revdelete-hide-user": "Čiega geavaheaddjinama dahje IP-čujuhusa",
 	"revdelete-hide-restricted": "Sensurere dieđuid nu ahte dat eai oidno hálddašeddjiide eaige eará geavaheddjiide",
+<<<<<<< HEAD
 	"revdelete-radio-same": "Ale rievdat",
 	"revdelete-radio-set": "Čihkosis",
 	"revdelete-radio-unset": "Oidnosis",
 	"revdelete-radio-set-suppress": "Sensurere",
 	"revdelete-radio-unset-suppress": "Čájet",
+=======
+	"revdelete-radio-set": "Čihkosis",
+	"revdelete-radio-unset": "Oidnosis",
+>>>>>>> origin/1.39.7-test
 	"revdelete-suppress": "Sensurere dieđuid nu ahte dat eai oidno hálddašeddjiide eaige eará geavaheddjiide",
 	"revdelete-unsuppress": "Sihko máhcahuvvon veršuvnnaid ráddjehusaid",
 	"revdelete-log": "Sivva:",
@@ -881,11 +899,16 @@
 	"lineno": "Gurgadas $1:",
 	"compareselectedversions": "Veardde válljejuvvon veršuvnnaid",
 	"showhideselectedversions": "Čájet/čiega válljejuvvon veršuvnnaid",
+<<<<<<< HEAD
 	"showhideselectedfileversions": "Čájet/čiega válljejuvvon fiilaveršuvnnaid",
 	"editundo": "gáđa",
 	"diff-empty": "(Ii leat erohus)",
 	"difference-bad-old-revision": "Sisdoallu ovddeš veršuvnnas váilu dahje lea billahuvvan.",
 	"difference-bad-new-revision": "Sisdoallu ođđa veršuvnnas váilu dahje lea billahuvvan. ",
+=======
+	"editundo": "gáđa",
+	"diff-empty": "(Ii leat erohus)",
+>>>>>>> origin/1.39.7-test
 	"searchresults": "Ohcanbohtosat",
 	"search-filter-title-prefix-reset": "Oza buot siidduin",
 	"searchresults-title": "Ohcanbohtosat: «$1»",
@@ -917,7 +940,10 @@
 	"search-interwiki-more": "(eanet)",
 	"search-interwiki-more-results": "eanet bohtosat",
 	"search-relatedarticle": "Sullásaš",
+<<<<<<< HEAD
 	"search-thumbnail-alt": "Govaš siidui $1",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchrelated": "sullásaš",
 	"searchall": "buot",
 	"showingresults": "{{PLURAL:$1|'''Okta''' boađus|'''$1''' bohtosa}} bohtosa'''$2''' rájes.",
@@ -961,8 +987,11 @@
 	"prefs-email": "E-poastta ásahusat",
 	"prefs-rendering": "Olgguldashápmi",
 	"prefs-searchmisc": "Obbalaš",
+<<<<<<< HEAD
 	"searchprefs": "Oza ásahusaid",
 	"searchprefs-noresults": "Eai bohtosat",
+=======
+>>>>>>> origin/1.39.7-test
 	"saveprefs": "Vurke",
 	"restoreprefs": "Máhcat fas buot vuođđoheivehusaide",
 	"prefs-editing": "Rievdadeapmi",
@@ -970,6 +999,7 @@
 	"recentchangesdays": "Galle beaivvi ođđaseamos rievdadusat čájehuvvojit:",
 	"recentchangesdays-max": "Eanemusat $1 {{PLURAL:$1|beaivvi}}",
 	"recentchangescount": "Galle rievdadusa čájehuvvojit dábálaččat sihke ođđaseamos rievdadusain, siidohistorjjáin ja loggain:",
+<<<<<<< HEAD
 	"prefs-back-title": "Ruovttoluotta ásahusaide",
 	"prefs-description-personal": "Hálddaš movt don ovdánbuktojuvot, čatnašuvat ja gulahalat.",
 	"prefs-description-rendering": "Heivet fárda-, sturrodat-, ja lohkanásahusaid",
@@ -977,6 +1007,8 @@
 	"prefs-description-rc": "Heivet vuogi movt ođđaseamos rievdadusat čájehuvvojit",
 	"prefs-description-watchlist": "Gieđahala ja heivet listtuid siidduide maid čuovut.",
 	"prefs-description-misc": "Heivet sisdoallologahallama",
+=======
+>>>>>>> origin/1.39.7-test
 	"prefs-help-recentchangescount": "Eanemusat: 1000",
 	"prefs-help-watchlist-token2": "Dá lea čiegus čoavdda du čuovvunlisttu neahttadeavdagii. \nBuohkat geain dat čoavdda lea besset du čuovvunlisttu lohkat, nu ahte ale čájet dahje juoge dan earáide.\nJus lea dárbbašlaš, sáhtát [[Special:ResetTokens|ođasmahttit čoavdaga]].",
 	"prefs-help-tokenmanagement": "Don sáhtát geahččat ja ođastahttit iežat čiegus čoavdaga iežat geavaheaddjidovddaldahkii mii ráhppá du Web deavdaga du čuovvunlisttus. Buohkat geain dát čiegus čoavdda lea besset du čuovvunlisttu lohkat, nu ahte ale juogat earáiguin dan.",
@@ -1145,9 +1177,12 @@
 	"right-suppressrevision": "Oaidnit, čiehkat dahje máhcahit oidnosii gean beare geavaheaddji ovttaskas siidoveršuvnnaid",
 	"right-viewsuppressed": "Geahča siidoveršuvnna mii earáide lea čihkkon ",
 	"right-suppressionlog": "Geahččat priváhta loggaid",
+<<<<<<< HEAD
 	"right-block": "Hehttet eará geavaheddjiid rievdadeamis dahje fámuhuhttit sin hehttemiid",
 	"right-blockemail": "Hehttet dán geavaheaddji sáddemis e-poastta dahje fámuhuhttit su hehttema",
 	"right-hideuser": "Hehttet geavaheaddjinama dahje fámuhuhttit geavaheaddjinama hehttema ja čiehkat dahje máhcahit geavaheaddjinama oidnosii",
+=======
+>>>>>>> origin/1.39.7-test
 	"right-ipblock-exempt": "Mannat meaddel IP-čujuhusaid hehttemiid, automáhtalaš hehttemiid ja IP-čujuhusráidduid hehttemiid",
 	"right-unblockself": "Fámuhuhttit iežat hehttema",
 	"right-protect": "Rievdadit suodjalanásahusaid ja rievdat siidduid, main lea viđjesuodjaleapmi.",
@@ -1168,7 +1203,10 @@
 	"right-viewmywatchlist": "Geahča iežat čuovvunlisttu",
 	"right-editmywatchlist": "Rievdadit iežat čuovvunlisttu (merke ahte muhtin doaimmat goitge lasihit siidduid čuovvunlistui dan vuoigatvuođa haga).",
 	"right-viewmyprivateinfo": "Geahččat iežat priváhta dieđuid (omd. e-poastačujuhus ja albma namma)",
+<<<<<<< HEAD
 	"right-editmyprivateinfo": "Rievdadit iežat priváhta dieđuid (omd. e-poastačujuhus ja albma namma) ja bivdde e-poastta beassansáni rievdadan dihte.",
+=======
+>>>>>>> origin/1.39.7-test
 	"right-editmyoptions": "Rievdadit iežat ásahusaid",
 	"right-import": "Sisafievrridit siidduid eará Wikiin ",
 	"right-importupload": "Lasit siidduid fiillas",
@@ -1230,6 +1268,7 @@
 	"action-writeapi": "geavahit čállinrádjeolggoža (čállin-API)",
 	"action-delete": "sihkkut dán siiddu",
 	"action-delete-redirect": "vurket ođđa siiddu dakkár siiddu sadjái, mas lea dušše okta siidoveršuvdna",
+<<<<<<< HEAD
 	"action-deleterevision": "sihkkut ja máhcahit siidduid ovttaskas veršuvnnaid",
 	"action-deletelogentry": "sihkkut dahje máhcahit oidnosii ovttaskas loggamearkkastagaid",
 	"action-deletedhistory": "oaidnit sihkkojuvvon historjáveršuvnnaid metadieđuid",
@@ -1239,6 +1278,11 @@
 	"action-suppressrevision": "geahččat, čiehkat dahje máhcahit oidnosii gean beare geavaheaddji ovttaskas siidoveršuvnnaid",
 	"action-suppressionlog": "geahččat dán priváhta logga",
 	"action-block": "hehttet dán geavaheaddji rievdadeamis dahje fámuhuhttit su hehttema",
+=======
+	"action-browsearchive": "ohcat sihkkojuvvon siidduid",
+	"action-undelete": "máhcahit sihkkojuvvon siidduid",
+	"action-suppressionlog": "geahččat dán priváhta logga",
+>>>>>>> origin/1.39.7-test
 	"action-protect": "rievdadit dán siiddu suodjalanvuođaásahusaid",
 	"action-import": "Sisafievrret siidduid eará Wikis",
 	"action-importupload": "lasihit siidduid fiillas",
@@ -1262,7 +1306,10 @@
 	"action-purge": "gurret dán siiddu gaskamuittu",
 	"action-apihighlimits": "geavahit alit rájiid API-jearramiin",
 	"action-bigdelete": "sihkkut siidduid main lea ollu historjá",
+<<<<<<< HEAD
 	"action-blockemail": "hehttet dán geavaheaddji sáddemis e-poastta dahje fámuhuhttit su hehttema",
+=======
+>>>>>>> origin/1.39.7-test
 	"action-editprotected": "rievdadit siidduid, mat leat suodjaluvvon dássái \"{{int:protect-level-sysop}}\"",
 	"action-editsemiprotected": "rievdadit siidduid, mat leat suodjaluvvon dássái \"{{int:protect-level-autoconfirmed}}\"",
 	"action-editinterface": "rievdadit geavahanlavtta",
@@ -1277,7 +1324,10 @@
 	"action-editmyuserjs": "rievdadit iežat JavaScript-fiillaid",
 	"action-editmyuserjsredirect": "rievdadit iežat JavaScript-fiillaid, mat leat ođđasit stivrejuvvon",
 	"action-viewsuppressed": "Geahča siidoveršuvnna mii earáide lea čihkkon ",
+<<<<<<< HEAD
 	"action-hideuser": "hehttet geavaheaddjinama dahje fámuhuhttit geavaheaddjinama hehttema ja čiehkat dahje máhcahit geavaheaddjinama oidnosii",
+=======
+>>>>>>> origin/1.39.7-test
 	"action-ipblock-exempt": "mannat meaddel IP-čujuhusaid hehttemiid, automáhtalaš hehttemiid ja IP-čujuhusráidduid hehttemiid",
 	"action-unblockself": "fámuhuhttit iežat hehttema",
 	"action-reupload-own": "vurket ođđa fiillaid dakkár fiillaid sadjái, maid don leat iežat vurken",
@@ -1393,14 +1443,20 @@
 	"rcfilters-filter-newpages-description": "Rievdadusat mat ásahit ođđa siidduid.",
 	"rcfilters-filter-categorization-label": "Kategoriija rievdadusat",
 	"rcfilters-filter-logactions-label": "Loggadoaimmat",
+<<<<<<< HEAD
 	"rcfilters-filter-newuserlogactions-label": "Ođđa geavaheaddjit",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-filtergroup-lastrevision": "Ođđaseamos siidoveršuvnnat",
 	"rcfilters-filter-lastrevision-label": "Ođđaseamos siidoveršuvdna",
 	"rcfilters-filter-lastrevision-description": "Dušše siiddu buot ođđaseamos rievdadus.",
 	"rcfilters-filter-previousrevision-label": "Ii ođđaseamos siidoveršuvdna",
 	"rcfilters-filter-previousrevision-description": "Buot rievdadusat mat eai leat \"ođđaseamos siidoveršuvdna\".",
+<<<<<<< HEAD
 	"rcfilters-tag-prefix-namespace-inverted": "<strong>ii</strong>:$1",
 	"rcfilters-tag-prefix-tags-inverted": "<strong>ii</strong> #$1",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-view-tags": "Gilkorastojuvvon rievdadusat",
 	"rcfilters-view-namespaces-tooltip": "Sille bohtosiid nammagomuvuođa mielde",
 	"rcfilters-view-tags-tooltip": "Sille bohtosiid rievdadangilkoriiguin",
@@ -1644,7 +1700,10 @@
 	"filehist-dimensions": "Mihtut",
 	"filehist-filesize": "Fiilasturrodat",
 	"filehist-comment": "Kommentára",
+<<<<<<< HEAD
 	"filehist-missing": "ii fiila",
+=======
+>>>>>>> origin/1.39.7-test
 	"imagelinks": "Fiilla geavaheapmi",
 	"linkstoimage": "Čuovvovaš {{PLURAL:$1|siiddus|$1 siiddus}} čujuhuvvo dán fiilii:",
 	"nolinkstoimage": "Dát fiila ii geavahuvvo ovttage siiddus.",
@@ -1808,7 +1867,10 @@
 	"notargettext": "It leat meroštallan jovssus-siiddu dahje -geavaheaddji, masa dahku laktása.",
 	"nopagetitle": "Jovssus-siidu ii gávdno",
 	"nopagetext": "Jerrejuvvon jovssus-siidu ii gávdno.",
+<<<<<<< HEAD
 	"badrevision": "Dán veršuvnna teaksta váilu dahje lea billahuvvan. ",
+=======
+>>>>>>> origin/1.39.7-test
 	"pager-newer-n": "{{PLURAL:$1|ođđaset 1|ođđaset $1}}",
 	"pager-older-n": "{{PLURAL:$1|boarráset 1|boarráset $1}}",
 	"suppress": "Sensureren",
@@ -2238,6 +2300,11 @@
 	"ipb-sitewide": "Olles neahttasiidu",
 	"ipb-partial": "Belohahkii",
 	"ipb-action-create": "Ođđa siidduid ráhkadeapmi",
+<<<<<<< HEAD
+=======
+	"ipb-action-move": "Ođđa nama ráhkadeapmi siidduide",
+	"ipb-action-upload": "Fiillaid vurken",
+>>>>>>> origin/1.39.7-test
 	"ipb-pages-label": "Siiddut",
 	"ipb-namespaces-label": "Nammagomuvuođat",
 	"badipaddress": "IP-čujuhus lea boastut.",
@@ -2379,8 +2446,11 @@
 	"movesubpage": "{{PLURAL:$1|Oalgesiidu|Oalgesiiddut}}",
 	"movenosubpage": "Dán siiddus eai leat oalgesiiddut.",
 	"movereason": "Sivva",
+<<<<<<< HEAD
 	"movereasonotherlist": "Eará sivva",
 	"movepage-reason-dropdown": "* Dábálaš sirdinsivat\n** Meattáhus namas",
+=======
+>>>>>>> origin/1.39.7-test
 	"revertmove": "máhcat sirdima",
 	"delete_and_move_confirm": "Sihko siiddu",
 	"immobile-source-namespace": "Siidduid ii sáhte sirdit nammagomuvuođas \"$1\".",
@@ -2533,7 +2603,10 @@
 	"pageinfo-default-sort": "Dábálaš sirrenčoavdda",
 	"pageinfo-length": "Siiddu guhkkodat (stávvalin)",
 	"pageinfo-namespace": "Nammagomuvuohta",
+<<<<<<< HEAD
 	"pageinfo-namespace-id": "Nammagomuvuođa gilkor",
+=======
+>>>>>>> origin/1.39.7-test
 	"pageinfo-article-id": "Siidu ID",
 	"pageinfo-language": "Siiddu sisdoalu giella",
 	"pageinfo-language-change": "molsso",
@@ -2649,7 +2722,10 @@
 	"confirm_purge_button": "Sihko",
 	"confirm-watch-button": "OK",
 	"confirm-watch-top": "Háliidivččetgo lasihit dán siiddu iežat čuovvunlistui?",
+<<<<<<< HEAD
 	"watchlist-expiry-options": "Bissovaš:infinite,1 vahkku:1 week,1 mánotbadji:1 month,3 mánotbaji:3 months,6 mánotbaji:6 months,1 jahki:1 year",
+=======
+>>>>>>> origin/1.39.7-test
 	"confirm-watch-button-expiry": "Čuovo",
 	"confirm-unwatch-button": "OK",
 	"confirm-unwatch-top": "Háliidivččetgo sihkkut dán siiddu iežat čuovvunlistus?",
@@ -3034,7 +3110,10 @@
 	"mediastatistics-header-office": "Kantuvra ",
 	"mediastatistics-header-total": "Buot fiillat",
 	"json-error-syntax": "Syntáksameattáhus",
+<<<<<<< HEAD
 	"special-tab-contributions-short": "Čájet rievdadusaid",
+=======
+>>>>>>> origin/1.39.7-test
 	"special-characters-group-ipa": "IPA",
 	"special-characters-group-symbols": "Symbolat",
 	"special-characters-group-greek": "Greikalaš",
@@ -3194,6 +3273,7 @@
 	"skin-action-move": "Sirdde",
 	"newpages-showhide-bots": "$1 bohtaid",
 	"newpages-showhide-redirect": "$1 ođđasitstivren",
+<<<<<<< HEAD
 	"newpages-showhide-registered": "$1 registrerejuvvon geavaheddjiid",
 	"blockedtext-made-by": "$1 hehttii",
 	"blockedtext-reason-comment": "Sivva hehttemii lea <em>$1</em>",
@@ -3226,4 +3306,7 @@
 	"log-description-renameuser": "Dát lea logga, masa merkejuvvojit rievdadusat geavaheaddjinamaide.",
 	"action-renameuser": "ráhkat ođđa nama geavaheddjiide ",
 	"right-renameuser": "Ráhkat ođđa nama geavaheddjiide "
+=======
+	"newpages-showhide-registered": "$1 registrerejuvvon geavaheddjiid"
+>>>>>>> origin/1.39.7-test
 }

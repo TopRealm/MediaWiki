@@ -88,7 +88,11 @@ class ImportFailureTest extends MediaWikiLangTestCase {
 	}
 
 	public function provideImportFailure() {
+<<<<<<< HEAD
 		yield [ 'BadXML', MWException::class, '/^XML error at line 3: Opening and ending tag mismatch:.*$/' ];
+=======
+		yield [ 'BadXML', 'warning', '/^XMLReader::read\(\): .*$/' ];
+>>>>>>> origin/1.39.7-test
 		yield [ 'MissingMediaWikiTag', MWException::class, "/^Expected '<mediawiki>' tag, got .*$/" ];
 		yield [ 'MissingMainTextField', MWException::class, '/^Missing text field in import.$/' ];
 		yield [ 'MissingSlotTextField', MWException::class, '/^Missing text field in import.$/' ];

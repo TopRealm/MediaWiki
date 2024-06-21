@@ -4189,6 +4189,7 @@ File:Doesnotexist.jpg|thumb|456 - has an error noted in the rdfa
 </ul>
 !! end
 
+<<<<<<< HEAD:tests/parser/media.txt
 ## Alt takes precedence as the link text
 !! test
 Broken inline media with a caption and an alt
@@ -4266,6 +4267,8 @@ Foobar.jpg
 </ul>
 !! end
 
+=======
+>>>>>>> origin/1.39.7-test:tests/parser/mediaParserTests.txt
 !! test
 Broken media with frame and frameless formats
 !! config
@@ -4275,7 +4278,11 @@ wgParserEnableLegacyMediaDOM=false
 [[File:Barfoo.jpg|frameless|123]]
 !! html/php
 <figure typeof="mw:Error mw:File/Frame"><a href="/wiki/File:Barfoo.jpg" class="mw-redirect" title="File:Barfoo.jpg"><span class="mw-broken-media" data-width="180">File:Barfoo.jpg</span></a><figcaption>123</figcaption></figure>
+<<<<<<< HEAD:tests/parser/media.txt
 <p><span class="mw-default-size" typeof="mw:Error mw:File/Frameless"><a href="/wiki/File:Barfoo.jpg" class="mw-redirect" title="File:Barfoo.jpg"><span class="mw-broken-media">123</span></a></span>
+=======
+<p><span class="mw-default-size" typeof="mw:Error mw:File/Frameless"><a href="/wiki/File:Barfoo.jpg" class="mw-redirect" title="File:Barfoo.jpg"><span class="mw-broken-media">File:Barfoo.jpg</span></a></span>
+>>>>>>> origin/1.39.7-test:tests/parser/mediaParserTests.txt
 </p>
 !! html/parsoid
 <figure typeof="mw:Error mw:File/Frame" data-mw='{"errors":[{"key":"apierror-filedoesnotexist","message":"This image does not exist."}]}'><a href="./Special:FilePath/Barfoo.jpg"><span class="mw-broken-media" resource="./File:Barfoo.jpg">File:Barfoo.jpg</span></a><figcaption>123</figcaption></figure>

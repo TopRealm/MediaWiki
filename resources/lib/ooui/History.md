@@ -1,4 +1,5 @@
 # OOUI Release History
+<<<<<<< HEAD
 
 ## v0.46.3 / 2023-02-06
 ### Features
@@ -83,6 +84,8 @@
 * AUTHORS: Update for the first time since 2017(!) and composer.json listing too (James D. Forrester)
 
 
+=======
+>>>>>>> origin/1.39.7-test
 ## 0.44.5 / 2023-02-06
 ### Styles
 * build: Update 'wikimedia-ui-base' to v0.20.0 (Volker E.)

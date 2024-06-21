@@ -54,6 +54,12 @@
 			"שומבלע",
 			"שמזן",
 			"תומר ט",
+<<<<<<< HEAD
+=======
+			"מיכי י-ם",
+			"Rotem Liss",
+			"מקף",
+>>>>>>> origin/1.39.7-test
 			"Dee",
 			"נדב ס",
 			"Purple-bananana"
@@ -922,11 +928,17 @@
 	"revdelete-hide-comment": "הסתרת תקציר העריכה",
 	"revdelete-hide-user": "שם המשתמש או כתובת ה־IP של העורך",
 	"revdelete-hide-restricted": "העלמת המידע גם ממפעילי מערכת",
+<<<<<<< HEAD
 	"revdelete-radio-same": "לא לשנות",
 	"revdelete-radio-set": "להסתיר",
 	"revdelete-radio-unset": "להציג",
 	"revdelete-radio-set-suppress": "להעלים",
 	"revdelete-radio-unset-suppress": "לא להעלים",
+=======
+	"revdelete-radio-same": "(ללא שינוי)",
+	"revdelete-radio-set": "להסתיר",
+	"revdelete-radio-unset": "להציג",
+>>>>>>> origin/1.39.7-test
 	"revdelete-suppress": "העלמת המידע גם ממפעילי מערכת",
 	"revdelete-unsuppress": "הסרת הגבלות בגרסאות שנמחקו וששוחזרו",
 	"revdelete-log": "סיבה:",
@@ -1616,8 +1628,12 @@
 	"rcfilters-filter-previousrevision-label": "לא הגרסה האחרונה",
 	"rcfilters-filter-previousrevision-description": "כל השינויים שאינם \"הגרסה האחרונה\".",
 	"rcfilters-filter-excluded": "מוחרג",
+<<<<<<< HEAD
 	"rcfilters-tag-prefix-namespace-inverted": "<strong>לא</strong> :$1",
 	"rcfilters-tag-prefix-tags-inverted": "<strong>לא</strong> #$1",
+=======
+	"rcfilters-tag-prefix-namespace-inverted": "<strong>:לא</strong> $1",
+>>>>>>> origin/1.39.7-test
 	"rcfilters-exclude-button-off": "היפוך הבחירה",
 	"rcfilters-exclude-button-on": "היפוך הבחירה",
 	"rcfilters-view-tags": "עריכות מתויגות",
@@ -2143,7 +2159,10 @@
 	"notargettext": "לא ציינת דף יעד או משתמש יעד לביצוע הפונקציה הזאת.",
 	"nopagetitle": "אין דף יעד כזה",
 	"nopagetext": "דף היעד שציינת אינו קיים.",
+<<<<<<< HEAD
 	"badrevision": "הטקסט של גרסה זו חסר או פגום.",
+=======
+>>>>>>> origin/1.39.7-test
 	"pager-newer-n": "{{PLURAL:$1|הבאה|$1 הבאות}}",
 	"pager-older-n": "{{PLURAL:$1|הקודמת|$1 הקודמות}}",
 	"suppress": "העלמה",
@@ -2621,7 +2640,10 @@
 	"whatlinkshere-page": "דף:",
 	"linkshere": "הדפים שלהלן מקשרים לדף <strong>$2</strong>:",
 	"nolinkshere": "אין דפים שמקשרים לדף <strong>$2</strong>.",
+<<<<<<< HEAD
 	"nolinkshere-filter": "אין דפים שמקשרים לדף <strong>$2</strong> לפי הגדרות החיפוש הנוכחיות.",
+=======
+>>>>>>> origin/1.39.7-test
 	"nolinkshere-ns": "אין דפים שמקשרים לדף <strong>$2</strong> במרחב השם שנבחר.",
 	"isredirect": "דף הפניה",
 	"istemplate": "הכללה",

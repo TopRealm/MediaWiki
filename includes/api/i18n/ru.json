@@ -55,6 +55,10 @@
 			"Краснорядцева Елена",
 			"Лилиә",
 			"Марио",
+<<<<<<< HEAD
+=======
+			"Deltaspace",
+>>>>>>> origin/1.39.7-test
 			"BerryAVGN",
 			"Amire80",
 			"Smigles",
@@ -275,7 +279,10 @@
 	"apihelp-feedrecentchanges-param-hidemyself": "Скрыть правки текущего участника.",
 	"apihelp-feedrecentchanges-param-hidecategorization": "Скрыть категоризацию страниц.",
 	"apihelp-feedrecentchanges-param-tagfilter": "Фильтр по меткам.",
+<<<<<<< HEAD
 	"apihelp-feedrecentchanges-param-inverttags": "Все правки, кроме помеченных выбранными.",
+=======
+>>>>>>> origin/1.39.7-test
 	"apihelp-feedrecentchanges-param-target": "Отображать только правки на страницах, на которые ссылается данная.",
 	"apihelp-feedrecentchanges-param-showlinkedto": "Отображать правки на страницах, ссылающихся на данную.",
 	"apihelp-feedrecentchanges-example-simple": "Список последних изменений.",

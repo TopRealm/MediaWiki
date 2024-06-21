@@ -191,19 +191,39 @@
 			"飞舞回堂前",
 			"魔琴",
 			"아라",
+<<<<<<< HEAD
+=======
+			"LittlePaw365",
+			"Nervie",
+			"Lantianjialiang",
+			"捍粵者",
+			"Jbyccc",
+			"John Smith Ri",
+			"飞小RAN",
+>>>>>>> origin/1.39.7-test
 			"Amire80",
 			"淮南皓月",
 			"Vikarna",
 			"Googology",
 			"Anterdc99",
+<<<<<<< HEAD
 			"Dream Star.cn",
 			"XtexChooser",
+=======
+			"XtexChooser",
+			"Dream Star.cn",
+>>>>>>> origin/1.39.7-test
 			"Aaron Liu",
 			"Olvcpr423",
 			"NekoCharm",
 			"Cookai1205",
+<<<<<<< HEAD
 			"M397749490",
 			"Key0121"
+=======
+			"Key0121",
+			"M397749490"
+>>>>>>> origin/1.39.7-test
 		]
 	},
 	"tog-underline": "链接下划线：",
@@ -380,8 +400,11 @@
 	"skin-action-unprotect": "更改保护",
 	"unprotect": "更改保护",
 	"newpage": "新页面",
+<<<<<<< HEAD
 	"newpage-desc": "为已申请的主题开始撰写新页面。",
 	"view-missing-pages": "显示缺失页面",
+=======
+>>>>>>> origin/1.39.7-test
 	"talkpagelinktext": "留言",
 	"specialpage": "特殊页面",
 	"personaltools": "个人工具",
@@ -1257,6 +1280,7 @@
 	"recentchangesdays": "最近更改中显示的天数：",
 	"recentchangesdays-max": "最多$1天",
 	"recentchangescount": "最近更改、页面历史和日志内默认显示的编辑数：",
+<<<<<<< HEAD
 	"prefs-back-title": "返回到参数设置",
 	"prefs-description-personal": "控制站内身份显示与站内交流相关的设置。",
 	"prefs-description-rendering": "配置皮肤、大小和阅读相关的选项。",
@@ -1265,6 +1289,8 @@
 	"prefs-description-watchlist": "管理和个性化您正在监视的页面的列表。",
 	"prefs-description-searchoptions": "选择自动补全及其结果如何运作。",
 	"prefs-description-misc": "自定义目录。",
+=======
+>>>>>>> origin/1.39.7-test
 	"prefs-help-recentchangescount": "最大数目：1000",
 	"prefs-help-watchlist-token2": "这是您监视列表的网页feed密钥。\n任何拥有者均可以浏览您的监视列表，因此不要公开该密钥。\n如果有需要，[[Special:ResetTokens|您可以重置密钥]]。",
 	"prefs-help-tokenmanagement": "您可以查看并重置您账户的密钥，它用来访问您监视列表的Web订阅源。\n任何知道密钥的人都将可以阅读您的监视列表，所以不要分享它。",
@@ -1403,7 +1429,11 @@
 	"userrights-irreversible-marker": "$1*",
 	"userrights-no-shorten-expiry-marker": "$1#",
 	"userrights-expiry-current": "期限为$1",
+<<<<<<< HEAD
 	"userrights-expiry-none": "不会过期",
+=======
+	"userrights-expiry-none": "不会期满",
+>>>>>>> origin/1.39.7-test
 	"userrights-expiry": "期限：",
 	"userrights-expiry-existing": "现有期限：$2 $3",
 	"userrights-expiry-othertime": "其他时间：",
@@ -1496,7 +1526,11 @@
 	"right-viewmywatchlist": "查看自己的监视列表",
 	"right-editmywatchlist": "编辑自己的监视列表（请留意即使缺少此权限，某些操作仍将添加页面至监视列表）",
 	"right-viewmyprivateinfo": "查看自己的私人数据（如电子邮件地址、真实姓名）",
+<<<<<<< HEAD
 	"right-editmyprivateinfo": "编辑自己的私人数据（如电子邮件地址、真实姓名）和申请重置密码邮件",
+=======
+	"right-editmyprivateinfo": "编辑您的私人数据（如电子邮件地址、真实姓名）",
+>>>>>>> origin/1.39.7-test
 	"right-editmyoptions": "编辑自己的参数设置",
 	"right-rollback": "快速回退最后一位用户对某一页面的编辑",
 	"right-markbotedits": "标记回退编辑为机器人编辑",
@@ -1765,8 +1799,11 @@
 	"rcfilters-filter-categorization-description": "从分类中添加或移除页面的记录。",
 	"rcfilters-filter-logactions-label": "日志操作",
 	"rcfilters-filter-logactions-description": "管理操作、账号创建、页面删除、上传等",
+<<<<<<< HEAD
 	"rcfilters-filter-newuserlogactions-label": "新用户",
 	"rcfilters-filter-newuserlogactions-description": "用于账户创建的日志条目。必须选择记录的操作。",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-hideminor-conflicts-typeofchange-global": "“小编辑”筛选条件与一或多个更改类型筛选条件冲突，因为某些更改类型不可指定为“小编辑”。冲突的筛选条件在上面的活跃的筛选条件区域标出。",
 	"rcfilters-hideminor-conflicts-typeofchange": "某种更改类型不可指定为“小编辑”，因此该过滤器与以下更改类型过滤器相冲突：$1",
 	"rcfilters-typeofchange-conflicts-hideminor": "这种更改类型过滤器与“小编辑”过滤器相冲突。某种更改类型不可指定为“小编辑”。",
@@ -2305,7 +2342,10 @@
 	"notargettext": "您还没有指定一个目标页面或用户以进行此项操作。",
 	"nopagetitle": "无目标页面",
 	"nopagetext": "您所指定的目标页面并不存在。",
+<<<<<<< HEAD
 	"badrevision": "此修订版本的内容已丢失或损坏。",
+=======
+>>>>>>> origin/1.39.7-test
 	"pager-newer-n": "{{PLURAL:$1|较新$1条}}",
 	"pager-older-n": "{{PLURAL:$1|较旧$1条}}",
 	"suppress": "屏蔽",
@@ -2356,7 +2396,7 @@
 	"apisandbox-param-limit": "输入<kbd>max</kbd>以使用最大限制。",
 	"apisandbox-multivalue-all-namespaces": "$1（所有命名空间）",
 	"apisandbox-multivalue-all-values": "$1（所有值）",
-	"booksources": "网络书源",
+	"booksources": "图书来源",
 	"booksources-search-legend": "搜索图书来源",
 	"booksources-isbn": "ISBN：",
 	"booksources-search": "搜索",
@@ -2369,7 +2409,7 @@
 	"magiclink-tracking-isbn": "使用ISBN魔术链接的页面",
 	"magiclink-tracking-isbn-desc": "此页面使用ISBN魔术链接。参见[https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Magic_links mediawiki.org]以获取有关如何迁移的信息。",
 	"specialloguserlabel": "执行者：",
-	"speciallogtitlelabel": "目标（标题或以“{{ns:user}}:用户名”表示用户）：",
+	"speciallogtitlelabel": "目标（标题或以“{{ns:user}}:用户名”表示的用户）：",
 	"log": "日志",
 	"logeventslist-submit": "显示",
 	"logeventslist-more-filters": "显示更多日志：",
@@ -2669,8 +2709,8 @@
 	"protect-level-sysop": "仅允许管理员",
 	"protect-summary-desc": "[$1=$2]（$3）",
 	"protect-summary-cascade": "连锁保护",
-	"protect-expiring": "终止于$1（UTC）",
-	"protect-expiring-local": "终止于$1",
+	"protect-expiring": "期限为$1（UTC）",
+	"protect-expiring-local": "期限为$1",
 	"protect-expiry-indefinite": "无限期",
 	"protect-cascade": "保护嵌入该页面的页面（连锁保护）",
 	"protect-cantedit": "您无法更改这个页面的保护设定，因为您没有权限去编辑它。",
@@ -3401,7 +3441,11 @@
 	"metadata-help": "此文件含有额外信息，这些信息可能是创建或数字化该文件时使用的数码相机或扫描仪所添加的。如果文件已从其原始状态修改，某些详细信息可能无法完全反映修改后的文件。",
 	"metadata-expand": "显示扩展详细信息",
 	"metadata-collapse": "隐藏扩展详细信息",
+<<<<<<< HEAD
 	"metadata-fields": "当元数据表折叠时，此消息中列出的图像元数据字段将显示在图像页中。\n其余的默认隐藏。\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude\n* dc-rights\n* copyrightowner\n* usageterms\n* webstatement\n* licenseurl\n* attributionurl\n* preferredattributionname\n* credit\n* jpegfilecomment\n* pngfilecomment\n* giffilecomment\n* usercomment\n* citydest\n* citycreated\n* headline\n* source\n* locationdest\n* dc-contributor\n* dc-coverage\n* dc-publisher\n* dc-relation\n* label\n* nickname\n* personinimage\n* disclaimer\n* event\n* objectname",
+=======
+	"metadata-fields": "当元数据表折叠时，此消息中列出的图像元数据字段将显示在图像页中。\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude",
+>>>>>>> origin/1.39.7-test
 	"metadata-langitem": "<strong>$2：</strong>$1",
 	"namespacesall": "所有",
 	"monthsall": "所有",
@@ -3442,7 +3486,11 @@
 	"confirm-watch-button": "确定",
 	"confirm-watch-top": "将此页添加到您的监视列表吗？",
 	"confirm-watch-label": "监视期限：",
+<<<<<<< HEAD
 	"watchlist-expiry-options": "不限期:infinite,1周:1 week,1个月:1 month,3个月:3 months,6个月:6 months,1年:1 year",
+=======
+	"watchlist-expiry-options": "不限期:infinite,1周:1 week,1个月:1 month,3个月:3 months,6个月:6 months",
+>>>>>>> origin/1.39.7-test
 	"watchlist-expires-in-aria-label": "监视列表项目即将过期",
 	"confirm-watch-button-expiry": "监视",
 	"confirm-unwatch-button": "确定",
@@ -3564,7 +3612,11 @@
 	"signature-temp": "[[{{#special:Contributions}}/$1|$2]]（[[{{ns:user_talk}}:$1|留言]]）",
 	"timezone-local": "本地",
 	"duplicate-defaultsort": "<strong>警告：</strong>默认排序键“$2”覆盖了之前的默认排序键“$1”。",
+<<<<<<< HEAD
 	"duplicate-displaytitle": "<strong>警告：</strong>显示标题“$2”覆盖了之前的显示标题“$1”。",
+=======
+	"duplicate-displaytitle": "<strong>警告：</strong>显示的标题“$2”重写了此前显示的标题“$1”。",
+>>>>>>> origin/1.39.7-test
 	"restricted-displaytitle": "<strong>警告：</strong>显示标题“$1”被忽略，因为它不等同于页面的实际标题。",
 	"invalid-indicator-name": "<strong>错误：</strong>页面状态指示器的<code>name</code>属性必须不为空。",
 	"invalid-langconvert-attrs": "<strong>错误：</strong>Langconvert标记<code>from</code>以及<code>to</code>属性不能为空，并且必须包含相同语言可转换变体的BCP 47代码。",

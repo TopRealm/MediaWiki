@@ -716,9 +716,12 @@ abstract class ApiQueryRevisionsBase extends ApiQueryGeneratorBase {
 					ApiResult::setContentValue( $vals['diff'], 'body', $difftext );
 					if ( !$engine->wasCacheHit() ) {
 						$this->numUncachedDiffs++;
+<<<<<<< HEAD
 					}
 					foreach ( $engine->getRevisionLoadErrors() as $msg ) {
 						$this->addWarning( $msg );
+=======
+>>>>>>> origin/1.39.7-test
 					}
 				}
 			} else {

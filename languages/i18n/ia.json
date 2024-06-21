@@ -671,8 +671,13 @@
 	"missing-revision-permission": "Le version №$1 pertine a un pagina delite. Tu pote [{{fullurl:{{#Special:Undelete}}|target=$3&timestamp=$2&diff=prev}} vider lo]; detalios se trova in le [{{fullurl:{{#Special:Log}}/delete|page=$3}} registro de deletiones].",
 	"missing-revision": "Le version №$1 del pagina nominate “{{FULLPAGENAME}}” non existe.\n\nIsto es generalmente causate per sequer un ligamine de historia obsolete a un pagina que ha essite delite.\nDetalios se trova in le [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} registro de deletiones].",
 	"missing-revision-content": "Le contento del version $1 del pagina “$2” non poteva esser cargate.",
+<<<<<<< HEAD
 	"userpage-userdoesnotexist": "Le conto de usator “$1” non es registrate sur iste wiki. Per favor verifica que tu vole crear/modificar iste pagina.",
 	"userpage-userdoesnotexist-view": "Le conto de usator “$1” non es registrate sur iste wiki.",
+=======
+	"userpage-userdoesnotexist": "Le conto de usator \"<nowiki>$1</nowiki>\" non es registrate. Per favor verifica que tu vole crear/modificar iste pagina.",
+	"userpage-userdoesnotexist-view": "Le conto de usator \"$1\" non es registrate.",
+>>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "Iste usat{{GENDER:$1|or|rice}} es actualmente blocate.\nLe ultime entrata del registro de blocadas es reproducite ci infra pro information:",
 	"clearyourcache": "<strong>Nota:</strong> Post publicar, il pote esser necessari refrescar le <em>cache</em> de tu navigator pro vider le cambiamentos.\n* <strong>Firefox / Safari:</strong> Tenente <em>Shift</em> clicca <em>Reload (Recargar)</em>, o preme <em>Ctrl-F5</em> o <em>Ctrl-R</em> (<em>⌘-R</em> sur Mac)\n* <strong>Google Chrome:</strong> Preme <em>Ctrl-Shift-R</em> (<em>⌘-Shift-R</em> sur Mac)\n* <strong>Internet Explorer / Edge:</strong> Tenente <em>Ctrl</em> clicca <em>Refresh (Refrescar)</em>, o preme <em>Ctrl-F5</em> \n* <strong>Opera:</strong> Preme <em>Ctrl-F5</em>.",
 	"usercssyoucanpreview": "<strong>Consilio:</strong> Usa le button “{{int:showpreview}}” pro testar tu nove CSS ante de publicar lo.",
@@ -1086,7 +1091,10 @@
 	"timezoneuseserverdefault": "Usar le valor predefinite del wiki ($1)",
 	"timezoneuseoffset": "Altere (differentia horari ab UTC)",
 	"timezone-useoffset-placeholder": "Exemplos de valores: “-07:00” o “01:00”",
+<<<<<<< HEAD
 	"timezone-invalid": "Fuso horari o displaciamento horari non valide.",
+=======
+>>>>>>> origin/1.39.7-test
 	"servertime": "Hora del servitor:",
 	"guesstimezone": "Obtener del navigator",
 	"timezoneregion-africa": "Africa",
@@ -1565,8 +1573,11 @@
 	"rcfilters-filter-categorization-description": "Registros del addition o remotion de paginas a/de categorias.",
 	"rcfilters-filter-logactions-label": "Actiones traciate",
 	"rcfilters-filter-logactions-description": "Actiones administrative, creation de contos, deletion de paginas, incargamentos…",
+<<<<<<< HEAD
 	"rcfilters-filter-newuserlogactions-label": "Nove usatores",
 	"rcfilters-filter-newuserlogactions-description": "Entratas de registro pro le creation de contos. Actiones registrate debe esser seligite.",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-hideminor-conflicts-typeofchange-global": "Le “Modificationes minor” es in conflicto con un o plure filtros “Typo de cambiamento” perque certe typos de cambiamento non pote esser assignate como “minor”. Le filtros in conflicto es marcate in le area “Filtros active” supra.",
 	"rcfilters-hideminor-conflicts-typeofchange": "Certe typos de cambiamento non pote esser assignate como “minor”, dunque iste filtro es in conflicto con le sequente filtros “Typo de cambiamento”: $1",
 	"rcfilters-typeofchange-conflicts-hideminor": "Iste filtro “Typo de cambiamento” es in conflicto con le filtro “Modificationes minor”. Certe typos de cambiamento non pote esser assignate como “minor”.",

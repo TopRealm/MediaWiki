@@ -960,7 +960,11 @@ class ChangeTags {
 						'LEFT JOIN',
 						[ $join_cond, self::DISPLAY_TABLE_ALIAS . '.ct_tag_id' => $filterTagIds ]
 					];
+<<<<<<< HEAD
 					$conds[] = self::DISPLAY_TABLE_ALIAS . ".ct_tag_id IS NULL";
+=======
+					$conds[] = "ct_tag_id IS NULL";
+>>>>>>> origin/1.39.7-test
 				}
 			} else {
 				$tables[self::DISPLAY_TABLE_ALIAS] = $tagTable;

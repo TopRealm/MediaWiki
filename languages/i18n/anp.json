@@ -527,7 +527,11 @@
 	"anontalkpagetext": "----\n<em>ई वार्ता पन्ना वू बेनामी सदस्य सिनी लेली छै, जे या त खाता नै खोलले छै या खाता के प्रयोग नै करी रहलो छै।</em>\nई लेली उनको पहचान लेली हुनको संख्यात्मक आइपी पता के फरयोग करै ल पड़तै।\nऐसनो आइपी पता एक सँ जादा सदस्यौ लेली साझा हुअय सकै छै।\nजों आपनै एगो बेनामी सदस्य छेकियै आरू आपनै क लगै छै कि आपने के बारे में अप्रासंगिक टीका टिप्पणी करलो गेलो छै त कृपया [[Special:CreateAccount|खाता बनैइयै]] या [[Special:UserLogin|खाता मँ प्रवेश करौ]] जेकरा सँ कि आरू बेनामी सदस्य सिनी मँ सँ आपनै क अलग सँ पहचाननो जाबय सकै।",
 	"noarticletext": "फ़िलहाल ई पन्ना पर कोनो सामग्री नै छै.\nआपन॑ अन्य पन्ना मँ [[Special:Search/{{PAGENAME}}|ई सामग्री के खोज]] करै सकै छियै,\n<span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} संबंधित चिट्ठा मँ खोज करै सकै छियै],\nया [{{fullurl:{{FULLPAGENAME}}|action=edit}} इ पन्ना क संपादित करै सकै छियै]</span>.",
 	"noarticletext-nopermission": "फ़िलहाल इ पन्ना प कोय सामग्री नै छै.\nआपनै अन्य पन्ना मँ [[Special:Search/{{PAGENAME}}|इ सामग्री केरौ खोज]] करै सकै छियै,\n<span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} संबंधित चिट्ठा मँ खोज करै सकै छियै],\nया फेरू [{{fullurl:{{FULLPAGENAME}}|action=edit}} इ पन्ना क संपादित करै सकै छियै]</span>.",
+<<<<<<< HEAD
 	"userpage-userdoesnotexist-view": "सदस्य खाता \"$1\" ई विकि प पंजीकृत नै छै.",
+=======
+	"userpage-userdoesnotexist-view": "सदस्य \"$1\" पंजीकृत नै छै।",
+>>>>>>> origin/1.39.7-test
 	"clearyourcache": "<strong>ध्यान दहो:</strong> प्रकाशित करला के बाद बदलाव देखै लेली आपनै क अपनो ब्राउज़र के कैशे क हटाबै ल पड़ै सकै छै।\n* <strong>Firefox/Safari:</strong> <em>Reload</em> क्लिक करतँ समय <em>Shift</em> दबाबौ, या फेरू <em>Ctrl-F5</em> या <em>Ctrl-R</em> दबाबौ (Mac प <em>⌘-R</em>)\n* <strong>Google Chrome:</strong> <em>Ctrl-Shift-R</em> दबाबौ (Mac प <em>⌘-Shift-R</em>)\n* <strong>Internet Explorer/Edge:</strong> <em>Refresh</em> प क्लिक करतँ समय <em>Ctrl</em> दबाबौ, या फेरू <em>Ctrl-F5</em> दबाबो\n* <strong>Opera:</strong> <em>Ctrl-F5</em> दबाबौ।",
 	"updated": "(अद्यतनीत)",
 	"note": "<strong>विवरण:</strong>",
@@ -1055,7 +1059,11 @@
 	"metadata-help": "इ फ़ाईल मँ अतिरिक्त जानकारी छै, हुअ सकै छै कि इ फ़ाईल बनाबै मँ इस्तेमाल करलौ गेलौ स्कैनर अथवा कैमरा सँ इ प्राप्त होलौ हुअ। \nजों इ फ़ाईल बदली देलौ गेलऽ छै त ई जानकारी नया फ़ाईल सँ मेल नै खाय के आशंका छै।",
 	"metadata-expand": "अतिरिक्त जानकारी दिखाबौ",
 	"metadata-collapse": "विस्तारित जानकारी नुकाबौ",
+<<<<<<< HEAD
 	"metadata-fields": "इ सूची मं॑ देलऽ गेलऽ जानकारी फ़ाईल केरऽ नीचे मेटाडाटा जानकारी मं॑ हमेशा दिखतै.\nबचलऽ जानकारी हमेशा छुपलऽ रहतै.\n* make \n* model \n* datetimeoriginal \n* exposuretime \n* fnumber \n* isospeedratings \n* focallength \n* artist \n* copyright \n* imagedescription \n* gpslatitude \n* gpslongitude \n* gpsaltitude \n* dc-rights \n* copyrightowner \n* usageterms \n* webstatement \n* licenseurl \n* attributionurl \n* preferredattributionname \n* credit \n* jpegfilecomment \n* pngfilecomment \n* giffilecomment \n* usercomment \n* citydest \n* citycreated \n* headline \n* source \n* locationdest \n* dc-contributor \n* dc-coverage \n* dc-publisher \n* dc-relation \n* label \n* nickname \n* personinimage \n* disclaimer \n* event \n* objectname",
+=======
+	"metadata-fields": "इ सूची मं॑ देलऽ गेलऽ जानकारी फ़ाईल केरऽ नीचे मेटाडाटा जानकारी मं॑ हमेशा दिखतै.\nबचलऽ जानकारी हमेशा छुपलऽ रहतै.\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude",
+>>>>>>> origin/1.39.7-test
 	"namespacesall": "सब्भे",
 	"monthsall": "सब्भे",
 	"confirm_purge_button": "ठीक छै",

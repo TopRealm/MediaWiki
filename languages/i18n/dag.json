@@ -189,7 +189,10 @@
 	"permalink": "Kpalinkpaa soli",
 	"print": "Paɣibu",
 	"view": "Lihima",
+<<<<<<< HEAD
 	"viewcontribs": "Yulimi tɔhibu",
+=======
+>>>>>>> origin/1.39.7-test
 	"skin-view-view": "Karimma",
 	"skin-view-foreign": "Lihimi li ni $1",
 	"edit": "Maliniŋ",
@@ -206,8 +209,11 @@
 	"skin-action-unprotect": "Taɣimi gubu",
 	"unprotect": "Taɣimi gubu",
 	"newpage": "Zaɣipalli Yaɣili",
+<<<<<<< HEAD
 	"newpage-desc": "Pilimi yɛltɔɣikpani zaɣ' pal' shɛli bɛ ni bɔri ni a niŋ.",
 	"view-missing-pages": "Lihimi paaji shɛŋa ŋan barigi",
+=======
+>>>>>>> origin/1.39.7-test
 	"talkpagelinktext": "yɛlmi yaɣilitɔŋsatarili",
 	"specialpage": "Yaɣi gahindili",
 	"personaltools": "Maŋa tuma kpatuɣa",
@@ -580,7 +586,11 @@
 	"missingcommenttext": "Kpɛhimi pahagu",
 	"summary-preview": "Yulimi a maliniŋ kɔlivaai",
 	"blockedtitle": "Ŋun su li maa lahi ka soli",
+<<<<<<< HEAD
 	"blockedtext": "<strong>Your username or IP address has been blocked.</strong>\n\n{{int:blockedtext-made-by|$1}}\n{{int:blockedtext-reason-comment|$2}}.\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n{{int:blockedtext-contact-blocker-admin|$1}}\nA ni tooi zaŋ \"{{int:emailuser}}\" nahingbana diyiniŋ ka email address din nyɛ zaɣ'maŋli wuhi n-ti a [[Special:Preferences|preferences]] konko ka a nyɛ ninvuɣ'so bɛni na ʒin kpari m-bahi ni dina ka che di zaŋtum tuma.\n{{int:blockedtext-block-ip|$3}}, ka ID dinmi kpari maa nyɛ #$5.\n{{int:blockedtext-include-details-queries}}",
+=======
+	"blockedtext": "<strong>Your username or IP address has been blocked.</strong>\n\nŊun daa niŋ kparibu maa n-nyɛ $1.\nDaliri shɛli din ni daa ti n-nyɛ <em>$2</em>.\n\n* Kparibu piligu: $8\n* Kparibu naabu: $6\n* Nia ni-kpa ni di kpari so: $7\n\nA ni tooi paai $1 bee soha dabam [[{{MediaWiki:Grouppage-sysop}}|administrator]] ka di gbaai saawara n-zaŋ jɛndi kparibu maa.\nA ni tooi zaŋ \"{{int:emailuser}}\" nahingbana diyiniŋ ka email address din nyɛ zaɣ'maŋli wuhi n-ti a [[Special:Preferences|preferences]] konko ka a nyɛ ninvuɣ'so bɛni na ʒin kpari m-bahi ni dina ka che di zaŋtum tuma.\nA sahaŋɔ IP address n-nyɛ $3, ka ID dinmi kpari maa nyɛ #$5.\nPahimi suɣulo ka zaŋ kahigibu ŋan-do zuɣusaa ŋɔ zaa m-pahi a bohisi kam puuni.",
+>>>>>>> origin/1.39.7-test
 	"blockednoreason": "Daliri shɛli bi ti",
 	"blockedtext-composite-no-ids": "A IP addrɛɛsi maa zoo la yu' shɛŋa ŋan blooki puuni",
 	"blockedtext-composite-reason": "A daa akaunti bee IP addrɛɛsi maa nyɛla nya blookibu pam",
@@ -598,7 +608,10 @@
 	"noarticletext": "Sabiri shɛli na ka yaɣili ŋɔ.\nA ni tooi [[Special:Search/{{PAGENAME}}|vihi mbo yaɣili ŋɔ yuli]] ni yaɣa din pahi,\n<span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} vihimi kpɛbu kpɛbu din ŋmani li],\nor [{{fullurl:{{FULLPAGENAME}}|action=edit}} create this page]</span>.",
 	"noarticletext-nopermission": "Sabiri shɛli na ka yaɣili ŋɔ .\nA ni tooi [[Special:Search/{{PAGENAME}}|vihi mbo yaɣili ŋɔ yuli]] ni yaɣa din pahi, or <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} search the related logs]</span>, but you do not have permission to create this page. amaa a ka soli ni a nam yaɣi shɛli.",
 	"missing-revision-permission": "Di labiyuli #$1 zaŋ ti paaji shɛŋa yihi. A ni [{{fullurl:{{#Special:Undelete}}|target=$3&timestamp=$2&diff=prev}} view it]; details can be found in the [{{fullurl:{{#Special:Log}}/delete|page=$3}} deletion log].",
+<<<<<<< HEAD
 	"userpage-userdoesnotexist": "Ŋun su akaunti ƶ\"$1\" pala ŋan be wiki ŋɔ zuɣu. \nPahimi suɣulo ka yuli a yi bɔri ni a nam/maliniŋ lala paaji ŋɔ zuɣu.",
+=======
+>>>>>>> origin/1.39.7-test
 	"userpage-userdoesnotexist-view": "Ŋun su akaunti \"$1\" bi rɛjisiti.",
 	"blocked-notice-logextract": "Lala {{GENDER:$1|user}} nyɛla din na blooki saha ŋɔ.\nDin na yoli blooki kpɛbu maa puuni n doya ŋɔ:",
 	"clearyourcache": "A yi zaŋ pa pɔhim zuɣu naai shee a bypaasi a browser tobu neema maa n nya raɣibu nima.",
@@ -815,18 +828,24 @@
 	"prefs-email": "Email yaɣa",
 	"prefs-rendering": "Yi palo",
 	"prefs-searchmisc": "Kam zaa",
+<<<<<<< HEAD
 	"searchprefs": "Yulibɔ suhuyurilim",
 	"searchprefs-noresults": "Labisibu ka ni",
+=======
+>>>>>>> origin/1.39.7-test
 	"saveprefs": "gu n-zali",
 	"restoreprefs": "Labisimi ŋa zaa dini di pun be shɛm",
 	"prefs-editing": "Mali niŋda",
 	"searchresultshead": "Vihima",
 	"recentchangesdays": "Dabisi shɛŋa din wuhiri taɣibu din na yɔli taɣi:",
 	"recentchangesdays-max": "$1 {{PLURAL:$1|dabisili|dabisa}}",
+<<<<<<< HEAD
 	"prefs-back-title": "n-labi suhuyurilim ni",
 	"prefs-description-personal": "Gu mi ka taɣi a ni yirina shɛm,laɣimgubi, ka mali saawara.",
 	"prefs-description-watchlist": "Baŋ mi a ni yɛn niŋ shɛm a lɛbiɣi paajinima shɛŋa zuɣu a ni yuuni maa.",
 	"prefs-description-searchoptions": "Piimi a ni bɔri ni a ƒuma shɛhira yina shɛm.",
+=======
+>>>>>>> origin/1.39.7-test
 	"prefs-help-recentchangescount": "Di yi kuli galisi yaɣi zaa: 1000",
 	"timezonelegend": "Wakati yaɣa",
 	"localtime": "Yiŋ wakati",
@@ -989,8 +1008,11 @@
 	"rcfilters-restore-default-filters": "Nyahama",
 	"rcfilters-filter-editsbyself-label": "Taɣibu ŋan niŋ ka di nyɛ nyini",
 	"rcfilters-filter-minor-label": "Maliniŋ din bi galisi",
+<<<<<<< HEAD
 	"rcfilters-tag-prefix-namespace-inverted": "<strong>not</strong> :$1",
 	"rcfilters-tag-prefix-tags-inverted": "<strong>not</strong> #$1",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcnotefrom": "Din do gbunni ŋɔ {{PLURAL:$5|n-nyɛ taɣibu maa|n-nyɛ taɣibu nim maa}} di ni niŋ <strong>$3,$4</strong>(hali ni<strong>$1</strong> ti yina).",
 	"rclistfrom": "Wuhimi taɣiri pala ka pili $2, $3",
 	"rcshowhideminor": "$1 mali niŋ shɛŋa din be galisi",

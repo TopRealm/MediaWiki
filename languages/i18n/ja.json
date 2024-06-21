@@ -140,9 +140,23 @@
 			"青子守歌",
 			"고솜",
 			"아라",
+<<<<<<< HEAD
 			"Chqaz",
 			"Dragoniez",
 			"1108-Kiju",
+=======
+			"Kokage si",
+			"ギャラクシーライナー",
+			"バレロン",
+			"MagicAho",
+			"Buehl",
+			"Ryoya3",
+			"背番号4のエース",
+			"もなー(偽物)",
+			"Chqaz",
+			"1108-Kiju",
+			"Dragoniez",
+>>>>>>> origin/1.39.7-test
 			"Anonymoususer12321",
 			"M1660661",
 			"翻訳者a",
@@ -270,7 +284,10 @@
 	"index-category": "検索エンジンに収集されるページ",
 	"noindex-category": "検索エンジンに収集されないページ",
 	"broken-file-category": "壊れたファイルへのリンクがあるページ",
+<<<<<<< HEAD
 	"categoryviewer-pagedlinks": "($1) ($2)",
+=======
+>>>>>>> origin/1.39.7-test
 	"category-header-numerals": "$1～$2",
 	"about": "解説",
 	"article": "本文",

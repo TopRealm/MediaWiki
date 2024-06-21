@@ -5,7 +5,10 @@ use MediaWiki\Linker\Linker;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
+<<<<<<< HEAD
 use MediaWiki\Title\Title;
+=======
+>>>>>>> origin/1.39.7-test
 use Wikimedia\Assert\Assert;
 
 /**
@@ -138,7 +141,11 @@ class TraditionalImageGallery extends ImageGalleryBase {
 						);
 						$label = $thumb->toText();
 					} else {
+<<<<<<< HEAD
 						$label = $alt ?? '';
+=======
+						$label = '';
+>>>>>>> origin/1.39.7-test
 					}
 					$thumbhtml = Linker::makeBrokenImageLinkObj(
 						$nt, $label, '', '', '', false, $transformOptions, $currentExists

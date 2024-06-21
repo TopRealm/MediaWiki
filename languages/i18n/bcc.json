@@ -19,6 +19,10 @@
 			"Sultanselim baloch",
 			"ZxxZxxZ",
 			"아라",
+<<<<<<< HEAD
+=======
+			"1233qwer1234qwer4",
+>>>>>>> origin/1.39.7-test
 			"Moshtank"
 		]
 	},
@@ -194,8 +198,11 @@
 	"skin-action-unprotect": "سرگال‌ئا ٹگل دئ",
 	"unprotect": "سرگال‌ئا ٹگل دئ",
 	"newpage": "نۏکݔن تاک",
+<<<<<<< HEAD
 	"newpage-desc": "پہ یک لۏٹتگݔن چیزے نۏکݔن تاکے بنݔن اِت۔",
 	"view-missing-pages": "نݔست بیتگݔن تاکان سۏج دئ",
+=======
+>>>>>>> origin/1.39.7-test
 	"talkpagelinktext": "گپ",
 	"specialpage": "وتیگی تاک",
 	"personaltools": "وتیگی ابزار",
@@ -603,8 +610,13 @@
 	"noarticletext": "هنگت ھچ نبشتہ‌ئے اے تاکءِ تۏکا نݔست اِنت.\nشما تۏن اِنت[[Special:Search/{{PAGENAME}}|شۏھاز پہ اے سرگال]]ا مہ اݔدگہ تاکان <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} شۏھاز پہ امبندݔن چیزان ],\nیا [{{fullurl:{{FULLPAGENAME}}|action=edit}} اے تاکءِ ٹگلݔنگ]</span>.",
 	"noarticletext-nopermission": "اے تاکا ھننی ھچی نہ لِکک اِتَگ۔\nشما تۏن اِت مہ دگہ تاکان [[Special:Search/{{PAGENAME}}|اشی‌ئا شۏھاز بہ کن اِت]]،\nیا <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} مہ یک پئیمݔن تاکان شۏھاز بہ کن اِت]</span> بلئ شمارا پہ اے تاکء بنݔنگا اجازت نے۔",
 	"missing-revision": "ٹگلݔنگ #$1 چہ «{{FULLPAGENAME}}»ء تاکانءَ نہ بیت۔\n\nبلکݔن پہ نۏک نکنگء واستا پاک بیتگ\nتۏن گۏن[{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}}پاک بیتگݔن تاکان] اشان در بہ گݔج اِت۔",
+<<<<<<< HEAD
 	"userpage-userdoesnotexist": "\"<nowiki>$1</nowiki>\"ءِ کارزیری ساب سپت نہ بیتگ۔ شر بہ چار اِت اگہ لۏٹ اِت اے تاکا /ٹگلݔن/بنݔن اِت۔",
 	"userpage-userdoesnotexist-view": "«$1»ءِ کارزیرۏک اے ویکی‌ئا سپت نہ بیتگ۔",
+=======
+	"userpage-userdoesnotexist": "حساب کاربر \"<nowiki>$1</nowiki>\" ثبت نهنت. لطفا کنترل کنیت اگه شما لوٹیت ای صفحه یا شر/اصلاح کنیت.",
+	"userpage-userdoesnotexist-view": "ائ یوزر اکانت «$1» سبت نبیتگ انت.",
+>>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "اے {{GENDER:$1|کارزیر}} ھنی بند کنگ بیتگ۔\nگڈڈی مان بییگانءِ آمار چݔرا آتکگ اَنت:",
 	"clearyourcache": "<strong>بزان:</strong> رند چہ سپت کنگا بلکݔن پہ ٹگلانءِ گندگا وتی بروزرءِ اندݔمݔن کئیش/جاگاہ پاک کنگ بہ لۏٹ اَنت۔\n*<strong>پایرپاکس / ساپاری:</strong> <em>Shift</em>ءِ بٹنا بہ دار اِت ءُ  <em>Reload</em>ءِ بٹنا مݔن بہ دئ اِت <em>Ctrl-F5</em> یا کہ <em>Ctrl-R</em> ءِ بٹنان ھن مݔن بہ دئ اِت(مکینتاشی کامپیرتان <em>⌘-R</em>ءِ بٹن اِنت)\n*<strong>گوگل کروم:</strong> <em>Ctrl+Shift+R</em>ءِ کلیتتان ھۏری مݔن بہ دئ اِت  (مہ اپل ءُ مکینتاشا <em>⌘-Shift-R</em>)\n*<strong>اینترنت اکسپلورر:</strong> کلیت <em>Ctrl</em> رء جهل بدار ات ءُ رندء ائ بٹنء <em>Refresh</em> کلیک بکن ات، یان ائ کلیتان <em>Ctrl-F5</em> رء گون همدگرء جهل بدار ات.\n*<strong>اپرا:</strong> وتی بروزرء چیرداتگین هاپزگ رء چه ائ منو  <em>Tools &rarr; Preferences</em> پهک بکن ات.",
 	"usercssyoucanpreview": "'''بزان:''' پیسر چه سی اس اسء ذخیرگ کتنء، گون ائ بٹن '''{{int:showpreview}}''' بچکاس ات.",
@@ -1372,7 +1384,10 @@
 	"filehist-dimensions": "وڈان",
 	"filehist-filesize": "اندازه فایل",
 	"filehist-comment": "گپ",
+<<<<<<< HEAD
 	"filehist-missing": "گارین فایل",
+=======
+>>>>>>> origin/1.39.7-test
 	"imagelinks": "پایلءِ کاربندگ",
 	"linkstoimage": "جهلیگین {{PLURAL:$1|صفحه |$1 صفحات لینک}} پی ای فایل",
 	"linkstoimage-more": "گیشتر چه  $1 {{PLURAL:$1|صفحه لینکان|صفحات لینک}} پی ای فایل.\nجهلگین لیست {{PLURAL:$1|اولین لینک صفحه|اولین $1 لینکان صفحه ی}} پی ای فایل فقط پیش داریت.\nیک [[Special:WhatLinksHere/$2|لیست کامل]] موجودنت.",
@@ -2380,6 +2395,7 @@
 	"skin-action-protect": "سمبالی",
 	"skin-action-undelete": "ترینگ",
 	"skin-action-delete": "گار",
+<<<<<<< HEAD
 	"skin-action-move": "جاه په جاه",
 	"blockedtext-made-by": "اے بلاک $1 ئا پِر کُتگ۔",
 	"blockedtext-reason-comment": "اے دلیل اشی اِنت کہ:\n<em>$1</em>",
@@ -2408,4 +2424,7 @@
 	"log-name-renameuser": "آمار نام بدل کتن کاربر",
 	"renameuser-move-log": "اتوماتیکی صفحه جاه په جاه بیت وهدی که کاربر نام بدل بی \"[[User:$1|$1]]\" به \"[[User:$2|$2]]\"",
 	"right-renameuser": "عوض کتن نام کابران"
+=======
+	"skin-action-move": "جاه په جاه"
+>>>>>>> origin/1.39.7-test
 }

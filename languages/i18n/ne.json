@@ -41,6 +41,11 @@
 			"सरोज कुमार ढकाल",
 			"हिमाल सुबेदी",
 			"아라",
+<<<<<<< HEAD
+=======
+			"CAPTAIN MEDUSA",
+			"NehalDaveND",
+>>>>>>> origin/1.39.7-test
 			"Base",
 			"Amire80",
 			"Yadav Bhattarai"
@@ -897,6 +902,10 @@
 	"mergehistory-comment": " [[:$1]] लाई[[:$2]] मा जोडियो : $3",
 	"mergehistory-same-destination": "स्रोत र गन्तव्य पृष्ठ एउटै हुनसक्दैनन्",
 	"mergehistory-reason": "कारण :",
+<<<<<<< HEAD
+=======
+	"mergehistory-revisionrow": "$1 ($2) $3 . . $4 $5 $6 $7",
+>>>>>>> origin/1.39.7-test
 	"mergelog": "जोडेको लग",
 	"revertmerge": "नमिलाउने",
 	"mergelogpagetext": "एउटा पृष्ठको इतिहास अर्कोमा भर्खरै मिलाइएको सूची तल दिइन्छ।",
@@ -999,7 +1008,10 @@
 	"prefs-email": "इमेल विकल्पहरू",
 	"prefs-rendering": "स्वरूप",
 	"prefs-searchmisc": "साधारण",
+<<<<<<< HEAD
 	"searchprefs": "अभिरुचिहरू खोज्नुहोस्",
+=======
+>>>>>>> origin/1.39.7-test
 	"saveprefs": "सङ्ग्रह गर्नुहोस्",
 	"restoreprefs": "सबै पूर्वनिर्धारित सेटिङहरू पुनर्स्थापित गर्नुहोस्",
 	"prefs-editing": "सम्पादन",
@@ -1213,7 +1225,11 @@
 	"right-viewmywatchlist": "तपाईंको निगरानी सूची हेर्नुहोस्",
 	"right-editmywatchlist": "आफ्नो अबलोकन सूची सम्पादन गर्नुहोस् । ख्याल राख्नु यस अधिकार विना पनि केहि कार्यबाट पृष्ठहरू थप गर्न सकिन्छ ।",
 	"right-viewmyprivateinfo": "आफ्नो व्यक्तिगत डेटा हेर्नुहोस् (उदाहरण इमेल ठेगाना, सहि नाम)",
+<<<<<<< HEAD
 	"right-editmyprivateinfo": "आफ्नो निजी डाटा (जस्तैः इमेल ठेगाना, वास्तविक नाम) र पासवर्ड रिसेट अनुरोध  इमेलहरू सम्पादन गर्नुहोस्",
+=======
+	"right-editmyprivateinfo": "आफ्नो निजी जानकारी (जस्तैः इमेल ठेगाना, बास्तविक नाम) सम्पादन गर्नुहोस्",
+>>>>>>> origin/1.39.7-test
 	"right-editmyoptions": "तपाईंको अभिरुचीहरू सम्पादन गर्नुहोस्",
 	"right-rollback": "पछिल्लो प्रयोगकर्ताको सम्पादनहरूलाई छरितो रूपमा पछाडि फर्काउने",
 	"right-markbotedits": "पछाडि फर्काउने सम्पादनहरूलाई बोट सम्पादनकारुपमा चिनो लगाउने",
@@ -2194,10 +2210,15 @@
 	"contributions": "प्रयोगकर्ता योगदान",
 	"tool-link-contributions": "{{GENDER:$1|प्रयोगकर्ता}}को योगदानहरू",
 	"contributions-title": "$1को योगदानहरू",
+<<<<<<< HEAD
 	"contribute-title": "प्रयोगकर्ता योगदानहरू",
 	"mycontris": "मेरो योगदानहरू",
 	"anoncontribs": "मेरो योगदानहरू",
 	"contribute": "योगदान गर्नुहोस्",
+=======
+	"mycontris": "मेरो योगदानहरू",
+	"anoncontribs": "मेरो योगदानहरू",
+>>>>>>> origin/1.39.7-test
 	"contribsub2": " {{GENDER:$3|$1}} ($2)को लागि",
 	"contributions-subtitle": "{{GENDER:$3|$1}}को लागी",
 	"contributions-userdoesnotexist": "प्रयोगकर्ता \"$1\" दर्ता गरिएको छैन् ।",
@@ -3229,6 +3250,14 @@
 	"logentry-tag-update-logentry": "$1 {{GENDER:$2|अपडेट गरियो}} ट्याग संशोधन $5 मा पृष्ठ $3 सँग ({{PLURAL:$7|जोडियो}} $6; {{PLURAL:$9|हटाइयो}} $8)",
 	"rightsnone": "(कुनैपनि होइन)",
 	"rightslogentry-temporary-group": "$1 (अस्थायी, $2 सम्म)",
+<<<<<<< HEAD
+=======
+	"feedback-adding": "पृष्ठमा प्रतिक्रिया थप गर्दै...",
+	"feedback-back": "अघिल्लो",
+	"feedback-bugcheck": "राम्रो! जाँच्नुस की कतै [ $1 ज्ञात बगहरू] पहिले देखि नै नहोस्।",
+	"feedback-bugnew": "मैले जाँच गरिसके। नयाँ बगको खबर दिनुहोस्",
+	"feedback-bugornote": "यदि तपाईं कुनै प्राविधिक समस्यालाई विस्तारले सम्झाउन तयार हुनुहुन्छ भने कृपया [$1 बग राख्नुहोस]।\nयदि हैन, भने तपाईं तल दिइएको सरल फारमको प्रयोग गर्नसक्नुहुन्छ। तपाईंको टिप्पणी तपाईंको प्रयोगकर्ता नाम र तपाईंको ब्राउजरको नाम सहित \"[$3 $2]\" पृष्ठमा जोडिनेछ।",
+>>>>>>> origin/1.39.7-test
 	"feedback-cancel": "रद्द गर्नुहोस्",
 	"feedback-close": "गरियो",
 	"feedback-external-bug-report-button": "प्राविधिक कार्य पेश गर्नुहोस्",
@@ -3441,7 +3470,11 @@
 	"skin-view-edit-local": "स्थानिय वर्णन सम्पादन गर्नुहोस्",
 	"skin-action-protect": "सुरक्षित राख्नुहोस्",
 	"skin-action-undelete": "हटाएको रद्द गर्नुहोस्",
+<<<<<<< HEAD
 	"skin-action-delete": "मेटाउने",
+=======
+	"skin-action-delete": "हटाउने",
+>>>>>>> origin/1.39.7-test
 	"skin-action-move": "सार्नुहोस्",
 	"newpages-showhide-bots": "बोटहरू $1",
 	"newpages-showhide-patrolled": "गस्ती सम्पादनहरू $1",

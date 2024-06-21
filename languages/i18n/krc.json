@@ -176,7 +176,10 @@
 	"permalink": "Дайым джибериу",
 	"print": "Басмала",
 	"view": "Кёргюз",
+<<<<<<< HEAD
 	"viewcontribs": "Къошумланы кёргюз",
+=======
+>>>>>>> origin/1.39.7-test
 	"skin-view-view": "Окъу",
 	"skin-view-foreign": "$1 сайтда къара",
 	"edit": "Тюзет",
@@ -251,7 +254,11 @@
 	"versionrequired": "MediaWiki-ни $1 версиясы керекди",
 	"versionrequiredtext": "Бу бетде ишлер ючюн MediaWiki-ни $1 версиясы керекди.  [[Special:Version|Хайырладырылгъан программаны версияларыны юсюнден информациягъа]] къара.",
 	"ok": "ОК",
+<<<<<<< HEAD
 	"pagetitle": "$1 — {{SITENAME}}",
+=======
+	"pagetitle": "$1 - {{SITENAME}}",
+>>>>>>> origin/1.39.7-test
 	"backlinksubtitle": "←$1",
 	"retrievedfrom": "Чыкъгъаны — «$1»",
 	"youhavenewmessages": "Сизге $1 келдиле ($2).",
@@ -647,7 +654,11 @@
 	"summary-preview": "Тюзетиуню къысха ачыкълауун ал къарауу:",
 	"previewerrortext": "Этген тюрлендириулеригизни ал къараууну заманында халат болгъанды.",
 	"blockedtitle": "Къошулуучу блок этилиниб турады",
+<<<<<<< HEAD
 	"blockedtext-partial": "<strong>Хайырланыучу атыгъызгъа неда IP-адресигизге бу этиу блок этилгенди. Алай болса да, бу сайтда, белгили бетлени тюзетиу кибик башха затланы этерге боллукъсуз.</strong>\n\nБютеу блок билгилени [[Special:MyContributions|хыйсаб къошум бетде]] кёрюрге боллукъсуз.\n\n{{int:blockedtext-made-by|$1}}\n\n{{int:blockedtext-reason-comment|$2}}.\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration\n-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n*{{int:blockedtext-block-id|$5}}",
+=======
+	"blockedtext-partial": "<strong>Хайырланыучу атыгъызгъа неда IP-адресигизге бу этиу блок этилгенди. Алай болса да, бу сайтда, белгили бетлени тюзетиу кибик башха затланы этерге боллукъсуз.</strong> Бютеу блок билгилени [[Special:MyContributions|хыйсаб къошум бетде]] кёрюрге боллукъсуз.\n\nБлокну $1 бергенди.\n\nЧуруму буду: <em>$2</em>.\n\n* Блокну башланыуу: $8\n* Блокну бошалыуу: $6\n* Блокну мураты: $7\n* Блокну идентификатору #$5",
+>>>>>>> origin/1.39.7-test
 	"blockedtext": "<strong>Сизни тергеу джазыуугъуз (аккаунтугъуз) неда IP-адресигиз блокга салыннганды.</strong>\n\nБлокга салгъан: $1.\nЧертилген чурум: <em>$2</em>.\n\n* Блокну башланнганы: $8\n* Блокну бошалыуу: $6\n* Блокну нюзюрю: $7\n\nСиз $1 къошулуучугъа неда башха [[{{MediaWiki:Grouppage-sysop}}|администраторгъа]] письмо джиберирге боллукъсуз, блокну сюзер ючюн.\nСиз «{{int:emailuser}}» функцияны хайырландырыргъа боллукъсуз, электрон почтагъызны адресин [[Special:Preferences|энчи джарашдырыулада]] тюз джазгъан эсегиз, эмда блок бла аллей письмола джиберирге къоюла эсе.\nСизни IP-адресигиз — $3, блокну идентификатору — $5.\nБу информацияны ажымсыз чертигиз билдириулеригизде.",
 	"autoblockedtext": "Сизни IP-адресигиз автомат блокга салыннганды, алгъа къайсы эседа бир блокга салыннган къошулуучу хайырланнган ючюн. Аны блокга салгъан  $1 администратор чертген чурум:\n\n:<em>$2</em>.\n\n* Блокну башланнганы: $8\n* Блокну бошалыуу: $6\n* Блокга салыннган: $7\n\nСиз $1 къошулуучугъа неда башха [[{{MediaWiki:Grouppage-sysop}}|администраторгъа]] письмо джиберирге боллукъсуз, блокну сюзер ючюн.\nЭсгертиу, [[Special:Preferences|джарашдырыуларыгъызгъа]] джараулу электрон почта адрес къошмагъан эсегиз \"{{int:emailuser}}\" функциядан файдаланмазгъа боллукъсуз эмда бу функцияны хайырланнгандан тыйылмагъансыз.\nСизни IP-адресигиз — $3, блокну идентификатору — #$5.\nБу информацияны ажымсыз чертигиз билдириулеригизде.",
 	"systemblockedtext": "Хайырланыучу атыгъызны неда IP-адресигизни MediaWiki автомат халда блок этди.\nЧурум:\n\n:<em>$2</em>\n\n* Блокну башланыуу: $8\n* Блокну бошалыуу: $6\n* Блокну мураты: $7\n\nБаргъан IP-адресигиз $3.\nБютеу этерик сорууламаларыгъызда, башындагъы бютеу билгилени белгилегиз.",
@@ -673,8 +684,13 @@
 	"missing-revision-permission": "$1 версия кетерилген бетникиди. [{{fullurl:{{#Special:Undelete}}|target=$3&timestamp=$2&diff=prev}} Къараргъа боллукъсуз]; ачыкъламаланы [{{fullurl:{{#Special:Log}}/delete|page=$3}} кетериу кюнлюкде] табаргъа боллукъду.",
 	"missing-revision": "\"{{FULLPAGENAME}}\" бетни #$1 версиясы ишлемейди.\n\nБу болумгъа асламысы бла кетерилген бетге баргъан эски джибериу чурум болады.\nТолу билги [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} кетериу кюнлюкде] табылыргъа болур.",
 	"missing-revision-content": "\"$2\" атлы бетни #$1 версиясыны ичи джюкленмеди.",
+<<<<<<< HEAD
 	"userpage-userdoesnotexist": "Бу викиде $1 тергеу джазыу (аккаунт) джокъду. Къураргъа/тюрлендирирге излеймисиз бу бетни?",
 	"userpage-userdoesnotexist-view": "«$1» хыйсаб джазыу бу викиде регистрация ётмегенди.",
+=======
+	"userpage-userdoesnotexist": "«<nowiki>$1</nowiki>» тергеу джазыу (аккаунт) джокъду. Къураргъа/тюрлендирирге излеймисиз бу бетни?",
+	"userpage-userdoesnotexist-view": "«$1» тергеу джазыу (аккаунт) джокъду.",
+>>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "Бу къошулуучу бусагъатда {{GENDER:$1|блокланыбды}}.\nБлок этиулени журналында ахыр жазыу тюбюнде кёргюзюлгенди:",
 	"clearyourcache": "<strong>Эслегиз:</strong> Бетде сакъланнгандан сора тюрлендириуле кёрюнюрча браузеригизни кэшин ариулатыргъа керек болургъа боллукъду.\n* <strong>Firefox / Safari</strong>: <em>Shift</em> тиекни басыб тургъанлай адырланы панелинде <em>Джангырт</em> тиекни басыгъыз, неда <em>Ctrl-F5</em> басыгъыз, неда <em>Ctrl-R</em> (Mac-да —  <em>⌘-Shift-R</em>)\n* <strong>Google Chrome:</strong> <em>Ctrl-Shift-R</em> басыгъыз (Mac-да — <em>⌘-Shift-R</em>)\n* <strong>Internet Explorer / Edge:</strong> <em>Ctrl</em> тиекни басыб тургъанлай <em>Джангырт</em> тиекни басыгъыз, неда <em>Ctrl-F5</em> басыгъыз\n* <strong>Opera:</strong> <em>Ctrl-F5</em> басыгъыз.",
 	"usercssyoucanpreview": "<strong>Юретиу:</strong> «{{int:showpreview}}» тиекни басыгъыз, джангы CSS-файлны сакълатырыгъызны аллы бла тинтиб кёрюрча.",
@@ -766,7 +782,10 @@
 	"content-model-text": "тюз текст",
 	"content-model-javascript": "JavaScript",
 	"content-model-css": "CSS",
+<<<<<<< HEAD
 	"content-model-json": "JSON",
+=======
+>>>>>>> origin/1.39.7-test
 	"content-json-empty-object": "Бош объект",
 	"content-json-empty-array": "Бош тизим",
 	"unsupported-content-model": "<strong>Эсгертиу:</strong> Контент модель бу викиде $1 дагъан болмайды",
@@ -947,7 +966,10 @@
 	"mergehistory-reason": "Чурум:",
 	"mergehistory-source-deleted-reason": "Къайнакъ бет, контент модел джангыдан джолландырылмалагъа дагъан болмагъаны эмда версия къалмагъаны себебли, тарихлени бирлешдирилгенлеринден сора автомат халда кетериледи.",
 	"mergehistory-source-deleted": "Аны юсюн [[:$1]], энди кёрюннген версиясы болмагъаны эмда контент модели джангыдан джолландырылмаладан айрылыугъа дагъан болмагъаны ючюн кетерилди.",
+<<<<<<< HEAD
 	"mergehistory-revisionrow": "$1 ($2) $3 . . $4 $5 $6 $7",
+=======
+>>>>>>> origin/1.39.7-test
 	"mergelog": "Бирлешиулени журналы",
 	"revertmerge": "Бёлюрге",
 	"mergelogpagetext": "Тюбюрек бетлени тарихлерини ахыр бирлешдириулери берилгенди.",
@@ -958,7 +980,10 @@
 	"lineno": "Тизгин $1:",
 	"compareselectedversions": "Сайланнган версияланы тенглешдириу",
 	"showhideselectedversions": "Сайланнган версияланы кёргюз/джашыр",
+<<<<<<< HEAD
 	"showhideselectedfileversions": "Сайланнган файл версияланы кёрюнюмюн ауушдур",
+=======
+>>>>>>> origin/1.39.7-test
 	"editundo": "кери ал",
 	"diff-empty": "(башхалыкъ джокъ)",
 	"diff-multi-sameuser": "(бу къошулуучу этген {{PLURAL:$1|бир аралы версия|$1 аралы версия}} кёргюзюлмегенди)",
@@ -1008,7 +1033,10 @@
 	"search-relatedarticle": "Байламлы",
 	"search-invalid-sort-order": "$1 сортлау низамы танылмазса, тынгылау бла сортлау хайырланныкъды. Ётерча сортлау буйрукъла: $2",
 	"search-unknown-profile": "$1 излеу профиль танылмады, тынгылау бла излеу профиль хайырланныкъды.",
+<<<<<<< HEAD
 	"search-thumbnail-alt": "$1 ючюн гитче сурат",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchrelated": "бейламлы",
 	"searchall": "бютеу",
 	"showingresults": "<strong>$2</strong> эсебден башлаб {{PLURAL:$1|<strong>1</strong> эсеб|<strong>$1</strong> эсеб}} тюбюндеди:",
@@ -1059,8 +1087,11 @@
 	"prefs-email": "Электрон почтаны параметрлери",
 	"prefs-rendering": "Кёрюнюую",
 	"prefs-searchmisc": "Баш",
+<<<<<<< HEAD
 	"searchprefs": "Джарашдырыуланы изле",
 	"searchprefs-noresults": "Эсебле джокъдула",
+=======
+>>>>>>> origin/1.39.7-test
 	"saveprefs": "Сакъландыр",
 	"restoreprefs": "Бютеу тынгылау бла джарашдырыуланы кери джюкле",
 	"prefs-editing": "Тюзетиу",
@@ -1068,6 +1099,7 @@
 	"recentchangesdays": "Ахыр тюрлениуледе кёргюзюллюк кюнле:",
 	"recentchangesdays-max": "Максимум $1 {{PLURAL:$1|кюн}}",
 	"recentchangescount": "Ахыр тюрлениуледе, бетни тарихинде эмда кюнлюкледе тынгылау бла кёргюзюллюк тюрлендириуню саны:",
+<<<<<<< HEAD
 	"prefs-back-title": "Джарашдырыулагъа къайт",
 	"prefs-description-personal": "Къалай кёрюннгенигизни, байлам къургъаныгъызны эмда ушагъыгъызны тинтгенлей туругъуз.",
 	"prefs-description-rendering": "Кёюрюнюу, бой эмда окъуу опцияларыгъызны джарашдырыгъыз.",
@@ -1076,6 +1108,8 @@
 	"prefs-description-watchlist": "Кёзде тутхан бетлени оноуун этигиз эмда энчилешдиригиз.",
 	"prefs-description-searchoptions": "Автомат халда тамамлауну эмда эсеблени къалай ишлеригин сайлагъыз.",
 	"prefs-description-misc": "Ичиндегини таблицасын кесигизге кёре джарашдырыгъыз.",
+=======
+>>>>>>> origin/1.39.7-test
 	"prefs-help-recentchangescount": "Максимум саны:1000",
 	"prefs-help-watchlist-token2": "Бу, сизни кёздеги тизмегизни веб-каналыны тахсалы ачхычыды.\nБу ачхычны билген хар ким да сизни кёздеги тизмегизни окъуяллыкъды, аны себебли башха кишиге билдирмегиз. \n[[Special:ResetTokens|Аны джиберирге керек эсе, былайдан басыгъыз]].",
 	"prefs-help-tokenmanagement": "Хыйсабыгъызны кёзде тутхан тизмесинде веб-каналына кириш эталлыкъ ачхычланы кёралыр эмда къоратыр мадарыгъыз барды. Ачхычны билген хар ким да кёзде тутхан тизмегизни окъуяллыкъды, ол себебден киши бла юлешмегиз.",
@@ -1090,7 +1124,10 @@
 	"timezoneuseserverdefault": "Серверни джарашдырыуларын хайырландыр ($1)",
 	"timezoneuseoffset": "Башха (UTC-ден заман башхалыгъы)",
 	"timezone-useoffset-placeholder": "Сёз ючюн: \"-07:00\" неда \"01:00\"",
+<<<<<<< HEAD
 	"timezone-invalid": "Джараусуз заман зона неда заман башхалыгъы.",
+=======
+>>>>>>> origin/1.39.7-test
 	"servertime": "Сервер заман:",
 	"guesstimezone": "Браузерден толтур",
 	"timezoneregion-africa": "Африка",
@@ -1203,7 +1240,10 @@
 	"saveusergroups": "{{GENDER:$1|Къошулуучу}} къаумланы сакъла",
 	"userrights-groupsmember": "Къауумланы члени:",
 	"userrights-groupsmember-auto": "Джангы член:",
+<<<<<<< HEAD
 	"userrights-groupsmember-type": "$1",
+=======
+>>>>>>> origin/1.39.7-test
 	"userrights-systemuser": "{{GENDER:$1|Бу хайырланыучу}} система хайырланыучуду",
 	"userrights-groups-help": "{{GENDER:$1|Бу къошулуучуну}} ичинде болгъан къауумланы тюрлендирирге боллукъсуз:\n* Къауумну атыны къатында белгичик бар эсе, къошулуучу бу къауумгъа киреди\n* Белгичик джокъ эсе, къошулуучу кирмейди бу къауумгъа.\n* * белги, сиз къошулуучуну къауумгъа къошсагъыз, кетералмазлыгъыгъызны, неда кетерсегиз къошалмазлыгъыгъызны билдиреди.\n*# символ бу къауумда членликни болджалын азайтыргъа боллукъсуз, амма къошаргъа боллукъ тюлсюз.",
 	"userrights-reason": "Чурум:",
@@ -1212,7 +1252,10 @@
 	"userrights-changeable-col": "Сиз тюрлендиреллик къауумла",
 	"userrights-unchangeable-col": "Сиз тюрлендирелмезлик къауумла",
 	"userrights-irreversible-marker": "$1*",
+<<<<<<< HEAD
 	"userrights-no-shorten-expiry-marker": "$1#",
+=======
+>>>>>>> origin/1.39.7-test
 	"userrights-expiry-current": "$1 датада бошалады",
 	"userrights-expiry-none": "Болджалсыз",
 	"userrights-expiry": "Бошалады:",
@@ -1307,7 +1350,11 @@
 	"right-viewmywatchlist": "Кёзде тургъан тизменги кёрюу",
 	"right-editmywatchlist": "Кесинги кёзде тургъан тизменги тюзет (бир къауум этиуле бу эркинлик болмагъанлай да бет къошаллыкъларын унутма).",
 	"right-viewmyprivateinfo": "Кесинги энчи билгилеринги кёргюзт (сёз ючюн, электрон почтангы адреси, керти атынг)",
+<<<<<<< HEAD
 	"right-editmyprivateinfo": "Кесинги энчи билгилеринги тюзет (сёз ючюн, электрон почтангы адреси, керти атынг) эмда паролну кетериуде электрон мектубну изле",
+=======
+	"right-editmyprivateinfo": "Кесинги энчи билгилеринги тюзет (сёз ючюн, электрон почтангы адреси, керти атынг)",
+>>>>>>> origin/1.39.7-test
 	"right-editmyoptions": "Джарашдырыуларынгы тюзет",
 	"right-rollback": "Белгили бетни тюрлендирген ахыр къошулуучуну тюрлениулерин дженгил ызына къайтар",
 	"right-markbotedits": "Ызына къайтарылгъан тюрлениулени, бот тюрлениуле кибик белгиле",
@@ -1349,7 +1396,11 @@
 	"grant-editsiteconfig": "Бютеу сайт эмда хайырланыучу CSS/JS тюзет",
 	"grant-editpage": "Болгъан бетлени тюзет",
 	"grant-editprotected": "Къорууланнган сайтланы тюзет",
+<<<<<<< HEAD
 	"grant-highvolume": "Бек къызыу (бот) кириу амал",
+=======
+	"grant-highvolume": "Бек къызыу тюзетиу",
+>>>>>>> origin/1.39.7-test
 	"grant-import": "Версияланы импорт эт",
 	"grant-mergehistory": "Бетни тарихлерини бирлештириую.",
 	"grant-oversight": "Къошулуучуланы букъдур эмда версияланы тохта",
@@ -1389,10 +1440,17 @@
 	"action-writeapi": "API хайырландырыу тюрлендириулеге",
 	"action-delete": "бу бетни кетериу",
 	"action-delete-redirect": "джангыз версиялы джолландырыуланы юсю бла джаздыр",
+<<<<<<< HEAD
 	"action-deleterevision": "бетни версияларын кетер неда кери ал",
 	"action-deletelogentry": "журналны белгили бир джазыуларын кетериу неда кери сал.",
 	"action-deletedhistory": "кетерилген джазма тарихни метабилгилерин кёргюз",
 	"action-deletedtext": "кетерилген текстни неда бетлени кетерилген версияларыны арасындагъы тюрлениулени кёргюзюу",
+=======
+	"action-deleterevision": "бетни версияларын кетериу",
+	"action-deletelogentry": "кюнлюк логланы кетер",
+	"action-deletedhistory": "бетни кетерилген тарихине къарау",
+	"action-deletedtext": "кетерилген версия текстни кёргюзт",
+>>>>>>> origin/1.39.7-test
 	"action-browsearchive": "кетерилген бетлени излеу",
 	"action-undelete": "бетни ызына салыу",
 	"action-suppressrevision": "къайсы болса да, къошулуучудан белгили бет тюзетиулени кёргюзюу, джашырыу эмда кери алыу",
@@ -1424,7 +1482,11 @@
 	"action-apihighlimits": "API-соруулагъа мийик лимит хайырлан",
 	"action-autoconfirmed": "IP тамалгъа кёре теркликни чеклеу бла байламлы тюлдю",
 	"action-bigdelete": "узун тарихли бетлени кетер",
+<<<<<<< HEAD
 	"action-blockemail": "хайырланыучуну электрон почтаны джибериуне блок салыу неда блокдан алыу",
+=======
+	"action-blockemail": "къошулуучуну электрон почтаны джибериуюн тый",
+>>>>>>> origin/1.39.7-test
 	"action-bot": "автомат процесс кибик сана",
 	"action-editprotected": "\"{{int:protect-level-sysop}}\" халда къорууланнган бетледе тюзетиу эт",
 	"action-editsemiprotected": "\"{{int:protect-level-autoconfirmed}}\" халда къорууланнган бетлеге тюзетиу эт",
@@ -1440,7 +1502,11 @@
 	"action-editmyuserjs": "кесинги хайырланыучу JavaScript-файлларынгы тюзет",
 	"action-editmyuserjsredirect": "джолландырыула болгъан кесинги хайырланыучу JavaScript-файлларынгы тюзет",
 	"action-viewsuppressed": "бютеу къошулуучудан букъдурулгъан версиялагъа къара",
+<<<<<<< HEAD
 	"action-hideuser": "барындан да джашырыб неда ачыб хайырланыучу атны блокга салыу неда блокдан алыу",
+=======
+	"action-hideuser": "къошулуучуну атын тый эмда аны джашыр",
+>>>>>>> origin/1.39.7-test
 	"action-ipblock-exempt": "IP блокладан, автоблокладан эмда диапазон блокладан атла",
 	"action-unblockself": "кесинг кесинги блокунгу къорат",
 	"action-noratelimit": "терклик лимитле бла байламлы тюлдю",
@@ -1469,7 +1535,10 @@
 	"recentchanges-label-plusminus": "Бетни ёлчеми быллай бир байтха тюрленнгенди",
 	"recentchanges-legend-heading": "<strong>Легенда:&nbsp;</strong>",
 	"recentchanges-legend-newpage": "{{int:recentchanges-label-newpage}} (къарагъыз: [[Special:NewPages|джангы бетлени тизмеси]])",
+<<<<<<< HEAD
 	"recentchanges-legend-plusminus": "(<em>±123</em>)",
+=======
+>>>>>>> origin/1.39.7-test
 	"recentchanges-legend-watchlistexpiry": "Заманлы ызланнган бет",
 	"recentchanges-submit": "Кёргюз",
 	"rcfilters-tag-remove": "\"$1\" кетер",
@@ -1576,8 +1645,11 @@
 	"rcfilters-filter-categorization-description": "Категориялагъа къошулгъан неда къоратылгъан бетлени юсюнден джаздырыула.",
 	"rcfilters-filter-logactions-label": "Кюнлюк ишлеуле",
 	"rcfilters-filter-logactions-description": "Административ ишлеуле, хыйсаб болдуруула, бет кетериуле, джюклеуле...",
+<<<<<<< HEAD
 	"rcfilters-filter-newuserlogactions-label": "Джангы хайырланыучу",
 	"rcfilters-filter-newuserlogactions-description": "Хыйсаб джазыуну къураргъа журналны джазмалары. Регистрация этиу сайланыргъа керекди.",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-hideminor-conflicts-typeofchange-global": "Бир къауум тюзетиу тюрлюсю \"гитче\" деб аталыргъа болмагъаны себебли, \"Гитче тюзетиуле\" фильтрни бир неда андан аслам тюрлениу фильтр бла дауу чыгъады. Даулашхан фильтрле башындагъы актив фильтрле къырда белгиленнгендиле.",
 	"rcfilters-hideminor-conflicts-typeofchange": "Бир къауум тюзетиу тюрлюлери \"гитче\" деб белгиленемез, ол себебден бу фильтр башха фильтр бла даугъа киреди; $1",
 	"rcfilters-typeofchange-conflicts-hideminor": "Бу тюрлендириу фильтр \"гитче тюзетиуле\" фильтр бла даудады. Бир къауум тюрлендириу фильтрлени тюрлюлери \"гитче\" болуб белгиленемезле.",
@@ -1587,8 +1659,12 @@
 	"rcfilters-filter-previousrevision-label": "Ахыр версия тюлдю",
 	"rcfilters-filter-previousrevision-description": "\"Ахыр версия\" болмагъан бютеу тюрлениуле.",
 	"rcfilters-filter-excluded": "Тышында",
+<<<<<<< HEAD
 	"rcfilters-tag-prefix-namespace-inverted": "<strong>not</strong> :$1",
 	"rcfilters-tag-prefix-tags-inverted": "<strong>not</strong> #$1",
+=======
+	"rcfilters-tag-prefix-namespace-inverted": "<strong>:not</strong> $1",
+>>>>>>> origin/1.39.7-test
 	"rcfilters-exclude-button-off": "Сайланнганны тышында тут",
 	"rcfilters-exclude-button-on": "Сайланндан тышында",
 	"rcfilters-view-tags": "Белгилери бла тюзетиуле",
@@ -1925,7 +2001,10 @@
 	"filehist-dimensions": "Ёлчеми",
 	"filehist-filesize": "Файлны ёлчеми",
 	"filehist-comment": "Комментарий",
+<<<<<<< HEAD
 	"filehist-missing": "Файл джокъду",
+=======
+>>>>>>> origin/1.39.7-test
 	"imagelinks": "Файлны хайырланыуу",
 	"linkstoimage": "Бу файлны, {{PLURAL:$1|джангыз бет|$1 бет}} хайырландырады:",
 	"linkstoimage-more": "$1 артыкъ {{PLURAL:$1|бет}} бу файлны хайырландырады.\nБу тизмеде бу файлгъа {{PLURAL:$1|къуру $1 джибериу}} кёргюзюледи.\n[[Special:WhatLinksHere/$2|Толу тизме]] да барды.",
@@ -2152,7 +2231,10 @@
 	"apisandbox-request-selectformat-label": "Излем билгилени бу шекилде кёргюзт:",
 	"apisandbox-request-format-url-label": "URL-излем тизгин",
 	"apisandbox-request-url-label": "Излемни URL-адреси:",
+<<<<<<< HEAD
 	"apisandbox-request-format-json-label": "JSON",
+=======
+>>>>>>> origin/1.39.7-test
 	"apisandbox-request-json-label": "JSON излем:",
 	"apisandbox-request-format-php-label": "PHP-массив",
 	"apisandbox-request-php-label": "PHP-массив излем:",
@@ -2259,7 +2341,10 @@
 	"listgrants-summary": "Тюбюрек, хайырланыучуланы хакъларына келишген кириш бла грантланы тизмелери келтирлгендиле. Хайырланыучула, программалагъа хыйсабларыны, программагъа берилген эркинликлени тамалындагъы чеклендирилген эркинликле бла хайырландырыргъа берирге боллукъдула. Алай болса да, хайырланыучуну аты бла ишлеген программа, хайырланыучуда болмагъан хакъланы хайырландыраллыкъ тюлдю.\nАнда энчи хакъланы юсюнден [[{{MediaWiki:Listgrouprights-helppage}}|къошакъ информация]] болургъа боллукъду.",
 	"listgrants-grant": "Грант",
 	"listgrants-rights": "Хакъла",
+<<<<<<< HEAD
 	"listgrants-grant-display": "$1 <code>($2)</code>",
+=======
+>>>>>>> origin/1.39.7-test
 	"trackingcategories": "Марлаб туруучу категорияла",
 	"trackingcategories-summary": "Бу бет MediaWiki программа баджарыу джанындан автомат халда толтурулгъан ызлау категорияны тизмеленеди. {{ns:8}}ат аланындагъы байламлы система билдирулени тюрлендириб, атларын тюзетирге боллукъду.",
 	"trackingcategories-msg": "Марлаб туруучу категория",
@@ -2478,7 +2563,10 @@
 	"protect-fallback": "Къуру «$1» эркинликлери болгъан хайырланыучулагъа эркинлик бер",
 	"protect-level-autoconfirmed": "Джангыз автомат халда бегитилген хайырланыучулагъа боллукъду",
 	"protect-level-sysop": "Къуру администраторлагъа эркинлик бер",
+<<<<<<< HEAD
 	"protect-summary-desc": "[$1=$2] ($3)",
+=======
+>>>>>>> origin/1.39.7-test
 	"protect-summary-cascade": "каскадлы",
 	"protect-expiring": "бошалады $1 (UTC)",
 	"protect-expiring-local": "$1 бошалады",
@@ -2546,7 +2634,10 @@
 	"undelete-error-associated-notdeleted": "Байламлы сюзюу бетни, кери алыналлыкъ версиясы джокъду.",
 	"undelete-show-file-confirm": "\"<nowiki>$1</nowiki>\" файлны $2 $3 замандагъы кетерилген версиясын кёрюрге излегенигизге ишексизмисиз?",
 	"undelete-show-file-submit": "Хоу",
+<<<<<<< HEAD
 	"undelete-revision-row2": "$1 ($2) $3 . . $4 $5 $6 $7 $8",
+=======
+>>>>>>> origin/1.39.7-test
 	"undelete-back-to-list": "Бютеу кетерилген версияланы кёр",
 	"namespace": "Атла алам:",
 	"invert": "Сайланнганны айландыр",
@@ -2558,10 +2649,15 @@
 	"contributions": "Хайырланыучу къошумла",
 	"tool-link-contributions": "{{GENDER:$1|Хайырланыучу}} къошум",
 	"contributions-title": "$1 къошулуучуну къошагъы",
+<<<<<<< HEAD
 	"contribute-title": "Хайырланыучу къошумла",
 	"mycontris": "Къошумла",
 	"anoncontribs": "Къошумла",
 	"contribute": "Къошум",
+=======
+	"mycontris": "Къошумла",
+	"anoncontribs": "Къошумла",
+>>>>>>> origin/1.39.7-test
 	"contribsub2": "{{GENDER:$3|$1}} къошуму ($2)",
 	"contributions-userdoesnotexist": "«$1» тергеу джазыу (аккаунт) регистрацияны ётмегенди.",
 	"negative-namespace-not-supported": "Негатив багъалары болгъан ат юсле дагъансыздыла.",
@@ -2816,10 +2912,13 @@
 	"movesubpagetalktext-truncated": "Байламлы сюзюу бетни биринчи $1 {{PLURAL:$1|тюб бети}} тюбюнде кёргюзюлгенди.",
 	"movenosubpage": "Бу бетни тюб бети джокъду.",
 	"movereason": "Чурум:",
+<<<<<<< HEAD
 	"moveotherreason": "Башха/къошакъ чурум:",
 	"movereasonotherlist": "Башха чурум",
 	"movepage-reason-dropdown": "* Джайылгъан орнундан кёчюрюу чурумла\n** Халатлы аты",
 	"movepage-edit-reasonlist": "Орнундан кёчюрюу чурумланы тюзет",
+=======
+>>>>>>> origin/1.39.7-test
 	"revertmove": "кери ал",
 	"delete_and_move_text": "\"[[:$1]]\" атлы бет алайсызда джокъду. \nАтын тюрлендиралыр ючюн, бетни кетерирге излеймисиз?",
 	"delete_redirect_and_move_text": "\"[[:$1]]\" атлы бет алайсыз да джибериу болуб барды. \nОрнундан кёчюрюр ючюн, бетни кетерирге излеймисиз?",
@@ -3018,10 +3117,13 @@
 	"tooltip-undo": "Этилиннген тюрлендириуню ызына ал эмда ал къарауну кёргюз, ызына нек алыннгын чертирча",
 	"tooltip-preferences-save": "Джарашдырыуланы сакълат",
 	"tooltip-summary": "Къысха ачыкълау джазыгъыз",
+<<<<<<< HEAD
 	"interlanguage-link-title": "$1 – $2",
 	"interlanguage-link-title-nonlang": "$1 – $2",
 	"common.css": "/* Былайгъа джерлешдириллик CSS код бютеу темалада хайырланыр */",
 	"print.css": "/* Былайгъа джерлешдирилген CSS басмалау версиясына хайырланыр */",
+=======
+>>>>>>> origin/1.39.7-test
 	"anonymous": "{{SITENAME}} сайтны аноним {{PLURAL:$1|хайырланыучусу|хайырланыучулары}}",
 	"siteuser": "{{SITENAME}} къошулуучу $1",
 	"anonuser": "{{SITENAME}} аноним къошулуучу $1",
@@ -3050,7 +3152,10 @@
 	"pageinfo-default-sort": "Тынгылау бла сортлауну ачхычы",
 	"pageinfo-length": "Бетни узунлугъу (байтла бла)",
 	"pageinfo-namespace": "Ат алам",
+<<<<<<< HEAD
 	"pageinfo-namespace-id": "Атланы идентификатору",
+=======
+>>>>>>> origin/1.39.7-test
 	"pageinfo-article-id": "Бетни идентификатору",
 	"pageinfo-language": "Бетни ичиндегисини тили",
 	"pageinfo-language-change": "тюрлендир",
@@ -3220,7 +3325,10 @@
 	"confirm-watch-button": "ОК",
 	"confirm-watch-top": "Бу бет кёзюгюзде тургъан тизмегизге къошулусунму?",
 	"confirm-watch-label": "Кёзде тургъан тизмени болджалы:",
+<<<<<<< HEAD
 	"watchlist-expiry-options": "Болджалсыз:infinite,1 ыйыкъ:1 week,1 ай:1 month,3 ай:3 months,6 ай:6 months,1 джыл:1 year",
+=======
+>>>>>>> origin/1.39.7-test
 	"watchlist-expires-in-aria-label": "Кёзде тургъан тизмеде болжалы чыгъады",
 	"confirm-watch-button-expiry": "Кёзде тут",
 	"confirm-unwatch-button": "ОК",
@@ -3385,7 +3493,10 @@
 	"version-entrypoints-header-entrypoint": "Кириу нохта",
 	"version-entrypoints-header-url": "URL",
 	"version-libraries": "Къурулгъан китабханала",
+<<<<<<< HEAD
 	"version-libraries-client": "Къурулгъан клиент китабханала",
+=======
+>>>>>>> origin/1.39.7-test
 	"version-libraries-library": "Китабхана",
 	"version-libraries-version": "Версия",
 	"version-libraries-license": "Лицензия",
@@ -3720,10 +3831,13 @@
 	"feedback-useragent": "Хайырланыучу агент:",
 	"searchsuggest-search": "{{SITENAME}} изле",
 	"searchsuggest-containing": "ичинде болгъан бетни изле",
+<<<<<<< HEAD
 	"search-match-redirect-label": "Излеу этген заманда тамамы бла келишгеннге кёч",
 	"search-match-redirect-help": "Бетни башлыгъы сиз излегеннге келише эсе, ол бетге кёчер ючюн басыгъыз",
 	"search-thumbnail-extra-namespaces-label": "Тепси юсюнде миниатюраланы Special\n:Search бетде кёргюз",
 	"search-thumbnail-extra-namespaces-message": "{{#special:search}} бетдеги $1 {{PLURAL:$2|ат юсню}} эсебини миниатюраларын кёргюзюр",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchlimit-label": "Хар бетде кёргюзюллюк излеу эсеблени саны:",
 	"searchlimit-help": "Максимум саны:$1",
 	"api-clientside-error-noconnect": "Серверге байланылалмады. Ишлеген интернет байламыгъыз болгъанындан ишексиз болугъуз эмда джангыдан сынагъыз.",
@@ -3828,8 +3942,11 @@
 	"json-error-invalid-property-name": "Энчиликни декодланнган аты джараусузду",
 	"json-error-utf16": "Халатлы бичилген UTF-16 символла табылдыла, терс кодланнган болурла",
 	"headline-anchor-title": "Бу бёлюмге джибериу",
+<<<<<<< HEAD
 	"special-tab-contribute-short": "Къошум",
 	"special-tab-contributions-short": "Къошумланы кёргюз",
+=======
+>>>>>>> origin/1.39.7-test
 	"special-characters-group-latin": "Латинча",
 	"special-characters-group-latinextended": "Кенгертилген латинча",
 	"special-characters-group-ipa": "ХАФА (IPA)",
@@ -4076,6 +4193,7 @@
 	"newpages-showhide-bots": "$1 бот",
 	"newpages-showhide-patrolled": "Тинтилген тюзетиулени $1",
 	"newpages-showhide-redirect": "Джангыдан джибериулени $1",
+<<<<<<< HEAD
 	"newpages-showhide-registered": "Системагъа киргенленикилени $1",
 	"blockedtext-made-by": "Блокну $1 этди.",
 	"blockedtext-reason-comment": "Блокну чуруму <em>$1</em>",
@@ -4116,4 +4234,7 @@
 	"action-renameuser": "къошулуучуланы атларын ауушдуруу",
 	"right-renameuser": "Къошулуучуланы атларын ауушдуруу",
 	"renameuser-renamed-notice": "Бу къошулуучуну аты ауушдурулду.\nТюбюрекде ат ауушдуруу журнал бериледи."
+=======
+	"newpages-showhide-registered": "Системагъа киргенленикилени $1"
+>>>>>>> origin/1.39.7-test
 }

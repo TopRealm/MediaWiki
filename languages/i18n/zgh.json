@@ -628,8 +628,13 @@
 	"right-delete": "ⴽⴽⵙ ⵜⴰⵙⵏⵉⵡⵉⵏ",
 	"right-undelete": "ⵔⴰⵔ ⴷ ⵜⴰⵙⵏⴰ ⵍⵍⵉ ⵉⵜⵜⵡⴰⴽⴽⵙⵏ",
 	"right-suppressionlog": "ⵙⴽⵏ ⵜⵉⵎⵙⴽⵜⵉⵜⵉⵏ ⵜⵓⵙⵍⵉⴳⵉⵏ",
+<<<<<<< HEAD
 	"right-block": "ⴳⴷⵍ ⵏⵖ ⴽⴽⵙ ⴰⴳⴷⴷⵓⵍ ⵅⴼ ⵓⵙⵏⴼⵍ ⵉ ⵉⵏⵙⵙⵎⵔⵙⵏ ⵢⴰⴹⵏⵉⵏ",
 	"right-blockemail": "ⴳⴷⵍ ⵏⵖ ⴽⴽⵙ ⴰⴳⴷⴷⵓⵍ ⵏ ⵡⴰⵣⴰⵏ ⵏ ⵉⵎⴰⵢⵍ ⵅⴼ ⴽⵔⴰ ⵏ ⵓⵏⵙⵙⵎⵔⵙ",
+=======
+	"right-block": "ⴳⴷⵍ ⵉⵏⵙⵙⵎⵔⴰⵙⵏ ⵢⴰⴹⵏ ⵖⴼ ⵓⵙⵙⵏⴼⵍ",
+	"right-blockemail": "ⴳⴷⵍ ⴰⵏⵙⵙⵎⵔⵙ ⵖⴼ ⵡⴰⵣⴰⵏ ⵏ ⵉⵎⴰⵢⵍ",
+>>>>>>> origin/1.39.7-test
 	"right-viewmywatchlist": "ⵙⴽⵏⴰⵜ ⵜⴰⵍⴳⴰⵎⵜ ⵏ ⵓⵎⴰⵜⵔ ⵏⵏⵓⵏ",
 	"right-editmywatchlist": "ⵙⵏⴼⵍⴰⵜ ⵜⴰⵍⴳⴰⵎⵜ ⵏ ⵓⵎⴰⵜⵔ ⵏⵏⵓⵏ (ⵖⴹⴼ ⵎⴰⵙ ⴷ ⴽⵔⴰ ⵏ ⵜⵉⴳⴰⵡⵉⵏ ⵔⴰⴷ ⵇⵇⵉⵎⵏⵜ ⵔⵏⵏⵓⵏⵜ ⵜⴰⵙⵏⵉⵡⵉⵏ ⵎⵇⵇⴰⵔ ⵓⵔ ⵉⵍⵍⵉ ⵓⵣⵔⴼ ⴰⴷ)",
 	"right-viewmyprivateinfo": "ⵙⴽⵏ ⵉⵙⴼⴽⴰ ⵏⴽ/ⵏⵏⵎ ⵓⵙⵍⵉⴳⵏ (ⵎⴷ. ⴰⵏⵙⴰ ⵏ ⵉⵎⴰⵢⵍ, ⵉⵙⵎ ⵏ ⵜⵉⴷⵜ)",
@@ -687,7 +692,11 @@
 	"action-deletedtext": "ⵙⴽⵏ ⴰⴹⵕⵉⵚ ⵉⵜⵜⵓⴽⴽⴰⵙⵏ ⵏⵖ ⵉⵙⵏⴼⵍⵏ ⴳⵔ ⵉⵣⵣⵔⴰⵢⵏ ⵜⵜⵓⴽⴽⴰⵙⵏⵉⵏ",
 	"action-browsearchive": "ⵔⵣⵓ ⵖⴼ ⵜⴰⵙⵏⵉⵡⵉⵏ ⵍⵍⵉ ⵉⵜⵜⵡⴰⴽⴽⵙⵏ",
 	"action-undelete": "ⵙⵙⵓⴽⵏ ⵜⴰⵙⵏⵉⵡⵉⵏ",
+<<<<<<< HEAD
 	"action-suppressrevision": "ⵙⴽⵏ, ⴼⴼⵔ ⵏⵖ ⵙⵙⵓⵎⴰⵏ ⵉⵣⵣⵔⴰⵢⵏ ⵉⵎⵥⵍⴰⵢ ⵏ ⵜⴰⵙⵏⵉⵡⵉⵏ ⵙⴳ ⴽⵔⴰ ⵏ ⵓⵏⵙⵙⵎⵔⵙ",
+=======
+	"action-suppressrevision": "ⴰⵏⵏⴰⵢ ⴷ ⵔⴰⵔ ⴷ ⵉⵣⵣⵔⴰⵢⵏ ⵉⵏⵜⵍⵏ",
+>>>>>>> origin/1.39.7-test
 	"action-suppressionlog": "ⵙⴽⵏ ⵜⴰⵎⵙⵙⴽⵜⵉⵜ ⴰⴷ ⵜⵓⵙⵍⵉⴳⵜ",
 	"action-block": "ⴳⴷⵍ ⵏⵖ ⴽⴽⵙ ⴰⴳⴳⴳⵓⵍ ⵏ ⵓⵙⵏⴼⵍ ⵅⴼ ⵓⵏⵙⵙⵎⵔⵙⵏ ⴰⴷ",
 	"action-protect": "ⵙⵏⴼⵍ ⴰⵙⵡⵉⵔ ⵏ ⵡⴰⵔⴰⵢ ⵏ ⵜⴰⵙⵏⴰ ⴰⴷ",
@@ -1113,7 +1122,11 @@
 	"saturday-at": "ⴰⵙⵉⴹⵢⴰⵙ ⴳ $1",
 	"metadata": "ⵎⵉⵜⴰⴷⴰⵜⴰ",
 	"metadata-help": "ⴰⴼⵍⵓ ⴰ ⵢⵓⵎⴰ ⵉⵏⵖⵎⵉⵙⵏ ⵉⵎⵔⵏⴰⵏⵉⵏ, ⵉⵔⵡⴰⵙ ⵉⵙ ⴰⵙ ⵜⵜⵡⴰⵔⵏⵉⵏ ⵙ ⴽⴰⵎⵉⵔⴰ ⵜⴰⵎⵓⵟⵟⵓⵏⵜ ⵏⵖ ⴰⵙⴽⴰⵏⵉⵔ ⵉⵜⵜⵓⵙⵎⵔⵙⵏ ⴳ ⵓⵙⵏⴼⵍⵓⵍ ⵏⵏⵙ.\nⵎⴽ ⵉⵜⵜⵓⵙⵏⴼⵍ ⵓⴼⴰⵢⵍⵓ ⵙⴳ ⵡⴰⴷⴷⴰⴷ ⵏⵏⵙ ⴰⵙⴰⵍⴰⵏ, ⵖⵉⵢⵏ ⴽⵔⴰ ⵏ ⵉⴼⵔⵓⵔⵉⵜⵏ ⴰⴷ ⵓⵔ ⵜⵜⴰⵖⵓⵍⵏ ⵖⴼ ⵓⴼⴰⵢⵍⵓ ⵉⵏⵏⴼⵍⵏ.",
+<<<<<<< HEAD
 	"metadata-fields": "ⵔⴰⴷ ⵓⵎⵓⵏ ⵉⴳⵔⴰⵏ ⵏ ⵉⵙⴼⴽⴰ ⵓⴳⵍⵉⵎⵏ ⵏ ⵜⵡⵍⴰⴼⵜ ⵏⵏⴰ ⴷⵔⵙⵏⵉⵏ ⴳ ⵜⵓⵣⵉⵏⵜ ⴰⴷ ⴳ ⵓⵙⵎⴰⵍ ⵏ ⵜⴰⵙⵏⴰ ⵏ ⵜⴰⵡⵍⴰⴼⵜ ⴰⴷⴷⴰⵢ ⵜⴽⵔⵉ ⵜⴼⵍⵡⵉⵜ ⵏ ⵉⵙⴼⴽⴰ ⵓⴳⵍⵉⵎⵏ.\nⵔⴰⴷ ⴼⴼⵔⵏ ⵡⵉⵢⵢⴰⴹ ⵙ ⵓⵡⵏⵓⵍ.\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude\n* dc-rights\n* copyrightowner\n* usageterms\n* webstatement\n* licenseurl\n* attributionurl\n* preferredattributionname\n* credit\n* jpegfilecomment\n* pngfilecomment\n* giffilecomment\n* usercomment\n* citydest\n* citycreated\n* headline\n* source\n* locationdest\n* dc-contributor\n* dc-coverage\n* dc-publisher\n* dc-relation\n* label\n* nickname\n* personinimage\n* disclaimer\n* event\n* objectname",
+=======
+	"metadata-fields": "ⵉⴳⵔⴰⵏ ⵏ ⵎⵉⵜⴰⵉⵙⴼⴽⴰ ⵏ ⵜⵉⵡⵍⴰⴼⵉⵏ ⵏⵏⴰ ⵉⴼⵙⵔⵏ ⴳ ⵜⴱⵔⴰⵜ ⴰⴷ ⵔⴰⴷ ⵉⵍⵉⵏ ⴳ ⵜⴰⵙⵏⴰ ⵏ ⵓⵙⵏⵓⵎⵎⵍ ⵏ ⵜⴰⵡⵍⴰⴼⵜ ⴰⴽⵓⴷ ⵏⵏⴰ ⵉⵎⵓⵏ ⵓⵙⴽⵜⵓⵔ. ⵉⴳⵔⴰⵏ ⵢⴰⴹⵏ ⵔⴰⴷ ⴼⴼⵔⵏ ⵙ ⵓⵎⵕⴰⴹ.\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude",
+>>>>>>> origin/1.39.7-test
 	"namespacesall": "ⵎⴰⵕⵕⴰ",
 	"monthsall": "ⵎⴰⵕⵕⴰ",
 	"confirm_purge_button": "ⵡⴰⵅⵅⴰ",

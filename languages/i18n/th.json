@@ -43,6 +43,12 @@
 			"จักรกฤช วงศ์สระหลวง (Jakkrit Vongsraluang) / PaePae",
 			"วรากร อึ้งวิเชียร (Varakorn Ungvichian)",
 			"아라",
+<<<<<<< HEAD
+=======
+			"Lookruk",
+			"Ekminarin",
+			"Kaoavi",
+>>>>>>> origin/1.39.7-test
 			"Amire80",
 			"RidJasper",
 			"Thastp"
@@ -1414,6 +1420,7 @@
 	"action-writeapi": "ใช้การเขียนเอพีไอ",
 	"action-delete": "ลบหน้านี้",
 	"action-delete-redirect": "เขียนทับการเปลี่ยนเส้นทางรุ่นแก้ไขเดียว",
+<<<<<<< HEAD
 	"action-deleterevision": "ลบหรือกู้คืนรุ่นจำเพาะของหน้า",
 	"action-deletelogentry": "ลบและกู้คืนหน่วยปูมจำเพาะ",
 	"action-deletedhistory": "ดูข้อมูลอภิพันธุ์ของหน่วยประวัติที่ถูกลบ",
@@ -1421,6 +1428,15 @@
 	"action-browsearchive": "ค้นหาหน้าที่ถูกลบ",
 	"action-undelete": "กู้คืนหน้า",
 	"action-suppressrevision": "ดู ซ่อน หรือเลิกซ่อนรุ่นจำเพาะของหน้าจากผู้ใช้ทุกคน",
+=======
+	"action-deleterevision": "ลบรุ่นปรับปรุง",
+	"action-deletelogentry": "ลบรายการบันทึก",
+	"action-deletedhistory": "ดูประวัติที่ถูกลบของหน้าใดหน้าหนึ่ง",
+	"action-deletedtext": "ดูข้อความรุ่นแก้ไขเก่าที่ถูกลบ",
+	"action-browsearchive": "ค้นหาหน้าที่ถูกลบ",
+	"action-undelete": "กู้คืนหน้า",
+	"action-suppressrevision": "ตรวจทานและเลิกลบรุ่นแก้ไขที่ซ่อนอยู่",
+>>>>>>> origin/1.39.7-test
 	"action-suppressionlog": "ดูปูมส่วนตัวนี้",
 	"action-block": "บล็อกหรือปลดบล็อกผู้ใช้นี้จากการแก้ไข",
 	"action-protect": "เปลี่ยนการตั้งค่าการป้องกันของหน้าเว็บเพจนี้",
@@ -3256,7 +3272,11 @@
 	"confirm-watch-button": "ตกลง",
 	"confirm-watch-top": "เพิ่มหน้านี้เข้าไปยังรายการเฝ้าดูของคุณหรือไม่",
 	"confirm-watch-label": "ช่วงเวลารายการเฝ้าดู:",
+<<<<<<< HEAD
 	"watchlist-expiry-options": "ถาวร:infinite,1 สัปดาห์:1 week,1 เดือน:1 month,3 เดือน:3 months,6 เดือน:6 months,1 ปี:1 year",
+=======
+	"watchlist-expiry-options": "ถาวร:infinite,1 สัปดาห์:1 week,1 เดือน:1 month,3 เดือน:3 months,6 เดือน:6 months",
+>>>>>>> origin/1.39.7-test
 	"watchlist-expires-in-aria-label": "รายการในรายการเฝ้าดูที่กำลังจะหมดอายุ",
 	"confirm-watch-button-expiry": "เฝ้าดู",
 	"confirm-unwatch-button": "ตกลง",
@@ -3568,7 +3588,11 @@
 	"diff-form-revid": "เลขรุ่นปรับปรุงของผลต่าง",
 	"diff-form-submit": "แสดงผลต่าง",
 	"diff-form-other-revid": "เลขรุ่นปรับปรุง",
+<<<<<<< HEAD
 	"diff-form-error-revid": "กรอกไอดีรุ่นแก้ไขแบบเป็นตัวเลข",
+=======
+	"diff-form-error-revid": "ป้อนไอดีรุ่นแก้ไขแบบเป็นตัวเลข",
+>>>>>>> origin/1.39.7-test
 	"permanentlink": "ลิงก์ถาวร",
 	"permanentlink-revid": "เลขรุ่นปรับปรุง",
 	"permanentlink-submit": "ไปรุ่น",
@@ -3668,7 +3692,11 @@
 	"logentry-non-editing-block-block": "$1 {{GENDER:$2|ห้าม}} {{GENDER:$4|$3}} มิให้กระทำการที่มิใช่การแก้ไขที่กำหนด โดยมีเวลาหมดอายุ $5 $6",
 	"logentry-non-editing-block-reblock": "$1 {{GENDER:$2|เปลี่ยน}}ค่าการบล็อกสำหรับ {{GENDER:$4|$3}} มิให้กระทำการที่มิใช่การแก้ไขที่กำหนด โดยมีเวลาหมดอายุ $5 $6",
 	"logentry-suppress-block": "$1 {{GENDER:$2|บล็อก}} {{GENDER:$4|$3}} $3 โดยมีเวลาหมดอายุ $5 $6",
+<<<<<<< HEAD
 	"logentry-suppress-reblock": "$1 {{GENDER:$2|เปลี่ยน}}การตั้งค่าบล็อกสำหรับ {{GENDER:$4|$3}} โดยมีเวลาหมดอายุ $5 $6",
+=======
+	"logentry-suppress-reblock": "$1 {{GENDER:$2|เปลี่ยน}}การตั้งค่าบล็อคสำหรับ {{GENDER:$4|$3}} โดยมีเวลาหมดอายุ $5 $6",
+>>>>>>> origin/1.39.7-test
 	"logentry-import-upload": "$1 {{GENDER:$2|นำเข้า}} $3 โดยการอัปโหลดไฟล์",
 	"logentry-import-upload-details": "$1 {{GENDER:$2|นำเข้า}} $3 โดยการอัปโหลดไฟล์ ($4 {{PLURAL:$4|รุ่นแก้ไข}})",
 	"logentry-import-interwiki": "$1 {{GENDER:$2|นำเข้า}} $3 จากวิกิอื่น",
@@ -3725,15 +3753,22 @@
 	"feedback-submit": "ตกลง",
 	"feedback-terms": "ฉันเข้าใจว่าข้อมูลตัวแทนผู้ใช้ของฉันรวมข้อมูลเกี่ยวกับเบราว์เซอร์และรุ่นระบบปฏิบัติการที่ใช้อยู่จริงไว้ด้วย และจะถูกแบ่งปันต่อสาธารณะพร้อมข้อเสนอแนะของฉัน",
 	"feedback-termsofuse": "ฉันยินยอมให้ข้อเสนอแนะภายใต้เงื่อนไขการใช้งาน",
+<<<<<<< HEAD
 	"feedback-thanks": "ขอบคุณ! ผลกรอกกลับของคุณถูกโพสต์ไปยังหน้า \"[$2 $1]\" แล้ว",
+=======
+	"feedback-thanks": "ขอบคุณ! ผลป้อนกลับของคุณถูกโพสต์ไปยังหน้า \"[$2 $1]\" แล้ว",
+>>>>>>> origin/1.39.7-test
 	"feedback-thanks-title": "ขอขอบคุณ!",
 	"feedback-useragent": "ตัวแทนผู้ใช้:",
 	"searchsuggest-search": "ค้นหาใน {{SITENAME}}",
 	"searchsuggest-containing": "ผลการค้นหาสำหรับหน้าที่มีคำว่า",
+<<<<<<< HEAD
 	"search-match-redirect-label": "ไปยังรายการที่ตรงทุกตัวอักษรเมื่อค้นหา",
 	"search-match-redirect-help": "เลือกตัวเลือกนี้เพื่อไปยังหน้าเมื่อชื่อหน้านั้นตรงกับสิ่งที่คุณค้นหา",
 	"search-thumbnail-extra-namespaces-label": "แสดงรูปย่อใน พิเศษ:ค้นหา บนคอมพิวเตอร์ตั้งโต๊ะ",
 	"search-thumbnail-extra-namespaces-message": "แสดงผลรูปย่อสำหรับผลลัพธ์ใน{{PLURAL:$2|เนมสเปซ}} $1 บนหน้า{{#special:search}}",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchlimit-label": "จำนวนผลลัพธ์การค้นหาที่จะแสดงบนแต่ละหน้า:",
 	"searchlimit-help": "จำนวนสูงสุด: $1",
 	"api-clientside-error-noconnect": "ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ ตรวจสอบให้แน่ใจว่าคุณมีการเชื่อมต่ออินเทอร์เน็ตที่ใช้การได้และลองใหม่อีกครั้ง",
@@ -3787,7 +3822,11 @@
 	"expand_templates_preview": "ตัวอย่างผลแสดง",
 	"expand_templates_preview_fail_html": "<em>เนื่องจาก {{SITENAME}} เปิดใช้งานเอชทีเอ็มแอลล้วน และข้อมูลเซสชันสูญหาย การแสดงตัวอย่างจะถูกซ่อนไว้เพื่อป้องกันการโจมตีด้วยจาวาสคริปต์</em>\n\n<strong>หากนี่เป็นความพยายามแก้ไขโดยชอบ โปรดลองอีกครั้งหนึ่ง</strong>\nหากยังเสียอยู่ ลอง[[Special:UserLogout|ออกจากระบบ]]และเข้าสู่ระบบกลับมา และตรวจดูให้แน่ใจว่าเบราว์เซอร์ที่คุณใช้อนุญาตคุกกี้จากไซต์นี้",
 	"expand_templates_preview_fail_html_anon": "<em>เนื่องจาก {{SITENAME}} เปิดใช้งานเอชทีเอ็มแอลล้วน และคุณไม่ได้เข้าสู่ระบบ การแสดงตัวอย่างจะถูกซ่อนไว้เพื่อป้องกันการโจมตีด้วยจาวาสคริปต์</em>\n\n<strong>หากนี่เป็นความพยายามแก้ไขโดยชอบ โปรด[[Special:UserLogin|เข้าสู่ระบบ]]และลองอีกครั้งหนึ่ง</strong>",
+<<<<<<< HEAD
 	"expand_templates_input_missing": "คุณต้องให้ข้อความวิกิกรอกเข้าบ้าง",
+=======
+	"expand_templates_input_missing": "คุณต้องให้ข้อความวิกิป้อนเข้าบ้าง",
+>>>>>>> origin/1.39.7-test
 	"pagelanguage": "เปลี่ยนภาษาของหน้า",
 	"pagelang-name": "หน้า",
 	"pagelang-language": "ภาษา",
@@ -4087,6 +4126,7 @@
 	"newpages-showhide-bots": "$1 บอต",
 	"newpages-showhide-patrolled": "$1 การแก้ไขที่ตรวจตราแล้ว",
 	"newpages-showhide-redirect": "$1 เปลี่ยนทาง",
+<<<<<<< HEAD
 	"newpages-showhide-registered": "$1 ผู้ใช้ลงทะเบียน",
 	"blockedtext-made-by": "ถูกบล็อกโดย $1",
 	"blockedtext-reason-comment": "เหตุผลที่ระบุคือ <em>$1</em>",
@@ -4127,4 +4167,7 @@
 	"action-renameuser": "เปลี่ยนชื่อผู้ใช้",
 	"right-renameuser": "เปลี่ยนชื่อผู้ใช้",
 	"renameuser-renamed-notice": "ผู้ใช้นี้ได้ถูกเปลี่ยนชื่อ บันทึกการเปลี่ยนชื่อแสดงอยู่ด้านล่างสำหรับการอ้างอิง"
+=======
+	"newpages-showhide-registered": "$1 ผู้ใช้ลงทะเบียน"
+>>>>>>> origin/1.39.7-test
 }

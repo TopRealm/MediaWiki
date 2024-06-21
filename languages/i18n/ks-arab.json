@@ -517,7 +517,10 @@
 	"search-suggest": "تُہُنٛد مَطلَب چھا: $1",
 	"search-interwiki-more": "(مٔزیٖد)",
 	"search-relatedarticle": "مُتعلِق",
+<<<<<<< HEAD
 	"search-thumbnail-alt": "تھمبنیل $1 باپتھ",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchrelated": "مُتلِق",
 	"searchall": "سٲری",
 	"search-nonefound": "تَلاش مُطٲبِق چھُ نہٕ کانٛہہ نَتیٖجہٕ موجوٗد",

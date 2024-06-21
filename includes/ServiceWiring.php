@@ -178,6 +178,8 @@ use MediaWiki\User\ActorStoreFactory;
 use MediaWiki\User\BotPasswordStore;
 use MediaWiki\User\CentralId\CentralIdLookupFactory;
 use MediaWiki\User\DefaultOptionsLookup;
+use MediaWiki\User\Registration\LocalUserRegistrationProvider;
+use MediaWiki\User\Registration\UserRegistrationLookup;
 use MediaWiki\User\TalkPageNotificationManager;
 use MediaWiki\User\TempUser\RealTempUserConfig;
 use MediaWiki\User\TempUser\TempUserCreator;
@@ -2170,8 +2172,20 @@ return [
 			$services->getDBLoadBalancer(),
 			LoggerFactory::getInstance( 'UserOptionsManager' ),
 			$services->getHookContainer(),
-			$services->getUserFactory()
+			$services->getUserFactory(),
+			$services->getContentLanguage()
 		);
+	},
+
+	'UserRegistrationLookup' => static function ( MediaWikiServices $services ): UserRegistrationLookup {
+		$lookup = new UserRegistrationLookup(
+			new ServiceOptions( UserRegistrationLookup::CONSTRUCTOR_OPTIONS, $services->getMainConfig() ),
+			$services->getObjectFactory()
+		);
+		if ( !$lookup->isRegistered( LocalUserRegistrationProvider::TYPE ) ) {
+			throw new ConfigException( 'UserRegistrationLookup: Local provider is required' );
+		}
+		return $lookup;
 	},
 
 	'VirtualRESTServiceClient' =>

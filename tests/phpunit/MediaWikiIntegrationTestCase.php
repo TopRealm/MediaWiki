@@ -1707,6 +1707,11 @@ abstract class MediaWikiIntegrationTestCase extends PHPUnit\Framework\TestCase {
 		$prefix ??= self::getTestPrefixFor( $db );
 		$originalTablePrefix = DynamicPropertyTestHelper::getDynamicProperty( $db, 'originalTablePrefix' );
 
+<<<<<<< HEAD
+=======
+		$originalTablePrefix = DynamicPropertyTestHelper::getDynamicProperty( $db, 'originalTablePrefix' );
+
+>>>>>>> origin/1.39.7-test
 		if ( $originalTablePrefix !== null ) {
 			return null;
 		}

@@ -1260,7 +1260,11 @@ class WANObjectCacheTest extends MediaWikiUnitTestCase {
 	 * @dataProvider provideCoalesceAndMcrouterSettings
 	 */
 	public function testLockTSESlow( array $params ) {
+<<<<<<< HEAD
 		[ $cache, $bag ] = $this->newWanCache( $params );
+=======
+		list( $cache, $bag ) = $this->newWanCache( $params );
+>>>>>>> origin/1.39.7-test
 		$key = 'myfirstkey';
 		$key2 = 'mysecondkey';
 		$value = 'some_slow_value';
@@ -1896,6 +1900,100 @@ class WANObjectCacheTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	 * @covers WANObjectCache::reap()
+	 * @covers WANObjectCache::reapCheckKey()
+	 */
+	public function testReap() {
+		$this->hideDeprecated( 'WANObjectCache::reap' );
+		$this->hideDeprecated( 'WANObjectCache::reapCheckKey' );
+
+		list( $cache, $bag ) = $this->newWanCache();
+		$vKey1 = wfRandomString();
+		$vKey2 = wfRandomString();
+		$tKey1 = wfRandomString();
+		$tKey2 = wfRandomString();
+		$value = 'moo';
+
+		$mockWallClock = 1549343530.0;
+		$cache->setMockTime( $mockWallClock );
+		$knownPurge = $mockWallClock - 60;
+		$goodTime = $mockWallClock - 5;
+		$badTime = $mockWallClock - 300;
+
+		$bag->set(
+			'WANCache:' . $vKey1 . '|#|v',
+			[
+				0 => 1,
+				1 => $value,
+				2 => 3600,
+				3 => $goodTime
+			]
+		);
+		$bag->set(
+			'WANCache:' . $vKey2 . '|#|v',
+			[
+				0 => 1,
+				1 => $value,
+				2 => 3600,
+				3 => $badTime
+			]
+		);
+		$bag->set(
+			'WANCache:' . $tKey1 . '|#|t',
+			'PURGED:' . $goodTime
+		);
+		$bag->set(
+			'WANCache:' . $tKey2 . '|#|t',
+			'PURGED:' . $badTime
+		);
+
+		$this->assertSame( $value, $cache->get( $vKey1 ) );
+		$this->assertSame( $value, $cache->get( $vKey2 ) );
+		$cache->reap( $vKey1, $knownPurge, $bad1 );
+		$cache->reap( $vKey2, $knownPurge, $bad2 );
+
+		$this->assertSame( false, $bad1 );
+		$this->assertTrue( $bad2 );
+
+		$cache->reapCheckKey( $tKey1, $knownPurge, $tBad1 );
+		$cache->reapCheckKey( $tKey2, $knownPurge, $tBad2 );
+		$this->assertSame( false, $tBad1 );
+		$this->assertTrue( $tBad2 );
+	}
+
+	/**
+	 * @covers WANObjectCache::reap()
+	 */
+	public function testReap_fail() {
+		$this->hideDeprecated( 'WANObjectCache::reap' );
+
+		$backend = $this->getMockBuilder( EmptyBagOStuff::class )
+			->onlyMethods( [ 'get', 'changeTTL' ] )->getMock();
+		$backend->expects( $this->once() )->method( 'get' )
+			->willReturn( [
+				0 => 1,
+				1 => 'value',
+				2 => 3600,
+				3 => 300,
+			] );
+		$backend->expects( $this->once() )->method( 'changeTTL' )
+			->willReturn( false );
+
+		$wanCache = new WANObjectCache( [
+			'cache' => $backend
+		] );
+
+		$isStale = null;
+		$ret = $wanCache->reap( 'key', 360, $isStale );
+		$this->assertTrue( $isStale, 'value was stale' );
+		$this->assertSame( false, $ret, 'changeTTL failed' );
+	}
+
+	/**
+	 * @covers WANObjectCache::set()
+>>>>>>> origin/1.39.7-test
 	 */
 	public function testSetWithLag() {
 		[ $cache ] = $this->newWanCache();

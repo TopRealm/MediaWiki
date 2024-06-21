@@ -243,7 +243,10 @@ class PagerNavigationBuilder {
 	 * @return $this
 	 */
 	public function setMakeLinkCallback( ?callable $callback ): PagerNavigationBuilder {
+<<<<<<< HEAD
 		wfDeprecated( __METHOD__, '1.39' );
+=======
+>>>>>>> origin/1.39.7-test
 		$this->makeLinkCallback = $callback;
 		return $this;
 	}

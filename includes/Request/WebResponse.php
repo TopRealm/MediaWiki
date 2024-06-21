@@ -26,7 +26,10 @@ use Hooks;
 use HttpStatus;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
+<<<<<<< HEAD:includes/Request/WebResponse.php
 use RuntimeException;
+=======
+>>>>>>> origin/1.39.7-test:includes/WebResponse.php
 
 /**
  * Allow programs to request this object from WebRequest::response()

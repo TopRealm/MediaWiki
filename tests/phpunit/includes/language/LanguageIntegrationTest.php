@@ -1041,11 +1041,14 @@ class LanguageIntegrationTest extends LanguageClassesTestCase {
 				"1 QB",
 				"1 quettabyte"
 			],
+<<<<<<< HEAD:tests/phpunit/includes/language/LanguageIntegrationTest.php
 			[
 				1024 ** 11,
 				"1,024 QB",
 				"1,024 quettabytes"
 			],
+=======
+>>>>>>> origin/1.39.7-test:tests/phpunit/languages/LanguageIntegrationTest.php
 			// How big!? THIS BIG!
 		];
 	}

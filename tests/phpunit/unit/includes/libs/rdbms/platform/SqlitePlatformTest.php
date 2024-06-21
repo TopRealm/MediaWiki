@@ -197,7 +197,11 @@ class SqlitePlatformTest extends PHPUnit\Framework\TestCase {
 
 	public function testTableName() {
 		// @todo Moar!
+<<<<<<< HEAD
 		$platform = $this->platform;
+=======
+		$platform = $this->getPlatform();
+>>>>>>> origin/1.39.7-test
 		$this->assertEquals( '"foo"', $platform->tableName( 'foo' ) );
 		$this->assertEquals( 'sqlite_master', $platform->tableName( 'sqlite_master' ) );
 		$platform->setPrefix( 'foo_' );

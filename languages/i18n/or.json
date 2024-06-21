@@ -170,7 +170,11 @@
 	"history": "ଫାଇଲ ଇତିହାସ",
 	"history_short": "ଇତିହାସ",
 	"history_small": "ଇତିହାସ",
+<<<<<<< HEAD
 	"updatedmarker": "ଆପଣଙ୍କ ଗତ ଦେଖିବା ପରେ ଅପଡେଟ ହୋଇଛି",
+=======
+	"updatedmarker": "ତୁମର ଶେଷ ପରିଦର୍ଶନ ପରଠାରୁ ଅଦ୍ୟତନ ହୋଇଛି |",
+>>>>>>> origin/1.39.7-test
 	"printableversion": "ଛପାହୋଇପାରିବା ପୃଷ୍ଠା",
 	"printableversion-deprecated-warning": "ମୁଦ୍ରଣଯୋଗ୍ୟ ସଂସ୍କରଣ ଆଉ ଏଠାରେ ହୋଇପାରିବ ନାହିଁ । କଲେ ରେଣ୍ଡରିଂ ତ୍ରୁଟି ହୋଇପାରେ । ଦୟାକରି ନିଜ ବ୍ରାଉଜର ବୁକମାର୍କ ଅପଡେଟ କରନ୍ତୁ ଏବଂ ତା' ବଦଳରେ ବ୍ରାଉଜରରେ ଆଗରୁ ଥିବା ପ୍ରିଣ୍ଟ ସୁବିଧା ବ୍ୟବହାର କରନ୍ତୁ ।",
 	"permalink": "ସ୍ଥାୟୀ ଲିଙ୍କ",
@@ -2773,6 +2777,7 @@
 	"skin-action-protect": "କିଳିବେ",
 	"skin-action-undelete": "ଲିଭାଇବେ ନାହିଁ",
 	"skin-action-delete": "ଲିଭାନ୍ତୁ",
+<<<<<<< HEAD
 	"skin-action-move": "ଘୁଞ୍ଚାଇବେ",
 	"renameuser": "ସଭ୍ୟଙ୍କ ନାମଟି ବଦଳାଇବେ",
 	"renameuser-linkoncontribs": "ସଭ୍ୟଙ୍କ ନାମଟି ବଦଳାଇବେ",
@@ -2803,4 +2808,7 @@
 	"action-renameuser": "ବ୍ୟବହାରକାରୀଙ୍କ ନାମବଦଳା",
 	"right-renameuser": "ସଭ୍ୟମାନଙ୍କ ନାମଟି ବଦଳାଇବେ",
 	"renameuser-renamed-notice": "ଏହି ସଭ୍ୟଙ୍କ ନାମ ବଦଳାଯାଇଅଛି ।\nତଳେ ଅବଗତି ନିମନ୍ତେ ନାମ ବଦଳ ଇତିହାସ ଦିଆଗଲା ।"
+=======
+	"skin-action-move": "ଘୁଞ୍ଚାଇବେ"
+>>>>>>> origin/1.39.7-test
 }

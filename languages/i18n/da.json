@@ -81,9 +81,16 @@
 			"Urhixidur",
 			"Weblars",
 			"아라",
+<<<<<<< HEAD
 			"Amire80",
 			"Zakawer2",
 			"Iketsi",
+=======
+			"SiGNOUT",
+			"Amire80",
+			"Iketsi",
+			"Zakawer2",
+>>>>>>> origin/1.39.7-test
 			"Reedy",
 			"Dreamy Jazz"
 		]
@@ -737,8 +744,13 @@
 	"missing-revision-permission": "Sideversionen #$1 hører til en slettet side. You can [{{fullurl:{{#Special:Undelete}}|target=$3&timestamp=$2&diff=prev}} se den]; detaljer kan findes i [{{fullurl:{{#Special:Log}}/delete|page=$3}} sletteloggen].",
 	"missing-revision": "Revision #$1 af siden med navnet \"{{FULLPAGENAME}}\" eksisterer ikke.\n\nDette skyldes normalt at et forældet historik-link er fulgt til en side der er slettet.\nDetaljer kan findes i [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} sletningsloggen].",
 	"missing-revision-content": "Indholdet af revision # $1 på siden med navnet \" $2 \" kunne ikke indlæses.",
+<<<<<<< HEAD
 	"userpage-userdoesnotexist": "Brugerkontoen \"$1\" findes ikke på denne wiki. Overvej om du ønsker at oprette eller redigere denne side.",
 	"userpage-userdoesnotexist-view": "Brugerkontoen \"$1\" er ikke oprettet på denne wiki.",
+=======
+	"userpage-userdoesnotexist": "Brugerkontoen \"$1\" findes ikke. Overvej om du ønsker at oprette eller redigere denne side.",
+	"userpage-userdoesnotexist-view": "Brugerkontoen \"$1\" er ikke oprettet.",
+>>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "Denne {{GENDER:$1|bruger}} er i øjeblikket blokeret.\nLoggen over den seneste blokering ses nedenfor:",
 	"clearyourcache": "<strong>Bemærk:</strong> Efter at have gemt er du måske nødt til at tømme din browsers cache for at kunne se ændringerne.\n* <strong>Firefox / Safari:</strong> Hold <em>Shift</em> nede og klik på <em>Reload</em>, eller tryk enten <em>Ctrl-F5</em> eller <em>Ctrl-R</em> (<em>⌘-R</em> på en Mac).\n* <strong>Google Chrome:</strong> Tryk <em>Ctrl-Shift-R</em> (<em>⌘-Shift-R</em> på en Mac).\n* <strong>Internet Explorer / Edge:</strong> Hold <em>Ctrl</em> nede og klik på <em>Refresh</em>, eller tryk på <em>Ctrl-F5</em>.\n* <strong>Opera:</strong> Go to <em>Menu → Settings</em> (<em>Opera → Preferences</em> on a Mac) and then to <em>Privacy & security → Clear browsing data → Cached images and files</em>",
 	"usercssyoucanpreview": "<strong>Tip:</strong> Brug \"{{int:showpreview}}\" knappen for at teste dit nye CSS inden du gemmer.",
@@ -3623,6 +3635,7 @@
 	"skin-action-undelete": "Gendan",
 	"skin-action-delete": "Slet",
 	"skin-action-move": "Flyt",
+<<<<<<< HEAD
 	"newpages-showhide-registered": "$1 registrerede brugere",
 	"blockedtext-made-by": "Blokeringen blev foretaget af $1.",
 	"blockedtext-reason-comment": "Begrundelsen er <em>$1</em>",
@@ -3661,4 +3674,7 @@
 	"action-renameuser": "omdøb brugere",
 	"right-renameuser": "Omdøb brugere",
 	"renameuser-renamed-notice": "Denne bruger er blevet omdøbt.\nTil information er omdøbningsloggen vist nedenfor."
+=======
+	"newpages-showhide-registered": "$1 registrerede brugere"
+>>>>>>> origin/1.39.7-test
 }

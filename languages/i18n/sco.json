@@ -646,7 +646,11 @@
 	"userinvalidconfigtitle": "<strong>Warnishmant</strong> Thaur's na ae skin \"$1\". Mynd that yer ain .css n .js pages uise ae lowercase teetle, e.g. {{ns:user}}:Foo/vector.css in steid o {{ns:user}}:Foo/Vector.css.",
 	"updated": "(Updatit)",
 	"note": "'''Mynd:'''",
+<<<<<<< HEAD
 	"previewnote": "<strong>Mynd that this is anely ae scance ower.</strong>\nYer chynges hivna been hained yet!",
+=======
+	"previewnote": "<strong>Mynd that this is anely ae scanceower.</strong>\nYer chynges hivna been hained yet!",
+>>>>>>> origin/1.39.7-test
 	"continue-editing": "Gae tae the editin area",
 	"previewconflict": "This luikower reflects the tex in the upper tex eeditin airt like it will kith gif ye chuise tae hain.",
 	"session_fail_preview": "Sairy! We coud nae process yer eedit due tae a loss o session data.\n\nYe micht hae been logged oot. <strong>Please verify that ye're still logged in an try again</strong>.\nIf it still daes nae wirk, try [[Special:UserLogout|loggin oot]] an loggin back in, an check that yer brouser allaes cookies frae this steid.",
@@ -809,7 +813,11 @@
 	"revdelete-hide-comment": "Eedit the ootline",
 	"revdelete-hide-user": "Eiditer's uisername/IP address",
 	"revdelete-hide-restricted": "Suppress data fae admeenistraters aes weel aes ithers",
+<<<<<<< HEAD
 	"revdelete-radio-same": "Dinnae chynge",
+=======
+	"revdelete-radio-same": "(dinna chynge)",
+>>>>>>> origin/1.39.7-test
 	"revdelete-radio-set": "Hidden",
 	"revdelete-radio-unset": "Veesible",
 	"revdelete-suppress": "Suppress data fae administraters as weel as ithers",
@@ -1121,7 +1129,11 @@
 	"right-browsearchive": "Rake deletit pages",
 	"right-undelete": "Undelete ae page",
 	"right-suppressrevision": "See, hide an unhide speceefic revisions o pages fae ony uiser",
+<<<<<<< HEAD
 	"right-viewsuppressed": "See revisions scuggit fae ony uiser",
+=======
+	"right-viewsuppressed": "See owerluiks that'r skaukt fae onie uiser",
+>>>>>>> origin/1.39.7-test
 	"right-suppressionlog": "see preevate logs",
 	"right-block": "Block or unblock ither uisers fae editin",
 	"right-blockemail": "Block or unblock ae uiser fae sendin wab-mail",
@@ -3094,6 +3106,10 @@
 	"skin-action-protect": "Fend",
 	"skin-action-undelete": "Undelete",
 	"skin-action-delete": "Delete",
+<<<<<<< HEAD
 	"skin-action-move": "Muiv",
 	"blockedtext-made-by": "The block wis made bi $1"
+=======
+	"skin-action-move": "Muiv"
+>>>>>>> origin/1.39.7-test
 }

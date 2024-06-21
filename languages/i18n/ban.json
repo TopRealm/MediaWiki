@@ -1398,7 +1398,11 @@
 	"action-undelete": "wangdé pangusapan kaca",
 	"action-suppressrevision": "cingak, engkebang utawi enahang révisi spésifik saking sapasira anganggé",
 	"action-suppressionlog": "cingak log privat puniki",
+<<<<<<< HEAD
 	"action-block": "cadel utawi ten cadel sang anganggé puniki saking panguahan",
+=======
+	"action-block": "cadel sang anganggé puniki saking panguahan",
+>>>>>>> origin/1.39.7-test
 	"action-protect": "gentos setélan pasaiban antuk kaca puniki",
 	"action-rollback": "ngwaliang kanti gelis uahan saking sang anganggé pinih untat sané nguah sinalih tunggil kaca",
 	"action-import": "impor kaca saking wiki tiosan",
@@ -4200,6 +4204,7 @@
 	"newpages-showhide-bots": "$1 bot",
 	"newpages-showhide-patrolled": "$1 uahan sané kakemitin",
 	"newpages-showhide-redirect": "$1 pangalihan",
+<<<<<<< HEAD
 	"newpages-showhide-registered": "$1 sang anganggé madaptar",
 	"blockedtext-made-by": "Pacadelan kamargiang olih $1",
 	"blockedtext-reason-comment": "Hawanan sané kaicain <em>$1</em>",
@@ -4241,4 +4246,7 @@
 	"action-renameuser": "ngentos peséngan sang anganggé",
 	"right-renameuser": "Ngantosin parab sang anganggé",
 	"renameuser-renamed-notice": "Sang anganggé puniki sampun kagentosin parab nyané.\nLog pagentosan parab kasedia ring metén antuk rujukan."
+=======
+	"newpages-showhide-registered": "$1 sang anganggé madaptar"
+>>>>>>> origin/1.39.7-test
 }

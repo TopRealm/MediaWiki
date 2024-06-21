@@ -2878,7 +2878,10 @@
 	"movesubpagetext": "Esta página tem $1 {{PLURAL:$1|subpágina mostrada|subpáginas mostradas}} abaixo.",
 	"movesubpagetalktext": "A página de discussão correspondente tem $1 {{PLURAL:$1|subpágina|subpáginas}}, mostradas abaixo.",
 	"movesubpagetext-truncated": "O primeiro $1 {{PLURAL:$1| subpágina|subpáginas}} desta página são mostradas abaixo.",
+<<<<<<< HEAD
 	"movesubpagetalktext-truncated": "{{PLURAL:$1|A primeira subpágina|As primeiras $1 subpáginas}} da correspondente página de discussão são mostradas abaixo.",
+=======
+>>>>>>> origin/1.39.7-test
 	"movenosubpage": "Esta página não tem subpáginas.",
 	"movereason": "Motivo:",
 	"moveotherreason": "Outro motivo/motivo adicional:",

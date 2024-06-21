@@ -28,7 +28,8 @@
 			"Snowdog",
 			"Sprüngli",
 			"V6rg",
-			"아라"
+			"아라",
+			"S4b1nuz E.656"
 		]
 	},
 	"tog-underline": "Sotolinea i ligam:",
@@ -3624,6 +3625,14 @@
 	"logentry-tag-update-logentry": "{{GENDER:$2|El $1 l'ha asgiornad|La $1 l'ha asgiornad||$1 l'hà asgiornad}}  i etichete de la vos de register $5 de pagina $3 ({{PLURAL:$7|sgiontada|sgiontade}} $6; {{PLURAL:$9|tolta via|tolte via}} $8)",
 	"rightsnone": "(nissun)",
 	"rightslogentry-temporary-group": "$1 (provisori, fina a $2)",
+<<<<<<< HEAD
+=======
+	"feedback-adding": "Adree a sgiontà di coment a la pagina...",
+	"feedback-back": "Indree",
+	"feedback-bugcheck": "Otim! Doma verifega che la sìa minga sgiamò infra i [$1 catif fonzionament conossud].",
+	"feedback-bugnew": "Hoo controlad. Segnala un catif fonzionament noeuv",
+	"feedback-bugornote": "Se te see bon de descriv el problema tenich in manera precisa, [$1 segnala el catif fonzionament]. Inscambi, te podet drovà el modol sempliz chì de sota. El to coment el sarà sgiontad a la pagina \"[$3 $2]\", insema al to nom de utent.",
+>>>>>>> origin/1.39.7-test
 	"feedback-cancel": "Anulla",
 	"feedback-close": "Fad",
 	"feedback-external-bug-report-button": "Documenta un catif fonzionament",
@@ -3749,8 +3758,11 @@
 	"json-error-invalid-property-name": "El nom de la propietà descodificad a l'è minga bon",
 	"json-error-utf16": "Carater UTF-16 mimga valid, magara eror in del codes",
 	"headline-anchor-title": "Conligament a questa sezzion chì",
+<<<<<<< HEAD
 	"special-tab-contribute-short": "Contribuzzion",
 	"special-tab-contributions-short": "Varda i contribuzzin",
+=======
+>>>>>>> origin/1.39.7-test
 	"special-characters-group-latin": "Latin",
 	"special-characters-group-latinextended": "Latin estes",
 	"special-characters-group-ipa": "IPA",

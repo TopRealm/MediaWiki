@@ -251,7 +251,11 @@
 	"grant-blockusers": "Block kanye nabasebenzisi yokuvula",
 	"skin-action-addsection": "Faka isihloko",
 	"action-edit": "Hlela lelikhasi",
+<<<<<<< HEAD
 	"action-block": "Vimbela noma ungavimbeli lomsebenzisi ukuthi abuyekeze",
+=======
+	"action-block": "ukuvimbela kulo msebenzisi kusuka wokuhlela",
+>>>>>>> origin/1.39.7-test
 	"action-protect": "Guqula izibukezi zokuvikela leli ikhasi.",
 	"enhancedrc-history": "umlando",
 	"recentchanges": "Izinguquko ezisandakwenzeka",

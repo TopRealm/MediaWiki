@@ -178,7 +178,10 @@
 	"permalink": "Свалшкань невтема",
 	"print": "Печатамс",
 	"view": "Ваномс",
+<<<<<<< HEAD
 	"viewcontribs": "Варштамс путовксонть",
+=======
+>>>>>>> origin/1.39.7-test
 	"skin-view-view": "Ловномс",
 	"skin-view-foreign": "Ваномс «$1»-сэ",
 	"edit": "Витнемс",
@@ -642,7 +645,10 @@
 	"summary-preview": "Полавтоматнень икелепелень ваннома:",
 	"previewerrortext": "Лиссь ильведевкс тонь полавтоматнень икелень ванномсто.",
 	"blockedtitle": "Совицясь кардазь",
+<<<<<<< HEAD
 	"blockedtext-partial": "<strong>Тонь учётонь сёрмадовксонть эли IP-тешксэнть туртов кардазь те тевдеемась. Ансяк ялатеке тонеть мереви топавтомс лия тевдеемат те вики-теварсевкссэ (витемс кой-кодат лопат).</strong> \n\nЛопасо кардамодо домкасто тонеть мереви варштамс\n[[Special:MyContributions|учётонь сёрмадовксонь путовксонть]].\n\n{{int:blockedtext-made-by|$1}}\n\n{{int:blockedtext-reason-comment|$2}}.\n\n* {{int:blockedtext-start-time|$8}}\n* {{int:blockedtext-expiration-time|$6}}\n* {{int:blockedtext-intended-blockee|$7}}\n\n* {{int:blockedtext-block-id|$5}}",
+=======
+>>>>>>> origin/1.39.7-test
 	"blockedtext": "<strong>Тонть теицянь леметь эли IP-тешкстэть совавтозь саймас.</strong>\n\nСаймас совавтынзеть $1.\nМаксозь тувталось  <em>«$2»</em>.\n\n* Саймас совавтозят: $8\n* Саймасто нолдамсат: $6\n* Саймас совавтозесь: $7\n\nУли мелеть пачтт сёрма теицянтень $1 эли лия [[{{MediaWiki:Grouppage-sysop}}|прявткирдицянень]], сонзэ марто маштови кортамс саймас совавтомадот.\nУли мелеть, маштови нолдамс тевс  \"{{int:emailuser}}\" уликсчинть, бути е-почта сёрмапаргот (адресэть) максозь [[Special:Preferences|эсеть аравтоматнесэ]] ды тосо саймас апак совавтозят.\n\nНеень IP-тешксэть — $3, саймас совавтомань ID-сь — #$5.\nИнескеть, кевкстемат улить, невттяя неть тешкстнэнь-индикатортнэнь лангс.",
 	"blockednoreason": "тувталось апак ёвта",
 	"blockedtext-composite-ids": "Кардамонь эрявикс кемекстамот: $1 (тонь IP-тешксэсь паряк карми неявомо кардазь лемлувсо)",
@@ -665,8 +671,12 @@
 	"missing-revision-permission": "#$1 версиясь кандови нардазь лопантень. Тонеть мереви [{{fullurl:{{#Special:Undelete}}|target=$3&timestamp=$2&diff=prev}} варштамс сонзэ]; домкасто весемесь муеви [{{fullurl:{{#Special:Log}}/delete|page=$3}} нардамонь журналсто].",
 	"missing-revision": "$1 версиясь «{{FULLPAGENAME}}» лопасо арась.\n\nТе эрси сестэ, бути ютамс нардазь лопас ташто невтеманть эзга.\nСеде домкасто весемесь [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} нардамонь журналсо].",
 	"missing-revision-content": "Эзь лисе путомс «$2» лопасо кирдевиця #$1 версиянть.",
+<<<<<<< HEAD
 	"userpage-userdoesnotexist": "Те викисэ «$1» учётонь сёрмадовкс арась. Кемевть, тон алкукс арсят теемс эли полавтомс те лопанть.",
 	"userpage-userdoesnotexist-view": "\"$1\" учётонь сёрмадовкс те викисэ апак тешкста.",
+=======
+	"userpage-userdoesnotexist-view": "Совамотарка  \"$1\" апак сёрмадсто.",
+>>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "{{GENDER:$1|Совицясь|Те совицясь}} неень шкасто {{GENDER:$1|кардазь|кардазель}}.\nАло невтезь кардамонь журналонь меельце сёрмадовкс:",
 	"clearyourcache": "<strong>Тешкставкс:</strong> Паряк, сёрмадовксонть лисемадо мейле полавтоматнень неемга тонеть сави ванькскавтомс эсь браузерэнь кэш-паргонть.\n* <strong>Firefox / Safari:</strong> Клавишанть кирдемстэ <em>Shift</em>, лепштяк кедьёнксонь панеленть лангс <em>Одкстомтомс</em> эли лепштяк <em>Ctrl+F5</em> эли <em>Ctrl+R</em> (<em>⌘+R</em> на Mac)\n* <strong>Google Chrome:</strong> Лепштяк <em>Ctrl+Shift+R</em> (<em>⌘+Shift+R</em> на Mac)\n* <strong>Internet Explorer / Edge:</strong> Кирдть <em>Ctrl</em>, лепштяк <em>Одкстомтомс</em> эли лепштяк <em>Ctrl+F5</em>\n* <strong>Opera:</strong> Лепштяк <em>Ctrl+F5</em>.",
 	"usercssyoucanpreview": "<strong>Салава ёвтамо.</strong> Сёрмадовксонть нолдамодо икеле CSS эсь од файланть ванномга лепштик\n\"{{int:showpreview}}\" плаштянть.",
@@ -867,11 +877,17 @@
 	"revdelete-hide-comment": "Полавтоматнень сёрмадомань невтема",
 	"revdelete-hide-user": "Совицянь лем/IP-тешкс",
 	"revdelete-hide-restricted": "Кекшемс пурнавозенть ветицятнень эйстэяк",
+<<<<<<< HEAD
 	"revdelete-radio-same": "А полавтомс",
 	"revdelete-radio-set": "Кекшезь",
 	"revdelete-radio-unset": "Неявикс",
 	"revdelete-radio-set-suppress": "Лепштямс",
 	"revdelete-radio-unset-suppress": "Кардамс лепштямонть",
+=======
+	"revdelete-radio-same": "(иляк лиякстомто)",
+	"revdelete-radio-set": "Кекшезь",
+	"revdelete-radio-unset": "Неявикс",
+>>>>>>> origin/1.39.7-test
 	"revdelete-suppress": "Кекшемс пурнавозенть ветицятнень эйстэяк",
 	"revdelete-unsuppress": "Каямс невтемань кардамотнень вельмевтезь версиятнестэ",
 	"revdelete-log": "Туфтал:",
@@ -937,7 +953,10 @@
 	"lineno": "Кикс $1:",
 	"compareselectedversions": "Аравтомс кочказь версиятнень карадо-каршо",
 	"showhideselectedversions": "Невтемс/кекшемс кочказь версиятнень",
+<<<<<<< HEAD
 	"showhideselectedfileversions": "Полавтомс файлань кочказь версиятнень невтеманть",
+=======
+>>>>>>> origin/1.39.7-test
 	"editundo": "лоткавтомс",
 	"diff-empty": "(Арасть явовомат)",
 	"diff-multi-otherusers": "(апак {{PLURAL:$1|невте $1 ютконь версия|невте $1 ютконь версият|невтезь $1 ютконь версият}} {{PLURAL:$2|$2 совиця|$2 совицят}})",
@@ -945,8 +964,11 @@
 	"diff-paragraph-moved-tonew": "Пельксэсь ульнесь аравтозь лия таркас. Лепштяк од таркантень ютамга.",
 	"diff-paragraph-moved-toold": "Таркась ульнесь аравтозь лия пелев. Лепштяк икелень аштема таркантень ютамга.",
 	"difference-missing-revision": "Апак {{PLURAL:$2|1=муе|муезь}} {{PLURAL:$2|$2 версия|$2 версият|$2 версиятне|1=версиятнестэ вейке}} те карадо-каршо аравтоманть туртов ($1).\n\nИстя эрси ташто невтемава ютамсто нардазь лопань карадо-каршо версиятнень аравтомсто. \nДомкасто весемесь ули [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} нардамонь журналсо].",
+<<<<<<< HEAD
 	"difference-bad-old-revision": "Ташто версиянь пештявксось арась эли колазь.",
 	"difference-bad-new-revision": "Од версиянь пештявксось арась эли колазь.",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchresults": "Мезе муевсь",
 	"search-filter-title-prefix": "Вешнемс ансяк лия лопатнесэ, конатнень лемест ушодови «$1»-стэ",
 	"search-filter-title-prefix-reset": "Вешнемс весе лопатнень",
@@ -986,7 +1008,10 @@
 	"search-relatedarticle": "Сюлмазь",
 	"search-invalid-sort-order": "$1-сэ кочкамонь лув апак невте, карми тевс нолдазь чатьмонемань кочкамо. Алкуксонь вешемат кочкамос: $2",
 	"search-unknown-profile": "$1 вешнемань профилесь апак муе, карми тевс нолдазь чатьмонемань коряс вешнемань профиль.",
+<<<<<<< HEAD
 	"search-thumbnail-alt": "$1 туртов вишка артовкс",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchrelated": "сюлмазь",
 	"searchall": "весе",
 	"showingresultsinrange": "Ало невтезь {{PLURAL:$1|<strong>1</strong> цётамонть видьс|<strong>$1</strong> цётамонь видьс|<strong>$1</strong> цётамотнень видьс}} шкань пельксстэ саезь <strong>$2</strong> <strong>$3</strong> видьс.",
@@ -1036,8 +1061,11 @@
 	"prefs-email": "Электронной почтань параметрат",
 	"prefs-rendering": "Лангаксонь невтема",
 	"prefs-searchmisc": "Вейсэнь",
+<<<<<<< HEAD
 	"searchprefs": "Вешнемс аравтоматнева",
 	"searchprefs-noresults": "Мезеяк апак муе",
+=======
+>>>>>>> origin/1.39.7-test
 	"saveprefs": "Ванстомс",
 	"restoreprefs": "Велявтомс мекев весе аравтоматнень чатьмонезь",
 	"prefs-editing": "Витема",
@@ -1045,6 +1073,7 @@
 	"recentchangesdays": "Невтемс читнень, конатнень перть теезь меельце полавтоматне:",
 	"recentchangesdays-max": "Аволь седе ламо $1 {{PLURAL:$1|чис|чить}}",
 	"recentchangescount": "Витевкстнэнь ламочись, кона чатьмонезь невтезь од витевксэнь, лопатнень эрямопингенть ды журналтнэнь лемлувсо:",
+<<<<<<< HEAD
 	"prefs-back-title": "Велявтомс аравтоматненень",
 	"prefs-description-personal": "Вант домкасто, кода неяви тонь профилесь, кода тон вейсэндяват ды кортат.",
 	"prefs-description-rendering": "Аравтык теемань, покшолмань ды ловномань ладямонь теманть.",
@@ -1053,6 +1082,8 @@
 	"prefs-description-watchlist": "Ветяк ды вант редявиця лопатнень лемлувонть.",
 	"prefs-description-searchoptions": "Кочкак, кода важоди автосёрмадомась ды цётамотне.",
 	"prefs-description-misc": "Аравтык пештявксонь невтеманть.",
+=======
+>>>>>>> origin/1.39.7-test
 	"prefs-help-recentchangescount": "Сехте покш смустесь: 1000",
 	"prefs-help-watchlist-token2": "Тонь ваномань лемлувонь веб-каналонть туртов те салавань панжома. Сонзэ эрьва содыцянтень мереви ловномс тонь ваномань лемлувонть, секскак иля ёвтне ланганзо лиятненень. Бути эряви, [[Special:ResetTokens|тонеть мереви кучомс сонзэ]].",
 	"prefs-help-tokenmanagement": "Учётонь эсь сёрмадовксонть туртов тонеть мереви ванномс ды кучомс салавань панжома, кона максы варштамс тонь лемлувонь спискань веб-каналонть. Панжомань эрьва содыцянтень мереви ловномс тонь лемлувонь списканть, секскак киненьгак ланганзо иля ёвтне.",
@@ -1067,7 +1098,10 @@
 	"timezoneuseserverdefault": "Тевс нолдамс ($1) викинь серверэнь аравтоматнень",
 	"timezoneuseoffset": "Лия (UTС пельде шкань полавтома)",
 	"timezone-useoffset-placeholder": "Саемга: «-07:00» эли «01:00»",
+<<<<<<< HEAD
 	"timezone-invalid": "Шкань аволь виде ёнкс эли шкань аволь виде шаштома.",
+=======
+>>>>>>> origin/1.39.7-test
 	"servertime": "Серверэнь шка:",
 	"guesstimezone": "Сёрмадомс браузерстэ",
 	"timezoneregion-africa": "Африка",
@@ -1256,9 +1290,14 @@
 	"right-suppressrevision": "Кекшезь версиятнень лопаст ваннома, кекшема ды вельмевтема",
 	"right-viewsuppressed": "Весе совицятнень эйстэ кекшезь версиятнень ваннома",
 	"right-suppressionlog": "Башка журналонь ваннома",
+<<<<<<< HEAD
 	"right-block": "Лия совицятнесэ витемань кардамо эли панжома",
 	"right-blockemail": "Электронной почтань вельде лия совицятнень кардамо эли панжома",
 	"right-hideuser": "Совицянть лемензэ кардамо эли панжома, лия совицятнень туртов пекстамо эли невтема",
+=======
+	"right-block": "Кардамс лия совийтнень-лисийтнень витнемадо-петнемадо",
+	"right-blockemail": "Кардамс лия лисийтнень-совийтнень е-сёрмань кучомадо",
+>>>>>>> origin/1.39.7-test
 	"right-ipblock-exempt": "IP-нь вельде кардамонь, зярыя шкань перть автокардамонь ды кардамонь ютамо",
 	"right-unblockself": "Эсь прянь панжома",
 	"right-protect": "Идемань ладямотнень полавтома ды идемань лопатнень виев\nвитевкс",
@@ -1279,7 +1318,10 @@
 	"right-viewmywatchlist": "Эсь ваннома спискань неема",
 	"right-editmywatchlist": "Эсь ванномань спискань витема (содак, кой-кона тевдеематне кармить лопатнень путомо истямо прававтомояк).",
 	"right-viewmyprivateinfo": "Эсеть ланга пурнавозенть ваннома (саемга, электронной почтань адрес, алкуксонь лем)",
+<<<<<<< HEAD
 	"right-editmyprivateinfo": "Эсеть ланга пурнавозенть витема (саемга, электронной почтань адрес, алкуксонь лем) ды салава валонть ёртомга электронной сёрматнень вешема",
+=======
+>>>>>>> origin/1.39.7-test
 	"right-editmyoptions": "Эсь ладямотнень витема",
 	"right-rollback": "Лопань витниця меельце совицянть витевкстнэнь бойка кеверема",
 	"right-markbotedits": "Ботонь кондямо кеверемань витевкстнэнь тешкс",
@@ -1321,7 +1363,10 @@
 	"grant-editsiteconfig": "CSS/JavaScript сайтэнть ды совицянть витема",
 	"grant-editpage": "Улиця лопатнень витема",
 	"grant-editprotected": "Ванстозь лопатнень витема",
+<<<<<<< HEAD
 	"grant-highvolume": "Покш вий марто нолдамо (боттнэнень)",
+=======
+>>>>>>> origin/1.39.7-test
 	"grant-import": "Версиятнень ускома",
 	"grant-mergehistory": "Вейэндямс лопатнень историяст",
 	"grant-oversight": "Совицятнень витевксэст ды лопатнень версияст кекшема",
@@ -1361,6 +1406,7 @@
 	"action-writeapi": "витевкстнэнь туртов нолдамс API",
 	"action-delete": "нардамс те лопанть",
 	"action-delete-redirect": "Вейке версия марто лиякс кучомань одов сёрмадома",
+<<<<<<< HEAD
 	"action-deleterevision": "Содазь лопатнень версияст нардамо эли вельмевтема",
 	"action-deletelogentry": "Журналонь содазь сёрмадовкстнэнь нардамо эли вельмевтема",
 	"action-deletedhistory": "Нардазь сёрмадовкстнэнь историятнень метапурнавкстнэнь ваннома",
@@ -1370,6 +1416,13 @@
 	"action-suppressrevision": "Эрьва кодат совицятнень пельде версиянь кой-кодат лопатнень ваннома, кекшема эли вельмевтема",
 	"action-suppressionlog": "ваномс те совицянь журналонть",
 	"action-block": "Кардамс эли панжомс те совицянть туртов витемань тевенть",
+=======
+	"action-deleterevision": "нардамс лиякстомтомат",
+	"action-browsearchive": "нардазь лопатнень вешнема",
+	"action-undelete": "лопатнень вельмевтема",
+	"action-suppressionlog": "ваномс те совицянь журналонть",
+	"action-block": "кардамс те совицянть витнемадо-петнемадо",
+>>>>>>> origin/1.39.7-test
 	"action-protect": "Те лопань ванстомань ладямотнень полавтома",
 	"action-rollback": "Полавтомань бойка кеверема",
 	"action-import": "совавтомс лопат лия викистэ",
@@ -1396,7 +1449,10 @@
 	"action-apihighlimits": "API-вешематнесэ покш ютконь тевс нолдамо",
 	"action-autoconfirmed": "IP-тешксэнть лангс бойкачинь кардамонь ютамо",
 	"action-bigdelete": "Историянь кувака полавтоматнень марто лопань нардамо",
+<<<<<<< HEAD
 	"action-blockemail": "Совицянть туртов электронной почтас кучомга кардамо эли панжома",
+=======
+>>>>>>> origin/1.39.7-test
 	"action-bot": "Ловомс автоматикань важодеманть",
 	"action-editprotected": "«{{int:protect-level-sysop}}» теке ванстозь лопатнень витевкс",
 	"action-editsemiprotected": "«{{int:protect-level-autoconfirmed}}» теке ванстозь лопатнень витевкс",
@@ -1412,7 +1468,10 @@
 	"action-editmyuserjs": "JavaScript эсь файлатнень витема",
 	"action-editmyuserjsredirect": "JavaScript одов кучозь эсь файлатнень витема",
 	"action-viewsuppressed": "Весе совицятнень эйстэ кекшезь версиятнень ваннома",
+<<<<<<< HEAD
 	"action-hideuser": "Совицянть лемензэ кардамо эли панжома, лия совицятнень эйстэ невтемань сонзэ кекшемазо",
+=======
+>>>>>>> origin/1.39.7-test
 	"action-ipblock-exempt": "IP-нь вельде кардамонь ютамо, автокардамонь ды кардамонь ютамо",
 	"action-unblockself": "Эсь прянь панжома",
 	"action-noratelimit": "Бойкачинь кардамонь ютамо",
@@ -1546,8 +1605,11 @@
 	"rcfilters-filter-categorization-description": "Путозь эли нардазь пелькстнэстэ лопатнеде сёрмадовкст.",
 	"rcfilters-filter-logactions-label": "Сёрмадомань тевдеемат",
 	"rcfilters-filter-logactions-description": "Адмиистративной тевдеемат, учётонь сёрмадовксонь теемат, лопань нардамот, файлань тонгомат...",
+<<<<<<< HEAD
 	"rcfilters-filter-newuserlogactions-label": "Од совицят",
 	"rcfilters-filter-newuserlogactions-description": "Учётонь сёрмадовксонь теемань журналонь сёрмадовкст. Сёрмадозь тевдеематне ульнесть кочказь.",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-hideminor-conflicts-typeofchange-global": "\"Вишка витемат\" ваньскавтомась сёвны вейке эли лия ванькскавтоматнень марто, секс мекс кой-кона витематне а лемдявить вишкинекс. Сёвномань ванькскавтоматне тешкстазь вере, Бойкачинь ванькскавтомань ёнкссо.",
 	"rcfilters-hideminor-conflicts-typeofchange": "Кой-кона витевкстнэ лемдявить \"вишкинекс\", секс мекс те ванькскавтомась сёвны витевксэнь лия ванькскавтоманть марто: $1",
 	"rcfilters-typeofchange-conflicts-hideminor": "Витевксэнь ванькскавтомань те фильтрась сёвны ванькскавтоманть вишка витевксэнть марто. Кой-конат витевкстнэнь а мереви тешкстамс кода \"вишкинеть\".",
@@ -1557,8 +1619,11 @@
 	"rcfilters-filter-previousrevision-label": "Аволь меельце версия",
 	"rcfilters-filter-previousrevision-description": "\"Меельце версиякс\" а лововиця весе витевкстнэ",
 	"rcfilters-filter-excluded": "Нардазь",
+<<<<<<< HEAD
 	"rcfilters-tag-prefix-namespace-inverted": "<strong>эли</strong> :$1",
 	"rcfilters-tag-prefix-tags-inverted": "<strong>эли</strong> #$1",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-exclude-button-off": "Нардамс кочказенть",
 	"rcfilters-exclude-button-on": "Кочказенть нардамо",
 	"rcfilters-view-tags": "Тешкс марто витевкст",
@@ -1892,7 +1957,10 @@
 	"filehist-dimensions": "Кувалмот",
 	"filehist-filesize": "Файлань покшолма",
 	"filehist-comment": "Мельполадкс",
+<<<<<<< HEAD
 	"filehist-missing": "файла арась",
+=======
+>>>>>>> origin/1.39.7-test
 	"imagelinks": "Файлань тевс нолдамо",
 	"linkstoimage": "Те файланть марто сюлмавозь вана {{PLURAL:$1|истямо лопа|$1 истят лопат}}:",
 	"linkstoimage-more": "$1 лопадо ламо {{PLURAL:$1|нолдыть}} те файланть тевс.\nСеде тов максозь лемлувсо {{PLURAL:$1|невтеви васенце лопась, кона нолды|невтевить васенце $1 лопатне, конат нолдыть}} ансяк те лопанть тевс.\n[[Special:WhatLinksHere/$2|Покш лемлувсояк]] ули.",
@@ -2074,14 +2142,21 @@
 	"ancientpages": "Меельце чинть коряс витнезь лопат",
 	"move": "Лиякс лемдемс",
 	"movethispage": "Те лопанть лемдемс лиякс",
+<<<<<<< HEAD
 	"unusedimagestext": "Мельга молиця файлатне вейкеяк лопасо тевс а нолдавить. Инескеть, кирдть мельсэ, лия веб-сайттнэнень мереви нежедемс те файлас (его URL-с), истямо лувсо те спискас понгоманть лангс сонзэ мереви нолдамс тевс.",
+=======
+	"unusedimagestext": "Мельга молиця файлатне вейкеяк лопасо тевс а нолдавить. Инескеть, кирдть мельсэ, лия веб-сайттнэнень мереви нежедемс те файлас (URL-с), истямо лувсо те лемлувс понгоманть лангс сонзэ мереви нолдамс тевс.",
+>>>>>>> origin/1.39.7-test
 	"unusedimagestext-categorizedimgisused": "Мельга молиця файлат улить, ансяк сынь апак совавто вейкеяк лопас. Вейкеяк лопасо аулемстэ категориява явозь невтематне ялатеке лововить тевс нолдавицякс. Вант, лия веб-сайттнэнень мереви нежедемс URL виде адресэнь файлантень, ды весемесь карми аштеме бойкачинь тевс нолдамонть коряс.",
 	"unusedcategoriestext": "Улить категориянь мельга молиця лопат, конатнесэ а кирдевить сёрмадовкст эли лия категорият.",
 	"notargettitle": "Прявт аравтомась апак невте",
 	"notargettext": "Те тевдееманть туртов тон эзик невте прявт путомань лопанть эли совицянть.",
 	"nopagetitle": "Истямо эрявикс лопа арась",
 	"nopagetext": "Истямо эрявикс лопа арась.",
+<<<<<<< HEAD
 	"badrevision": "Те версиянь текстэсь арась эли колазь.",
+=======
+>>>>>>> origin/1.39.7-test
 	"pager-newer-n": "$1 {{PLURAL:$1|седе од|седе одт}}",
 	"pager-older-n": "{{PLURAL:$1|седе ташто 1|седе таштот $1}}",
 	"suppress": "Кекшема",
@@ -2513,10 +2588,15 @@
 	"contributions": "Путовкс",
 	"tool-link-contributions": "{{GENDER:$1|совицянть}} путовксозо",
 	"contributions-title": "Совицянть путовксонзо $1-нь",
+<<<<<<< HEAD
 	"contribute-title": "Совицянь путовкс",
 	"mycontris": "Путовкст",
 	"anoncontribs": "Путовкст",
 	"contribute": "Путовкс",
+=======
+	"mycontris": "Путовкст",
+	"anoncontribs": "Путовкст",
+>>>>>>> origin/1.39.7-test
 	"contribsub2": "{{GENDER:$3|$1}}-нь путовксозо ($2)",
 	"contributions-userdoesnotexist": "«$1» учётонь сёрмадовксось апак тешкста.",
 	"negative-namespace-not-supported": "Берянь смусть марто лемтаркатне а кирдевить.",
@@ -2551,7 +2631,10 @@
 	"whatlinkshere-page": "Лопа:",
 	"linkshere": "Сыця лопатне невтить <strong>$2</strong> лангс:",
 	"nolinkshere": "<strong>$2</strong> лопанть лангс арасть лия лопатнестэ невтемат.",
+<<<<<<< HEAD
 	"nolinkshere-filter": "Арасть лопат, конат нежедить <strong>$2</strong> лангс вешнемань неень ладямотнень марто.",
+=======
+>>>>>>> origin/1.39.7-test
 	"nolinkshere-ns": "Лемень кочказь таркасо арасть лопат, конат нежедить\n<strong>$2</strong> лангс.",
 	"isredirect": "одов кучомань лопа",
 	"istemplate": "совавтома",
@@ -2590,6 +2673,12 @@
 	"ipb-partial": "Пельксэнь-пельксэнь",
 	"ipb-sitewide-help": "Карды витеманть весе лопатнесэ ды лемень таркатнесэ. Теке марто карды чатьмонемань тевдеематнень ([https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Blocking_users вант Тевконёвонть])",
 	"ipb-partial-help": "Кардамонть туртов максы кочкамс лопат ды лемень таркат. А карды чатьмонемань коряс важодемат, ансяк максы кардамс кой-кодат тевдеемат.",
+<<<<<<< HEAD
+=======
+	"ipb-action-create": "Од лопань теема",
+	"ipb-action-move": "Лопатнень одов лемдема",
+	"ipb-action-upload": "Файлань тонгома",
+>>>>>>> origin/1.39.7-test
 	"ipb-pages-label": "Лопат",
 	"ipb-namespaces-label": "Лемень таркат",
 	"badipaddress": "Аволь виде IP аштема тарка",
@@ -2767,10 +2856,13 @@
 	"movesubpagetalktext": "Кортамонь те лопанть ули $1 {{PLURAL:$1|алкслопа, кона невтезь|алкслопат, конат невтезь|алкслопатне, конат невтезь}} ало.",
 	"movenosubpage": "Те лопасонть алкслопат арасть.",
 	"movereason": "Тувтал:",
+<<<<<<< HEAD
 	"moveotherreason": "Лия/башка тувтал:",
 	"movereasonotherlist": "Лия тувтал",
 	"movepage-reason-dropdown": "* Лиякс лемдемань свалшкань тувталт\n** Ильведевкс марто лемть",
 	"movepage-edit-reasonlist": "Витнемс тувталнэнь лемлувонть",
+=======
+>>>>>>> origin/1.39.7-test
 	"revertmove": "велявтома",
 	"delete_and_move_text": "«[[:$1]]» истямо лем марто лопа ули. \nЛиякс лемдемань путомга тон нардавлик сонзэ?",
 	"delete_redirect_and_move_text": "«[[:$1]]» лем марто прявт аравтомань лопа ули.\nЛиякс лементь путомга тон нардавлик сонзэ?",
@@ -2855,6 +2947,10 @@
 	"import-upload-username-prefix": "Интервикинь вал икелькст:",
 	"import-assign-known-users": "Сюлмамс витевкстнэнь тескень совицятнень марто, зярдо совицятне улить истямо лем марто.",
 	"import-comment": "Мельполадкс:",
+<<<<<<< HEAD
+=======
+	"importtext": "Инескеть, кучик те лопанть ушодксонь викистэ, тевс нолдазь [[Special:Export|эрявикс лездамопель]]. Ванстык те файланть дискс, мейле тонгик файланть одов.",
+>>>>>>> origin/1.39.7-test
 	"importstart": "Лопатне совавтовить...",
 	"import-revision-count": "$1 {{PLURAL:$1|лиякстомтома|лиякстомтомат}}",
 	"importnopages": "Таргамс лопат арасть.",
@@ -2998,7 +3094,10 @@
 	"pageinfo-default-sort": "Чатьмонемань коряс явнома",
 	"pageinfo-length": "Лопань кувалма (байтасо)",
 	"pageinfo-namespace": "Лемень тарка",
+<<<<<<< HEAD
 	"pageinfo-namespace-id": "Лемень таркань тешкстамо",
+=======
+>>>>>>> origin/1.39.7-test
 	"pageinfo-article-id": "Лопань ID",
 	"pageinfo-language": "Лопань кель",
 	"pageinfo-language-change": "полавтомс",
@@ -3127,7 +3226,11 @@
 	"metadata-help": "Те файласонть улить информациянь башка поладомат, конат путовить цифрань камерасо эли сканерсэ. Бути теемадо мейле файлась витневсь, сестэ кой-кона ладямотне, паряк, а кармить ванновомо меельце невтеманть марто.",
 	"metadata-expand": "Невтемс топавтозь даннойтнень",
 	"metadata-collapse": "Пекстамс башка содамочитнень",
+<<<<<<< HEAD
 	"metadata-fields": "Метаданнойтнень невтемань таркатне, конат ули те лемлувсо, кармить аштеме невтемань лопасо метаданноень велявтозь таблицанть пингстэ. Лия таркатне кекшевить чатьмонемань коряс.\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude\n* dc-rights\n* copyrightowner\n* usageterms\n* webstatement\n* licenseurl\n* attributionurl\n* preferredattributionname\n* credit\n* jpegfilecomment\n* pngfilecomment\n* giffilecomment\n* usercomment\n* citydest\n* citycreated\n* headline\n* source\n* locationdest\n* dc-contributor\n* dc-coverage\n* dc-publisher\n* dc-relation\n* label\n* nickname\n* personinimage\n* disclaimer\n* event\n* objectname",
+=======
+	"metadata-fields": "Те сёрминесэ максозь артовксметадатань уминетне совавтовить артовкслопань невтемапотмос, зярдо метадата таблицась кекшезь-вишкалгавтозь. \nЛиятне, апак кевкстне, кармить улеме кекшезь.\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude",
+>>>>>>> origin/1.39.7-test
 	"namespacesall": "весе",
 	"monthsall": "весе",
 	"confirmemail": "Кемекстамс электронной почтань адресэнть",
@@ -3167,7 +3270,10 @@
 	"confirm-watch-button": "Вадря",
 	"confirm-watch-top": "Совавтомс те лопанть тонь ваномань лемлувс?",
 	"confirm-watch-label": "Ваномань лемлувсо шкань пелькс:",
+<<<<<<< HEAD
 	"watchlist-expiry-options": "Свалшкас:infinite,1 тарго:1 week,1 ков:1 month,3 ковт:3 months,6 ковт:6 months,1 ие:1 year",
+=======
+>>>>>>> origin/1.39.7-test
 	"watchlist-expires-in-aria-label": "Нурька шкас ваномань лемлувсо",
 	"confirm-watch-button-expiry": "Ванномс",
 	"confirm-unwatch-button": "Вадря",
@@ -3282,7 +3388,10 @@
 	"version-entrypoints-header-entrypoint": "Совамо тарка",
 	"version-entrypoints-header-url": "URL",
 	"version-libraries": "Аравтозь ловнома таркат",
+<<<<<<< HEAD
 	"version-libraries-client": "Клиентэнь путозь ловнома таркат",
+=======
+>>>>>>> origin/1.39.7-test
 	"version-libraries-library": "Ловнома тарка",
 	"version-libraries-version": "Версия",
 	"version-libraries-license": "Лицензия",
@@ -3617,10 +3726,13 @@
 	"feedback-useragent": "Браузер:",
 	"searchsuggest-search": "Вешнемс {{SITENAME}}-стэ",
 	"searchsuggest-containing": "Вешнемс лопат, конатнесэ ули",
+<<<<<<< HEAD
 	"search-match-redirect-label": "Ютамс вейс валовомас вешнемстэ",
 	"search-match-redirect-help": "Кочкак лопас ютамга сестэ, зярдо те лопанть прявт лемезэ сюлмазь сень марто, мезе тон вешнят",
 	"search-thumbnail-extra-namespaces-label": "Невтемс вишка невтевкст Special:Search стувор лангонь версиясо",
 	"search-thumbnail-extra-namespaces-message": "Невтемс вишка невтевкст {{PLURAL:$2|лемень тарканть туртов|лемень таркатнень туртов}} $1 лопань цётамотнесэ {{#special:search}}",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchlimit-label": "Вешнемань цётамотнень ламочи эрьва лопасо невтемга:",
 	"searchlimit-help": "Сехте покш смусть: $1",
 	"api-clientside-error-noconnect": "Кодаяк а лиси сюлмавомс серверэнть марто. Кемевть, тонь ули Интернетэнть марто сюлмавома ды варчак одов.",
@@ -3725,8 +3837,11 @@
 	"json-error-invalid-property-name": "Свойствань декодировазь лемесь аволь виде.",
 	"json-error-utf16": "UTF-16 аволь виде тешкст, паряк, салава валонь аволь виде путома",
 	"headline-anchor-title": "Те пельксэнть лангс невтема",
+<<<<<<< HEAD
 	"special-tab-contribute-short": "Путовкс",
 	"special-tab-contributions-short": "Варштамс путовксонть",
+=======
+>>>>>>> origin/1.39.7-test
 	"special-characters-group-latin": "Латинэнь",
 	"special-characters-group-latinextended": "Латинэнь келейгавтозь",
 	"special-characters-group-ipa": "МФА (IPA)",
@@ -3974,6 +4089,7 @@
 	"newpages-showhide-bots": "$1 ботт",
 	"newpages-showhide-patrolled": "$1 ваннозь витевкст",
 	"newpages-showhide-redirect": "$1 одов кучомат",
+<<<<<<< HEAD
 	"newpages-showhide-registered": "$1 тешкстазть",
 	"blockedtext-made-by": "Кардамонть теизе ветицясь $1.",
 	"blockedtext-reason-comment": "Кардамонь тувтал: $1",
@@ -4014,4 +4130,7 @@
 	"action-renameuser": "совицятнень одов лемдема",
 	"right-renameuser": "Совицятнень одов лемдема",
 	"renameuser-renamed-notice": "Те совицясь ульнесь одов лемдезь.\nСеде ало содамочинь содамга невтезь одов лемдемань журнал."
+=======
+	"newpages-showhide-registered": "$1 тешкстазть"
+>>>>>>> origin/1.39.7-test
 }

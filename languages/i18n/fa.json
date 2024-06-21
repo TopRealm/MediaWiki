@@ -94,10 +94,19 @@
 			"فلورانس",
 			"محک",
 			"아라",
+<<<<<<< HEAD
 			"Darknessswamp8",
 			"Havadar-hvac",
 			"Rulebased",
 			"Ebrahim"
+=======
+			"Mskf1383",
+			"Af420",
+			"0PAWN0",
+			"Darknessswamp8",
+			"Havadar-hvac",
+			"Rulebased"
+>>>>>>> origin/1.39.7-test
 		]
 	},
 	"tog-underline": "خط کشیدن زیر پیوندها:",
@@ -725,12 +734,21 @@
 	"summary-preview": "پیش‌نمایش خلاصۀ ویرایش:",
 	"previewerrortext": "در زمان تلاش برای پیش‌نمایش تغییرات شما، خطایی رخ داد.",
 	"blockedtitle": "کاربر بسته شده است",
+<<<<<<< HEAD
 	"blockedtext-partial": "<strong>دسترسی ویرایشی حساب کاربری یا نشانی آی‌پی شما برای انجام این کار بسته شده است. ممکن است همچنان بتوانید کارهای دیگری نظیر ترجمهٔ صفحه‌های دیگر در این وبگاه را انجام دهید.</strong>\n\nبرای مشاهدهٔ جزئیات کامل قطع دسترسی به [[Special:MyContributions|مشارکت‌های حساب کاربری خود]] مراجعه کنید.\n\n{{int:blockedtext-made-by|$1}}\n\n{{int:blockedtext-reason-comment|$2}}.\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n*{{int:blockedtext-block-id|$5}}",
 	"blockedtext": "<strong>دسترسی حساب کاربری یا نشانی آی‌پی شما بسته شده است.</strong>\n\n{{int:blockedtext-made-by|$1}}\n{{int:blockedtext-reason-comment|$2}}.\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n{{int:blockedtext-contact-blocker-admin|$1}}\nدر صورتی که یک نشانی ایمیل معتبر را در [[Special:Preferences|ترجیحات]] خود وارد کرده باشید و دسترسی شما به استفاده از ایمیل بسته نشده باشد، می‌توانید از ویژگی «{{int:emailuser}}» استفاده کنید.\n{{int:blockedtext-block-ip|$3}}، و شناسهٔ قطع دسترسی #$5 است.\n{{int:blockedtext-include-details-queries}}",
 	"autoblockedtext": "دسترسی نشانی آی‌پی شما به‌طور خودکار قطع شده‌است، زیرا این نشانی آی‌پی توسط کاربر دیگری استفاده شده که دسترسی او توسط $1 قطع شده‌است.\nدلیل ارائه‌شده چنین است:\n\n:<em>$2</em>\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n{{int:blockedtext-contact-blocker-admin|$1}} \n\nدر صورتی که یک نشانی ایمیل معتبر را در [[Special:Preferences|ترجیحات]] خود وارد کرده باشید و دسترسی شما به استفاده از ایمیل بسته نشده باشد، می‌توانید از ویژگی «{{int:emailuser}}» استفاده کنید.\n{{int:blockedtext-block-ip|$3}}، و شناسهٔ قطع دسترسی #$5 است.\n{{int:blockedtext-include-details-queries}}",
 	"systemblockedtext": "نام کاربری یا نشانی آی‌پی شما به‌صورت خودکار توسط مدیاویکی مسدود شده‌است.\nدلیل ارائه‌شده چنین است:\n\n:<em>$2</em>\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n{{int:blockedtext-block-ip|$3}}.\n{{int:blockedtext-include-details-queries}}",
 	"blockednoreason": "هیچ دلیلی ارائه نشده است",
 	"blockedtext-composite": "<strong>نام کاربری یا نشانی آی‌پی شما مسدود شده‌است.</strong>\nدلیل ارائه‌شده چنین است:\n\n:<em>$2</em>\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-longest-block|$6}}\n\n* $5\n\n{{int:blockedtext-block-ip|$3}}.\n{{int:blockedtext-include-details-queries}}",
+=======
+	"blockedtext-partial": "<strong>حساب کاربری یا آدرس آی‌پی شما برای انجام تغییرات در این صفحه بسته شده‌است. شما همچنان می‌توانید در دیگر صفحه‌های این ویکی ویرایش کنید.</strong> برای مشاهده جزئیات کامل قطع دسترسی به [[Special:MyContributions|مشارکت‌های حساب کاربری]] مراجعه کنید.\n\nاین قطع دسترسی توسط $1 انجام گرفته‌است.\n\nدلیل قطع دسترسی <em>$2</em> است.\n\n* زمان شروع قطع دسترسی: $8\n* زمان پایان قطع دسترسی: $6\n* موارد مورد نظر: $7\n* شناسه قطع دسترسی: #$5",
+	"blockedtext": "<strong>دسترسی حساب کاربری یا نشانی آی‌پی شما بسته شده‌است.</strong>\n\nاین قطع دسترسی توسط $1 انجام شده است.\nدلیل ارائه‌شده چنین است: <em>$2</em>\n\n* شروع قطع دسترسی: $8\n* پایان قطع دسترسی: $6\n* کاربری هدف قطع دسترسی: $7\n\nشما می‌توانید با $1 یا [[{{MediaWiki:Grouppage-sysop}}|مدیری]] دیگر تماس بگیرید و در این باره صحبت کنید.\nتوجه کنید که در صورتی می توانید از قابلیت «{{int:emailuser}}» استفاده کنید که آدرس ایمیل معتبری در [[Special:Preferences|ترجیحات کاربری]] خودتان ثبت کرده باشید و نیز باید امکان استفاده از این قابلیت برای شما قطع نشده باشد.\nنشانی آی‌پی فعلی شما $3 و شمارهٔ قطع دسترسی شما $5 است.\nلطفاً تمامی جزئیات فوق را در کلیهٔ درخواست‌هایی که در این باره مطرح می‌کنید ذکر کنید.",
+	"autoblockedtext": "دسترسی نشانی آی‌پی شما به‌طور خودکار قطع شده‌است، زیرا این نشانی آی‌پی توسط کاربر دیگری استفاده شده که دسترسی او توسط $1 قطع شده‌است.\nدلیل ارائه‌شده چنین است:\n\n:<em>$2</em>\n\n* شروع قطع دسترسی: $8\n* پایان قطع دسترسی: $6\n* کاربری هدف قطع دسترسی: $7\n\nشما می‌توانید با $1 یا [[{{MediaWiki:Grouppage-sysop}}|مدیری]] دیگر تماس بگیرید و در این باره صحبت کنید.\nتوجه کنید که در صورتی که  نشانی ایمیل معتبری در [[Special:Preferences|ترجیحات]] خودتان ثبت کرده باشید، و نیز دسترسی شما به استفاده از این قابلیت قطع نشده‌باشد، می‌توانید از قابلیت «{{int:emailuser}}» استفاده کنید.\nنشانی آی‌پی فعلی شما $3 و شناسهٔ قطع دسترسی شما $5 است.\nلطفاً تمامی جزئیات فوق را در کلیهٔ درخواست‌هایی که در این باره مطرح می‌کنید ذکر کنید.",
+	"systemblockedtext": "نام کاربری یا نشانی آی‌پی شما خودکار توسط مدیاویکی مسدود شده‌است.\nدلیل ارائه‌شده:\n\n:<em>$2</em>\n\n* آغاز بلاک: $8\n* پایان بلاک: $6\n* قطع دسترسی‌شده مورد نظر: $7\n\nنشانی آی‌پی کنونی شما $3 است.\nخواهشمند است تمام جزئیات بالا را در هر پرس‌وجویی که انجام می‌دهید قرار دهید.",
+	"blockednoreason": "هیچ دلیلی ارائه نشده است",
+	"blockedtext-composite": "<strong>نام کاربری یا نشانی آی‌پی شما خودکار توسط مدیاویکی مسدود شده‌است.</strong>\nدلیل ارائه‌شده:\n\n:<em>$2</em>\n\n* آغاز بلاک: $8\n* پایان بلاک: $6\n\n* $5\n\nنشانی آی‌پی کنونی شما $3 است.\nخواهشمند است تمام جزئیات بالا را در هر پرس‌وجویی که انجام می‌دهید قرار دهید.",
+>>>>>>> origin/1.39.7-test
 	"blockedtext-composite-ids": "شناسهٔ یندایش مرتبط: $1 (نشانی آی‌پی شما نیز ممکن است در فهرست بندایش باشد)",
 	"blockedtext-composite-no-ids": "به نظر می‌رسد نشانی آی‌پی شما در چندین فهرست بندایش وجود داشته باشد",
 	"blockedtext-composite-reason": "حساب و/یا آی‌پی شما به چند طریق مسدود شده است",

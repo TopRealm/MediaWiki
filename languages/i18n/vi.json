@@ -63,6 +63,13 @@
 			"Xð",
 			"לערי ריינהארט",
 			"아라",
+<<<<<<< HEAD
+=======
+			"P.T.Đ",
+			"CactiStaccingCrane",
+			"Nguyenphutrong2",
+			"Tryvix1509",
+>>>>>>> origin/1.39.7-test
 			"Amire80",
 			"Flyplanevn27",
 			"I am Vietnam",
@@ -695,10 +702,17 @@
 	"summary-preview": "Xem trước dòng tóm lược sửa đổi:",
 	"previewerrortext": "Có lỗi xảy ra khi xem trước những thay đổi của bạn.",
 	"blockedtitle": "Thành viên bị cấm",
+<<<<<<< HEAD
 	"blockedtext-partial": "<strong>Tên người dùng hoặc địa chỉ IP của bạn bị cấm thực hiện việc này. Bạn vẫn có thể làm những việc khác trên trang web này, chẳng hạn như sửa đổi một số trang nhất định.</strong> \n\nBạn có thể xem toàn bộ chi tiết vụ cấm tại [[Special:MyContributions|đóng góp của tài khoản]].\n\n{{int:blockedtext-made-by|$1}}\n\n{{int:blockedtext-reason-comment|$2}}.\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n*{{int:blockedtext-block-id|$5}}",
 	"blockedtext": "<strong>Tài khoản hoặc địa chỉ IP của bạn đã bị cấm.</strong>\n\n{{int:blockedtext-made-by|$1}}\n{{int:blockedtext-reason-comment|$2}}.\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n{{int:blockedtext-contact-blocker-admin|$1}}\nBạn có thể sử dụng chức năng “{{int:emailuser}}” nếu bạn đã nhập địa chỉ thư điện tử hợp lệ trong [[Special:Preferences|tùy chọn của bạn]] và chức năng đó không bị khóa.\n{{int:blockedtext-block-ip|$3}}, và mã số cấm là #$5.\n{{int:blockedtext-include-details-queries}}",
 	"autoblockedtext": "Địa chỉ IP của bạn đã bị tự động cấm vì một người nào đó đã sử dụng nó và đã bị cấm bởi $1.\nLý do được cung cấp là:\n\n:<em>$2</em>\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n{{int:blockedtext-contact-blocker-admin|$1}} \n\nBạn có thể sử dụng chức năng “{{int:emailuser}}” nếu bạn đã đăng ký một địa chỉ thư điện tử hợp lệ trong [[Special:Preferences|tùy chọn]] và bạn không bị cấm dùng chức năng đó.\n\n{{int:blockedtext-block-ip|$3}}, và mã số cấm là $5.\n{{int:blockedtext-include-details-queries}}",
 	"systemblockedtext": "Tên người dùng hoặc địa chỉ IP của bạn bị MediaWiki cấm tự động.\nLý do được cung cấp là:\n\n:<em>$2</em>\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n{{int:blockedtext-block-ip|$3}}.\n{{int:blockedtext-include-details-queries}}",
+=======
+	"blockedtext-partial": "<strong>Tài khoản hoặc IP của bạn đã bị cấm không được phép thực hiện tác vụ này. Có lẽ bạn vẫn có thể thực hiện những tác vụ khác tại wiki này, chẳng hạn như sửa đổi các trang cụ thể.</strong> Bạn có thể xem chi tiết đầy đủ về việc cấm tại [[Special:MyContributions|các đóng góp của tài khoản]].\n\nViệc cấm được thực hiện bởi $1.\n\nLý do được đưa ra là <em>$2</em>.\n\n* Ngày bắt đầu cấm: $8\n* Ngày hết hạn cấm: $6\n* Người bị cấm: $7\n* Mã số cấm #$5",
+	"blockedtext": "<strong>Tài khoản hoặc địa chỉ IP của bạn đã bị cấm.</strong>\n\nNgười thực hiện cấm là $1.\nLý do được cung cấp là <em>$2</em>.\n\n* Bắt đầu cấm: $8\n* Kết thúc cấm: $6\n* Mục tiêu cấm: $7\n\nBạn có thể liên hệ với $1 hoặc [[{{MediaWiki:Grouppage-sysop}}|bảo quản viên]] khác để thảo luận về vụ cấm.\nBạn có thể sử dụng chức năng “{{int:emailuser}}” nếu bạn đã nhập địa chỉ thư điện tử hợp lệ trong [[Special:Preferences|tùy chọn của bạn]] và chức năng đó không bị khóa.\nĐịa chỉ IP hiện tại của bạn là $3, và mã số cấm là #$5.\nXin hãy cung cấp tất cả các thông tin trên vào thư yêu cầu của bạn.",
+	"autoblockedtext": "Địa chỉ IP của bạn đã bị tự động cấm vì một người nào đó đã sử dụng nó, $1 là thành viên đã thực hiện cấm.\nLý do được cung cấp là:\n\n:<em>$2</em>\n\n* Bắt đầu cấm: $8\n* Kết thúc cấm: $6\n* Mục tiêu cấm: $7\n\nBạn có thể liên hệ với $1 hoặc một trong số các\n[[{{MediaWiki:Grouppage-sysop}}|bảo quản viên]] khác để thảo luận về việc cấm.\n\nBạn có thể sử dụng chức năng “{{int:emailuser}}” nếu một địa chỉ thư điện tử hợp lệ được chỉ định trong [[Special:Preferences|tùy chọn]] và bạn không bị cấm dùng chức năng đó.\n\nĐịa chỉ IP hiện tại của bạn là $3, mã số cấm là $5.\nXin hãy ghi kèm tất cả các chi tiết trên vào thư yêu cầu của bạn.",
+	"systemblockedtext": "Tên người dùng hoặc địa chỉ IP của bạn bị MediaWiki cấm tự động.\nLý do được cung cấp là:\n\n:<em>$2</em>\n\n* Bắt đầu cấm: $8\n* Kết thúc cấm: $6\n* Mục tiêu cấm: $7\n\nĐịa chỉ IP hiện tại của bạn là $3.\nXin vui lòng bao gồm tất cả các chi tiết bên trên khi nào hỏi về tác vụ này.",
+>>>>>>> origin/1.39.7-test
 	"blockednoreason": "không đưa ra lý do",
 	"blockedtext-composite": "<strong>Tên người dùng hoặc địa chỉ IP của bạn đã bị cấm.</strong>\n\nLý do được cung cấp là:\n\n:<em>$2</em>.\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-longest-block|$6}}\n\n* $5\n\n{{int:blockedtext-block-ip|$3}}.\n{{int:blockedtext-include-details-queries}}",
 	"blockedtext-composite-ids": "Các mã số cấm có liên quan: $1 (địa chỉ IP của bạn có thể cũng xuất hiện trong một danh sách cấm)",
@@ -721,8 +735,13 @@
 	"missing-revision-permission": "Phiên bản #$1 ứng với một trang đã bị xóa. Bạn có thể [{{fullurl:{{#Special:Undelete}}|target=$3&timestamp=$2&diff=prev}} xem phiên bản] và xem chi tiết trong [{{fullurl:{{#Special:Log}}/delete|page=$3}} nhật trình xóa].",
 	"missing-revision": "Phiên bản #$1 của trang có tên “{{FULLPAGENAME}}” không tồn tại.\n\nLỗi này thường xuất hiện đối khi theo dõi liên kết lỗi thời đến phiên bản cũ của một trang đã bị xóa.\nXem chi tiết trong [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} nhật trình xóa].",
 	"missing-revision-content": "Không thể tải nội dung phiên bản #$1 của trang có tên “$2”.",
+<<<<<<< HEAD
 	"userpage-userdoesnotexist": "Đây chưa có tài khoản với tên “<nowiki>$1</nowiki>” trên wiki này. Xin hãy kiểm tra lại nếu bạn muốn tạo hay sửa trang này.",
 	"userpage-userdoesnotexist-view": "Chưa có tài khoản “$1” trên wiki này.",
+=======
+	"userpage-userdoesnotexist": "Đây chưa có tài khoản với tên “<nowiki>$1</nowiki>”. Xin hãy kiểm tra lại nếu bạn muốn tạo hay sửa trang này.",
+	"userpage-userdoesnotexist-view": "Chưa có tài khoản với tên “$1”.",
+>>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "{{GENDER:$1|Thành viên}} này hiện đang bị cấm sửa đổi. \nNhật trình cấm gần nhất được ghi ở dưới để tiện theo dõi:",
 	"clearyourcache": "<strong>Chú ý:</strong> Sau khi lưu trang, có thể bạn sẽ phải xóa bộ nhớ đệm của trình duyệt để xem các thay đổi.\n* <strong>Firefox / Safari:</strong> Nhấn giữ phím <em>Shift</em> trong khi nhấn <em>Tải lại</em> (<em>Reload</em>), hoặc nhấn tổ hợp <em>Ctrl-F5</em> hay <em>Ctrl-R</em> (<em>⌘R</em> trên Mac)\n* <strong>Google Chrome:</strong> Nhấn tổ hợp <em>Ctrl-Shift-R</em> (<em>⇧⌘R</em> trên Mac)\n* <strong>Internet Explorer / Edge:</strong> Nhấn giữ phím <em>Ctrl</em> trong khi nhấn <em>Làm tươi</em> (<em>Refresh</em>), hoặc nhấn tổ hợp <em>Ctrl-F5</em>\n* <strong>Opera:</strong> Nhấn tổ hợp <em>Ctrl-F5</em>.",
 	"usercssyoucanpreview": "<strong>Mẹo:</strong> Sử dụng nút “{{int:showpreview}}” để kiểm thử bản CSS của bạn trước khi lưu trang.",
@@ -2607,7 +2626,10 @@
 	"contributions": "Đóng góp của người dùng",
 	"tool-link-contributions": "{{GENDER:$1}}Đóng góp của người dùng",
 	"contributions-title": "Đóng góp của $1",
+<<<<<<< HEAD
 	"contribute-title": "Đóng góp của người dùng",
+=======
+>>>>>>> origin/1.39.7-test
 	"mycontris": "Đóng góp",
 	"anoncontribs": "Đóng góp",
 	"contribute": "Đóng góp",
@@ -2646,7 +2668,10 @@
 	"whatlinkshere-page": "Trang:",
 	"linkshere": "Các trang sau liên kết đến <strong>$2</strong>:",
 	"nolinkshere": "Không có trang nào liên kết đến <strong>$2</strong>.",
+<<<<<<< HEAD
 	"nolinkshere-filter": "Không có trang nào liên kết đến <strong>$2</strong> đối với các tùy chọn tìm kiếm hiện tại.",
+=======
+>>>>>>> origin/1.39.7-test
 	"nolinkshere-ns": "Không có trang nào liên kết đến '''$2''' trong không gian tên đã chọn.",
 	"isredirect": "trang đổi hướng",
 	"istemplate": "được nhúng vào",
@@ -3846,10 +3871,15 @@
 	"feedback-useragent": "Tác nhân người dùng:",
 	"searchsuggest-search": "Tìm kiếm trên {{SITENAME}}",
 	"searchsuggest-containing": "Tìm trang có",
+<<<<<<< HEAD
 	"search-match-redirect-label": "Chuyển đến trang khớp tên khi tìm kiếm",
 	"search-match-redirect-help": "Chọn để được chuyển ngay đến trang khi tựa trang khớp với từ khóa đang tìm",
 	"search-thumbnail-extra-namespaces-label": "Hiển thị hình thu nhỏ trong Đặc biệt:Tìm kiếm trên Màn hình",
 	"search-thumbnail-extra-namespaces-message": "Hiển thị hình thu nhỏ cho các kết quả trong {{PLURAL:$1|không gian tên|các không gian tên}} $1 trên trang {{#special:search}}",
+=======
+	"search-match-redirect-label": "Chuyển hướng đến trang khớp tên khi tìm kiếm",
+	"search-match-redirect-help": "Chọn để được chuyển hướng ngay đến trang khi tựa trang khớp với từ khóa đang tìm",
+>>>>>>> origin/1.39.7-test
 	"searchlimit-label": "Số lượng kết quả tìm kiếm để hiển thị trên mỗi trang:",
 	"searchlimit-help": "Số lượng tối đa: $1",
 	"api-clientside-error-noconnect": "Không thể kết nối với máy chủ. Hãy đảm bảo bạn vẫn đang kết nối với internet và thử lại.",
@@ -4209,6 +4239,7 @@
 	"newpages-showhide-bots": "$1 bot",
 	"newpages-showhide-patrolled": "$1 sửa đổi đã tuần tra",
 	"newpages-showhide-redirect": "$1 đổi hướng",
+<<<<<<< HEAD
 	"newpages-showhide-registered": "$1 thành viên có tài khoản",
 	"blockedtext-made-by": "Lệnh cấm được thực hiện bởi $1.",
 	"blockedtext-reason-comment": "Lý do được đưa ra là <em>$1</em>",
@@ -4250,4 +4281,7 @@
 	"action-renameuser": "đổi tên thành viên",
 	"right-renameuser": "Đổi tên thành viên",
 	"renameuser-renamed-notice": "Thành viên này đã được đổi tên.\nNhật trình đổi tên được ghi ở dưới để tiện theo dõi."
+=======
+	"newpages-showhide-registered": "$1 thành viên có tài khoản"
+>>>>>>> origin/1.39.7-test
 }

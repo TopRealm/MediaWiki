@@ -614,8 +614,13 @@
 	"noarticletext": "Abhi ii panna me kuchh likhaa nai hai.\nAap saktaa hai [[Special:Search/{{PAGENAME}}|ii panna ke title khoje]] duusra panna me,\n<span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} search the related logs],\nnai to [{{fullurl:{{FULLPAGENAME}}|action=edit}} ii panna ke badlo]</span>.",
 	"noarticletext-nopermission": "Abhi ii panna me koi chij likha nai hae.\nAap sakta hae [[Special:Search/{{PAGENAME}}|ii panna ke title ke khoje]] duusra panna me,\nnai to <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} search the related logs]</span>, lekin aap ke ii panna ke banae ke ijaaja tnai hae.",
 	"missing-revision": "Panna \"{{FULLPAGENAME}}\" me #$1 badlao nai hae.\nIske kaaran ii hoe sake hae ki ek mitawa gais panna se link karaa jaawe hae.\nIske baare me aur jaankari [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} deletion log] me paawa jaae sake hae.",
+<<<<<<< HEAD
 	"userpage-userdoesnotexist": "User account \"$1\" abi registered nai hai.\nCheck karo ki Ii panna ke aap banae/badle mangta hai.",
 	"userpage-userdoesnotexist-view": "User account \"$1\" ii wiki me abhi register nai karaa gais hae",
+=======
+	"userpage-userdoesnotexist": "User account \"<nowiki>$1</nowiki>\" abi registered nai hai.\nCheck karo ki Ii panna ke aap banae/badle mangta hai.",
+	"userpage-userdoesnotexist-view": "User account \"$1\" abhi register nai karaa gais hae",
+>>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "Ii {{GENDER:$1|sadasya}} ke abhi rok dewa gais hae.\nSab se nawaa block log entry niche dewa gais hae:",
 	"clearyourcache": "<strong>Note:</strong> - Save kare ke baad, aap ke sait browser ke cache ke bypass kare ke parri badlao ke dekhe khatir.\n* <strong>Firefox / Safari:</strong> me <em>Shift</em> ke dabae ke <em>Reload</em/>, pe click karo, nai to chaahe <em>Ctrl-F5</em> nai to <em>Ctrl-R</em> (<em>⌘-R</em>  Mac pe)\n* <strong>Google Chrome:</strong> me <em>Ctrl-Shift-R</em> dabao (<em>⌘-Shift-R</em> Mac pe)\n*  <strong>Internet Explorer:</strong> me <em>Ctrl</em> dabae ke  <em>Refresh</em> pe click karo, nai to  <em>Ctrl-F5</em> dabao\n* <strong>Opera:</strong> Go to <em>Menu → Settings</em> (<em>Opera → Preferences</em> on a Mac) and then to <em>Privacy & security → Clear browsing data → Cached images and files</em>.",
 	"usercssyoucanpreview": "'''Salah:''' Bachae se pahile \"{{int:showpreview}}\"  button ke kaam me laae ke aapan nawaa CSS ke test karo.",

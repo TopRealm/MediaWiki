@@ -612,9 +612,12 @@ class HtmlToContentTransform {
 	 */
 	private function getSelserData(): ?SelserData {
 		$oldhtml = $this->hasOriginalHtml() ? $this->getOriginalHtml() : null;
+<<<<<<< HEAD:includes/parser/Parsoid/HtmlToContentTransform.php
 
 		// Selser requires knowledge of the original wikitext.
 		$knowsOriginal = $this->knowsOriginalContent();
+=======
+>>>>>>> origin/1.39.7-test:includes/parser/Parsoid/HTMLTransform.php
 
 		if ( $knowsOriginal && !empty( $this->parsoidSettings['useSelser'] ) ) {
 			if ( !$this->getPageConfig()->getRevisionContent() ) {

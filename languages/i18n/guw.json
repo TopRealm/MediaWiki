@@ -12,6 +12,10 @@
 			"Sagbosam",
 			"Samatics",
 			"Yemi festus",
+<<<<<<< HEAD
+=======
+			"Jamex18",
+>>>>>>> origin/1.39.7-test
 			"Medaho",
 			"Reedy"
 		]
@@ -653,8 +657,13 @@
 	"missing-revision-permission": "Zepon #$1 tọn yin na weda he he ko yin didesẹ de. A sọgan pọn [{{fullurl:{{#Special:Undelete}}|target=$3&timestamp=$2&diff=prev}} view it]; nudọnamẹ lẹ sọgan yin mimọ to  [{{fullurl:{{#Special:Log}}/delete|page=$3}} deletion log].",
 	"missing-revision": "Zepọn #$1 tọn na weda he nọ yin yiylọdọ \"{{FULLPAGENAME}}\" ma tin.\n\n\nEhe nọ saba jọ gbọn hihodo alọdlẹndonu gbigble whenuho de tọn he yin ṣiṣaka do weda he ko yin didesẹ de go.\nNudọnamẹ lẹ sọgan yin mimọ to [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} deletion log].",
 	"missing-revision-content": "Hosọ he tin na zepọn #$1 to nọtẹn lọ he yin yiylọdọ \"$2\" ma sọgan hùn.",
+<<<<<<< HEAD
 	"userpage-userdoesnotexist": "Adà zinzántọ tọn \"$1\" ma ko yin yinkọ-zedaina to wiki ehe ji.\nJaale pọ́n eyin a jlo na dá /jla weda ehe do.",
 	"userpage-userdoesnotexist-view": "Adà zinzantọ \"$1\" tọn ma ko yin kinkandai do wiki ehe ji.",
+=======
+	"userpage-userdoesnotexist": "Adà zinzántọ tọn \"$1\" ma ko yin yinkọ-zedaina.\nJaale pọ́n eyin a jlo na doai/jlado weda lọ.",
+	"userpage-userdoesnotexist-view": "Adà zinzantọ \"$1\" tọn ma ko yin kinkandai.",
+>>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "{{GENDER:$1|}} ehe ko yin ginglọn.\nKandai aliglọnnamẹ tọn agọe tọn yin awuwiwlena do odò fi na alọdlẹndonu:",
 	"clearyourcache": "<strong>Mì Doayiego:</strong> Eyin a ko sẹẹdo godo, e yọnbabasi dọ a dona dapana kandai notẹn intẹnẹt tọn towe lẹ nado mọ diọdo lẹ.\n* <strong>Firefox / Safari:</strong> Hẹn <em>Shift</em> whenue a to zinzin <em>Reload</em>, kavi zin <em>Ctrl-F5</em> kavi <em>Ctrl-R</em> (<em>⌘-R</em> to Mac dé ji)\n* <strong>Google Chrome:</strong> zin <em>Ctrl-Shift-R</em> (<em>⌘-Shift-R</em> to Mac dé ji)\n* <strong>Internet Explorer / Edge:</strong> Hẹn <em>Ctrl</em> ni a to zinzin <em>Refresh</em>, kavi zin <em>Ctrl-F5</em>\n* <strong>Opera:</strong> zin <em>Ctrl-F5</em>.",
 	"usercssyoucanpreview": "<strong>Alọgọ:</strong> zán \"{{int:showpreview}}\" do tẹn CSS yọyọ towe pọn whẹpo do sẹ do.",
@@ -924,8 +933,11 @@
 	"diff-paragraph-moved-tonew": "Hukan ehe ko yin adà diọ na. Ziń nado yi fi yọyọ he ete.",
 	"diff-paragraph-moved-toold": "Hukan ehe ko yin tẹnsẹ na. Ziń nado yi fi hóhó he ete.",
 	"difference-missing-revision": "{{PLURAL:$2|Zepọn dopo|$2 zepọn lẹ}} vogbingbọn ($1) ehe tọn {{PLURAL:$2|was|were}} ma tin.\n\n\nEhe nọ saba jọ gbọn hihodo alọdlẹndonu gbigble whenuho de tọn he yin ṣiṣaka do weda he ko yin didesẹ de go.\nNudọnamẹ lẹ sọgan yin mimọ to [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} deletion log].",
+<<<<<<< HEAD
 	"difference-bad-old-revision": "Nuhe vọzepọn hoho lọ bẹhẹn lọ ko busẹ kavi ko yin hinhẹnflu.",
 	"difference-bad-new-revision": "Nuhe vọzepọn yọyọ lọ bẹhẹn lọ ko busẹ kavi ko yin hinhẹn flu.",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchresults": "Dín kọdetọn",
 	"search-filter-title-prefix": "Dín to weda he hosọ́ yetọn bẹ po \"$1\" po lẹ kẹdẹ mẹ",
 	"search-filter-title-prefix-reset": "Din weda lepo",
@@ -1216,9 +1228,15 @@
 	"right-suppressrevision": "Pọ́n, whlá bosọ de vọzepọn tangan weda lẹ tọn jẹ gbonu na zinzántọ depope",
 	"right-viewsuppressed": "Pọn vọzepọn he yin whiwhlá do zinzantọ depope lẹ",
 	"right-suppressionlog": "Pọn kandai mẹdetiti tọn lẹ",
+<<<<<<< HEAD
 	"right-block": "Glọnnalina bosọ na dotẹnmẹ zinzántọ devo lẹ nado bayi vọjlado",
 	"right-blockemail": "Glọnnalina bosọ na dotẹnmẹ zinzantọ de ma nado sẹ́ email do",
 	"right-hideuser": "Sú kavi hùn tẹnmẹyinkọ de, nado glọnnalina ẹn ma nado sọawuhia to gbangba kavi nado dike ni wamọ",
+=======
+	"right-block": "Glọnnalina zinzantọ devo lẹ ma nado bayi vọjlado",
+	"right-blockemail": "Glọnnalina zinzantọ de ma nado sẹ́ email do",
+	"right-hideuser": "Sú tẹnmẹyinkọ de, glọnnalina ẹn ma nado sọawuhia to gbangba",
+>>>>>>> origin/1.39.7-test
 	"right-ipblock-exempt": "Dasá aliglọnnamẹ IP tọn lẹ, aliglọnnamẹ he ọdinatẹ wleawuna lẹ po aliglọnnamẹ lẹdo mẹ tọn lẹ",
 	"right-unblockself": "Dè aliglọnnamẹnu sẹ na dewe",
 	"right-editprotected": "Basi vọjlado weda he ko yin hihọ́basina taidi \"{{int:protect-level-sysop}}\" lẹ tọn",
@@ -1346,7 +1364,11 @@
 	"action-purge": "súnsún oflin weda lọ tọn",
 	"action-autoconfirmed": "Ni ma yin nuyiwadeji gbọn dogbó he sinai do sọha IP tọn ji blo",
 	"action-bigdelete": "Súnsún weda he tindo kandai he gbló taun lẹ",
+<<<<<<< HEAD
 	"action-blockemail": "Glọnalina zinzantọ de ma nado sẹ́ wekanhlanmẹ email tọn do kavi dike ni wamọ",
+=======
+	"action-blockemail": "Glọnalina zinzantọ dé manado sẹ email dó",
+>>>>>>> origin/1.39.7-test
 	"action-bot": "Ni yin hinhẹn taidi nuwiwa zomọ̀ dé tọn",
 	"action-editprotected": "Basi vọjlado weda he yin hihọ́basina taidi \"{{int\n:protect-level-sysop}}\"lẹ tọn",
 	"action-editsemiprotected": "Basi vọjlado weda he yin hihọ́basina taidi \"{{int\n:protect-level-autoconfirmed}}\" lẹ tọn",
@@ -1362,7 +1384,11 @@
 	"action-editmyuserjs": "Jla wepo JavaScript tọn towe lẹ do",
 	"action-editmyuserjsredirect": "basi vọjlado na wepo JavaScript tọn towe lẹ he yin kọvọlẹna lẹ",
 	"action-viewsuppressed": "Pọn vọzepọn he ko yin whiwhlá do zinzantọ depope lẹ.",
+<<<<<<< HEAD
 	"action-hideuser": "sú kavi hùn tẹnmẹyinkọ de, nado glọnnalina ẹn ma nado sọawuhia to gbangba kavi nado dike ni wamọ",
+=======
+	"action-hideuser": "glọnalina yinkọ zinzantọ tọn de, whlá ẹ ma nado sọawuhia to gbangba",
+>>>>>>> origin/1.39.7-test
 	"action-ipblock-exempt": "Dasá aliglọnnamẹ IP tọn lẹ, aliglọnnamẹ he ọdinatẹ wleawuna lẹ po aliglọnnamẹ lẹdo mẹ tọn lẹ",
 	"action-unblockself": "Dè aliglọnnamẹnu sẹ na dewe",
 	"action-noratelimit": "Ni ma yin nuyiwadeji gbọn dogbó sọha tọn dali blo",
@@ -1484,8 +1510,11 @@
 	"rcfilters-filter-categorization-description": "Kandai weda he to yinyin yiyidogọ kavi yin didesẹ sọn adà lẹ mẹ lẹ.",
 	"rcfilters-filter-logactions-label": "Nuwiwa he yin kinkandai lẹ",
 	"rcfilters-filter-logactions-description": "Nuwiwa anadidenanu tọn lẹ, adà mẹdetiti tọn lẹ hùnhùn, weda lẹ súnsúnsún, nulẹ sisẹ̀do...",
+<<<<<<< HEAD
 	"rcfilters-filter-newuserlogactions-label": "Zinzantọ yọyọ lẹ",
 	"rcfilters-filter-newuserlogactions-description": "Nuhe yin kinkandai nado hùn adà mẹdetiti tọn de lẹ. Nuwiwa he yin kinkandai lẹ dona yin dide.",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-filtergroup-lastrevision": "Vọzepọn he gbọngodo",
 	"rcfilters-filter-lastrevision-label": "Vọzepọn he gbọngodo",
 	"rcfilters-filter-lastrevision-description": "Vọjlado he yin bibasi na weda de to agọe kẹdẹ.",
@@ -2324,7 +2353,10 @@
 	"whatlinkshere-page": "Weda:",
 	"linkshere": "Weda he bọdego ehelẹ tọ́n jẹ <strong>$2</strong> mẹ:",
 	"nolinkshere": "Weda depope ma tin he yin kinkọndopọ hẹ<strong>$2</strong>.",
+<<<<<<< HEAD
 	"nolinkshere-filter": "Weda lẹ dé ma yin alọdlẹndo hlan <strong>$2</strong> po tito nudíndín tọn alọnu tọn lọ po.",
+=======
+>>>>>>> origin/1.39.7-test
 	"nolinkshere-ns": "Weda lẹ dé ma yin alọdlẹndo hlan <strong>$2</strong> to tẹnmẹ yinkọ he yin dide lọ mẹ.",
 	"isredirect": "vọ kọlẹna weda",
 	"istemplate": "weyijlẹdowego",
@@ -3105,6 +3137,10 @@
 	"log-name-tag": "Kandai ohia tọn",
 	"rightsnone": "(depope)",
 	"rightslogentry-temporary-group": "$1 (whenu kleun tọn, kakajẹ $2)",
+<<<<<<< HEAD
+=======
+	"feedback-back": "Yigodo",
+>>>>>>> origin/1.39.7-test
 	"feedback-cancel": "Hònupla",
 	"feedback-close": "E ko yin wiwa",
 	"feedback-message": "Owẹ̀n:",
@@ -3313,6 +3349,7 @@
 	"newpages-showhide-bots": "$1 bot lẹ",
 	"newpages-showhide-patrolled": "$1 vọjlado he bibasi to yigọyigọ whenu lẹ",
 	"newpages-showhide-redirect": "$1 vọ kolẹna",
+<<<<<<< HEAD
 	"newpages-showhide-registered": "$1 Zinzantọ he yin kinkandai lẹ",
 	"blockedtext-made-by": "Alọhẹndotena lọ yin bibasi gbọn $1 dali",
 	"blockedtext-reason-comment": "Whẹwhinwhẹn he yin nina wẹ <em>$1</em>",
@@ -3324,4 +3361,7 @@
 	"blockedtext-block-ip": "IP adlẹsi towe din tọn wẹ $1",
 	"blockedtext-block-id": "ID #$1 he yin alọhẹndotena.",
 	"blockedtext-include-details-queries": "Jaale mọ yi nudọnamẹ he to aga lẹ do dodinnanu depope he basi ate mẹ."
+=======
+	"newpages-showhide-registered": "$1 Zinzantọ he yin kinkandai lẹ"
+>>>>>>> origin/1.39.7-test
 }

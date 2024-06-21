@@ -3,7 +3,10 @@
 use MediaWiki\Content\Renderer\ContentParseParams;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Page\PageIdentity;
+<<<<<<< HEAD
 use MediaWiki\Title\Title;
+=======
+>>>>>>> origin/1.39.7-test
 
 /**
  * Test class for Export methods.

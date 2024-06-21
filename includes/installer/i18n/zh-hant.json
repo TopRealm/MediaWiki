@@ -29,8 +29,14 @@
 			"列维劳德",
 			"蘭斯特",
 			"아라",
+<<<<<<< HEAD
 			"Func",
 			"铁桶"
+=======
+			"Willy1018",
+			"列维劳德",
+			"Func"
+>>>>>>> origin/1.39.7-test
 		]
 	},
 	"config-desc": "MediaWiki 安裝程式",

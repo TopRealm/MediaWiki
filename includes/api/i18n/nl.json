@@ -294,7 +294,10 @@
 	"apihelp-query+backlinks-param-title": "Te onderzoeken titel. Kan niet in combinatie met <var>$1pageid</var> gebruikt worden.",
 	"apihelp-query+backlinks-param-pageid": "Te onderzoeken pagina-ID. Kan niet in combinatie met <var>$1title</var> gebruikt worden.",
 	"apihelp-query+backlinks-param-namespace": "De door te lopen naamruimte.",
+<<<<<<< HEAD
 	"apihelp-query+backlinks-param-filterredir": "Hoe te filteren op automatische doorverwijzingen. Indien ingesteld op <kbd>nonredirects</kbd> wanneer <var>$1redirect</var> is ingeschakeld, wordt dit alleen toegepast op het tweede niveau.",
+=======
+>>>>>>> origin/1.39.7-test
 	"apihelp-query+backlinks-example-simple": "Koppelingen naar [[{{MediaWiki:Mainpage}}]] tonen.",
 	"apihelp-query+blocks-summary": "Toon alle geblokkeerde gebruikers en IP-adressen.",
 	"apihelp-query+blocks-param-limit": "Het maximale aantal te tonen blokkades.",
@@ -346,8 +349,11 @@
 	"apihelp-query+iwbacklinks-summary": "Vind alle pagina's die linken naar de gegeven interwiki-link.",
 	"apihelp-query+iwbacklinks-param-prefix": "Voorvoegsel voor de interwiki.",
 	"apihelp-query+iwbacklinks-param-limit": "Hoeveel pagina’s er in totaal moeten worden geretourneerd.",
+<<<<<<< HEAD
 	"apihelp-query+iwbacklinks-param-prop": "Welke eigenschappen op te vragen:",
 	"apihelp-query+iwbacklinks-paramvalue-prop-iwprefix": "Voegt het voorvoegsel van de interwiki toe.",
+=======
+>>>>>>> origin/1.39.7-test
 	"apihelp-query+iwbacklinks-paramvalue-prop-iwtitle": "Voegt de titel van de interwiki toe.",
 	"apihelp-query+iwlinks-paramvalue-prop-url": "Voegt de volledige URL toe.",
 	"apihelp-query+iwlinks-param-limit": "Hoeveel interwiki-links moeten worden geretourneerd.",
@@ -366,9 +372,13 @@
 	"apihelp-query+linkshere-paramvalue-prop-title": "Titel van elke pagina.",
 	"apihelp-query+linkshere-paramvalue-prop-redirect": "Markeer als de pagina een automatische doorverwijzing is.",
 	"apihelp-query+linkshere-param-namespace": "Toon alleen pagina's in deze naamruimten.",
+<<<<<<< HEAD
 	"apihelp-query+linkshere-paramvalue-show-redirect": "Toon alleen automatische doorverwijzingen.",
 	"apihelp-query+linkshere-example-simple": "Een lijst van pagina's tonen met koppelingen naar [[{{MediaWiki:Mainpage}}]].",
 	"apihelp-query+logevents-param-prop": "Welke eigenschappen op te vragen:",
+=======
+	"apihelp-query+linkshere-example-simple": "Een lijst van pagina's tonen met koppelingen naar [[{{MediaWiki:Mainpage}}]].",
+>>>>>>> origin/1.39.7-test
 	"apihelp-query+logevents-param-type": "Logboekregels alleen voor dit type filteren.",
 	"apihelp-query+logevents-param-tag": "Alleen logboekregels met dit label weergeven.",
 	"apihelp-query+logevents-example-simple": "Recente logboekregels weergeven.",
@@ -377,7 +387,10 @@
 	"apihelp-query+prefixsearch-param-search": "Zoekopdracht.",
 	"apihelp-query+prefixsearch-param-offset": "Aantal resultaten dat overgeslagen moeten worden.",
 	"apihelp-query+protectedtitles-param-limit": "Hoeveel pagina’s er in totaal moeten worden geretourneerd.",
+<<<<<<< HEAD
 	"apihelp-query+protectedtitles-param-prop": "Welke eigenschappen op te vragen:",
+=======
+>>>>>>> origin/1.39.7-test
 	"apihelp-query+protectedtitles-paramvalue-prop-level": "Voegt het beveiligingsniveau toe.",
 	"apihelp-query+protectedtitles-example-simple": "Toon beveiligde titels.",
 	"apihelp-query+querypage-param-limit": "Aantal te tonen resultaten.",
@@ -403,7 +416,10 @@
 	"apihelp-query+redirects-example-simple": "Een lijst van doorverwijzingen naar [[{{MediaWiki:Mainpage}}]] ophalen.",
 	"apihelp-query+redirects-example-generator": "Informatie over alle doorverwijzingen naar [[{{MediaWiki:Mainpage}}]] ophalen.",
 	"apihelp-query+revisions-param-tag": "Alleen revisies met dit label weergeven.",
+<<<<<<< HEAD
 	"apihelp-query+revisions+base-param-prop": "Welke eigenschappen op te vragen voor elke revisie:",
+=======
+>>>>>>> origin/1.39.7-test
 	"apihelp-query+revisions+base-paramvalue-prop-ids": "De ID van de versie.",
 	"apihelp-query+revisions+base-paramvalue-prop-content": "Tekst van de versie. Als de tekst voor deze versie is verwijderd, wordt een eigenschap <samp>texthidden</samp> geretourneerd.",
 	"apihelp-query+revisions+base-paramvalue-prop-tags": "Labels voor de versie.",

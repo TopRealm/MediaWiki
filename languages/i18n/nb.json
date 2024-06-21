@@ -61,6 +61,10 @@
 			"Yupik",
 			"לערי ריינהארט",
 			"아라",
+<<<<<<< HEAD
+=======
+			"EdoAug",
+>>>>>>> origin/1.39.7-test
 			"Amire80",
 			"TommyG",
 			"Iketsi",
@@ -718,8 +722,13 @@
 	"missing-revision-permission": "Sideversjonen #$1 hører til en slettet side. Du kan [{{fullurl:{{#Special:Undelete}}|target=$3&timestamp=$2&diff=prev}} se den]; detaljer finner du i [{{fullurl:{{#Special:Log}}/delete|page=$3}} sletteloggen].",
 	"missing-revision": "Sideversjon #$1 av  «{{FULLPAGENAME}}» eksisterer ikke.\n\nDette skyldes som regel at en gammel historikklenke er fulgt til en side som er slettet.\nDetaljer kan finnes i [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} sletteloggen].",
 	"missing-revision-content": "Innholdet til sideversjon #$1 fra siden med navn «$2» kunne ikke lastes.",
+<<<<<<< HEAD
 	"userpage-userdoesnotexist": "Brukerkontoen «$1» er ikke registrert på denne wikien.\nSjekk om du ønsker å opprette/redigere denne siden.",
 	"userpage-userdoesnotexist-view": "Kontoen «$1» er ikke registrert på denne wikien.",
+=======
+	"userpage-userdoesnotexist": "Brukerkontoen «$1» er ikke registrert.\nSjekk om du ønsker å opprette/redigere denne siden.",
+	"userpage-userdoesnotexist-view": "Kontoen «$1» er ikke registrert.",
+>>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "Denne {{GENDER:$1|brukeren}} er for tiden blokkert.\nSiste blokkeringsloggelement kan sees nedenfor.",
 	"clearyourcache": "<strong>Merk:</strong> Etter publisering vil det kanskje være nødvendig å slette mellomlageret i nettleseren din for å se endringene.\n* <strong>Firefox / Safari:</strong> Hold <em>Shift</em> mens du klikker på <em>Oppdater</em>, eller trykk enten <em>Ctrl+F5</em> eller <em>Ctrl+R</em> (<em>⌘+R</em> på Mac)\n* <strong>Google Chrome:</strong> Trykk <em>Ctrl+Shift+R</em> (<em>⌘+Shift+R</em> på Mac)\n* <strong>Internet Explorer / Edge:</strong> Hold <em>Ctrl</em> mens du trykker på <em>Oppdater</em> eller trykk <em>Ctrl+F5</em>\n* <strong>Opera:</strong> Ttrykk <em>Ctrl+F5</em>.",
 	"usercssyoucanpreview": "<strong>Tips:</strong> Bruk «{{int:showpreview}}»-knappen for å teste din nye CSS før du publiserer.",
@@ -1001,7 +1010,10 @@
 	"lineno": "Linje $1:",
 	"compareselectedversions": "Sammenlign valgte sideversjoner",
 	"showhideselectedversions": "Vis/skjul valgte sideversjoner",
+<<<<<<< HEAD
 	"showhideselectedfileversions": "Endre synligheten til de valgte filversjonene",
+=======
+>>>>>>> origin/1.39.7-test
 	"editundo": "omgjør",
 	"diff-empty": "(Ingen forskjell)",
 	"diff-multi-sameuser": "({{PLURAL:$1|Én mellomliggende revisjon|$1 mellomliggende revisjoner}} av samme bruker vises ikke)",
@@ -1010,8 +1022,11 @@
 	"diff-paragraph-moved-tonew": "Avsnittet ble flyttet. Klikk for å hoppe til den nye plasseringen.",
 	"diff-paragraph-moved-toold": "Avsnittet ble flyttet. Klikk for å hoppe til den gamle plasseringen.",
 	"difference-missing-revision": "{{PLURAL:$2|Én sideversjon|$2 sideversjoner}} av denne forskjellen ($1) ble ikke funnet.\n\nDette skyldes som regel at en gammel forskjellslenke er fulgt til en side som er slettet.\nDetaljer kan finnes i [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} sletteloggen].",
+<<<<<<< HEAD
 	"difference-bad-old-revision": "Innholdet i den gamle versjonen mangler eller er skadd.",
 	"difference-bad-new-revision": "Innholdet i den nye versjonen mangler eller er skadd.",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchresults": "Søkeresultater",
 	"search-filter-title-prefix": "Søker bare i sider der tittelen begynner med «$1»",
 	"search-filter-title-prefix-reset": "Søk i alle sider",
@@ -1388,7 +1403,11 @@
 	"grant-editsiteconfig": "Redigere CSS og JavaScript for hele nettstedet og i brukernavnerommet",
 	"grant-editpage": "Redigere eksisterende sider",
 	"grant-editprotected": "Redigere beskyttede sider",
+<<<<<<< HEAD
 	"grant-highvolume": "Høy&shy;volum&shy;redigering (bot)",
+=======
+	"grant-highvolume": "Høy&shy;volum&shy;redigering",
+>>>>>>> origin/1.39.7-test
 	"grant-import": "Importere sideversjoner",
 	"grant-mergehistory": "Flett sidehistorikker",
 	"grant-oversight": "Skjule brukere og undertrykke sideversjoner",
@@ -1428,10 +1447,17 @@
 	"action-writeapi": "bruke skrive-API-en",
 	"action-delete": "slette denne siden",
 	"action-delete-redirect": "overskrive omdirigeringer med én sideversjon",
+<<<<<<< HEAD
 	"action-deleterevision": "slette eller gjenopprette spesifikke sideversjoner",
 	"action-deletelogentry": "slette eller gjenopprette spesifikke loggoppføringer",
 	"action-deletedhistory": "se metadata for slettede historikkoppføringer",
 	"action-deletedtext": "se slettet tekst eller endringer mellom slettede sideversjoner",
+=======
+	"action-deleterevision": "slette revisjoner",
+	"action-deletelogentry": "slette loggoppføringer",
+	"action-deletedhistory": "se en sides slettede historikk",
+	"action-deletedtext": "se slettet revisjonstekst",
+>>>>>>> origin/1.39.7-test
 	"action-browsearchive": "søke i slettede sider",
 	"action-undelete": "gjenopprette sider",
 	"action-suppressrevision": "se, skjule og fjerne skjuling av spesifikke sideversjoner av sider for alle brukere",
@@ -1479,7 +1505,11 @@
 	"action-editmyuserjs": "redigere dine egne JavaScript-filer",
 	"action-editmyuserjsredirect": "redigere dine egne JavaScript-filer som er omdirigeringer",
 	"action-viewsuppressed": "vise sideversjoner skjult fra alle brukere",
+<<<<<<< HEAD
 	"action-hideuser": "blokkere eller avblokkere et brukernavn og skjule det fra offentligheten",
+=======
+	"action-hideuser": "blokkere et brukernavn og skjule det fra offentligheten",
+>>>>>>> origin/1.39.7-test
 	"action-ipblock-exempt": "omgå IP-blokkeringer, autoblokkeringer og rekkeblokkeringer",
 	"action-unblockself": "avblokkere deg selv",
 	"action-noratelimit": "ikke bli påvirket av hastighetsbegrensninger",
@@ -1614,8 +1644,11 @@
 	"rcfilters-filter-categorization-description": "Sporer sider som legges til i eller fjernes fra kategorier.",
 	"rcfilters-filter-logactions-label": "Loggførte handlinger",
 	"rcfilters-filter-logactions-description": "Administrative handlinger, kontoopprettelser, sideslettinger, opplastinger ...",
+<<<<<<< HEAD
 	"rcfilters-filter-newuserlogactions-label": "Nye brukere",
 	"rcfilters-filter-newuserlogactions-description": "Loggoppføringer for kontoopprettelse. Loggede handlinger må være markert.",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-hideminor-conflicts-typeofchange-global": "Filteret for «Mindre endringer» kommer i konflikt med ett eller flere endringstypefiltre, fordi visse endringstyper ikke kan merkes som «mindre». Filtrene med konflikt merkes i området for aktive filtre ovenfor.",
 	"rcfilters-hideminor-conflicts-typeofchange": "Visse endringstyper kan ikke merkes som «mindre», så dette filteret konflikterer med følgende endringstypefiltre: $1",
 	"rcfilters-typeofchange-conflicts-hideminor": "Dette endringstypefilteret konflikterer med filteret for «Mindre endringer». Visse endringstyper kan ikke merkes som «mindre».",
@@ -2151,7 +2184,10 @@
 	"notargettext": "Du oppga ikke en målside eller bruker å utføre denne funksjonen på.",
 	"nopagetitle": "Målsiden finnes ikke",
 	"nopagetext": "Siden du ville flytte finnes ikke.",
+<<<<<<< HEAD
 	"badrevision": "Teksten i denne versjonen mangler eller er skadd.",
+=======
+>>>>>>> origin/1.39.7-test
 	"pager-newer-n": "$1 {{PLURAL:$1|nyere}}",
 	"pager-older-n": "$1 {{PLURAL:$1|eldre}}",
 	"suppress": "Undertrykk",
@@ -2550,6 +2586,10 @@
 	"undeletehistorynoadmin": "Denne artikkelen har blitt slettet. Grunnen for slettingen vises i oppsummeringen nedenfor, sammen med detaljer om brukerne som redigerte siden før den ble slettet. Teksten i disse slettede sideversjonene er kun tilgjengelig for administratorer.",
 	"undelete-revision": "Slettet sideversjon av $1 (per $4 $5) av $3:",
 	"undeleterevision-missing": "Ugyldig eller manglende sideversjon. Du kan ha en ødelagt lenke, eller sideversjonen har blitt fjernet fra arkivet.",
+<<<<<<< HEAD
+=======
+	"undeleterevision-duplicate-revid": "{{PLURAL:$1|Én revisjon|$1 revisjoner}} kunne ikke gjenopprettes, fordi {{PLURAL:$1|dens|deres}} <code>rev_id</code> allerede er i bruk.",
+>>>>>>> origin/1.39.7-test
 	"undelete-nodiff": "Ingen tidligere sideversjoner funnet.",
 	"undeletebtn": "Gjenopprett",
 	"undeletelink": "vis/gjenopprett",

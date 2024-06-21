@@ -676,7 +676,10 @@
 	"lineno": "Riga $1:",
 	"compareselectedversions": "Cunfronta li versioni sciubaraddi",
 	"showhideselectedversions": "Ciambà la visibiriddai di li versioni isciubaraddi",
+<<<<<<< HEAD
 	"showhideselectedfileversions": "Ciambà la visibiriddai di li versioni d'ischedàriu isciubaraddi",
+=======
+>>>>>>> origin/1.39.7-test
 	"editundo": "annulla",
 	"diff-empty": "(Nisciuna diffarènzia)",
 	"diff-multi-sameuser": "({{PLURAL:$1|Una versioni postha in mezu di lu matessi utenti non è ammusthradda |$1 versioni posthi in mezu di lu matessi utenti non sò ammusthraddi}})",

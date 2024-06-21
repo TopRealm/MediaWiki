@@ -27,6 +27,17 @@
 			"Uzoma Ozurumba",
 			"Weather Top Wizard",
 			"아라",
+<<<<<<< HEAD
+=======
+			"Nwonwu Uchechukwu P",
+			"Adakaibe",
+			"Amakasquare",
+			"Anyaegbumercy",
+			"Ennydavids",
+			"Lebron jay",
+			"Ucmbachu",
+			"Karen",
+>>>>>>> origin/1.39.7-test
 			"Excel mimi",
 			"Johnson milia55",
 			"Ngostary2k",
@@ -205,8 +216,11 @@
 	"skin-action-unprotect": "Nchẹdo mgbanwe",
 	"unprotect": "Nchẹdo mgbanwe",
 	"newpage": "Ihü ohúrù",
+<<<<<<< HEAD
 	"newpage-desc": "Malite ịhụ ọhụrụ maka isiokwu ndị achọrọ",
 	"view-missing-pages": "Lee ihu ndị n'adịghị",
+=======
+>>>>>>> origin/1.39.7-test
 	"talkpagelinktext": "ṅkátá",
 	"specialpage": "Ihü mkpà",
 	"personaltools": "Ngwaọrụ onwe",

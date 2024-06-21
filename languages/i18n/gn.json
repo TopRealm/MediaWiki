@@ -467,7 +467,10 @@
 	"search-suggest": "Oiméne ehekase: $1",
 	"search-interwiki-more": "(hetave)",
 	"search-interwiki-more-results": "hetave mba'e rehekáva",
+<<<<<<< HEAD
 	"search-thumbnail-alt": "$1 michĩháicha",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchall": "opaite",
 	"showingresults": "Abajo se muestran hasta '''$1''' resultados empezando por el nº '''$2'''.",
 	"search-nonefound": "Ndaipóri mba'e ojejuhúva ojoajúva mba'e ojehekáva rehe.",
@@ -484,12 +487,18 @@
 	"prefs-editwatchlist-clear": "Emonandi ne rembiapo ñangarekoha rysýi",
 	"prefs-rendering": "Ojehechaháicha",
 	"prefs-searchmisc": "Opavave",
+<<<<<<< HEAD
 	"searchprefs": "Eheka ne poravorãme",
 	"prefs-editing": "Ñemoambue",
 	"searchresultshead": "Jeheka",
 	"recentchangesdays": "Ára ojehechaukava'erã oñemoambue pyahúvape:",
 	"prefs-description-rendering": "Emohenda mba'erechaka, tuichakue ha moñe'ẽrã jeporavorã.",
 	"prefs-description-watchlist": "Emohenda ha emboheko kuatiakuéra rysýi reñangarekóva.",
+=======
+	"prefs-editing": "Ñemoambue",
+	"searchresultshead": "Jeheka",
+	"recentchangesdays": "Ára ojehechaukava'erã oñemoambue pyahúvape:",
+>>>>>>> origin/1.39.7-test
 	"servertime": "Mohendahavusu aravo:",
 	"allowemail": "Eheja ambue puruhárape tomondo chéve korréo",
 	"default": "oimeháicha",
@@ -525,7 +534,10 @@
 	"action-movefile": "eguerova ko marandurenda",
 	"action-upload": "ehupi ko marandurenda",
 	"action-upload_by_url": "ehupi ko marandurenda peteĩ URL-gui",
+<<<<<<< HEAD
 	"action-deletedhistory": "ehecha apopyme'ẽ kuatia ñemoambue rembiasakue oñembogueva'ekuépe",
+=======
+>>>>>>> origin/1.39.7-test
 	"action-importupload": "egueru kuatiakuéra ehupívo peteĩ marandurenda",
 	"action-editmywatchlist": "emoambue ne rembiapo ñangarekoha rysýi",
 	"nchanges": "$1 {{PLURAL:$1|ñemoambue}}",
@@ -842,7 +854,10 @@
 	"sunday-at": "arapokõi, $1",
 	"metadata": "Apopyme'ẽ",
 	"metadata-help": "Ko marandurenda oguereko marandu ambuéva, oiméne oñembojoapýva kámara térã escáner ojeporúvagui ojejapo térã oñemoha'anga hag̃ua.\nOñemoambuéramo ko marandurenda iñemohenda ypykuégui, ikatu oĩ sa'imi ndohechaukái hekopete pe marandurenda oñemoambuéva.",
+<<<<<<< HEAD
 	"metadata-fields": "Los campos de metadatos listados en este mensaje se mostrarán en la página de descripción de la imagen cuando la tabla de metadatos esté plegada.\nOtros campos se mantendrán ocultos por defecto.\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude\n* dc-rights\n* copyrightowner\n* usageterms\n* webstatement\n* licenseurl\n* attributionurl\n* preferredattributionname\n* credit\n* jpegfilecomment\n* pngfilecomment\n* giffilecomment\n* usercomment\n* citydest\n* citycreated\n* headline\n* source\n* locationdest\n* dc-contributor\n* dc-coverage\n* dc-publisher\n* dc-relation\n* label\n* nickname\n* personinimage\n* disclaimer\n* event\n* objectname",
+=======
+>>>>>>> origin/1.39.7-test
 	"namespacesall": "opaite",
 	"monthsall": "opaite",
 	"imgmultigo": "Eho!",

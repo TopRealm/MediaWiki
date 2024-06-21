@@ -386,9 +386,12 @@ return [
 			'DatabaseReplicaLagCritical' => 30,
 			'MaxExecutionTimeForExpensiveQueries' => 0,
 			'TemplateLinksSchemaMigrationStage' => 768,
+<<<<<<< HEAD
 			'ExternalLinksSchemaMigrationStage' => 3,
 			'CommentTempTableSchemaMigrationStage' => [
 			],
+=======
+>>>>>>> origin/1.39.7-test
 			'ContentHandlers' => [
 				'wikitext' => [
 					'class' => 'WikitextContentHandler',
@@ -843,6 +846,14 @@ return [
 				],
 			],
 			'CentralIdLookupProvider' => 'local',
+			'UserRegistrationProviders' => [
+				'local' => [
+					'class' => 'MediaWiki\\User\\Registration\\LocalUserRegistrationProvider',
+					'services' => [
+						0 => 'UserFactory',
+					],
+				],
+			],
 			'PasswordPolicy' => [
 				'policies' => [
 					'bureaucrat' => [
@@ -2703,6 +2714,7 @@ return [
 			'RevertedTagMaxDepth' => 'integer',
 			'CentralIdLookupProviders' => 'object',
 			'CentralIdLookupProvider' => 'string',
+			'UserRegistrationProviders' => 'object',
 			'PasswordPolicy' => 'object',
 			'AuthManagerConfig' => [
 				0 => 'object',
@@ -3167,11 +3179,14 @@ return [
 		'UploadStashScalerBaseUrl' => [
 			'deprecated' => 'since 1.36 Use thumbProxyUrl in $wgLocalFileRepo',
 		],
+<<<<<<< HEAD
 		'ThumbnailNamespaces' => [
 			'items' => [
 				'type' => 'integer',
 			],
 		],
+=======
+>>>>>>> origin/1.39.7-test
 		'LocalDatabases' => [
 			'items' => [
 				'type' => 'string',

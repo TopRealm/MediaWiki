@@ -321,10 +321,13 @@ class MagicWordArray {
 					'text' => $text,
 					'errorText' => $errorText
 				] );
+<<<<<<< HEAD:includes/parser/MagicWordArray.php
 				// T321234: Don't try to fix old revisions with broken UTF-8, just return as is
 				if ( $error === PREG_BAD_UTF8_ERROR ) {
 					continue;
 				}
+=======
+>>>>>>> origin/1.39.7-test:includes/MagicWordArray.php
 				throw new Exception( "preg_match_all error $error: $errorText" );
 			} elseif ( $res ) {
 				foreach ( $matches as $m ) {

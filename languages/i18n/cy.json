@@ -29,6 +29,10 @@
 			"Xxglennxx",
 			"לערי ריינהארט",
 			"아라",
+<<<<<<< HEAD
+=======
+			"Afalau",
+>>>>>>> origin/1.39.7-test
 			"Albertoleoncio"
 		]
 	},
@@ -654,12 +658,20 @@
 	"summary-preview": "Rhagolwg o'r crynodeb:",
 	"previewerrortext": "Cafwyd nam tra'n ceisio creu rhagolwg o'r newidiadau.",
 	"blockedtitle": "Mae'r defnyddiwr hwn wedi cael ei flocio",
+<<<<<<< HEAD
 	"blockedtext-partial": "<strong>Mae eich enw defnyddiwr neu gyfeiriad IP wedi'i blocio rhag gwneud hyn. Mae'n bosib y bydd modd i chi gwneud pethau eraill ar y wefan hon, fel golygu tudalennau penodol.</strong> \n\nGallwch weld manylion llawn y bloc ar eich [[Special:MyContributions|tudalen gyfraniadau]].\n\n{{int:blockedtext-made-by|$1}}\n\n{{int:blockedtext-reason-comment|$2}}.\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n*{{int:blockedtext-block-id|$5}}",
 	"blockedtext": "<strong>Mae eich enw defnyddiwr neu'ch cyfeiriad IP wedi cael ei flocio.</strong>\n\n{{int:blockedtext-made-by|$1}}\n{{int:blockedtext-reason-comment|$2}}.\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n{{int:blockedtext-contact-blocker-admin|$1}}\nGallwch ddefnyddio'r nodwedd \"{{int:emailuser}}\" os ydych wedi nodi cyfeiriad e-bost dilys yn eich [[Special:Preferences|dewisiadau]], ac nad ydych wedi cael eich blocio rhag ei defnyddio.\n{{int:blockedtext-block-ip|$3}}, a'r ID y bloc yw #$5.\n{{int:blockedtext-include-details-queries}}",
 	"autoblockedtext": "<strong>Mae eich cyfeiriad IP wedi cael ei flocio’n awtomatig, oherwydd ei fod wedi cael ei ddefnyddio gan ddefnyddiwr arall, a flociwyd gan $1.</strong>\nY rheswm a roddwyd yw:\n\n:<em>$2</em>.\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n{{int:blockedtext-contact-blocker-admin|$1}}\n\nGallwch ddefnyddio'r nodwedd \"{{int:emailuser}}\" os ydych wedi nodi cyfeiriad e-bost dilys yn eich [[Special:Preferences|dewisiadau]], ac nad ydych wedi cael eich blocio rhag ei defnyddio.\n\n{{int:blockedtext-block-ip|$3}}, a'r ID y bloc yw #$5.\n{{int:blockedtext-include-details-queries}}",
 	"systemblockedtext": "Mae eich enw defnyddiwr neu gyfeiriad IP wedi'i flocio’n awtomatig gan MediaWici.\nY rheswm a roddwyd yw:\n\n:<em>$2</em>.\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n{{int:blockedtext-block-ip|$3}}.\n{{int:blockedtext-include-details-queries}}",
 	"blockednoreason": "dim rheswm wedi ei roi",
 	"blockedtext-composite": "<strong>Mae eich enw defnyddiwr neu gyfeiriad IP wedi cael ei flocio.</strong> \n\nY rheswm a roddwyd yw:\n\n:<em>$2</em>.\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-longest-block|$6}}\n\n* $5\n\n{{int:blockedtext-block-ip|$3}}.\n{{int:blockedtext-include-details-queries}}",
+=======
+	"blockedtext-partial": "<strong>Mae eich enw defnyddiwr neu gyfeiriad IP wedi'i gwahardd rhag gwneud hyn. Mae'n bosib y bydd modd i chi gwneud pethau eraill ar y wefan hon, fel golygu tudalennau penodol.</strong> Gallwch weld manylion llawn y bloc ar eich [[Special:MyContributions|tudalen gyfraniadau]].\n\nGosodwyd y bloc gan $1.\n\nY rheswm a rhoddwyd oedd <em>$2</em>.\n\n* Dechreuodd y bloc am: $8\n* Daw'r bloc i ben am: $6\n* Bwriadwyd blocio: $7\n* ID y bloc #$5",
+	"blockedtext": "<strong>Mae eich enw defnyddiwr neu'ch cyfeiriad IP wedi cael ei flocio.</strong>\n\n$1 a osododd y bloc.\nY rheswm a roddwyd dros y blocio yw: <em>$2</em>.\n\n*Dechreuodd y bloc am: $8\n*Bydd y bloc yn dod i ben am: $6\n*Defnyddiwr a flociwyd: $7\n\nGallwch gysylltu â $1 neu un arall o'r [[{{MediaWiki:Grouppage-sysop}}|gweinyddwyr]] i drafod y bloc.\nGallwch ddefnyddio'r nodwedd \"{{int:emailuser}}\" os oes cyfeiriad e-bost dilys wedi'i nodi yn eich [[Special:Preferences|dewisiadau]], ac nad ydych wedi'ch blocio rhag ei ddefnyddio.\n$3 yw eich cyfeiriad IP presennol, a chyfeirnod y bloc yw #$5.\nWrth wneud ymholiadau, cofiwch gynnwys yr holl fanylion uchod.",
+	"autoblockedtext": "Rhoddwyd bloc yn awtomatig ar eich cyfeiriad IP oherwydd iddo gael ei ddefnyddio gan ddefnyddiwr arall, a bod bloc wedi ei roi ar hwnnw gan $1.\nY rheswm a roddwyd dros y bloc oedd:\n\n:<em>$2</em>\n\n*Dechreuodd y bloc am: $8\n*Daw'r bloc i ben am: $6\n*Bwriadwyd blocio: $7\n\nGallwch gysylltu â $1 neu un arall o'r [[{{MediaWiki:Grouppage-sysop}}|gweinyddwyr]] i drafod y bloc.\n\nSylwch mai dim ond y rhai sydd wedi gosod cyfeiriad e-bost yn eu [[Special:Preferences|dewisiadau defnyddiwr]], a hwnnw heb ei flocio, sydd yn gallu 'anfon e-bost at ddefnyddiwr' trwy'r wici.\n\nEich cyfeiriad IP presennol yw $3. Cyfeirnod y bloc yw $5. Nodwch y manylion hyn wrth drafod y bloc.",
+	"systemblockedtext": "Mae eich enw defnyddiwr neu eich cyfeiriad IP wedi'i flocio gan MediaWiki.\nY rheswm yw:\n\n:<em>$2</em>\n\n* Dechrau'r bloc: $8\n* Daw'r bloc i ben: $6\n* Y person a geisiwyd ei flocio: $7\n\nEich cyfeiriad IP presennol yw $3.\nPan yn ysgrifennu at weinyddwr, cofiwch gynnwys yr holl fanylion uchod, os gwelwch yn dda.",
+	"blockednoreason": "dim rheswm wedi ei roi",
+>>>>>>> origin/1.39.7-test
 	"blockedtext-composite-ids": "IDs blociau perthnasol: $1 (gall eich cyfeiriad IP ymddangos ar restr flociau)",
 	"blockedtext-composite-no-ids": "Mae eich cyfeiriad IP yn ymddangos mewn sawl rhestr ddu",
 	"blockedtext-composite-reason": "Mae yna sawl blociau yn erbyn eich cyfrif a / neu gyfeiriad IP",
@@ -680,8 +692,13 @@
 	"missing-revision-permission": "Mae fersiwn #$1 yn perthyn i dudalen sydd wedi cael ei dileu. Gallwch [{{fullurl:{{#Special:Undelete}}|target=$3&timestamp=$2&diff=prev}} ei gweld]; mae manylion ar gael yn y [{{fullurl:{{#Special:Log}}/delete|page=$3}} log dileuon].",
 	"missing-revision": "Nid yw'r diwygiad #$1 o'r dudalen \"{{FULLPAGENAME}}\" ar gael.\n\nFel arfer, fe ddigwydd hyn wrth ddilyn hen gyswllt i dudalen sydd wedi ei dileu.\nGallwch weld y manylion yn y [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} lòg dileu].",
 	"missing-revision-content": "Methu llwytho cynnwys fersiwn #$1 o'r dudalen \"$2\".",
+<<<<<<< HEAD
 	"userpage-userdoesnotexist": "Nid oes defnyddiwr a'r enw \"<nowiki>$1</nowiki>\" yn bodoli. Gwnewch yn siwr eich bod am greu/golygu'r dudalen hon.",
 	"userpage-userdoesnotexist-view": "Nid yw cyfrif defnyddiwr \"$1\" wedi ei gofrestru ar y wici hwn.",
+=======
+	"userpage-userdoesnotexist": "Nid oes defnyddiwr a'r enw \"<nowiki>$1</nowiki>\" yn bod. Gwnewch yn siwr eich bod am greu/golygu'r dudalen hon.",
+	"userpage-userdoesnotexist-view": "Nid yw'r cyfrif defnyddiwr \"$1\" wedi ei gofrestri.",
+>>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "Mae'r {{GENDER:$1|defnyddiwr hwn}} wedi'i rwystro ar hyn o bryd.\nMae'r cofnod diweddaraf yn y lòg blocio i'w weld isod:",
 	"clearyourcache": "<strong>Sylwer:</strong> Ar ôl cyhoeddi, efallai y bydd rhaid i chi fynd heibio celc eich porwr er mwyn gweld y newidiadau.\n*<strong>Firefox / Safari:</strong> Pwyswch <em>Shift</em> wrth glicio <em>Ail-lwytho/Reload</em>, neu pwyswch naill ai <em>Ctrl-F5</em> neu <em>Ctrl-R</em> (<em>⌘-R</em> ar Mac);\n*<strong>Google Chrome:</strong> Pwyswch <em>Ctrl-Shift-R</em> (<em>⌘-Shift-R</em> ar Mac)\n*<strong>Internet Explorer:</strong> Pwyswch <em>Ctrl</em> wrth glicio <em>Adnewyddu/Refresh</em>, neu pwyswch <em>Ctrl-F5</em>. \n*<strong>Opera:</strong> Pwyswch <em>Ctrl-F5</em>.",
 	"usercssyoucanpreview": "<strong>Awgrym:</strong> Defnyddiwch y botwm \"{{int:showpreview}}\" i brofi eich CSS newydd cyn cyhoeddi.",
@@ -889,11 +906,17 @@
 	"revdelete-hide-comment": "Sylw golygu",
 	"revdelete-hide-user": "Enw defnyddiwr/IP y golygydd",
 	"revdelete-hide-restricted": "Gorchuddio data oddi wrth weinyddwyr yn ogystal ag eraill",
+<<<<<<< HEAD
 	"revdelete-radio-same": "Peidio â newid",
 	"revdelete-radio-set": "Cudd",
 	"revdelete-radio-unset": "Gweladwy",
 	"revdelete-radio-set-suppress": "Gorchuddio",
 	"revdelete-radio-unset-suppress": "Dad-orchuddio",
+=======
+	"revdelete-radio-same": "(peidier â newid)",
+	"revdelete-radio-set": "Cudd",
+	"revdelete-radio-unset": "Gweladwy",
+>>>>>>> origin/1.39.7-test
 	"revdelete-suppress": "Gorchuddio data oddi wrth weinyddwyr yn ogystal ag eraill",
 	"revdelete-unsuppress": "Dileu cyfyngiadau ar olygiadau sydd wedi cael eu adfer",
 	"revdelete-log": "Rheswm:",
@@ -957,7 +980,10 @@
 	"lineno": "Llinell $1:",
 	"compareselectedversions": "Cymharu'r fersiynau dewisedig",
 	"showhideselectedversions": "Newid gwelededd y fersiynau dewisedig",
+<<<<<<< HEAD
 	"showhideselectedfileversions": "Newid gwelededd y fersiynau ffeil wedi'u dewis",
+=======
+>>>>>>> origin/1.39.7-test
 	"editundo": "dadwneud",
 	"diff-empty": "(Dim gwahaniaeth)",
 	"diff-multi-sameuser": "(Ni ddangosir y {{PLURAL:$1||golygiad|$1 olygiad|$1 golygiad}} yn y canol gan yr un defnyddiwr)",
@@ -1085,7 +1111,10 @@
 	"timezoneuseserverdefault": "Defnyddio'r amser yn ôl y wici ($1)",
 	"timezoneuseoffset": "Arall (nodwch yr atred o UTC)",
 	"timezone-useoffset-placeholder": "Gwerthoedd enghreifftiol: \"-07:00\" neu \"01:00\"",
+<<<<<<< HEAD
 	"timezone-invalid": "Cylchfa amser neu atred amser annilys.",
+=======
+>>>>>>> origin/1.39.7-test
 	"servertime": "Amser y gweinydd:",
 	"guesstimezone": "Llenwi oddi wrth y porwr",
 	"timezoneregion-africa": "Affrica",
@@ -1333,7 +1362,11 @@
 	"grant-editsiteconfig": "Golygu CSS / JS y safle a’r defnyddiwr",
 	"grant-editpage": "Golygwch dudalennau sy'n bodoli",
 	"grant-editprotected": "Golygwch dalennau sydd wedi'u cloi",
+<<<<<<< HEAD
 	"grant-highvolume": "Mynediad cyfaint uchel (bot).",
+=======
+	"grant-highvolume": "Golygu nifer ar yr un pryd",
+>>>>>>> origin/1.39.7-test
 	"grant-import": "Mewnforio fersiynau",
 	"grant-mergehistory": "Cyfuno hanesion y tudalennau",
 	"grant-oversight": "Cuddio defnyddwyr a gorchuddio fersiynau",
@@ -1378,9 +1411,15 @@
 	"action-deletedtext": "gweld testun wedi'i ddileu neu newidiadau rhwng golygiadau wedi'u dileu",
 	"action-browsearchive": "chwilio drwy tudalennau dilëedig",
 	"action-undelete": "adfer tudalennau",
+<<<<<<< HEAD
 	"action-suppressrevision": "gweld, cuddio neu datguddio golygiadau penodol o dudalennau gan unrhyw defnyddiwr.",
 	"action-suppressionlog": "gweld y log preifat hwn",
 	"action-block": "Blocio neu ddadblocio'r defnyddiwr hwn rhag golygu",
+=======
+	"action-suppressrevision": "adolygu ac adfer golygiadau cudd",
+	"action-suppressionlog": "gweld y log preifat hwn",
+	"action-block": "atal y defnyddiwr hwn rhag golygu",
+>>>>>>> origin/1.39.7-test
 	"action-protect": "newid lefelau gwarchod y dudalen hon",
 	"action-rollback": "gwrthdroi golygiadau defnyddiwr diwethaf rhyw dudalen, yn sydyn",
 	"action-import": "mewnforio tudalennau o wici arall",
@@ -1404,7 +1443,11 @@
 	"action-deletechangetags": "dilewch tagiau o'r gronfa ddata",
 	"action-purge": "buro'r dudalen hon",
 	"action-bigdelete": "ddileu tudalennau a hanes llwythog iddynt",
+<<<<<<< HEAD
 	"action-blockemail": "Blocio neu ddadblocio'r defnyddiwr hwn rhag anfon e-bost",
+=======
+	"action-blockemail": "blocio defnyddiwr rhag anfon e-byst",
+>>>>>>> origin/1.39.7-test
 	"action-bot": "gael eich trin fel proses awtomataidd",
 	"action-editprotected": "olygu tudalennau sydd wedi'u diogelu fel \"{{int:protect-level-sysop}}\"",
 	"action-editsemiprotected": "olygu tudalennau sydd wedi'u diogelu fel \"{{int:protect-level-autoconfirmed}}\"",
@@ -1420,7 +1463,11 @@
 	"action-editmyuserjs": "golygu eich ffeiliau JavaScript chi",
 	"action-editmyuserjsredirect": "golygu eich ffeiliau JavaScript chi sy'n ail-gyfeiriadau",
 	"action-viewsuppressed": "weld fersiynau tudalen sydd wedi'u cuddio rhag unrhyw ddefnyddiwr",
+<<<<<<< HEAD
 	"action-hideuser": "blocio neu ddadblocio enw defnyddiwr, gan ei guddio neu ei arddangos i'r cyhoedd",
+=======
+	"action-hideuser": "blocio enw defnyddiwr, gan ei guddio rhag y cyhoedd",
+>>>>>>> origin/1.39.7-test
 	"action-ipblock-exempt": "osgoi blociau IP, blociau awtomatig a blociau amrediad",
 	"action-unblockself": "dadflocio eich hunan",
 	"action-nominornewtalk": "allu dewis peidio â rhoi hysbysiad 'negeseuon newydd' ar wneud golygiad bychan ar dudalen sgwrs",
@@ -1537,8 +1584,11 @@
 	"rcfilters-filter-categorization-description": "Cofnodion y dalennau a ychwanegwyd neu a symudwyd o'r categoriau.",
 	"rcfilters-filter-logactions-label": "Cofnodion log",
 	"rcfilters-filter-logactions-description": "Gweithrediadau gweinyddol, cyfrifon newydd, dileu tudalennau, uwchlwythiadau…",
+<<<<<<< HEAD
 	"rcfilters-filter-newuserlogactions-label": "Defnyddwyr newydd",
 	"rcfilters-filter-newuserlogactions-description": "Cofnodion log am gyfrifon newydd. Rhaid galluogi gweithredoedd wedi'u cofnodi.",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-hideminor-conflicts-typeofchange-global": "Mae'r hidlydd \"Golygiadau bychain\" yn gwrthdaro ag un neu fwy o hidlyddion \"Math o newid\", oherwydd ni ellir dynodi rhai mathau o newid yn \"fychain\". Mae'r hidlyddion sy'n gwrthdaro wedi'u marcio yn yr adran \"Hidlyddion cyfredol\", uchod.",
 	"rcfilters-hideminor-conflicts-typeofchange": "Ni ellir dynodi rhai mathau o newid yn \"fychain\", felly mae'r hidlydd hwn yn gwrthdaro â'r hidlyddion \"Math o newid\" canlynol: $1",
 	"rcfilters-typeofchange-conflicts-hideminor": "Mae'r hidlydd \"Math o newid\" hwn yn gwrthdaro â'r hidlydd \"Golygiadau bychain\". Ni ellir dynodi rhai mathau o newid yn \"fychain\".",
@@ -1548,8 +1598,12 @@
 	"rcfilters-filter-previousrevision-label": "Nid y fersiwn diweddaraf",
 	"rcfilters-filter-previousrevision-description": "Pob newid nad ydynt yn yr \"adolygiad diweddaraf\".",
 	"rcfilters-filter-excluded": "Eithriadau",
+<<<<<<< HEAD
 	"rcfilters-tag-prefix-namespace-inverted": "<strong>nid</strong> :$1",
 	"rcfilters-tag-prefix-tags-inverted": "<strong>nid</strong> #$1",
+=======
+	"rcfilters-tag-prefix-namespace-inverted": "<strong>:nid</strong> $1",
+>>>>>>> origin/1.39.7-test
 	"rcfilters-exclude-button-off": "Eithrio'r rhai a ddewiswyd",
 	"rcfilters-exclude-button-on": "Wedi eithrio'r rhai a ddewiswyd",
 	"rcfilters-view-tags": "Golygiadau gyda thag",
@@ -2058,7 +2112,10 @@
 	"apisandbox-request-format-php-label": "Aráe PHP",
 	"apisandbox-request-php-label": "Arae PHP y cais:",
 	"apisandbox-request-time": "Amser y cais: {{PLURAL:$1|$1 ms}}",
+<<<<<<< HEAD
 	"apisandbox-results-fixtoken-fail": "Wedi methu â nôl tocyn \"$1\".",
+=======
+>>>>>>> origin/1.39.7-test
 	"apisandbox-continue": "Parhau",
 	"apisandbox-continue-clear": "Clirio",
 	"apisandbox-param-limit": "Rhowch <kbd>max</kbd> i ddefnyddio'r terfyn uchafswm.",
@@ -2070,11 +2127,16 @@
 	"booksources-text": "Mae'r rhestr isod yn cynnwys cysylltiadau i wefannau sy'n gwerthu llyfrau newydd a rhai ail-law. Mae rhai o'r gwefannau hefyd yn cynnig gwybodaeth pellach am y llyfrau hyn:",
 	"booksources-invalid-isbn": "Ymddengys nad yw'r rhif ISBN hwn yn ddilys; efallai y cafwyd gwall wrth drosglwyddo'r rhif.",
 	"magiclink-tracking-rfc": "Tudalennau sy'n defnyddio dolenni hud RFC",
+<<<<<<< HEAD
 	"magiclink-tracking-rfc-desc": "Mae'r dudalen hon yn defnyddio dolenni hud RFC. Gweler [https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Magic_links mediawiki.org] ar sut i fudo.",
 	"magiclink-tracking-pmid": "Tudalennau sy'n ddefnyddio dolenni hud PMID",
 	"magiclink-tracking-pmid-desc": "Mae'r dudalen hon yn defnyddio dolenni hud PMID. Gweler [https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Magic_links mediawiki.org] ar sut i fudo.",
 	"magiclink-tracking-isbn": "Tudalennau sy'n defnyddio dolenni hud ISBN",
 	"magiclink-tracking-isbn-desc": "Mae'r dudalen hon yn defnyddio dolenni hud ISBN. Gweler [https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Magic_links mediawiki.org] ar sut i fudo.",
+=======
+	"magiclink-tracking-pmid": "Tudalennau sy'n ddefnyddio dolenni hud PMID",
+	"magiclink-tracking-isbn": "Tudalennau sy'n defnyddio dolenni hud ISBN",
+>>>>>>> origin/1.39.7-test
 	"specialloguserlabel": "Gwneuthurwr:",
 	"speciallogtitlelabel": "Targed (teitl neu {{ns:user}}:username ar gyfer y defnyddiwr):",
 	"log": "Logiau",
@@ -2522,7 +2584,10 @@
 	"autoblocklist-legend": "Rhestru blociau awtomatig",
 	"autoblocklist-localblocks": "{{PLURAL:$1|autoblock|autoblocks}} lleol",
 	"autoblocklist-total-autoblocks": "Cyfanswm y blociau awtomatig: $1",
+<<<<<<< HEAD
 	"autoblocklist-empty": "Mae'r rhestr blocio awtomatig yn wag.",
+=======
+>>>>>>> origin/1.39.7-test
 	"autoblocklist-otherblocks": "{{PLURAL:$1|Bloc awtomatig arall|Blociau awtomatig eraill}}",
 	"ipblocklist": "Defnyddwyr a rwystrwyd",
 	"ipblocklist-legend": "Dod o hyd i ddefnyddiwr a rwystrwyd",
@@ -2650,10 +2715,13 @@
 	"movesubpagetext": "Mae gan y dudalen hon $1 {{PLURAL:$1|isdudalen|isdudalen|isdudalen|isdudalen|o isdudalennau}} a ddangosir isod.",
 	"movenosubpage": "Nid oes isdudalennau i gael i'r dudalen hon.",
 	"movereason": "Rheswm:",
+<<<<<<< HEAD
 	"moveotherreason": "Rheswm arall / ychwanegol:",
 	"movereasonotherlist": "Rheswm arall",
 	"movepage-reason-dropdown": "* Rhesymau symud cyffredin\n** Teitl wedi'i gamsillafu",
 	"movepage-edit-reasonlist": "Golygu rhesymau symud",
+=======
+>>>>>>> origin/1.39.7-test
 	"revertmove": "gwrthdroi",
 	"delete_and_move_text": "==Angen dileu==\n\nMae'r erthygl \"[[:$1]]\" yn bodoli'n barod. Ydych chi am ddileu'r erthygl er mwyn paratoi lle?",
 	"delete_and_move_confirm": "Ie, dileu'r dudalen",
@@ -2873,7 +2941,10 @@
 	"pageinfo-default-sort": "Allwedd trefnu diofyn",
 	"pageinfo-length": "Hyd y dudalen (beitiau)",
 	"pageinfo-namespace": "Parth",
+<<<<<<< HEAD
 	"pageinfo-namespace-id": "ID Parth",
+=======
+>>>>>>> origin/1.39.7-test
 	"pageinfo-article-id": "ID y dudalen",
 	"pageinfo-language": "Iaith cynnwys y dudalen",
 	"pageinfo-language-change": "newid",
@@ -3044,7 +3115,10 @@
 	"confirm-watch-button": "Iawn",
 	"confirm-watch-top": "Ychwanegu'r dudalen hon at eich rhestr wylio?",
 	"confirm-watch-label": "Cyfnod ar restr wylio:",
+<<<<<<< HEAD
 	"watchlist-expiry-options": "Parhaol:infinite,1 wythnos:1 week,1 mis:1 month,3 mis:3 months,6 mis:6 months,1 blwyddyn:1 year",
+=======
+>>>>>>> origin/1.39.7-test
 	"confirm-watch-button-expiry": "Gwylio",
 	"confirm-unwatch-button": "Iawn",
 	"confirm-unwatch-top": "Tynnu'r dudalen hon o'ch rhestr wylio?",
@@ -3207,7 +3281,10 @@
 	"tag-mw-new-redirect-description": "Golygiadau sy'n creu ailgyfeiriad newydd neu'n newid tudalen i ailgyfeiriad",
 	"tag-mw-removed-redirect": "Tynnu ailgyfeiriad",
 	"tag-mw-removed-redirect-description": "Golygiadau sy'n cael gwared ar ailgyfeiriad presennol",
+<<<<<<< HEAD
 	"tag-mw-changed-redirect-target": "Newid targed ailgyfeirio",
+=======
+>>>>>>> origin/1.39.7-test
 	"tag-mw-changed-redirect-target-description": "Golygiadau sy'n newid targed ailgyfeiriad",
 	"tag-mw-blank": "Clirio",
 	"tag-mw-blank-description": "Golygiadau sy'n clirio tudalen",
@@ -3274,7 +3351,10 @@
 	"tags-edit-remove-all-tags": "(dileu pob tag)",
 	"tags-edit-chosen-placeholder": "Dewiswch rai tagiau",
 	"tags-edit-reason": "Rheswm:",
+<<<<<<< HEAD
 	"tags-edit-success": "Cymhwyswyd y newidiadau.",
+=======
+>>>>>>> origin/1.39.7-test
 	"tags-edit-nooldid-title": "Fersiwn targed annilys",
 	"comparepages": "Cymharu tudalennau",
 	"compare-page1": "Tudalen 1",
@@ -3413,6 +3493,13 @@
 	"log-name-tag": "Log tagiau",
 	"rightsnone": "(dim)",
 	"rightslogentry-temporary-group": "$1 (dros dro, tan $2)",
+<<<<<<< HEAD
+=======
+	"feedback-adding": "Wrthi'n ychwanegu adborth i'r dudalen...",
+	"feedback-bugcheck": "Iawn! Gwnewch yn siwr yn gyntaf nag ydy hwn yn un o'r [$1 bygiau hysbys].",
+	"feedback-bugnew": "Edrychais ar y bygiau hysbys. Mae byg newydd gennyf i'w adrodd",
+	"feedback-bugornote": "Os ydych yn barod i ddisgrifio problem technegol yn fanwl gallwch [$1 gyflwyno adroddiad am y bỳg]. Fel arall, gallwch ddefnyddio'r ffurflen syml isod. Fe roddir eich sylwadau ar y dudalen \"[$3 $2]\", ynghyd â'ch enw defnyddiwr ac enw'r gweinydd sydd ar waith gennych.",
+>>>>>>> origin/1.39.7-test
 	"feedback-cancel": "Canslo",
 	"feedback-close": "Iawn",
 	"feedback-external-bug-report-button": "Cyflwyno tasg dechnegol",
@@ -3516,8 +3603,11 @@
 	"json-error-syntax": "Gwall mewn cystrawen",
 	"json-error-utf8": "Llythrennau UTF-8 gwallus, o boib gan godio anghywir",
 	"headline-anchor-title": "Dolen i'r adran hon",
+<<<<<<< HEAD
 	"special-tab-contribute-short": "Cyfrannu",
 	"special-tab-contributions-short": "Gweld cyfraniadau",
+=======
+>>>>>>> origin/1.39.7-test
 	"special-characters-group-latin": "Lladin",
 	"special-characters-group-latinextended": "Lladin estynedig",
 	"special-characters-group-ipa": "Yr wyddor seinegol rhyngwladol (IPA)",
@@ -3707,6 +3797,7 @@
 	"newpages-showhide-bots": "$1 o fotiau",
 	"newpages-showhide-patrolled": "$1 golygiadau o dan batrôl",
 	"newpages-showhide-redirect": "$1 ailgyfeiriadau",
+<<<<<<< HEAD
 	"newpages-showhide-registered": "$1 o ddefnyddwyr cofrestredig",
 	"blockedtext-made-by": "Bloc gan $1",
 	"blockedtext-reason-comment": "Y rheswm a roddir yw <em>$1</em>",
@@ -3748,4 +3839,7 @@
 	"action-renameuser": "ail-enwi defnyddwyr",
 	"right-renameuser": "Ail-enwi defnyddwyr",
 	"renameuser-renamed-notice": "Mae'r defnyddiwr hwn wedi ei ail-enwi.\nMae'r lòg ail-enwi defnyddwyr i'w weld isod."
+=======
+	"newpages-showhide-registered": "$1 o ddefnyddwyr cofrestredig"
+>>>>>>> origin/1.39.7-test
 }

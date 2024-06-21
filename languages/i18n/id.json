@@ -90,6 +90,11 @@
 			"WongKentir",
 			"לערי ריינהארט",
 			"아라",
+<<<<<<< HEAD
+=======
+			"Agam Riyandana",
+			"Naufal06",
+>>>>>>> origin/1.39.7-test
 			"Base",
 			"Amire80",
 			"Taylor",
@@ -3824,10 +3829,15 @@
 	"feedback-useragent": "Agen pengguna:",
 	"searchsuggest-search": "Telusuri {{SITENAME}}",
 	"searchsuggest-containing": "Cari halaman yang berisi istilah",
+<<<<<<< HEAD
 	"search-match-redirect-label": "Langsung ke pencarian yang sama persis saat mencari",
 	"search-match-redirect-help": "Pilih opsi ini untuk membuka halaman ketika judul halaman tersebut cocok dengan yang Anda cari",
 	"search-thumbnail-extra-namespaces-label": "Tampilkan thumbnail di Special:Search on Desktop",
 	"search-thumbnail-extra-namespaces-message": "Menampilkan keluku untuk $1 {{PLURAL:$2|ruang nama}} di halaman {{#special:search}}",
+=======
+	"search-match-redirect-label": "Arahkan ulang ke pencocokan yang tepat saat mencari",
+	"search-match-redirect-help": "Pilih untuk dialihkan ke halaman saat judul halaman itu cocok dengan apa yang Anda cari",
+>>>>>>> origin/1.39.7-test
 	"searchlimit-label": "Banyak hasil pencarian yang ditampilkan per halaman:",
 	"searchlimit-help": "Nilai maksimum: $1",
 	"api-clientside-error-noconnect": "Tidak dapat terhubung ke server. Pastikan Anda memiliki koneksi internet yang berfungsi dan coba lagi.",

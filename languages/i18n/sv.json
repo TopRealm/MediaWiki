@@ -96,6 +96,12 @@
 			"WikiPhoenix",
 			"לערי ריינהארט",
 			"아라",
+<<<<<<< HEAD
+=======
+			"Adjoka",
+			"Cohan",
+			"Kitayama",
+>>>>>>> origin/1.39.7-test
 			"Amire80",
 			"André Costa (WMSE)",
 			"Ludvig Broman",
@@ -750,8 +756,13 @@
 	"missing-revision-permission": "Version nr $1 tillhör en raderad sida. Du kan [{{fullurl:{{#Special:Undelete}}|target=$3&timestamp=$2&diff=prev}} se den]; detaljer finns i [{{fullurl:{{#Special:Log}}/delete|page=$3}} raderingsloggen].",
 	"missing-revision": "Version #$1 av sidan med namnet ”{{FULLPAGENAME}}” finns inte.\n\nDetta orsakas vanligen genom att en gammal historiklänk följts till en sida som har raderats.\nDetaljer kan hittas i [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} raderingsloggen].",
 	"missing-revision-content": "Innehållet i sidversionen nummer $1 för sidan ”$2” kunde inte läsas in.",
+<<<<<<< HEAD
 	"userpage-userdoesnotexist": "Användarkontot ”$1” är inte registrerat på denna wiki. Tänk efter om du vill skapa/redigera den här sidan.",
 	"userpage-userdoesnotexist-view": "Användarkontot ”$1” är inte registrerat på denna wiki.",
+=======
+	"userpage-userdoesnotexist": "\"<nowiki>$1</nowiki>\" är inte ett registrerat användarkonto. Tänk efter om du vill skapa/redigera den här sidan.",
+	"userpage-userdoesnotexist-view": "Kontot \"$1\" är inte registrerat.",
+>>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "{{GENDER:$1|Användaren}} är blockerad.\nOrsaken till senaste blockeringen kan ses nedan:",
 	"clearyourcache": "<strong>OBS:</strong> Efter du har publicerat sidan kan du behöva tömma din webbläsares cache för att se ändringarna.\n* <strong>Firefox / Safari:</strong> Håll ned <em>Skift</em> och klicka på <em>Uppdatera sidan</em> eller tryck <em>Ctrl-F5</em> eller <em>Ctrl-R</em> (<em>⌘-R</em> på Mac)\n* <strong>Google Chrome:</strong> Tryck <em>Ctrl-Skift-R</em>  (<em>⌘-Skift-R</em> på Mac)\n* <strong>Internet Explorer / Edge:</strong> Håll ned <em>Ctrl</em> och klicka på <em>Uppdatera</em> eller tryck <em>Ctrl-F5</em>\n* <strong>Opera:</strong> Tryck <em>Ctrl-F5</em>.",
 	"usercssyoucanpreview": "<strong>Tips:</strong> Använd knappen ”{{int:showpreview}}” för att testa din nya CSS innan du publicerar.",
@@ -1165,7 +1176,10 @@
 	"timezoneuseserverdefault": "Använd wikins standard ($1)",
 	"timezoneuseoffset": "Annan (tidsskillnad från UTC)",
 	"timezone-useoffset-placeholder": "Exempelvärden: ”−07:00” eller ”01:00”",
+<<<<<<< HEAD
 	"timezone-invalid": "Ogiltig tidszon eller tidsförskjutning.",
+=======
+>>>>>>> origin/1.39.7-test
 	"servertime": "Serverns tid:",
 	"guesstimezone": "Fyll i från webbläsare",
 	"timezoneregion-africa": "Afrika",
@@ -1644,8 +1658,11 @@
 	"rcfilters-filter-categorization-description": "Poster av sidor som läggs till eller tas bort från kategorier.",
 	"rcfilters-filter-logactions-label": "Loggade åtgärder",
 	"rcfilters-filter-logactions-description": "Administrativa åtgärder, kontoskapande, sidraderingar, uppladdningar…",
+<<<<<<< HEAD
 	"rcfilters-filter-newuserlogactions-label": "Nya användare",
 	"rcfilters-filter-newuserlogactions-description": "Loggposter för nya konton. Loggade åtgärder måste vara markerade.",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-hideminor-conflicts-typeofchange-global": "Filtret ”Mindre redigering” är i konflikt med en eller flera ändringsfilter, eftersom vissa ändringstyper inte kan betecknas som ”mindre”. Filtren som är i konflikt är markerade i området med aktiva filter ovan.",
 	"rcfilters-hideminor-conflicts-typeofchange": "Vissa ändringstyper kan inte betecknas som ”mindre”, så detta filter är i konflikt med följande ändringstypsfilter: $1",
 	"rcfilters-typeofchange-conflicts-hideminor": "Detta ändringstypsfilter är i konflikt med filtret ”Mindre ändringar”. Vissa ändringstyper kan inte betecknas som ”mindre”.",
@@ -3753,10 +3770,15 @@
 	"feedback-useragent": "Användaragent:",
 	"searchsuggest-search": "Sök på {{SITENAME}}",
 	"searchsuggest-containing": "Sök efter sidor som innehåller",
+<<<<<<< HEAD
 	"search-match-redirect-label": "Gå till exakt matchning vid sökning",
 	"search-match-redirect-help": "Markera detta för att gå till en sida när sidtiteln matchar det du har sökt efter",
 	"search-thumbnail-extra-namespaces-label": "Visa miniatyrer i Special:Search på datorer",
 	"search-thumbnail-extra-namespaces-message": "Visar miniatyrer för resultat på sidan {{#special:search}} för {{PLURAL:$2|namnrymden|namnrymderna}} $1",
+=======
+	"search-match-redirect-label": "Omdirigera till exakta matchningar vid sökning",
+	"search-match-redirect-help": "Markera detta för att omdirigera till en sida när sidtiteln matchar det du har sökt efter",
+>>>>>>> origin/1.39.7-test
 	"searchlimit-label": "Antal sökresultat att visa på varje sida:",
 	"searchlimit-help": "Maximalt antal: $1",
 	"api-clientside-error-noconnect": "Kunde inte ansluta till servern. Se till att du har en fungerande Internetanslutning och försök igen.",

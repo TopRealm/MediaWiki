@@ -163,7 +163,10 @@
 	"permalink": "Hmâpareipa link",
 	"print": "Chhihpapua",
 	"view": "Palâ",
+<<<<<<< HEAD
 	"viewcontribs": "Deichhytuhpazy moh",
+=======
+>>>>>>> origin/1.39.7-test
 	"skin-view-view": "Reih teh",
 	"skin-view-foreign": "$1 liata palâ",
 	"edit": "Taopathi",
@@ -443,7 +446,7 @@
 	"compareselectedversions": "A tly hawpa revisions pakho",
 	"editundo": "phie",
 	"diff-empty": "(Â nanona y vei)",
-	"diff-multi-sameuser": "({{PLURAL:$1|One intermediate revision|$1 intermediate revisions}} by the same user not shown)",
+	"diff-multi-sameuser": "(Hmâhtuh alyupa {{PLURAL:$1|likah lia pathiehpa sâ kha|likah lia pathiehna sâ $1 zy}} he palâpa châ vei)",
 	"diff-multi-otherusers": "({{PLURAL:$2|hmâhtuh hropa pakha|$2 hmâhtuhzy}} palâ leipa {{PLURAL:$1|aliaryh paraihpa sâkha|$1 aliaryh paraihpazy}})",
 	"searchresults": "Tluana lia hmôpazy",
 	"searchresults-title": "\"$1\" tluana lia hmôpazy",

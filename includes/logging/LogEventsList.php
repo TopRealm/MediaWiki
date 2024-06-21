@@ -187,7 +187,11 @@ class LogEventsList extends ContextSource {
 		$htmlForm = HTMLForm::factory( 'ooui', $formDescriptor, $context );
 		$htmlForm
 			->setSubmitTextMsg( 'logeventslist-submit' )
+<<<<<<< HEAD
 			->setMethod( 'GET' )
+=======
+			->setMethod( 'get' )
+>>>>>>> origin/1.39.7-test
 			->setWrapperLegendMsg( 'log' )
 			// T321154
 			->setFormIdentifier( 'logeventslist' );

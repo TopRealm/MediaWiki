@@ -148,6 +148,7 @@ class WikiImporter {
 	 * @param IContentHandlerFactory $contentHandlerFactory
 	 * @param SlotRoleRegistry $slotRoleRegistry
 	 * @throws MWException
+	 * @suppress PhanStaticCallToNonStatic, UnusedSuppression -- for PHP 7.4 support
 	 */
 	public function __construct(
 		ImportSource $source,
@@ -178,7 +179,39 @@ class WikiImporter {
 		}
 		$this->sourceAdapterId = UploadSourceAdapter::registerSource( $source );
 
+<<<<<<< HEAD
 		$this->openReader();
+=======
+		// Enable the entity loader, as it is needed for loading external URLs via
+		// XMLReader::open (T86036)
+		// phpcs:ignore Generic.PHP.NoSilencedErrors -- suppress deprecation per T268847
+		$oldDisable = @libxml_disable_entity_loader( false );
+		if ( PHP_VERSION_ID >= 80000 ) {
+			// A static call is now preferred, and avoids https://github.com/php/php-src/issues/11548
+			$reader = XMLReader::open(
+				"uploadsource://$id", null, LIBXML_PARSEHUGE );
+			if ( $reader instanceof XMLReader ) {
+				$this->reader = $reader;
+				$status = true;
+			} else {
+				$status = false;
+			}
+		} else {
+			// A static call generated a deprecation warning prior to PHP 8.0
+			$this->reader = new XMLReader;
+			$status = $this->reader->open(
+				"uploadsource://$id", null, LIBXML_PARSEHUGE );
+		}
+		if ( !$status ) {
+			$error = libxml_get_last_error();
+			// phpcs:ignore Generic.PHP.NoSilencedErrors
+			@libxml_disable_entity_loader( $oldDisable );
+			throw new MWException( 'Encountered an internal error while initializing WikiImporter object: ' .
+				$error->message );
+		}
+		// phpcs:ignore Generic.PHP.NoSilencedErrors
+		@libxml_disable_entity_loader( $oldDisable );
+>>>>>>> origin/1.39.7-test
 
 		// Default callbacks
 		$this->setPageCallback( [ $this, 'beforeImportPage' ] );

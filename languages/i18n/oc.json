@@ -474,6 +474,7 @@
 	"nocookieslogin": "{{SITENAME}} utiliza de cookies per la connexion mas avètz los cookies desactivats. Activatz-los e reconnectatz-vos.",
 	"nocookiesfornew": "Lo compte d'utilizaire es pas estat creat, perque avèm pas pogut identificar son origina.\nVerificatz qu'avètz activat los cookies, recargatz la pagina e tornatz ensajar.",
 	"createacct-loginerror": "Lo compte es estat creat corrèctament mas vos podètz pas connectar automaticament. [[Special:UserLogin|Connectatz-vos manualament]].",
+	"createacct-temp-warning": "Lei modificacions realizadas per vòstre còmpte temporari seràn pas reatribuïdas a vòstre còmpte permanent.",
 	"noname": "Avètz pas picat de nom d'utilizaire valid.",
 	"loginsuccesstitle": "Connectat",
 	"loginsuccess": "<strong>Sètz actualament connect{{GENDER:$1||at|ada}} a {{SITENAME}} en tant que « $1 ».</strong>",
@@ -674,7 +675,11 @@
 	"missing-revision-permission": "La version #$1 apartèn a una pagina suprimida. Podètz [{{fullurl:{{#Special:Undelete}}|target=$3&timestamp=$2&diff=prev}} view it]; lei detalhs pòdon èsser trobats sus lo [{{fullurl:{{#Special:Log}}/delete|page=$3}} deletion log].",
 	"missing-revision": "La revision n° $1 de la pagina intitulada « {{FULLPAGENAME}} » existís pas.\n\nAquò se produtz en general en seguent un ligam istoric obsolèt cap a una pagina qu'es estada suprimida.\nPodètz trobar mai de detalhs dins lo [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} jornal de las supressions].",
 	"missing-revision-content": "Lo contengut de la version #$1 de la pagina \"$2\" pòu pas èsser cargat.",
+<<<<<<< HEAD
 	"userpage-userdoesnotexist": "Lo compte d'utilizaire \"$1\" es pas enregistrat. Indicatz se volètz crear o editar aquesta pagina.",
+=======
+	"userpage-userdoesnotexist": "Lo compte d'utilizaire « <nowiki>$1</nowiki> » es pas enregistrat. Indicatz se volètz crear o editar aquesta pagina.",
+>>>>>>> origin/1.39.7-test
 	"userpage-userdoesnotexist-view": "Lo compte d'utilizaire « $1 » es pas enregistrat.",
 	"blocked-notice-logextract": "Aqueste utilizaire es actualament blocat.\nLa darrièra entrada del jornal dels blocatges es indicada çaijós a títol d’informacion :",
 	"clearyourcache": "<strong>Nòta</strong>: Aprèp aver enregistrat vòstras modificacions, es possible que vos calga forçar lo recargament complet de l'escondedor de vòstre navigador per veire los cambiaments: \n* <strong>Firefox / Safari:</strong> mantenètz la tòca <em>Maj</em> (<em>Shift</em>) en clicant lo boton <em>Actualizar</em> o quichatz sus <em>Ctrl-F5</em> o <em>Ctrl-R</em>  (<em>⌘-R</em> sus un Mac)\n* <strong>Google Chrome:</strong> Quichatz sus <em>Ctrl-Shift-R</em> (<em>⌘-Shift-R</em> sus un Mac) \n* <strong>Internet Explorer / Edge:</strong> Mantenètz la tòca <em>Ctrl</em> en clicant sul boton <em>Actualizar</em>, o quichatz <em>Ctrl-F5</em> \n* <strong>Opera:</strong> anatz dins <em>Menú → Settings</em> (<em>Opera → Preferéncias</em> sus un Mac) e puèi a <em>Confidencialitat & seguretat → Escafar las donadas d’exploracion → Imatges e fichièrs en cache</em>.",

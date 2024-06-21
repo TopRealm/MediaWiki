@@ -41,6 +41,11 @@
 			"לערי ריינהארט",
 			"ديفيد",
 			"아라",
+<<<<<<< HEAD
+=======
+			"Armenoid",
+			"Vlad5250",
+>>>>>>> origin/1.39.7-test
 			"Amire80"
 		]
 	},
@@ -213,7 +218,10 @@
 	"skin-action-unprotect": "Փոխել պաշտպանությունը",
 	"unprotect": "Փոխել պաշտպանությունը",
 	"newpage": "Նոր էջ",
+<<<<<<< HEAD
 	"view-missing-pages": "Դիտել բացակայող էջերը",
+=======
+>>>>>>> origin/1.39.7-test
 	"talkpagelinktext": "Քննարկում",
 	"specialpage": "Հատուկ էջ",
 	"personaltools": "Անձնական գործիքներ",
@@ -1070,7 +1078,10 @@
 	"rcfilters-filter-newpages-label": "Նոր էջեր",
 	"rcfilters-filter-categorization-label": "Կատեգորիաների փոփոխություններ",
 	"rcfilters-filter-logactions-label": "Տեղեկամատյանների գործողություններ",
+<<<<<<< HEAD
 	"rcfilters-filter-newuserlogactions-label": "Նոր օգտվողներ",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-filtergroup-lastrevision": "Ամենավերջին տարբերակ",
 	"rcfilters-filter-lastrevision-label": "Ընթացիկ տարբերակ",
 	"rcfilters-filter-previousrevision-label": "Ոչ վերջին տարբերակ",

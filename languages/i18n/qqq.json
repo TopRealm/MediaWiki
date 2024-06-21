@@ -248,11 +248,27 @@
 			"ديفيد",
 			"আফতাবুজ্জামান",
 			"គីមស៊្រុន",
+<<<<<<< HEAD
 			"捍粵者",
 			"아라",
 			"Bgo eiu",
 			"MRidhaAJ",
 			"Wangombe",
+=======
+			"아라",
+			"YaThaWinTha",
+			"Wnme",
+			"Nguyenphutrong2",
+			"Okras",
+			"捍粵者",
+			"Tomato Cream",
+			"Pierpao",
+			"Dreamy Jazz",
+			"Freddy2001",
+			"Bgo eiu",
+			"Wangombe",
+			"MRidhaAJ",
+>>>>>>> origin/1.39.7-test
 			"20kdc",
 			"No se",
 			"Chadyka",
@@ -260,10 +276,14 @@
 			"Iketsi",
 			"Ponor",
 			"Stjn",
+<<<<<<< HEAD
 			"Cabal",
 			"PerfektesChaos",
 			"Jack who built the house",
 			"Shizhao"
+=======
+			"Cabal"
+>>>>>>> origin/1.39.7-test
 		]
 	},
 	"sidebar": "{{notranslate}}",
@@ -1190,11 +1210,17 @@
 	"revdelete-hide-comment": "{{RevisionDeleteForm}}\nOption for revdel.\n{{Related|Revdelete-hide}}\n{{Identical|Edit summary}}",
 	"revdelete-hide-user": "{{RevisionDeleteForm}}\n\n{{Related|Revdelete-hide}}",
 	"revdelete-hide-restricted": "{{RevisionDeleteForm}}\nOption for suppression.\n{{Related|Revdelete-hide}}",
+<<<<<<< HEAD
 	"revdelete-radio-same": "{{RevisionDeleteForm}}\nThe message is a label for a radio option inside a form {{msg-mw|Revdelete-legend}} as a title.\n\nThere are three radio buttons in each row of radio options, and the labels used in each can be one of:\n* {{msg-mw|Revdelete-radio-same}}\n* {{msg-mw|Revdelete-radio-set}}\n* {{msg-mw|Revdelete-radio-unset}}\n* {{msg-mw|Revdelete-radio-unset-suppress}}\n* {{msg-mw|Revdelete-radio-set-suppress}}",
 	"revdelete-radio-set": "{{RevisionDeleteForm}}\nThe message is a label for a radio option inside a form with {{msg-mw|Revdelete-legend}} as a title.\n\nThere are three radio buttons in each row of radio options, and the labels used in each can be one of:\n* {{msg-mw|Revdelete-radio-same}}\n* {{msg-mw|Revdelete-radio-set}}\n* {{msg-mw|Revdelete-radio-unset}}\n* {{msg-mw|Revdelete-radio-unset-suppress}}\n* {{msg-mw|Revdelete-radio-set-suppress}}\n{{Identical|Hidden}}",
 	"revdelete-radio-unset": "{{RevisionDeleteForm}}\n\nThe message is a label for a radio option inside a form with {{msg-mw|Revdelete-legend}} as a title.\n\nThere are three radio buttons in each row of radio options, and the labels used in each can be one of:\n* {{msg-mw|Revdelete-radio-same}}\n* {{msg-mw|Revdelete-radio-set}}\n* {{msg-mw|Revdelete-radio-unset}}\n* {{msg-mw|Revdelete-radio-unset-suppress}}\n* {{msg-mw|Revdelete-radio-set-suppress}}\n{{Identical|Visible}}",
 	"revdelete-radio-set-suppress": "{{RevisionDeleteForm}}\nThe message is a label for a radio option for whether to also hide the deleted information from administrators inside a form {{msg-mw|Revdelete-legend}} as a title. There are three radio buttons in each row of radio options, and the labels used in each can be one of:\n* {{msg-mw|Revdelete-radio-same}}\n* {{msg-mw|Revdelete-radio-set}}\n* {{msg-mw|Revdelete-radio-unset}}\n* {{msg-mw|Revdelete-radio-unset-suppress}}\n* {{msg-mw|Revdelete-radio-set-suppress}}",
 	"revdelete-radio-unset-suppress": "{{RevisionDeleteForm}}\nThe message is a label for a radio option for whether to also hide the deleted information from administrators inside a form {{msg-mw|Revdelete-legend}} as a title. There are three radio buttons in each row of radio options, and the labels used in each can be one of:\n* {{msg-mw|Revdelete-radio-same}}\n* {{msg-mw|Revdelete-radio-set}}\n* {{msg-mw|Revdelete-radio-unset}}\n* {{msg-mw|Revdelete-radio-unset-suppress}}\n* {{msg-mw|Revdelete-radio-set-suppress}}",
+=======
+	"revdelete-radio-same": "This message is a part of the [[mw:RevisionDelete|RevisionDelete]] feature. The message is a caption for a column of radioboxes inside a box with {{msg-mw|Revdelete-legend}} as a title.\n[[File:RevDelete Special-RevisionDelete (r60428).png|frame|center|Screenshot of the interface]]\nThere are three radio buttons in each row, and the captions above each column read:\n* {{msg-mw|Revdelete-radio-same}}\n* {{msg-mw|Revdelete-radio-set}}\n* {{msg-mw|Revdelete-radio-unset}}",
+	"revdelete-radio-set": "{{RevisionDeleteForm}}\nThe message is a label for a radio option inside a form with {{msg-mw|Revdelete-legend}} as a title.\n\nThere are three radio buttons in each row of radio options, and the labels used in each can be one of:\n* {{msg-mw|Revdelete-radio-same}}\n* {{msg-mw|Revdelete-radio-set}}\n* {{msg-mw|Revdelete-radio-unset}}\n* {{msg-mw|Revdelete-radio-unset-suppress}}\n* {{msg-mw|Revdelete-radio-set-suppress}}\n{{Identical|Hidden}}",
+	"revdelete-radio-unset": "{{RevisionDeleteForm}}\n\nThe message is a label for a radio option inside a form with {{msg-mw|Revdelete-legend}} as a title.\n\nThere are three radio buttons in each row of radio options, and the labels used in each can be one of:\n* {{msg-mw|Revdelete-radio-same}}\n* {{msg-mw|Revdelete-radio-set}}\n* {{msg-mw|Revdelete-radio-unset}}\n* {{msg-mw|Revdelete-radio-unset-suppress}}\n* {{msg-mw|Revdelete-radio-set-suppress}}\n{{Identical|Visible}}",
+>>>>>>> origin/1.39.7-test
 	"revdelete-suppress": "{{RevisionDeleteForm}}\nOption for suppression.\n\nThe possible replies are:\n* {{msg-mw|Revdelete-radio-same}}\n* {{msg-mw|Revdelete-radio-set-suppress}}\n* {{msg-mw|Revdelete-radio-unset-suppress}}\n\nSee also:\n* {{msg-mw|Revdelete-suppress-text}}\n* {{msg-mw|Revdelete-confirm}}",
 	"revdelete-unsuppress": "{{RevisionDelete}}",
 	"revdelete-log": "{{Identical|Reason}}\n{{RevisionDelete}}\nUsed as log comment text for revdel.\n[[File:RevDelete Special-RevisionDelete (r60428).png|frame|center|Screenshot of the interface]]\n\nSee also:\n* {{msg-mw|Revdelete-legend|legend for the form}}\n* {{msg-mw|Revdelete-reason-dropdown|item list for dropdown|notext=1}}\n* {{msg-mw|Revdelete-reasonotherlist|item in dropdown}}\n* {{msg-mw|Revdelete-otherreason|label for input box}}\n* {{msg-mw|Revdelete-submit|submit button}}",
@@ -1405,7 +1431,10 @@
 	"timezoneuseserverdefault": "Option in timezone selector form fields.\n\nThis option lets your time zone setting use the one that is used on the wiki (often UTC).\n\nParameters:\n* $1 - timezone name, or timezone offset (in \"%+03d:%02d\" format)",
 	"timezoneuseoffset": "Option in timezone selector form fields that lets the user manually enter an offset from UTC.",
 	"timezone-useoffset-placeholder": "Placeholder of the text input in timezone selector form fields.",
+<<<<<<< HEAD
 	"timezone-invalid": "Error message shown in preferences.",
+=======
+>>>>>>> origin/1.39.7-test
 	"servertime": "Used as label in [[Special:Preferences#mw-prefsection-datetime|preferences]].",
 	"guesstimezone": "Option in timezone selector form fields to fill in the timezone from the browser setting",
 	"timezoneregion-africa": "Used in timezone selector form fields.\n{{Related|Timezoneregion}}",
@@ -1897,8 +1926,11 @@
 	"rcfilters-filter-categorization-description": "Description for the filter for showing edits adding or removing pages to categories.",
 	"rcfilters-filter-logactions-label": "Label for the filter for showing logged actions.",
 	"rcfilters-filter-logactions-description": "Description for the filter for showing logged actions.",
+<<<<<<< HEAD
 	"rcfilters-filter-newuserlogactions-label": "Label for the filter for showing new user log.",
 	"rcfilters-filter-newuserlogactions-description": "Description for the filter for showing new user log. Only works if log actions filter ({{msg-mw|rcfilters-filter-logactions-label}}) is also selected.",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-hideminor-conflicts-typeofchange-global": "The \"Minor edits\" filter is conflicting with one or more Type of Change filters, because certain types of change cannot be designated as \"minor.\" The conflicting filters are marked in the Active Filters area, above.\n\n* \"Minor edits\" is {{msg-mw|Rcfilters-filter-minor-label}}.\n* \"Type of Change\" is {{msg-mw|Rcfilters-filtergroup-changetype}}.\n* \"Active filters\" is {{msg-mw|Rcfilters-activefilters}}.",
 	"rcfilters-hideminor-conflicts-typeofchange": "Tooltip shown when hovering over the Minor edits tag, when a Type of Change filter is also selected.\n\n\"Minor edits\" is {{msg-mw|rcfilters-filter-minor-label}}.\n\n\"Type of change\" is {{msg-mw|rcfilters-filtergroup-changetype}}.\n\nThis indicates that no results will be shown. Parameters:\n* $1 - Comma-separated string of selected Type of Change filters, e.g. \"Category, Logged Actions\"\n* $2 - Count of selected User Experience Level filters, for PLURAL",
 	"rcfilters-typeofchange-conflicts-hideminor": "Tooltip shown when hovering over a Type of change filter tag, when the Minor edits filter is also selected.\n\n\"Minor edits\" is {{msg-mw|rcfilters-filter-minor-label}}.\n\n\"Type of change\" is {{msg-mw|rcfilters-filtergroup-changetype}}.\n\nThis indicates that no results will be shown.",
@@ -2996,7 +3028,10 @@
 	"whatlinkshere-page": "{{Identical|Page}}",
 	"linkshere": "This message is the header line of the [[Special:WhatLinksHere/$1]] page, which is shown when one clicks the \"What links here\" link in the sidebar toolbox.\n\nUnder it there is a navigation bar built with {{msg-mw|Viewprevnext}}, and then a list of pages that link to the original page.\n\nParameters:\n* $1 - Plain page title\n* $2 - HTML link to the page.",
 	"nolinkshere": "Used in [[Special:WhatLinksHere]] if empty. Parameters:\n* $1 - Plain page title\n* $2 - HTML link to the page.\nSee also:\n* {{msg-mw|Nolinkshere-filter}}\n* {{msg-mw|Nolinkshere-ns}}",
+<<<<<<< HEAD
 	"nolinkshere-filter": "Used in [[Special:WhatLinksHere]] if empty. Parameters:\n* $2 - HTML link to the page.\nSee also:\n* {{msg-mw|Nolinkshere}}\n* {{msg-mw|Nolinkshere-ns}}",
+=======
+>>>>>>> origin/1.39.7-test
 	"nolinkshere-ns": "Used in [[Special:WhatLinksHere]] if empty. Parameters:\n* $1 - Plain page title\n* $2 - HTML link to the page.\nSee also:\n* {{msg-mw|Nolinkshere}}\n* {{msg-mw|Nolinkshere-filter}}",
 	"isredirect": "Displayed in [[Special:WhatLinksHere]] (see [{{fullurl:Special:WhatLinksHere/Project:Translator|hidelinks=1}} Special:WhatLinksHere/Project:Translator] for example).\n\n{{Identical|Redirect page}}",
 	"istemplate": "Means that one page (usually a template) is inserted into another page as <code><nowiki>{{Page name}}</nowiki></code>.\nDisplayed in [[Special:WhatLinksHere]] (see [[Special:WhatLinksHere/Template:New portal]] for example).\nIf you are not sure how to translate this term, think of something like \"inclusion\", \"embedding\", or \"insertion\".\n{{Identical|Transclusion}}",
@@ -4031,7 +4066,10 @@
 	"version-entrypoints-api-php": "A short description of the api.php entry point. Links to the mediawiki.org documentation page for api.php.",
 	"version-entrypoints-rest-php": "A short description of the rest.php entry point. Links to the mediawiki.org documentation page for rest.php.",
 	"version-libraries": "Header on [[Special:Version]] above two sections that list installed external libraries.",
+<<<<<<< HEAD
 	"version-libraries-client": "Sub-header on [[Special:Version]] above a table that lists installed client-side (JavaScript) libraries and their version numbers (jQuery, Vue).\n\nSimilar to {{msg-mw|Version-libraries-server}}.",
+=======
+>>>>>>> origin/1.39.7-test
 	"version-libraries-library": "Column header for the library's name\n{{Identical|Library}}",
 	"version-libraries-version": "Column header for the library's version number\n{{Identical|Version}}",
 	"version-libraries-license": "Column header for the library's license\n{{Identical|License}}",

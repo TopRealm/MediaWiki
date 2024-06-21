@@ -535,6 +535,15 @@ class MaintenanceRunner {
 			if ( !is_readable( MW_CONFIG_FILE ) ) {
 				$this->fatalError( "\nConfig file " . MW_CONFIG_FILE . " was not found or is not readable.\n\n" );
 			}
+<<<<<<< HEAD
+=======
+
+			if ( !is_readable( $settingsFile ) ) {
+				$this->fatalError( "The file $settingsFile must exist and be readable.\n" .
+					"Use --conf to specify it.\n" );
+			}
+			$wgCommandLineMode = true;
+>>>>>>> origin/1.39.7-test
 		}
 		$settingsFile = wfDetectLocalSettingsFile( $IP );
 

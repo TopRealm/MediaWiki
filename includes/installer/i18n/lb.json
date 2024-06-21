@@ -4,8 +4,13 @@
 			"Robby",
 			"Seb35",
 			"Soued031",
+<<<<<<< HEAD
 			"Volvox",
 			"아라"
+=======
+			"아라",
+			"Volvox"
+>>>>>>> origin/1.39.7-test
 		]
 	},
 	"config-desc": "Den Installatiounsprogramm vu MediaWiki",

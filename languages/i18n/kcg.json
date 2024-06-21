@@ -827,8 +827,11 @@
 	"prefs-email": "Khaí ta̱m-i",
 	"prefs-rendering": "Li",
 	"prefs-searchmisc": "Kuzangka̱i",
+<<<<<<< HEAD
 	"searchprefs": "Zop ndan-cat",
 	"searchprefs-noresults": "Ku zang jhyiung nshyia̱ bah",
+=======
+>>>>>>> origin/1.39.7-test
 	"saveprefs": "Sak",
 	"restoreprefs": "Bwuok ma̱ng a̱mgba̱m a̱yaaseti gbangbang ba",
 	"prefs-editing": "Jhyuk",

@@ -191,8 +191,11 @@
 	"skin-action-unprotect": "Камгалалды өскертир",
 	"unprotect": "Камгалалды өскертир",
 	"newpage": "Чаа арын",
+<<<<<<< HEAD
 	"newpage-desc": "Дилеп турган темаңарга чаа арындан эгелеңер.",
 	"view-missing-pages": "Чок арыннарны көөр",
+=======
+>>>>>>> origin/1.39.7-test
 	"talkpagelinktext": "чугаа",
 	"specialpage": "Тускай арын",
 	"personaltools": "Хууда херекселдер",
@@ -639,7 +642,10 @@
 	"summary-preview": "Эдилгениң тайылбырын баш удур көөр:",
 	"previewerrortext": "Киирген өскертилгелериңерни баш бурунгаар көөр дээриңерге, ында алдаг болу берген.",
 	"blockedtitle": "Киржикчини дуглап каан",
+<<<<<<< HEAD
 	"blockedtext-partial": "<strong>Силерниң аккаунтуңарга азы IP-адрезиңерге бо кылдыныг болдунмас. Ынчалзажок бо вики-төлевилелге ам-даа оон өске (кезек арыннарны эдери дээн чижектиг) кылдыныгларны кылып болур силер.</strong>\n\nБлокировкага хамаарышкан медээлерни дараазында [[Special:MyContributions|аккаунтунуң үлүү]] деп арындан көрүп ап болур.\n\n{{int:blockedtext-made-by|$1}}\n\n{{int:blockedtext-reason-comment|$2}}.\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n*{{int:blockedtext-block-id|$5}}",
+=======
+>>>>>>> origin/1.39.7-test
 	"blockedtext": "<strong>Ажыглакчы адыңар азы IP адрезиңер блоктаткан.</strong>\n\nКым блоктаан: $1.\nЧылдагааны: <em>$2</em>.\n\n* Блоктуң эгелээни: $8\n* Блоктуң төнери: $6\n* Кандыг сорулга-биле: $7\n\nБлокту сайгаржырда $1 азы өске [[{{MediaWiki:Grouppage-sysop}}|администратор]] биле харылзажып болур силер.\n[[Special:Preferences|Өйлээшкиниңерде]] айыткан  почтаңар адрези ажылчын болза, оон ону ажыглап тургаш блоктатпаан болзуңарза \"{{int:emailuser}}\" функциязын ажыглап болур силер.\nСилерниң амгы IP адрезиңер $3, блок ID-зи #$5.\nАйтырыг салырда ол деталдарны киирип турар силер.",
 	"blockednoreason": "чылдагааны айыттынмаан",
 	"blockedtext-composite-ids": "Блокировканың чугула дүүштүрер чүүлдери: $1 (силерниң IP-адрезиңер блокировка даңзызында көстүп кээп болур)",
@@ -662,8 +668,13 @@
 	"missing-revision-permission": "#$1 хевири балап каапкан арынга хамааржыр-дыр. Силер [{{fullurl:{{#Special:Undelete}}|target=$3&timestamp=$2&diff=prev}} ону көрүп] болур силер; оон хөй медээни [{{fullurl:{{#Special:Log}}/delete|page=$3}} балаашкын журналындан] тып ап болур.",
 	"missing-revision": "\"{{FULLPAGENAME}}\" деп арынның #$1 хевири чок.\n\nБалап каапкан арынче айыткан эрги шөлүгнү базыптарга, ындыг чүүл болу бээр боор. \nОон хөй медээни [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} балаашкын журналындан] көрүп ап болур.",
 	"missing-revision-content": "\"$2\" арынның #$1 хевиринде чүүлдерни киирип алыры болдунмаан.",
+<<<<<<< HEAD
 	"userpage-userdoesnotexist": "\"$1\" деп ажыглакчы-аккаунт бо викиде чок.\nМындыг арынны шынап чаяар азы эдериңер бе?",
 	"userpage-userdoesnotexist-view": "Бо Викиде \"$1\" деп аттыг ажыглакчының хуудузу бүрүткеттинмээн.",
+=======
+	"userpage-userdoesnotexist": "\"$1\" деп ажыглакчы аккаунт бүрүткетпээн.\nОл арынны шынап чаяар азы эдериңер бе?",
+	"userpage-userdoesnotexist-view": "$1 дээр ажыглакчы аккаунтузу бүрүткелбээн.",
+>>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "Бо {{GENDER:$1|ажыглакчы}} блоктаттынган.\nАдаанда блокировкалар журналының сөөлгү бижии киирттинген:",
 	"clearyourcache": "<strong>Демдеглел:</strong> Үндүрген сооңарда өскертилгелер көөрде, браузериңер кэжин арыглаар апаар чыгыы силер.\n* <strong>Firefox / Safari:</strong> <em>Shift</em> тананы базып алгаш, херекселдер панелинде <em>Reload</em> тананы базыптар силер, чок болза <em>Ctrl-F5</em> азы <em>Ctrl-R</em> таналарны базыптар силер (Mac-та <em>⌘-R</em>)\n* <strong>Google Chrome:</strong> <em>Ctrl-Shift-R</em> тананы базыптар силер (Mac-та <em>⌘-Shift-R</em>)\n* <strong>Internet Explorer / Edge:</strong> <em>Ctrl</em> тананы базып алгаш, <em>Refresh</em> тананы базыптар силер азы <em>Ctrl-F5</em> тананы базыптар силер\n* <strong>Opera:</strong> <em>Ctrl-F5</em> тананы базыптар силер.",
 	"usercssyoucanpreview": "<strong>Баажызы:</strong>Чаа CSS-файлыңар үндүрер бетинде хынаарда, \"{{int:showpreview}}\" деп тананы базыптыңар.",
@@ -864,11 +875,16 @@
 	"revdelete-hide-comment": "Эдилгениң тайылбыры",
 	"revdelete-hide-user": "Эдикчиниң ажыглакчы ады/IP-адрези",
 	"revdelete-hide-restricted": "Бердингеннерни администраторлардан база чажырар",
+<<<<<<< HEAD
 	"revdelete-radio-same": "Өскертпес",
 	"revdelete-radio-set": "Чажыт",
 	"revdelete-radio-unset": "Көскү",
 	"revdelete-radio-set-suppress": "Чажырар",
 	"revdelete-radio-unset-suppress": "Көргүзер",
+=======
+	"revdelete-radio-set": "Чажыт",
+	"revdelete-radio-unset": "Көскү",
+>>>>>>> origin/1.39.7-test
 	"revdelete-suppress": "Бердингеннерни администраторлардан база чажырар",
 	"revdelete-unsuppress": "Катап тургустунган янзыларда көстүрүнге хамаарышкан кызыгаарлаашкыннарны ап каар",
 	"revdelete-log": "Чылдагаан:",
@@ -933,7 +949,10 @@
 	"lineno": "Одуруг $1:",
 	"compareselectedversions": "Шилип алган хевирлерин деңнээр",
 	"showhideselectedversions": "Шилиттинген янзыларны көргүзер/чажырар",
+<<<<<<< HEAD
 	"showhideselectedfileversions": "Файлдың шилиттинген янзыларының көскүзүн өскертир",
+=======
+>>>>>>> origin/1.39.7-test
 	"editundo": "ойталаар",
 	"diff-empty": "(Ылгал чок)",
 	"diff-multi-sameuser": "(ол-ла ажыглакчының {{PLURAL:$1|$1 аракы эде көрүлдези}} көргүстүнмээн)",
@@ -942,8 +961,11 @@
 	"diff-paragraph-moved-tonew": "Параграф көжүрттүнген. Чаа турар черинче шилчиирде, базыптыңар.",
 	"diff-paragraph-moved-toold": "Параграф көжүрттүнген. Эрги турган черинче шилчиирде, базыптыңар.",
 	"difference-missing-revision": "Бо ($1) деңнелгеге {{PLURAL:$2|янзызы|$2 янзылары}}  {{PLURAL:$2|тывылбаан}}.\n\nБалап каапкан арынче айыткан эрги шөлүгнү базыптарга, ындыг чүүл болу бээр боор. \nОон хөй медээни [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} балаашкын журналындан] көрүп ап болур.",
+<<<<<<< HEAD
 	"difference-bad-old-revision": "Эрги янзызының контентизи чок азы үрелген.",
 	"difference-bad-new-revision": "Чаа янзызының контентизи чок азы үрелген.",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchresults": "Дилээшкинниң түңнелдери",
 	"search-filter-title-prefix": "Чүгле \"$1\" деп эгелээн аттарлыг арыннар дилээр",
 	"search-filter-title-prefix-reset": "Шупту арыннарны дилээр",
@@ -983,7 +1005,10 @@
 	"search-relatedarticle": "Холбаалыг",
 	"search-invalid-sort-order": "Ылгаашкын $1 таныттынмаан, үндезин өйлээшкиннеринде ылгаашкын ажыглаттынар. Ылгаашкынче ылап чагыглар мында: $2",
 	"search-unknown-profile": "Дилээшкин профили $1 таныттынмаан, үндезин өйлээшкининде тургустунган дилээшкин профили ажыглаттынар.",
+<<<<<<< HEAD
 	"search-thumbnail-alt": "$1 миниматюразы",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchrelated": "холбаалыг",
 	"searchall": "шупту",
 	"showingresultsinrange": "Адаанда {{PLURAL:$1|<strong>1</strong> түңнел}} #<strong>$2</strong>-дан #<strong>$3</strong> чедир көргүстүнген.",
@@ -1033,8 +1058,11 @@
 	"prefs-email": "Электроннуг шуудаңның параметрлери",
 	"prefs-rendering": "Даштыкы хевири",
 	"prefs-searchmisc": "Ниити",
+<<<<<<< HEAD
 	"searchprefs": "Өйлээшкиннер аайы-биле дилээр",
 	"searchprefs-noresults": "Түңнелдер чок",
+=======
+>>>>>>> origin/1.39.7-test
 	"saveprefs": "Шыгжаар",
 	"restoreprefs": "Шупту эге өйлээшкиннерин катап тургузар",
 	"prefs-editing": "Эдилге",
@@ -1042,6 +1070,7 @@
 	"recentchangesdays": "Чаа эдилгелерин көргүзер арыннарның саны:",
 	"recentchangesdays-max": "$1 хөй эвес {{PLURAL:$1|хүн|хүннер}}",
 	"recentchangescount": "Чаа эдилгелер даңзызында, арынның төөгүзүнде база дептерде үндезин өйлээшкиннер аайы-биле көстүп турар эдилгелерниң саны:",
+<<<<<<< HEAD
 	"prefs-back-title": "Өйлээшкиннерже эглир",
 	"prefs-description-personal": "Силерниң арыныңар канчаар көстүп турарын, силер канчаар коштунуп база чугаалажып турарыңарны хынаңар.",
 	"prefs-description-rendering": "Шимелдезиниң темазын, хемчээлин база номчуурунуң параметрлерин өйлеп алыңар.",
@@ -1050,6 +1079,8 @@
 	"prefs-description-watchlist": "Хайгаарап турар арыннарыңарның даңзызын башкарып, боттарыңарга өйлеп алыңар.",
 	"prefs-description-searchoptions": "Автодолдуруушкун база түңнелдер канчаар ажылдап турарын шилиңер.",
 	"prefs-description-misc": "Контентизи канчаар көстүп турарын өйлеп алыңар.",
+=======
+>>>>>>> origin/1.39.7-test
 	"prefs-help-recentchangescount": "Эң улуг хемчээли: 1000",
 	"prefs-help-watchlist-token2": "Бо дээрге силерниң хайгаарал даңзыңарның веб-каналының чажын дүлгүүрү-дүр.\nОну билир кандыг-даа кижи силерниң хайгаарал даңзыңарны номчуп болур боор, ынчангаш ону кымга-даа дамчытпаңар.\nХерек болза, [[Special:ResetTokens|ону дүжүрүп болур силер]].",
 	"prefs-help-tokenmanagement": "Силерниң хайгаарал даңзыңарның веб-каналынче кирип болур чажыт дүлгүүрүңерни бодуңарның аккаунтуңарга көрүп база дүжүрүп болур силер. Ону билир кандыг-даа кижи силерниң хайгаарал даңзыңарны номчуп болур боор, ынчангаш ону кымга-даа дамчытпаңар.",
@@ -1064,7 +1095,10 @@
 	"timezoneuseserverdefault": "Викиниң үндезин өйлээшкиннерин ажыглаар ($1)",
 	"timezoneuseoffset": "Өске (UTC-тен үе өскээр шимчээни)",
 	"timezone-useoffset-placeholder": "Чижээлээрге: \"-07:00\" азы \"01:00\"",
+<<<<<<< HEAD
 	"timezone-invalid": "Шын эвес шак куржаа азы шын эвес көжүрттүнген үе",
+=======
+>>>>>>> origin/1.39.7-test
 	"servertime": "Серверниң шагы:",
 	"guesstimezone": "Браузерден долдурар",
 	"timezoneregion-africa": "Африка",
@@ -1253,9 +1287,12 @@
 	"right-suppressrevision": "Арыннарның янзыларын көөрү, чажырары база катап тургузары",
 	"right-viewsuppressed": "Шупту киржикчилерден чажырттынган янзыларын көөрү",
 	"right-suppressionlog": "Хууда журналдарны көөрү",
+<<<<<<< HEAD
 	"right-block": "Өске киржикчилерниң эдер аргазын блоктаары азы блоктан уштуру",
 	"right-blockemail": "Емейл чорударын хораан өске киржикчилерни  блоктаары азы блоктан үндүрери",
 	"right-hideuser": "Киржикчиниң адын блоктаары болгаш блоктан уштуру, ону өске киржикичилерге көстүрүнден чажырары",
+=======
+>>>>>>> origin/1.39.7-test
 	"right-ipblock-exempt": "IP-блоктаашкыннарны, автоблоктаашкыннарны база дипазон блоктаашкыннарын ояры",
 	"right-unblockself": "Бодун блоктан уштуру",
 	"right-protect": "Камгалал өйлээшкинин өскертири база каскадтай камгалаттынган арыннарны эдери",
@@ -1276,7 +1313,10 @@
 	"right-viewmywatchlist": "Бодунуң хайгаарал даңзызын көөрү",
 	"right-editmywatchlist": "Бодунун хайгаарал арынын эдери (кезек кылдыныглар арыннарны ындыг эрге чок-даа болза немээр боорунче кичээнгейден салыңар)",
 	"right-viewmyprivateinfo": "Бодунуң хууда бердингеннерин көөрү (чижээлээрге, э-шуудаң адрези, шын ады)",
+<<<<<<< HEAD
 	"right-editmyprivateinfo": "Бодунуң хууда бердингеннерин эдери (чижээлээрге, э-шуудаң адрези, шын ады) база пароль дүжүрерде электроннуг чагаа чагыдары",
+=======
+>>>>>>> origin/1.39.7-test
 	"right-editmyoptions": "Бодунуң өйлээшкиннерин эдери",
 	"right-rollback": "Сөөлгү катап бир арынны эдип турган ажыглакчының эдилгелерин дедир чууру",
 	"right-markbotedits": "Дедир эгиттинип турар эдилгелерни роботтар эдилгелери кылдыр демдеглээри",
@@ -1318,7 +1358,10 @@
 	"grant-editsiteconfig": "Сайттың болгаш киржикчиниң CSS/JavaScript эдери",
 	"grant-editpage": "Бар арыннарны эдери",
 	"grant-editprotected": "Камгалалдыг арыннарны эдери",
+<<<<<<< HEAD
 	"grant-highvolume": "Бедик кылдыныглыг роботтарга кирер чөпшээрел",
+=======
+>>>>>>> origin/1.39.7-test
 	"grant-import": "Янзыларын киир көжүрери",
 	"grant-mergehistory": "Эдилгелер төөгүзүн каттыштырары",
 	"grant-oversight": "Киржикчилерниң эдилгелерин болгаш арыннарның янзыларын чажырары",
@@ -1358,6 +1401,7 @@
 	"action-writeapi": "API-ни бижикке ажыглаары",
 	"action-delete": "бо арынны балаары",
 	"action-delete-redirect": "чаңгыс янзылыг өскээр угландырыышкыннарны балаары",
+<<<<<<< HEAD
 	"action-deleterevision": "арыннарның тодаргай янзыларын балаары болгаш катап тургузары",
 	"action-deletelogentry": "журналдың тодаргай бижиктерин балаары болгаш катап тургузары",
 	"action-deletedhistory": "төөгүнүң балаттынган бижиктериниң метабердингеннерин көөрү",
@@ -1367,6 +1411,11 @@
 	"action-suppressrevision": "кандыг-даа киржикчилерден арыннарның тодаргай янзыларын көөрү, чажырары база катап тургузары",
 	"action-suppressionlog": "хууда журналды көөрү",
 	"action-block": "киржикчиниң эдер аргазын блоктаары азы блоктан уштуру",
+=======
+	"action-browsearchive": "балаттынган арыннарны дилээри",
+	"action-undelete": "арыннарны катап тургузары",
+	"action-suppressionlog": "хууда журналды көөрү",
+>>>>>>> origin/1.39.7-test
 	"action-protect": "бо арынның камгалалының өйлээшкиннерин өскертири",
 	"action-rollback": "сөөлгү катап бир арынны эдип турган ажыглакчының эдилгелерин дедир чууру",
 	"action-import": "өске викилерден арыннарны бээр көжүрери",
@@ -1393,7 +1442,10 @@
 	"action-apihighlimits": "АPI-дилеглерде бедик кызыгаарлаашкыннарны ажыглааны",
 	"action-autoconfirmed": "IP-адреске дүргенин кызыгаарлаанын ояры",
 	"action-bigdelete": "өскертилгелериниң төөгүзү узун арыннарны балаары",
+<<<<<<< HEAD
 	"action-blockemail": "киржикчиниң емейл чорудар аргазын блоктаары азы блоктан үндурери",
+=======
+>>>>>>> origin/1.39.7-test
 	"action-bot": "чайгаар болуп турар кылдыныг кылдыр көөр",
 	"action-editprotected": "\"{{int:protect-level-sysop}}\" кылдыр камгалаттынган арыннарны эдери",
 	"action-editsemiprotected": "\"{{int:protect-level-autoconfirmed}}\" кылдыр камгалаттынган арыннарны эдери",
@@ -1409,7 +1461,10 @@
 	"action-editmyuserjs": "бодунуң ажыглакчы JavaScript-файлдарын эдери",
 	"action-editmyuserjsredirect": "өскээр угландырыг болуп турар бодунуң ажыглакчы JavaScript-файлдарын эдери",
 	"action-viewsuppressed": "шупту киржикчилерден чажырттынган янзыларын көөрү",
+<<<<<<< HEAD
 	"action-hideuser": "киржикчиниң адын блоктаары болгаш блоктан уштуру, ону өске киржикичилерге көстүрүнден чажырары",
+=======
+>>>>>>> origin/1.39.7-test
 	"action-ipblock-exempt": "IP-блоктаашкыннарны, автоблоктаашкыннарны база дипазон блоктаашкыннарын ояры",
 	"action-unblockself": "бодун блоктан уштуру",
 	"action-noratelimit": "дүргенин кызыгаарлаанын ояры",
@@ -1542,8 +1597,11 @@
 	"rcfilters-filter-categorization-description": "Категорияларга неметтинген азы оон балаттынган арыннарының дугайында бижиктер.",
 	"rcfilters-filter-logactions-label": "Протоколдаар кылдыныглар",
 	"rcfilters-filter-logactions-description": "Административтиг кылдыныглар, аккаунту чаяары, арыннар балаары, файлдар чүдүрери...",
+<<<<<<< HEAD
 	"rcfilters-filter-newuserlogactions-label": "Чаа киржикчилер",
 	"rcfilters-filter-newuserlogactions-description": "Аккаунт чаяарының дептериниң бижиктери. Бижиттинген кылдыныглар шилиттинген турар ужурлуг.",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-hideminor-conflicts-typeofchange-global": "\"Бичии эдилгелер\" деп шүүр бир азы элээн каш шүүрлер-биле чөрүлдээлиг апарган, чүге дизе эдилгелерниң кезек хевирлери бичии деп адаттынмас. Чөрүлдээлиг шүүрлер кырында Активчи шүүрлер кезээнде демдеглеттинген.",
 	"rcfilters-hideminor-conflicts-typeofchange": "Эдилгелерниң кезек хевирлери \"бичии\" деп адаттынмас болур, ынчангаш бо шүүр дараазында эдилгелер хевириниң шүүрү-биле чөрүлдээлежип турар: $1.",
 	"rcfilters-typeofchange-conflicts-hideminor": "Эдилгелерниң хевириниң бо шүүрү бичии эдилгелер шүүрү-биле чөрүлээлеп турар. Эдилгелерниң кезек хевирлери \"бичии\" деп адаттынмас болур.",
@@ -1553,8 +1611,11 @@
 	"rcfilters-filter-previousrevision-label": "Сөөлгү эвес янзызы",
 	"rcfilters-filter-previousrevision-description": "\"Сөөлгү янзызы\" эвес болуп турар шупту өскертилгелер.",
 	"rcfilters-filter-excluded": "Ап калдынган",
+<<<<<<< HEAD
 	"rcfilters-tag-prefix-namespace-inverted": "<strong>not</strong> :$1",
 	"rcfilters-tag-prefix-tags-inverted": "<strong>not</strong> #$1",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-exclude-button-off": "Шилиттингенин ап калыр",
 	"rcfilters-exclude-button-on": "Шилиттингенин ап каары",
 	"rcfilters-view-tags": "Демдектерлиг эдилгелер",
@@ -1855,6 +1916,10 @@
 	"licenses-edit": "Лицензияның параметрлерин эдер",
 	"license-nopreview": "(Баш удур көөрү болдунмас)",
 	"upload_source_url": "(шилип алган файлыңар шын бар, ажык интернет-адрсетен алдынган)",
+<<<<<<< HEAD
+=======
+	"upload_source_file": "(силерниң компьютериңерде файл шилип алдыңар)",
+>>>>>>> origin/1.39.7-test
 	"listfiles-delete": "балаар",
 	"listfiles-summary": "Бо дузалал арын шупту чүдүрттүнген файлдарны көргузүп турар.",
 	"listfiles-userdoesnotexist": "\"$1\" аккаунт бүрүткеттинмээн.",
@@ -2076,7 +2141,10 @@
 	"notargettext": "Бо кылдыныгга сорулгалыг арынны азы киржикчини айытпаан силер.",
 	"nopagetitle": "Ындыг сорулгалыг арын чок",
 	"nopagetext": "Айыттынган соруглгалыг арын чок.",
+<<<<<<< HEAD
 	"badrevision": "Эрги янзызының сөзүглели чок азы үрелген.",
+=======
+>>>>>>> origin/1.39.7-test
 	"pager-newer-n": "{{PLURAL:$1|артык чаа}}",
 	"pager-older-n": "{{PLURAL:$1|эрги 1|эрги $1}}",
 	"suppress": "Чажырары",
@@ -2507,10 +2575,15 @@
 	"contributions": "Ажыглакчының үлүү",
 	"tool-link-contributions": "{{GENDER:$1|Киржикчиниң}} үлүү",
 	"contributions-title": "«$1» деп ажыглакчының үлүү",
+<<<<<<< HEAD
 	"contribute-title": "Ажыглакчының үлүү",
 	"mycontris": "Дадывыр",
 	"anoncontribs": "Үлүү",
 	"contribute": "Үлүг",
+=======
+	"mycontris": "Дадывыр",
+	"anoncontribs": "Үлүү",
+>>>>>>> origin/1.39.7-test
 	"contribsub2": "{{GENDER:$3|$1}} ($2)",
 	"contributions-userdoesnotexist": "\"$1\" аттыг аккаунт бүрүткеттинмээн.",
 	"negative-namespace-not-supported": "Казыыр үнелиг аттар делгемнерин деткивейн турар.",
@@ -2545,7 +2618,10 @@
 	"whatlinkshere-page": "Арын:",
 	"linkshere": "Адаандагы арыннар бээр шөлүп турар <strong>$2</strong>:",
 	"nolinkshere": "<strong>$2</strong> деп арынче өске арыннардан шөлүглер чок.",
+<<<<<<< HEAD
 	"nolinkshere-filter": "Амгы дилээшкин өйлээшкининге таарыжыр <strong>$2</strong> деп шөлүлгеже айтып турар арыннар чок болуп турар.",
+=======
+>>>>>>> origin/1.39.7-test
 	"nolinkshere-ns": "Шилиттинген аттар делгеминде <strong>$2</strong> деп арынче шөлүг кылып турар арыннар чок.",
 	"isredirect": "шиглендирер арын",
 	"istemplate": "киирткен арыннар",
@@ -2764,10 +2840,13 @@
 	"movesubpagetalktext": "Дүгжүп турар сайгаржылга арынының $1 {{PLURAL:$1|адаанда арыны|адаанда арыннары}} бар, оларны адаанда көргүскен.",
 	"movenosubpage": "Бо арыннаң адаанда арыннары чок.",
 	"movereason": "Чылдагаан:",
+<<<<<<< HEAD
 	"moveotherreason": "Өске/немелде чылдагаан:",
 	"movereasonotherlist": "Өске чылдагаан",
 	"movepage-reason-dropdown": "* Эде адаар чылдагааннар\n** Адында частырыг",
 	"movepage-edit-reasonlist": "Чылдагааннар даңзызын эдери",
+=======
+>>>>>>> origin/1.39.7-test
 	"revertmove": "эгидер",
 	"delete_and_move_text": "\"[[:$1]]\" деп аттыг арын шагда бар.\nЭде адалга болдуна бээр кылдыр ону балаксап тур силер бе?",
 	"delete_redirect_and_move_text": "\"[[:$1]]\" деп аттыг сорулгалыг арын бар.\nЭде адалга болдуна бээр кылдыр ону балаксап тур силер бе?",
@@ -2995,7 +3074,10 @@
 	"pageinfo-default-sort": "Үндезин аайлаашкын дүлгүүрү",
 	"pageinfo-length": "Арынның узуну (байттар-биле)",
 	"pageinfo-namespace": "Аттар делгеми",
+<<<<<<< HEAD
 	"pageinfo-namespace-id": "Аттар делгеминиң ID-зи",
+=======
+>>>>>>> origin/1.39.7-test
 	"pageinfo-article-id": "Арын ID-зи",
 	"pageinfo-language": "Арынның дылы",
 	"pageinfo-language-change": "өскертир",
@@ -3122,7 +3204,11 @@
 	"metadata-help": "Бо файлда чурагайлыг камераларның болгаш сканерлерниң немеп каары немелде медээлер бар. Файлды кылган соонда эдип турган болза, ооң чамдык параметрлери ооң амгы чуруунга дүүшпес бооп болур.",
 	"metadata-expand": "Немелде бердингеннерни көргүзер",
 	"metadata-collapse": "Немелде бердингеннерни чажырар",
+<<<<<<< HEAD
 	"metadata-fields": "Бо даңзыда айыткан чурумалдар бердингеннериниң кезектери чурумалдың арынынга көстүп кээр, метаданныйлар таблицазын дүрүп каан болур. \nАрткан кезектер үндезин өйлээшкин ёзугаар чажыт көстүр.\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude\n* dc-rights\n* copyrightowner\n* usageterms\n* webstatement\n* licenseurl\n* attributionurl\n* preferredattributionname\n* credit\n* jpegfilecomment\n* pngfilecomment\n* giffilecomment\n* usercomment\n* citydest\n* citycreated\n* headline\n* source\n* locationdest\n* dc-contributor\n* dc-coverage\n* dc-publisher\n* dc-relation\n* label\n* nickname\n* personinimage\n* disclaimer\n* event\n* objectname",
+=======
+	"metadata-fields": "Бо даңзыда айыткан чурумалдар метаданныйларның кезектери чурумалдың арынынга көстүп кээр, метаданныйлар таблицазын дүрүп каан болур. \nАрткан кезектер аайлаан ёзугаар чажыт көстүр.\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude",
+>>>>>>> origin/1.39.7-test
 	"namespacesall": "шупту",
 	"monthsall": "шупту",
 	"confirmemail": "Емейл-адресс бадыткаары",
@@ -3162,7 +3248,10 @@
 	"confirm-watch-button": "Чаа",
 	"confirm-watch-top": "Бо арынны хайгааралыңар даңзызынче немээр бе?",
 	"confirm-watch-label": "Хайгаарал даңзызында хуусаазы:",
+<<<<<<< HEAD
 	"watchlist-expiry-options": "Олчаан:infinite,1 неделя:1 week,1 ай:1 month,3 ай:3 months,6 ай:6 months,1 чыл:1 year",
+=======
+>>>>>>> origin/1.39.7-test
 	"watchlist-expires-in-aria-label": "Түр када хайгаарал даңзызында",
 	"confirm-watch-button-expiry": "Хайгаараар",
 	"confirm-unwatch-button": "Чаа",
@@ -3277,7 +3366,10 @@
 	"version-entrypoints-header-entrypoint": "Кирер точка",
 	"version-entrypoints-header-url": "URL",
 	"version-libraries": "Тургустунган библиотекалары",
+<<<<<<< HEAD
 	"version-libraries-client": "Тургустунган клиент библиотекалары",
+=======
+>>>>>>> origin/1.39.7-test
 	"version-libraries-library": "Библиотека",
 	"version-libraries-version": "Янзызы",
 	"version-libraries-license": "Лицензия",
@@ -3611,10 +3703,13 @@
 	"feedback-useragent": "Браузер:",
 	"searchsuggest-search": "{{SITENAME}} иштинден дилээр",
 	"searchsuggest-containing": "Мындыг чүүлдерлиг арыннарны дилээри:",
+<<<<<<< HEAD
 	"search-match-redirect-label": "Дилээшкин үезинде шуут дөмей болганынче шилчиир",
 	"search-match-redirect-help": "Бир эвес арынның ады силерниң дилеп турар чүүлүңерге дүгжүп турар болза, арынче шилчиирде ажыглаңар",
 	"search-thumbnail-extra-namespaces-label": "Special:Search-те ажылчын столга тааржыр янзызында хензиг чуруктарны көргүзер",
 	"search-thumbnail-extra-namespaces-message": "$1 {{PLURAL:$2|аттар делгеминге|аттар делгемнеринге}} хензиг чуруктарны түңнелдер арынынга {{#special:search}} көргүзер",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchlimit-label": "Арын бүрүзүнге көргүзер дилээшкинниң түңнелдериниң саны:",
 	"searchlimit-help": "Эң улуг хемчээли: $1",
 	"api-clientside-error-noconnect": "Серверге коштунар арга чок.\nИнтернетке коштунган-дыр силер бе хынапкаш, катап база шенеңер.",
@@ -3719,8 +3814,11 @@
 	"json-error-invalid-property-name": "Шынарның декодировкалыг ады күш чок",
 	"json-error-utf16": "UTF-16-ның шын эвес демдектери, шын эвес кодировка бооп болур",
 	"headline-anchor-title": "Бо разделче шөлүлге",
+<<<<<<< HEAD
 	"special-tab-contribute-short": "Үлүг",
 	"special-tab-contributions-short": "Үлүүн көөр",
+=======
+>>>>>>> origin/1.39.7-test
 	"special-characters-group-latin": "Латин",
 	"special-characters-group-latinextended": "Латин делгемчиттинген",
 	"special-characters-group-ipa": "МФА (IPA)",
@@ -3968,6 +4066,7 @@
 	"newpages-showhide-bots": "Роботтарны $1",
 	"newpages-showhide-patrolled": "хынаттынган өскертилгелерни $1",
 	"newpages-showhide-redirect": "Өскээр угландырыышкыннарны $1",
+<<<<<<< HEAD
 	"newpages-showhide-registered": "Бүрүткеттинген киржикчилерни $1",
 	"blockedtext-made-by": "Администратор $1 дуглаан.",
 	"blockedtext-reason-comment": "Дуглаан чылдагааны <em>$1</em>",
@@ -4008,4 +4107,7 @@
 	"action-renameuser": "киржикчилерни эде адаар",
 	"right-renameuser": "Киржикчилерни эде адаар",
 	"renameuser-renamed-notice": "Бо киржикчи эде адаттынган.\nАдаанда дузалал кылдыр эде адаашкыннар дептерин киирген."
+=======
+	"newpages-showhide-registered": "Бүрүткеттинген киржикчилерни $1"
+>>>>>>> origin/1.39.7-test
 }

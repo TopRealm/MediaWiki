@@ -39,6 +39,7 @@ use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\Authority;
 use MediaWiki\Revision\RevisionRecord;
+<<<<<<< HEAD:includes/linker/Linker.php
 use MediaWiki\Title\Title;
 use Message;
 use MessageLocalizer;
@@ -48,6 +49,8 @@ use SpecialPage;
 use TitleValue;
 use User;
 use WatchedItem;
+=======
+>>>>>>> origin/1.39.7-test:includes/Linker.php
 use Wikimedia\Assert\Assert;
 use Wikimedia\IPUtils;
 use Wikimedia\Parsoid\Core\TOCData;
@@ -489,7 +492,11 @@ class Linker {
 					);
 					$label = $thumb->toText();
 				} else {
+<<<<<<< HEAD:includes/linker/Linker.php
 					$label = $frameParams['alt'] ?? '';
+=======
+					$label = '';
+>>>>>>> origin/1.39.7-test:includes/Linker.php
 				}
 			}
 			$s = self::makeBrokenImageLinkObj(

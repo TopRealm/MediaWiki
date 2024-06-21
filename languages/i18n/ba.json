@@ -195,7 +195,10 @@
 	"permalink": "Даими һылтанма",
 	"print": "Баҫтырыу",
 	"view": "Ҡарарға",
+<<<<<<< HEAD
 	"viewcontribs": "Ҡатнашыусының өлөшөн ҡарарға",
+=======
+>>>>>>> origin/1.39.7-test
 	"skin-view-view": "Уҡыу",
 	"skin-view-foreign": "$1 ҡарарға",
 	"edit": "Үҙгәртергә",
@@ -212,8 +215,11 @@
 	"skin-action-unprotect": "Һаҡлауҙы үҙгәртергә",
 	"unprotect": "Һаҡлауҙы үҙгәртергә",
 	"newpage": "Яңы бит",
+<<<<<<< HEAD
 	"newpage-desc": "Һоралған тема буйынса яңы бит башларға.",
 	"view-missing-pages": "Булмаған биттәрҙе ҡарарға",
+=======
+>>>>>>> origin/1.39.7-test
 	"talkpagelinktext": "фекер алышыу",
 	"specialpage": "Махсус бит",
 	"personaltools": "Шәхси ҡоралдар",
@@ -659,7 +665,10 @@
 	"summary-preview": "Үҙгәртеүҙәр аңлатмаһын ҡарап сығырға:",
 	"previewerrortext": "Үҙгәртеүҙәрегеҙҙе ҡарап сығырға тырышҡанда хата китте.",
 	"blockedtitle": "Ҡатнашыусы бикләнгән",
+<<<<<<< HEAD
 	"blockedtext-partial": "<strong>Һеҙҙең иҫәп яҙмағыҙ йәки IP-адресығыҙ өсөн был ғәмәл бикләнгән. Әммә һеҙ элеккесә был вики-проектта башҡа ғәмәлдәрҙе (мәҫәлән, айырым биттәрҙе мөхәррирләү) башҡара алаһығыҙ.</strong> \n\nБикләүҙең барлыҡ сәбәптәрен [[Special:MyContributions|иҫәп яҙмаһы өлөшө]] битендә күрә алаһығыҙ.\n\n{{int:blockedtext-made-by|$1}}\n\n{{int:blockedtext-reason-comment|$2}}.\n\n* {{int:blockedtext-start-time|$8}}\n* {{int:blockedtext-expiration-time|$6}}\n* {{int:blockedtext-intended-blockee|$7}}\n\n* {{int:blockedtext-block-id|$5}}",
+=======
+>>>>>>> origin/1.39.7-test
 	"blockedtext": "'''Иҫәп яҙыуығыҙ йәки IP-адресығыҙ блокланған.'''\n\nБлоклаусы хаким: $1.\nБелдерелгән сәбәп: ''$2''.\n\n* Блоклау башланған ваҡыт: $8\n* Блоклау  аҙағы: $6\n* Блоклауҙар һаны: $7\n\nҺеҙ $1 йәки башҡа [[{{MediaWiki:Grouppage-sysop}}|хакимгә]] блоклау буйынса һорауҙарығыҙҙы ебәрә алаһығыҙ.\nИҫегеҙҙе тотоғоҙ: әгәр һеҙ теркәлмәгән һәм электрон почта адресығыҙҙы раҫламаған булһағыҙ ([[Special:Preferences|көйләүҙәрем битендә]]), хакимгә хат ебәрә алмайһығыҙ. Шулай ук блоклау ваҡытында һеҙҙең хат ебәреү мөмкинлегегеҙ сикләгән булырға ла мөмкин.\nҺеҙҙең IP-адрес — $3, блоклау идентификаторы — #$5.\nХаттарҙа был мәғлүмәттәрҙе күрһәтергә онотмағыҙ.",
 	"autoblockedtext": "Һеҙҙең IP-адресығыҙ автоматик рәүештә блокланған. Сәбәбе, был адрес элек блокланған ҡулланыусыларҙың береһе тарафынан ҡулланылған. Блоклаусы хаким ($1) киләһе сәбәпте белдергән:\n\n:«$2»\n\nБлоклаусы хаким: $1.\nБелдерелгән сәбәп: ''$2''.\n\n* Блоклау башланған ваҡыт: $8\n* Блоклау  аҙағы: $6\n* Блоклауҙар һаны: $7\n\nҺеҙ $1 йәки башҡа [[{{MediaWiki:Grouppage-sysop}}|хакимгә]] блоклау буйынса һорауҙарығыҙҙы ебәрә алаһығыҙ.\nИҫегеҙҙе тотоғоҙ: әгәр һеҙ теркәлмәгән һәм электрон почта адресығыҙҙы раҫламаған булһағыҙ ([[Special:Preferences|көйләүҙәрем битендә]]), хакимгә хат ебәрә алмайһығыҙ. Шулай ук блоклау ваҡытында һеҙҙең хат ебәреү мөмкинлегегеҙ сикләгән булырға ла мөмкин.\nҺеҙҙең IP-адрес — $3, блоклау идентификаторы — #$5.\nХаттарҙа был мәғлүмәттәрҙе күрһәтергә онотмағыҙ.",
 	"systemblockedtext": "  Ҡулланыусы исемен йәки IP-адресығыҙҙы MediaWiki автоматик рәүештә туҡтатты. \nСәбәптәре:\n\n: <ем>$2</ем>\n\n* Туҡтатыу башланды:$8\n* Туҡтатыу оҙайлығы:$6\n* Туҡтатыу маҡсаты:$7\n\nӘлеге IP-адресығыҙ $3.\nЗинһар, һорау менән мөрәжәғәт иткәндә ошо мәғлүмәттәрҙе һәр ваҡыт күрһәтегеҙ.",
@@ -684,8 +693,13 @@
 	"missing-revision-permission": "#$1 версияһы юйылған биткә ҡарай. Һеҙ [{{fullurl{{#Special:Undelete}}|target=$3&timestamp=$2&diff=prev}} уны ҡарай алаһығыҙ]; ентеклерәк мәғлүмәтте [{{fullurl:{{#Special:Log}}/delete|page=$3}} юйыу журналында] табырға мөмкин.",
 	"missing-revision": "\"{{FULLPAGENAME}}\" исемле биттең $1 өлгөһө юҡ.\n\nБыл, ғәҙәттә, юйылған биткә иҫке һылтанма буйынса күскәндә күҙәтелә.\nТулыраҡ мәғлүмәт өсөн [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} юйыу яҙмаларын] ҡарағыҙ.",
 	"missing-revision-content": "«$2» битенең $1 өлгөһө эстәлеген күсереп булманы.",
+<<<<<<< HEAD
 	"userpage-userdoesnotexist": "«<nowiki>$1</nowiki>» исемле иҫәп яҙмаһы юҡ. Бындай бит яһарға йәки битте ысынлап та үҙгәртергә теләйһегеҙме?",
 	"userpage-userdoesnotexist-view": "Был викиҙа «$1» исемле иҫәп яҙмаһы юҡ.",
+=======
+	"userpage-userdoesnotexist": "«<nowiki>$1</nowiki>» иҫәп яҙыуы юҡ. Һеҙ бындай бит яһарға йәки битте үҙгәртергә теләһәгеҙ яңынан тикшерегеҙ.",
+	"userpage-userdoesnotexist-view": "«$1» исемле иҫәп яҙыуы юҡ.",
+>>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "Хәҙергә был ҡатнашыусы ябылған. Түбәндә бикләүҙәр журналындағы һуңғы яҙма килтерелә:",
 	"clearyourcache": "<strong>Иҫкәрмә:</strong> Күрәһең, битте һаҡлағандан һуң үҙгәртеүҙәрегеҙ күренһен өсөн, браузерығыҙҙың кэшын таҙартырға кәрәк.\n* <strong>Firefox / Safari:</strong> <em>Shift</em> төймәһенә баҫып, ебәрмәйенсә, панелдәге <em>Яңыртырға</em> төймәһенә баҫығыҙ, йәки <em>Ctrl+F5</em> йә <em>Ctrl+R</em> (Mac-та <em>⌘-R</em>) төймәләренә баҫығыҙ\n* <strong>Google Chrome:</strong> <em>Ctrl+Shift+R </em> төймәләренә баҫығыҙ (Mac-та <em>⌘-Shift+R</em>)\n* <strong>Internet Explorer:</strong> <em>Ctrl </em>төймәһенә баҫып, ебәрмәйенсә, <em>Яңыртырға</em> төймәһенә йәки <em>Ctrl+F5 </em>төймәләренә баҫығыҙ\n* <strong>Opera:</strong> <em>Ctrl+F5</em> төймәләренә баҫығыҙ.",
 	"usercssyoucanpreview": "<strong>Кәңәш:</strong> Һаҡларҙан алда, яңы CSS-файлды тикшерер өсөн, \n\"{{int:showpreview}}\" төймәһенә баҫығыҙ.",
@@ -890,11 +904,17 @@
 	"revdelete-hide-comment": "Үҙгәртеүҙәр аңлатмаһы",
 	"revdelete-hide-user": "Ҡатнашыусы исеме/IP-адресы",
 	"revdelete-hide-restricted": "Мәғлүмәттәрҙе хакимдарҙан да, башҡа ҡатнашыусыларҙан да йәшерергә",
+<<<<<<< HEAD
 	"revdelete-radio-same": "Үҙгәртмәҫкә",
 	"revdelete-radio-set": "Йәшерен",
 	"revdelete-radio-unset": "Күренгән",
 	"revdelete-radio-set-suppress": "Йәшерергә",
 	"revdelete-radio-unset-suppress": "Йәшереүҙе кире алырға",
+=======
+	"revdelete-radio-same": "(үҙгәртмәҫкә)",
+	"revdelete-radio-set": "Йәшерен",
+	"revdelete-radio-unset": "Күренгән",
+>>>>>>> origin/1.39.7-test
 	"revdelete-suppress": "Мәғлүмәттәрҙе хакимдарҙан да, башҡа ҡатнашыусыларҙан да йәшерергә",
 	"revdelete-unsuppress": "Тергеҙелгән өлгөләрҙе ҡарау сикләүен алырға",
 	"revdelete-log": "Сәбәп:",
@@ -962,7 +982,10 @@
 	"lineno": "$1 юл:",
 	"compareselectedversions": "Һайланған өлгөләрҙе сағыштырырға",
 	"showhideselectedversions": "Һайланған өлгөләрҙе күрһәтергә/йәшерергә",
+<<<<<<< HEAD
 	"showhideselectedfileversions": "Файлдың һайланған өлгөләренең күренеүсәнлеген үҙгәртергә",
+=======
+>>>>>>> origin/1.39.7-test
 	"editundo": "кире алырға",
 	"diff-empty": "(айырмалар юҡ)",
 	"diff-multi-sameuser": "(был ҡулланыусының {{PLURAL:$1|аралағы версия $1|аралағы версиялары $1}} күрһәтелмәгән)",
@@ -971,8 +994,11 @@
 	"diff-paragraph-moved-tonew": "Параграф күсерелгән. Яңы урынына күсер өсөн, төймәгә баҫығыҙ.",
 	"diff-paragraph-moved-toold": "Пункт күсерелгән. Элекке урынына күсер өсөн, төймәгә баҫығыҙ.",
 	"difference-missing-revision": "Сағыштырыу өсөн айырманың ($1) {{PLURAL:$2|$2 өлгөһө|1=өлгөләренең береһе}} табылманы.\n\nБыл хәл, ғәҙәттә, юйылған биттең сағыштыру өлгөһөнөң иҫкергән һылтанмаһы буйынса күскәндә барлыҡҡа килә.\nТулыраҡ мәғлүмәт өсөн: [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} юйыу яҙмаларын] ҡарағыҙ.",
+<<<<<<< HEAD
 	"difference-bad-old-revision": "Элекке өлгө эстәлеге юҡ йәки боҙолған.",
 	"difference-bad-new-revision": "Яңы өлгө эстәлеге юҡ йәки боҙолған.",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchresults": "Эҙләү һөҙөмтәләре",
 	"search-filter-title-prefix": "Атамаһы «$1» тип башланған биттәрҙән генә эҙләргә",
 	"search-filter-title-prefix-reset": "Барлыҡ биттәрҙе эҙләргә",
@@ -1012,7 +1038,10 @@
 	"search-relatedarticle": "Ҡағылышлы",
 	"search-invalid-sort-order": "$1 айырыу тәртибе танылмаған, айырыу программа көйләүе буйынса ҡулланыласаҡ. Айырыуға ғәмәлдәге заказдар: $2",
 	"search-unknown-profile": "$1 эҙләү профиле танылмаған, эҙләү профиле программа көйләүе буйынса ҡулланыласаҡ.",
+<<<<<<< HEAD
 	"search-thumbnail-alt": "$1 өсөн миниатюра",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchrelated": "ҡағылышлы",
 	"searchall": "барыһы",
 	"showingresults": "Түбәндә №&nbsp;<strong>$2</strong> һөҙөмтәнән башлап <strong>$1</strong> {{PLURAL:$1|һөҙөмтә}} күрһәтелгән.",
@@ -1063,8 +1092,11 @@
 	"prefs-email": "Электрон почта мөмкинлектәре",
 	"prefs-rendering": "Тышҡы күренеш",
 	"prefs-searchmisc": "Дөйөм",
+<<<<<<< HEAD
 	"searchprefs": "Көйләүҙәр буйынса эҙләргә",
 	"searchprefs-noresults": "Бер нәмә лә табылманы",
+=======
+>>>>>>> origin/1.39.7-test
 	"saveprefs": "Һаҡларға",
 	"restoreprefs": "Программа көйләүҙәрен тергеҙергә",
 	"prefs-editing": "Мөхәррирләү",
@@ -1072,6 +1104,7 @@
 	"recentchangesdays": "Һуңғы үҙгәртеүҙәрҙә күрһәтелгән көндәр:",
 	"recentchangesdays-max": "Иң күбе $1 {{PLURAL:$1|көн}}",
 	"recentchangescount": "Программа көйләүе буйынса яңы үҙгәртеүҙәр исемлеге, бит тарихы һәм журналдарҙағы төҙәтеүҙәр һаны:",
+<<<<<<< HEAD
 	"prefs-back-title": "Көйләүҙәргә ҡайтырға",
 	"prefs-description-personal": "Профилегеҙҙең нисек күренеүен, нисек ҡушылыуығыҙҙы һәм аралашыуығыҙҙы күҙәтеп тороғоҙ.",
 	"prefs-description-rendering": "Биҙәлеш темаһын, уҡыу күләме һәм параметрҙарын көйләгеҙ.",
@@ -1080,6 +1113,8 @@
 	"prefs-description-watchlist": "Үҙегеҙ күҙәтеп барған биттәр исемлеге менән идара итегеҙ һәм шәхсиләштерегеҙ.",
 	"prefs-description-searchoptions": "Автотултырыу һәм һөҙөмтәләрҙең эш ысулын һайлағыҙ.",
 	"prefs-description-misc": "Йөкмәткене күрһәтергә/йәшерергә",
+=======
+>>>>>>> origin/1.39.7-test
 	"prefs-help-recentchangescount": "Иң күбе: 1000",
 	"prefs-help-watchlist-token2": "Был - күҙәтеүҙәрегеҙ исемлегенең веб-каналы өсөн йәшерен асҡыс.\nУны белеүселәр күҙәтеүҙәрегеҙ исемлеген уҡый аласаҡ, шуға уны бер кемгә лә әйтмәгеҙ. Кәрәк булһа, [[Special:ResetTokens|уны алып ташлай алаһығыҙ]].",
 	"prefs-help-tokenmanagement": "Һеҙ күҙәтеүҙәр исемлегенең веб-каналын ҡарай алған иҫәп яҙмағыҙ өсөн йәшерен асҡысты ҡарай һәм юйҙыра алаһығыҙ. Уны белеүселәр күҙәтеүҙәрегеҙ исемлеген уҡый аласаҡ, шуға уны бер кемгә лә әйтмәгеҙ.",
@@ -1094,7 +1129,10 @@
 	"timezoneuseserverdefault": "Программа көйләүҙәрен ҡулланырға $1",
 	"timezoneuseoffset": "Башҡа (ваҡыттың UTC-тан күсеүе)",
 	"timezone-useoffset-placeholder": "Мәҫәлән: «-07:00» йәки «01:00»",
+<<<<<<< HEAD
 	"timezone-invalid": "Дөрөҫ булмаған сәғәт бүлкәте йәки ваҡыттың яңылыш күсеүе.",
+=======
+>>>>>>> origin/1.39.7-test
 	"servertime": "Сервер ваҡыты:",
 	"guesstimezone": "Браузерҙан алырға",
 	"timezoneregion-africa": "Африка",
@@ -1283,9 +1321,15 @@
 	"right-suppressrevision": "Ҡатнашыусыларҙан йәшерелгән биттәрҙең өлгөләрен ҡарау, йәшереү һәм тергеҙеү",
 	"right-viewsuppressed": "Бөтә ҡатнашыусыларҙан йәшерелгән өлгөләрҙе ҡарау",
 	"right-suppressionlog": "Шәхси журналдарҙы ҡарау",
+<<<<<<< HEAD
 	"right-block": "Ҡатнашыусыға мөхәррирләү мөмкинлеген бикләү йәки рөхсәт итеү",
 	"right-blockemail": "Электрон почта ебәреүҙе тыйып, башҡа ҡатнашыусыларҙы бикләү йәки биктән сығарыу",
 	"right-hideuser": "Ҡатнашыусы исемен бикләү йәки биктән сығарыу, уны башҡа ҡатнашыусыларға күрһәтеүҙән йәшереү йәки күрһәтеү",
+=======
+	"right-block": "Башҡа ҡатнашыусыларға мөхәррирләүҙе тыйыу",
+	"right-blockemail": "Электрон почтаға хат ебәреүҙе тыйыу",
+	"right-hideuser": "Ҡатнашыусы исемен тыйыу һәм йәшереү",
+>>>>>>> origin/1.39.7-test
 	"right-ipblock-exempt": "IP буйынса, автоматик һәм арауыҡ бикләүҙәрен урап үтеү",
 	"right-unblockself": "Үҙеңде биктән сығарыу",
 	"right-protect": "Биттәрҙең һаҡланыу кимәлен үҙгәртеү һәм эҙмә-эҙлекле һаҡланған биттәрҙе төҙәтеү",
@@ -1306,7 +1350,11 @@
 	"right-viewmywatchlist": "Шәхси күҙәтеү исемлеген ҡарарға",
 	"right-editmywatchlist": "Күҙәтеү исемлегегеҙҙе мөхәррирләгеҙ (ҡайһы бер ғәмәлдәрҙең, быға хоҡуғы булмаһа ла, биттәр өҫтәүенә иғтибар итегеҙ).",
 	"right-viewmyprivateinfo": "Шәхси мәғлүмәттәреңде (мәҫәлән, электрон почта адресын, ысын исемеңде) ҡарап сығыу",
+<<<<<<< HEAD
 	"right-editmyprivateinfo": "Шәхси мәғлүмәттәреңде (мәҫәлән, электрон почта адресын, ысын исемеңде) төҙәтеү һәм серһүҙҙе юйҙырыу өсөн электрон хат һоратыу",
+=======
+	"right-editmyprivateinfo": "Үҙ шәхси мәғлүмәттәреңде (мәҫәлән, электрон почта адресын, ысын исемеңде) төҙәтеү",
+>>>>>>> origin/1.39.7-test
 	"right-editmyoptions": "Шәхси көйләүҙәреңде мөхәррирләү",
 	"right-rollback": "Билдәле битте мөхәррирләгән һуңғы ҡатнашыусының төҙәтеүҙәрен тиҙ кире ҡайтарыу",
 	"right-markbotedits": "Кире ҡайтарылған төҙәтеүҙәрҙе бот үҙгәртеүе тип билдәләү",
@@ -1348,7 +1396,11 @@
 	"grant-editsiteconfig": "Сайттың һәм ҡатнашыусының CSS/JavaScript-ын мөхәррирләү",
 	"grant-editpage": "Ғәмәлдәге биттәрҙе төҙәтеү",
 	"grant-editprotected": "Һаҡлаулы биттәрҙе төҙәтеү",
+<<<<<<< HEAD
 	"grant-highvolume": "Юғары әүҙемлекте (боттарҙы) ҡулланыу",
+=======
+	"grant-highvolume": " Юғары әүҙемлектә мөхәррирләү",
+>>>>>>> origin/1.39.7-test
 	"grant-import": "Версияларҙы импортлау",
 	"grant-mergehistory": "Бит тарихын берләштерергә",
 	"grant-oversight": "Ҡатнашыусыларҙың төҙәтеүен һәм бит өлгөләрен йәшерергә",
@@ -1388,6 +1440,7 @@
 	"action-writeapi": "Яҙҙырыу өсөн API ҡулланыу",
 	"action-delete": "был битте юйырға",
 	"action-delete-redirect": "бер генә өлгө булған йүнәлтеүҙәрҙе ҡабаттан яҙҙырырға",
+<<<<<<< HEAD
 	"action-deleterevision": "биттәрҙең аныҡ өлгөләрен юйырға йәки тергеҙергә",
 	"action-deletelogentry": "Журналдың аныҡ яҙмаларын юйырға йәки тергеҙергә",
 	"action-deletedhistory": "биттең юйылған тарихындағы метамәғлүмәттәрҙе ҡарау",
@@ -1397,6 +1450,17 @@
 	"action-suppressrevision": "Теләһә ҡайһы ҡатнашыусынан биттәрҙең аныҡ өлгөләрен ҡарау, йәшереү һәм тергеҙеү",
 	"action-suppressionlog": "Шәхси журналды ҡарау",
 	"action-block": "Ҡатнашыусының мөхәррирләү мөмкинлеген бикләргә йәки рөхсәт итергә",
+=======
+	"action-deleterevision": "биттең өлгөләрен юйыу",
+	"action-deletelogentry": "журналдағы яҙманы юҡ итеү",
+	"action-deletedhistory": "биттең юйылған тарихын ҡарау",
+	"action-deletedtext": "текстың юйылған нөсхәһен ҡарау",
+	"action-browsearchive": "Юйылған биттәрҙе эҙләү",
+	"action-undelete": "биттәрҙе тергеҙеү",
+	"action-suppressrevision": "биттәрҙең йәшерелгән өлгөләрен ҡарау һәм тергеҙеү",
+	"action-suppressionlog": "Шәхси журналды ҡарау",
+	"action-block": "Был ҡатнашыусыға мөхәррирләүҙе тыйыу",
+>>>>>>> origin/1.39.7-test
 	"action-protect": "Был битте һаҡлау көйләүҙәрен үҙгәртергә",
 	"action-rollback": "битте мөхәррирләгән һуңғы ҡатнашыусының үҙгәртеүҙәрен тиҙ кире алыу",
 	"action-import": "башҡа вики-проекттан биттәрҙе күсереү",
@@ -1423,7 +1487,10 @@
 	"action-apihighlimits": "API-һорауҙарҙа юғары лимит ҡулланыу",
 	"action-autoconfirmed": "IP-адрестың тиҙлек сикләүен урап үтеү",
 	"action-bigdelete": "Үҙгәртеү тарихы оҙон булған биттәрҙе юйыу",
+<<<<<<< HEAD
 	"action-blockemail": "электрон почта ебәреүсе ҡатнашыусыны бикләү йәки рөхсәт биреү",
+=======
+>>>>>>> origin/1.39.7-test
 	"action-bot": "Автоматик рәүештә башҡарыла тип ҡарарға кәрәк",
 	"action-editprotected": "\"{{int:protect-level-sysop}}\" булараҡ һаҡланған биттәрҙе төҙәтеү",
 	"action-editsemiprotected": "\"{{int:protect-level-autoconfirmed}}\" булараҡ һаҡланған биттәрҙе төҙәтеү",
@@ -1439,7 +1506,10 @@
 	"action-editmyuserjs": "Үҙеңдең JavaScript-файлдарыңды мөхәррирләү",
 	"action-editmyuserjsredirect": "Йүнәлтмә булған шәхси JavaScript-файлдарҙы мөхәррирләү",
 	"action-viewsuppressed": "Бөтә ҡатнашыусыларҙан йәшерелгән өлгөләрҙе ҡарау",
+<<<<<<< HEAD
 	"action-hideuser": "Ҡатнашыусы исемен бикләү йәки рөхсәт итеү, уны башҡа ҡатнашыусыларға күрһәтеүҙән йәшереү",
+=======
+>>>>>>> origin/1.39.7-test
 	"action-ipblock-exempt": "IP-адрестарҙы, автоматик, арауыҡтарҙы бикләүҙәрҙе урап үтеү",
 	"action-unblockself": "Үҙеңде биктән сығарыу",
 	"action-noratelimit": "тиҙлек сикләүен урап үтеү",
@@ -1573,8 +1643,11 @@
 	"rcfilters-filter-categorization-description": "Категорияларҙан алынған йәки өҫтәлгән биттәр тасуирламаһы.",
 	"rcfilters-filter-logactions-label": "Теркәлгән ғәмәлдәр",
 	"rcfilters-filter-logactions-description": "Административ ғәмәлдәр, иҫәп яҙмалары булдырыу, биттәрҙе юйыу, тейәү...",
+<<<<<<< HEAD
 	"rcfilters-filter-newuserlogactions-label": "Яңы ҡатнашыусылар",
 	"rcfilters-filter-newuserlogactions-description": "Иҫәп яҙмаһы журналы яҙмалары. Теркәлгән ғәмәлдәр һайланырға тейеш.",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-hideminor-conflicts-typeofchange-global": "\"Әһәмите әҙ төҙәтеүҙәр\" фильтры башҡа бер йәки бер-нисә фильтр менән конфликтҡа инә, сөнки ҡайһы төр үҙгәрештәр \"әһәмиәтһеҙ\" була алмай. Конфликтлы фильтрҙар \"Әүҙем фильтрҙар\"ҙан өҫтә билдәләнгән.",
 	"rcfilters-hideminor-conflicts-typeofchange": "Үҙгәртеүҙәрҙең айырым төрө \"әһәмиәтһеҙ\" тип атала алмай, шуға был фильтр үҙгәртеүҙәрҙең $1 төрө менән конфликтҡа инә.",
 	"rcfilters-typeofchange-conflicts-hideminor": "Төҙәтеүҙәр фильтрының был төрө \"әһәмиәте әҙ төҙәтеүҙр\" фильтры менән конфликтҡа инә. Ҡайһы бер төҙәтеүҙәр \"әһәмиәтһеҙ\" тип билдәләнә алмай.",
@@ -1584,8 +1657,12 @@
 	"rcfilters-filter-previousrevision-label": "Һуңғы өлгө түгел",
 	"rcfilters-filter-previousrevision-description": "\"Һуңғы өлгө\" булмаған барлыҡ төҙәтеүҙәр.",
 	"rcfilters-filter-excluded": "Алып ташланған",
+<<<<<<< HEAD
 	"rcfilters-tag-prefix-namespace-inverted": "<Strong>юҡ</strong> :$1",
 	"rcfilters-tag-prefix-tags-inverted": "#$1 <strong>түгел</strong>",
+=======
+	"rcfilters-tag-prefix-namespace-inverted": "<Strong>: </strong> $1 түгел",
+>>>>>>> origin/1.39.7-test
 	"rcfilters-exclude-button-off": "Һайланғанды алып ташларға",
 	"rcfilters-exclude-button-on": "Һайланғанды алып ташларға",
 	"rcfilters-view-tags": "Тамғалы (билдәле) үҙгәртеүҙәр",
@@ -2109,7 +2186,10 @@
 	"notargettext": "Һеҙ маҡсатлы битте йәки был ғәмәлде башҡарыусы ҡатнашыусыны күрһәтмәгәнһегеҙ.",
 	"nopagetitle": "Бындай маҡсатлы бит юҡ",
 	"nopagetext": "Һеҙ күрһәткән маҡсатлы бит юҡ.",
+<<<<<<< HEAD
 	"badrevision": "Был өлгө тексы юҡ йәки боҙолған.",
+=======
+>>>>>>> origin/1.39.7-test
 	"pager-newer-n": "{{PLURAL:$1|һуңғы 1|һуңғы $1}}",
 	"pager-older-n": "{{PLURAL:$1|тәүге 1|тәүге $1}}",
 	"suppress": "Йәшереү",
@@ -2507,6 +2587,10 @@
 	"undeletehistorynoadmin": "Мәҡәлә юйылған.\nТүбәндә юйыу сәбәптәре һәм мәҡәләне юйғанға тиклем мөхәррирләүсе ҡатнашыусылар исемлеге килтерелгән. \nЮйылған төҙәтеүҙәрҙе хакимдар ғына ҡарай ала.",
 	"undelete-revision": "$3 исемле ҡатнашыусының $1 битенең юйылған өлгөһө ($4 $5):",
 	"undeleterevision-missing": "Был өлгө дөрөҫ түгел йәки бөтөнләй юҡ.\nКүрәһең, дөрөҫ булмаған һылтанма аша кергәнһегеҙ йәки был өлгө тергеҙелгән йәиһә архивтан юйылған.",
+<<<<<<< HEAD
+=======
+	"undeleterevision-duplicate-revid": "$1 {{PLURAL:$1|версия|версиялар}} терелтелмәйәсәк, сөнки {{PLURAL:$1|ул|улар}} <code>rev_id</code> инде ҡулланыла.",
+>>>>>>> origin/1.39.7-test
 	"undelete-nodiff": "Алдағы өлгө табылманы.",
 	"undeletebtn": "Тергеҙергә",
 	"undeletelink": "ҡарарға/тергеҙергә",
@@ -2544,10 +2628,15 @@
 	"contributions": "Ҡатнашыусы өлөшө",
 	"tool-link-contributions": "{{GENDER:$1|Ҡатнашыусы}} өлөшө",
 	"contributions-title": "$1 исемле ҡатнашыусы өлөшө",
+<<<<<<< HEAD
 	"contribute-title": "Ҡатнашыусы өлөшө",
 	"mycontris": "Өлөш",
 	"anoncontribs": "Өлөш",
 	"contribute": "Индергән өлөш",
+=======
+	"mycontris": "Өлөш",
+	"anoncontribs": "Өлөш",
+>>>>>>> origin/1.39.7-test
 	"contribsub2": "{{GENDER:$3|$1}} өлөшө ($2)",
 	"contributions-userdoesnotexist": "«$1» исемле иҫәп яҙмаһы юҡ.",
 	"negative-namespace-not-supported": "Кире мәғәнәле исемдәр арауығы ҡулланылмай.",
@@ -2582,7 +2671,10 @@
 	"whatlinkshere-page": "Бит:",
 	"linkshere": "Түбәндәге биттәр <strong>$2</strong> битенә һылтана:",
 	"nolinkshere": "<strong>$2</strong> битенә бер бит тә һылтанмай.",
+<<<<<<< HEAD
 	"nolinkshere-filter": "Ғәмәлдәге эҙләү көйләүҙәре буйынса <strong>$2</strong> битенә һылтанған биттәр юҡ.",
+=======
+>>>>>>> origin/1.39.7-test
 	"nolinkshere-ns": "Һайланған исемдәр арауығынан <strong>$2</strong> битенә бер бит тә һылтанмай.",
 	"isredirect": "йүнәлтеү бите",
 	"istemplate": "өҫтәлгән",
@@ -2802,10 +2894,13 @@
 	"movesubpagetalktext": "Фекер алышыу битендә түбәндә күрһәтелгән $1 {{PLURAL:$1| ярҙамсы бит}} бар.",
 	"movenosubpage": "Был биттең ярҙамсы биттәре юҡ.",
 	"movereason": "Сәбәп:",
+<<<<<<< HEAD
 	"moveotherreason": "Башҡа/өҫтәмә сәбәп:",
 	"movereasonotherlist": "Башҡа сәбәп",
 	"movepage-reason-dropdown": "* Үҙгәртеүҙең ғәҙәти сәбәптәре\n** Хаталы атама",
 	"movepage-edit-reasonlist": "Сәбәптәр исемлеген мөхәррирләргә",
+=======
+>>>>>>> origin/1.39.7-test
 	"revertmove": "кире ҡайтарырға",
 	"delete_and_move_text": "[[:$1|«$1»]] исемле бит бар инде. Исем алыштырыуҙы дауам итеү өсөн уны юйырға теләйһегеҙме?",
 	"delete_redirect_and_move_text": "«[[:$1]]» исемле маҡсатлы бит йүнәлтеү рәүешендә бар. \nИсем алыштырыуҙы дауам итеү өсөн уны юйырға теләйһегеҙме?",
@@ -3163,7 +3258,11 @@
 	"metadata-help": "Файл һанлы камералар йәки сканерҙар өҫтәгән мәғлүмәттәргә эйә. Әгәр файл яһалғандан һуң төҙәтелгән булһа, ҡайһы бер параметрҙар ағымдағы рәсем менән тап килмәҫкә мөмкин.",
 	"metadata-expand": "Өҫтәмә мәғлүмәттәрҙе күрһәтергә",
 	"metadata-collapse": "Өҫтәмә мәғлүмәттәрҙе йәшерергә",
+<<<<<<< HEAD
 	"metadata-fields": "Был исемлектә һаналған метамәғлүмәт юлдары рәсем битендә күрһәтеләсәк, ҡалғандары программа көйләүе буйынса йәшереләсәк.\n* make \n* model \n* datetimeoriginal \n* exposuretime \n* fnumber \n* isospeedratings \n* focallength \n* artist \n* copyright \n* imagedescription \n* gpslatitude \n* gpslongitude \n* gpsaltitude \n* dc-rights \n* copyrightowner \n* usageterms \n* webstatement \n* licenseurl \n* attributionurl \n* preferredattributionname \n* credit \n* jpegfilecomment \n* pngfilecomment \n* giffilecomment \n* usercomment \n* citydest \n* citycreated \n* headline \n* source \n* locationdest \n* dc-contributor \n* dc-coverage \n* dc-publisher \n* dc-relation \n* label \n* nickname \n* personinimage \n* disclaimer \n* event \n* objectname",
+=======
+	"metadata-fields": "Был исемлектә һанап кителгән метамәғлүмәт юлдары рәсем битендә күрһәтеләсәк, ҡалғандары төрөләсәк.\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude",
+>>>>>>> origin/1.39.7-test
 	"namespacesall": "барыһы",
 	"monthsall": "барыһы",
 	"confirmemail": "Электрон почта адресын раҫлау",
@@ -3203,7 +3302,10 @@
 	"confirm-watch-button": "Яҡшы",
 	"confirm-watch-top": "Был битте күҙәтеү исемлегегеҙгә өҫтәргәме?",
 	"confirm-watch-label": "Күҙәтеү исемлегендә ваҡыт арауығы:",
+<<<<<<< HEAD
 	"watchlist-expiry-options": "Даими: infinite, 1 аҙна:1 week, 1 ай:1 month, 3 ай:3 months, 6 ай:6 months, 1 йыл:1 year",
+=======
+>>>>>>> origin/1.39.7-test
 	"watchlist-expires-in-aria-label": "Күҙәтеү исемлегендә ваҡытлыса",
 	"confirm-watch-button-expiry": "Күҙәтергә",
 	"confirm-unwatch-button": "Яҡшы",
@@ -3318,7 +3420,10 @@
 	"version-entrypoints-header-entrypoint": "Инеү урыны",
 	"version-entrypoints-header-url": "URL",
 	"version-libraries": "Билдәләнгән китапханалар",
+<<<<<<< HEAD
 	"version-libraries-client": "Билдәләнгән клиент китапханалары",
+=======
+>>>>>>> origin/1.39.7-test
 	"version-libraries-library": "Китапхана",
 	"version-libraries-version": "Өлгө",
 	"version-libraries-license": "Лицензия",
@@ -3636,6 +3741,14 @@
 	"logentry-tag-update-logentry": "$3 битенең $5 журнал яҙмалары тамғаларын $1 {{GENDER:$2|яңыртты}} ($6{{PLURAL:$7|өҫтәлгән}}; $8{{PLURAL:$9|юйылған}})",
 	"rightsnone": "(юҡ)",
 	"rightslogentry-temporary-group": "$1 (ваҡытлыса, $2 тиклем)",
+<<<<<<< HEAD
+=======
+	"feedback-adding": "Биткә кире белдереү өҫтәлә",
+	"feedback-back": "Артҡа",
+	"feedback-bugcheck": "Шәп! Тик [$1 билдәле хаталар] исемлегендә оҡшаш белдереүҙең булмауына иғтибар итегеҙ.",
+	"feedback-bugnew": "Тикшерҙем. Яңы хата тураһында белдерергә",
+	"feedback-bugornote": "Әгәр Һеҙ техник проблеманы ентекле рәүештә аңлатырға теләһәгеҙ, зинһар, [$1 хата тураһында белдерегеҙ].\nБашҡа осраҡта, ошо ябай форманы ҡуллана алаһығыҙ. Комментарийығыҙ «[$3 $2]» битенә ҡулланыусы исемегеҙ һәм браузер мәғлүмәте менән өҫтәләсәк.",
+>>>>>>> origin/1.39.7-test
 	"feedback-cancel": "Кире алырға",
 	"feedback-close": "Эшләнде",
 	"feedback-external-bug-report-button": "Техник йөкләмә ебәрергә",
@@ -3653,10 +3766,13 @@
 	"feedback-useragent": "Браузер:",
 	"searchsuggest-search": "{{SITENAME}} эсендә эҙләү",
 	"searchsuggest-containing": "... булған биттәрҙе эҙләргә",
+<<<<<<< HEAD
 	"search-match-redirect-label": "Эҙләгәндә теүәл тап килеүгә күсергә",
 	"search-match-redirect-help": "Әгәр биттең исеме эҙләгәнгә тап килһә, уны ошо биткә күсер өсөн һайлағыҙ",
 	"search-thumbnail-extra-namespaces-label": "Өҫтәл өҫтө өлгөһөндә, Special:Search битендә бәләкәй һүрәттәрҙе күрһәтергә",
 	"search-thumbnail-extra-namespaces-message": "{{#special:search}} битендә $1 {{PLURAL:$2|исем арауығы|исемдәр арауығы}} өсөн бәләкәй һүрәттәрҙе күрһәтә",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchlimit-label": "Һәр биттә күрһәтеү өсөн эҙләү һөҙөмтәләренең һаны:",
 	"searchlimit-help": "Максималь һан: $1",
 	"api-clientside-error-noconnect": "Серверға тоташып булмай. Интернет бәйләнешен тикшерегеҙ һәм ғәмәлде ҡабатлағыҙ.",
@@ -4011,6 +4127,7 @@
 	"newpages-showhide-bots": "боттарҙы $1",
 	"newpages-showhide-patrolled": "тикшерелгән төҙәтеүҙәрҙе $1",
 	"newpages-showhide-redirect": "йүнәлтеүҙәрҙе $1",
+<<<<<<< HEAD
 	"newpages-showhide-registered": "теркәлгән ҡатнашыусыларҙы $1",
 	"blockedtext-made-by": "Бикләүҙе хаким $1 башҡарған.",
 	"blockedtext-reason-comment": "Бликләү сәбәбе: <em>$1</em>",
@@ -4051,4 +4168,7 @@
 	"action-renameuser": "ҡатнашыусыларҙың исемен алыштырыу",
 	"right-renameuser": "Ҡатнашыусыларҙың исемен алыштырыу",
 	"renameuser-renamed-notice": "Был ҡатнашыусының исеме алыштырылған.\nТүбәндә белешмә өсөн исем алыштырыу яҙмалары журналы килтерелгән."
+=======
+	"newpages-showhide-registered": "теркәлгән ҡатнашыусыларҙы $1"
+>>>>>>> origin/1.39.7-test
 }

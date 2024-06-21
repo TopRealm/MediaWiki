@@ -51,6 +51,11 @@
 	"config-env-good": "The environment haes been checked.\nYe can install MediaWiki.",
 	"config-env-bad": "The environment haes been checked.\nYe canna install MediaWiki.",
 	"config-env-php": "PHP $1 is instâlled.",
+<<<<<<< HEAD
+=======
+	"config-unicode-using-intl": "Uising the [https://pecl.php.net/intl intl PECL extension] fer Unicode normalization.",
+	"config-unicode-update-warning": "<strong>Wairnin:</strong> The installed version o the Unicode normalisation wrapper uises an aulder version o [http://site.icu-project.org/ the ICU project's] library.\nYe shoud [https://www.mediawiki.org/wiki/Special:MyLanguage/Unicode_normalization_considerations upgrade] if ye are at aw concerned aboot uisin Unicode.",
+>>>>>>> origin/1.39.7-test
 	"config-no-db": "Coudnae find a suitable database driver! Ye need tae pit in ae database driver fur PHP.\nThe follaein database {{PLURAL:$2|type is|types are}} supportit: $1.\n\nGin ye compiled PHP yersel, reconfigur it wi a database client enabled, fur exemple, uisin <code>./configure --with-mysqli</code>.\nGin ye installed PHP frae a Debian or Ubuntu package, then ye need tae install, fur example, the <code>php-mysql</code> package an aw.",
 	"config-outdated-sqlite": "<strong>Warnishment:</strong> ye have SQLite $1, this is lower than minimum required version $2. SQLite will be onavailable.",
 	"config-no-fts3": "<strong>Warnishment:</strong> SQLite is compiled wioot the [//sqlite.org/fts3.html FTS3 module], rake features will be onavailable oan this backend.",

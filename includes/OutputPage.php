@@ -3505,11 +3505,14 @@ class OutputPage extends ContextSource {
 	 * @return string|WrappedStringList HTML
 	 */
 	public function getBottomScripts() {
+<<<<<<< HEAD
 		// Keep the hook appendage separate to preserve WrappedString objects.
 		// This enables BaseTemplate::getTrail() to merge them where possible.
 		$extraHtml = '';
 		$this->getHookRunner()->onSkinAfterBottomScripts( $this->getSkin(), $extraHtml );
 
+=======
+>>>>>>> origin/1.39.7-test
 		$chunks = [];
 		$chunks[] = $this->getRlClient()->getBodyHtml();
 
@@ -3522,6 +3525,7 @@ class OutputPage extends ContextSource {
 		if ( $this->getConfig()->get( MainConfigNames::ShowHostnames ) ) {
 			$vars['wgHostname'] = wfHostname();
 		}
+<<<<<<< HEAD
 		$elapsed = $this->getRequest()->getElapsedTime();
 		// seconds to milliseconds
 		$vars['wgBackendResponseTime'] = round( $elapsed * 1000 );
@@ -3537,6 +3541,12 @@ class OutputPage extends ContextSource {
 			$this->CSP->getNonce()
 		);
 
+=======
+		// Keep the hook appendage separate to preserve WrappedString objects.
+		// This enables BaseTemplate::getTrail() to merge them where possible.
+		$extraHtml = '';
+		$this->getHookRunner()->onSkinAfterBottomScripts( $this->getSkin(), $extraHtml );
+>>>>>>> origin/1.39.7-test
 		$chunks = [ self::combineWrappedStrings( $chunks ) ];
 		if ( $extraHtml !== '' ) {
 			$chunks[] = $extraHtml;
@@ -4613,6 +4623,10 @@ class OutputPage extends ContextSource {
 		$tail = [
 			MWDebug::getDebugHTML( $skin ),
 			$this->getBottomScripts(),
+<<<<<<< HEAD
+=======
+			wfReportTime( $this->getCSP()->getNonce() ),
+>>>>>>> origin/1.39.7-test
 			MWDebug::getHTMLDebugLog(),
 			Html::closeElement( 'body' ),
 			Html::closeElement( 'html' ),

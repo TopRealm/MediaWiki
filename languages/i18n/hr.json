@@ -52,6 +52,10 @@
 			"Сербијана",
 			"לערי ריינהארט",
 			"아라",
+<<<<<<< HEAD
+=======
+			"Eleassar",
+>>>>>>> origin/1.39.7-test
 			"Amire80",
 			"Iketsi"
 		]
@@ -1255,7 +1259,11 @@
 	"right-viewmywatchlist": "Pregled svojeg popisa praćenih stranica",
 	"right-editmywatchlist": "Uređivanje vlastitog popisa praćenja (određenim djelovanjima moguće je dodavati stranice i bez ovoga dopuštenja)",
 	"right-viewmyprivateinfo": "Pregledavanje osobnih podataka (npr. adrese e-pošte, stvarnog imena)",
+<<<<<<< HEAD
 	"right-editmyprivateinfo": "Uređivanje osobnih podataka (npr. adrese e-pošte, stvarnog imena) i zahtjevi za promjenu zaporke",
+=======
+	"right-editmyprivateinfo": "Uredite svoje privatne podatke (npr. adresa e-pošte, stvarno ime)",
+>>>>>>> origin/1.39.7-test
 	"right-editmyoptions": "Uređivanje osobnih postavki",
 	"right-rollback": "Brzo uklanjanje izmjena posljednjeg suradnika na određenoj stranici",
 	"right-markbotedits": "Označavanje uklonjenih izmjena kao izmjenu bota",
@@ -3671,6 +3679,7 @@
 	"newpages-showhide-bots": "$1 botove",
 	"newpages-showhide-patrolled": "$1 ophođena uređivanja",
 	"newpages-showhide-redirect": "$1 preusmjeravanja",
+<<<<<<< HEAD
 	"newpages-showhide-registered": "$1 prijavljene suradnike",
 	"renameuser": "Preimenuj suradnika",
 	"renameuser-linkoncontribs": "preimenuj {{GENDER:$1|suradnika|suradnicu|suradnika/suradnicu}}",
@@ -3700,4 +3709,7 @@
 	"renameuser-move-log": "Stranica suradnika je premještena prilikom preimenovanja iz \"[[User:$1|$1]]\" u \"[[User:$2|$2]]\"",
 	"right-renameuser": "Preimenovati suradnike",
 	"renameuser-renamed-notice": "Ovaj suradnik je preimenovan.\nEvidencija preimenovanja suradnika je prikazana ispod kao obavijest."
+=======
+	"newpages-showhide-registered": "$1 prijavljene suradnike"
+>>>>>>> origin/1.39.7-test
 }

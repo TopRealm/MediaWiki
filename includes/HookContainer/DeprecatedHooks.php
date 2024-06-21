@@ -50,8 +50,11 @@ class DeprecatedHooks {
 		'SkinTemplateNavigation' => [ 'deprecatedVersion' => '1.39' ],
 		'SkinTemplateNavigation::SpecialPage' => [ 'deprecatedVersion' => '1.39' ],
 		'PersonalUrls' => [ 'deprecatedVersion' => '1.39' ],
+<<<<<<< HEAD
 		'SearchDataForIndex' => [ 'deprecatedVersion' => '1.40', 'silent' => true ],
 		'ArticleUndelete' => [ 'deprecatedVersion' => '1.40', 'silent' => true ],
+=======
+>>>>>>> origin/1.39.7-test
 	];
 
 	/**

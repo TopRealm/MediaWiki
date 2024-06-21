@@ -360,7 +360,10 @@
 	"rev-delundel": "نیشان بدە/بشارەو",
 	"rev-showdeleted": "نیشان بیە",
 	"revdelete-show-file-submit": "بەڵێ",
+<<<<<<< HEAD
 	"revdelete-radio-same": "ئاڵشتی مەکە",
+=======
+>>>>>>> origin/1.39.7-test
 	"revdelete-radio-set": "شاریاێ",
 	"revdelete-radio-unset": "دیار",
 	"revdelete-log": "هووکار:",
@@ -421,7 +424,10 @@
 	"prefs-resetpass": "گۊەڕانن وێەروشە",
 	"prefs-email": "هەڵوژاننەگان ئیمەیل",
 	"prefs-rendering": "رواڵەت",
+<<<<<<< HEAD
 	"searchprefs-noresults": "بێ ئاکام",
+=======
+>>>>>>> origin/1.39.7-test
 	"prefs-editing": "دەسکاریکردن",
 	"searchresultshead": "مینە",
 	"timezonelegend": "ناوچەێ کاتی:",
@@ -556,7 +562,10 @@
 	"rcfilters-filter-major-label": "دەسکاریە نابۊچگەگان",
 	"rcfilters-filtergroup-changetype": "جوور ئاڵشتکاری",
 	"rcfilters-filter-pageedits-label": "دەسکاریەیل پەڕە",
+<<<<<<< HEAD
 	"rcfilters-filter-newuserlogactions-label": "وەکاربەرەیل تازە",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcnotefrom": "لە ژێرەو ئاڵشتکاریەگان لە <strong>$3, $4</strong> (تا <strong>$1</strong> {{PLURAL:$5|نیشان دریاس|نیشان دریان}}).",
 	"rclistfrom": "گووڕانکاریە نووەگان نیشان بدە وە دەسپێکردن لە $3 $2",
 	"rcshowhideminor": "دەسکاری بۊچگەگان $1",
@@ -834,7 +843,10 @@
 	"newtitle": "سەرناو تازە:",
 	"movelogpage": "پێرست جیوەجیکردن",
 	"movereason": "مدوو:",
+<<<<<<< HEAD
 	"movereasonotherlist": "هووکار تر",
+=======
+>>>>>>> origin/1.39.7-test
 	"revertmove": "وەرۊپاش کردن",
 	"export": "ھەناردن پەڕەگان",
 	"export-addcat": "ئزافەکردن",
@@ -1083,8 +1095,12 @@
 	"nstab-mainpage": "دەسپێک",
 	"skin-action-protect": "بپیەرێزەێ",
 	"skin-action-delete": "بسڕەو",
+<<<<<<< HEAD
 	"skin-action-move": "جیوەجی بکە",
 	"renameusernew": "ناو وەکاربەری تازە:",
 	"renameuserreason": "هووکار:",
 	"renameusersubmit": "کلکردن"
+=======
+	"skin-action-move": "جیوەجی بکە"
+>>>>>>> origin/1.39.7-test
 }

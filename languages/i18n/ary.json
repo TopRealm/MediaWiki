@@ -666,7 +666,11 @@
 	"revdelete-hide-comment": "ملخص التعديل",
 	"revdelete-hide-user": "سميت لخدايمي/لادريسة د لأيپي",
 	"revdelete-hide-restricted": "خبي الداطا على لإداريين و على لخرين",
+<<<<<<< HEAD
 	"revdelete-radio-same": "ماتبدلش",
+=======
+	"revdelete-radio-same": "( ماتبدًلش)",
+>>>>>>> origin/1.39.7-test
 	"revdelete-radio-set": "مخبًي",
 	"revdelete-radio-unset": "باين",
 	"revdelete-suppress": "خبي الداطا على لإداريين و على لخرين",

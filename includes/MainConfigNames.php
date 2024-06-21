@@ -2483,6 +2483,12 @@ class MainConfigNames {
 	public const CentralIdLookupProvider = 'CentralIdLookupProvider';
 
 	/**
+	 * Name constant for the UserRegistrationProviders setting, for use with Config::get()
+	 * @see MainConfigSchema::UserRegistrationProviders
+	 */
+	public const UserRegistrationProviders = 'UserRegistrationProviders';
+
+	/**
 	 * Name constant for the PasswordPolicy setting, for use with Config::get()
 	 * @see MainConfigSchema::PasswordPolicy
 	 */

@@ -24,7 +24,10 @@
  */
 
 use MediaWiki\MediaWikiServices;
+<<<<<<< HEAD
 use MediaWiki\User\ActorMigration;
+=======
+>>>>>>> origin/1.39.7-test
 use Wikimedia\IPUtils;
 
 require_once __DIR__ . '/Maintenance.php';

@@ -48,7 +48,11 @@
 	"rest-cannot-load-file": "タイトル「$1」のファイルをロードできません。",
 	"rest-cross-origin-anon-write": "匿名のオリジン間書き込みリクエストは許可されません",
 	"rest-requires-safe-against-csrf": "このエンドポイントはCSRFを防げるセッションプロバイダーが必要です。",
+<<<<<<< HEAD
 	"rest-badtoken": "与えられたCSRFトークンは無効です",
 	"rest-badtoken-missing": "CSRFを防げる認証方法を使用しない限り、<var>token</var>パラメータが必須です。",
 	"rest-badtoken-nosession": "CSRFエラー - sessionがありません。"
+=======
+	"rest-badtoken": "与えられたCSRFトークンは無効です"
+>>>>>>> origin/1.39.7-test
 }

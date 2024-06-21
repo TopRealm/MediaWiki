@@ -146,7 +146,11 @@ class SessionManagerTest extends MediaWikiIntegrationTestCase {
 
 	public function testGetSessionForRequest() {
 		$manager = $this->getManager();
+<<<<<<< HEAD
 		$request = new \MediaWiki\Request\FauxRequest();
+=======
+		$request = new \FauxRequest();
+>>>>>>> origin/1.39.7-test
 		$requestUnpersist1 = false;
 		$requestUnpersist2 = false;
 		$requestInfo1 = null;

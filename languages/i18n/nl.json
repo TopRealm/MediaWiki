@@ -114,6 +114,10 @@
 			"Xxmarijnw",
 			"לערי ריינהארט",
 			"아라",
+<<<<<<< HEAD
+=======
+			"Daniuu",
+>>>>>>> origin/1.39.7-test
 			"Amire80",
 			"Victor LP",
 			"Iamthedutchdude"
@@ -4140,6 +4144,7 @@
 	"newpages-showhide-bots": "robots $1",
 	"newpages-showhide-patrolled": "gecontroleerde bewerkingen $1",
 	"newpages-showhide-redirect": "Doorverwijzingen $1",
+<<<<<<< HEAD
 	"newpages-showhide-registered": "geregistreerde gebruikers $1",
 	"blockedtext-made-by": "De blokkade is opgelegd door $1.",
 	"blockedtext-reason-comment": "De opgegeven reden is <em>$1</em>",
@@ -4181,4 +4186,7 @@
 	"action-renameuser": "gebruikers te hernoemen",
 	"right-renameuser": "Gebruikers hernoemen",
 	"renameuser-renamed-notice": "Deze gebruiker is hernoemd.\nRelevante regels uit het logboek gebruikersnaamwijzigingen worden hieronder ter referentie weergegeven."
+=======
+	"newpages-showhide-registered": "geregistreerde gebruikers $1"
+>>>>>>> origin/1.39.7-test
 }

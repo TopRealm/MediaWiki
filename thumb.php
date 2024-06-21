@@ -359,7 +359,11 @@ function wfStreamThumb( array $params ) {
 
 	$thumbProxyUrl = $img->getRepo()->getThumbProxyUrl();
 
+<<<<<<< HEAD
 	if ( strlen( $thumbProxyUrl ?? '' ) ) {
+=======
+	if ( $thumbProxyUrl !== null && strlen( $thumbProxyUrl ) ) {
+>>>>>>> origin/1.39.7-test
 		wfProxyThumbnailRequest( $img, $thumbName );
 		// No local fallback when in proxy mode
 		return;

@@ -377,7 +377,10 @@
 	"newarticletext": "Mwalondezga link iyo peji lake palije dankha.\nKuti mulilembe, yambani kulemba mu box pasi apa (onani [$1 peji laovwili] mwa vinandi).\nPala mwizapo mwangozi, dofyani batani la browser winu <strong>back</strong>.",
 	"noarticletext": "Palije dankha mazgo pa jani lino.\nMunga [[Special:Search/{{PAGENAME}}|penja jani lino]] mu viyowoyelo vinyake,\n<span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} penja mu ma log nghakupokelelapo],\npanji[{{fullurl:{{FULLPAGENAME}}|action=edit}} yatani jani lino]</span>.",
 	"noarticletext-nopermission": "Pasono palije dankha mazgo ghalighose pa jani lino.\nMunga [[Special:Search/{{PAGENAME}}|penja mutu uwo]] mu majani ghanyake, panji <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} mungapenja mu mathala ghanyake]</span>, kwene mulije chilolezo chakuyata jani lino.",
+<<<<<<< HEAD
 	"userpage-userdoesnotexist-view": "Akaunti ya mgwiliski \"$1\" indalembeske pa wiki yino.",
+=======
+>>>>>>> origin/1.39.7-test
 	"previewnote": "<strong>Kumbukilani kuti ichi ntchiyelezgelo waka.</strong>\nMundazomelezge dankha kusintha!",
 	"continue-editing": "Luta pakulembela",
 	"creating": "Kulemba $1",

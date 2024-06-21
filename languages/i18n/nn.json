@@ -35,6 +35,11 @@
 			"Vlad5250",
 			"לערי ריינהארט",
 			"아라",
+<<<<<<< HEAD
+=======
+			"1233qwer1234qwer4",
+			"Harald Khan",
+>>>>>>> origin/1.39.7-test
 			"Maddy from Celeste",
 			"Iketsi",
 			"Amire80"
@@ -658,8 +663,13 @@
 	"missing-revision-permission": "Sideversjonen #$1 høyrer til ei side som er sletta. Du kan [{{fullurl:{{#Special:Undelete}}|target=$3&timestamp=$2&diff=prev}} vitja ho]; du finn fleire detaljar i [{{fullurl:{{#Special:Log}}/delete|page=$3}} sletteloggen].",
 	"missing-revision": "Versjonen #$1 av sida med namnet «{{FULLPAGENAME}}» finst ikkje.\n\nDette skriv seg som oftast frå at ei forelda historikklenkje vart fylgd til ei side som er sletta.\nDetaljar kan ein finna i [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} sletteloggen].",
 	"missing-revision-content": "Innhaldet til versjon #$1 av sida «$2» kunne ikkje lastast.",
+<<<<<<< HEAD
 	"userpage-userdoesnotexist": "Brukarkontoen «$1» finst ikkje. Vil du verkeleg opprette/endre denne sida?",
 	"userpage-userdoesnotexist-view": "Brukarkontoen «$1» finst ikkje.",
+=======
+	"userpage-userdoesnotexist": "Brukarkontoen «<nowiki>$1</nowiki>» finst ikkje. Vil du verkeleg opprette/endre denne sida?",
+	"userpage-userdoesnotexist-view": "Brukarkontoen «$1» er ikkje oppretta.",
+>>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "Denne brukaren er for tida blokkert.\nDen siste posten i blokkeringsloggen er oppgjeve nedanfor:",
 	"clearyourcache": "<strong>Merk:</strong> Etter lagring vil det kanskje vera naudsynt at nettlesaren slettar mellomlageret sitt for at endringane skal tre i kraft.\n* <strong>Firefox og Safari:</strong> Haldt nede <em>Shift</em> medan du klikkar på <em>Oppdater</em>, eller trykk anten <em>Ctrl-F5</em> eller <em>Ctrl-R</em> (<em>⌘-R</em> på Mac)\n* <strong>Google Chrome:</strong> Trykk <em>Ctrl-Shift-R</em> (<em>⌘-Shift-R</em> på Mac)\n* <strong>Internet Explorer og Edge:</strong> Haldt nede <em>Ctrl</em> medan du klikkar <em>Oppdater</em>, eller trykk <em>Ctrl-F5</em>\n* <strong>Opera:</strong> Tøm mellomlageret i <em>Verktøy → Innstillingar</em>",
 	"usercssyoucanpreview": "<strong>Tips:</strong> Bruk «{{int:showpreview}}»-knappen for å teste den nye CSS- eller JavaScript-koden din før du lagrar.",
@@ -949,7 +959,10 @@
 	"search-relatedarticle": "Relatert",
 	"search-invalid-sort-order": "Sorteringsrekkjefylgda $1 er ukjend, so standard sortering vert bruka. Gyldige sorteringsrekkjefylger er: $2",
 	"search-unknown-profile": "Søkjeprofilen $1 er ukjend, standard søkjeprofil vert brukt.",
+<<<<<<< HEAD
 	"search-thumbnail-alt": "Miniatyrbilete for $1",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchrelated": "relatert",
 	"searchall": "alle",
 	"showingresults": "Nedanfor er opp til {{PLURAL:$1|<strong>eitt</strong>|<strong>$1</strong>}} resultat som byrjar med nummer <strong>$2</strong> vist{{PLURAL:$1||e}}.",
@@ -1000,8 +1013,11 @@
 	"prefs-email": "Val for e-post",
 	"prefs-rendering": "Utsjånad",
 	"prefs-searchmisc": "Ålment",
+<<<<<<< HEAD
 	"searchprefs": "Søk i innstillingane",
 	"searchprefs-noresults": "Ingen resultat",
+=======
+>>>>>>> origin/1.39.7-test
 	"saveprefs": "Lagre",
 	"restoreprefs": "Hent attende alle standardinnstillingane",
 	"prefs-editing": "Endring",
@@ -1031,7 +1047,10 @@
 	"timezoneuseserverdefault": "Nytt standardinnstillinga til wikien ($1)",
 	"timezoneuseoffset": "Anna (oppgje skilnad frå UTC)",
 	"timezone-useoffset-placeholder": "Døme: \"-07:00\" eller \"01:00\"",
+<<<<<<< HEAD
 	"timezone-invalid": "Ugyldig tidssone eller tidsavvik.",
+=======
+>>>>>>> origin/1.39.7-test
 	"servertime": "Tenartid:",
 	"guesstimezone": "Hent tidssone frå nettlesaren",
 	"timezoneregion-africa": "Afrika",
@@ -1243,7 +1262,10 @@
 	"right-viewmywatchlist": "Sjå eiga overvakingsliste",
 	"right-editmywatchlist": "Endra si eiga overvakingsliste (merk at somme handlingar framleis vil leggja til sider utan denne retten)",
 	"right-viewmyprivateinfo": "Sjå sine eigne private opplysingar (t.d. e-postadresse, verkeleg namn)",
+<<<<<<< HEAD
 	"right-editmyprivateinfo": "Endra sine eigne private opplysingar (t.d. e-postadresse, verkeleg namn) og beda om nullstilling av passord",
+=======
+>>>>>>> origin/1.39.7-test
 	"right-editmyoptions": "Endra sine eigne innstillingar",
 	"right-rollback": "Snøgt rulla attende endringane til den siste brukaren som endra ei viss side",
 	"right-markbotedits": "Markere tilbakerullingar som robotendringar",
@@ -1285,7 +1307,11 @@
 	"grant-editsiteconfig": "Endra CSS og JavaScript for heile nettstaden og for alle brukarane",
 	"grant-editpage": "Endra oppretta sider",
 	"grant-editprotected": "Endra verna sider",
+<<<<<<< HEAD
 	"grant-highvolume": "Høgvolumendring (bot)",
+=======
+	"grant-highvolume": "Høgvolumendring",
+>>>>>>> origin/1.39.7-test
 	"grant-import": "Importera versjonar",
 	"grant-mergehistory": "Fletta i hop sidehistorikkar",
 	"grant-oversight": "Skyla brukarar og undertrykkja sideversjonar",
@@ -1325,10 +1351,16 @@
 	"action-writeapi": "bruke skrive-API",
 	"action-delete": "slette denne sida",
 	"action-delete-redirect": "skriva over omdirigeringar med ein sideversjon",
+<<<<<<< HEAD
 	"action-deleterevision": "sletta og atteroppretta einskilde sideversjonar",
 	"action-deletelogentry": "sletta og atteroppretta einskilde loggpostar",
 	"action-deletedhistory": "sjå metadata for sletta historikkpostar",
 	"action-deletedtext": "sjå teksten til og skilnadar mellom sletta versjonar",
+=======
+	"action-deleterevision": "slette versjonar",
+	"action-deletedhistory": "sjå slettehistorikken til sida",
+	"action-deletedtext": "sjå teksten til sletta versjonar",
+>>>>>>> origin/1.39.7-test
 	"action-browsearchive": "søke i sletta sider",
 	"action-undelete": "attopprette denne sida",
 	"action-suppressrevision": "sjå, skyle og fjerna skyling på einskilde sideversjonar for alle brukarar",
@@ -1360,7 +1392,10 @@
 	"action-apihighlimits": "bruke høgare grenser for API-førespurnadar",
 	"action-autoconfirmed": "omgå IP-baserte fartgrenser",
 	"action-bigdelete": "sletta sider med lang historikk",
+<<<<<<< HEAD
 	"action-blockemail": "blokkera eller avblokkera brukarar frå å senda e-post",
+=======
+>>>>>>> origin/1.39.7-test
 	"action-bot": "verte handsama som ein automatisk prosess",
 	"action-editprotected": "endra verna sider som er merka «{{int:protect-level-sysop}}»",
 	"action-editsemiprotected": "endra verna sider som er merka «{{int:protect-level-autoconfirmed}}»",
@@ -1376,7 +1411,10 @@
 	"action-editmyuserjs": "endra dine eigne brukar-JavaScript-filer",
 	"action-editmyuserjsredirect": "endra dine eigne JavaScript-filer som er omdirigeringar",
 	"action-viewsuppressed": "sjå sideversjonar som er skylte frå alle brukarar",
+<<<<<<< HEAD
 	"action-hideuser": "blokkera eller avblokkera eit brukarnamn og skyla det frå ålmenta.",
+=======
+>>>>>>> origin/1.39.7-test
 	"action-ipblock-exempt": "omgå IP-blokkeringer, autoblokkeringar og rekkjeblokkeringar",
 	"action-unblockself": "avblokkera deg sjølv",
 	"action-noratelimit": "omgå fartsgrenser",
@@ -1510,8 +1548,11 @@
 	"rcfilters-filter-categorization-description": "Oppføringar av sider som vert lagde til eller fjerna frå katerogiar.",
 	"rcfilters-filter-logactions-label": "Loggførte handlingar",
 	"rcfilters-filter-logactions-description": "Administrative handlingar, kontoopprettingar, sideslettingar, opplastingar …",
+<<<<<<< HEAD
 	"rcfilters-filter-newuserlogactions-label": "Nye brukarar",
 	"rcfilters-filter-newuserlogactions-description": "Loggpostar for oppretting av konto. Logga handlingar må vera markerte.",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-hideminor-conflicts-typeofchange-global": "Filteret «Småplukk» strir mot eit eller fleire filter for «Type endring», av di somme typar endring ikkje kan merkast som «små». Dei motseiande filtera er framheva i området «Aktive filter» ovafor.",
 	"rcfilters-hideminor-conflicts-typeofchange": "Somme typar endring kan ikkje merkast som «små», so dette filteret strir mot fylgjande filter for «Type endring»: $1",
 	"rcfilters-typeofchange-conflicts-hideminor": "Dette filteret for «Type endring» strir mot filteret «Småplukk», av di somme typar endring ikkje kan merkast som «små».",

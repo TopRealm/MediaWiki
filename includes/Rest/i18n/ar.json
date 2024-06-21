@@ -3,7 +3,8 @@
 		"authors": [
 			"Meno25",
 			"SaldırganSincap",
-			"ديفيد"
+			"ديفيد",
+			"Meno25"
 		]
 	},
 	"rest-prefix-mismatch": "المسار المطلوب ($1) لم يكن داخل مسار جذر API REST ($2)",

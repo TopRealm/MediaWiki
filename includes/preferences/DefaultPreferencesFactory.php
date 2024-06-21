@@ -1995,4 +1995,70 @@ class DefaultPreferencesFactory implements PreferencesFactory {
 
 		return ( $res === true ? Status::newGood() : $res );
 	}
+<<<<<<< HEAD
+=======
+
+	/**
+	 * Get a list of all time zones
+	 * @param Language $language Language used for the localized names
+	 * @return array[] A list of all time zones. The system name of the time zone is used as key and
+	 *  the value is an array which contains localized name, the timecorrection value used for
+	 *  preferences and the region
+	 * @since 1.26
+	 */
+	protected function getTimeZoneList( Language $language ) {
+		$identifiers = DateTimeZone::listIdentifiers();
+		'@phan-var array|false $identifiers'; // See phan issue #3162
+		if ( $identifiers === false ) {
+			return [];
+		}
+		sort( $identifiers );
+
+		$tzRegions = [
+			'Africa' => wfMessage( 'timezoneregion-africa' )->inLanguage( $language )->text(),
+			'America' => wfMessage( 'timezoneregion-america' )->inLanguage( $language )->text(),
+			'Antarctica' => wfMessage( 'timezoneregion-antarctica' )->inLanguage( $language )->text(),
+			'Arctic' => wfMessage( 'timezoneregion-arctic' )->inLanguage( $language )->text(),
+			'Asia' => wfMessage( 'timezoneregion-asia' )->inLanguage( $language )->text(),
+			'Atlantic' => wfMessage( 'timezoneregion-atlantic' )->inLanguage( $language )->text(),
+			'Australia' => wfMessage( 'timezoneregion-australia' )->inLanguage( $language )->text(),
+			'Europe' => wfMessage( 'timezoneregion-europe' )->inLanguage( $language )->text(),
+			'Indian' => wfMessage( 'timezoneregion-indian' )->inLanguage( $language )->text(),
+			'Pacific' => wfMessage( 'timezoneregion-pacific' )->inLanguage( $language )->text(),
+		];
+		asort( $tzRegions );
+
+		$timeZoneList = [];
+
+		$now = new DateTime();
+
+		foreach ( $identifiers as $identifier ) {
+			$parts = explode( '/', $identifier, 2 );
+
+			// DateTimeZone::listIdentifiers() returns a number of
+			// backwards-compatibility entries. This filters them out of the
+			// list presented to the user.
+			if ( count( $parts ) !== 2 || !array_key_exists( $parts[0], $tzRegions ) ) {
+				continue;
+			}
+
+			// Localize region
+			$parts[0] = $tzRegions[$parts[0]];
+
+			$dateTimeZone = new DateTimeZone( $identifier );
+			$minDiff = floor( $dateTimeZone->getOffset( $now ) / 60 );
+
+			$display = str_replace( '_', ' ', $parts[0] . '/' . $parts[1] );
+			$value = "ZoneInfo|$minDiff|$identifier";
+
+			$timeZoneList[$identifier] = [
+				'name' => $display,
+				'timecorrection' => $value,
+				'region' => $parts[0],
+			];
+		}
+
+		return $timeZoneList;
+	}
+>>>>>>> origin/1.39.7-test
 }

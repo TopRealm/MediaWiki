@@ -35,8 +35,13 @@
 			"Võrok",
 			"WikedKentaur",
 			"לערי ריינהארט",
+<<<<<<< HEAD
 			"Amire80",
 			"Castellum"
+=======
+			"Kareyac",
+			"Amire80"
+>>>>>>> origin/1.39.7-test
 		]
 	},
 	"tog-underline": "Linkide allakriipsutus:",
@@ -2594,7 +2599,10 @@
 	"whatlinkshere-page": "Lehekülg:",
 	"linkshere": "Lehele '''$2''' viitavad järgmised leheküljed:",
 	"nolinkshere": "Leheküljele <strong>$2</strong> ei viita ükski lehekülg.",
+<<<<<<< HEAD
 	"nolinkshere-filter": "Praeguste otsisätetega ei viita leheküljele <strong>$2</strong> ükski lehekülg.",
+=======
+>>>>>>> origin/1.39.7-test
 	"nolinkshere-ns": "Leheküljele <strong>$2</strong> ei ole valitud nimeruumis linke.",
 	"isredirect": "ümbersuunamislehekülg",
 	"istemplate": "kasutamine mallina",

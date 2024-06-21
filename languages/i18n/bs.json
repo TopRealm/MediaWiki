@@ -1028,8 +1028,11 @@
 	"prefs-email": "Opcije e-pošte",
 	"prefs-rendering": "Izgled",
 	"prefs-searchmisc": "Općenito",
+<<<<<<< HEAD
 	"searchprefs": "Pretraži postavke",
 	"searchprefs-noresults": "Nema rezultata",
+=======
+>>>>>>> origin/1.39.7-test
 	"saveprefs": "Sačuvaj",
 	"restoreprefs": "Vrati sve postavke na podrazumijevane",
 	"prefs-editing": "Uređivanje",
@@ -3466,8 +3469,11 @@
 	"feedback-useragent": "Korisnički agent:",
 	"searchsuggest-search": "Pretraži {{GRAMMAR:akuzativ|{{SITENAME}}}}",
 	"searchsuggest-containing": "Pretraži stranice koje sadrže",
+<<<<<<< HEAD
 	"search-thumbnail-extra-namespaces-label": "Prikaži minijature u pretrazi na računarnom prikazu",
 	"search-thumbnail-extra-namespaces-message": "Prikazuje minijature pored rezultata pretrage {{PLURAL:$2|imenskog|imenskih}} prostora $1 na stranici {{#special:search}}",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchlimit-label": "Broj rezultata pretrage po stranici:",
 	"searchlimit-help": "Najviše: $1",
 	"api-clientside-error-noconnect": "Ne mogu se povezati sa serverom. Provjerite jeste li povezani na internet i probajte ponovo.",
@@ -3773,6 +3779,7 @@
 	"skin-action-move": "Premjesti",
 	"newpages-showhide-bots": "$1 botove",
 	"newpages-showhide-redirect": "$1 preusmjerenja",
+<<<<<<< HEAD
 	"newpages-showhide-registered": "$1 registrirane korisnike",
 	"blockedtext-made-by": "{{GENDER:$1|Izvršilac|Izvršiteljica}} blokade: $1.",
 	"blockedtext-reason-comment": "Razlog: <em>$1</em>",
@@ -3811,4 +3818,7 @@
 	"renameuser-move-log": "Automatski premještena stranica zbog preimenovanja korisnika \"[[User:$1|$1]]\" u \"[[User:$2|$2]]\"",
 	"right-renameuser": "Preimenovanje korisnika",
 	"renameuser-renamed-notice": "Ovaj korisnik je promijenio ime.\nZapisnik preimenovanje je prikazan ispod kao referenca."
+=======
+	"newpages-showhide-registered": "$1 registrirane korisnike"
+>>>>>>> origin/1.39.7-test
 }

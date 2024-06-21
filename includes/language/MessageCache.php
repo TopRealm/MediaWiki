@@ -340,7 +340,11 @@ class MessageCache implements LoggerAwareInterface {
 
 		// A hash of the expected content is stored in a WAN cache key, providing a way
 		// to invalid the local cache on every server whenever a message page changes.
+<<<<<<< HEAD
 		[ $hash, $hashVolatile ] = $this->getValidationHash( $code );
+=======
+		list( $hash, $hashVolatile ) = $this->getValidationHash( $code );
+>>>>>>> origin/1.39.7-test
 		$this->cacheVolatile[$code] = $hashVolatile;
 		$volatilityOnlyStaleness = false;
 

@@ -636,7 +636,11 @@
 	"summary-preview": "Озолодо солынтыныҥ јартамалын кӧрӧри:",
 	"previewerrortext": "Слердиҥ солынтыларды озолодо кӧргӱзерге турарда јастыра учурал болды.",
 	"blockedtitle": "Туружаачы туйукташта",
+<<<<<<< HEAD
 	"blockedtext-partial": "<strong>Слердиҥ аккаунтарга эмезе IP адрезерге бу кылыныш токтодылган. Је слер ӧскӧ кылыныш эдер аргалу бу вики-проектте(темдектезе кезик бӱктерди тӱзедерге).</strong> Туйукташтыҥ ончо јартамалдарын [[Special:MyContributions|аккаунттыҥ кожултазы]] бӱкте кӧрӧр аргалу.\n\n{{int:blockedtext-made-by|$1}}\n\n{{int:blockedtext-reason-comment|$2}}.\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n*{{int:blockedtext-block-id|$5}}",
+=======
+	"blockedtext-partial": "<strong>Слердиҥ аккаунтарга эмезе IP адрезерге бу кылыныш токтодылган. Је слер ӧскӧ кылыныш эдер аргалу бу вики-проектте(темдектезе кезик бӱктерди тӱзедерге).</strong> Туйукташтыҥ ончо јартамалдарын  [[Special:MyContributions|аккаунттыҥ кожултазы]] бӱкте кӧрӧр аргалу.\n\nТуйукташты эткен администратор $1.\n\nШылтактары<em>$2</em>.\n\n* Туйукташтыҥ башталганы: $8\n* Туйукташтыҥ божооры: $6\n* Туйукташтыҥ амадузы: $7\n* Туйукташтыҥ идентификаторы #$5",
+>>>>>>> origin/1.39.7-test
 	"blockedtext": "<strong>Слердиҥ аккаунт эмезе IP адрезер блокировкада.</strong>\n\n$1 администратор слерди блокировкага кийдирди.\nБлокировканыҥ шылтактары: <em>$2</em>.\n\n* Блокировканыҥ башталганы: $8\n* Блокировканыҥ божоор ӧйи: $6\n* Блокировканыҥ амадузы: $7\n\nСлер $1 эмезе ӧскӧ [[{{MediaWiki:Grouppage-sysop}}|администратор ло]] колбу тудуп блокировканы ширтеп кӧрӧр.\nСлерде \"{{int:emailuser}}\" функцияны эдинер арга бар, слердиҥ [[Special:Preferences|јазантыларда]] чын электрон почтаныҥ адрезин бичип салган болзор ло слердиҥ блокировкагар самаралар аткарарга јарадып турган болзо.\nСлердиҥ эмдиги IP адрезер $3, блокировканыҥ идентификаторы #$5.\nБу јартамал информацияны суру этсер кожып салыгар.",
 	"autoblockedtext": "<strong>Слердиҥ аккаунт эмезе IP адрезер автоматикалык  туйукташка кирди, нениҥ учун дезе $1 администратор  туйукташка адрезерди эдинген кандый да туружаачыны кийдирди.</strong>\nТуйукташтыҥ шылтагы: \n\n<em>$2</em>.\n\n* Туйукташтыҥ башталганы: $8\n* Туйукташтыҥ божоор ӧйи: $6\n* Туйукташтыҥ амадузы: $7\n\nСлер $1 эмезе ӧскӧ [[{{MediaWiki:Grouppage-sysop}}|администратор ло]] колбу тудуп туйукташты ширтеп кӧрӧр.\nСлерде \"{{int:emailuser}}\" функцияны эдинер арга бар, слердиҥ [[Special:Preferences|јазантыларда]] чын электрон почтаныҥ адрезин бичип салган болзор ло слердиҥ туйуктажар самаралар аткарарга јарадып турган болзо.\nСлердиҥ эмдиги IP адрезер $3, туйукташтыҥ идентификаторы #$5.\nБу јартамал информацияны суру этсер кожып салыгар.",
 	"systemblockedtext": "Слердиҥ аккаунт эмезе IP адрезер автоматикалык MediaWiki-ниҥ туйуктажына кирди.\nТуйукташтыҥ шылтагы: \n\n<em>$2</em>.\n\n* Туйукташтыҥ башталганы: $8\n* Туйукташтыҥ божоор ӧйи: $6\n* Туйукташтыҥ амадузы: $7\n\nСлердиҥ эмдиги IP адрезер $3.\nБу јартамал информацияны суру этсер кожып салыгар.",
@@ -2251,6 +2255,10 @@
 	"emailuser": "Туружаачыга самара",
 	"emailuser-title-target": "Email бичиир {{GENDER:$1|туружаачыга}}",
 	"emailuser-title-notarget": "Туружаачыга email бичиир",
+<<<<<<< HEAD
+=======
+	"emailpagetext": "Бу форманыҥ болужыла {{GENDER:$1|туружаачыныҥ}} электрон почтаныҥ адрезине самара аткрарга јарар.\nАткарычыныҥ адрези этире [[Special:Preferences|слердиҥ јазалталарда]] бичилген адрес болор, оныҥ учун алатан туружаачыда кӧндӱре слерге каруузын јандыратан арга болор.",
+>>>>>>> origin/1.39.7-test
 	"defemailsubject": "{{SITENAME}} — $1 туружаачыныҥ электрон самара",
 	"usermaildisabled": "Туружаачыныҥ email адрези токтодылган",
 	"usermaildisabledtext": "Слер бу викинеҥ электрон самараларды аткарып болбозор",
@@ -2558,7 +2566,10 @@
 	"whatlinkshere-page": "Бӱк:",
 	"linkshere": "Мындый бӱктер <strong>$2</strong> бӱкке тайанат:",
 	"nolinkshere": "<strong>$2</strong> бӱкке ӧскӧ бӱктердеҥ тайантылар јок.",
+<<<<<<< HEAD
 	"nolinkshere-filter": "Бедрештиҥ эмдиги јазалталарыла аайынча <strong>$2</strong> тайанып турган бӱктер јок.",
+=======
+>>>>>>> origin/1.39.7-test
 	"nolinkshere-ns": "Талдап алган аттардыҥ телкеминде, <strong>$2</strong> тайанып турган бӱктер јок.",
 	"isredirect": "аткаруныҥ бӱги",
 	"istemplate": "кожымак",
@@ -3137,7 +3148,11 @@
 	"metadata-help": "Файлда цифровой камералар ла сканерлер салган кожып турган данныйлар бар. Файлды эдилгенинеҥ бери редактировать эткен болзо, кезик параметрлери тургуза ӧйдӧги јурукка келишпес аргалу.",
 	"metadata-expand": "Артык јартамалдырды кӧргӱзер",
 	"metadata-collapse": "Артык јартамалдырды јажырар",
+<<<<<<< HEAD
 	"metadata-fields": "Бу тизимде бичилген јуруктыҥ метаданныйлардыҥ јерлери, јуруктыҥ бӱгинде кӧргӱзилер, метаданныйлардыҥ таблицазын тӱрип салза.\nАрткан јерлерин јажырып салар.\n* make \n* model \n* datetimeoriginal \n* exposuretime \n* fnumber \n* isospeedratings \n* focallength \n* artist \n* copyright \n* imagedescription \n* gpslatitude \n* gpslongitude \n* gpsaltitude \n* dc-rights \n* copyrightowner \n* usageterms \n* webstatement \n* licenseurl \n* attributionurl \n* preferredattributionname \n* credit \n* jpegfilecomment \n* pngfilecomment \n* giffilecomment \n* usercomment \n* citydest \n* citycreated \n* headline \n* source \n* locationdest \n* dc-contributor \n* dc-coverage \n* dc-publisher \n* dc-relation \n* label \n* nickname \n* personinimage \n* disclaimer \n* event \n* objectname",
+=======
+	"metadata-fields": "Бу тизимде бичилген јуруктыҥ метаданныйлардыҥ јерлери, јуруктыҥ бӱгинде кӧргӱзилер, метаданныйлардыҥ таблицазын тӱрип салза.\nАрткан јерлерин јажырып салар.\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude",
+>>>>>>> origin/1.39.7-test
 	"namespacesall": "бастыра",
 	"monthsall": "бастыра",
 	"confirmemail": "Email адрести чындыктар",
@@ -3177,7 +3192,10 @@
 	"confirm-watch-button": "ЈӦП",
 	"confirm-watch-top": "Бӱ бӱкти слердиҥ ширтениҥ тизимине кожор бо?",
 	"confirm-watch-label": "Ширтениҥ тизиминде болотон ӧй:",
+<<<<<<< HEAD
 	"watchlist-expiry-options": "Јантайын:infinite,1 неделе:1 week,1 ай:1 month,3 ай:3 months,6 ай:6 months,1 јыл:1 year",
+=======
+>>>>>>> origin/1.39.7-test
 	"watchlist-expires-in-aria-label": "Ширтениҥ тизиминде бир канча ӧйгӧ",
 	"confirm-watch-button-expiry": "Кӧрӧр",
 	"confirm-unwatch-button": "ЈӦП",
@@ -3292,7 +3310,10 @@
 	"version-entrypoints-header-entrypoint": "Кирер точка",
 	"version-entrypoints-header-url": "URL",
 	"version-libraries": "Тургузылган библиотекалар",
+<<<<<<< HEAD
 	"version-libraries-client": "Тургузылган клиент библиотекалары",
+=======
+>>>>>>> origin/1.39.7-test
 	"version-libraries-library": "Библиотека",
 	"version-libraries-version": "Версиязы",
 	"version-libraries-license": "Лицензиязы",
@@ -3626,10 +3647,13 @@
 	"feedback-useragent": "Браузер:",
 	"searchsuggest-search": "{{SITENAME}}-ҥ бедреер",
 	"searchsuggest-containing": "Мындый толынтылу бӱктерди бедрери",
+<<<<<<< HEAD
 	"search-match-redirect-label": "Бедреш тушта чике келижип турганына кӧчӧр",
 	"search-match-redirect-help": "Бӱктиҥ бажалыгы слер бедрегенине келижип турган болзо, бӱкке кӧчӧргӧ талдагар",
 	"search-thumbnail-extra-namespaces-label": "Special:Search бедреште миниатюраларды десктоп версияда кӧргӱзер",
 	"search-thumbnail-extra-namespaces-message": "$1 {{PLURAL:$2|аттардыҥ телкемине}} турулталардыҥ {{#special:search}} бӱгинде миниииатюраларды кӧргӱзет",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchlimit-label": "Кажы ла бӱкте кӧргӱзетен бедрештиҥ турултазыныҥ тоозы:",
 	"searchlimit-help": "Эҥ кӧп тоозы: $1",
 	"api-clientside-error-noconnect": "Серверле колбу тудар арга јок. Слердиҥ Интернетке колбоныш иштегенин кӧрӧлӧ ойто катап умзанар.",
@@ -3734,8 +3758,11 @@
 	"json-error-invalid-property-name": "Аҥылузыныҥ декдодированый ады јастыра.",
 	"json-error-utf16": "UTF-16-ныҥ јастыра символдоры, јастыра кодировка болор аргалу",
 	"headline-anchor-title": "Бу бӧлӱкке уулаган тайанты",
+<<<<<<< HEAD
 	"special-tab-contribute-short": "Кошконы",
 	"special-tab-contributions-short": "Туружаачыларды кӧргӱзер",
+=======
+>>>>>>> origin/1.39.7-test
 	"special-characters-group-latin": "Латин",
 	"special-characters-group-latinextended": "Латин элбедиштер",
 	"special-characters-group-ipa": "МФА (IPA)",
@@ -3983,6 +4010,7 @@
 	"newpages-showhide-bots": "$1 ботторды",
 	"newpages-showhide-patrolled": "$1 ширтелген тӱзедӱлерди",
 	"newpages-showhide-redirect": "$1 ууландырыштарды",
+<<<<<<< HEAD
 	"newpages-showhide-registered": "$1 регистрациялу турган туружаачыларды",
 	"blockedtext-made-by": "$1 администратор туйуктаган.",
 	"blockedtext-reason-comment": "Туйукташтыҥ шылтагы <em>$1</em>",
@@ -4023,4 +4051,7 @@
 	"action-renameuser": "туружаачылардыҥ аттарын солыыр",
 	"right-renameuser": "Туружаачылардыҥ аттарын солыыр",
 	"renameuser-renamed-notice": "Бу туружаачыныҥ адын солыган.\nАттар солыганныҥ журналы болуш этире алдында берилди."
+=======
+	"newpages-showhide-registered": "$1 регистрациялу турган туружаачыларды"
+>>>>>>> origin/1.39.7-test
 }

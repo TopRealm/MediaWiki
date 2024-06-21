@@ -8,7 +8,8 @@
 			"Oxyzen",
 			"Pare Mo",
 			"RonaldPanaligan",
-			"TMg"
+			"TMg",
+			"Pare Mo"
 		]
 	},
 	"tog-underline": "Koritan ang dalum kang manga ''link'':",
@@ -220,7 +221,10 @@
 	"showdiff": "Ipakità ang manga ilis",
 	"loginreqlink": "sëlëd",
 	"newarticle": "(Bag·o)",
+<<<<<<< HEAD
 	"userpage-userdoesnotexist-view": "Indî nakarehistro ang akawnt pangmanuggamit nga \"$1\" sa diyâ nga wiki.",
+=======
+>>>>>>> origin/1.39.7-test
 	"editing": "Ginailis ang $1",
 	"creating": "Ginahimò ang $1",
 	"editingsection": "Ginailis ang $1 (bahin)",

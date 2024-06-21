@@ -496,7 +496,11 @@ class ImagePage extends Article {
 							[],
 							[ 'page' => $page - 1 ]
 						);
+<<<<<<< HEAD
 						$thumbPrevPage = Linker::makeThumbLinkObj(
+=======
+						$thumb1 = Linker::makeThumbLinkObj(
+>>>>>>> origin/1.39.7-test
 							$this->getTitle(),
 							$this->displayImg,
 							$linkPrev,
@@ -516,7 +520,11 @@ class ImagePage extends Article {
 							[],
 							[ 'page' => $page + 1 ]
 						);
+<<<<<<< HEAD
 						$thumbNextPage = Linker::makeThumbLinkObj(
+=======
+						$thumb2 = Linker::makeThumbLinkObj(
+>>>>>>> origin/1.39.7-test
 							$this->getTitle(),
 							$this->displayImg,
 							$linkNext,

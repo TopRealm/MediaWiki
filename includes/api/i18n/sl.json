@@ -66,7 +66,10 @@
 	"apihelp-feedrecentchanges-param-from": "Pokaži spremembe od takrat.",
 	"apihelp-feedrecentchanges-param-hideminor": "Skrij manjše spremembe.",
 	"apihelp-feedrecentchanges-param-hidepatrolled": "Skrij pregledane spremembe.",
+<<<<<<< HEAD
 	"apihelp-feedrecentchanges-param-inverttags": "Vsa urejanja razen tistih, ki so označena z izbranimi.",
+=======
+>>>>>>> origin/1.39.7-test
 	"apihelp-feedrecentchanges-param-target": "Prikaz samo sprememb na straneh, povezanih s te strani.",
 	"apihelp-feedrecentchanges-example-simple": "Prikaži zadnje spremembe.",
 	"apihelp-feedrecentchanges-example-30days": "Prikaže zadnje spremembe za 30 dni.",
@@ -205,7 +208,10 @@
 	"apihelp-query+langlinks-summary": "Vrne vse medjezikovne povezave z danih strani.",
 	"apihelp-query+langlinks-example-simple": "Pridobi medjezikovne povezave strani [[{{MediaWiki:Mainpage}}]].",
 	"apihelp-query+languageinfo-extended-description": "[[mw:Special:MyLanguage/API:Continue|Nadaljevanje]] se lahko uporabi, če pridobivanje informacij traja predolgo za en zahtevek.",
+<<<<<<< HEAD
 	"apihelp-query+languageinfo-paramvalue-prop-variantnames": "Kratka imena jezikovnih različic, ki se uporabljajo za povezave za spremembo jezika.",
+=======
+>>>>>>> origin/1.39.7-test
 	"apihelp-query+languageinfo-example-fallbacks-variants-oc": "Pridobitev nadomestnih jezikov in različic okcitanščine.",
 	"apihelp-query+links-summary": "Vrne vse povezave z danih strani.",
 	"apihelp-query+links-example-simple": "Pridobitev povezav s strani [[{{MediaWiki:Mainpage}}]]",
@@ -277,8 +283,11 @@
 	"apihelp-query+usercontribs-paramvalue-prop-tags": "Navede oznake za urejanje.",
 	"apihelp-query+usercontribs-param-show": "Prikaži samo predmete, ki ustrezajo tem kriterijem, npr. samo nemanjša urejanja: <kbd>$2 show=!minor</kbd>.\n\nČe je nastavljeno <kbd>$2show=patrolled</kbd> ali <kbd>$2show=!patrolled</kbd>, redakcije, ki so starejše od <var>[[mw:Special:MyLanguage/Manual:$wgRCMaxAge|$wgRCMaxAge]]</var> ($1 {{PLURAL:$1|sekunde|sekund}}), ne bodo prikazane.",
 	"apihelp-query+usercontribs-example-user": "Prikaži prispevke uporabnika <kbd>Zgled</kbd>.",
+<<<<<<< HEAD
 	"apihelp-query+userinfo-paramvalue-prop-cancreateaccount": "Označuje, ali je uporabniku dovoljeno ustvarjati račune. Če želite preveriti, ali je mogoče ustvariti določen račun, uporabite [[Special:ApiHelp/query+users|<kbd>action=query&list=users&usprop=cancreate</kbd>]].",
 	"apihelp-query+users-paramvalue-prop-cancreate": "Označuje, ali je mogoče ustvariti račun za veljavna, toda neregistrirana uporabniška imena. Če želite preveriti, ali lahko trenutni uporabnik ustvari račun, uporabite [[Special:ApiHelp/query+userinfo|<kbd>action=query&meta=userinfo&uiprop=cancreateaccount</kbd>]].",
+=======
+>>>>>>> origin/1.39.7-test
 	"apihelp-query+watchlist-summary": "Pridobi zadnje spremembe strani na spisku nadzorov trenutnega uporabnika.",
 	"apihelp-query+watchlist-param-prop": "Katere dodatne lastnosti naj se pridobijo:",
 	"apihelp-query+watchlist-paramvalue-prop-title": "Doda naslov strani.",

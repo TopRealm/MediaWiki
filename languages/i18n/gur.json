@@ -187,8 +187,11 @@
 	"skin-action-unprotect": "Tɛɛ gu- a",
 	"unprotect": "Tɛɛ gu- a",
 	"newpage": "pɛgerɛ paalɛ",
+<<<<<<< HEAD
 	"newpage-desc": "Pɔsɛ pɛgepaalega bo tɔpiki sɛka n nari.",
 	"view-missing-pages": "Bisɛ pɛgesi'a n borege",
+=======
+>>>>>>> origin/1.39.7-test
 	"talkpagelinktext": "tɔgɛ",
 	"specialpage": "Pɛgebuutɛ",
 	"personaltools": "Mɛŋa tuuma lɔgerɔ",
@@ -521,7 +524,10 @@
 	"search-relatedarticle": "Dikɛ makɛ",
 	"search-invalid-sort-order": "Gãsɛ ba biŋɛ dɔla $1 de la ka tari baŋerɛ, 'default' gãsega na dikɛ tum. Gãsega tuntɔɔ dela: $2",
 	"search-unknown-profile": "Ɛ $1 'profile' de la 'unrecongnized', 'default profile' eere na dikɛ tum.",
+<<<<<<< HEAD
 	"search-thumbnail-alt": "'thumbnail' bo $1",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchrelated": "Dikɛ makɛ",
 	"searchall": "za'an",
 	"showingresultsinrange": "Pa'ala sɛla n boi tilum ta paɛ {{PLURAL:$1|<strong></strong> result|<strong>$1</strong> results}} innrange #<strong>$2</strong> to #<strong>$3</strong>.",
@@ -571,8 +577,11 @@
 	"prefs-email": "Email yɔ'ɔ",
 	"prefs-rendering": "Nɛɛsum",
 	"prefs-searchmisc": "Ba za'a",
+<<<<<<< HEAD
 	"searchprefs": "Ɛ fum n botı sɛla",
 	"searchprefs-noresults": "Rezɔɔsi zo'e zo'e",
+=======
+>>>>>>> origin/1.39.7-test
 	"saveprefs": "Binŋɛ",
 	"restoreprefs": "'restore default' sɛteŋɔ duma la za'an",
 	"prefs-editing": "Demesego",
@@ -584,7 +593,10 @@
 	"timezoneuseserverdefault": "'use wiki default' ($1)",
 	"timezoneuseoffset": "Asi'a (time offset from UTC)",
 	"timezone-useoffset-placeholder": "Magese wuu tibesum: \"_07:00\" bii \"01:00\"",
+<<<<<<< HEAD
 	"timezone-invalid": "'invalid ' saŋa zi'an bii saŋa 'offset'.",
+=======
+>>>>>>> origin/1.39.7-test
 	"servertime": "'server' saŋa:",
 	"guesstimezone": "Pire paa ze'ele 'brower'",
 	"timezoneregion-africa": "Nerisabilika tinŋa",

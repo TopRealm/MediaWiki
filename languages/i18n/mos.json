@@ -187,8 +187,11 @@
 	"skin-action-unprotect": "Toeem koglgo",
 	"unprotect": "Toeem koglgo",
 	"newpage": "Seb-vão paalé",
+<<<<<<< HEAD
 	"newpage-desc": "Yãk-y n tool-y neda Yãk n tool-yã a Zeova",
 	"view-missing-pages": "Ges-y sɛb nins sẽn pa be wã",
+=======
+>>>>>>> origin/1.39.7-test
 	"talkpagelinktext": "gomde",
 	"specialpage": "Neng bãnde",
 	"personaltools": "Menga teedo",
@@ -631,8 +634,12 @@
 	"summary-preview": "Sõsg ning sẽn be sõsg ning pʋgẽ wã:",
 	"previewerrortext": "Y sã n dat n ges y toeengã n yaool n pa le tõe n maan-b ye, y paama yel-wẽn-kãnga.",
 	"blockedtitle": "Sõngd- soabã paama gɩdgr",
+<<<<<<< HEAD
 	"blockedtext-partial": "<strong>Y yʋʋr la y IP-rɩllã pa le tõe n maan woto ye. Tõe tɩ y ket n tõe n maana bũmb a taab web-kãngã zugu, wala n maand sɛb kẽer.</strong> \n\n Y tõe n yãa sõssã sõssã fãa zĩ-kãnga [[Special:MyContributions|account contributions]].\n\n {{title:blokeedtext-made-by-be$1}} \n\n A sẽn maan woto wã kɩtame tɩ b pa tõe n maan bũmb a to ye. $2\n\n *{{int:blockedtext-start-time = $8}} *{{int::blockedtext_expiration = $6}} *{{ int:blocked text-intended-blockkee = $7}} \n\n *{{int:blockedtext-block-id $5}}",
 	"blockedtext": "<strong>Fo tʋʋmtʋmda yʋʋre bii fo IP aderse gida mɩ.</strong>\n\n{{int:blockedtext-made-by|$1}}\n{{int:blockedtext-reason-comment|$2}}.\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n{{int:blockedtext-contact-blocker-admin|$1}}\nFo tõe tʋma ni \"{{int:emailuser}}\" toor zalle san yi ti email aderse songo be fo \n[[Special:Preferences|preferences]] ti o be pa gɩde fo ni atʋʋma.\n{{int:blockedtext-block-ip|$3}} ti gɩdba ID yaa #$5.\n{{int:blockedtext-include-details-queries}}",
+=======
+	"blockedtext": "<strong>Fo tʋʋmtʋmda yʋʋre bii fo IP aderse gida mɩ.</strong>\n\nNina sĩ gida yaa $1.\nGidba bʋʋm la <em>$2</em>.\n\n*Gɩdba sɩngre: $8\n*Gɩdba saabo: $6\n*Niya sîn be ti o be gɩde nina: $7\n\nFo na tõoge n boolé $1 bɩɩ nina [[{{MediaWiki:Grouppage-sysop}}|administrator]] n sõso gɩdba yelle.\nFo tõe tʋma ni \"{{int:emailuser}}\" toor zalle san yi ti email aderse songo be fo \n[[Special:Preferences|preferences]] ti o be pa gɩde fo ni atʋʋma.\nFo IP aderse fo si tara Masâ ya $3 ti gɩdba ID yaa #$5.\nMaan sûgri pãasé glsgo kânga fãa ni sokdse ning fo maane fâa pʋge.",
+>>>>>>> origin/1.39.7-test
 	"blockednoreason": "ned ka wilg bũmb ning sẽn kɩt tɩ b maan woto ye",
 	"blockedtext-composite-ids": "Bõn-kaoodã sẽn tar yõodã: $1 (y tõe n yãa y IP-dʋʋre me b sẽn gʋls tɩ b pa tõe n yã ye)",
 	"blockedtext-composite-no-ids": "Y IP- roog pukda sõor sẽn pa tar sõor",
@@ -654,8 +661,12 @@
 	"missing-revision-permission": "Sõsg ning sẽn yaa #$1 n lebg n wa lebg n wa n lebg n lebg n n wa lebg ne sõsg ning b sẽn yiis n wa lebg tɩ lebg n wa wã. Y tõe n gesa [{{fullurl:{{#Special:Undelete}} wãbgo=$3&timestamp=$2&diff=prev}}; y tõe] n yãa sõssã [{{fullorl:{{ #Special:Log}}/delete 9:11page=$3}} wãbgẽ wãbgo].",
 	"missing-revision": "Sebr ning sẽn boond tɩ \"{{FULLPAGENAME}}\" wã sakr #$1 pa be ye. mos_Latnmos_Latnmos_Latn be ye Yaa sẽn pa le tar tar tar tar-a wã n kɩt tɩ b maand woto. Y tõe n yãa sõss nins sẽn be [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} deletion log].",
 	"missing-revision-content": "Sõsg ning sẽn be seb-kãngã pʋgẽ wã pa tõe n tall a #$1sõsg ning sẽn yaa \"$2\" wã pʋgẽ ye.",
+<<<<<<< HEAD
 	"userpage-userdoesnotexist": "Sõngd-biis sõor \"$1\" pa gʋls wiki kãngã pʋgẽ ye. Sõng-y n ges y sã n dat n naan bɩ y tik seb-kãngã.",
 	"userpage-userdoesnotexist-view": "Tʋʋm-tʋʋmde acount \"$1\" ka gʋls wiki kada zugu",
+=======
+	"userpage-userdoesnotexist-view": "Tʋʋm-tʋʋmde acount \"$1\" pa gʋlse.",
+>>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "{{GENDER:$1 nin-tɩrga}} yaa sẽn pa tõe n maan ye. Sẽn paase, b sẽn na n wilg tɩ b sẽn yãk tɩ b lebg b sõsdbã, b wilga b sẽn maan bũmb ning sẽn yaa to-to wã.",
 	"clearyourcache": "Tẽeg-y: Y sã n yiis-a, tõe tɩ yaa tɩlae tɩ y pa ges y karen-biisã sẽn be b zĩigẽ wã ye. * <strong>Firefox / Safari:</strong> Sɩɩg-y n bas tɩ b bas tɩ b lebs n tʋm, bɩ y bas Ctrl-F5 bɩ Ctrl -R (<em> ⁇ -R</em> Mac) * <strong>Google Chrome:</strong> Sɩɩga Ctrl",
 	"usercssyoucanpreview": "Saglg: tũnug ne \"{{int:showpreview}}\" tugmã n mak CSS-y-paalgã sẽn na n yaool n yiis-a.",
@@ -850,11 +861,16 @@
 	"revdelete-hide-comment": "Yãk-y n tool-y neda",
 	"revdelete-hide-user": "Sõng-n-taagã yʋʋr/IP-rɩk",
 	"revdelete-hide-restricted": "Yãk-y y sõsdbã la neb a taab sõsdbã",
+<<<<<<< HEAD
 	"revdelete-radio-same": "Da toeem ye",
 	"revdelete-radio-set": "B sẽn solg-a wã",
 	"revdelete-radio-unset": "D tõe n yã-a lame",
 	"revdelete-radio-set-suppress": "B sẽn na n maan bũmb ningã",
 	"revdelete-radio-unset-suppress": "B sẽn pa tar pãng",
+=======
+	"revdelete-radio-set": "B sẽn solg-a wã",
+	"revdelete-radio-unset": "D tõe n yã-a lame",
+>>>>>>> origin/1.39.7-test
 	"revdelete-suppress": "Yãk-y y sõsdbã la neb a taab sõsdbã",
 	"revdelete-unsuppress": "Yãk-y gɩdgr nins sẽn pa le wãbgã",
 	"revdelete-log": "Tũ sɩda:",
@@ -914,7 +930,10 @@
 	"lineno": "Tongé $1:",
 	"compareselectedversions": "Make tũusi lebg-n-gɛsga",
 	"showhideselectedversions": "Yãk-y n tool-y neda Yãk n tool-yood-y n paas",
+<<<<<<< HEAD
 	"showhideselectedfileversions": "Yãk-y n tool-y neda Yãk n tool-yood-y n paas",
+=======
+>>>>>>> origin/1.39.7-test
 	"editundo": "yidgi",
 	"diff-empty": "(Welgre pa be)",
 	"diff-multi-sameuser": "({{PLURAL:$1|lebg-n-gɛsga sũka yɛ|$1lebg-n-gɛsga sũka}} ni tʋʋm- toom da pa vẽnege)",
@@ -923,8 +942,11 @@
 	"diff-paragraph-moved-tonew": "B kɩtame tɩ b toeem sõsgã. Sõng-y n kẽng zĩig a to.",
 	"diff-paragraph-moved-toold": "B kɩtame tɩ b toeem sõsgã. Sõng-y n kẽng zĩig ning sẽn da yaa-a wã.",
 	"difference-missing-revision": "{{PLURAL:$2|Une|$2}} version{{PLURAL:$2||s}} de cette différence ($1) n’{{PLURAL:$2|a|ont}} pas été trouvée{{PLURAL:$2||s}}.\n\nCela survient en général en suivant un lien de différence désuet vers une page qui a été supprimée.\nVous pouvez trouver des détails dans le [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} journal des suppressions].",
+<<<<<<< HEAD
 	"difference-bad-old-revision": "Biiblã sẽn da lebg n lebg n lebg tɩ yɩ sõma wã pʋgẽ, b pa le tar-a ye.",
 	"difference-bad-new-revision": "Sõsg ning b sẽn lebg n lebg n togsã pʋgẽ pa le be ye, wall b pa le tar-a ye.",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchresults": "Vɛɛse paanga",
 	"search-filter-title-prefix": "Sẽn sɩng ne \"$1\" wã bal n bao seb-neng nins b sẽn boond tɩ \"$1\" pʋgẽ",
 	"search-filter-title-prefix-reset": "Bao-y seb-kãens fãa",
@@ -964,7 +986,10 @@
 	"search-relatedarticle": "Sẽn kẽed ne rẽ",
 	"search-invalid-sort-order": "B pa bãng tɩ b segl-a-la ne $1 ye. Sõng-n-taag sẽn yaa sõma yaa: $2",
 	"search-unknown-profile": "B pa mi b baoob profil ning sẽn be $1 wã ye, b na n maana baoob profil sẽn yaa b sẽn pa rat n bao wã.",
+<<<<<<< HEAD
 	"search-thumbnail-alt": "Dɩlla sẽn yaa $1",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchrelated": "sẽn yaa to-to",
 	"searchall": "fãa",
 	"search-showingresults": "{{PLURAL:$4|Paanga<strong>$1</strong>ni<strong>$3/strong>|Paangsi<strong>$1-$2</strong>ni<strong>$3</strong>}}",
@@ -1013,8 +1038,11 @@
 	"prefs-email": "Sõng-y n ges-y-yã",
 	"prefs-rendering": "D sẽn yãendã",
 	"prefs-searchmisc": "Bõn-gilli",
+<<<<<<< HEAD
 	"searchprefs": "Baoosgo ratem",
 	"searchprefs-noresults": "Pa le paamame ye",
+=======
+>>>>>>> origin/1.39.7-test
 	"saveprefs": "B tall-y-la",
 	"restoreprefs": "Leeg n lebs n lebs n yãkd bũmb nins fãa sẽn pa ratã",
 	"prefs-editing": "B sẽn maand bũmb ning",
@@ -1022,6 +1050,7 @@
 	"recentchangesdays": "Sẽn na n yɩlẽ n wilg daar nins sẽn yaa toeengã pʋgẽ:",
 	"recentchangesdays-max": "Sẽn yɩɩd $1 {{PLURAL:$1 daar fãa daar fãa}}",
 	"recentchangescount": "Yɛlg-y n wilg y sẽn da toeem bũmb ninsã, y sẽn gʋls-b sɛbã la y sẽn gʋlsd-b sɛb-kãnga pʋgẽ, sẽn yaa y sẽn dat n maan to-to:",
+<<<<<<< HEAD
 	"prefs-back-title": "D leb n na n paama d sẽn dat n deegã",
 	"prefs-description-personal": "Y segd n gũusda y sẽn maand to-to, y sẽn maand bũmb to-to la y sẽn maand goam to-to wã.",
 	"prefs-description-rendering": "Yãk-y y yĩngã, y sõorã la y karemdã.",
@@ -1030,6 +1059,8 @@
 	"prefs-description-watchlist": "Y tõe n baoo n tall y sẽn dat n yã wã n tall sor n tall-b.",
 	"prefs-description-searchoptions": "Bao-y n bãng tɩ b sẽn na n maan bũmb ning fãa, b na n maana a wãna.",
 	"prefs-description-misc": "Yãk- y taabl-kãsengã",
+=======
+>>>>>>> origin/1.39.7-test
 	"prefs-help-recentchangescount": "Sõng sẽn ta zĩig sẽn zãre: 1000",
 	"prefs-help-watchlist-token2": "Yaa y sẽn tõe n ges bũmb nins sẽn be y zĩ-gũudã pʋgẽ wã. Ned ning fãa sẽn mi-a wã na n bãnga yãmb sõssã, tɩ rẽ yĩnga da pʋɩ-a ye. Y sã n dat n paam n paam n leoke, y tõe n leoke [[Special:ResetTokens|you can reset it]]",
 	"prefs-help-tokenmanagement": "Y tõe n yãa y sõssã sẽn yaa sekr n na n tõog n kẽ y sõssẽ wã. Ned ning fãa sẽn mi-a wã na n bãnga y sõssã, tɩ rẽ yĩnga da togs-a-la-yã.",
@@ -1044,7 +1075,10 @@
 	"timezoneuseserverdefault": "Sebg wiki wã sẽn pa yɩllã ($1)",
 	"timezoneuseoffset": "Sãnda (sẽn yaa wakat sẽn yit ne UTC)",
 	"timezone-useoffset-placeholder": "Sõsg sõor: \"-07:00\" bɩ \"01:00\"",
+<<<<<<< HEAD
 	"timezone-invalid": "B sẽn pa tõe n maan b sẽn datã",
+=======
+>>>>>>> origin/1.39.7-test
 	"servertime": "Server wakat:",
 	"guesstimezone": "Tẽeg- y y sẽn dat n bãng bũmb ningã",
 	"timezoneregion-africa": "Afrika",
@@ -1229,9 +1263,12 @@
 	"right-suppressrevision": "Sõng-y n ges-y n bãng-y tɩ y tõe n paama seb-vẽkr kẽer n paam n bãng-b la y bãng-b",
 	"right-viewsuppressed": "Ges-y sõss nins sẽn pa be ned ning fãa nengẽ",
 	"right-suppressionlog": "Ges-y ned sẽn pa maand bũmb a to wã logs",
+<<<<<<< HEAD
 	"right-block": "B gɩdgda wala b gɩdgda neb a taab tɩ b pa maand b sẽn datã ye",
 	"right-blockemail": "B sẽn pa tõe n tʋm e-mailã",
 	"right-hideuser": "B sẽn pa tõe n kɩt tɩ ned bãng a yʋʋrã, b sẽn pa tõe tɩ b bãng-a wã",
+=======
+>>>>>>> origin/1.39.7-test
 	"right-ipblock-exempt": "Bõn-kaoodã sẽn pa tar pãng",
 	"right-unblockself": "Yãk-y y meng n yiis y mengã",
 	"right-protect": "Yãk-y n toeem koglg sigls la y tik-y sɛb sẽn kogl ne kasɛtã",
@@ -1252,7 +1289,10 @@
 	"right-viewmywatchlist": "Ges-y y meng gũusgu",
 	"right-editmywatchlist": "Yãk y meng n ges y sõssã (y tẽeg tɩ tʋʋm kẽer na n kell n paasame, baa ne sor-kãngã sẽn pa be)",
 	"right-viewmyprivateinfo": "Ges-y y meng ned sẽn pa mi ned n dat n bãng a sẽn yaa a soaba (bõon-bõoneg, yʋʋr sẽn sɩd be)",
+<<<<<<< HEAD
 	"right-editmyprivateinfo": "Y sã n dat n lebs n gʋlsd y sõssã, bɩ y lebs n gʋls-a.",
+=======
+>>>>>>> origin/1.39.7-test
 	"right-editmyoptions": "Yãk y meng ratemã",
 	"right-rollback": "Sẽn sɩng-a n maand seb-kãngã, a kɩtame tɩ b lebg n lebg n lebg tɩ yɩ sõma",
 	"right-markbotedits": "Yãk-y n tool-y neda Yãk y sẽn tool-y n na n tool-yã",
@@ -1294,7 +1334,10 @@
 	"grant-editsiteconfig": "Modifẽ site wã fãa la nin-tɩrga CSS/JS",
 	"grant-editpage": "Yãk-y sɛb nins sẽn be wã",
 	"grant-editprotected": "Sõng-y tɩ y tall sõsg ne taab",
+<<<<<<< HEAD
 	"grant-highvolume": "Sõng sẽn yaa wʋsgo (bot)",
+=======
+>>>>>>> origin/1.39.7-test
 	"grant-import": "D sẽn yiisd bũmb nins",
 	"grant-mergehistory": "Sõng-y n bãng-y bũmb nins sẽn be Biiblã pʋgẽ wã",
 	"grant-oversight": "Sẽn dat-b n yɩ sõsdbã, la b kɩt tɩ b lebg n lebg n lebg sõsdbã",
@@ -1334,6 +1377,7 @@
 	"action-writeapi": "Sebr ning sẽn gʋlsd API wã",
 	"action-delete": "teke nenga kada",
 	"action-delete-redirect": "Yãk-y n yiis y sẽn lebg n lebg n leb n lebg n lebg tɩ yɩ sõma",
+<<<<<<< HEAD
 	"action-deleterevision": "Yãk-y n da yiis-y seb-n-taag dãmb sẽn yaa toor-toorã ye",
 	"action-deletelogentry": "Yãk-y n yiis log-rãmb nins sẽn be b sẽn be b zĩigẽ wã",
 	"action-deletedhistory": "ges gesg sẽn yaa to-to wã sẽn pa tar sõssã",
@@ -1343,6 +1387,11 @@
 	"action-suppressrevision": "Sõng-y n ges-y n bãng-y tɩ y tõe n paama seb-vẽkr kẽer n paam n bãng-b la y bãng-b",
 	"action-suppressionlog": "ges-y ned sẽn pa mi a yell",
 	"action-block": "bloga bɩ yiisd sõssã n pa tõe n tik a soaba",
+=======
+	"action-browsearchive": "Bao-y seb-n-taar nins b sẽn yiisdã",
+	"action-undelete": "Yɩl-y sɛb nins sẽn be wã",
+	"action-suppressionlog": "ges-y ned sẽn pa mi a yell",
+>>>>>>> origin/1.39.7-test
 	"action-protect": "Sebrã koglg siglgã siglgã",
 	"action-rollback": "Sẽn sɩng-a n maand seb-kãngã, a kɩtame tɩ b lebg n lebg n lebg tɩ yɩ sõma",
 	"action-import": "Sõsg ning sẽn be wiki wã pʋgẽ",
@@ -1369,7 +1418,10 @@
 	"action-apihighlimits": "Sebd-y sogs-n-taas sẽn yaa kãsenga API sogs-no-kãsems pʋsẽ",
 	"action-autoconfirmed": "b pa segd n maan bũmb sẽn yaa to-to n wilg b sẽn na n maan to-to wã ye",
 	"action-bigdelete": "yiis sɛb sẽn tar pĩnd wẽndẽ sɛb wʋsgo",
+<<<<<<< HEAD
 	"action-blockemail": "b gɩdgda ned n pa na n tʋm-a e-mail ye",
+=======
+>>>>>>> origin/1.39.7-test
 	"action-bot": "B na n gesa-b-la wa tʋʋm sẽn yaa sɩlemd",
 	"action-editprotected": "sak-y seb-vẽk nins b sẽn kogend ne \"{{int:protect-level-sysop}}\"",
 	"action-editsemiprotected": "sak-y seb-vẽnd nins b sẽn kogend ne \"{{int:protect-level-autoconfirmed}}\"",
@@ -1385,7 +1437,10 @@
 	"action-editmyuserjs": "sak y meng JavaScript sõssã",
 	"action-editmyuserjsredirect": "sak y meng sõsdb JavaScript faayls sẽn yaa lebgdg",
 	"action-viewsuppressed": "ges-y sẽn pa yãend-b ye",
+<<<<<<< HEAD
 	"action-hideuser": "B sẽn pa tõe n kɩt tɩ ned bãng a yʋʋrã, b sẽn pa tõe tɩ b bãng-a wã",
+=======
+>>>>>>> origin/1.39.7-test
 	"action-ipblock-exempt": "Bõn-kaoodã sẽn pa tar pãng",
 	"action-unblockself": "Yãk-y y meng n yiis y mengã",
 	"action-noratelimit": "b pa segd n paam n tũ ne ligd sẽn yaa bĩng ye",
@@ -1524,8 +1579,11 @@
 	"rcfilters-filter-previousrevision-label": "Pa le kibay sẽn pa kaoos ye",
 	"rcfilters-filter-previousrevision-description": "Y sã n pa toeem bũmb ning sẽn yaa \"yaoolem sõssã\", y na n paama a soaba.",
 	"rcfilters-filter-excluded": "B sẽn pa kẽesd b toog",
+<<<<<<< HEAD
 	"rcfilters-tag-prefix-namespace-inverted": "pa:$1",
 	"rcfilters-tag-prefix-tags-inverted": "<strong>pa ye</strong>#$1",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-exclude-button-off": "Bãng-y tɩ b yãkame",
 	"rcfilters-exclude-button-on": "Sẽn pa yãkd-b ye",
 	"rcfilters-view-tags": "D sẽn gʋlsd bũmb ninsã",

@@ -1,8 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+<<<<<<< HEAD
 			"Brettchenweber",
 			"Tobi 406"
+=======
+			"Tobi 406",
+			"Brettchenweber"
+>>>>>>> origin/1.39.7-test
 		]
 	},
 	"rest-prefix-mismatch": "Der angeforderte Pfad ($1) konnte nicht innerhalb des REST-API-Root-Pfades ($2) gefunden werden",

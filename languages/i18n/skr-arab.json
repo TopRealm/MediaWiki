@@ -722,8 +722,11 @@
 	"prefs-email": "ای میل دے آپشن",
 	"prefs-rendering": "شکل و صورت",
 	"prefs-searchmisc": "عمومی",
+<<<<<<< HEAD
 	"searchprefs": "ڳولݨ ترجیحاں",
 	"searchprefs-noresults": "کوئی نتیجہ کائنی",
+=======
+>>>>>>> origin/1.39.7-test
 	"saveprefs": "بچاؤ",
 	"restoreprefs": "ساریاں فیکٹری ترتیباں بحال کرو۔",
 	"prefs-editing": "لکھائی",
@@ -1773,10 +1776,15 @@
 	"contributions": "ورتݨ آلے دیاں ونگاراں",
 	"tool-link-contributions": "\n{{GENDER:$1|ورتݨ آلے}} دیاں حصے داریاں",
 	"contributions-title": "ورتݨ آلے $1 دی ونگاراں",
+<<<<<<< HEAD
 	"contribute-title": "ورتݨ آلے دیاں ونگاراں",
 	"mycontris": "ونگاراں",
 	"anoncontribs": "ونگاراں",
 	"contribute": "حصہ پاؤ",
+=======
+	"mycontris": "ونگاراں",
+	"anoncontribs": "ونگاراں",
+>>>>>>> origin/1.39.7-test
 	"contribsub2": "{{GENDER:$3|$1}} ($2)",
 	"contributions-subtitle": "{{GENDER:$3|$1}} کیتے",
 	"contributions-userdoesnotexist": "صارف کھاتہ \"$1\" رجسٹرڈ کائنی۔",
@@ -2764,6 +2772,7 @@
 	"skin-action-delete": "مٹاؤ",
 	"skin-action-move": "ٹورو",
 	"newpages-showhide-bots": "$1 بوٹ",
+<<<<<<< HEAD
 	"newpages-showhide-patrolled": "$1 گشت تھیاں تبدیلیاں",
 	"renameuser": "ورتݨ ناں وٹاؤ",
 	"renameuser-linkoncontribs": "{{GENDER:$1|ورتݨ آلا}} ناں وٹاؤ",
@@ -2775,4 +2784,7 @@
 	"log-name-renameuser": "ورتݨ آلیاں دے ناں وٹاوݨ دا لاگ",
 	"action-renameuser": "ورتݨ ناں وٹاؤ",
 	"right-renameuser": "ورتݨ ناں وٹاؤ"
+=======
+	"newpages-showhide-patrolled": "$1 گشت تھیاں تبدیلیاں"
+>>>>>>> origin/1.39.7-test
 }

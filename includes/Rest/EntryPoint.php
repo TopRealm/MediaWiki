@@ -63,8 +63,11 @@ class EntryPoint {
 			$authority
 		);
 
+<<<<<<< HEAD
 		$stats = $services->getStatsdDataFactory();
 
+=======
+>>>>>>> origin/1.39.7-test
 		return ( new Router(
 			self::getRouteFiles( $conf ),
 			ExtensionRegistry::getInstance()->getAttribute( 'RestRoutes' ),

@@ -2980,6 +2980,11 @@
 	"log-name-tag": "Bellik gündeligi",
 	"rightsnone": "(hiç biri)",
 	"rightslogentry-temporary-group": "$1 (wagtlaýyn, $2 çenli)",
+<<<<<<< HEAD
+=======
+	"feedback-back": "Yzyna",
+	"feedback-bugnew": "Barladym. Täze näsazlyk barada habar beriň",
+>>>>>>> origin/1.39.7-test
 	"feedback-cancel": "Goýbolsun et",
 	"feedback-close": "Boldy",
 	"feedback-external-bug-report-button": "Tehniki ýumuş tabşyryň",

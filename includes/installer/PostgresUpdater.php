@@ -444,9 +444,12 @@ class PostgresUpdater extends DatabaseUpdater {
 			[ 'changeNullableField', 'templatelinks', 'tl_target_id', 'NOT NULL', true ],
 			[ 'changePrimaryKey', 'templatelinks', [ 'tl_from', 'tl_target_id' ] ],
 			[ 'dropField', 'templatelinks', 'tl_title', 'patch-templatelinks-drop-tl_title.sql' ],
+<<<<<<< HEAD
 
 			// 1.40
 			[ 'addField', 'externallinks', 'el_to_path', 'patch-externallinks-el_to_path.sql' ],
+=======
+>>>>>>> origin/1.39.7-test
 		];
 	}
 

@@ -935,6 +935,7 @@ abstract class ParsoidHandler extends Handler {
 					$response->setHeader( 'ETag', $eTag );
 				}
 			}
+<<<<<<< HEAD
 		}
 
 		// XXX: For pagebundle requests, this can be somewhat inflated
@@ -952,6 +953,22 @@ abstract class ParsoidHandler extends Handler {
 						'time' => number_format( $parseTime / 1000, 2 ),
 						'title' => $pageConfig->getTitle(),
 					] );
+=======
+			if ( $needsPageBundle ) {
+				$response = $this->getResponseFactory()->createJson( $out->responseData() );
+				ParsoidFormatHelper::setContentType( $response, ParsoidFormatHelper::FORMAT_PAGEBUNDLE,
+					$out->version );
+			} else {
+				$response = $this->getResponseFactory()->create();
+				ParsoidFormatHelper::setContentType( $response, ParsoidFormatHelper::FORMAT_HTML,
+					$attribs['envOptions']['outputContentVersion'] );
+				$response->getBody()->write( $out );
+				// @phan-suppress-next-next-line PhanTypeArraySuspiciousNullable $headers can't be null after the
+				// method call, but the docblock of wikitext2html doesn't say that.
+				$response->setHeader( 'Content-Language', $headers['content-language'] );
+				// @phan-suppress-next-line PhanTypeArraySuspiciousNullable Same.
+				$response->addHeader( 'Vary', $headers['vary'] );
+>>>>>>> origin/1.39.7-test
 			}
 
 			if ( $parseTime > 10 && $outSize > 100 ) {

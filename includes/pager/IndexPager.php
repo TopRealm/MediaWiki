@@ -624,6 +624,10 @@ abstract class IndexPager extends ContextSource implements Pager {
 	 * (see getNavigationBuilder()) to make the links. This is deprecated and will be removed.
 	 * You should override getNavigationBuilder() instead to return a customized builder.
 	 *
+<<<<<<< HEAD
+=======
+	 * @stable to override (deprecated since 1.39)
+>>>>>>> origin/1.39.7-test
 	 * @stable to call (since 1.39)
 	 *
 	 * @param string $text Text displayed on the link
@@ -825,7 +829,13 @@ abstract class IndexPager extends ContextSource implements Pager {
 
 		// Use overridden makeLink() for the navigation, if it was overridden. Otherwise use the
 		// builder's implementation.
+<<<<<<< HEAD
 		if ( MWDebug::detectDeprecatedOverride( $this, __CLASS__, 'makeLink', '1.39' ) ) {
+=======
+		$reflectionMethod = new ReflectionMethod( $this, 'makeLink' );
+		$declaringClass = $reflectionMethod->getDeclaringClass()->getName();
+		if ( $declaringClass !== __CLASS__ ) {
+>>>>>>> origin/1.39.7-test
 			// Overriding makeLink() is deprecated since 1.39
 			$navBuilder->setMakeLinkCallback( function ( ...$args ) {
 				// @phan-suppress-next-line PhanParamTooFewUnpack

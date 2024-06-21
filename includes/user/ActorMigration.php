@@ -4,8 +4,14 @@ namespace MediaWiki\User;
 
 use InvalidArgumentException;
 use MediaWiki\MediaWikiServices;
+<<<<<<< HEAD:includes/user/ActorMigration.php
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IReadableDatabase;
+=======
+use MediaWiki\User\ActorStoreFactory;
+use MediaWiki\User\UserIdentity;
+use Wikimedia\Rdbms\IDatabase;
+>>>>>>> origin/1.39.7-test:includes/ActorMigration.php
 
 /**
  * This is not intended to be a long-term part of MediaWiki; it will be
@@ -121,7 +127,11 @@ class ActorMigration extends ActorMigrationBase {
 	 *   Use `MediaWikiServices::getInstance()->getActorNormalization()
 	 *   ->findActorId( $user, $db )` to get the actor ID for a given user.
 	 */
+<<<<<<< HEAD:includes/user/ActorMigration.php
 	public function getWhere( IReadableDatabase $db, $key, $users, $useId = true ) {
+=======
+	public function getWhere( IDatabase $db, $key, $users, $useId = true ) {
+>>>>>>> origin/1.39.7-test:includes/ActorMigration.php
 		return parent::getWhere( $db, $key, $users, $useId );
 	}
 

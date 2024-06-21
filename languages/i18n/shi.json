@@ -13,6 +13,11 @@
 			"Mhab Zdan1",
 			"Zanatos",
 			"아라",
+<<<<<<< HEAD
+=======
+			"Mhab Zdan1",
+			"Brahim-essaidi",
+>>>>>>> origin/1.39.7-test
 			"AguzulH"
 		]
 	},
@@ -625,6 +630,10 @@
 	"recentchanges-label-bot": "Asnfl ad iskrt yan rrubut",
 	"recentchanges-label-unpatrolled": "Ambddl ad ura jju ittmẓra",
 	"recentchanges-label-plusminus": "Tbadl tiddi n tasna s wuṭṭun ad n id byte",
+<<<<<<< HEAD
+=======
+	"recentchanges-legend-heading": "<strong>Legend:</strong>",
+>>>>>>> origin/1.39.7-test
 	"recentchanges-legend-newpage": "{{int:recentchanges-label-newpage}} (ẓr ula [[Special:NewPages|talgamt n tasniwin timaynutin]])",
 	"rcfilters-legend-heading": "<strong>Tizgzilin :</strong>",
 	"rcfilters-days-title": "Ussan ggranin",

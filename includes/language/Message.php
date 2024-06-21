@@ -26,9 +26,12 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\UserGroupMembershipParam;
 use MediaWiki\Page\PageReference;
 use MediaWiki\Page\PageReferenceValue;
+<<<<<<< HEAD
 use MediaWiki\StubObject\StubUserLang;
 use MediaWiki\Title\Title;
 use Wikimedia\Assert\Assert;
+=======
+>>>>>>> origin/1.39.7-test
 
 /**
  * The Message class deals with fetching and processing of interface message

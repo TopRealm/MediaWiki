@@ -23,8 +23,30 @@ sftp-config.json
 ## Visual Studio Code
 *.vscode/
 
+# Ysarxiv-Settings
+ysarxiv-settings
+oauthkeys
+/.well-known
+/matomo-tracking-code.js
+
+# For Test Environment Only
+LocalSettings.php
+
+# sitemaps
+/sitemap
+
+# site auth
+/baidu_verify_*
+/google*.html
+/BingSiteAuth.xml
+/sogousiteverification.txt
+
+# sitemaps
+/sitemap
+
 # MediaWiki install & usage
 /cache
+/logs
 /docs/coverage
 /docs/js
 /docs/latex
@@ -47,8 +69,9 @@ sftp-config.json
 /maintenance/.mweval_history
 /maintenance/.mwsql_history
 /maintenance/dev/data
-/LocalSettings.php
 /includes/PlatformSettings.php
+## Extension:Avatar
+/images/avatars
 
 # Building & testing
 npm-debug.log

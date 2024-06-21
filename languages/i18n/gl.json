@@ -35,6 +35,10 @@
 			"Xosecalvo",
 			"Xosé",
 			"לערי ריינהארט",
+<<<<<<< HEAD
+=======
+			"S4b1nuz E.656",
+>>>>>>> origin/1.39.7-test
 			"Amire80",
 			"No se",
 			"O Breixo"
@@ -663,12 +667,21 @@
 	"summary-preview": "Vista previa do resumo de edición:",
 	"previewerrortext": "Produciuse un erro ao tentar previsualizar os cambios.",
 	"blockedtitle": "Este usuario está bloqueado",
+<<<<<<< HEAD
 	"blockedtext-partial": "<strong>O teu nome de usuario ou o teu enderezo IP están bloqueados e non podes facer iso que querías. Con todo, aínda podes facer outras cousas neste sitio, como editar certas páxinas.</strong>\n\nPodes ver os detalles completos do bloqueo nas [[Special:MyContributions|contribucións da túa conta]].\n\n{{int:blockedtext-made-by|$1}}\n\n{{int:blockedtext-reason-comment|$2}}.\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n*{{int:blockedtext-block-id|$5}}",
 	"blockedtext": "<strong>Tes a conta ou o enderezo IP bloqueados.</strong>\n\n{{int:blockedtext-made-by|$1}}\n{{int:blockedtext-reason-comment|$2}}.\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n{{int:blockedtext-contact-blocker-admin|$1}}\nPodes empregar a utilidade \"{{int:emailuser}}\" se dispós dun enderezo electrónico válido rexistrado nas [[Special:Preferences|preferencias]] e non che lle bloquearon o uso.\n{{int:blockedtext-block-ip|$3}}, e o número de identificación do bloqueo é #$5.\n{{int:blockedtext-include-details-queries}}",
 	"autoblockedtext": "O teu enderezo IP foi bloqueado automaticamente porque o empregou outra persoa que foi bloqueada por $1.\nO motivo achegado é o seguinte:\n\n:<em>$2</em>.\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n{{int:blockedtext-contact-blocker-admin|$1}}\n\nPodes usar a utilidade \"{{int:emailuser}}\" se dispós dun enderezo electrónico válido rexistrado nas túas [[Special:Preferences|preferencias]] e non che lle bloquearon o uso.\n\n{{int:blockedtext-block-ip|$3}}, e o identificador de bloqueo é #$5.\n{{int:blockedtext-include-details-queries}}",
 	"systemblockedtext": "Tes o nome de usuario ou o enderezo IP bloqueados. Foron bloqueados automaticamente por parte do sistema MediaWiki.\nO motivo achegado é o seguinte:\n\n:<em>$2</em>.\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n{{int:blockedtext-block-ip|$3}}.\n{{int:blockedtext-include-details-queries}}",
 	"blockednoreason": "non se deu ningunha razón",
 	"blockedtext-composite": "<strong>Tes a conta de usuario ou o enderezo IP bloqueados.</strong>\n\nO motivo achegado é o seguinte:\n\n:<em>$2</em>.\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-longest-block|$6}}\n\n* $5\n\n{{int:blockedtext-block-ip|$3}}.\n{{int:blockedtext-include-details-queries}}",
+=======
+	"blockedtext-partial": "<strong>O seu nome de usuario ou enderezo IP está bloqueado para facer isto. Aínda pode facer outras cousas neste sitio, como editar certas páxinas.</strong> Pode ver os detalles completos do bloqueo nas [[Special:MyContributions|contribucións da súa conta]].\n\nO bloqueo realizouno $1.\n\nO motivo indicado é <em>$2</em>.\n\n* Comezo do bloqueo: $8\n* Expiración do bloqueo: $6\n* Usuario bloqueado: $7\n* ID de bloqueo #$5",
+	"blockedtext": "<strong>Bloqueouse a súa conta ou enderezo IP.</strong>\n\n$1 estableceu o bloqueo.\nO motivo que achegou foi <em>$2</em>.\n\n* Inicio do bloqueo: $8\n* Caducidade do bloqueo: $6\n* Pretendeuse bloquear: $7\n\nPode contactar con $1 ou con calquera outro [[{{MediaWiki:Grouppage-sysop}}|membro da administración]] para discutir este bloqueo.\nPode empregar a característica \"{{int:emailuser}}\" se dispón dun enderezo electrónico válido rexistrado nas súas [[Special:Preferences|preferencias]] e non lle bloquearon o uso da mesma.\nO seu enderezo IP actual é $3 e o identificador do bloqueo é #$5.\nPor favor, inclúa todos estes datos nas consultas que faga.",
+	"autoblockedtext": "O seu enderezo IP foi bloqueado automaticamente porque foi empregado por outro usuario que foi bloqueado por $1.\nA razón que deu foi a seguinte:\n\n:<em>$2</em>\n\n* Inicio do bloqueo: $8\n* Caducidade do bloqueo: $6\n* Pretendeuse bloquear: $7\n\nPode contactar con $1 ou con calquera outro [[{{MediaWiki:Grouppage-sysop}}|administrador]] para discutir este bloqueo.\nPode empregar a característica \"{{int:emailuser}}\" se indicou un enderezo electrónico válido nas súas [[Special:Preferences|preferencias de usuario]] e se non foi bloqueado para o seu uso.\n\nO seu enderezo IP actual é $3 e o ID do bloqueo é #$5.\nPor favor, inclúa eses datos nas consultas que faga.",
+	"systemblockedtext": "O seu nome de conta ou enderezo IP foi bloqueado automaticamente polo sistema MediaWiki.\nO motivo do bloqueo é:\n\n:<em>$2</em>\n\n* Comezo do bloqueo: $8\n* Expiración do bloqueo: $6\n* Destinatario do bloqueo: $7\n\nO seu enderezo IP actual é $3.\nPor favor, inclúa todos estes detalles en calquera consulta que realice.",
+	"blockednoreason": "non se deu ningunha razón",
+	"blockedtext-composite": "<strong>O seu nome de conta ou enderezo IP foron bloqueados.</strong>\n\nO motivo dado é:\n\n:<em>$2</em>.\n\n* Comezo do bloqueo: $8\n* Remate do bloqueo máis longo: $6\n\n* $5\n\nO seu enderezo IP actual é $3.\nPor favor, inclúa todos os detalles de arriba en calquera contacto sobre este asunto.",
+>>>>>>> origin/1.39.7-test
 	"blockedtext-composite-ids": "Identificadores de bloqueo relevantes: $1 (o teu enderezo IP pode que ademais figure nalgunha lista negra)",
 	"blockedtext-composite-no-ids": "O teu enderezo IP aparece en múltiples listas negras",
 	"blockedtext-composite-reason": "A túa conta ou o teu enderezo IP foron bloqueados varias veces",
@@ -689,8 +702,13 @@
 	"missing-revision-permission": "A revisión #$1 pertence a unha páxina que xa foiborrada. Podes [{{fullurl:{{#Special:Undelete}}|target=$3&timestamp=$2&diff=prev}} consultala]; os detalles podes atopalos no[{{fullurl:{{#Special:Log}}/delete|page=$3}} rexistro de borrados].",
 	"missing-revision": "A revisión nº$1 da páxina chamada \"{{FULLPAGENAME}}\" non existe.\n\nA miúdo, isto pasa cando clicas nunha ligazón de historial obsoleta cara a unha páxina que foi borrada.\nNo [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} rexistro de borrados] podes acceder a máis detalles.",
 	"missing-revision-content": "Non se pode amosar o contido da revisión #$1 da páxina \"$2\".",
+<<<<<<< HEAD
 	"userpage-userdoesnotexist": "A conta de usuario \"$1\" non está rexistrada neste wiki.\nComproba se desexas crear/editar esta páxina.",
 	"userpage-userdoesnotexist-view": "A conta de usuario \"$1\" non está rexistrada neste wiki.",
+=======
+	"userpage-userdoesnotexist": "A conta de usuario \"$1\" non está rexistrada.\nComprobe se desexa crear/editar esta páxina.",
+	"userpage-userdoesnotexist-view": "A conta de usuario \"$1\" non está rexistrada.",
+>>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "{{GENDER:$1|Este usuario|Esta usuaria|Esta conta}} está bloquead{{GENDER:$1|o|a|a}}.\nVelaquí a última entrada do rexistro de bloqueos, por se queres consultala:",
 	"clearyourcache": "<strong>Nota:</strong> Despois de publicar, quizais teñas que arrodear a caché do navegador para ver os cambios.\n* <strong>Firefox/Safari:</strong> Preme <em>Maiúsculas</em> á vez que en <em>Recargar</em>, ou preme en <em>Ctrl-F5</em> ou <em>Ctrl-R</em> (<em>⌘-R</em> nos Mac).\n* <strong>Google Chrome:</strong> Preme en <em>Ctrl-Maiús-R</em> (<em>⌘-Maiús-R</em> nos Mac).\n* <strong>Internet Explorer / Edge:</strong> Preme <em>Ctrl</em> mentres clicas en <em>Refrescar</em>, ou preme <em>Ctrl-F5</em>\n* <strong>Opera:</strong> Preme <em>Ctrl-F5</em>.",
 	"usercssyoucanpreview": "<strong>Consello:</strong> Usa o botón «{{int:showpreview}}» para probares o novo CSS antes de publicalo.",
@@ -964,6 +982,10 @@
 	"mergehistory-reason": "Motivo:",
 	"mergehistory-source-deleted-reason": "A páxina de orixe elimínase automaticamente despois da fusión do historial porque o seu modelo de contido non admite redireccións e non hai revisións restantes",
 	"mergehistory-source-deleted": "Ademais, [[:$1]] eliminouse porque xa non ten ningunha revisión visible e o seu modelo de contido non admite deixar redireccións.",
+<<<<<<< HEAD
+=======
+	"mergehistory-revisionrow": "$1 ($2) $3 . . $4 $5 $6",
+>>>>>>> origin/1.39.7-test
 	"mergelog": "Rexistro de fusións",
 	"revertmerge": "Desfacer a fusión",
 	"mergelogpagetext": "A continuación hai unha lista coas fusións máis recentes do historial dunha páxina co doutra.",
@@ -1075,8 +1097,11 @@
 	"prefs-email": "Opcións do correo electrónico",
 	"prefs-rendering": "Aparencia",
 	"prefs-searchmisc": "Xeral",
+<<<<<<< HEAD
 	"searchprefs": "Procurar nas preferencias",
 	"searchprefs-noresults": "Non hai resultados",
+=======
+>>>>>>> origin/1.39.7-test
 	"saveprefs": "Gardar",
 	"restoreprefs": "Restaurar todas as preferencias por defecto",
 	"prefs-editing": "Edición",
@@ -1365,7 +1390,11 @@
 	"grant-editsiteconfig": "Editar o CSS/JS de usuario e global do sitio",
 	"grant-editpage": "Editar páxinas existentes",
 	"grant-editprotected": "Editar páxinas protexidas",
+<<<<<<< HEAD
 	"grant-highvolume": "Acceso de gran volume (bot)",
+=======
+	"grant-highvolume": "Edicións de gran volume",
+>>>>>>> origin/1.39.7-test
 	"grant-import": "Importar revisións",
 	"grant-mergehistory": "Fusionar os historiais de páxinas",
 	"grant-oversight": "Agochar usuarios e eliminar revisións",
@@ -1405,10 +1434,17 @@
 	"action-writeapi": "usar a escritura API",
 	"action-delete": "borrar esta páxina",
 	"action-delete-redirect": "sobrescribir as redireccións de revisión única",
+<<<<<<< HEAD
 	"action-deleterevision": "borrar ou restaurar revisións específicas de páxinas",
 	"action-deletelogentry": "borrar ou restaurar entradas específicas do rexistro",
 	"action-deletedhistory": "ver os metadatos de entradas borradas do historial",
 	"action-deletedtext": "ver o texto eliminado ou os cambios entre revisións borradas",
+=======
+	"action-deleterevision": "borrar revisións",
+	"action-deletelogentry": "borrar entradas do rexistro",
+	"action-deletedhistory": "ver o historial borrado dunha páxina",
+	"action-deletedtext": "ver o texto dunha revisión borrada",
+>>>>>>> origin/1.39.7-test
 	"action-browsearchive": "procurar páxinas borradas",
 	"action-undelete": "restaurar páxinas",
 	"action-suppressrevision": "ver, agochar ou restaurar revisións específicas de páxinas de calquera conta",
@@ -1590,8 +1626,11 @@
 	"rcfilters-filter-categorization-description": "Rexistros de páxinas engadidas ou borradas de categorías.",
 	"rcfilters-filter-logactions-label": "Accións rexistradas",
 	"rcfilters-filter-logactions-description": "Accións administrativas, creacións de conta, borrados de páxinas, subas de ficheiros...",
+<<<<<<< HEAD
 	"rcfilters-filter-newuserlogactions-label": "Novos usuarios",
 	"rcfilters-filter-newuserlogactions-description": "Entradas de rexistro para a creación de contas. Deben seleccionarse as accións rexistradas.",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-hideminor-conflicts-typeofchange-global": "O filtro \"Edicións menores\" está en conflito cun ou máis filtros de \"Tipo de cambio\", porque certos tipos de modificacións non poden designarse como \"menores\". Os filtros en conflito están marcados na zona \"Filtros activos\", arriba.",
 	"rcfilters-hideminor-conflicts-typeofchange": "Certos tipos de modificacións non poden designarse como \"menores\", polo que este filtro entra en conflito cos seguintes filtros de \"Tipo de cambio\": $1",
 	"rcfilters-typeofchange-conflicts-hideminor": "Este filtro de \"Tipo de cambio\" entra en conflito co filtro \"Edicións menores\". Certos tipos de modificacións non poden designarse como \"menores\".",
@@ -2535,6 +2574,10 @@
 	"undeletehistorynoadmin": "Esta páxina foi borrada.\nO motivo do borrado consta no resumo que aparece a continuación, xunto cos detalles dos usuarios que editaron esta páxina antes da súa eliminación.\nO texto destas revisións eliminadas só está á disposición dos administradores.",
 	"undelete-revision": "Revisión eliminada de \"$1\" (o $4 ás $5) feita por $3:",
 	"undeleterevision-missing": "Revisión non válida ou inexistente.\nPode que a ligazón conteña un erro ou que a revisión se restaurase ou eliminase do arquivo.",
+<<<<<<< HEAD
+=======
+	"undeleterevision-duplicate-revid": "{{PLURAL:$1|Unha revisión non se puido|$1 revisións non se puideron}} restaurar porque {{PLURAL:$1|o seu|os seus}} <code>rev_id</code> xa {{PLURAL:$1|está|están}} en uso.",
+>>>>>>> origin/1.39.7-test
 	"undelete-nodiff": "Non se atopou ningunha revisión anterior.",
 	"undeletebtn": "Restaurar",
 	"undeletelink": "ver/restaurar",
@@ -2612,7 +2655,10 @@
 	"whatlinkshere-page": "Páxina:",
 	"linkshere": "As seguintes páxinas ligan con <strong>$2</strong>:",
 	"nolinkshere": "Ningunha páxina liga con \"<strong>$2</strong>\".",
+<<<<<<< HEAD
 	"nolinkshere-filter": "Ningunha páxina liga con <strong>$2</strong> coa configuración de busca actual.",
+=======
+>>>>>>> origin/1.39.7-test
 	"nolinkshere-ns": "Ningunha páxina liga con \"<strong>$2</strong>\" no espazo de nomes elixido.",
 	"isredirect": "páxina redirixida",
 	"istemplate": "inclusión",
@@ -3258,7 +3304,10 @@
 	"confirm-watch-button": "Aceptar",
 	"confirm-watch-top": "Queres engadir esta páxina á lista de vixilancia?",
 	"confirm-watch-label": "Período de tempo na lista de vixilancia:",
+<<<<<<< HEAD
 	"watchlist-expiry-options": "Para sempre:infinite,1 semana:1 week,1 mes:1 month,3 meses:3 months,6 meses:6 months,1 ano:1 year",
+=======
+>>>>>>> origin/1.39.7-test
 	"watchlist-expires-in-aria-label": "Elemento da lista de vixilancia que caduca",
 	"confirm-watch-button-expiry": "Vixiar",
 	"confirm-unwatch-button": "Aceptar",
@@ -3738,10 +3787,15 @@
 	"feedback-useragent": "Axente de usuario:",
 	"searchsuggest-search": "Procurar en {{SITENAME}}",
 	"searchsuggest-containing": "Procurar páxinas que conteñan",
+<<<<<<< HEAD
 	"search-match-redirect-label": "Ir á coincidencia exacta ao buscar",
 	"search-match-redirect-help": "Seleccione isto para ir a unha páxina cando o título desa páxina coincide co que buscou",
 	"search-thumbnail-extra-namespaces-label": "Amosar as miniaturas en Especial:Procurar na versión de escritorio",
 	"search-thumbnail-extra-namespaces-message": "Amosa as miniaturas para os resultados {{PLURAL:$2|do espazo de nomes|dos espazos de nomes}} $1 na páxina {{#special:search}}",
+=======
+	"search-match-redirect-label": "Redirixe a coincidencias exactas durante a busca",
+	"search-match-redirect-help": "Seleccione para ser redirixido a unha páxina cando o título desa páxina coincida co que buscou",
+>>>>>>> origin/1.39.7-test
 	"searchlimit-label": "Número de resultados de busca que se amosarán en cada páxina:",
 	"searchlimit-help": "Número máximo: $1",
 	"api-clientside-error-noconnect": "Non se puido conectar co servidor. Asegúrese de que a súa conexión a Internet esté activa e volva a intentalo de novo.",
@@ -4098,6 +4152,7 @@
 	"newpages-showhide-bots": "$1 os bots",
 	"newpages-showhide-patrolled": "$1 as edicións revisadas",
 	"newpages-showhide-redirect": "$1 as redireccións",
+<<<<<<< HEAD
 	"newpages-showhide-registered": "$1 os usuarios rexistrados",
 	"blockedtext-made-by": "O bloqueo realizouno $1.",
 	"blockedtext-reason-comment": "O motivo achegado é <em>$1</em>",
@@ -4139,4 +4194,7 @@
 	"action-renameuser": "renomear usuarios",
 	"right-renameuser": "Renomear usuarios",
 	"renameuser-renamed-notice": "Este usuario foi renomeado.\nVelaquí está o rexistro de cambios de nome de usuario por se quere consultalo."
+=======
+	"newpages-showhide-registered": "$1 os usuarios rexistrados"
+>>>>>>> origin/1.39.7-test
 }

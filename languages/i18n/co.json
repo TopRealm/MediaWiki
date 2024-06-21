@@ -261,7 +261,11 @@
 	"showpreview": "Previsualizà",
 	"showdiff": "Mustrà i cambiamenti",
 	"anoneditwarning": "<strong>Attenti:</strong> Ùn sì micca cunnessu/a. U to indirizzu IP sarà visibile publicamente sì faci qualsiasi mudificazione. Sè <strong>[$1 faci a cunnessione]</strong> o <strong>[$2 un registramentu]</strong>, e to mudifiche saranu salvate à nome d'utilizatore toiu, accantu ad altri benefizii.",
+<<<<<<< HEAD
 	"anonpreviewwarning": "<em>Ùn site micca entratu. U vostru indirizzu IP serà salvatu in a cronolugia di a pagina.</em>",
+=======
+	"anonpreviewwarning": "<em>Ùn sì micca entratu. U to indirizzu IP serà salvatu in a cronolugia di a pagina.</em>",
+>>>>>>> origin/1.39.7-test
 	"loginreqlink": "cunnessione",
 	"accmailtitle": "Parulla secreta inviata.",
 	"accmailtext": "A parulla secreta per \"$1\" hè stata inviata à l'indirizzu $2.",

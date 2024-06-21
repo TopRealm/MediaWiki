@@ -85,6 +85,12 @@ class UpdateMediaWiki extends Maintenance {
 
 	public function setup() {
 		global $wgMessagesDirs;
+<<<<<<< HEAD
+=======
+
+		parent::setup();
+
+>>>>>>> origin/1.39.7-test
 		// T206765: We need to load the installer i18n files as some of errors come installer/updater code
 		// T310378: We have to ensure we do this before execute()
 		$wgMessagesDirs['MediawikiInstaller'] = dirname( __DIR__ ) . '/includes/installer/i18n';

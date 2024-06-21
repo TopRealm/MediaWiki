@@ -26,6 +26,10 @@
 			"bar.wikipedia.org administrators",
 			"✓",
 			"아라",
+<<<<<<< HEAD
+=======
+			"Nikki",
+>>>>>>> origin/1.39.7-test
 			"Amire80"
 		]
 	},
@@ -193,8 +197,11 @@
 	"skin-action-unprotect": "freigeem",
 	"unprotect": "freigeem",
 	"newpage": "Neiche Seiten",
+<<<<<<< HEAD
 	"newpage-desc": "Fång a neiche Seiten zua'ram gwinschten Teema åh.",
 	"view-missing-pages": "Seiten dé fön åhzaang",
+=======
+>>>>>>> origin/1.39.7-test
 	"talkpagelinktext": "Dischkrian",
 	"specialpage": "Spezialseiten",
 	"personaltools": "Meih Werkzeig",

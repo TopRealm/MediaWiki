@@ -3227,7 +3227,7 @@
 	"semicolon-separator": "&#32;",
 	"comma-separator": ",&#32;",
 	"colon-separator": ":&#32;",
-	"pipe-separator": "&#32;|&#32;",
+	"pipe-separator": " &#32;|&#32;|",
 	"word-separator": "&#32;",
 	"ellipsis": "...",
 	"percent": "$1%",
@@ -3443,7 +3443,11 @@
 	"specialpages-group-pagetools": "Hacetê pelan",
 	"specialpages-group-wiki": "Melumat û haceti",
 	"specialpages-group-redirects": "Pelê serşıkıtışiyê xısusiyi",
+<<<<<<< HEAD
 	"specialpages-group-spam": "Hacetê posteyê nêwaşteyi",
+=======
+	"specialpages-group-spam": "haletê spami",
+>>>>>>> origin/1.39.7-test
 	"specialpages-group-developer": "Xacetanê raverberdoğî",
 	"blankpage": "Pela venge",
 	"intentionallyblankpage": "Ena pel bi zanayişî weng mendo.",
@@ -3835,8 +3839,11 @@
 	"json-error-utf8": "Xırab biçımbıyaye karakterê UTF-8 vêniya, texminen xırab kod biyo",
 	"json-error-utf16": "Xırab biçımbıyaye karakterê UTF-8 vêniya, texminen xırab kod biyo",
 	"headline-anchor-title": "Enê leteyi rê gıre",
+<<<<<<< HEAD
 	"special-tab-contribute-short": "İştırak",
 	"special-tab-contributions-short": "İştırakan bıvêne",
+=======
+>>>>>>> origin/1.39.7-test
 	"special-characters-group-latin": "Latinki",
 	"special-characters-group-latinextended": "Latinkiyo hirabiyaye",
 	"special-characters-group-ipa": "IPA",

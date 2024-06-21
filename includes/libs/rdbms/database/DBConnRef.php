@@ -318,11 +318,14 @@ class DBConnRef implements IMaintainableDatabase {
 	public function newSelectQueryBuilder(): SelectQueryBuilder {
 		// Use $this not $this->conn so that the domain is preserved (T326377)
 		return new SelectQueryBuilder( $this );
+<<<<<<< HEAD
 	}
 
 	public function newUpdateQueryBuilder(): UpdateQueryBuilder {
 		// Use $this not $this->conn so that the domain is preserved (T326377)
 		return new UpdateQueryBuilder( $this );
+=======
+>>>>>>> origin/1.39.7-test
 	}
 
 	public function selectField(

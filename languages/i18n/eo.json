@@ -2547,6 +2547,10 @@
 	"undeletehistorynoadmin": "Ĉi tiu paĝo estis forigita.\nLa kaŭzo de la forigo estas montrata en la resumo sube, kune kun detaloj pri la uzantoj, kiuj redaktis ĉi tiun paĝon antaŭ la forigo.\nLa teksto de ĉi tiuj forigitaj versioj disponeblas nur por administrantoj.",
 	"undelete-revision": "Forigita versio de $1 (ekde $4, $5) fare de $3:",
 	"undeleterevision-missing": "Nevalida aŭ mankanta revizio.\nVi eble havas malbonan ligilon, aŭ la revizio eble estis neforigita aŭ forigita el la arkivo.",
+<<<<<<< HEAD
+=======
+	"undeleterevision-duplicate-revid": "{{PLURAL:$1|Unu versio|$1 versioj}} estas nerestarigeblaj, ĉar {{PLURAL:$1|ĝ|il}}ia <code>rev_id</code> jam estas uzata.",
+>>>>>>> origin/1.39.7-test
 	"undelete-nodiff": "Neniu antaŭa versio troviĝis.",
 	"undeletebtn": "Malforigi",
 	"undeletelink": "vidi/malforigi",
@@ -2584,7 +2588,10 @@
 	"contributions": "Kontribuoj de uzanto",
 	"tool-link-contributions": "Kontribuoj de {{GENDER:$1|uzanto|uzantino}}",
 	"contributions-title": "Kontribuoj de la {{GENDER:$1|uzanto|uzantino|uzanto}} $1",
+<<<<<<< HEAD
 	"contribute-title": "Kontribuoj de uzanto",
+=======
+>>>>>>> origin/1.39.7-test
 	"mycontris": "Kontribuoj",
 	"anoncontribs": "Kontribuoj",
 	"contribute": "Kontribuu",
@@ -3760,10 +3767,15 @@
 	"feedback-useragent": "Klienta aplikaĵo:",
 	"searchsuggest-search": "Serĉi tra {{SITENAME}}",
 	"searchsuggest-containing": "Serĉi paĝojn kiuj enhavas",
+<<<<<<< HEAD
 	"search-match-redirect-label": "Iru al preciza kongruo dum serĉado",
 	"search-match-redirect-help": "Elektu ĉi tion por iri al paĝo kiam tiu paĝotitolo kongruas kun tio, kion vi serĉis",
 	"search-thumbnail-extra-namespaces-label": "Montru bildetojn en Special:Search on Desktop",
 	"search-thumbnail-extra-namespaces-message": "Montras bildetojn por $1 {{PLURAL:$2| nomspaco|nomspacoj}}-rezultoj sur la paĝo {{#special:search}}",
+=======
+	"search-match-redirect-label": "Alidirekti al precizaj konguraĵoj dum serĉado",
+	"search-match-redirect-help": "Elektu por esti alidirektita al paĝo kiam ĝia paĝtitolo kongruas kun tio, kion vi serĉis",
+>>>>>>> origin/1.39.7-test
 	"searchlimit-label": "Nombro de serĉ-rezultoj por montri sur ĉiu paĝo:",
 	"searchlimit-help": "Maksimuma nombro: $1",
 	"api-clientside-error-noconnect": "Ne eblas konektiĝi al la servilo. Certiĝu, ke vi havas funkciantan interretan konekton kaj reprovu.",
@@ -4120,6 +4132,7 @@
 	"newpages-showhide-bots": "$1 robotoj",
 	"newpages-showhide-patrolled": "$1 pripatrolitajn redaktojn",
 	"newpages-showhide-redirect": "$1 alidirektilojn",
+<<<<<<< HEAD
 	"newpages-showhide-registered": "$1 registritajn uzantojn",
 	"blockedtext-made-by": "La baron metis $1.",
 	"blockedtext-reason-comment": "La donita kialo estas <em>$1</em>",
@@ -4160,4 +4173,7 @@
 	"action-renameuser": "Alinomigi uzantojn",
 	"right-renameuser": "Alinomi uzantojn",
 	"renameuser-renamed-notice": "Ĉi tiu uzanto estis renomigita.\nJen la protokolo pri renomigado por via referenco."
+=======
+	"newpages-showhide-registered": "$1 registritajn uzantojn"
+>>>>>>> origin/1.39.7-test
 }

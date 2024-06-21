@@ -44,6 +44,10 @@
 			"محمد افضل",
 			"පසිඳු කාවින්ද",
 			"아라",
+<<<<<<< HEAD
+=======
+			"TheAafi",
+>>>>>>> origin/1.39.7-test
 			"Kaleem Bhatti",
 			"Amire80"
 		]
@@ -1026,8 +1030,11 @@
 	"prefs-email": "برقی خط کے اختیارات",
 	"prefs-rendering": "ظاہریت",
 	"prefs-searchmisc": "عمومی",
+<<<<<<< HEAD
 	"searchprefs": "ترجیحات میں تلاش کریں",
 	"searchprefs-noresults": "کوئی نتیجہ برآمد نہیں ہوا",
+=======
+>>>>>>> origin/1.39.7-test
 	"saveprefs": "محفوظ",
 	"restoreprefs": "تمام ابتدائی ترتیبات کو بحال کریں",
 	"prefs-editing": "ترمیم کاری",
@@ -1057,7 +1064,10 @@
 	"timezoneuseserverdefault": "ویکی کا طے شدہ استعمال کریں ($1)",
 	"timezoneuseoffset": "دیگر (فرق درج کریں)",
 	"timezone-useoffset-placeholder": "قدروں کی مثال: «-07:00» یا «01:00»",
+<<<<<<< HEAD
 	"timezone-invalid": "منقطۂ وقت یا پیمائشِ وقت درست نہیں۔",
+=======
+>>>>>>> origin/1.39.7-test
 	"servertime": "سرور کا وقت:",
 	"guesstimezone": "براؤزر کا وقت استعمال کریں",
 	"timezoneregion-africa": "افریقہ",
@@ -2597,10 +2607,13 @@
 	"movesubpagetext": "ذیل میں اس صفحہ {{PLURAL:$1|کا|کے}} $1 {{PLURAL:$1|ذیلی صفحہ موجود ہے|ذیلی صفحات موجود ہیں}}۔",
 	"movenosubpage": "اس صفحہ کے ذیلی صفحات موجود نہیں ہیں۔",
 	"movereason": "وجہ:",
+<<<<<<< HEAD
 	"moveotherreason": "دیگر / اضافی وجوہات:",
 	"movereasonotherlist": "دوسری وجہ",
 	"movepage-reason-dropdown": "* منتقلی کی عمومی وجوہات\n** غلط عنوان",
 	"movepage-edit-reasonlist": "وجوہات منتقلی میں ترمیم کریں",
+=======
+>>>>>>> origin/1.39.7-test
 	"revertmove": "رد ترمیم",
 	"delete_and_move_text": "منتقلی کے سلسلے میں منتخب شدہ مضمون «[[:$1]]» پہلے سے موجود ہے۔ کیا آپ اسے حذف کرکے منتقلی کے لیے راستہ بنانا چاہتے ہیں؟",
 	"delete_and_move_confirm": "ہاں، صفحہ حذف کر دیا جائے",
@@ -3427,8 +3440,11 @@
 	"feedback-useragent": "یوزر ایجنٹ:",
 	"searchsuggest-search": "{{SITENAME}} میں تلاش کریں",
 	"searchsuggest-containing": "نتائج...",
+<<<<<<< HEAD
 	"search-thumbnail-extra-namespaces-label": "ڈیسک ٹاپ نمائش میں خاص:تلاش پر تھمب نیل دکھائیں",
 	"search-thumbnail-extra-namespaces-message": "{{#special:search}} صفحہ پر $1 {{PLURAL:$2|نام فضا|نامہائے فضا}} کے دکھائے جانے والے نتائج میں تھمب نیل دکھاتا ہے",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchlimit-label": "ہر صفحہ پر دکھائے جانے والے تلاش کے نتائج کی تعداد:",
 	"searchlimit-help": "زیادہ سے زیادہ تعداد: $1",
 	"api-clientside-error-timeout": "متوقع مدت کے دوران میں سرور نے کوئی جواب نہیں دیا۔",

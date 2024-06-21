@@ -77,6 +77,12 @@
 			"Àlex",
 			"לערי ריינהארט",
 			"아라",
+<<<<<<< HEAD
+=======
+			"Rbndev",
+			"Salvemm el lombard",
+			"Robertgarrigos",
+>>>>>>> origin/1.39.7-test
 			"Iketsi",
 			"Lluis Cat",
 			"V27t"
@@ -1363,7 +1369,11 @@
 	"right-viewmywatchlist": "Veure la llista de seguiment pròpia",
 	"right-editmywatchlist": "Modificar la llista de seguiment pròpia. Tingueu en compte que algunes accions encara hi afegiran pàgines fins i tot sense tenir aquest permís.",
 	"right-viewmyprivateinfo": "Veure la pròpia informació privada (p. ex., adreça electrònica o nom real)",
+<<<<<<< HEAD
 	"right-editmyprivateinfo": "Modificar les dades privades pròpies (p. ex., adreça electrònica o nom real) i demanar reinicialitzacions de contrasenya via correu electrònic",
+=======
+	"right-editmyprivateinfo": "Modifica les dades privades  (p. ex., adreça electrònica o nom real)",
+>>>>>>> origin/1.39.7-test
 	"right-editmyoptions": "Modificar les pròpies preferències",
 	"right-rollback": "Revertir ràpidament l'últim editor d'una pàgina particular",
 	"right-markbotedits": "Marcar les reversions com a edicions de bot",
@@ -1445,6 +1455,7 @@
 	"action-writeapi": "fer servir l'API d'escriptura",
 	"action-delete": "esborrar aquesta pàgina",
 	"action-delete-redirect": "sobreescriure les redireccions d'una sola revisió",
+<<<<<<< HEAD
 	"action-deleterevision": "esborrar o restaurar versions específiques de les pàgines",
 	"action-deletelogentry": "suprimir o restaurar entrades específiques del registre",
 	"action-deletedhistory": "veure metadades de les entrades esborrades de l'historial",
@@ -1452,6 +1463,15 @@
 	"action-browsearchive": "cercar pàgines suprimides",
 	"action-undelete": "restaurar pàgines",
 	"action-suppressrevision": "veure, amagar i restaurar les revisions ocultes",
+=======
+	"action-deleterevision": "suprimeix les revisions",
+	"action-deletelogentry": "suprimeix les entrades de registre",
+	"action-deletedhistory": "mostra l'historial esborrat d'una pàgina",
+	"action-deletedtext": "mostra el text de la revisió eliminada",
+	"action-browsearchive": "cercar pàgines suprimides",
+	"action-undelete": "restaurar pàgines",
+	"action-suppressrevision": "revisar i restaura les revisions ocultes",
+>>>>>>> origin/1.39.7-test
 	"action-suppressionlog": "visualitzar aquest registre privat",
 	"action-block": "blocar aquest usuari perquè no pugui editar",
 	"action-protect": "canviar els paràmetres de protecció d'aquesta pàgina",
@@ -1496,7 +1516,11 @@
 	"action-editmyuserjs": "modificar els vostres propis fitxers JavaScript",
 	"action-editmyuserjsredirect": "modificar els fitxers JavaScript del vostre usuari que són redireccions",
 	"action-viewsuppressed": "veure revisions amagades a tots els usuaris",
+<<<<<<< HEAD
 	"action-hideuser": "blocar o desblocar un nom d'usuari, amagant-lo del públic o restaurant-lo",
+=======
+	"action-hideuser": "blocar un nom d'usuari, amagant-lo del públic",
+>>>>>>> origin/1.39.7-test
 	"action-ipblock-exempt": "ignorar bloquejos de la IP, automàtics o per intervals.",
 	"action-unblockself": "desblocar-se un mateix",
 	"action-noratelimit": "no veure's afectat pels límits de freqüència d'edició",

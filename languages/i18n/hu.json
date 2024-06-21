@@ -64,6 +64,12 @@
 			"Wolf Rex",
 			"Xbspiro",
 			"아라",
+<<<<<<< HEAD
+=======
+			"NB",
+			"Eukarióta",
+			"FoBe",
+>>>>>>> origin/1.39.7-test
 			"Amire80",
 			"Beze",
 			"Ewithu",
@@ -2549,6 +2555,10 @@
 	"undeletehistorynoadmin": "Ezt a szócikket törölték. A törlés okát alább az összegzésben\nláthatod, az oldalt a törlés előtt szerkesztő felhasználók részleteivel együtt. Ezeknek\na törölt változatoknak a szövege csak az adminisztrátorok számára hozzáférhető.",
 	"undelete-revision": "$1 $4, $5-kori törölt változata (szerző: $3).",
 	"undeleterevision-missing": "Érvénytelen vagy hiányzó változat. Lehet, hogy rossz hivatkozásod van, illetve a változatot visszaállították vagy eltávolították az archívumból.",
+<<<<<<< HEAD
+=======
+	"undeleterevision-duplicate-revid": "{{PLURAL:$1|Egy|$1}} változat nem állítható vissza, mert a <code>rev_id</code>-{{PLURAL:$1|je|jük}} már használatban van.",
+>>>>>>> origin/1.39.7-test
 	"undelete-nodiff": "Nem található korábbi változat.",
 	"undeletebtn": "Helyreállítás",
 	"undeletelink": "megtekintés/helyreállítás",

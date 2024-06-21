@@ -591,8 +591,13 @@
 	"action-upload": "ruõkkâd tän teâttõõzz",
 	"action-upload_by_url": "ruokkâd tän teâttõõzz URL-addrõõzzâst",
 	"action-delete": "tän seeid jaukkeed",
+<<<<<<< HEAD
 	"action-deleterevision": "jaukkeed leʹbe maaccted oʹdinakai seeidaid versioid",
 	"action-deletedhistory": "ǩiiččeed jaukkuum historiaversioi metateâđaid",
+=======
+	"action-deleterevision": "jaukkeed versioid",
+	"action-deletedhistory": "ǩiiččeed seeid jaukkuum historia",
+>>>>>>> origin/1.39.7-test
 	"action-browsearchive": "ooccâd jaukkuum seeidaid",
 	"action-undelete": "maaccted jaukkuum seeidaid",
 	"action-protect": "tän seeid suõjjeemasetõõzzid muʹtted",
@@ -654,7 +659,11 @@
 	"rcfilters-filtergroup-lastrevision": "Ođđsumus versio",
 	"rcfilters-filter-lastrevision-label": "Ođđsumus versio",
 	"rcfilters-filter-previousrevision-label": "Ij ođđsumus versio",
+<<<<<<< HEAD
 	"rcfilters-tag-prefix-namespace-inverted": "<strong>ij</strong> :$1",
+=======
+	"rcfilters-tag-prefix-namespace-inverted": "<strong>:ij</strong> $1",
+>>>>>>> origin/1.39.7-test
 	"rcfilters-view-tags": "Ǩeâlgglõsttum muttâz",
 	"rcfilters-view-tags-help-icon-tooltip": "Looǥǥ lââʹzz ǩeâlgglõsttum muttsin",
 	"rcfilters-watchlist-edit-watchlist-button": "Muuʹtt valvvâmliist",

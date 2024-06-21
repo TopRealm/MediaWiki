@@ -21,7 +21,8 @@
 			"Wisdom",
 			"Zorigt",
 			"לערי ריינהארט",
-			"아라"
+			"아라",
+			"Enkhsaihan2005"
 		]
 	},
 	"tog-underline": "Линкүүдийн доогуур зураас зур:",
@@ -194,8 +195,11 @@
 	"skin-action-unprotect": "Хамгаалалтын түвшинг солих",
 	"unprotect": "Хамгаалалтаа солих",
 	"newpage": "Шинэ хуудас",
+<<<<<<< HEAD
 	"newpage-desc": "Хүссэн сэдвээр шинэ хуудас нээ.",
 	"view-missing-pages": "Байхгүй байгаа хуудсуудыг харах",
+=======
+>>>>>>> origin/1.39.7-test
 	"talkpagelinktext": "хэлэлцүүлэг",
 	"specialpage": "Тусгай хуудас",
 	"personaltools": "Өөрийн хэрэглүүр",

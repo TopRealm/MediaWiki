@@ -170,7 +170,10 @@
 	"permalink": "Бәәңһин холвасн",
 	"print": "Кевлх",
 	"view": "Үзх",
+<<<<<<< HEAD
 	"viewcontribs": "Орулсн хүв-немриг үзх",
+=======
+>>>>>>> origin/1.39.7-test
 	"skin-view-view": "Умшх",
 	"skin-view-foreign": "$1 деер үзх",
 	"edit": "Ясврлх",
@@ -187,8 +190,11 @@
 	"skin-action-unprotect": "Хамһаллтын шатыг сольх",
 	"unprotect": "Хамһаллтан сольх",
 	"newpage": "Шин халх",
+<<<<<<< HEAD
 	"newpage-desc": "Күссн седвәр шин халх эклүлтн",
 	"view-missing-pages": "Бәәдг уга халхсиг үзх",
+=======
+>>>>>>> origin/1.39.7-test
 	"talkpagelinktext": "күүндән",
 	"specialpage": "Шишлң халх",
 	"personaltools": "Хүвин кергсл",
@@ -459,6 +465,10 @@
 	"nocookieslogin": "{{SITENAME}}-д невтрхд кукиг керглдг.\nТа кукиг идвкҗүләд уга бәәнәт.\nТүүг идвкҗүлҗ, дәкн орлдтн.",
 	"nocookiesfornew": "Кергләчин бүртклиг үүсксн уга. Кукиг зөв тохрулсн гидгиг шалһад эн халхиг дәкн умшултн.",
 	"createacct-loginerror": "Бүртклнь амҗлтта үүскгдв чигн, Та системд автоматар невтрҗ чадсн угат. [[Special:UserLogin|хүвин медәллән орулҗ невтрхнтн]].",
+<<<<<<< HEAD
+=======
+	"createacct-temp-warning": "Тана түр-зуурын бүрткләр кесн ясвр тана бәәһә даңст шилҗшго.",
+>>>>>>> origin/1.39.7-test
 	"noname": "Та күчтә кергләчин нериг өгәд уга бәәнәт.",
 	"loginsuccesstitle": "Невтрсн бәәнә",
 	"loginsuccess": "<strong>Та ода «$1» нертә {{SITENAME}} төсвт бәәнәт.</strong>",
@@ -633,7 +643,10 @@
 	"summary-preview": "Товч аһулһин ясвриг урдчлн үзх:",
 	"previewerrortext": "Тана ясвриг урдас үзхд алда һарв.",
 	"blockedtitle": "Кергләч бөгләлгдлә.",
+<<<<<<< HEAD
 	"blockedtext-partial": "<strong>Тана кергләчин нерн эс гиҗ IP хайгт үүг кехиг хөрҗәнә. Та эн сайт деер тодрха халхсиг ясврлх мет оңдан зүүлсиг кех болмҗта болҗанат.</strong>\n\nТа блокин делгрңгү медәллиг [[Special:MyContributions|бүртклин орулсн хүв немр]] кесгәс үзх болмҗтат.\n\n{{int:blockedtext-made-by|$1}}\n\n{{int:blockedtext-reason-comment|$2}}.\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n*{{int:blockedtext-block-id|$5}}",
+=======
+>>>>>>> origin/1.39.7-test
 	"blockednoreason": "Шилтәнь өггдәд уга бәәнә",
 	"blockedtext-composite-ids": "Холвгдх блок ID: $1 (тана IP хайг мөн блоклх җигсәлтд һарч ирҗ маһд уга)",
 	"blockedtext-composite-no-ids": "Тана IP хайг олн хөргдсн җигсәлтд харгдна",
@@ -655,8 +668,11 @@
 	"missing-revision-permission": "#$1 хүвлвр уга болһсн халхд хамата. Та [{{fullurl:{{#Special:Undelete}}|target=$3&timestamp=$2&diff=prev}} үзх]; делгрңгү медәллиг [{{fullurl:{{#Special:Log}}/delete|page=$3}} уга болһх бүрткләс олҗ болна].",
 	"missing-revision": "\"{{FULLPAGENAME}}\" нертә халхин #$1 хүвлвр уга.\n\nЭннь йирдән уга болһсн халхур хуучрсн түүкин холвасиг дахсар үүсдг.\nДелгрңгү медәллиг [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} уга болһсн бүрткләс үзҗ болна].",
 	"missing-revision-content": "\"$2\" нертә халхин #$1 хүвлврин аһулһиг ацалҗ чадсн уга.",
+<<<<<<< HEAD
 	"userpage-userdoesnotexist": "\"$1\" кергләчин бүрткл эн вики деер бүрткгдәд уга бәәнә.\nТа эн халхиг үүскх/ясх эс гиҗ шалһтн.",
 	"userpage-userdoesnotexist-view": "\"$1\" кергләчин бүрткл эн вики дотр бүрткгдәд уга.",
+=======
+>>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "Эн {{GENDER:$1|кергләч }} ода бөгләлгдсн бәәнә.\nЛавллһна зөрүллтәр бөглән лог деерк хамгин сүүлин немлтиг дор орулв:",
 	"clearyourcache": "<strong>Темдглл:</strong> Ниитлснә дару та ясвриг үзхин төлә көтчин кэшиг цеврлх шаардлһта болҗ маһд уга.\n* <strong>Firefox / Safari:</strong> <em>Дәкн ацалх</em> товчиг дарҗ бәәхд <em>Shift</em> дартн, эс гиҗ <em>Ctrl-F5</em> эс гиҗ <em>Ctrl-ин аль негиг дартн. -R</em> (Mac дээр<em>⌘-R</em>)\n* <strong>Google Chrome:</strong> <em>Ctrl-Shift-R</em> (Mac деер<em>⌘-Shift-R</em>) дартн.\n* <strong>Internet Explorer / Edge:</strong> <em>Сэргээх</em> товчиг дарҗ бәәхд <em>Ctrl</em> дартн эс гиҗ <em>Ctrl-F5</em>-г дартн.\n* <strong> Opera:</strong> <em>Ctrl-F5</em> товчиг дартн.",
 	"usercssyoucanpreview": "<strong>Зөвлһән:</strong> Ниитлхәс өмн \"{{int:showpreview}}\" товчиг ашглад, шин CSS-г шалһтн.",
@@ -857,11 +873,16 @@
 	"revdelete-hide-comment": "Ясврин товч аһулһиг хүврүлх",
 	"revdelete-hide-user": "Ясврлачин кергләчин нерн/IP хайг",
 	"revdelete-hide-restricted": "Администратормуд болн бусдас эн медәллиг далдлх",
+<<<<<<< HEAD
 	"revdelete-radio-same": "Хүврүллго бәәх",
 	"revdelete-radio-set": "Нуусн",
 	"revdelete-radio-unset": "Ил",
 	"revdelete-radio-set-suppress": "Далдлх",
 	"revdelete-radio-unset-suppress": "Далдлхиг цуцлх",
+=======
+	"revdelete-radio-set": "Нуусн",
+	"revdelete-radio-unset": "Ил",
+>>>>>>> origin/1.39.7-test
 	"revdelete-suppress": "Администратормуд болн бусдас медәллиг нууцлх",
 	"revdelete-unsuppress": "Уга болһад уга ясврин кизәрллтиг әрлһх",
 	"revdelete-log": "Шилтән:",
@@ -926,7 +947,10 @@
 	"lineno": "$1-гч мөр:",
 	"compareselectedversions": "Суңһсн хойр хүвлвриг хәрцүлх",
 	"showhideselectedversions": "Олн хүвлвриг харулх/уурх",
+<<<<<<< HEAD
 	"showhideselectedfileversions": "Суңһсн файлын хүвлврмүдин үзгдх бәәдлиг сольх",
+=======
+>>>>>>> origin/1.39.7-test
 	"editundo": "цуцлх",
 	"diff-empty": "(йилһән уга)",
 	"diff-multi-otherusers": "({{PLURAL:$1|Дундын нег хүвлвр|$1 дундын хүвлврмүд}} {{PLURAL:$2|оңгдан нег кергләчнр|$2 кергләчнр}} үзгдхш)",
@@ -934,8 +958,11 @@
 	"diff-paragraph-moved-tonew": "Параграф зөөгдсн бәәнә. Шин бәәрллд шилҗхин төлә дартн.",
 	"diff-paragraph-moved-toold": "Параграф нүүлһгдсн бәәнә. Хуучн бәәршлд шилҗхин төлә дартн.",
 	"difference-missing-revision": "($1) -ын йилһәнә {{PLURAL:$2|нег хүвлвр|$2 хүвлврмүд}}  {{PLURAL:$2|олсн уга}}.\n\nЭннь халх уга кехд шинрүләд уга йилһәнә холваснас болдг. \n[{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} уга кесн лог] -ас медәлл автн.",
+<<<<<<< HEAD
 	"difference-bad-old-revision": "Хуучин хүвлврин аһулһ уга эс гиҗ эвдрсн бәәнә.",
 	"difference-bad-new-revision": "Шин хүвлврин аһулһ уга эс гиҗ эвдрсн бәәнә.",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchresults": "Хәәлтин үр-дүң",
 	"search-filter-title-prefix": "Зөвкн һарцгнь \"$1\"-әр эклсн халхсиг хәәҗ бәәнә",
 	"search-filter-title-prefix-reset": "Бүк халхиг хәәх",
@@ -975,7 +1002,10 @@
 	"search-relatedarticle": "Холвата",
 	"search-invalid-sort-order": "$1-ин йилһх дараллыг таньсн уга, өггдмлиг йилһҗ болна. Күчтә йилһх закалһнь: $2",
 	"search-unknown-profile": "$1-ин хәәлтин профайлыг таньҗахш, өггдмл хәәлтин профайлыг ашглҗ болна.",
+<<<<<<< HEAD
 	"search-thumbnail-alt": "$1-ин өңгц зург",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchrelated": "холвата",
 	"searchall": "бүгдиг",
 	"showingresultsinrange": "Доорк {{PLURAL:$1|<strong>1</strong> үр-дүң|<strong>$1</strong> үр-дүң}} күртл #<strong>$2</strong>-с #<strong>$3</strong> хүртлк диапазонд үзүлҗ бәәнә.",
@@ -1025,8 +1055,11 @@
 	"prefs-email": "Цәкм хәәрцгин тохрлһ",
 	"prefs-rendering": "Һазад бәәдл",
 	"prefs-searchmisc": "Йирңкә",
+<<<<<<< HEAD
 	"searchprefs": "Тохрлһ дотр хәәх",
 	"searchprefs-noresults": "Үр-дүң илрсн уга.",
+=======
+>>>>>>> origin/1.39.7-test
 	"saveprefs": "Хадһлх",
 	"restoreprefs": "Бүк тохрлһан аңхна бәәдлднь орулх",
 	"prefs-editing": "Ясврлх",
@@ -1034,6 +1067,7 @@
 	"recentchangesdays": "Сүүлин хүврлтст үзүлх өдрин то:",
 	"recentchangesdays-max": "Хамгин икдән $1 {{PLURAL:$1|өдр|өдрмүд}}",
 	"recentchangescount": "Сүүлин үйин ясвр, халхсин түүк, бүртклд аңхдгчар үзүлх ясврмудын тоо:",
+<<<<<<< HEAD
 	"prefs-back-title": "Тохрлһур буцх",
 	"prefs-description-personal": "Тана нүүрин халх яһҗ үзгдх, холвгдх, хәрлцхиг кинәд автн.",
 	"prefs-description-rendering": "Чимгллин седв, кемҗә, умшх суңһлтыг тохрултн.",
@@ -1042,6 +1076,8 @@
 	"prefs-description-watchlist": "Бийинь дахн мөрдҗ бәәһә халхсин җигсәлтиг закрҗ, тохрултн.",
 	"prefs-description-searchoptions": "Автоматар таглх болн үр-дүң яһҗ аҗллхиг суңһтн.",
 	"prefs-description-misc": "Аһулһин үзгдх бәәдлинь тохрултн",
+=======
+>>>>>>> origin/1.39.7-test
 	"prefs-help-recentchangescount": "Хамгин деед то: 1000",
 	"prefs-help-watchlist-token2": "Эннь тана үзх җигсәлтин веб цувгин нууц түлкүр.\nЭнүг меддг күн болһн тана үзх җигсәлтиг умшх болмҗта болхин төлә оңдан әмтнлә хувалцҗ болшго.\nШаардлһта болхла, [[Special:ResetTokens|та үүг дәкн тохрулҗ болҗанат]].",
 	"prefs-help-tokenmanagement": "Та эврә кинлтын җигсәлтин веб цувгт хандх болмҗта бүртклин нууц түлкүриг харҗ, дәкн тохрулх болмҗтат. Түлкүриг меддг күн болһн тана үзх җигсәлтиг умшх болмҗтаһин төлә оңдан әмтнлә хувалцх керг уга.",
@@ -1056,7 +1092,10 @@
 	"timezoneuseserverdefault": "Серверин тохрлһ ($1)-г керглх",
 	"timezoneuseoffset": "Бусд (UTC-ин цагин зөрән)",
 	"timezone-useoffset-placeholder": "Утхсин үлгүр: \"-07:00\" эс гиҗ \"01:00\"",
+<<<<<<< HEAD
 	"timezone-invalid": "Буру цагин бүс эс гиҗ цагин зөрү.",
+=======
+>>>>>>> origin/1.39.7-test
 	"servertime": "Серверин цаг:",
 	"guesstimezone": "Көтчәс бөглх",
 	"timezoneregion-africa": "Африк",
@@ -1243,9 +1282,12 @@
 	"right-suppressrevision": "Альв кергләчнрин халхсин тодрха ясвриг үзх, нуух, ил һарһх",
 	"right-viewsuppressed": "Цуг кергләчнрәс нуусн ясвриг үзх",
 	"right-suppressionlog": "Хүвин логиг үзх",
+<<<<<<< HEAD
 	"right-block": "Оңдан кергләчнрин ясхиг хөрглх эс гиҗ хөрглхәс һарһх",
 	"right-blockemail": "Кергләчнрин бичг илгәхиг хөрглх эс гиҗ хөрглхәс һарһх",
 	"right-hideuser": "Кергләчин нериг хаах эс гиҗ хаахас һарһх, олн ниитәс нуух эс гиҗ эс нуух",
+=======
+>>>>>>> origin/1.39.7-test
 	"right-ipblock-exempt": "IP блок, автомат блок болн бүсин блокмудас зәәләд һарх",
 	"right-unblockself": "Бийән блокас һарһх",
 	"right-protect": "Хамһаллтын тохрһаг сольх, давхр хамһаллтта халхсиг ясврлх",
@@ -1266,7 +1308,10 @@
 	"right-viewmywatchlist": "Эврә үзх җигсәлтән үзтн",
 	"right-editmywatchlist": "Эврә үзх җигсәлтән ясврлтн (зәрм үүлдлнь эн эрк уга бәәсн халхсиг немнә гидгиг аңхартн)",
 	"right-viewmyprivateinfo": "Эврә хүвин медәллиг үзх (үлгүрнь: цәкм хәәрцгин хайг, җиңкн нерн)",
+<<<<<<< HEAD
 	"right-editmyprivateinfo": "Эврә хүвин медәллиг (үлгүрнь: цәкм хәәрцгин хайг, йосн нерн) ясч, нууц үг шинрүлх бичг илгәтн",
+=======
+>>>>>>> origin/1.39.7-test
 	"right-editmyoptions": "Эврә тохрлһан заах",
 	"right-rollback": "Тодрха халхиг ясврлсн сүүлин кергләчин ясвриг хурдн буцах",
 	"right-markbotedits": "Буцасн ясврмудыг ботын ясвр гиҗ темдглх",
@@ -1308,7 +1353,10 @@
 	"grant-editsiteconfig": "Бүк сайт болн кергләчин CSS/JS ястн.",
 	"grant-editpage": "Ода бәәһә халхсиг ясх",
 	"grant-editprotected": "Хадһлгдсн халхсиг ясх",
+<<<<<<< HEAD
 	"grant-highvolume": "Ик-кемҗәтә (ботын) хандлт",
+=======
+>>>>>>> origin/1.39.7-test
 	"grant-import": "Хүвлврмүдин оруллһн",
 	"grant-mergehistory": "Халхсин түүкиг негдүлх",
 	"grant-oversight": "Кергләчнрин ясвриг болн халхсин хүвлврмүдиг нуух",
@@ -1348,6 +1396,7 @@
 	"action-writeapi": "ясхин төлә API ашглх",
 	"action-delete": "Эн халхиг уга кех",
 	"action-delete-redirect": "нег хүвлвртә дәкн чиглүллтиг шинәр бичх",
+<<<<<<< HEAD
 	"action-deleterevision": "халхин тодрха ясврмудиг уга болһх эс гиҗ буцах",
 	"action-deletelogentry": "тусха бүртклин орулһсиг уга болһх эс гиҗ буцах",
 	"action-deletedhistory": "түүкин уга болһсн орулһсин мета өггдлиг үзх",
@@ -1357,6 +1406,11 @@
 	"action-suppressrevision": "альв кергләчнрин халхсин тодрха ясвриг үзх, нуух, ил һарһх",
 	"action-suppressionlog": "эн хүвин лог үзх",
 	"action-block": "эн кергләчин ясвр кехиг хөрглх эс гиҗ хөрглхәс һарһх",
+=======
+	"action-browsearchive": "уга болһсн халхсиг хәәх",
+	"action-undelete": "Эн халхиг эс әрлһх",
+	"action-suppressionlog": "эн хүвин лог үзх",
+>>>>>>> origin/1.39.7-test
 	"action-protect": "эн халхин хамһаллтын шатмудыг хүврүлх",
 	"action-rollback": "сүүлд кегдсн тодрха кергләчнрин ясвриг буцах",
 	"action-import": "оңдан вики-һәс халхсиг орулх",
@@ -1383,7 +1437,10 @@
 	"action-apihighlimits": "API хәәлтд өндр кизәриг ашглх",
 	"action-autoconfirmed": "IP-д сүүрлсн хурдна кизәрт нөләлшго",
 	"action-bigdelete": "Ик кемҗәтә түүкин халхсиг уга кех",
+<<<<<<< HEAD
 	"action-blockemail": "кергләчнрин бичг илгәхиг хөрглх эс гиҗ хөрглхәс һарһх",
+=======
+>>>>>>> origin/1.39.7-test
 	"action-bot": "Автоматлсн процесс гиҗ үзх",
 	"action-editprotected": "\"{{int:protect-level-sysop}}\"-р хамһалгдсн халхсиг ясврлх",
 	"action-editsemiprotected": "\"{{int:protect-level-autoconfirmed}}\"-р хамһалгдсн халхсиг ясврлх",
@@ -1399,7 +1456,10 @@
 	"action-editmyuserjs": "эврә кергләчин JavaScript файлмудыг ясврлх",
 	"action-editmyuserjsredirect": "эврә кергләчин JavaScript файлмудыг дәкн чиглүлтн",
 	"action-viewsuppressed": "цуг кергләчнрәс нуусн ясвриг үзх",
+<<<<<<< HEAD
 	"action-hideuser": "кергләчин нериг блоклх эс гиҗ блокиг тәәлх, олн ниитәс нуух эс гиҗ эс нуух",
+=======
+>>>>>>> origin/1.39.7-test
 	"action-ipblock-exempt": "IP блок, автомат блок болн бүсин блокмудыг төөрч һарх",
 	"action-unblockself": "бийән блокас һарһх",
 	"action-noratelimit": "хурдна кизәрллтиг төөрн һарх",
@@ -1540,8 +1600,11 @@
 	"rcfilters-filter-previousrevision-label": "Хамгин сүүлин хүвлвр биш",
 	"rcfilters-filter-previousrevision-description": "\"Хамгин сүүлин хүвлвр\" биш цуг ясврмуд.",
 	"rcfilters-filter-excluded": "Һарһгдв",
+<<<<<<< HEAD
 	"rcfilters-tag-prefix-namespace-inverted": "<strong>уга</strong> :$1",
 	"rcfilters-tag-prefix-tags-inverted": "<strong>уга</strong> #$1",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-exclude-button-off": "Суңһсиг һарһх",
 	"rcfilters-exclude-button-on": "Суңһсиг һарһлһн",
 	"rcfilters-view-tags": "Тагта ясврмуд",
@@ -1874,7 +1937,10 @@
 	"filehist-dimensions": "Кемҗән",
 	"filehist-filesize": "Файлын кемҗән",
 	"filehist-comment": "Тәәлвр",
+<<<<<<< HEAD
 	"filehist-missing": "файл уга",
+=======
+>>>>>>> origin/1.39.7-test
 	"imagelinks": "Файлын керглән",
 	"linkstoimage": "{{PLURAL:$1|дарук $1 халх ашглдг|дарук халхс $1 ашглдг}} эн файл:",
 	"linkstoimage-more": "Эн файлыг $1-әс үлү {{PLURAL:$1| халх ашглдг|халхс ашглдг}}.\nДарук җигсәлт зөвкн эн файлыг ашглна {{PLURAL:$1|экнә халх|экнә $1 халхс}}-иг үзүлҗәнә.\n[[Special:WhatLinksHere/$2|бүтн җигсәлт]] болмҗта.",
@@ -2061,7 +2127,10 @@
 	"notargettext": "Та эн функциг күцәх халх эс гиҗ кергләчиг тодрхалад уга бәәнәт.",
 	"nopagetitle": "Зөрсн халх бәәхш.",
 	"nopagetext": "Тана заасн зөрсн халх бәәхш.",
+<<<<<<< HEAD
 	"badrevision": "Эн хүвлврин бичврнь эвдркә эс гиҗ бәәхш.",
+=======
+>>>>>>> origin/1.39.7-test
 	"pager-newer-n": "{{PLURAL:$1|үлү шин 1|үлү шин $1}}",
 	"pager-older-n": "{{PLURAL:$1|үлү хуучн 1|үлү хуучн $1}}",
 	"suppress": "Далдлх",
@@ -2491,10 +2560,15 @@
 	"contributions": "Кергләчин орулсн хүв-немр",
 	"tool-link-contributions": "{{GENDER:$1|Кергләчин}} орулсн хүв-немр",
 	"contributions-title": "$1 кергләчин хүв-немр",
+<<<<<<< HEAD
 	"contribute-title": "Кергләчин орулсн хүв-немр",
 	"mycontris": "Орулсн хүв-немр",
 	"anoncontribs": "Орулсн хүв-немр",
 	"contribute": "Хүв-немр",
+=======
+	"mycontris": "Орулсн хүв-немр",
+	"anoncontribs": "Орулсн хүв-немр",
+>>>>>>> origin/1.39.7-test
 	"contribsub2": "Кергләч: {{GENDER:$3|$1}} ($2)",
 	"contributions-userdoesnotexist": "\"$1\" бүрткл бүрткгдәд уга.",
 	"negative-namespace-not-supported": "Сөрг утхта нердин зәс демҗгддг уга.",
@@ -2529,7 +2603,10 @@
 	"whatlinkshere-page": "Халх:",
 	"linkshere": "Дарук халхс '''$2'''-та холвгдсн бәәнә:",
 	"nolinkshere": "<strong>$2</strong>-та холвгдсн халхс уга",
+<<<<<<< HEAD
 	"nolinkshere-filter": "Хәәлтин одаһин тохрлһта <strong>$2-д</strong> ханддг халх уга.",
+=======
+>>>>>>> origin/1.39.7-test
 	"nolinkshere-ns": "Суңһсн нердин зәәд <strong>$2-д</strong> ханддг халх уга.",
 	"isredirect": "чиглүлгч",
 	"istemplate": "оруллт",
@@ -2745,10 +2822,13 @@
 	"movesubpagetalktext": "Тус күүндәнә халхнь дор үзүлсәр $1 {{PLURAL:$1|дед халхта}} болҗана.",
 	"movenosubpage": "Эн халхнь дед халхго.",
 	"movereason": "Шилтән:",
+<<<<<<< HEAD
 	"moveotherreason": "Оңгдан/немлт шилтән:",
 	"movereasonotherlist": "Оңгдан шилтән",
 	"movepage-reason-dropdown": "* Дәкн нерлх йирңкә шилтәс\n** Эндүтә һарцг",
 	"movepage-edit-reasonlist": "Зөөх шилтәсиг ясврлх",
+=======
+>>>>>>> origin/1.39.7-test
 	"revertmove": "хуучн бәәдлд шилҗүлх",
 	"delete_and_move_text": "\"[[:$1]]\" һарцгта халхнь аль эрт үүссн бәәнә.\nДәкн нерлхин төләд энүг уга кехәр бәәнт?",
 	"delete_redirect_and_move_text": "\"[[:$1]]\" нертә халх аль эрт үүсн бәәнә. Шинәр нерлхин төлә уга кехийт?",
@@ -2974,7 +3054,10 @@
 	"pageinfo-default-sort": "Үндсн әңглх түлкүр",
 	"pageinfo-length": "Халхин ут (байтар)",
 	"pageinfo-namespace": "Нердин орн-зә",
+<<<<<<< HEAD
 	"pageinfo-namespace-id": "Нердин орн-зән иҗлшүлгч",
+=======
+>>>>>>> origin/1.39.7-test
 	"pageinfo-article-id": "Халхин ID",
 	"pageinfo-language": "Халхин аһулһин келн",
 	"pageinfo-language-change": "сольх",
@@ -3141,7 +3224,10 @@
 	"confirm-watch-button": "Кинтн",
 	"confirm-watch-top": "Эн халхиг тана кинх җигсәлтд немхий?",
 	"confirm-watch-label": "Кинлтин җигсәлтдк хуһцан:",
+<<<<<<< HEAD
 	"watchlist-expiry-options": "Хуһцан уга:infinite,1 долан хонг:1 week,1 сар:1 month,3 сар:3 months,6 сар:6 months,1 җил:1 year",
+=======
+>>>>>>> origin/1.39.7-test
 	"watchlist-expires-in-aria-label": "Кинх җигсәлтдк түр-зуурин зүүл",
 	"confirm-watch-button-expiry": "Кинх",
 	"confirm-unwatch-button": "Эс кинтн",
@@ -3256,7 +3342,10 @@
 	"version-entrypoints-header-entrypoint": "Орлтын цег",
 	"version-entrypoints-header-url": "URL",
 	"version-libraries": "Суулһсн саңгуд",
+<<<<<<< HEAD
 	"version-libraries-client": "Суулһсн үүлчлүләчин саңгуд",
+=======
+>>>>>>> origin/1.39.7-test
 	"version-libraries-library": "Саң",
 	"version-libraries-version": "Хүвлвр",
 	"version-libraries-license": "Лиценз",
@@ -3591,10 +3680,13 @@
 	"feedback-useragent": "Цәкм көтч:",
 	"searchsuggest-search": "{{SITENAME}}-с хәәх",
 	"searchsuggest-containing": "Дарук бичвриг аһулсн халхас хәәх",
+<<<<<<< HEAD
 	"search-match-redirect-label": "Хәәхд мөн таарсн зүүлд орх",
 	"search-match-redirect-help": "Эн халхин һарцг тана хәәсн зүүллә таарад бәәхлә, халхд орхин төлә энүг суңһ",
 	"search-thumbnail-extra-namespaces-label": "Өңгц зургиг Special:Desktop деер хәәх кесгт үзүлх",
 	"search-thumbnail-extra-namespaces-message": "{{#special:search}} халх деерк $1 {{PLURAL:$2|нернә орн-зә|нернә орн- зәс}} илрцүдин өңгц зургиг үзүлнә",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchlimit-label": "Халх болһна деер үзүлх хәәлтин үр-дүңгин то:",
 	"searchlimit-help": "Хамгин деед дуһар: $1",
 	"api-clientside-error-noconnect": "Серверт холвгдх болмҗго. Та сүлҗәнд холвгдсиг шалһад, дәкн орлдтн.",
@@ -3699,8 +3791,11 @@
 	"json-error-invalid-property-name": "Код тәәлсн шинҗ-чинрин нерн күчн уга.",
 	"json-error-utf16": "Буру UTF-16 темдгүд, тернь буру кодчллта бәәҗ маһдго.",
 	"headline-anchor-title": "Эн кесгүр көтлдг холвасн",
+<<<<<<< HEAD
 	"special-tab-contribute-short": "Хүв-немр",
 	"special-tab-contributions-short": "Орулсн хүв-немриг үзх",
+=======
+>>>>>>> origin/1.39.7-test
 	"special-characters-group-latin": "Латин",
 	"special-characters-group-latinextended": "Өргдксн латин",
 	"special-characters-group-ipa": "Олн улсин әвә-зүүһин цаһан толһа (IPA\n)",
@@ -3947,6 +4042,7 @@
 	"newpages-showhide-bots": "$1 ботмудын",
 	"newpages-showhide-patrolled": "$1 шалһгдсн ясврмуд",
 	"newpages-showhide-redirect": "$1 чиглүлгчс",
+<<<<<<< HEAD
 	"newpages-showhide-registered": "$1 бүрткүлсн кергләч",
 	"blockedtext-made-by": "$1 Администратор бөгләг кев.",
 	"blockedtext-reason-comment": "Бөгләһин шилтән: $1",
@@ -3987,4 +4083,7 @@
 	"action-renameuser": "кергләчнриг дәкн нерлх",
 	"right-renameuser": "Кергләчнриг дәкн нерлх",
 	"renameuser-renamed-notice": "Эн кергләчнь шинәр нерлгдв.\nЛавллһна зөрүллтәр дәкн нерллтин логиг дорнь орулв."
+=======
+	"newpages-showhide-registered": "$1 бүрткүлсн кергләч"
+>>>>>>> origin/1.39.7-test
 }

@@ -93,8 +93,12 @@ class PHPVersionCheck {
 		 *
 		 * Remember to drop irrelevant ranges when bumping $minimumVersion.
 		 */
+<<<<<<< HEAD
 		$knownBad = array(
 		);
+=======
+		$knownBad = array();
+>>>>>>> origin/1.39.7-test
 
 		$passes = version_compare( PHP_VERSION, $minimumVersion, '>=' );
 
