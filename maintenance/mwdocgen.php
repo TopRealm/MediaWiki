@@ -106,12 +106,8 @@ class MWDocGen extends Maintenance {
 
 		$this->template = MW_INSTALL_PATH . '/maintenance/Doxyfile';
 		$this->excludes = [
+			'cache',
 			'images',
-			'node_modules',
-			'resources',
-			'static',
-			'tests',
-			'vendor',
 		];
 
 		$file = $this->getOption( 'file' );

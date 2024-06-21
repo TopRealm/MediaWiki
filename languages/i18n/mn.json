@@ -6,6 +6,7 @@
 			"Chinneeb",
 			"DannyS712",
 			"E.shijir",
+			"Enkhsaihan2005",
 			"Fitoschido",
 			"Irus",
 			"Kaganer",
@@ -177,6 +178,7 @@
 	"permalink": "Байнгын холбоос",
 	"print": "Хэвлэх",
 	"view": "Харагдац",
+	"viewcontribs": "Хувь нэмрийг харах",
 	"skin-view-view": "Унших",
 	"skin-view-foreign": "$1 дээр үзэх",
 	"edit": "Засварлах",
@@ -193,6 +195,11 @@
 	"skin-action-unprotect": "Хамгаалалтын түвшинг солих",
 	"unprotect": "Хамгаалалтаа солих",
 	"newpage": "Шинэ хуудас",
+<<<<<<< HEAD
+	"newpage-desc": "Хүссэн сэдвээр шинэ хуудас нээ.",
+	"view-missing-pages": "Байхгүй байгаа хуудсуудыг харах",
+=======
+>>>>>>> origin/1.39.7-test
 	"talkpagelinktext": "хэлэлцүүлэг",
 	"specialpage": "Тусгай хуудас",
 	"personaltools": "Өөрийн хэрэглүүр",
@@ -568,7 +575,7 @@
 	"noarticletext": "Одоогийн байдлаар энэ хуудсанд текст алга.\nТа нэг бол энэ хуудасны нэрээр бусад хуудсуудад [[Special:Search/{{PAGENAME}}|хайлт хийх]], <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} холбоотой логуудад хайлт хийх],\nэсвэл [{{fullurl:{{FULLPAGENAME}}|action=edit}} энэ хуудсыг засварлаж болно]</span>.",
 	"noarticletext-nopermission": "Яг одоогоор уг хуудсанд текст алга.\nТа бусад хуудсан уг хуудасны [[Special:Search/{{PAGENAME}}| гарчигаар хайлт хийх]], эсвэл <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} холбоотой логоор хайлт]</span> хийж болно, гэхдээ танд уг хуудсыг үүсгэх зөвшөөрөл алга.",
 	"userpage-userdoesnotexist": "\"<nowiki>$1</nowiki>\" хэрэглэгчийн бүртгэл бүртгэгдээгүй байна. Та энэ хуудсыг үүсгэх/засварлах тухайгаа дахин тунгааж бодно уу.",
-	"userpage-userdoesnotexist-view": "\"$1\" гэсэн хэрэглэгч бүртгэгдээгүй байна.",
+	"userpage-userdoesnotexist-view": "\"$1\" хэрэглэгчийн бүртгэл энэ вики дээр бүртгэгдээгүй байна.",
 	"blocked-notice-logextract": "Энэхүү хэрэглэгч одоогоор түгжигдсэн байна.\nЛавлагааны зориулалтаар түгжээний лог дээрх хамгийн сүүлийн нэмэлтийг доор оруулав:",
 	"clearyourcache": "'''Санамж - Хадгалсныхаа дараа шинэ тохиргоогоо харахын тулд вэб хөтөчийнхөө хийсвэр санах ойг орхих хэрэгтэй болж магадгүй.\n* '''Google Chrome хөтчид :''' ''Ctrl-Shift-R'' товч дээр зэрэг дарна ( Макитош компьютерүүдэд ''⌘-Shift-R'' дээр дарна)\n* '''Internet Explorer хөтчид :'''  ''Ctrl'' дээр дараастай байж байгаад ''Refresh'' дээр дарна, эсвэл ''Ctrl-F5'' дээр дарна\n* '''Konqueror веб хөтчид :''' ''Reload'' товч дээр эсвэл ''F5'' дээр дарна\n* '''Opera веб хөтчид :''' ''Tools → Preferences'' руу орж дундын нөөцлөгчийг хоослоорой\n\\",
 	"usercssyoucanpreview": "'''Зөвлөгөө:''' \"{{int:showpreview}}\" товчийг ашиглан та өөрийн шинэ CSS-г хадгалахаасаа өмнө шалгах боломжтой.",
@@ -1335,6 +1342,7 @@
 	"filehist-dimensions": "Хэмжээ",
 	"filehist-filesize": "Файлын хэмжээ",
 	"filehist-comment": "Тайлбар",
+	"filehist-missing": "Файл байхгүй байна",
 	"imagelinks": "Файлын хэрэглээ",
 	"linkstoimage": "Дараах {{PLURAL:$1|хуудас уг файлтай|$1 хуудас уг файлтай}} холбогдсон байна:",
 	"linkstoimage-more": "$1-с их зураг энэ файлд холбогдсон байна.\nДараах жагсаалт нь энэ файлд холбогдсон эхний $1 хуудсыг л харуулна.\n[[Special:WhatLinksHere/$2|Бүтэн жагсаалт]] мөн байгаа.",
@@ -2162,7 +2170,7 @@
 	"metadata-help": "Энэ файланд бодвол дижитал аппарат эсвэл сканнераас нэмэгдсэн нэмэлт мэдээлэл байна.\nХэрэв энэ файл анхныхаа байдлаас өөрчлөгдсөн бол зарим мэдээлэл нь одоогийн хувилбартайгаа нийцэхгүй байж магадгүй.",
 	"metadata-expand": "Дэлгэрэнгүй мэдээллийг харуулах",
 	"metadata-collapse": "Дэлгэрэнгүй мэдээллийг нуух",
-	"metadata-fields": "Энэ мэдэгдэлд байгаа зурагний мэдээллийн талбарууд нь мэдээллийн хүснэгт буулгагдсан үед зургын хуудсанд харагдана.\nБусдыг анхны тохиргоогоор нууцалсан байгаа.\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude",
+	"metadata-fields": "Энэ мэдэгдэлд байгаа зурагний мэдээллийн талбарууд нь мэдээллийн хүснэгт буулгагдсан үед зургын хуудсанд харагдана.\nБусдыг анхны тохиргоогоор нууцалсан байгаа.\n* make \n* model \n* datetimeoriginal \n* exposuretime \n* fnumber \n* isospeedratings \n* focallength \n* artist \n* copyright \n* imagedescription \n* gpslatitude \n* gpslongitude \n* gpsaltitude \n* dc-rights \n* copyrightowner \n* usageterms \n* webstatement \n* licenseurl \n* attributionurl \n* preferredattributionname \n* credit \n* jpegfilecomment \n* pngfilecomment \n* giffilecomment \n* usercomment \n* citydest \n* citycreated \n* headline \n* source \n* locationdest \n* dc-contributor \n* dc-coverage \n* dc-publisher \n* dc-relation \n* label \n* nickname \n* personinimage \n* disclaimer \n* event \n* objectname",
 	"namespacesall": "бүгдийг",
 	"monthsall": "бүх сар",
 	"confirmemail": "Мэйл хаягийг баталгаажуулах",
@@ -2355,5 +2363,13 @@
 	"skin-action-protect": "Хамгаалах",
 	"skin-action-undelete": "Үл устгах",
 	"skin-action-delete": "Устгах",
-	"skin-action-move": "Зөөх"
+	"skin-action-move": "Зөөх",
+	"blockedtext-made-by": "Блокыг $1 хийсэн.",
+	"blockedtext-reason-comment": "Шалтгаан нь <em>$1</em>",
+	"blockedtext-start-time": "Блок эхлэх: $1",
+	"blockedtext-expiration-time": "Блокийн хугацаа: $1",
+	"blockedtext-intended-blockee": "Зорилтот блоклогч: $1",
+	"blockedtext-contact-blocker-admin": "Та $1 эсвэл өөр [[{{MediaWiki:Grouppage-sysop}}|администратор]]-той холбогдож блокыг ярилцаж болно.",
+	"blockedtext-include-details-queries": "Асуултдаа дээрх бүх мэдээллийг оруулна уу.",
+	"renameusersubmit": "Явуулах"
 }

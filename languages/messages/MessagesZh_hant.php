@@ -1,8 +1,6 @@
 <?php
 /** Traditional Chinese (中文（繁體）)
  *
- * To improve a translation please visit https://translatewiki.net
- *
  * @file
  * @ingroup Languages
  *
@@ -143,6 +141,8 @@ $namespaceAliases = [
 	'分類' => NS_CATEGORY,
 	'分類討論' => NS_CATEGORY_TALK,
 	'分類對話' => NS_CATEGORY_TALK,
+<<<<<<< HEAD
+=======
 	'同人'	=> NS_FANMADE,
 	'同人對話' => NS_FANMADE_TALK,
 	'同人討論' => NS_FANMADE_TALK,
@@ -152,6 +152,7 @@ $namespaceAliases = [
 	'SMW數據'  => NS_SMWDATA,
 	'SMW數據對話' => NS_SMWDATA_TALK,
 	'SMW數據討論' => NS_SMWDATA_TALK,
+>>>>>>> origin/1.39.7-test
 ];
 
 /** @phpcs-require-sorted-array */
@@ -234,6 +235,7 @@ $specialPageAliases = [
 	'Recentchanges'             => [ '最近變更', '最近更改' ],
 	'Recentchangeslinked'       => [ '已連結的最近變更', '相關變更', '連出更改' ],
 	'Redirect'                  => [ '重新導向', '重定向' ],
+	'Renameuser'                => [ '重新命名使用者' ],
 	'ResetTokens'               => [ '重設密鑰', '覆寫令牌' ],
 	'Revisiondelete'            => [ '修訂刪除', '刪除或恢復版本' ],
 	'RunJobs'                   => [ '執行作業', '運行工作' ],

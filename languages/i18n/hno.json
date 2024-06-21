@@ -284,6 +284,10 @@
 	"rcfilters-savedqueries-new-name-label": "ناں",
 	"rcfilters-savedqueries-cancel-label": "رد کرو",
 	"rcfilters-filter-bots-label": "باٹ",
+<<<<<<< HEAD
+	"rcfilters-filter-newuserlogactions-label": "نویں ورتن آلے",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcshowhideminor-show": "دیکھاؤ",
 	"rcshowhideminor-hide": "چھپو",
 	"rcshowhidebots": "باٹ $1",
@@ -553,5 +557,11 @@
 	"pagedata-title": "قرقے دا ڈیٹا",
 	"paramvalidator-help-type-user-subtype-name": "ورتن ناں",
 	"skin-action-delete": "ہٹاؤ",
+<<<<<<< HEAD
+	"skin-action-move": "ہلو",
+	"renameuserreason": "وجہ –",
+	"renameusersubmit": "منجو"
+=======
 	"skin-action-move": "ہلو"
+>>>>>>> origin/1.39.7-test
 }

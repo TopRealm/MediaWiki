@@ -163,6 +163,10 @@
 	"permalink": "وصلة دائمية",
 	"print": "اطبع",
 	"view": "شوف",
+<<<<<<< HEAD
+	"viewcontribs": "طلع المساهمات",
+=======
+>>>>>>> origin/1.39.7-test
 	"skin-view-view": "إقرا",
 	"skin-view-foreign": "شاهد في $1",
 	"edit": "تعديل",
@@ -179,6 +183,11 @@
 	"skin-action-unprotect": "غير الحمايه",
 	"unprotect": "غير الحمايه",
 	"newpage": "صفحة جديدة",
+<<<<<<< HEAD
+	"newpage-desc": "ابدي صفحه جديده للموضوع المطلوب.",
+	"view-missing-pages": "طلع الصفحات المفقودة",
+=======
+>>>>>>> origin/1.39.7-test
 	"talkpagelinktext": "كلام",
 	"specialpage": "صفحه خاصه",
 	"personaltools": "ادوات شخصيه",
@@ -643,6 +652,11 @@
 	"noarticletext-nopermission": "هذه الصفحة خالية هسة. تكدر [[Special:Search/{{PAGENAME}}|البحث عن العنوان]] في الصفحات الثانية أو\n<span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} البحث في السجلات] (حتى تعرف اذا نحُذِفَت)،\nأو '''[{{fullurl:{{FULLPAGENAME}}|action=edit}} إنشاؤها]'''</span>.",
 	"missing-revision": "المراجعه #$1 من الصفحه اللي اسمها \"{{FULLPAGENAME}}\" مو موجوده.\n\nهاذ يصير عادة عن طريق اتباع وصلة تاريخ قديمه لصفحة محذوفه.\nالتفاصيل موجوده بـ [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} سجل الحذف].",
 	"missing-revision-content": "تعذر تحميل المراجعه #$1 من الصفحة اللي اسمها \"$2\".",
+<<<<<<< HEAD
+	"userpage-userdoesnotexist": "حساب المستخدم \"$1\" ما مسجل بهاذ الويكي.\nرجاءا تحقق مما إذا جنت تريد تسوي / تحرر هاي الصفحه.",
+	"userpage-userdoesnotexist-view": "حساب النفر \"$1\" ما مسجل بهاذ الويكي.",
+=======
+>>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "{{GENDER:$1|هاذ المستخدم}} ممنوع حاليا.\nآخر مدخلة في سجل المنع موفرة جوا كمرجع:",
 	"clearyourcache": "<strong>ملاحظه:</strong> ورا النشر، انته يمكن تحتاج إلى إفراغ الكاش مالت متصفحك حتى تشوف التغييرات.\n* <strong>فايرفوكس / سافاري:</strong> أمسك <em>Shift</em> وانته تدوس <em>Reload</em>، لو دوس على إما <em>Ctrl-F5</em> أو <em>Ctrl-R</em> (<em>⌘-R</em> على ماك)\n* <strong>جوجل كروم:</strong> دوس <em>Ctrl-Shift-R</em> (<em>⌘-Shift-R</em> على ماك)\n* <strong>إنترنت إكسبلورر/إيدج:</strong> أمسك <em>Ctrl</em> وانته تدوس <em>Refresh</em>، لو دوس <em>Ctrl-F5</em>\n* <strong>أوبرا:</strong> دوس <em>Ctrl-F5</em>.",
 	"usercssyoucanpreview": "<strong>ملاحظة:</strong> استعمل زر \"{{int:showpreview}}\" لتجربة CSS الجديد قبل حفظ الصفحه.",
@@ -666,6 +680,10 @@
 	"yourtext": "كتابتك",
 	"storedversion": "النسخه المخزنه",
 	"editingold": "<strong>تحذير: انته هسه تحرر نسخه قديمه من هاي الصفحه.</strong>\nإذا نشرتها، راح تروح كافة التغييرات اللي صارت ورا هاي النسخه.",
+<<<<<<< HEAD
+	"unicode-support-fail": "يمكن المتصفح مالك ما يدعم اليونيكود. تره هو ضروري حته تعدل بيه الصفحات، يعني تعديلك ما انحفظ.",
+=======
+>>>>>>> origin/1.39.7-test
 	"yourdiff": "الفروقات",
 	"editpage-cannot-use-custom-model": "نموذج المحتوى لهاي الصفحه ما يتغير.",
 	"templatesused": "{{PLURAL:$1||القالب المستخدم|القالبين المستخدمين|القوالب المستخدمه}} في هاي الصفحه:",
@@ -814,8 +832,16 @@
 	"revdelete-hide-comment": "ملخص التعديل",
 	"revdelete-hide-user": "اسم المستخدم/عنوان الآيبي مال المحرر",
 	"revdelete-hide-restricted": "ضم البيانات عن الإداريين إضافة إلى الآخرين",
+<<<<<<< HEAD
+	"revdelete-radio-same": "لا تغير",
 	"revdelete-radio-set": "مخفي",
 	"revdelete-radio-unset": "مرئي",
+	"revdelete-radio-set-suppress": "طمس/حذف",
+	"revdelete-radio-unset-suppress": "إلغاء الطمس",
+=======
+	"revdelete-radio-set": "مخفي",
+	"revdelete-radio-unset": "مرئي",
+>>>>>>> origin/1.39.7-test
 	"revdelete-suppress": "ضم البيانات عن مديري النظام والبقية",
 	"revdelete-unsuppress": "إزالة القيود من المراجعات المسترجعه",
 	"revdelete-log": "السبب:",
@@ -883,12 +909,21 @@
 	"lineno": "سطر $1:",
 	"compareselectedversions": "قارن بين النسختين المختارتين",
 	"showhideselectedversions": "طلع/ضم المراجعات المختاره",
+<<<<<<< HEAD
+	"showhideselectedfileversions": "تغيير رؤية إصدارات الملفات المحدده",
+=======
+>>>>>>> origin/1.39.7-test
 	"editundo": "رجع",
 	"diff-empty": "(ماكو فرق)",
 	"diff-multi-sameuser": "({{PLURAL:$1|لا مراجعات متوسطة|مراجعة متوسطة واحدة|مراجعتان متوسطتان|$1 مراجعات متوسطة|$1 مراجعة متوسطة}} بواسطة نفس المستخدم غير {{PLURAL:$1|معروضة|معروضة|معروضتين|معروضة}})",
 	"diff-multi-otherusers": "({{PLURAL:$1|ماكو مراجعات|مراجعة متوسطة وحده|مراجعتين متوسطتين|$1 مراجعات متوسطة|$1 مراجعة متوسطة}} بواسطة {{PLURAL:$2|ماكو مستخدم|مستخدم واحد ثاني|مستخدمين اثنين|$2 مستخدمين|$2 مستخدم}} غير {{PLURAL:$1|معروضة|معروضتين|معروضات}})",
 	"diff-paragraph-moved-tonew": "الفقرة انقلت. دوس حتى تروح للموقع الجديد.",
 	"diff-paragraph-moved-toold": "الفقرة انقلت. دوس حتى تروح للموقع القديم.",
+<<<<<<< HEAD
+	"difference-bad-old-revision": "محتوى المراجعة القديمة ضايع لو تالف.",
+	"difference-bad-new-revision": "محتوى المراجعة الجديدة ضايع لو تالف.",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchresults": "نتائج بحثك",
 	"search-filter-title-prefix": "البحث بس في الصفحات التي يبدي عنوانها بـ \"$1\"",
 	"search-filter-title-prefix-reset": "البحث في كل الصفحات",
@@ -928,6 +963,10 @@
 	"search-relatedarticle": "مرتبطه",
 	"search-invalid-sort-order": "ترتيب فرز $1 مو معروف، راح يتم تطبيق الفرز الافتراضي، ترتيبات الفرز الصالحة هي: $2",
 	"search-unknown-profile": "ما يتم التعرف على ملف تعريف البحث $1؛ راح يتم تطبيق ملف تعريف البحث الافتراضي.",
+<<<<<<< HEAD
+	"search-thumbnail-alt": "صوره مصغره لـ $1",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchrelated": "مرتبطه",
 	"searchall": "كلهن",
 	"showingresults": "معروض جوا {{PLURAL:$1|<strong>1</strong> نتيجة}} بدءا من رقم <strong>$2</strong>.",
@@ -978,6 +1017,11 @@
 	"prefs-email": "خيارات الايميل",
 	"prefs-rendering": "المظهر",
 	"prefs-searchmisc": "عام",
+<<<<<<< HEAD
+	"searchprefs": "ابحث في التفضيلات",
+	"searchprefs-noresults": "ماكو نتايج",
+=======
+>>>>>>> origin/1.39.7-test
 	"saveprefs": "إحفظ",
 	"restoreprefs": "استرجع كل الإعدادات الافتراضيه",
 	"prefs-editing": "التعديل",
@@ -985,6 +1029,17 @@
 	"recentchangesdays": "عدد الأيام المعروضة بأحدث التغييرات:",
 	"recentchangesdays-max": "الحد الأقصى {{PLURAL:$1|أقل من يوم|يوم واحد|يومان|$1 أيام|$1 يوم}}",
 	"recentchangescount": "عدد التعديلات حتى تطلع في أحدث التغييرات وتواريخ الصفحات، والسجلات، افتراضيا:",
+<<<<<<< HEAD
+	"prefs-back-title": "ارجع للتفضيلات",
+	"prefs-description-personal": "تحكم بكيفية الظهور والاتصال والتواصل.",
+	"prefs-description-rendering": "كون خيارات السطح والحجم والقراءه.",
+	"prefs-description-editing": "خصص طريقة إجراء التعديلات وتتبعها ومراجعتها.",
+	"prefs-description-rc": "خصص موجز التغييرات الأخيره.",
+	"prefs-description-watchlist": "دير وخصص قائمة الصفحات اللي تتبعها.",
+	"prefs-description-searchoptions": "اختار كيفية شغل الإكمال التلقائي والنتايج.",
+	"prefs-description-misc": "خصص جدول المحتويات.",
+=======
+>>>>>>> origin/1.39.7-test
 	"prefs-help-recentchangescount": "العدد الأقصى: 1000",
 	"prefs-help-watchlist-token2": "هاذ هو المفتاح السري لتغذية الويب لقائمة مراقبتك.\nيكدر أي نفر يعرفه يقره قائمة مراقبتك، لا تتشاركه وي أحد.\nإذا احتاجيت، [[Special:ResetTokens|تكدر تعيد ضبطه]].",
 	"prefs-help-tokenmanagement": "انته تكدر تشوف وتعيد ضبط المفتاح السري لحسابك اللي يكدر يوصل لتلقيم الويب لقائمة مراقبتك، أي نفر يعرف المفتاح راح يكدر يقره قائمة مراقبتك; لا تشاركه.",
@@ -999,6 +1054,10 @@
 	"timezoneuseserverdefault": "استخدام الويكي الافتراضي ($1)",
 	"timezoneuseoffset": "أخرى (إزاحة الوكت من التوقيت العالمي المنسق)",
 	"timezone-useoffset-placeholder": "مثال القيم: \"-07:00\" أو \"01:00\"",
+<<<<<<< HEAD
+	"timezone-invalid": "إزاحة الوكت لو المنطقه الزمنيه مو صالحه",
+=======
+>>>>>>> origin/1.39.7-test
 	"servertime": "وكت الخادم:",
 	"guesstimezone": "جيب التوقيت من المتصفح",
 	"timezoneregion-africa": "أفريقيا",
@@ -1187,6 +1246,12 @@
 	"right-suppressrevision": "مراجعة واسترجاع المراجعات المخفيه عن مديري النظام",
 	"right-viewsuppressed": "عرض المراجعات المخفيه بواسطة أي مستخدم",
 	"right-suppressionlog": "عرض السجلات الخاصة",
+<<<<<<< HEAD
+	"right-block": "منع أو إلغاء حظر المستخدمين الآخرين من التحرير",
+	"right-blockemail": "منع أو إلغاء حظر المستخدم من إرسال الايميل",
+	"right-hideuser": "حظر أو إلغاء حظر اسم مستخدم، وإخفائه أو عدم إخفائه عن العامة",
+=======
+>>>>>>> origin/1.39.7-test
 	"right-ipblock-exempt": "تفادي عمليات منع الأيبي، المنع التلقائي ومنع النطاق",
 	"right-unblockself": "رفع المنع عن أنفسهم",
 	"right-protect": "تغيير مستويات الحمايه وتعديل الصفحات المحميه",
@@ -1207,6 +1272,10 @@
 	"right-viewmywatchlist": "عرض قائمة مراقبتك",
 	"right-editmywatchlist": "حرر قائمة مراقبتك (لاحظ أن بعض الإجراءات لا تزال تضيف الصفحات حتى بدون هاذ الحق)",
 	"right-viewmyprivateinfo": "استعراض بياناتك الشخصية (مثل الايميل والاسم الحقيقي)",
+<<<<<<< HEAD
+	"right-editmyprivateinfo": "قم بتحرير بياناتك الخاصه (مثل عنوان الايميل والاسم الحقيقي) واطلب رسائل الايميل الخاصة بإعادة تعيين الباسورد",
+=======
+>>>>>>> origin/1.39.7-test
 	"right-editmyoptions": "تعديل تفضيلاتك",
 	"right-rollback": "استرجاع تعديلات آخر مستخدم عدل صفحه معينه بسرعه",
 	"right-markbotedits": "التعليم على تعديلات الاسترجاع كتعديلات بوت",
@@ -1248,6 +1317,10 @@
 	"grant-editsiteconfig": "عدل سي أس أس/جي أس على مستوى الموقع والمستخدم",
 	"grant-editpage": "تعديل صفحات موجوده",
 	"grant-editprotected": "تعديل صفحات محميه",
+<<<<<<< HEAD
+	"grant-highvolume": "وصول (بوت) بكميات جبيرة",
+=======
+>>>>>>> origin/1.39.7-test
 	"grant-import": "استيراد المراجعات",
 	"grant-mergehistory": "دمج تواريخ الصفحات",
 	"grant-oversight": "إخفاء المستخدمين وإخفاء المراجعات",
@@ -1287,9 +1360,21 @@
 	"action-writeapi": "استخدام API للكتابه",
 	"action-delete": "حذف هاي الصفحه",
 	"action-delete-redirect": "استبدال حالات إعادة التوجيه ذات المراجعه الوحيده",
+<<<<<<< HEAD
+	"action-deleterevision": "حذف أو إلغاء حذف المراجعات المحدده للصفحات",
+	"action-deletelogentry": "حذف أو إلغاء حذف إدخالات سجل معينه",
+	"action-deletedhistory": "عرض البيانات الوصفيه لإدخالات التاريخ المحذوفه",
+	"action-deletedtext": "عرض النص المحذوف لو التغييرات بين المراجعات المحذوفه",
+	"action-browsearchive": "البحث في الصفحات المحذوفه",
+	"action-undelete": "استرجاع الصفحات",
+	"action-suppressrevision": "إظهار ومراجعة لو استرجاع المراجعات المخفيه عن مديري النظام",
+	"action-suppressionlog": "رؤية هاذ السجل الخاص",
+	"action-block": "منع أو إلغاء حظر هاذ المستخدم من التحرير",
+=======
 	"action-browsearchive": "البحث في الصفحات المحذوفه",
 	"action-undelete": "استرجاع الصفحات",
 	"action-suppressionlog": "رؤية هاذ السجل الخاص",
+>>>>>>> origin/1.39.7-test
 	"action-protect": "تغيير مستويات الحماية لهاي الصفحة",
 	"action-rollback": "استرجاع تعديلات آخر مستخدم عدل صفحه معينه بسرعه",
 	"action-import": "استيراد الصفحات من ويكي ثاني",
@@ -1316,6 +1401,10 @@
 	"action-apihighlimits": "استخدام حدود أعلى في استعلامات اي بي آي",
 	"action-autoconfirmed": "ما متأثر بحدود المعدل المستندة إلى الآيبي",
 	"action-bigdelete": "حذف الصفحات ذات التواريخ الجبيره",
+<<<<<<< HEAD
+	"action-blockemail": "منع أو إلغاء حظر المستخدم من إرسال الايميل",
+=======
+>>>>>>> origin/1.39.7-test
 	"action-bot": "تعامل كعمليه أوتوماتيكيه",
 	"action-editprotected": "تعديل الصفحات اللي حمايتها \"{{int:protect-level-sysop}}\"",
 	"action-editsemiprotected": "تعديل الصفحات اللي حمايتها \"{{int:protect-level-autoconfirmed}}\"",
@@ -1331,6 +1420,10 @@
 	"action-editmyuserjs": "تحرير ملفات جافا سكربت المستخدم مالتك",
 	"action-editmyuserjsredirect": "تحرير ملفات جافا سكريبت المحولة مالت المستخدم",
 	"action-viewsuppressed": "عرض المراجعات المخفيه بواسطة أي مستخدم",
+<<<<<<< HEAD
+	"action-hideuser": "حظر أو إلغاء حظر اسم مستخدم، وإخفائه أو عدم إخفائه عن العامة",
+=======
+>>>>>>> origin/1.39.7-test
 	"action-ipblock-exempt": "تفادي عمليات منع الأيبي والمنع التلقائي ومنع النطاق",
 	"action-unblockself": "رفع المنع عن أنفسهم",
 	"action-noratelimit": "ما يتأثر بحدود المعدل",
@@ -1464,12 +1557,22 @@
 	"rcfilters-filter-categorization-description": "سجلات إضافه أو إزالة الصفحات من التصنيفات.",
 	"rcfilters-filter-logactions-label": "الأفعال المسجله",
 	"rcfilters-filter-logactions-description": "الأفعال الإداريه، إنشاء الحسابات، حذف الصفحات، عمليات الرفع…",
+<<<<<<< HEAD
+	"rcfilters-filter-newuserlogactions-label": "مستخدمين جدد",
+	"rcfilters-filter-newuserlogactions-description": "إدخالات السجل لإنشاء الحساب. لازم تحديد الإجراءات المسجله.",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-filtergroup-lastrevision": "احدث المراجعات",
 	"rcfilters-filter-lastrevision-label": "آخر مراجعه",
 	"rcfilters-filter-lastrevision-description": "بس أحدث التغييرات اللي صارت على الصفحه.",
 	"rcfilters-filter-previousrevision-label": "مو آخر مراجعه",
 	"rcfilters-filter-previousrevision-description": "كل التغييرات ما عدا \"أحدث مراجعه\".",
 	"rcfilters-filter-excluded": "مستبعد",
+<<<<<<< HEAD
+	"rcfilters-tag-prefix-namespace-inverted": "<strong>مو</strong> :$1",
+	"rcfilters-tag-prefix-tags-inverted": "<strong>مو</strong> #$1",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-exclude-button-off": "الاستبعاد مختار",
 	"rcfilters-exclude-button-on": "استثناء المختاره",
 	"rcfilters-view-tags": "تعديلات موسومه",
@@ -1755,6 +1858,10 @@
 	"filehist-dimensions": "أبعاد",
 	"filehist-filesize": "حجم الملف",
 	"filehist-comment": "تعليق",
+<<<<<<< HEAD
+	"filehist-missing": "ماكو ملف",
+=======
+>>>>>>> origin/1.39.7-test
 	"imagelinks": "استخـدام الملف",
 	"linkstoimage-redirect": "$1 (تحويلة ملف) $2",
 	"sharedupload-desc-here": "هاذ الملف من $1 وتكدر تستخدمه بالمشاريع الثانية.\nالوصف على [$2 صفحة وصف الملف] هناك معروض جوه.",
@@ -1774,6 +1881,10 @@
 	"filedelete-nofile": "<strong>$1</strong> مو موجود.",
 	"filedelete-otherreason": "سبب ثاني/اضافي:",
 	"filedelete-reason-otherlist": "سبب ثاني",
+<<<<<<< HEAD
+	"filedelete-reason-dropdown": "*أسباب الحذف الشائعة\n** خرق الكوبي رايت\n** الملفات المكرره",
+=======
+>>>>>>> origin/1.39.7-test
 	"filedelete-edit-reasonlist": "عدل أسباب الحذف",
 	"filedelete-edit-reasonlist-suppress": "عدل أسباب الإخفاء",
 	"filedelete-maintenance-title": "ما يكدر يحذف الملف",
@@ -1962,6 +2073,10 @@
 	"metadata": "ميتا بيانات",
 	"metadata-help": "هاذ الملف يحتوي على معلومات ثانية، على الأغلب تكون أضيفت من قبل الكامرة الرقمية لو الماسح الضوئي المستخدم في إنشاء الملف.\nإذا جان الملف تعدل من حالته الأصلية، بعض التفاصيل يمكن ما تعبر عن الملف المعدل.",
 	"monthsall": "كلهن",
+<<<<<<< HEAD
+	"watchlist-expiry-options": "دايم:infinite,1 أسبوع:1 week,1 شهر:1 month,3 أشهر:3 months,6 أشهر:6 months,1 سنة:1 year",
+=======
+>>>>>>> origin/1.39.7-test
 	"imgmultipageprev": "→ الصفحة السابقة",
 	"imgmultipagenext": "الصفحة التالية ←",
 	"imgmultigo": "روح!",
@@ -1994,5 +2109,22 @@
 	"userlogout-continue": "انته تريد تسجل الخروج؟",
 	"newpages-showhide-bots": "$1 بوتات",
 	"newpages-showhide-patrolled": "$1 التعديلات المراجعة",
+<<<<<<< HEAD
+	"newpages-showhide-redirect": "$1 التحويلات",
+	"blockedtext-made-by": "المنع سواه $1",
+	"blockedtext-reason-comment": "السبب هو <em>$1</em>",
+	"blockedtext-start-time": "بداية المنع:$1",
+	"blockedtext-expiration-time": "انتهاء المنع: $1",
+	"blockedtext-intended-blockee": "الممنوع المقصود: $1",
+	"blockedtext-contact-blocker-admin": "تكدر تتواصل وي $1 لو تتواصل وي [[{{MediaWiki:Grouppage-sysop}}|غير إداري]] حتى تتناقش عالحظر.",
+	"blockedtext-include-details-queries": "ضمن كل التفاصيل المذكورة فوك بكل إستفسار تسويه.",
+	"renameuserold": "اسم المستخدم الحالي:",
+	"renameuserreason": "السبب:",
+	"renameusermove": "انقل صفحات المستخدم ونقاشه (بالصفحات الفرعية) للاسم الجديد",
+	"renameusersuppress": "لا تسوي تحويلات للاسم الجديد",
+	"renameuserwarnings": "التحذيرات:",
+	"renameuser-warning-currentblock": "هاذ المستخدم [$1 محظور حاليًا]."
+=======
 	"newpages-showhide-redirect": "$1 التحويلات"
+>>>>>>> origin/1.39.7-test
 }

@@ -2,8 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Erdemaslancan",
+<<<<<<< HEAD
+			"Patriot Kor",
+			"Patriot Kur",
+=======
 			"Patriot Kur",
 			"Patriot Kor",
+>>>>>>> origin/1.39.7-test
 			"Гусейн"
 		]
 	},

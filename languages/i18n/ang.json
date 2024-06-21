@@ -15,6 +15,7 @@
 			"Macofe",
 			"Omnipaedista",
 			"Pyscowicz",
+			"Rocioun",
 			"Shirayuki",
 			"Spacebirdy",
 			"Tsepelcory",
@@ -179,6 +180,7 @@
 	"permalink": "Fæst hlenca",
 	"print": "Bewritan",
 	"view": "Sihþ",
+	"viewcontribs": "Hawe forþunga",
 	"skin-view-view": "Ræd",
 	"skin-view-foreign": "Sihþ on $1",
 	"edit": "Adiht",
@@ -195,6 +197,8 @@
 	"skin-action-unprotect": "Wend beorgunge",
 	"unprotect": "Wend beorgunge",
 	"newpage": "Niwe tramet",
+	"newpage-desc": "Beginn niw tramet for þinge þe man hæfð firmette.",
+	"view-missing-pages": "Hawe æfwearde trametas",
 	"talkpagelinktext": "motung",
 	"specialpage": "Syndrig tramet",
 	"personaltools": "Agnu tol",
@@ -756,6 +760,7 @@
 	"filehist-dimensions": "Micelnesse gemetu",
 	"filehist-filesize": "Ymelan micelness",
 	"filehist-comment": "Ymbspræc",
+	"filehist-missing": "Yemele is æfweard",
 	"imagelinks": "Ymelan nytt",
 	"linkstoimage": "{{PLURAL:$1|Þas tramet hæfþ|Þas trametas habbaþ}} hlencan þe cnyttaþ to þisre ymelan:",
 	"nolinkstoimage": "Ne sind nænge trametas þa þe habbaþ hlencan þa cnyttaþ to þisre ymelan.",
@@ -1170,5 +1175,8 @@
 	"skin-action-protect": "Beorg",
 	"skin-action-undelete": "Scieppan tramet eft",
 	"skin-action-delete": "Forleos",
-	"skin-action-move": "Wegan"
+	"skin-action-move": "Wegan",
+	"renameuser": "Ednemnan brūcend",
+	"renameuser-linkoncontribs": "Ednemne {{GENDER:$1|brucend|brucestran}}",
+	"renameusersubmit": "Forþsendan"
 }

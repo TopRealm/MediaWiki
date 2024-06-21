@@ -651,6 +651,10 @@
 	"summary-preview": "编辑摘要个预览：",
 	"previewerrortext": "尝试预览侬个更改个辰光发生哉错误。",
 	"blockedtitle": "用户畀查封",
+<<<<<<< HEAD
+	"blockedtext-partial": "<strong>侬个用户名或IP地址畀禁止做箇事体哉。侬作兴仍旧好勒本站做别样事体，譬方说编辑特定页面。</strong>侬好勒[[Special:MyContributions|账号贡献]]望完整个查封细节。\n\n由$1查封。\n\n畀出个原因是<em>$2</em>。\n\n* 查封开始辰光：$8\n* 查封到期辰光：$6\n* 目标查封对象：$7\n* 查封ID #$5",
+=======
+>>>>>>> origin/1.39.7-test
 	"blockednoreason": "朆畀出原因",
 	"blockedtext-composite-ids": "相应个查封ID：$1（侬个IP地址作兴也畀写进黑名单哉）",
 	"blockedtext-composite-no-ids": "侬个IP地址出现勒多只封禁名单里向",
@@ -672,6 +676,11 @@
 	"missing-revision-permission": "修订版本#$1属于一个已经畀删除个页面。侬可以[{{fullurl:{{#Special:Undelete}}|target=$3&timestamp=$2&diff=prev}} 查看箇个页面]。具体情况勒[{{fullurl:{{#Special:Log}}/delete|page=$3}} 删除日志]。",
 	"missing-revision": "“{{FULLPAGENAME}}”个版本#$1弗存在。\n\n箇一般是因为进入仔一个已经畀删除个页面个历史链接。\n具体个信息可以勒[{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} 删除日志]中寻哉。",
 	"missing-revision-content": "没办法加载“$2”页修改ID是“$1”个内容。",
+<<<<<<< HEAD
+	"userpage-userdoesnotexist": "用户账户“<nowiki>$1</nowiki>”弗曾创建。请垃拉创建／编辑迭个页面前头先检查一记。",
+	"userpage-userdoesnotexist-view": "用户账户“$1”弗曾创建。",
+=======
+>>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "箇位{{GENDER:$1|用户}}箇歇畀封锁垃许。下头有最近个封锁纪录以供参考：",
 	"clearyourcache": "<strong>注意：</strong>垃拉保存之后，侬作兴要清除浏览器个缓存才好看见改变。\n* <strong>Firefox或Safari：</strong>揿牢“Shift”个同时点击“刷新”，或揿“Ctrl-F5”或“Ctrl-R”（Mac上是“⌘-R”）\n* <strong>Google Chrome：</strong>揿“Ctrl-Shift-R”（Mac上是“⌘-Shift-R”）\n* <strong>Internet Explorer / Edge：</strong>揿牢“Ctrl”个同时点击“刷新”，或揿“Ctrl-F5”\n* <strong>Opera：</strong>去到<em>菜单 → 设置</em>（Mac上是<em>Opera → 偏好设定</em>），再转到<em>隐私&安全 → 清除浏览数据 → 缓存个图片搭文件</em>。",
 	"usercssyoucanpreview": "'''提示：''' 垃拉保存之前请用“{{int:showpreview}}”揿钮来测试新 CSS 。",
@@ -866,6 +875,10 @@
 	"revdelete-hide-comment": "编辑摘要",
 	"revdelete-hide-user": "编者个用户名/IP地址",
 	"revdelete-hide-restricted": "同时阻止管理员与其他用户查看数据",
+<<<<<<< HEAD
+	"revdelete-radio-same": "（弗更改）",
+=======
+>>>>>>> origin/1.39.7-test
 	"revdelete-radio-set": "囥脱",
 	"revdelete-radio-unset": "可见",
 	"revdelete-suppress": "阻止管理员搭其他用户查看数据",
@@ -1139,6 +1152,10 @@
 	"right-viewmywatchlist": "望自家个关注表",
 	"right-editmywatchlist": "编辑侬个监视列表（麻烦留意即使缺少箇个权限，某些操作还会添加页面到监视列表）",
 	"right-viewmyprivateinfo": "望自家个私人数据（譬方说电邮地址、真名字）",
+<<<<<<< HEAD
+	"right-editmyprivateinfo": "编辑自家个私人数据（譬方说电邮地址、真名字）",
+=======
+>>>>>>> origin/1.39.7-test
 	"right-editmyoptions": "编辑侬个个人设置",
 	"right-patrol": "拿别人家个编辑标记成已巡查",
 	"right-sendemail": "發郵件畀各許人",
@@ -1167,6 +1184,11 @@
 	"action-reupload": "箇文件以舊換新",
 	"action-upload_by_url": "從URL傳文件",
 	"action-delete": "刪箇頁",
+<<<<<<< HEAD
+	"action-deleterevision": "删脱修订",
+	"action-deletedhistory": "望页面删脱个历史",
+=======
+>>>>>>> origin/1.39.7-test
 	"action-browsearchive": "寻删脱个页面",
 	"action-undelete": "还原页面",
 	"action-protect": "保护",
@@ -1727,6 +1749,10 @@
 	"metadata-help": "箇只文件里向包含有扩展个信息。箇些信息可能是由数码相机或扫描仪垃拉创建或数字化过程中所添加个。\n\n如果此文件个源文件已经修改，一些信息垃拉修改后个文件里向将弗能完全反映出来。",
 	"metadata-expand": "显示详细资料",
 	"metadata-collapse": "隐藏详细资料",
+<<<<<<< HEAD
+	"metadata-fields": "垃拉本信息里向列出个图像元数据域包含垃拉图片显示页面，来元数据表损坏个辰光只显示下头眼信息。\n别个元数据默认囥脱。\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude",
+=======
+>>>>>>> origin/1.39.7-test
 	"namespacesall": "全部",
 	"monthsall": "全部",
 	"confirmemail": "确认电子邮件地址",

@@ -7,6 +7,7 @@
 			"AttemptToCallNil",
 			"DDPAT",
 			"DannyS712",
+			"Deltaspace",
 			"Diralik",
 			"DmitTrix",
 			"Eakarpov",
@@ -54,7 +55,10 @@
 			"Краснорядцева Елена",
 			"Лилиә",
 			"Марио",
+<<<<<<< HEAD
+=======
 			"Deltaspace",
+>>>>>>> origin/1.39.7-test
 			"BerryAVGN",
 			"Amire80",
 			"Smigles",
@@ -275,6 +279,10 @@
 	"apihelp-feedrecentchanges-param-hidemyself": "Скрыть правки текущего участника.",
 	"apihelp-feedrecentchanges-param-hidecategorization": "Скрыть категоризацию страниц.",
 	"apihelp-feedrecentchanges-param-tagfilter": "Фильтр по меткам.",
+<<<<<<< HEAD
+	"apihelp-feedrecentchanges-param-inverttags": "Все правки, кроме помеченных выбранными.",
+=======
+>>>>>>> origin/1.39.7-test
 	"apihelp-feedrecentchanges-param-target": "Отображать только правки на страницах, на которые ссылается данная.",
 	"apihelp-feedrecentchanges-param-showlinkedto": "Отображать правки на страницах, ссылающихся на данную.",
 	"apihelp-feedrecentchanges-example-simple": "Список последних изменений.",
@@ -1319,6 +1327,7 @@
 	"apihelp-query+userinfo-paramvalue-prop-registrationdate": "Добавляет дату регистрации участника.",
 	"apihelp-query+userinfo-paramvalue-prop-unreadcount": "Добавляет число непрочитанных страниц в странице наблюдения участника (максимум $1; возвращает <samp>$2</samp>, если их больше).",
 	"apihelp-query+userinfo-paramvalue-prop-centralids": "Добавляет центральный идентификатор и статус прикрепления участника.",
+	"apihelp-query+userinfo-paramvalue-prop-cancreateaccount": "Указывает, разрешено ли пользователю создавать учетные записи. Чтобы проверить, можно ли создать определенную учетную запись, используйте [[Special:ApiHelp/query+users| <kbd>action=query&list=users&usprop=cancreate</kbd>]].",
 	"apihelp-query+userinfo-param-attachedwiki": "Вместе с <kbd>$1prop=centralids</kbd> отображает, прикреплён ли к вики участник с этим идентификатором.",
 	"apihelp-query+userinfo-example-simple": "Получение информации о текущем участнике.",
 	"apihelp-query+userinfo-example-data": "Получение дополнительной информации о текущем участнике.",
@@ -1334,7 +1343,7 @@
 	"apihelp-query+users-paramvalue-prop-emailable": "Отмечает, может ли и хочет ли участник получать электронную почту посредством [[Special:Emailuser]].",
 	"apihelp-query+users-paramvalue-prop-gender": "Отмечает пол текущего участника. Возвращает «male», «female» или «unknown».",
 	"apihelp-query+users-paramvalue-prop-centralids": "Добавляет центральный идентификатор и статус прикрепления участника.",
-	"apihelp-query+users-paramvalue-prop-cancreate": "Определяет, могут ли быть созданы аккаунты с корректными, но незарегистрированными именами.",
+	"apihelp-query+users-paramvalue-prop-cancreate": "Определяет, могут ли быть созданы аккаунты с допустимыми, но незарегистрированными именами. Чтобы проверить, может ли текущий пользователь выполнить создание учетной записи, используйте [[Special:ApiHelp/query+userinfo|<kbd>action=query&meta=userinfo&uiprop=cancreateaccount</kbd>]].",
 	"apihelp-query+users-param-attachedwiki": "Вместе с <kbd>$1prop=centralids</kbd> отображает, прикреплён ли к вики участник с этим идентификатором.",
 	"apihelp-query+users-param-users": "Список участников, для которых получить информацию.",
 	"apihelp-query+users-param-userids": "Список идентификаторов участников, для которых получить информацию.",

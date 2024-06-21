@@ -23,7 +23,9 @@
 
 namespace MediaWiki\Auth;
 
+use MediaWiki\Language\RawMessage;
 use Message;
+use UnexpectedValueException;
 
 /**
  * This is a value object for authentication requests.
@@ -242,8 +244,8 @@ abstract class AuthenticationRequest {
 	 */
 	public function describeCredentials() {
 		return [
-			'provider' => new \RawMessage( '$1', [ get_called_class() ] ),
-			'account' => new \RawMessage( '$1', [ $this->getUniqueId() ] ),
+			'provider' => new RawMessage( '$1', [ get_called_class() ] ),
+			'account' => new RawMessage( '$1', [ $this->getUniqueId() ] ),
 		];
 	}
 
@@ -296,7 +298,7 @@ abstract class AuthenticationRequest {
 	 *
 	 * @param AuthenticationRequest[] $reqs
 	 * @return string|null
-	 * @throws \UnexpectedValueException If multiple different usernames are present.
+	 * @throws UnexpectedValueException If multiple different usernames are present.
 	 */
 	public static function getUsernameFromRequests( array $reqs ) {
 		$username = null;
@@ -309,7 +311,7 @@ abstract class AuthenticationRequest {
 					$otherClass = get_class( $req );
 				} elseif ( $username !== $req->username ) {
 					$requestClass = get_class( $req );
-					throw new \UnexpectedValueException( "Conflicting username fields: \"{$req->username}\" from "
+					throw new UnexpectedValueException( "Conflicting username fields: \"{$req->username}\" from "
 						// @phan-suppress-next-line PhanTypeSuspiciousStringExpression $otherClass always set
 						. "$requestClass::\$username vs. \"$username\" from $otherClass::\$username" );
 				}
@@ -322,7 +324,7 @@ abstract class AuthenticationRequest {
 	 * Merge the output of multiple AuthenticationRequest::getFieldInfo() calls.
 	 * @param AuthenticationRequest[] $reqs
 	 * @return array
-	 * @throws \UnexpectedValueException If fields cannot be merged
+	 * @throws UnexpectedValueException If fields cannot be merged
 	 */
 	public static function mergeFieldInfo( array $reqs ) {
 		$merged = [];
@@ -373,7 +375,7 @@ abstract class AuthenticationRequest {
 				if ( !array_key_exists( $name, $merged ) ) {
 					$merged[$name] = $options;
 				} elseif ( $merged[$name]['type'] !== $type ) {
-					throw new \UnexpectedValueException( "Field type conflict for \"$name\", " .
+					throw new UnexpectedValueException( "Field type conflict for \"$name\", " .
 						"\"{$merged[$name]['type']}\" vs \"$type\""
 					);
 				} else {

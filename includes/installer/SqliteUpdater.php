@@ -32,6 +32,8 @@ class SqliteUpdater extends DatabaseUpdater {
 
 	protected function getCoreUpdateList() {
 		return [
+<<<<<<< HEAD
+=======
 			// 1.35 but must come first
 			[ 'addField', 'revision', 'rev_actor', 'patch-revision-rev_actor.sql' ],
 
@@ -107,7 +109,9 @@ class SqliteUpdater extends DatabaseUpdater {
 			[ 'dropField', 'recentchanges', 'rc_user', 'patch-recentchanges-drop-rc_user.sql' ],
 			[ 'dropField', 'logging', 'log_user', 'patch-logging-drop-log_user.sql' ],
 
+>>>>>>> origin/1.39.7-test
 			// 1.35
+			[ 'addField', 'revision', 'rev_actor', 'patch-revision-actor-comment-MCR.sql' ],
 			[ 'addTable', 'watchlist_expiry', 'patch-watchlist_expiry.sql' ],
 			[ 'modifyfield', 'filearchive', 'fa_actor', 'patch-filearchive-drop-fa_actor-DEFAULT.sql' ],
 			[ 'modifyfield', 'recentchanges', 'rc_actor', 'patch-recentchanges-drop-rc_actor-DEFAULT.sql' ],
@@ -134,7 +138,7 @@ class SqliteUpdater extends DatabaseUpdater {
 			[ 'modifyField', 'watchlist', 'wl_title', 'patch-watchlist-wl_title-varbinary.sql' ],
 			[ 'modifyField', 'protected_titles', 'pt_title', 'patch-protected_titles-pt_title-varbinary.sql' ],
 			[ 'modifyField', 'protected_titles', 'pt_expiry', 'patch-protected_titles-pt_expiry-drop-default.sql' ],
-			[ 'modifyField', 'ip_changes', 'ipc_rev_timestamp',  'patch-ip_changes-pc_rev_timestamp-drop-default.sql' ],
+			[ 'modifyField', 'ip_changes', 'ipc_rev_timestamp', 'patch-ip_changes-pc_rev_timestamp-drop-default.sql' ],
 			[ 'renameIndex', 'watchlist', 'namespace_title', 'wl_namespace_title', false,
 				'patch-watchlist-namespace_title-rename-index.sql' ],
 			[ 'modifyField', 'job', 'job_title', 'patch-job-job_title-varbinary.sql' ],
@@ -195,6 +199,12 @@ class SqliteUpdater extends DatabaseUpdater {
 			[ 'migrateTemplatelinks' ],
 			[ 'modifyField', 'templatelinks', 'tl_namespace', 'patch-templatelinks-tl_title-nullable.sql' ],
 			[ 'dropField', 'templatelinks', 'tl_title', 'patch-templatelinks-drop-tl_title.sql' ],
+<<<<<<< HEAD
+
+			// 1.40
+			[ 'addField', 'externallinks', 'el_to_path', 'patch-externallinks-el_to_path.sql' ],
+=======
+>>>>>>> origin/1.39.7-test
 		];
 	}
 

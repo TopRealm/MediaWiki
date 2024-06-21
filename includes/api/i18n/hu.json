@@ -4,12 +4,16 @@
 			"Csega",
 			"Dj",
 			"Dorgan",
+			"Eukarióta",
 			"Macofe",
 			"Tacsipacsi",
 			"ViDam",
 			"Wolf Rex",
 			"Amire80",
+<<<<<<< HEAD
+=======
 			"Eukarióta",
+>>>>>>> origin/1.39.7-test
 			"Hanna Tardos"
 		]
 	},
@@ -1051,7 +1055,7 @@
 	"apihelp-query+users-paramvalue-prop-emailable": "A felhasználó szeretne-e e-mailt fogadni a [[Special:Emailuser]] lapon keresztül.",
 	"apihelp-query+users-paramvalue-prop-gender": "A felhasználó neme („male”, „female” vagy „unknown”).",
 	"apihelp-query+users-paramvalue-prop-centralids": "A felhasználó központi azonosítói és az összekapcsolási státusza.",
-	"apihelp-query+users-paramvalue-prop-cancreate": "Létrehozható-e fiók az érvényes, de nem regisztrált felhasználóneveken.",
+	"apihelp-query+users-paramvalue-prop-cancreate": "Létrehozható-e fiók az érvényes, de nem regisztrált felhasználóneveken. Annak ellenőrzésére, hogy a jelenlegi felhasználó ténylegesen létrehozhatja-e a felhasználót, használd a [[Special:ApiHelp/query+userinfo|<kbd>action=query&meta=userinfo&uiprop=cancreateaccount</kbd>]] végpontot.",
 	"apihelp-query+users-param-attachedwiki": "A felhasználó össze van-e kapcsolva az ezen azonosítójú wikivel, az <kbd>$1prop=centralids</kbd> paraméterrel együtt használandó.",
 	"apihelp-query+users-param-users": "A lekérendő felhasználók listája.",
 	"apihelp-query+users-param-userids": "A lekérendő felhasználók azonosítóinak listája.",

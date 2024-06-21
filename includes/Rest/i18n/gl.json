@@ -13,6 +13,10 @@
 	"rest-nonexistent-revision": "A revisión especificada ($1) non existe",
 	"rest-nonexistent-user": "O usuario especificado ($1) non existe",
 	"rest-invalid-user": "O nome de usuario especificado ($1) non é válido",
+<<<<<<< HEAD
+	"rest-unsupported-content-type": "Content-Type non soportado: $1",
+=======
+>>>>>>> origin/1.39.7-test
 	"rest-permission-denied-anon": "Non accesible por un usuario anónimo",
 	"rest-permission-denied-title": "O usuario non ten dereitos para ler o título ($1)",
 	"rest-permission-denied-revision": "O usuario non ten acceso á revisión solicitada ($1).",
@@ -43,5 +47,11 @@
 	"rest-cannot-load-file": "Non se pode subir o ficheiro para o título \"$1\".",
 	"rest-cross-origin-anon-write": "Non se permiten as solicitudes de escritura anónimas entre orixes cruzadas",
 	"rest-requires-safe-against-csrf": "Este extremo necesita un provedor de sesión seguro contra ataques CSRF.",
+<<<<<<< HEAD
+	"rest-badtoken": "O token CSRF proporcionado non é válido.",
+	"rest-badtoken-missing": "O parámetro <var>token</var> é obrigatorio a menos que uses un método de autenticación seguro contra ataques CSRF.",
+	"rest-badtoken-nosession": "Erro CSRF: Non hai sesión."
+=======
 	"rest-badtoken": "O token CSRF proporcionado non é válido."
+>>>>>>> origin/1.39.7-test
 }

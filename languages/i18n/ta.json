@@ -27,6 +27,7 @@
 			"Matma Rex",
 			"Matěj Suchánek",
 			"Mayooranathan",
+			"McDutchie",
 			"MinecraftAustralia",
 			"Mohammed Ammar",
 			"Naveen",
@@ -40,6 +41,7 @@
 			"Shrikarsan",
 			"Siddhan",
 			"Sodabottle",
+			"Sridhar G",
 			"Sundar",
 			"Surya Prakash.S.A.",
 			"TRYPPN",
@@ -61,8 +63,11 @@
 			"மதனாஹரன்",
 			"බිඟුවා",
 			"아라",
+<<<<<<< HEAD
+=======
 			"McDutchie",
 			"Sridhar G",
+>>>>>>> origin/1.39.7-test
 			"Amire80",
 			"Fahimrazick",
 			"Neechalkaran"
@@ -225,6 +230,10 @@
 	"permalink": "நிலையான தொடுப்பு",
 	"print": "அச்சிடு",
 	"view": "பார்",
+<<<<<<< HEAD
+	"viewcontribs": "பங்களிப்புகளைப் பார்",
+=======
+>>>>>>> origin/1.39.7-test
 	"skin-view-view": "வாசி",
 	"skin-view-foreign": "$1 இல் பார்",
 	"edit": "தொகு",
@@ -241,6 +250,8 @@
 	"skin-action-unprotect": "காப்பை மாற்று",
 	"unprotect": "காப்பை மாற்று",
 	"newpage": "புதிய பக்கம்",
+	"newpage-desc": "கோரப்பட்ட ஒரு தலைப்புக்கான ஒரு புதிய பக்கத்தைத் தொடங்கு.",
+	"view-missing-pages": "தவறிய பக்கங்களைப் பார்",
 	"talkpagelinktext": "பேச்சு",
 	"specialpage": "சிறப்புப் பக்கம்",
 	"personaltools": "தனிப்பட்ட கருவிகள்",
@@ -681,7 +692,11 @@
 	"noarticletext-nopermission": "தற்பொழுது இப்பக்கத்தில் உரை எதுவும் இல்லை.\nநீங்கள் [[Special:Search/{{PAGENAME}}|பக்கத் தலைப்பை வைத்து]] அல்லது மற்ற பக்கங்களில்,\nஅல்லது <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} அல்லது தேடுதல் தொடர்பான பதிவுகளில் தேடலாம்.]</span>, ஆனால் இந்தப் பக்கத்தை உருவாக்க அனுமதியில்லை.",
 	"missing-revision": "இந்த பரிசீலனை # $1  '' {{FULLPAGENAME}}' பெயருள்ள பக்கத்தின் இல்லை.!N வேடிக்கையானN!இது தான் வழக்கமாக ஏற்பட்டிருக்கலாம் நீக்கப்பட்டுள்ளது பக்கத்திற்கு outdated வரலாறு இணைப்பை தொடர்ந்து.\nவிவரங்கள் முடியும் கண்டறிய, [{{fullurl: {{# சிறப்பு: குறிப்பேடு}} / delete|page = {{FULLPAGENAMEE}}}} நீக்குதல் குறிப்பேடு].",
 	"userpage-userdoesnotexist": "\"<nowiki>$1</nowiki>\" என்றக் கணக்கு இன்னமும் பதிவுச் செய்யப்படவில்லை. இதை உருவாக்க/தொகுக்க வேண்டுமா என்பதை உறுதிப்படுத்தவும்.",
+<<<<<<< HEAD
+	"userpage-userdoesnotexist-view": "பயனர் கணக்கு \"$1\" இந்த விக்கியிற் பதியப்படவில்லை",
+=======
 	"userpage-userdoesnotexist-view": "பயனர் கணக்கு \"$1\" பதியப்படவில்லை",
+>>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "இப்{{GENDER:$1|பயனர்}} தற்போது தடை செய்யப்பட்டுள்ளார். ஆகப் பிந்திய தடைப் பதிவு இடுகை குறிப்புக்காகக் கீழே தரப்படுகிறது:",
 	"clearyourcache": "'''குறிப்பு''' - சேமித்த பின்னர், நீங்கள் செய்த மாற்றங்களைக் காண்பதற்கு உங்கள் உலவியின் இடைமாற்று அகற்றப்பட வேண்டும்.'''\n*'''மொஸில்லா பயர்பாக்ஸ் / சபாரி:''' ''Shift+Reload'', அல்லது ''Ctrl-F5'' அல்லது ''Ctrl-R'' (''⌘-R'' Mac ல்)\n*'''கூகிள் குரோம்''' ''Ctrl-Shift-R'' அழுத்தவும். (''⌘-Shift-R''  Mac ல்) ;\n*'''இண்டர்நெட் எக்ஸ்ப்ளோரர்:''' ''Ctrl-Refresh'' அல்லது ''Ctrl-F5'' ஐ அழுத்தவும்.\n*'''ஒபேரா:''' ''Tools → Preferences'' இல் இடைமாற்றை அகற்றவும்;",
 	"usercssyoucanpreview": "'''சிறு உதவி:''' தங்களது சி.எஸ்.எஸ்(CSS)-ஐ சேமிப்பதற்கு முன்பாக \"{{int:showpreview}}\" பொத்தானைப் பயனபடுத்தி சோதனை செய்யவும்",
@@ -862,9 +877,17 @@
 	"revdelete-hide-comment": "தொகுப்புச் சுருக்கம்",
 	"revdelete-hide-user": "தொகுப்பவரின் ஐ.பி./பயனர்பெயர்",
 	"revdelete-hide-restricted": "குறிப்புக்களை அதிகாரிகள் உட்பட எல்லோரிடமிருந்தும் மறைத்துவிடு (காட்டத்தேவையில்லை).",
+<<<<<<< HEAD
+	"revdelete-radio-same": "மாற்ற வேண்டாம்",
+	"revdelete-radio-set": "மறைந்தது",
+	"revdelete-radio-unset": "தென்படுவது",
+	"revdelete-radio-set-suppress": "அடக்கு",
+	"revdelete-radio-unset-suppress": "அடக்காதே",
+=======
 	"revdelete-radio-same": "(தயவுசெய்து மாற்ற வேண்டாம்)",
 	"revdelete-radio-set": "மறைந்தது",
 	"revdelete-radio-unset": "தென்படுவது",
+>>>>>>> origin/1.39.7-test
 	"revdelete-suppress": "நிர்வாகிகள் உட்பட இனவரிடமிருந்தாக தரவுகளை அடக்கு",
 	"revdelete-unsuppress": "மீட்கப்பட்ட திருத்தங்கள் மீதான கட்டுப்பாடுகளை நீக்கு",
 	"revdelete-log": "காரணம்:",
@@ -926,6 +949,7 @@
 	"lineno": "வரிசை $1:",
 	"compareselectedversions": "தெரிவு செய்த திருத்தங்களை ஒப்பிடு",
 	"showhideselectedversions": "தெரிவு செய்யப்பட்ட மாற்றங்களை காட்டு/மறை",
+	"showhideselectedfileversions": "தெரிவு செய்யப்பட்ட கோப்புப் பதிப்புகளின் புலப்படுதலை மாற்று",
 	"editundo": "மீளமை",
 	"diff-empty": "(வேறுபாடு ஏதுமில்லை)",
 	"diff-multi-sameuser": "(பயனரால் செய்யப்பட {{PLURAL:$1|ஒரு இடைப்பட்ட திருத்தம்|$1 இடைப்பட்ட திருத்தங்கள்}}  காட்டப்படவில்லை.)",
@@ -1014,6 +1038,11 @@
 	"prefs-email": "மின்னஞ்சல் தெரிவுகள்",
 	"prefs-rendering": "தோற்றம்",
 	"prefs-searchmisc": "பொது",
+<<<<<<< HEAD
+	"searchprefs": "விருப்பங்களைத் தேடு",
+	"searchprefs-noresults": "முடிவுகள் ஏதுமில்லை",
+=======
+>>>>>>> origin/1.39.7-test
 	"saveprefs": "சேமி",
 	"restoreprefs": "எல்லோருக்கும் பொதுவான வடிவமைப்பைத் திரும்பக்கொண்டுவரவும் (எல்லா பிரிவுகளிலும்).",
 	"prefs-editing": "தொகுத்தல்",
@@ -1021,6 +1050,9 @@
 	"recentchangesdays": "அண்மைய மாற்றங்களில் காட்ட வேண்டிய நாட்களின் எண்ணிக்கை:",
 	"recentchangesdays-max": "மிக அதிகமாக $1 {{PLURAL:$1|நாள்|நாட்கள்}}",
 	"recentchangescount": "மொத்தத் தொகுப்புக்களின் எண்ணிக்கையைத் தானாகவே காட்ட:",
+	"prefs-back-title": "விருப்பங்களுக்குத் திரும்பு",
+	"prefs-description-rc": "அண்மைய மாற்றங்கள் ஊட்டத்தைத் தனிப்பயனாக்கு.",
+	"prefs-description-misc": "உள்ளடக்க அட்டவணையைத் தனிப்பயனாக்கு.",
 	"prefs-help-recentchangescount": "அண்மைய மாற்றங்களையும், பக்கத்தின் வரலாறுகளையும் பதிவேட்டுப் பதிவுகளையும் உள்ளடக்கியதாகும்.",
 	"prefs-help-watchlist-token2": "உங்கள் கவனிப்புப்பட்டியலின் வலை ஓடைக்கு இது இரகசிய சாவி.\nஇதை அறிந்த எவரும் உங்கள் கவனிப்பு பட்டியலை வாசிக்கலாம், எனவே இதை பகிராதீர்கள்.\nதேவை ஏற்படின், [[Special:ResetTokens|நீங்கள் அதனை புதுப்பிக்கலாம்]].",
 	"prefs-user-downloaddata-label": "கணக்குத் தரவை அணுகு:",
@@ -1034,6 +1066,10 @@
 	"timezoneuseserverdefault": "விக்கி இயல்புநிலையை உபயோகிக்கவும் ($1)",
 	"timezoneuseoffset": "வேறு (UTC இலிருந்து நேரம் ஈடு செய்யப்பட்டது)",
 	"timezone-useoffset-placeholder": "எடுத்துக் காட்டுப் பெறுமானங்கள்: \"-07:00\" அல்லது \"01:00\"",
+<<<<<<< HEAD
+	"timezone-invalid": "செல்லுபடியாகாத நேர மண்டலம் அல்லது நேர ஈடு செய்தல்.",
+=======
+>>>>>>> origin/1.39.7-test
 	"servertime": "வழங்கி நேரம்:",
 	"guesstimezone": "உலாவியிலிருந்து நிரப்பு",
 	"timezoneregion-africa": "ஆபிரிக்கா",
@@ -1192,7 +1228,7 @@
 	"right-suppressionlog": "தனிப்பட்ட பதிவுகளை பார்",
 	"right-block": "ஏனைய பயனர்கள் தொகுப்பதை தடுக்கவும்",
 	"right-blockemail": "பயனர் மின்னஞ்சல் அனுப்புவதை தடுக்கவும்",
-	"right-hideuser": "பயனர்பெயரை தடுத்து, மறைக்கவும்",
+	"right-hideuser": "ஒரு பயனர் பெயரை தடுத்து அல்லது வெளிக்காட்டு, அதனைப் பொதுவில் மறை அல்லது மறைக்காதே",
 	"right-ipblock-exempt": "ஐ.பி (IP) தடுப்புகளையும், தானியங்கியான தடுப்புகளையும், வரம்புவரையான தடுப்புகளையும் மீறிச் செயல்படுக.",
 	"right-unblockself": "தடையகற்றிக் கொள்க",
 	"right-protect": "பாதுகாப்பு மட்டங்களை மாற்று மற்றும் தொடர்-பாதுகாக்கப்பட்ட பக்கங்களை திருத்து",
@@ -1282,8 +1318,14 @@
 	"action-upload_by_url": "இக்கோப்பை ஓர் உரலியிலிருந்துப் பதிவேற்றவும்",
 	"action-writeapi": "எழுது API பயன்படுத்தவும்",
 	"action-delete": "இப்பக்கத்தை நீக்கு",
+<<<<<<< HEAD
+	"action-deleterevision": "பக்கங்களின் குறிப்பான மாற்றங்களை நீக்கு அல்லது நீக்காதே",
+	"action-deletedhistory": "நீக்கப்பட்ட வராற்று உள்ளீடுகளின் மேற்றரவைப் பார்",
+	"action-deletedtext": "நீக்கப்பட்ட உரையை அல்லது நீக்கப்பட்ட திருத்தங்களுக்கு இடையிலான மாற்றங்களைப் பார்",
+=======
 	"action-deleterevision": "மாற்றங்களை நீக்கவும்",
 	"action-deletedhistory": "ஒரு பக்கத்தின் நீக்கப்பட்ட வரலாறு காண்க",
+>>>>>>> origin/1.39.7-test
 	"action-browsearchive": "அழிக்கப்பட்ட பக்கங்களைத் தேடு",
 	"action-undelete": "அழித்த பக்கத்தை மறுபடியும் கொண்டு வா",
 	"action-suppressrevision": "மறைக்கப்பட்ட மீளாய்வுகளை ஆய்வுசெய் மற்றும் மீட்டெடு",
@@ -1656,6 +1698,7 @@
 	"filehist-dimensions": "அளவுகள்",
 	"filehist-filesize": "கோப்பின் அளவு",
 	"filehist-comment": "கருத்து",
+	"filehist-missing": "கோப்பைக் காணவில்லை",
 	"imagelinks": "கோப்பு பயன்பாடு",
 	"linkstoimage": "பின்வரும் {{PLURAL:$1|பக்க இணைப்புகள்|$1 பக்கங்கள் இணைப்பு}}\nஇப் படிமத்துக்கு இணைக்கபட்டுள்ளது(ளன):",
 	"linkstoimage-more": " $1  க்கும் மேற்பட்ட {{PLURAL:$1| பக்கம் இணைப்புகள்|பக்கத்தின்  இணைப்பு}}  இந்த கோப்பிற்கு உள்ளது.\nகீழ்கண்ட பட்டியல் காட்டுவது,  {{PLURAL:$1| முதல் பக்க இணைப்பு|முதல்  $1 பக்க  இணைப்புகளை பக்கம்}}, இந்த கோப்பிற்கு மட்டும்.\nஒரு [[Special:WhatLinksHere/$2|முழு பட்டியல்]] உள்ளது.",
@@ -2676,7 +2719,11 @@
 	"metadata-help": "இந்தக் கோப்பு கூடுதலான தகவல்களைக் கொண்டுளது, இவை பெரும்பாலும் இக்கோப்பை உருவாக்கப் பயன்படுத்திய எண்ணிம ஒளிப்படக்கருவி அல்லது ஒளிவருடியால் சேர்க்கப்பட்டிருக்கலாம். இக்கோப்பு ஏதாவது வகையில் மாற்றியமைக்கப்பட்டிருந்தால் இத்தகவல்கள் அவற்றைச் சரிவர தராமல் இருக்கலாம்.",
 	"metadata-expand": "மேலதிகத் தகவல்களைக் காட்டு",
 	"metadata-collapse": "மேலதிகத் தகவல்களை மறை",
+<<<<<<< HEAD
+	"metadata-fields": "இங்கே காட்டப்பட்டுள்ள எக்சிப் மேல்நிலைத் தரவுகள் படிமவிளக்கப்பக்கத்தில் மேல்நிலைத் தரவுகள் அட்டவணை மறைக்கப்பட்டிருக்கும் பொழுது\n காட்டப்படும்.\n* make \n* model \n* datetimeoriginal \n* exposuretime \n* fnumber \n* isospeedratings \n* focallength \n* artist \n* copyright \n* imagedescription \n* gpslatitude \n* gpslongitude \n* gpsaltitude \n* dc-rights \n* copyrightowner \n* usageterms \n* webstatement \n* licenseurl \n* attributionurl \n* preferredattributionname \n* credit \n* jpegfilecomment \n* pngfilecomment \n* giffilecomment \n* usercomment \n* citydest \n* citycreated \n* headline \n* source \n* locationdest \n* dc-contributor \n* dc-coverage \n* dc-publisher \n* dc-relation \n* label \n* nickname \n* personinimage \n* disclaimer \n* event \n* objectname",
+=======
 	"metadata-fields": "இங்கே காட்டப்பட்டுள்ள எக்சிப் மேல்நிலைத் தரவுகள் படிமவிளக்கப்பக்கத்தில் மேல்நிலைத் தரவுகள் அட்டவணை மறைக்கப்பட்டிருக்கும் பொழுது\n காட்டப்படும்.\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude",
+>>>>>>> origin/1.39.7-test
 	"namespacesall": "யாவும்",
 	"monthsall": "எல்லா மாதங்களும்",
 	"confirmemail": "மின்னஞ்சல் முகவரியை உறுதிப்படுத்துக",
@@ -3004,11 +3051,14 @@
 	"logentry-managetags-deactivate": "$1 பயனர் மற்றும் தானியங்கிகள் பயன்படுத்துவதற்காக \"$4\" தொடுப்பை {{GENDER:$2|செயற்பாட்டை நிறுத்தினார்}}",
 	"log-name-tag": "குறிச்சொல் குறிப்பு",
 	"rightsnone": "(எதுவுமில்லை)",
+<<<<<<< HEAD
+=======
 	"feedback-adding": "பக்கத்தில் கருத்தைச் சேர்க்கிறது...",
 	"feedback-back": "பின்செல்க",
 	"feedback-bugcheck": "சிறப்பு! அது ஏற்கனவே  [ $1 தெரிந்த  bugs ] என்பதை மட்டும்  சரிபார்க்கவும்,",
 	"feedback-bugnew": "நான் சரிபார்த்தாயிற்று. புதிய bug பற்றி கூறு.",
 	"feedback-bugornote": "நீங்கள் ஒரு தொழில்நுட்பக் கோளாறு குறித்து விரிவாக விளக்க தாயாராக இருந்தால் தயவுசெய்து [ $1  ஒரு bug பற்றி கூறு].\nஇல்லையெனில், நீங்கள் கீழேயுள்ள எளிதான படிவத்தை பயன்படுத்தலாம்.உங்கள் கருத்துரை \"[$3 $2]\" பக்கத்தில் உங்கள் பயனர் பெயர் மற்றும் உங்கள் உலாவியின் பெயருடன் சேர்க்கப்படும்.",
+>>>>>>> origin/1.39.7-test
 	"feedback-cancel": "கைவிடு",
 	"feedback-close": "முடிந்தது",
 	"feedback-external-bug-report-button": "ஒரு தொழில்நுட்ப பணியைச் சமர்ப்பி",
@@ -3134,5 +3184,34 @@
 	"skin-action-protect": "பாதுகார்",
 	"skin-action-undelete": "நீக்கத்தை நிறுத்து",
 	"skin-action-delete": "நீக்கு",
+<<<<<<< HEAD
+	"skin-action-move": "நகர்த்து",
+	"renameuser": "பயனரை மீளப் பெயரிடு",
+	"renameuser-linkoncontribs": "பயனரை பெயர்மாற்று",
+	"renameuser-linkoncontribs-text": "இந்த பயனரை பெயர்மாற்று",
+	"renameuserold": "தற்போதைய பயனர் பெயர்:",
+	"renameusernew": "புதிய பயனர் பெயர்:",
+	"renameuserreason": "காரணம்:",
+	"renameusermove": "பயனர் பக்கத்தையும் பேச்சுப் பக்கங்களையும் (அவற்றின் துணைப் பக்கங்களுடன்) புதிய பெயருக்கு நகர்த்து",
+	"renameusersuppress": "புதுப் பெயருக்கு வழிமாற்றுகளை உருவாக்க வேண்டாம்",
+	"renameuserreserve": "எதிர்காலப் பயன்பாட்டிலிருந்து பழைய பயனர் பெயரைத் தடை செய்யவும்",
+	"renameuserwarnings": "எச்சரிக்கைகள்:",
+	"renameuserconfirm": "சரி, பயனருக்கு மாற்றுப்பெயர் கொடுக்கவும்",
+	"renameusersubmit": "சமர்ப்பி",
+	"renameusererrordoesnotexist": "\"<nowiki>$1</nowiki>\" என்ற பெயரிலான பயனர் இல்லை.",
+	"renameusererrorexists": "\"<nowiki>$1</nowiki>\" என்ற பெயரில் ஏற்கனவே பயனர் ஒருவர் உள்ளார்.",
+	"renameusererrorinvalid": "\"<nowiki>$1</nowiki>\" என்ற பயனர் பெயர் செல்லாது.",
+	"renameuser-error-request": "வேண்டுகோளைப் பெறுவதில் ஒரு சிக்கல்.\nதயவு செய்து பின்சென்று மீண்டும் முயலவும்.",
+	"renameuser-error-same-user": "பயனர் பெயரை மாற்றும் போது அதே பெயரை நீங்கள் தரமுடியாது.",
+	"renameuser-page-exists": "பக்கம் $1 ஏற்கனவே  உள்ளது. தானாக மேலெழுத இயலாது.",
+	"renameuser-page-moved": "பக்கம் $1 $2 எனுந்தலைப்புக்கு நகர்த்தப்பட்டுள்ளது.",
+	"renameuser-page-unmoved": "பக்கம் $1 என்பதை $2 என்பதற்கு நகர்த்த முடியவில்லை.",
+	"log-name-renameuser": "பயனரை பெயர்மாற்றுதல் குறிப்பேடு",
+	"log-description-renameuser": "இது பயனர் பெயர் மாற்றத்திற்கான குறிப்பேடு",
+	"action-renameuser": "பயனரை பெயர்மாற்று",
+	"right-renameuser": "பயனர்களை மாற்று பெயரிடு",
+	"renameuser-renamed-notice": "இந்த பயனர் பெயர் மாற்றப்பட்டது.\nமாற்றுப்பெயரிடுதல் குறிப்பேடு குறிப்புதவிக்காக கீழே வழங்கப்பட்டுள்ளது"
+=======
 	"skin-action-move": "நகர்த்து"
+>>>>>>> origin/1.39.7-test
 }

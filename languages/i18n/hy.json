@@ -4,6 +4,7 @@
 			"23artashes",
 			"Ahmed-Najib-Biabani-Ibrahimkhel",
 			"Aram1985",
+			"Armenoid",
 			"Azniv Stepanian",
 			"Beko",
 			"Chaojoker",
@@ -30,6 +31,7 @@
 			"Vacio",
 			"Vadgt",
 			"Vahe Gharakhanyan",
+			"Vlad5250",
 			"Xelgen",
 			"Աշոտ1997",
 			"Դավիթ Սարոյան",
@@ -39,8 +41,11 @@
 			"לערי ריינהארט",
 			"ديفيد",
 			"아라",
+<<<<<<< HEAD
+=======
 			"Armenoid",
 			"Vlad5250",
+>>>>>>> origin/1.39.7-test
 			"Amire80"
 		]
 	},
@@ -196,6 +201,7 @@
 	"permalink": "Մշտական հղում",
 	"print": "Տպել",
 	"view": "Դիտել",
+	"viewcontribs": "Դիտել ներդրումները",
 	"skin-view-view": "Կարդալ",
 	"skin-view-foreign": "Նայել $1ում",
 	"edit": "Խմբագրել",
@@ -212,6 +218,10 @@
 	"skin-action-unprotect": "Փոխել պաշտպանությունը",
 	"unprotect": "Փոխել պաշտպանությունը",
 	"newpage": "Նոր էջ",
+<<<<<<< HEAD
+	"view-missing-pages": "Դիտել բացակայող էջերը",
+=======
+>>>>>>> origin/1.39.7-test
 	"talkpagelinktext": "Քննարկում",
 	"specialpage": "Հատուկ էջ",
 	"personaltools": "Անձնական գործիքներ",
@@ -593,8 +603,8 @@
 	"anontalkpagetext": "----\n''Այս քննարկման էջը պատկանում է անանուն մասնակցին, որը դեռ չի ստեղծել մասնակցային հաշիվ կամ չի մտել համակարգ մասնակցի անունով։''\nԱյդ իսկ պատճառով օգտագործվում է թվային IP-հասցեն։\nՆման IP-հասցեից կարող են օգտվել մի քանի մասնակիցներ։\nԵթե դուք անանուն մասնակից եք, բայց կարծում եք, որ ուրիշներին վերաբերող դիտողությունները արվում են ձեր հասցեով, ապա խնդրում ենք պարզապես [[Special:CreateAccount|գրանցվել]] կամ [[Special:UserLogin|մտնել համակարգ]], որպեսզի հետագայում ձեզ չշփոթեն այլ անանուն մասնակիցների հետ։",
 	"noarticletext": "Ներկայումս այս էջում որևէ տեքստ չկա։\nԴուք կարող եք [[Special:Search/{{PAGENAME}}|որոնել այս անվանումը]] այլ էջերում, <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} որոնել համապատասխան տեղեկամատյանները] կամ [{{fullurl:{{FULLPAGENAME}}|action=edit}} ստեղծել նոր էջ այս անվանմամբ]</span>։",
 	"noarticletext-nopermission": "Ներկայումս այս էջում որևէ տեքստ չկա։\nԴուք կարող եք [[Special:Search/{{PAGENAME}}|որոնել այս անվանունը]] այլ էջերում կամ <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} որոնել այն տեղեկամատյաններում]</span>։ Դուք չունեք թույլտվություն ստեղծել այս էջը։",
-	"userpage-userdoesnotexist": "«<nowiki>$1</nowiki>» անվանմամբ մասնակից գոյություն չունի։\nԽնդրում ենք հավաստիանալ նրանում, թե արդյոք ուզում եք ստեղծել/խմբագրել այս էջը։",
-	"userpage-userdoesnotexist-view": "«$1» անվամբ գրանցված մասնակից չկա։",
+	"userpage-userdoesnotexist": "«$1» մասնակցի հաշիվը գրանցված չի այս վիքիում։\nԽնդրում ենք հավաստիանալ նրանում, թե արդյոք ուզում եք ստեղծել/խմբագրել այս էջը։",
+	"userpage-userdoesnotexist-view": "Այս վիքիում «$1» անվամբ գրանցված մասնակից չկա։",
 	"blocked-notice-logextract": "Այս մասնակիցը ներկա պահին արգելափակված է։\nՍտորև ներկայացված է արգելափակման տեղեկամատյանի վերջին գրառումը.",
 	"clearyourcache": "'''Ծանուցում. Հիշելուց հետո կատարված փոփոխությունները տեսնելու համար մաքրեք ձեր զննարկիչի հիշապահեստը. '''\n'''Mozilla / Firefox / Safari'''՝ ''Ctrl+Shift+R''  (''Cmd+Shift+R'' Mac OS X-ում)\n'''Konqueror'''՝ ''F5''\n'''Opera'''՝ ''Tools→Preferences'' ընտրացանկից։\n'''Internet Explorer'''՝ ''Ctrl+F5''",
 	"usercssyoucanpreview": "<strong>Հուշում.</strong> Էջը հրապարակելուց առաջ օգտվեք «{{int:showpreview}}» կոճակից՝ ձեր նոր CSS-նիշքը ստուգելու համար։",
@@ -714,9 +724,11 @@
 	"revdelete-hide-comment": "Թաքցնել մեկնաբանությունը",
 	"revdelete-hide-user": "Թաքցնել հեղինակի մասնակցի անունը/IP",
 	"revdelete-hide-restricted": "Թաքցնել տվյալները և՛ ադմինիստրատորներից, և՛ այլ մասնակիցներից",
-	"revdelete-radio-same": "(չի կարելի խմբագրել)",
+	"revdelete-radio-same": "Չի կարելի խմբագրել",
 	"revdelete-radio-set": "Թաքցված",
 	"revdelete-radio-unset": "Տեսանելի",
+	"revdelete-radio-set-suppress": "Ճնշել",
+	"revdelete-radio-unset-suppress": "Չեղարկել ճնշումը",
 	"revdelete-suppress": "Թաքցնել տվյալները ադմինիստրատորներից և մյուսներից նոյնպես",
 	"revdelete-unsuppress": "Հանել սահմանափակումները վերականգնված տարբերակներից",
 	"revdelete-log": "Պատճառ.",
@@ -820,6 +832,8 @@
 	"prefs-email": "Էլ-հասցեի ընտրանքներ",
 	"prefs-rendering": "Արտաքին տեսք",
 	"prefs-searchmisc": "Ընդհանուր",
+	"searchprefs": "Որոնման նախապատվություններ",
+	"searchprefs-noresults": "Գտնված չէ",
 	"saveprefs": "Հիշել",
 	"restoreprefs": "Վերականգնել սկզբնական կարգավորումները (բոլոր ներդիրներում)",
 	"prefs-editing": "Խմբագրում",
@@ -1064,6 +1078,10 @@
 	"rcfilters-filter-newpages-label": "Նոր էջեր",
 	"rcfilters-filter-categorization-label": "Կատեգորիաների փոփոխություններ",
 	"rcfilters-filter-logactions-label": "Տեղեկամատյանների գործողություններ",
+<<<<<<< HEAD
+	"rcfilters-filter-newuserlogactions-label": "Նոր օգտվողներ",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-filtergroup-lastrevision": "Ամենավերջին տարբերակ",
 	"rcfilters-filter-lastrevision-label": "Ընթացիկ տարբերակ",
 	"rcfilters-filter-previousrevision-label": "Ոչ վերջին տարբերակ",
@@ -1804,6 +1822,7 @@
 	"movesubpage": "{{PLURAL:$1|Ենթաէջ|Ենթաէջեր}}",
 	"movenosubpage": "Այս էջը ենթաէջեր չունի",
 	"movereason": "Պատճառ.",
+	"movereasonotherlist": "Ուրիշ պատճառ",
 	"revertmove": "հետ շրջել",
 	"delete_and_move_text": "«[[:$1]]» անվանմամբ էջ արդեն գոյություն ունի։\nՈւզո՞ւմ եք այն ջնջել՝ տեղափոխման նպատակով տեղ ազատելու համար։",
 	"delete_and_move_confirm": "Այո, ջնջել էջը",
@@ -2059,7 +2078,7 @@
 	"metadata-help": "Նիշքը պարունակում է ընդարձակ տվյալները, հավանաբար ավելացված թվային լուսանկարչական ապարատի կամ սկաների կողմից, որոնք օգտագործվել են նկարը ստեղծելու կամ թվայնացնելու համար։\nԵթե նիշքը ձևափոխվել է ստեղծումից ի վեր, ապա որոշ տվյալները կարող են չհամապատասխանել ձևափոխված նիշքին։",
 	"metadata-expand": "Ցույց տալ ընդարձակ տվյալները",
 	"metadata-collapse": "Թաքցնել լրացուցիչ տվյալները",
-	"metadata-fields": "EXIF մետատվյալների այն դաշտերը, որոնք նշված ենք այս ուղերձի մեջ, կցուցադրվեն պատկերի էջում, երբ մետատվյալների աղյուսակը ծալված է։ Այլ տվյալները լռությամբ կթաքցվեն։\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude",
+	"metadata-fields": "EXIF մետատվյալների այն դաշտերը, որոնք նշված ենք այս ուղերձի մեջ, կցուցադրվեն պատկերի էջում, երբ մետատվյալների աղյուսակը ծալված է։ Այլ տվյալները լռությամբ կթաքցվեն։\n* make \n* model \n* datetimeoriginal \n* exposuretime \n* fnumber \n* isospeedratings \n* focallength \n* artist \n* copyright \n* imagedescription \n* gpslatitude \n* gpslongitude \n* gpsaltitude \n* dc-rights \n* copyrightowner \n* usageterms \n* webstatement \n* licenseurl \n* attributionurl \n* preferredattributionname \n* credit \n* jpegfilecomment \n* pngfilecomment \n* giffilecomment \n* usercomment \n* citydest \n* citycreated \n* headline \n* source \n* locationdest \n* dc-contributor \n* dc-coverage \n* dc-publisher \n* dc-relation \n* label \n* nickname \n* personinimage \n* disclaimer \n* event \n* objectname",
 	"namespacesall": "բոլոր",
 	"monthsall": "բոլոր",
 	"confirmemail": "Էլ-հասցեի վավերացում",
@@ -2271,7 +2290,6 @@
 	"logentry-upload-upload": "$1 {{GENDER:$2|ներբեռնել է}} $3",
 	"logentry-upload-overwrite": "$1 {{GENDER:$2|վերբեռնեց}} $3-ի նոր տարբերակ",
 	"rightsnone": "(ոչ մի)",
-	"feedback-back": "Հետ",
 	"feedback-cancel": "Չեղարկել",
 	"feedback-close": "Արված է",
 	"feedback-message": "Հաղորդագրություն․",
@@ -2372,5 +2390,6 @@
 	"skin-action-protect": "Պաշտպանել",
 	"skin-action-undelete": "Վերականգնել",
 	"skin-action-delete": "Ջնջել",
-	"skin-action-move": "Տեղափոխել այս էջը"
+	"skin-action-move": "Տեղափոխել այս էջը",
+	"renameuser-linkoncontribs-text": "Վերանվանել այս {{GENDER:$1|մասնակցին}}"
 }

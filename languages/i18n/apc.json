@@ -257,6 +257,10 @@
 	"anontalkpagetext": "----\n<em>هيدي صفحة نقاش مستخدم مجهول يا ما عمل أكونت بعد يا ما عم يستعمل أكونتو؛</em>\nمن هيك لاذم نستعمل رقم عنوان الـIP تبعو بدل إسمو،\nفيو أكتر من شغص يكون عندو عنوان IP متل هيدا.\nإذا إنت مستخدم مجهول وبتحسّ إنو تعليقات عم تتوجهلك وهي ما بتخصك، [[Special:CreateAccount|عمول أكونت]] أو [[Special:UserLogin|فوت ع أكونتك]] لتتجنب الارتباك مع غير مستخدمين مجهولين بالمستقبل.",
 	"noarticletext": "هيدي الصفحة فاضية. فيك [[Special:Search/{{PAGENAME}}|تنبش إذا عنوان الصفحة موجود بغير صفحات]] أو\n<span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} تنبش بالسجلات] (لتعرف إذا نحذفت من قبل)،\nأو '''[{{fullurl:{{FULLPAGENAME}}|action=edit}} تعمل صفحة بهيدا الاسم]'''</span>.",
 	"noarticletext-nopermission": "هيدي الصفحة فاضية. فيك [[Special:Search/{{PAGENAME}}|تنبش إذا عنوان الصفحة موجود بغير صفحات]] أو\n<span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} تنبش بالسجلات المتعلقة فيا].</span> ما عندك إذن تخترع هيدي الصفحة.",
+<<<<<<< HEAD
+	"userpage-userdoesnotexist-view": "أكونت المستخدم \"$1\" مش مسجلة بهيدا الويكي.",
+=======
+>>>>>>> origin/1.39.7-test
 	"previewnote": "<strong>تذكر إنو هيدي مس عرض مسبق.</strong>\nبعد ما نشرت تغيراتك!",
 	"continue-editing": "روح ع علبة التعديل",
 	"editing": "عم تعدل $1",
@@ -550,5 +554,16 @@
 	"searchsuggest-search": "نبّش بـ{{SITENAME}}",
 	"searchsuggest-containing": "نبّش ع صفحات بتحتوى ع",
 	"pagelang-language": "اللغة",
+<<<<<<< HEAD
+	"log-action-filter-all": "الكل",
+	"blockedtext-made-by": "$1 حط البلوك",
+	"blockedtext-reason-comment": "السبب يلّى نعطى: <em>$1</em>",
+	"blockedtext-start-time": "بداية البلوك: $1",
+	"blockedtext-expiration-time": "متنتهي صلاحيّة البلوك: $1",
+	"blockedtext-intended-blockee": "مقصود ينحطّ البلوك ع: $1",
+	"blockedtext-contact-blocker-admin": "فيك تتواصل مع $1 أو غير [[{{MediaWiki:Grouppage-sysop}}|إداري]] لتناقشو البلوك.",
+	"blockedtext-include-details-queries": "پليز حط كل التفاصيل المذكورة فوق بكل الإستفسارات يلى بتعملا."
+=======
 	"log-action-filter-all": "الكل"
+>>>>>>> origin/1.39.7-test
 }

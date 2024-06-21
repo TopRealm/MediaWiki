@@ -178,6 +178,7 @@
 	"permalink": "Яланлыко чӧлскон",
 	"print": "Печатлано",
 	"view": "Учкон",
+	"viewcontribs": "Ваёсъёсты учкылон",
 	"skin-view-view": "Лыдӟоно",
 	"skin-view-foreign": "$1 бамысь учконо",
 	"edit": "Тупатоно",
@@ -194,6 +195,8 @@
 	"skin-action-unprotect": "Утёнэз воштоно",
 	"unprotect": "Утёнэз воштоно",
 	"newpage": "Выль бам",
+	"newpage-desc": "Курем темая выль бамез кутске",
+	"view-missing-pages": "Ӧвӧлтэм бамъёсты учкылон",
 	"talkpagelinktext": "вераськон",
 	"specialpage": "Нимысьтыз бам",
 	"personaltools": "Нимаз тӥрлык",
@@ -639,6 +642,10 @@
 	"summary-preview": "Воштон сярысь гожтэмез азьпал учкон:",
 	"previewerrortext": "тӥлесьтыд воштонъёстэс учкыны вырыку янгыш кылдӥз",
 	"blockedtitle": "Юзчи борӟамын",
+<<<<<<< HEAD
+	"blockedtext-partial": "<strong>Тӥляд юзчи нимдылы яке IP-адрестылы та лэземын ӧвӧл. Тӥ азьвыл сямен ик быгатӥськоды та сайтын мар но со карыны, кылсярысь, тупатъяны куд-ог бамъёсты .</strong>\nВорсан сярысь пыр-почгес тӥ быгатӥськоды учкыны та бамысь\n [[Special:MyContributions|юзчилэн ваёсъёсыз]].\n{{int:blockedtext-made-by|$1}}\n{{int:blockedtext-reason-comment|$2}}.\n*{{int:blockedtext-start\n-дыр|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n*{{int:blockedtext-block-id|$5}}",
+=======
+>>>>>>> origin/1.39.7-test
 	"blockedtext": "<strong>Тӥляд учётной записьты яке IP-адресты заблокировать каремын вал.</strong>\n\nБлокировкаез лэсьтӥз $1.\nПусъем мугез: <em>$2</em>.\n\n* Блокировка кутскиз: $8\n* Блокировка йылпумъяськоз: $6\n* Блокировкалэн ужпумез: $7\n\nТӥ блокировка сярысь вераськыны быгатӥськоды $1 яке котькин мукет [[{{MediaWiki:Grouppage-sysop}}|администратор]] доры герӟаськыса.\n«Викиавторлы гожтэт» функциез уже кутэмды луэ, [[Special:Preferences|бамлыд настройкаосады]] электрон почта ужась адресты вань но сое уже кутэмды дугдытэмын ӧвӧл ке.\nТӥляд али IP-адресты луэ $3, но блокировка идентификатор — #$5.\nБуркарик, пыртэ вань та пыр-поч сведениосыз асьтэлэн куронъёсады.",
 	"autoblockedtext": "Тӥляд IP-адресты автоматически заблокировать каремын вал, малы ке шуоно со кутӥськиз вал мукет викиавторен, кинзэ $1 заблокировать кариз.\nБлокировкалэн пусъем мугез:\n\n:<em>$2</em>\n\n* Блокировка кутскиз: $8\n* Блокировка йылпумъяськоз: $6\n* Блокировкалэн ужпумез: $7\n\nТӥ блокировка сярысь вераськыны быгатӥськоды $1 яке мукет [[{{MediaWiki:Grouppage-sysop}}|администраторъёс]] пӧлысь огез доры герӟаськыса.\n\nСак луэ, тӥ «Викиавторлы гожтэт» функциез уже кутэмды луэ, [[Special:Preferences|асьтэлэн настройкаосады]] электрон почталэн шонер адресэз гожтэмын но либо сое уже кутэмды дугдытэмын ӧвӧл ке.\n\nТӥляд али IP-адресты луэ $3, но блокировка идентификатор — #$5.\nБуркарик, пыртэ вань та пыр-поч сведениосыз асьтэлэн куронъёсады.",
 	"blockednoreason": "мугез ӧвӧл возьматэмын",
@@ -662,7 +669,12 @@
 	"missing-revision-permission": "#$1  тупатон  ӵушем баме пыртэмын вал. Тӥ быгатӥськоды [{{fullurl:{{#Special:Undelete}}|target=$3&timestamp=$2&diff=prev}} учкыны сое]; пыр-почгес шедьтыны луэ [{{fullurl:{{#Special:Log}}/delete|page=$3}} ӵушонъёсын журналысь].",
 	"missing-revision": "\"{{FULLPAGENAME}}\" нимо бамысь #$1 тупатон ӧвӧл. Ӵемысь со озьы луэ, бамлэн историяз вужмем чӧлсконъя потыса. Пыр-почгес шедьтыны луэ [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} ӵушонъёсын журналысь].",
 	"missing-revision-content": "«$2» бамысь тупатонлэсь пуштроссэ #$1  пыртыны ӧз луы.",
+<<<<<<< HEAD
+	"userpage-userdoesnotexist": "Та сайтын юзчилэн \"$1\" пырон нимыз ӧвӧл.  Оскытэ асьтэдыз, зэм ик-а тӥляд потэ кылдытэмды яке воштэмды та бамез.",
+	"userpage-userdoesnotexist-view": "«$1»-лэн аккаунтэз та  вики-ын пусъемын ӧвӧл.",
+=======
 	"userpage-userdoesnotexist-view": "«$1» нимо викиавтор зарегистрировать каремын ӧвӧл.",
+>>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "Та {{GENDER:$1|юзчи}} али дыре борӟамын.\nТодон вылысь, борӟетъёсын журналэ гожтэм улӥынгес возьматэмын:",
 	"clearyourcache": "<strong>Валэктон:</strong> Воштэтъёсты адӟон понна, гожтостэс шараям бере, тӥледлы браузердылэсь кешсэ дугдытоно луоз, дыр.\n\n* <strong>Firefox/Safari:</strong> возе <em>Shift</em>, зӥбыса <em>Выльдоно</em>, яке зӥбе <em>Ctrl-F5</em> яке <em>Ctrl -R</em> (Mac-ын <em>⌘-R</em>)\n* <strong>Google Chrome:</strong> зӥбе <em>Ctrl-Shift-R</em> (Mac-ын <em>⌘-Shift-R</em>).\n* <strong>Internet Explorer/Edge:</strong> возе <em>Ctrl</em>, зӥбыса <em>Выльдоно</em>, яке зӥбе <em>Ctrl-F5</em>.\n* <strong>Opera:</strong> зӥбе <em>Ctrl-F5</em>.",
 	"usercssyoucanpreview": "<strong>Дэмлан.</strong> Зӥбе кнопкаез «{{int:showpreview}}», шараямлэсь азьпал асьтэлэсь выль CSS-файлдэс эскерон понна.",
@@ -866,8 +878,16 @@
 	"revdelete-hide-comment": "Воштэтъёслы кылсуред",
 	"revdelete-hide-user": "Юзчилэн нимыз/IP-адресэз",
 	"revdelete-hide-restricted": "тодэтъёсты ватоно администраторъёслэсь но, мукетъёсызлэсь но",
+<<<<<<< HEAD
+	"revdelete-radio-same": "Воштоно ӧвӧл",
 	"revdelete-radio-set": "Ватэм",
 	"revdelete-radio-unset": "Адӟымон",
+	"revdelete-radio-set-suppress": "Ватоно",
+	"revdelete-radio-unset-suppress": "Ватонэз берентоно",
+=======
+	"revdelete-radio-set": "Ватэм",
+	"revdelete-radio-unset": "Адӟымон",
+>>>>>>> origin/1.39.7-test
 	"revdelete-suppress": "тодэтъёсты ватоно администраторъёслэсь но, мукетъёсызлэсь но",
 	"revdelete-unsuppress": "Берентэм версиослы соосты адӟон пумысен пуктэм  возетъёсты утялтоно",
 	"revdelete-log": "Мугез:",
@@ -932,6 +952,10 @@
 	"lineno": "$1-тӥ чур:",
 	"compareselectedversions": "Быръем версиосты ӵошатоно",
 	"showhideselectedversions": "Быръем версиосты адӟытонэз воштоно",
+<<<<<<< HEAD
+	"showhideselectedfileversions": "Быръем файлъёслэсь версиоссэс возьматонэз воштоно",
+=======
+>>>>>>> origin/1.39.7-test
 	"editundo": "берланьтоно",
 	"diff-empty": "(пӧртэмлыкез ӧвӧл)",
 	"diff-multi-sameuser": "(таизлэн ик викиавторлэн {{PLURAL:$1|вискын шедьтэм $1 версиез}} возьматэмын ӧвӧл)",
@@ -940,6 +964,11 @@
 	"diff-paragraph-moved-tonew": "Параграф выжтэмын вал. Солэн выль интыяз потон понна зӥбоно",
 	"diff-paragraph-moved-toold": "Пунктэз выжтэмын вал. Солэн вуж интыяз потон понна зӥбоно",
 	"difference-missing-revision": "{{PLURAL:$2|Одӥг верси|$2 версиосыз}}та ӵошатонлэн ($1) {{PLURAL:$2|вал}} ӧвӧл шедьтэмын.\n\nӴемысь со озьы луэ, бамлэн историяз вужмем чӧлсконъя потыса.  Пыр-почгес тодыны луоз татысь [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} ӵушонъёсын журналысь].",
+<<<<<<< HEAD
+	"difference-bad-old-revision": "Вуж версилэн пуштросэз ӧвӧл яке таркаськемын",
+	"difference-bad-new-revision": "Выль версилэн пуштросэз ӧвӧл яке таркаськемын",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchresults": "Утчаса шедьтэмъёс",
 	"search-filter-title-prefix": "Утчано сыӵе бамъёсысь гинэ, кудъёсызлэн йыръянъёссы \"$1\"-эн кутско.",
 	"search-filter-title-prefix-reset": "Вань бамъёсысь утчано",
@@ -979,6 +1008,10 @@
 	"search-relatedarticle": "герӟаськем",
 	"search-invalid-sort-order": "Быръёнлэн радлыкез $1 ӧвӧл      тодмамын. Быръиськоз нимаз пусйытэк. Быръёнлэн ярамон радлыкез луэ: $2",
 	"search-unknown-profile": "Утчанлэн туссуредэз $1  ӧвӧл тодмамын, Утчанлэн туссуредэз нимаз пусйытэк кутӥськоз.",
+<<<<<<< HEAD
+	"search-thumbnail-alt": "$1 понна пичиятэм туспуктэм",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchrelated": "герӟаськем",
 	"searchall": "Ваньмыз",
 	"showingresultsinrange": "Улӥяз возьматэмын татчыозь: {{PLURAL:$1|<strong>1</strong> йылпумъян|<strong>$1</strong> йылпумъянэз|<strong>$1</strong> йылпумъянъёс}} Татысен <strong>$2</strong>  кутскыса <strong>$3</strong> татчыозь.",
@@ -1028,6 +1061,11 @@
 	"prefs-email": "Электрон почталэн мертэтъёсыз",
 	"prefs-rendering": "Потэмез",
 	"prefs-searchmisc": "огъя",
+<<<<<<< HEAD
+	"searchprefs": "Утчан ладъянъёс",
+	"searchprefs-noresults": "Номыр шедьтэмын ӧвӧл",
+=======
+>>>>>>> origin/1.39.7-test
 	"saveprefs": "Саклано",
 	"restoreprefs": "Вань ладъянъёсты нимаз пусйытэк берентоно",
 	"prefs-editing": "Тупатон",
@@ -1035,6 +1073,17 @@
 	"recentchangesdays": "Сомында нунал ӵоже возьматоно выль тупатонъёсты:",
 	"recentchangesdays-max": " $1-лэсь трос ӧвӧл:                         {{PLURAL:$1|нунал|нуналъёс}}",
 	"recentchangescount": "Тупатонъёслэн лыдзы, кудъёсыз нимаз пусйытэк возьматӥсько выль тупатонъёсын лыдъетын, бамъёслэн истриязы но журналъёсын:",
+<<<<<<< HEAD
+	"prefs-back-title": " Берытсконо ладъянъёс доры",
+	"prefs-description-personal": "Эскеръялэ, кыӵе адске тӥляд туссуредды, кызьы тӥ итӥськиськоды но калыкен вераськиськоды",
+	"prefs-description-rendering": "Пуктэ вылтусъянлэсь темазэ, быдӟалазэ но лыдӟон мертэтъёссэ",
+	"prefs-description-editing": "Тупатэ, кызьы тӥ пыртӥськоды, чакласькоды но учкылӥськоды тупатонъёсты.",
+	"prefs-description-rc": "Тупатэ берло тупатонъёсын лентаез",
+	"prefs-description-watchlist": "Валтэ но пусйылэ бамъёслэсь лыдъетсэс, кудъёссэ тӥ чакласькоды",
+	"prefs-description-searchoptions": "Быръе, кызьы ужа ас эрказ тырмытон но йылпумъянъёс",
+	"prefs-description-misc": "Тупатэ пуштроссэ возьматонэз",
+=======
+>>>>>>> origin/1.39.7-test
 	"prefs-help-recentchangescount": "Тужгес бадӟымез валатонэз: 1000",
 	"prefs-help-watchlist-token2": "Та тӥляд чаклан лыдъеттылэн веб-каналаз пырон лушкем усьтон. Ваньмыз, кин сое тодэ, быгатэ лыдӟыны тӥлесьтыд чаклан лыдъеттэс, соин ик эн шараялэ сое. Кулэ ке , [[Special:ResetTokens|тӥ быгатӥськоды сое куштыны]].",
 	"prefs-help-tokenmanagement": "Тӥ быгатӥськоды учкыны но куштыны асьтэ пыроннимдылэсь лушкем усьтонзэ, кудӥз быгатэ вуттыны  чаклан лыдъттылэн веб-каналаз. \nВаньмыз, кин сое тодэ, быгатэ лыдӟыны тӥлесьтыд чаклан лыдъеттэс, соин ик эн шараялэ сое.",
@@ -1049,6 +1098,10 @@
 	"timezoneuseserverdefault": "Сайтэз нимаз пусйытэк кутоно ($1)",
 	"timezoneuseoffset": "Мукетыз (UTC дырлэсь палэнскон)",
 	"timezone-useoffset-placeholder": "Кылсярысь: \"-07:00\" яке \"01:00\"",
+<<<<<<< HEAD
+	"timezone-invalid": "Шонертэм часовой пояс яке дырыз палэнтэмын",
+=======
+>>>>>>> origin/1.39.7-test
 	"servertime": "серверлэн дырыз:",
 	"guesstimezone": "Тырмытоно браузерысь",
 	"timezoneregion-africa": "Африка",
@@ -1237,7 +1290,13 @@
 	"right-suppressrevision": "Пӧртэм юзчи бамъёсты учкылоно, ватылоно но бамъёслэсь нимысьтыз версиоссэ возьматъяно.",
 	"right-viewsuppressed": "Вань юзчиослэсь ватэм тупатонъёсты учкылоно",
 	"right-suppressionlog": "Асъет журналъёсты учкон",
+<<<<<<< HEAD
+	"right-block": "Мукет юзчиосты тупатонлэсь ворсано яке ворсэтысь мозмытоно",
+	"right-blockemail": "Юзчиез электрон иворыстонлэсь ворсано яке ворсэтысь мозмытоно",
+	"right-hideuser": "Юзчи нимез ворсано яке ворсэтысь мозмытоно, мукетъёслэсь ватоно яке возьматоно.",
+=======
 	"right-block": "Мукет викиавторъёсты тупатъянлэсь палэнтон",
+>>>>>>> origin/1.39.7-test
 	"right-ipblock-exempt": "IP-ворсэтъёслэсь, асэрказ ворсэтъёслэсь но диапазон ворсэтъёслэсь котырскыса палэнскон",
 	"right-unblockself": " ворсэтысь астэ мозмытон",
 	"right-protect": "Воштэ утиськон ладъянъёсты но тупатъялэ каскад амалэн утем бамъёсты",
@@ -1258,6 +1317,10 @@
 	"right-viewmywatchlist": "Ас чаклан лыдъетэз учкон",
 	"right-editmywatchlist": "Ас чаклан лыдъеттэс тупатъян (сак луэ, куд-ог каросъёс бам ватсаллялозы, сыӵе эрикрадзы ӧвӧл ке но)",
 	"right-viewmyprivateinfo": "Асмурт тодэтъёсты учкон(кылсярысь, электрон почталэсь интыпуссэ, зэмос нимез)",
+<<<<<<< HEAD
+	"right-editmyprivateinfo": "Тупатъялэ асьтэлэсь асмурт тодэтъёстэс (кылсярысь, электрон почтадылэсь интыпуссэ, зэмос нимдэс) но лушкемкылэз куштон понна электрон ыстосъёс курелэ",
+=======
+>>>>>>> origin/1.39.7-test
 	"right-editmyoptions": "Асьтэ ладъянъёстэс воштон",
 	"right-rollback": "Огтупатэм бамез тупатӥсь юзчилэсь берло воштэтъёссэ ӝог палэнтон",
 	"right-markbotedits": "Палэнтэм тупатонъёсты, ботлэн тупатонъёсыз шуыса пусъён",
@@ -1299,6 +1362,10 @@
 	"grant-editsiteconfig": "огъя вотэсбам но пайдаяськон CSS/JS-эз тупатон",
 	"grant-editpage": "Али кутӥськоно бамъёсты тупатон",
 	"grant-editprotected": "утем бамъёсты тупатон",
+<<<<<<< HEAD
+	"grant-highvolume": "Юн дэлетъёс доры сюрон (ботъёслы)",
+=======
+>>>>>>> origin/1.39.7-test
 	"grant-import": "Воштэтъёсты ваён-пыртон",
 	"grant-mergehistory": "Огазеяно бамъёслэсь историзэс",
 	"grant-oversight": "Юзчиосты но воштэтъёсты ватоно",
@@ -1338,10 +1405,22 @@
 	"action-writeapi": "API-гожтосъёсты уже кутоно",
 	"action-delete": "та бамез ӵушоно",
 	"action-delete-redirect": "Огезлэсь версилэсь кудланьсконъёссэ выльысь гожтоно",
+<<<<<<< HEAD
+	"action-deleterevision": "Ӵушоно но берентоно бамлэсь огтупатэм версиоссэ",
+	"action-deletelogentry": "ӵушоно яке берентоно журналысь огтупатэм гожтосъёсты",
+	"action-deletedhistory": "ӵушем гожтосъёслэсь историысьтызы мета-тодэтъёсты учкон",
+	"action-deletedtext": "Ӵушем гожтосэз яке ӵушем версиос куспысь воштэтъёсты учконо",
+	"action-browsearchive": "ӵушем бамъёсты утчан",
+	"action-undelete": "бамъёсты берентон",
+	"action-suppressrevision": "Пӧртэм юзчи бамъёсты учкылоно, ватылоно но бамъёслэсь нимысьтыз версиоссэ возьматъяно.",
+	"action-suppressionlog": "асмурт журналэз учкон",
+	"action-block": "Та юзчиез тупатонлэсь ворсано яке ворсэтысь мозмытоно",
+=======
 	"action-browsearchive": "ӵушем бамъёсты утчан",
 	"action-undelete": "бамъёсты берентон",
 	"action-suppressionlog": "асмурт журналэз учкон",
 	"action-block": "та викиавтор блокировать карыны",
+>>>>>>> origin/1.39.7-test
 	"action-protect": "Бамлэсь утён ладъянъёссэ воштоно",
 	"action-rollback": "Тазэ яке мукетсэ бамез тупатӥсь юзчилэсь берло воштэтъёссэ ӝогак палэнтоно",
 	"action-import": "Мукет wiki-ысь бамъёсты ваён-пыртон",
@@ -1368,6 +1447,10 @@
 	"action-apihighlimits": "API-куронъёсады тужгес юнъёссэ возетъёсты кутэ",
 	"action-autoconfirmed": "IP-интыпуслэн ӝоглык возетъёсызлэсь эрико луыны",
 	"action-bigdelete": "Бамлэн воштэтъёсын историез укыр кузь ке, ӵушоно сое",
+<<<<<<< HEAD
+	"action-blockemail": "Юзчиез электрон иворыстонлэсь ворсано яке ворсэтысь мозмытоно",
+=======
+>>>>>>> origin/1.39.7-test
 	"action-bot": "асэрказ ортчонрадэн лыдъяно",
 	"action-editprotected": " \"{{int:protect-level-sysop}}\" амалэн утем бамъёсты тупатъяно",
 	"action-editsemiprotected": "Тупатъяно \"{{int:protect-level-autoconfirmed}}\" амалэн утем бамъёсты",
@@ -1383,6 +1466,10 @@
 	"action-editmyuserjs": "Тупатэ асьтэлэсь пайдаяськись JavaScript- файлъёстэс",
 	"action-editmyuserjsredirect": "Асьтэлэсь кудланьтӥсь JavaScript-файлъёстэс тупатъяно",
 	"action-viewsuppressed": "Вань юзчиослэсь ватэм версиосты учкылоно",
+<<<<<<< HEAD
+	"action-hideuser": "Юзчи нимез ворсано яке ворсэтысь мозмытоно, мукетъёслэсь ватыса яке адскымон карыса",
+=======
+>>>>>>> origin/1.39.7-test
 	"action-ipblock-exempt": "IP-ворсэтъёслэсь, асэрказ ворсэтъёслэсь но диапазон ворсэтъёслэсь котырскыса палэнсконо",
 	"action-unblockself": " астэ ачид ворсэтысь мозмытон",
 	"action-noratelimit": "ӝоглык возетъёслэсь эриколуон",
@@ -1515,6 +1602,11 @@
 	"rcfilters-filter-categorization-description": "Категорие ватсам яке ӵушем бамъёс ярысь гожтосъёс",
 	"rcfilters-filter-logactions-label": "Гожтэм-пусъем каросъёс",
 	"rcfilters-filter-logactions-description": "Норед каросъёс, пыронним кылдытонъёс, бамъёсты ӵушылонъёс, файлъёсты инъян-пуктонъёс",
+<<<<<<< HEAD
+	"rcfilters-filter-newuserlogactions-label": "Выль юзчиос",
+	"rcfilters-filter-newuserlogactions-description": "Журналысь пыронним кылдытон сярысь гожтосъёс. Гожтэм-пусъем каросъёс быръемын луыны кулэ",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-hideminor-conflicts-typeofchange-global": "\"чыры-пыры тупатонъёс\" сӥсъет одӥг яке трос сӥсъетъёсын керетэ, малы ке шуоно, куд-ог тупатонъёслэсь типъёссэс \"чыры-пыры\" шуыны уг луы. Керетӥсь сӥсъетъёс вылӥяз \"пыӵетась сӥсъетъёс\" радын возьматэмын",
 	"rcfilters-hideminor-conflicts-typeofchange": "Воштэтъёслэсь огтупатэм типъёссэс \"чыры-пыры\" шуыны уг луы, соин ик таиз сӥсъет воштэтлэн $1 типеныз керетэ.",
 	"rcfilters-typeofchange-conflicts-hideminor": "Воштэтъёсын типлэн таиз сӥсъетэз \"чыры-пыры тупатонъёс\" сӥсъетэн керетэ. Воштэтъёслэсь огтупатэм типъёссэс \"чыры-пыры\" шуыса пусйыны уг луы.",
@@ -1524,6 +1616,11 @@
 	"rcfilters-filter-previousrevision-label": "берпуметӥез тупатон ӧвӧл та",
 	"rcfilters-filter-previousrevision-description": "Вань воштэтъёс, кудъёсыз \"берло тупатонъёс\" пӧлы пыртэмын ӧвӧл",
 	"rcfilters-filter-excluded": "Куштэмын",
+<<<<<<< HEAD
+	"rcfilters-tag-prefix-namespace-inverted": "<strong>ӧвӧл</strong> :$1",
+	"rcfilters-tag-prefix-tags-inverted": "<strong>ӧвӧл</strong> #$1",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-exclude-button-off": "Быръемзэ куштоно",
 	"rcfilters-exclude-button-on": "Быръемзэ куштоно",
 	"rcfilters-view-tags": "Пусъем тупатонъёс",
@@ -1857,6 +1954,10 @@
 	"filehist-dimensions": "Быдӟалаез",
 	"filehist-filesize": "Файллэн быдӟалаез",
 	"filehist-comment": "Веран-вазён",
+<<<<<<< HEAD
+	"filehist-missing": "Файл ӧвӧл",
+=======
+>>>>>>> origin/1.39.7-test
 	"imagelinks": "Файлэз уже кутон",
 	"linkstoimage": "Мукетыз {{PLURAL:$1|бам кутэ|$1 бамъёс куто}} та файлэз:",
 	"linkstoimage-more": "$1-лэсь трос {{PLURAL:$1|бам кутэ|бамъёс куто}} та файлэз.\nУлӥяз лыдъетын возьматэмын {{PLURAL:$1|нырысетӥ бам|$1-лэн нырысетӥ бамъёсыз}}, кудъёсыз та файлэз гинэ куто. \nКутымон луэ [[Special:WhatLinksHere/$2|быдэс лыдъетэз]].",
@@ -2045,6 +2146,10 @@
 	"notargettext": "Та функциез быдэстон понна, тӥ ӧд возьматэ мерето бамдэс яке юзчи луэмдэс",
 	"nopagetitle": "таӵе мерето бам ӧвӧл",
 	"nopagetext": "Тӥляд возьматэм мерето бамды ӧвӧл",
+<<<<<<< HEAD
+	"badrevision": "Та версилэн пуштросэз ӧвӧл яке изъянтэмын",
+=======
+>>>>>>> origin/1.39.7-test
 	"pager-newer-n": "{{PLURAL:$1|вылезгес $1}}",
 	"pager-older-n": "{{PLURAL:$1|вужезгес $1}}",
 	"suppress": "Ватоно",
@@ -2476,8 +2581,15 @@
 	"contributions": "Юзчилэн ваёсэз",
 	"tool-link-contributions": "{{GENDER:$1|Юзчилэн}} ваёсэз",
 	"contributions-title": "Юзчилэн ваёсъёсыз $1",
+<<<<<<< HEAD
+	"contribute-title": "Юзчиослэн ваёсъёссы",
 	"mycontris": "Ваёсъёс",
 	"anoncontribs": "Ваёсъёс",
+	"contribute": "Ваёс",
+=======
+	"mycontris": "Ваёсъёс",
+	"anoncontribs": "Ваёсъёс",
+>>>>>>> origin/1.39.7-test
 	"contribsub2": "{{GENDER:$3|$1}}-лы ($2)",
 	"contributions-userdoesnotexist": "\"$1\" юзчилэн пыроннимыз  ӧвӧл  гожтэмын",
 	"negative-namespace-not-supported": "Ӧвӧлтон валатонэн нимвӧлметъёс кутыны луонтэмесь.",
@@ -2512,6 +2624,10 @@
 	"whatlinkshere-page": "Бам:",
 	"linkshere": "Кайта бамъёсын таӵе чӧлсконъёс вань <strong>$2</strong>:",
 	"nolinkshere": "Та бам вылэ <strong>$2</strong>  мукет бамъёсысь чӧлсконъёс ӧвӧл.",
+<<<<<<< HEAD
+	"nolinkshere-filter": "Ӧвӧл алиосыныз утчан ладъянъёсын бамъёс, кудъёсыз чӧлско <strong>$2</strong> вылэ",
+=======
+>>>>>>> origin/1.39.7-test
 	"nolinkshere-ns": "Быръем нимвӧлметын ӧвӧл бамъёс, кудъёсыз чӧлско <strong>$2</strong> вылэ.",
 	"isredirect": "Кудланьскон бам",
 	"istemplate": "чӧлскыса пыртэм",
@@ -2730,6 +2846,13 @@
 	"movesubpagetalktext": "Тупась вераськон бамын $1 {{PLURAL:$1|юрттэтбам|юрттэтбамъёс}} улӥяз возьматэмын",
 	"movenosubpage": "Та бамлэн ӧвӧл юрттэтбамъёсыз",
 	"movereason": "Мугез:",
+<<<<<<< HEAD
+	"moveotherreason": "Мукетыз/ ватсам мугез:",
+	"movereasonotherlist": "Мукетыз муг",
+	"movepage-reason-dropdown": "*  Выжтонлэн огъя мугъёсыз \n** Нимыз янгышен гожтэмын",
+	"movepage-edit-reasonlist": "Мугъёсын лыдъетэз тупатоно",
+=======
+>>>>>>> origin/1.39.7-test
 	"revertmove": "берытсконо",
 	"delete_and_move_text": "Мерето бам \"[[:$1]]\" вань ини. Выжтонлы инты бушатон понна тӥляд сое ӵушемды потэ?",
 	"delete_redirect_and_move_text": "Кудланьтон выллем мерето бам \"[[:$1]]\" вань ини. Выжтонлы инты бушатон понна тӥляд сое ӵушемды потэ?",
@@ -2814,7 +2937,10 @@
 	"import-upload-username-prefix": "Интервикилэн префиксъёсыз:",
 	"import-assign-known-users": "Интывыл юзчиослэсь тупатонъёссэс огазеяно, куке сыӵе нимын юзчи зэмзэ но вань.",
 	"import-comment": "Валэктон:",
+<<<<<<< HEAD
+=======
 	"importtext": "Азьнырысь Викиысь файлэз поттыса нуон понна кутэ [[Special:Export|тупасьрадо тӥрлыкез]].\nСаклалэ асьтэ компьютере но собере татчы инъялэ.",
+>>>>>>> origin/1.39.7-test
 	"importstart": "Бамъёсты вайыса пыртон...",
 	"import-revision-count": "$1 {{PLURAL:$1|тупатон|тупатонъёс}}",
 	"importnopages": "Вайыса пыртон понна бамъёс ӧвӧл",
@@ -2958,6 +3084,10 @@
 	"pageinfo-default-sort": "Нимысьтыз пусйытэк быръёнлы \"усьтон\"",
 	"pageinfo-length": "Бамлэн кузьдалаез (байтэн мертаса)",
 	"pageinfo-namespace": "Нимвӧлмет",
+<<<<<<< HEAD
+	"pageinfo-namespace-id": "Нимвӧлметлэн идентификаторез",
+=======
+>>>>>>> origin/1.39.7-test
 	"pageinfo-article-id": "Бамлэн идентификаторез",
 	"pageinfo-language": "Бам пуштрослэн кылыз",
 	"pageinfo-language-change": "воштоно",
@@ -3086,7 +3216,11 @@
 	"metadata-help": "Файл пушкын ватсаса сётэм ивортодэтэз вань на, ӵемысь сое лыдпусо камераос яке сканеръёс ватсалляло.\nВоштэм бере, файл азьвылэзлэсь пӧртэмгес ке луиз, солэн куд-ог кылдэтъёсыз возьматонтэм луыны быгато.",
 	"metadata-expand": "Пыр-почгес возьматоно",
 	"metadata-collapse": "Ватоно пыр-поч тодэтъёсты",
+<<<<<<< HEAD
+	"metadata-fields": "Лыдъетын сётэм тусъетлэн метаданнойёсын интывылъёсыз возьматӥськозы тусъетлэн бамаз, ватэм метаданнойёсын таблицаен. Мукетъёсыз интывылъёсыз нимаз пусйытэк ватэмын луозы. \n\n* карыны\n* каб\n* дырвадес но оригинал\n* кусыпъяськон дыр\n* номер\n* изо-ӝоглыкъёс\n* фокусной вискыз\n* суредась\n* Авторской правоос\n* Тусъетлэн кылсуредэз\n* gps-пасьтана\n* gps-кузьдала\n* gps-ӝуждала\n* DC-эрикрадъёс\n* эрикрадвозись(правообладатель)\n* кутон луонлыкъёс\n* веб-выписка\n* лицензия\n* атрибуционной URL\n* тупась тӥрлыклэн нимыз\n* пунэмен сётон\n* jpeg-файллы валэктэт\n* png-файллы валэктэт\n* gif-файллы валэктэт\n* юзчи валэктэт\n* кар\n* кар кылдытэмын\n* Йыръян\n* Кылдэмез сярысь тодэт\n* улон инты\n* DC-пыриськем мурт\n* яланлыко токез валён\n* DC-издатель\n* dc-куспаськон\n* нимъет\n* никнейм\n* адямиез адӟытон\n\n* кылкутонлэсь палэнскон\n* югдур\n* арберилэн нимыз",
+=======
 	"metadata-fields": "Суредысь метаданнойёслэн та списоке пыртэм полеоссы адӟытӥськозы суред бам вылын, метаданнойёслэн таблицазы бинемын дыръя.\nМукет полеоссы ватскозы.\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude",
+>>>>>>> origin/1.39.7-test
 	"namespacesall": "Ваньмыз",
 	"monthsall": "Ваньмыз",
 	"confirmemail": "Электрон почтадылэсь интыпуссэ зэматэ",
@@ -3126,6 +3260,10 @@
 	"confirm-watch-button": "Ярам",
 	"confirm-watch-top": "Та бамез чаклан лыдъетады-а пыртоно?",
 	"confirm-watch-label": "Чаклан лыдъетын висъям дыр:",
+<<<<<<< HEAD
+	"watchlist-expiry-options": "Яланлыко:infinite,1 арня:1 week,1 толэзь:1 month,3 толэзь:3 months,6 толэзь:6 months,1 ар:1 year",
+=======
+>>>>>>> origin/1.39.7-test
 	"watchlist-expires-in-aria-label": "Чаклан лыдъетысь кылдэтлэн ортчись висъям дырыз",
 	"confirm-watch-button-expiry": "Чаклано",
 	"confirm-unwatch-button": "Ярам",
@@ -3240,6 +3378,10 @@
 	"version-entrypoints-header-entrypoint": "Пырон инты",
 	"version-entrypoints-header-url": "URL",
 	"version-libraries": "Пуктэм лыдӟонниос",
+<<<<<<< HEAD
+	"version-libraries-client": "Пуктэм клиентской лыдӟонниос",
+=======
+>>>>>>> origin/1.39.7-test
 	"version-libraries-library": "Лыдӟонни",
 	"version-libraries-version": "Версия",
 	"version-libraries-license": "Лицензи",
@@ -3574,6 +3716,13 @@
 	"feedback-useragent": "Браузер:",
 	"searchsuggest-search": "{{SITENAME}} утчано",
 	"searchsuggest-containing": " Утчано бамъёсты, кудъёсаз вань",
+<<<<<<< HEAD
+	"search-match-redirect-label": "Утчаку быдэсак тупанояз выжоно",
+	"search-match-redirect-help": "Бамлэн йыръянэз тупа ке солы, мае тӥ  утчаськоды, быръе тае, баме выжон понна.",
+	"search-thumbnail-extra-namespaces-label": "Пичиятэм тусъёсты возьматоно татын: Special:Search on Desktop",
+	"search-thumbnail-extra-namespaces-message": "$1-лы пичиятэм тусъёсты возьматэ {{PLURAL:$2|нимвӧлмет|нимвӧлметъёс\n}} йылпумъёс  та бамын {{#special:search}}",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchlimit-label": "Котькуд бамын возьматон понна, утчан йылпумъёслэн лыдзы :",
 	"searchlimit-help": "Быдэсак мындалаез: $1",
 	"api-clientside-error-noconnect": "Ӧз пӧрмы герӟаськыны серверен. Эскере, тӥляд зэмзэ но Интернетэн ужан герӟтты вань шуыса, собере выльысь оскалтэ.",
@@ -3678,6 +3827,11 @@
 	"json-error-invalid-property-name": "Аслыклэн декодировать карем нимыз кутыны луонтэм",
 	"json-error-utf16": "UTF-16-лэн шонертэм пусъёсыз, оло шонертэм кодировать каремын.",
 	"headline-anchor-title": "Та люкет вылэ чӧлскон",
+<<<<<<< HEAD
+	"special-tab-contribute-short": "Ваёс",
+	"special-tab-contributions-short": "Ваёсъёсты учкылон",
+=======
+>>>>>>> origin/1.39.7-test
 	"special-characters-group-latin": "Латин",
 	"special-characters-group-latinextended": "Паськытатэм латин",
 	"special-characters-group-ipa": "МФА (IPA)",
@@ -3925,5 +4079,48 @@
 	"newpages-showhide-bots": "$1 ботъёс",
 	"newpages-showhide-patrolled": "$1 эскерем тупатонъёс",
 	"newpages-showhide-redirect": "$1 кудланьтонъёс",
+<<<<<<< HEAD
+	"newpages-showhide-registered": "Гожтӥськем юзчиос $1",
+	"blockedtext-made-by": "Борӟаз $1 нимо администратор",
+	"blockedtext-reason-comment": "Возьматэмын мугез: <em>$1</em>",
+	"blockedtext-start-time": "Борӟанлэн кутсконэз: $1",
+	"blockedtext-expiration-time": "Борӟанлэн чаклам дырыз: $1",
+	"blockedtext-expiration-longest-block": "Тужгес кузезлэн борӟетлэн висъям дырыз: $1",
+	"blockedtext-intended-blockee": "Борӟетлэн ужпумез: $1",
+	"blockedtext-contact-blocker-admin": "Тӥ быгатӥськоды герӟаськыны $1 нимо администраторен яке мукет [[{{MediaWiki:Grouppage-sysop}}|администраторен]], борӟет (блокировка) пумысен кенешон понна.",
+	"blockedtext-block-id": "#$1 борӟетлэн идентификаторез",
+	"blockedtext-include-details-queries": "Котькуд куронъёсады возьматэ ваньзэ та верамъёсты, тауна.",
+	"renameuser": "Юзчилэсь нимзэ воштоно",
+	"renameuser-linkoncontribs": "{{GENDER:$1|юзчилэсь}} нимзэ воштоно",
+	"renameuser-linkoncontribs-text": "Таизлэсь {{GENDER:$1|юзчилэсь}} нимзэ воштоно",
+	"renameuserold": "Юзчилэн алиез нимыз:",
+	"renameusernew": "Юзчилэн выль нимыз:",
+	"renameuserreason": "Мугез:",
+	"renameusermove": "Юзчилэсь бамъёссэ но вераськон бамъёссэ (озьы ик соослэсь юрттэтбамъёссэс) выль ниме выжтоно",
+	"renameusersuppress": "Выль ниме кудланьтонъёс эн кылдытъялэ",
+	"renameuserreserve": "Азьланяз кутон понна, юзчилэсь вуж нимзэ борӟано",
+	"renameuserwarnings": "Алонъёс:",
+	"renameuserconfirm": "Бен, юзчилэсь нимзэ воштоно",
+	"renameusersubmit": "Эскерыны келяно",
+	"renameusererrordoesnotexist": "Таӵе \"<nowiki>$1</nowiki>\" юзчи ӧвӧлтэм луэ.",
+	"renameusererrorexists": "{{GENDER:$1|юзчи}} \"<nowiki>$1</nowiki>\" вань ини.",
+	"renameusererrorinvalid": "Юзчилэн та нимыз \"<nowiki>$1</nowiki>\" ярантэм луэ.",
+	"renameuser-error-request": "Куронэн вазиськонын шуг-секытъёс кылдӥллям. Берытскыса выльысь оскалтэ, тауна.",
+	"renameuser-error-same-user": "Тӥ уд быгатӥське воштыны юзчилэсь нимзэ азьвылэз сямен ик.",
+	"renameusersuccess": "{{GENDER:$2|юзчи}}-лэн та нимыз \n\"<nowiki>$1</nowiki>\" таиныз воштэмын вал\n \"<nowiki>$2</nowiki>\".",
+	"renameuser-page-exists": "$1 бам вань ини но асэрказ гожтэмын луыны уг быгаты.",
+	"renameuser-page-moved": "$1 бам $2-е выжтэмын вал",
+	"renameuser-page-unmoved": "$1 бамез $2-е выжтыны уг луы.",
+	"renameuser-warning-currentblock": "Та юзчи [$1 али дыре борӟамын].",
+	"log-name-renameuser": "Юзчиослэсь нимзэс воштон журнал",
+	"log-description-renameuser": "Юзчиослэсь нимзэс воштон журнал",
+	"logentry-renameuser-renameuser": "$1 {{GENDER:$2|нимзэ воштэм}} $4 юзчилэсь ({{PLURAL: $6|$6 тупатон|$6 тупатонъёс}})  {{GENDER:$7|$5}}-ын",
+	"logentry-renameuser-renameuser-legacier": "$1 {{GENDER:$2|нимзэ воштӥз}} $4 юзчилэсь {{GENDER:$7|$5}}-лы",
+	"renameuser-move-log": "{{GENDER:$2|юзчилэсь}} нимзэ воштыку, бам асэрказ выжтэмын [[User:$1|$1]]\"-ысь \"[[User:$2|$2]]\"-е.",
+	"action-renameuser": "Юзчиослэсь нимъёссэс воштоно",
+	"right-renameuser": "Юзчиослэсь нимъёссэс воштоно",
+	"renameuser-renamed-notice": "Та юзчилэн нимыз воштэмын вал. Улӥязгес ним воштонъёсын журнал сётэмын."
+=======
 	"newpages-showhide-registered": "Гожтӥськем юзчиос $1"
+>>>>>>> origin/1.39.7-test
 }

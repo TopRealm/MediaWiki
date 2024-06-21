@@ -164,6 +164,10 @@
 	"permalink": "Sènggètan tetep",
 	"print": "Apdrek",
 	"view": "Deleng",
+<<<<<<< HEAD
+	"viewcontribs": "Deleng sumbangan",
+=======
+>>>>>>> origin/1.39.7-test
 	"skin-view-view": "Baca",
 	"skin-view-foreign": "Deleng di $1",
 	"edit": "Permak",
@@ -180,6 +184,11 @@
 	"skin-action-unprotect": "Robah perlindungan",
 	"unprotect": "Robah perlindungan",
 	"newpage": "Halaman baru",
+<<<<<<< HEAD
+	"newpage-desc": "Bikin halaman baru bakal topik lu punya minta'.",
+	"view-missing-pages": "Deleng halaman nyang kurang",
+=======
+>>>>>>> origin/1.39.7-test
 	"talkpagelinktext": "ngomong",
 	"specialpage": "Halaman istimèwa",
 	"personaltools": "Peranti perorangan",
@@ -625,6 +634,10 @@
 	"summary-preview": "Terawangan rangkuman permakan:",
 	"previewerrortext": "Ngablu pas jajal ngasi unjuk terawangan lu punya perobahan.",
 	"blockedtitle": "Pemaké digibang.",
+<<<<<<< HEAD
+	"blockedtext-partial": "<strong>Lu punya nama pemaké atawa aderès IP digibang kaga' bisa nglakonin ni. Lu mentak masing bisa nglakonin laèn hal di ni pelampang, kaya' mermak beberapa halaman.</strong>\n\nLu bisa deleng tètèk bengèk lengkep penggibangan di [[Special:MyContributions|sumbangan rèkening]].\n\n{{int:blockedtext-made-by|$1}}\n\n{{int:blockedtext-reason-comment|$2}}.\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n*{{int:blockedtext-block-id|$5}}",
+=======
+>>>>>>> origin/1.39.7-test
 	"blockednoreason": "kaga' ada alesan nyang dikasi",
 	"blockedtext-composite-ids": "Penggibangan ID nyang nyambung: $1 (lu punya aderès IP bisa jadi ada juga' di daptar gibangan)",
 	"blockedtext-composite-no-ids": "Lu punya aderès IP nongol di beberapa daptar gibangan",
@@ -646,6 +659,11 @@
 	"missing-revision-permission": "Perbaèkan #$1 entu perbaèkan  deri halaman nyang udah diapus. Lu bisa [{{fullurl:{{#Special:Undelete}}|target=$3&timestamp=$2&diff=prev}} ndeleng entu]; tètèk bengèknya bisa diliat di [{{fullurl:{{#Special:Log}}/delete|page=$3}} rekeman pengapusan].",
 	"missing-revision": "Perbaèkan $1 deri halaman nyang namanya \"{{FULLPAGENAME}}\" kaga' ada.\n\nNi biasanya lantaran sènggètan asrèn (lama) ke halaman nyang udah diapus.\nTètèk bengèknya bisa diliat di [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} rekeman pengapusan].",
 	"missing-revision-content": "Isi perbaèkan #$1 deri halaman nyang namanya \"$2\" kaga' kena dipunggah.",
+<<<<<<< HEAD
+	"userpage-userdoesnotexist": "Rèkening pemaké \"$1\" kaga' kedaptar di ni wiki.\nPadol dah, perèksa lagi kalo lu pèngèn ngeja/mermak ni halaman.",
+	"userpage-userdoesnotexist-view": "Rèkening pemaké \"$1\" kaga' kedaptar di ni wiki.",
+=======
+>>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "Ni {{GENDER:$1|pemaké}} lagi digibang.\nPepasupan rekeman penggibangan nyang paling belakangan ada di bawah ni sebagé ruju'an:",
 	"clearyourcache": "<strong>Catetan:</strong> abis nerebitin, lu barangkali kudu ngliwatin lu punya pesanggrahan (cache) pengubek bakal ngiat ni perobahan.\n* <strong>Firefox / Safari:</strong> Pijet èn tahan<em>Shift</em> sembari ngeklik <em>Reload</em>, atawa pijet juga <em>Ctrl-F5</em> atawa <em>Ctrl-R</em> (<em>⌘-R</em> di Mac)\n* <strong>Google Chrome:</strong> Pijet <em>Ctrl-Shift-R</em> (<em>⌘-Shift-R</em> di Mac)\n* <strong>Internet Explorer / Edge:</strong> Pijet èn tahan<em>Ctrl</em> sembari ngeklik <em>Refresh</em>, atawa pijet <em>Ctrl-F5</em>\n* <strong>Opera:</strong> Pijet <em>Ctrl-F5</em>.",
 	"usercssyoucanpreview": "<strong>Wejangan:</strong> Paké tombol \"{{int:showpreview}}\" bakal njajal lu punya CSS baru sebelonnya nerebitin.",
@@ -847,8 +865,16 @@
 	"revdelete-hide-comment": "Rangkuman permakan",
 	"revdelete-hide-user": "Pemermak punya nama pemaké/aderès IP",
 	"revdelete-hide-restricted": "Brangus data deri merbot èn laènnya",
+<<<<<<< HEAD
+	"revdelete-radio-same": "Jangan dirobah",
 	"revdelete-radio-set": "Diumpetin",
 	"revdelete-radio-unset": "Keliatan",
+	"revdelete-radio-set-suppress": "Brangus",
+	"revdelete-radio-unset-suppress": "Urungin brangus",
+=======
+	"revdelete-radio-set": "Diumpetin",
+	"revdelete-radio-unset": "Keliatan",
+>>>>>>> origin/1.39.7-test
 	"revdelete-suppress": "Brangus data deri merbot èn laènnya",
 	"revdelete-unsuppress": "Buang penginggenan di perbaèkan nyang dibalikin",
 	"revdelete-log": "Alesan:",
@@ -913,6 +939,10 @@
 	"lineno": "Baris $1:",
 	"compareselectedversions": "Bandingin pèrsi perbaèkan nyang dipilih",
 	"showhideselectedversions": "Robah kekeliatanan deri perbaèkan nyang dipilih",
+<<<<<<< HEAD
+	"showhideselectedfileversions": "Robah kekeliatanan deri berekas nyang dipilih",
+=======
+>>>>>>> origin/1.39.7-test
 	"editundo": "balikin",
 	"diff-empty": "(Kaga' béda)",
 	"diff-multi-otherusers": "({{PLURAL:$1|Atu perbaèkan wasilah|$1 perbaèkan wasilah}} kejaan {{PLURAL:$2|atu pemaké laènnya|$2 pemaké}} kaga' dikasi unjuk)",
@@ -920,6 +950,11 @@
 	"diff-paragraph-moved-tonew": "Paragrap dipindahin. Klik bakal loncat ke lokasi baru.",
 	"diff-paragraph-moved-toold": "Paragrap dipindahin. Klik bakal loncat ke lokasi lama.",
 	"difference-missing-revision": "{{PLURAL:$2|Atu perbaèkan|$2 perbaèkan}} deri ni perbédaan ($1) {{PLURAL:$2|kaga'}} ketemu.\n\nNi biasanya lantaran sènggètan perbédaan nyang bonto ke halaman nyang udah diapus.\nTètèk bengèk bisa diliat di [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} rekeman pengapusan].",
+<<<<<<< HEAD
+	"difference-bad-old-revision": "Isi deri perbaèkan nyang lama ilang atawa bejat.",
+	"difference-bad-new-revision": "Isi deri perbaèkan nyang baru ilang atawa bejat.",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchresults": "Hasil penyarian",
 	"search-filter-title-prefix": "Cuman nyari halaman nyang judulnya depannya \"$1\"",
 	"search-filter-title-prefix-reset": "Cari semua halaman",
@@ -959,6 +994,10 @@
 	"search-relatedarticle": "Nyang juntrungan",
 	"search-invalid-sort-order": "Perèntah nyortir $1 kaga' dikenal, penyortiran bawaan bakalan diterepin. Perèntah nyortir nyang aci ièlah: $2",
 	"search-unknown-profile": "Propil penyarian $1 kaga' dikenal, propil penyarian bawaan bakalan diterepin.",
+<<<<<<< HEAD
+	"search-thumbnail-alt": "Longokan bakal $1",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchrelated": "nyang juntrungan",
 	"searchall": "semua",
 	"showingresultsinrange": "Ngasi unjuk ampé {{PLURAL:$1|<strong>1</strong> hasil|<strong>$1</strong> hasil}} dalem rentang #<strong>$2</strong> ampé #<strong>$3</strong>.",
@@ -1008,6 +1047,11 @@
 	"prefs-email": "Pilihan surlès",
 	"prefs-rendering": "Roman",
 	"prefs-searchmisc": "Umum",
+<<<<<<< HEAD
+	"searchprefs": "Pengaturan penyarian",
+	"searchprefs-noresults": "Kaga' ada hasil",
+=======
+>>>>>>> origin/1.39.7-test
 	"saveprefs": "Simpen",
 	"restoreprefs": "Pulihin semua setèlan bawaan",
 	"prefs-editing": "Pemermakan",
@@ -1015,6 +1059,17 @@
 	"recentchangesdays": "Ari nyang ditampilin di perobahan belakangan:",
 	"recentchangesdays-max": "Paling banter $1 {{PLURAL:$1|ari}}",
 	"recentchangescount": "Jumblah permakan bawaan nyang ditampilin di perobahan belakangan, riwayat halaman, èn rekeman:",
+<<<<<<< HEAD
+	"prefs-back-title": "Kombali ke pengaturan",
+	"prefs-description-personal": "Atur gimana lu punya roman, bungselan, èn ubung-ubungan.",
+	"prefs-description-rendering": "Amplas pilihan-pilihan kulit, ukuran, èn pembacaan",
+	"prefs-description-editing": "Cèngliin sendèwèk cara lu ngeja, nglacak, èn merèksa ulang permakan.",
+	"prefs-description-rc": "Cèngliin sendèwèk empan perobahan belakangan.",
+	"prefs-description-watchlist": "Kelola èn pasin daptar halaman lu punya lacak",
+	"prefs-description-searchoptions": "Pilih cara kerja isi-sendèwèk èn hasilnya.",
+	"prefs-description-misc": "Cèngliin sendèwèk daptar isi.",
+=======
+>>>>>>> origin/1.39.7-test
 	"prefs-help-recentchangescount": "Paling banter: 1000",
 	"prefs-help-watchlist-token2": "Ni – konci resia ke empan jala deri lu punya daptar pantengan.\nSapa aja nyang nyaho entu bakalan bisa ngebaca lu punya daptar pantengan, jadi jangan lu dumanin.\nKalo perlu gè', [[Special:ResetTokens|lu bisa setèl ulang]].",
 	"prefs-help-tokenmanagement": "Lu bisa ngiat èn nyetèl ulang konci resia bakal lu punya rèkening nyang bisa ngaksès empan Jala deri lu punya daptar pantengan. Sapa aja nyang nyaho ni konci bakalan bisa ngebaca lu punya daptar pantengan, jadi jangan lu dumanin.",
@@ -1029,6 +1084,10 @@
 	"timezoneuseserverdefault": "Paké wiki bawaan ($1)",
 	"timezoneuseoffset": "Laènnya (perbédaan waktu deri UTC)",
 	"timezone-useoffset-placeholder": "Nilé tulad: \"-07:00\" atawa \"01:00\"",
+<<<<<<< HEAD
+	"timezone-invalid": "Kawasan atawa perbédaan wayah kaga' aci.",
+=======
+>>>>>>> origin/1.39.7-test
 	"servertime": "Waktu pengladèn:",
 	"guesstimezone": "Isi deri pengubek",
 	"timezoneregion-africa": "Aprika",
@@ -1217,6 +1276,12 @@
 	"right-suppressrevision": "Deleng, umpetin, èn tunjukin perbaèkan halaman nyang dimaksud deri mana-mana pemaké",
 	"right-viewsuppressed": "Deleng perbaèkan nyang diumpetin deri mana-mana pemaké",
 	"right-suppressionlog": "Deleng rekeman perorangan",
+<<<<<<< HEAD
+	"right-block": "Gibang atawa buka gibangan pemaké laèn deri pemermakan",
+	"right-blockemail": "Gibang atawa buka gibangan pemaké laèn deri ngirimin surlès",
+	"right-hideuser": "Gibang atawa buka gibangan nama pemaké, umpetin atawa tunjukin deri orang banyak",
+=======
+>>>>>>> origin/1.39.7-test
 	"right-ipblock-exempt": "Terabas penggibangan IP, penggibangan-sendèwèk, èn penggibangan ranggehan",
 	"right-unblockself": "Buka gibangan dèwèk",
 	"right-protect": "Robah setèlan perlindungan èn permak halaman nyang dilindungin-berèntèt",
@@ -1237,6 +1302,10 @@
 	"right-viewmywatchlist": "Deleng lu punya daptar pantengan sendèwèk",
 	"right-editmywatchlist": "Permak lu punya daptar pantengan sendèwèk (èling kalo beberapa piil bakalan tetep nambahin halaman bagèn sonder ni hak)",
 	"right-viewmyprivateinfo": "Deleng lu punya data perorangan sendèwèk (tulad: aderès surlès, nama asli)",
+<<<<<<< HEAD
+	"right-editmyprivateinfo": "Deleng lu punya data perorangan sendèwèk (tulad: aderès surlès, nama asli) èn minta' surlès penyetèlan ulang kata sandi",
+=======
+>>>>>>> origin/1.39.7-test
 	"right-editmyoptions": "Permak lu punya pengaturan sendèwèk",
 	"right-rollback": "Lekas aterèt permakan deri pemaké paling belakangan nyang mermak halaman ketentu",
 	"right-markbotedits": "Tengerin permakan nyang diaterèt sebagé permakan bot",
@@ -1278,6 +1347,10 @@
 	"grant-editsiteconfig": "Permak CSS/JS antéropelampang èn pemaké",
 	"grant-editpage": "Permak halaman nyang udah ada",
 	"grant-editprotected": "Permak halaman nyang dilindungin",
+<<<<<<< HEAD
+	"grant-highvolume": "Aksès polume tinggi (bot)",
+=======
+>>>>>>> origin/1.39.7-test
 	"grant-import": "Impor perbaèkan",
 	"grant-mergehistory": "Gabregin riwayat halaman",
 	"grant-oversight": "Umpetin pemaké èn brangus perbaèkan",
@@ -1317,9 +1390,21 @@
 	"action-writeapi": "paké API tulis",
 	"action-delete": "apus ni halaman",
 	"action-delete-redirect": "timpa pengalihan perbaèkan tunggal",
+<<<<<<< HEAD
+	"action-deleterevision": "apus atawa urungin apus perbaèkan halaman nyang dimaksud",
+	"action-deletelogentry": "apus èn urungin apus masupan rekeman nyang dimaksud",
+	"action-deletedhistory": "deleng métadata deri pepasupan riwayat nyang diapus",
+	"action-deletedtext": "deleng tèks nyang diapus èn perobahan anterrépisi nyang diapus",
+	"action-browsearchive": "cari halaman nyang diapus",
+	"action-undelete": "urungin apus halaman",
+	"action-suppressrevision": "deleng, umpetin, èn tunjukin perbaèkan halaman nyang dimaksud deri mana-mana pemaké",
+	"action-suppressionlog": "deleng ni rekeman resia",
+	"action-block": "gibang atawa buka gibangan ni pemaké deri pemermakan",
+=======
 	"action-browsearchive": "cari halaman nyang diapus",
 	"action-undelete": "urungin apus halaman",
 	"action-suppressionlog": "deleng ni rekeman resia",
+>>>>>>> origin/1.39.7-test
 	"action-protect": "robah setèlan perlindungan bakal ni halaman",
 	"action-rollback": "lekas aterèt permakan deri pemaké paling belakangan nyang mermak halaman ketentu",
 	"action-import": "impor halaman deri wiki laènnya",
@@ -1346,6 +1431,10 @@
 	"action-apihighlimits": "paké wates nyang tinggian di pepintaan API",
 	"action-autoconfirmed": "kaga' kesawaban ama wates kegancangan berales IP",
 	"action-bigdelete": "apus halaman dengen banyak riwayat",
+<<<<<<< HEAD
+	"action-blockemail": "gibang atawa buka gibangan pemaké laèn deri ngirimin surlès",
+=======
+>>>>>>> origin/1.39.7-test
 	"action-bot": "diperlakonin sebagé prosès otomatis",
 	"action-editprotected": "permak halaman nyang dilindungin sebagé \"{{int:protect-level-sysop}}\"",
 	"action-editsemiprotected": "permak halaman nyang dilindungin sebagé \"{{int:protect-level-autoconfirmed}}\"",
@@ -1361,6 +1450,10 @@
 	"action-editmyuserjs": "permak lu punya berekas JavaScript pemaké sendèwèk",
 	"action-editmyuserjsredirect": "permak lu punya berekas JavaScript pemaké sendèwèk nyang pengalihan",
 	"action-viewsuppressed": "deleng perbaèkan nyang diumpetin deri mana-mana pemaké",
+<<<<<<< HEAD
+	"action-hideuser": "gibang atawa buka gibangan nama pemaké, umpetin atawa tunjukin deri orang banyak",
+=======
+>>>>>>> origin/1.39.7-test
 	"action-ipblock-exempt": "terabas penggibangan IP, penggibangan-sendèwèk, èn penggibangan ranggehan",
 	"action-unblockself": "buka gibangan dèwèk",
 	"action-noratelimit": "kaga' kesawaban ama wates kegancangan",
@@ -1493,6 +1586,11 @@
 	"rcfilters-filter-categorization-description": "Rekem jejek halaman nyang ditambahin atawa dibuang deri bangsaan.",
 	"rcfilters-filter-logactions-label": "Piil kerekem",
 	"rcfilters-filter-logactions-description": "Piil pengurusan, pengejaan rèkening, pengapusan halaman, pengangkatan...",
+<<<<<<< HEAD
+	"rcfilters-filter-newuserlogactions-label": "Pemaké baru",
+	"rcfilters-filter-newuserlogactions-description": "Masupan rekeman bakal pengejaan rèkening. Piil kerekem misti dipilih.",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-hideminor-conflicts-typeofchange-global": "Saringan \"Permakan kecit\" bentrok ama atu atawa lebi Jenis saringan perobahan laènnya, bahna beberapa jenis perobahan ketentu kaga' bisa dibilang \"kecit\". Saringan nyang bentrok ditengerin di bagèan Saringan ngelaku, di atas.",
 	"rcfilters-hideminor-conflicts-typeofchange": "Beberapa jenis perobahan ketentu kaga' bisa dibilang \"kecit\", kadi ni saringan bentrok ama ni Jenis Saringan perobahan: $1",
 	"rcfilters-typeofchange-conflicts-hideminor": "Ni Jenis saringan perobahan bentrok ama saringan \"Permakan kecit\". Beberapa jenis perobahan ketentu kaga' bisa dibilang \"kecit\".",
@@ -1502,6 +1600,11 @@
 	"rcfilters-filter-previousrevision-label": "Bukan perbaèkan nyang paling baru",
 	"rcfilters-filter-previousrevision-description": "Semua perobahan nyang bukan \"perbaèkan nyang paling baru\".",
 	"rcfilters-filter-excluded": "Diègosin",
+<<<<<<< HEAD
+	"rcfilters-tag-prefix-namespace-inverted": "<strong>bukan</strong> :$1",
+	"rcfilters-tag-prefix-tags-inverted": "<strong>bukan</strong> #$1",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-exclude-button-off": "Kecuali nyang kepilih",
 	"rcfilters-exclude-button-on": "Kaga' masup nyang dipilih",
 	"rcfilters-view-tags": "Permakan ditengerin",
@@ -1835,6 +1938,10 @@
 	"filehist-dimensions": "Delokan",
 	"filehist-filesize": "Ukuran berekas",
 	"filehist-comment": "Sautan",
+<<<<<<< HEAD
+	"filehist-missing": "kaga' ada gepokan",
+=======
+>>>>>>> origin/1.39.7-test
 	"imagelinks": "Pemakéan gepokan",
 	"linkstoimage": "Ni {{PLURAL:$1|halaman|halaman pada}} maké ni berekas:",
 	"linkstoimage-more": "Lebi deri $1 {{PLURAL:$1|halaman}} maké ni berekas.\nNi daptar ngasi unjuk {{PLURAL:$1|halaman pertama|halaman-halaman pertama}} nyang maké ni berekas doang.\nAda juga' derak [[Special:WhatLinksHere/$2|daptar lengkepnya]].",
@@ -2023,6 +2130,10 @@
 	"notargettext": "Lu kaga' punya halaman sasaran nyang dimaksud atawa pemaké sasaran ni pungsi.",
 	"nopagetitle": "Kaga' ada halaman sasaran begitu",
 	"nopagetext": "Halaman sasaran lu punya maksud kaga' ada.",
+<<<<<<< HEAD
+	"badrevision": "Isi deri perbaèkan – ilang atawa bejat.",
+=======
+>>>>>>> origin/1.39.7-test
 	"pager-newer-n": "{{PLURAL:$1|1 lebih baru|$1 lebih baru}}",
 	"pager-older-n": "{{PLURAL:$1|1 lebi dulu|$1 lebi dulu}}",
 	"suppress": "Brangus",
@@ -2453,8 +2564,15 @@
 	"contributions": "Sumbangan pemaké",
 	"tool-link-contributions": "Sumbangan {{GENDER:$1|pemaké}}",
 	"contributions-title": "Sumbangan pemaké bakal $1",
+<<<<<<< HEAD
+	"contribute-title": "Sumbangan pemaké",
 	"mycontris": "Sumbangan",
 	"anoncontribs": "Sumbangan",
+	"contribute": "Sumbang",
+=======
+	"mycontris": "Sumbangan",
+	"anoncontribs": "Sumbangan",
+>>>>>>> origin/1.39.7-test
 	"contribsub2": "Bakal {{GENDER:$3|$1}} ($2)",
 	"contributions-userdoesnotexist": "Rèkening pemaké \"$1\" kaga' kedaptar.",
 	"negative-namespace-not-supported": "Ruang nama dengen nilé nègatip kaga' didukung.",
@@ -2489,6 +2607,10 @@
 	"whatlinkshere-page": "Halaman:",
 	"linkshere": "Ni halaman pada nyènggèt ke <strong>$2</strong>",
 	"nolinkshere": "Kaga' ada halaman nyang nyènggèt ke <strong>$2</strong>",
+<<<<<<< HEAD
+	"nolinkshere-filter": "Kaga' ada halaman nyang kesènggèt ke <strong>$2</strong> dengen penyetèlan penyarian nyang sekarang.",
+=======
+>>>>>>> origin/1.39.7-test
 	"nolinkshere-ns": "Kaga' ada halaman nyang kesènggèt ke <strong>$2</strong> dengen ruang nama nyang dipilih.",
 	"isredirect": "halaman pengalihan",
 	"istemplate": "penganterserèntaan",
@@ -2707,6 +2829,13 @@
 	"movesubpagetalktext": "Halaman kongko nyang juntrungan ada punya $1 {{PLURAL:$1|anakhalaman}} di bawah ni.",
 	"movenosubpage": "Ni halaman kaga' punya anakhalaman.",
 	"movereason": "Alesan:",
+<<<<<<< HEAD
+	"moveotherreason": "Alesan laèn/tambahan:",
+	"movereasonotherlist": "Alesan laèn",
+	"movepage-reason-dropdown": "* Alesan pemindahan nyang umum\n** Judul salah èja",
+	"movepage-edit-reasonlist": "Permak alesan pemindahan",
+=======
+>>>>>>> origin/1.39.7-test
 	"revertmove": "balikin",
 	"delete_and_move_text": "Halaman tujuan \"[[:$1]]\" udah ada.\nApa lu pèngèn ngapus tu halaman èn ngasi ruang bakal pemindahan?",
 	"delete_redirect_and_move_text": "Halaman tujuan \"[[:$1]]\" udah ada sebagé pengalihan.\nApa lu pèngèn ngapus tu halaman èn ngasi ruang bakal pemindahan?",
@@ -2935,6 +3064,10 @@
 	"pageinfo-default-sort": "Konci sortir bawaan",
 	"pageinfo-length": "Panjang halaman (dalem bèt)",
 	"pageinfo-namespace": "Ruang nama",
+<<<<<<< HEAD
+	"pageinfo-namespace-id": "ID ruang nama",
+=======
+>>>>>>> origin/1.39.7-test
 	"pageinfo-article-id": "ID halaman",
 	"pageinfo-language": "Basa isi halaman",
 	"pageinfo-language-change": "robah",
@@ -3061,6 +3194,10 @@
 	"metadata-help": "Ni berekas ada pengabaran tambahannya, nyang barangkali ditambahin deri tustèl digital atawa pengrépé nyang dipaké bakal ngeja atawa ndigitalisir berekas.\nKalo ni berekas udah didandan-dandanin deri pèrsi aslinya, beberapa tètèk bengèk barangkali kaga' nyerminin sepenunya ni berekas nyang udah didandan-dandanin.",
 	"metadata-expand": "Kasi unjuk tètèk bengèk tambahan",
 	"metadata-collapse": "Umpetin tètèk bengèk tambahan",
+<<<<<<< HEAD
+	"metadata-fields": "Bidang métadata gambar nyang kecantum di ni pesen bakal diserèntain di pampangan halaman gambar pas jadwal métadata digulung.\nNyang laènnya bawaannya bakal diumpetin.\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude\n* dc-rights\n* copyrightowner\n* usageterms\n* webstatement\n* licenseurl\n* attributionurl\n* preferredattributionname\n* credit\n* jpegfilecomment\n* pngfilecomment\n* giffilecomment\n* usercomment\n* citydest\n* citycreated\n* headline\n* source\n* locationdest\n* dc-contributor\n* dc-coverage\n* dc-publisher\n* dc-relation\n* label\n* nickname\n* personinimage\n* disclaimer\n* event\n* objectname",
+=======
+>>>>>>> origin/1.39.7-test
 	"namespacesall": "semua",
 	"monthsall": "semua",
 	"confirmemail": "Tandesin aderès surlès",
@@ -3100,6 +3237,10 @@
 	"confirm-watch-button": "Baè'",
 	"confirm-watch-top": "Tambahin ni halaman ke lu punya daptar pantengan?",
 	"confirm-watch-label": "Periode waktu daptar pantengan:",
+<<<<<<< HEAD
+	"watchlist-expiry-options": "Ajeg:infinite,1 minggu:1 week,1 bulan:1 month,3 bulan:3 months,6 bulan:6 months,1 tahon:1 year",
+=======
+>>>>>>> origin/1.39.7-test
 	"watchlist-expires-in-aria-label": "Barang daptar pantengan nyang udah mao bonto",
 	"confirm-watch-button-expiry": "Pantengin",
 	"confirm-unwatch-button": "Baè'",
@@ -3214,6 +3355,10 @@
 	"version-entrypoints-header-entrypoint": "Titik masup",
 	"version-entrypoints-header-url": "URL",
 	"version-libraries": "pangkèng buku kepasang",
+<<<<<<< HEAD
+	"version-libraries-client": "Miswar sisi-penanggap kepasang",
+=======
+>>>>>>> origin/1.39.7-test
 	"version-libraries-library": "Pangkèng Buku",
 	"version-libraries-version": "Pèrsi",
 	"version-libraries-license": "Ongji",
@@ -3547,6 +3692,13 @@
 	"feedback-useragent": "Wakil pemaké:",
 	"searchsuggest-search": "Cari {{SITENAME}}",
 	"searchsuggest-containing": "Cari halaman nyang ada",
+<<<<<<< HEAD
+	"search-match-redirect-label": "Langsung ke penyarian nyang percis sama pas nyari",
+	"search-match-redirect-help": "Pilih ni bakal pegi ke halaman pas tu judul halaman bener-bener cocok ama lu punya penyarian",
+	"search-thumbnail-extra-namespaces-label": "Kasi unjuk longokan di Special:Search on Desktop",
+	"search-thumbnail-extra-namespaces-message": "Mampangin longokan bakal $1 {{PLURAL:$2|ruang nama}} di halaman {{#special:search}}",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchlimit-label": "Jumblah hasil penyarian nyang dikasi unjuk di saban halaman:",
 	"searchlimit-help": "Jumblah paling banter: $1",
 	"api-clientside-error-noconnect": "Kaga' bisa ngebungsel ke pengladèn. Pastiin lu punya bungselan internèt nyala èn jal lagi.",
@@ -3651,6 +3803,11 @@
 	"json-error-invalid-property-name": "Nama ciri nyang didékodein kaga' aci",
 	"json-error-utf16": "Lèter UTF-16 pèncot, barangkali salah dikodein",
 	"headline-anchor-title": "Sènggètan ke ni bagèan",
+<<<<<<< HEAD
+	"special-tab-contribute-short": "Sumbang",
+	"special-tab-contributions-short": "Deleng sumbangan",
+=======
+>>>>>>> origin/1.39.7-test
 	"special-characters-group-latin": "Latin",
 	"special-characters-group-latinextended": "Latin tambahan",
 	"special-characters-group-ipa": "HPA (IPA)",
@@ -3899,5 +4056,48 @@
 	"newpages-showhide-bots": "$1 bot",
 	"newpages-showhide-patrolled": "$1 permakan keronda",
 	"newpages-showhide-redirect": "$1 pengalihan",
+<<<<<<< HEAD
+	"newpages-showhide-registered": "$1 pemaké kedaptar",
+	"blockedtext-made-by": "Penggibangan dikeja ama $1",
+	"blockedtext-reason-comment": "Alesan nyang dikasi ièlah <em>$1</em>",
+	"blockedtext-start-time": "Mulain penggibangan: $1",
+	"blockedtext-expiration-time": "Bonto penggibangan: $1",
+	"blockedtext-expiration-longest-block": "Bonto penggibangan paling lama: $1",
+	"blockedtext-intended-blockee": "Nyang mau digibang: $1",
+	"blockedtext-contact-blocker-admin": "Lu bisa ubungin $1 atawa [[{{MediaWiki:Grouppage-sysop}}|merbot]] laènnya bakal ngeguntengin tu penggibangan.",
+	"blockedtext-block-id": "ID penggibangan #$1.",
+	"blockedtext-include-details-queries": "Dimohon serèntain semua tètèk bengèk di atas dalem saban pertanyaan lu punya bikin.",
+	"renameuser": "Balik nama pemaké",
+	"renameuser-linkoncontribs": "balik nama {{GENDER:$1|pemaké}}",
+	"renameuser-linkoncontribs-text": "Balik nama ni {{GENDER:$1|pemaké}}",
+	"renameuserold": "Nama pemaké nyang sekarang:",
+	"renameusernew": "Nama pemaké nyang baru:",
+	"renameuserreason": "Alesan:",
+	"renameusermove": "Pindahin halaman pemaké èn kongko (èn anakhalamannya) ke nama baru",
+	"renameusersuppress": "Jangan keja pengalihan ke nama baru",
+	"renameuserreserve": "Gibang nama pemaké lama biar kaga' dipaké lagi",
+	"renameuserwarnings": "Wanti-wanti:",
+	"renameuserconfirm": "Ya, balik nama pemaké",
+	"renameusersubmit": "Serahin",
+	"renameusererrordoesnotexist": "Pemaké \"<nowiki>$1</nowiki>\" kaga' ada.",
+	"renameusererrorexists": "{{GENDER:$1|Pemaké}} \"<nowiki>$1</nowiki>\" udah ada.",
+	"renameusererrorinvalid": "Pemaké \"<nowiki>$1</nowiki>\" kaga' aci.",
+	"renameuser-error-request": "Ada masalah pas nerima rekès.\nPadol dah, balik èn coba lagi.",
+	"renameuser-error-same-user": "Lu kaga' bisa ngebalik nama pemaké ke nyang sama kaya' sebelonnya.",
+	"renameusersuccess": "{{GENDER:$1|Pemaké}} \"<nowiki>$1</nowiki>\" udah balik nama jadi \"<nowiki>$2</nowiki>\".",
+	"renameuser-page-exists": "Halaman $1 udah ada èn kaga' bisa otomatis ditimpa.",
+	"renameuser-page-moved": "Halaman $1 udah dipindahin ke $2.",
+	"renameuser-page-unmoved": "Halaman $1 kaga' kena dipindahin ke $2.",
+	"renameuser-warning-currentblock": "Ni pemaké [$1 lagi digibang].",
+	"log-name-renameuser": "Rekeman balik nama pemaké",
+	"log-description-renameuser": "Ni dia rekeman pengrobahan nama pemaké",
+	"logentry-renameuser-renameuser": "$1 {{GENDER:$2|ngebalik nama}} pemaké $4 ({{PLURAL:$6|$6 permakan}}) jadi {{GENDER:$7|$5}}",
+	"logentry-renameuser-renameuser-legacier": "$1 {{GENDER:$2|ngebalik nama}} pemaké $4 jadi {{GENDER:$7|$5}}",
+	"renameuser-move-log": "Otomatis mindahin halaman pas ngebalik nama {{GENDER:$2|pemaké}} \"[[User:$1|$1]]\" jadi \"[[User:$2|$2]]\"",
+	"action-renameuser": "balik nama pemaké",
+	"right-renameuser": "Balik nama pemaké",
+	"renameuser-renamed-notice": "Ni pemaké udah dibalik nama.\nRekeman balik nama ada disediain di bawah sebagé ruju'an."
+=======
 	"newpages-showhide-registered": "$1 pemaké kedaptar"
+>>>>>>> origin/1.39.7-test
 }

@@ -1,8 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+<<<<<<< HEAD
+			"Sagan",
+			"Батыр Комдошев"
+=======
 			"Батыр Комдошев",
 			"Sagan"
+>>>>>>> origin/1.39.7-test
 		]
 	},
 	"exif-imagewidth": "Тураазы",

@@ -4,11 +4,18 @@
 			"Amire80",
 			"EritajGwadloup",
 			"Histnou",
+<<<<<<< HEAD
+=======
 			"Istwalezanti",
+>>>>>>> origin/1.39.7-test
 			"Laetitia Kb",
 			"LeGuyanaisPure",
 			"McDutchie",
 			"Mixeur",
+<<<<<<< HEAD
+			"Istwalezanti",
+=======
+>>>>>>> origin/1.39.7-test
 			"Jazminah"
 		]
 	},
@@ -159,6 +166,10 @@
 	"permalink": "Lyann pou touttan",
 	"print": "Enprimé",
 	"view": "Vwé",
+<<<<<<< HEAD
+	"viewcontribs": "Vwè kontribisyon",
+=======
+>>>>>>> origin/1.39.7-test
 	"skin-view-view": "Li",
 	"skin-view-foreign": "Vwé asi $1",
 	"edit": "Modifyé",
@@ -175,6 +186,11 @@
 	"skin-action-unprotect": "Chanjé pwotéksyon-la",
 	"unprotect": "Chanjé pwotéksyon-la",
 	"newpage": "Nouvo paj",
+<<<<<<< HEAD
+	"newpage-desc": "Konmansé on nouvo paj asi on sijé moun mandé.",
+	"view-missing-pages": "vwè paj ki ka manké",
+=======
+>>>>>>> origin/1.39.7-test
 	"talkpagelinktext": "bokanté",
 	"specialpage": "Paj espésial",
 	"personaltools": "Zouti",
@@ -229,6 +245,11 @@
 	"versionrequiredtext": "Vèsyon $1 dé MediaWiki nésésè pou itilizé paj-la. Vwè [[Special:Version|paj a vèsyon ]].",
 	"ok": "OK",
 	"retrievedfrom": "Rékipéré dépi \"$1\"",
+<<<<<<< HEAD
+	"newmessageslinkplural": "{{PLURAL:$1|on nouvo mésaj|999=Nouvo mésaj}}",
+	"newmessagesdifflinkplural": "Dènyé {{PLURAL:$1|modifikasyon|999=}}",
+=======
+>>>>>>> origin/1.39.7-test
 	"editsection": "Modifyé",
 	"editold": "Modifyé",
 	"viewsourceold": "vwé chouk-la",
@@ -505,6 +526,11 @@
 	"anontalkpagetext": "----\n<em>Ou asi paj a bokantaj a on itilizatè ki pòkò kréyé kont a-y, oben ki pa ka sèvi èvè yonn.</em>\nParapòt a rézon-lasa, nou dwèt sèvi èvè adrès IP a-y pou idantifyé-y.\nPlizyé itilizatè pé patajé on adrès IP konsa.\nSi ou sé on itilizatè anonim é si ou ka konstaté ou tini komantasyon ki pa ka gadé-w, syouplé [[Special:CreateAccount|kréyé on kont]] oben [[Special:UserLogin|konnékté-w]] pou anpéché tout konfizyon èvè ondòt itilizatè anonim.",
 	"noarticletext": "Konyéla pa ni pon tèks asi paj-lasa.\nOu pé [[Special:Search/{{PAGENAME}}|chèché pou tit a paj-lasa]] adan onlòt paj,\n<span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} chèché adan sé-opérasyon lyanné-la],\noben [{{fullurl:{{FULLPAGENAME}}|action=edit}} kréyé paj-lasa]</span>.",
 	"noarticletext-nopermission": "Konyéla pa ni pon tèks asi paj-lasa.\nOu pé [[Special:Search/{{PAGENAME}}|chèché pou tit a paj-lasa]] adan onlòt paj, oben <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} chèché adan jounal a opérasyon ki lyanné]</span>, mè ou pa ni pèmisyon pou kréyé paj-lasa.",
+<<<<<<< HEAD
+	"userpage-userdoesnotexist": "Kont itilizatè \"$1\" pa anréjistré adan wiki-lasa. Syouplé verifyé si ou vlé kréyé/modifyé paj-lasa.",
+	"userpage-userdoesnotexist-view": "Kont itilizatè \"$1\" pa enskri asl wiki-lasa.",
+=======
+>>>>>>> origin/1.39.7-test
 	"continue-editing": "Ay an zòn a modifikasyon",
 	"editing": "Modifikasyon pou $1",
 	"edit-textarea-aria-label": "Éditè a chouk a Wikitèks",
@@ -577,8 +603,16 @@
 	"revdelete-hide-image": "Kaché sa ki adan fichyé-la",
 	"revdelete-hide-comment": "Rézimé a modifikasyon",
 	"revdelete-hide-user": "Non a itilizatè/adrès IP a kontribitè-la",
+<<<<<<< HEAD
+	"revdelete-radio-same": "Pa chanjé-y",
 	"revdelete-radio-set": "Kaché",
 	"revdelete-radio-unset": "Vizib",
+	"revdelete-radio-set-suppress": "Kaché",
+	"revdelete-radio-unset-suppress": "Woumontré",
+=======
+	"revdelete-radio-set": "Kaché",
+	"revdelete-radio-unset": "Vizib",
+>>>>>>> origin/1.39.7-test
 	"revdelete-log": "Rézon:",
 	"pagehist": "Istorik a paj-la",
 	"deletedhist": "Istorik ki éfasé",
@@ -647,9 +681,18 @@
 	"prefs-email": "Opsyon a email",
 	"prefs-rendering": "Aparans",
 	"prefs-searchmisc": "Jénéral",
+<<<<<<< HEAD
+	"searchprefs": "Chèché an préférans",
+	"searchprefs-noresults": "Pon rézilta",
 	"saveprefs": "Anréjistré",
 	"prefs-editing": "Modifikasyon",
 	"searchresultshead": "Chèché",
+	"prefs-back-title": "Wouvin adan sa ou pisimyé",
+=======
+	"saveprefs": "Anréjistré",
+	"prefs-editing": "Modifikasyon",
+	"searchresultshead": "Chèché",
+>>>>>>> origin/1.39.7-test
 	"timezoneregion-africa": "Lafrik",
 	"timezoneregion-america": "Lanmérik",
 	"timezoneregion-antarctica": "Antatik",
@@ -1023,5 +1066,16 @@
 	"pagelang-submit": "Voyé",
 	"log-action-filter-all": "Tout",
 	"authmanager-email-label": "Email",
+<<<<<<< HEAD
+	"nstab-mainpage": "Paj prensipal",
+	"blockedtext-made-by": "$1 té fè blokaj-la.",
+	"blockedtext-reason-comment": "Rézon yo ba sé <em>$1</em>",
+	"blockedtext-expiration-time": "Ekspirasyon blòk : $1",
+	"blockedtext-contact-blocker-admin": "Ou pé kontakté $1 oben odòt [[{{MediaWiki:Grouppage-sysop}}|administratè]] pou bokanté asi blokaj-la.",
+	"blockedtext-include-details-queries": "Syouplé abouté tout sé détay-la ki anho adan tout dèmann ou ka fè.",
+	"renameuserreason": "Rézon:",
+	"renameusersubmit": "Voyé"
+=======
 	"nstab-mainpage": "Paj prensipal"
+>>>>>>> origin/1.39.7-test
 }

@@ -1,6 +1,10 @@
 <?php
 
 use MediaWiki\MainConfigNames;
+<<<<<<< HEAD
+use MediaWiki\WikiMap\WikiMap;
+=======
+>>>>>>> origin/1.39.7-test
 
 /**
  * Most of the file is covered by the unit test and/or FileBackendTest. Here we fill in the missing

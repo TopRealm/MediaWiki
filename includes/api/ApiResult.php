@@ -1219,9 +1219,7 @@ class ApiResult implements ApiSerializable {
 	 */
 	public static function formatExpiry( $expiry, $infinity = 'infinity' ) {
 		static $dbInfinity;
-		if ( $dbInfinity === null ) {
-			$dbInfinity = wfGetDB( DB_REPLICA )->getInfinity();
-		}
+		$dbInfinity ??= wfGetDB( DB_REPLICA )->getInfinity();
 
 		if ( $expiry === '' || $expiry === null || $expiry === false ||
 			wfIsInfinity( $expiry ) || $expiry === $dbInfinity

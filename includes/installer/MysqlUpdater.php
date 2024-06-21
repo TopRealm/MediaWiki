@@ -32,6 +32,8 @@ use Wikimedia\Rdbms\MySQLField;
 class MysqlUpdater extends DatabaseUpdater {
 	protected function getCoreUpdateList() {
 		return [
+<<<<<<< HEAD
+=======
 			// 1.35 but it must come first
 			[ 'addField', 'revision', 'rev_actor', 'patch-revision-rev_actor.sql' ],
 
@@ -117,7 +119,9 @@ class MysqlUpdater extends DatabaseUpdater {
 			[ 'dropField', 'logging', 'log_user', 'patch-drop-logging-user-fields.sql' ],
 			[ 'addIndex', 'user_newtalk', 'un_user_ip', 'patch-rename-mysql-user_newtalk-indexes.sql' ],
 
+>>>>>>> origin/1.39.7-test
 			// 1.35
+			[ 'addField', 'revision', 'rev_actor', 'patch-revision-actor-comment-MCR.sql' ],
 			[ 'addTable', 'watchlist_expiry', 'patch-watchlist_expiry.sql' ],
 			[ 'modifyField', 'page', 'page_restrictions', 'patch-page_restrictions-null.sql' ],
 			[ 'renameIndex', 'ipblocks', 'ipb_address', 'ipb_address_unique', false,
@@ -224,6 +228,12 @@ class MysqlUpdater extends DatabaseUpdater {
 			[ 'migrateTemplatelinks' ],
 			[ 'modifyField', 'templatelinks', 'tl_namespace', 'patch-templatelinks-tl_title-nullable.sql' ],
 			[ 'dropField', 'templatelinks', 'tl_title', 'patch-templatelinks-drop-tl_title.sql' ],
+<<<<<<< HEAD
+
+			// 1.40
+			[ 'addField', 'externallinks', 'el_to_path', 'patch-externallinks-el_to_path.sql' ],
+=======
+>>>>>>> origin/1.39.7-test
 		];
 	}
 

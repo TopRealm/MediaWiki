@@ -4,8 +4,13 @@
 			"Eduardo Addad de Oliveira",
 			"Eduardoaddad",
 			"Jhonnatanricardo",
+<<<<<<< HEAD
+			"Re demz",
+			"Felipe L. Ewald"
+=======
 			"Felipe L. Ewald",
 			"Re demz"
+>>>>>>> origin/1.39.7-test
 		]
 	},
 	"rest-prefix-mismatch": "O caminho pedido ($1) não estava no interior do caminho raiz da API REST ($2)",
@@ -16,6 +21,7 @@
 	"rest-nonexistent-revision": "A revisão especificada ($1) não existe",
 	"rest-nonexistent-user": "O usuário especificado ($1) não existe",
 	"rest-invalid-user": "O nome de usuário especificado ($1) é inválido",
+	"rest-unsupported-content-type": "Tipo de conteúdo não supportado: $1",
 	"rest-permission-denied-anon": "Não acessível por usuário anônimo",
 	"rest-permission-denied-title": "O usuário não tem o direitos de ler o título ($1)",
 	"rest-permission-denied-revision": "O usuário não tem acesso à revisão solicitada ($1).",
@@ -46,5 +52,11 @@
 	"rest-cannot-load-file": "O arquivo para o título \"$1\" não pode ser carregado.",
 	"rest-cross-origin-anon-write": "Solicitações de gravação de origem cruzada anônimas não são permitidas",
 	"rest-requires-safe-against-csrf": "Esse endpoint requer um provedor de sessão seguro para CSRF.",
+<<<<<<< HEAD
+	"rest-badtoken": "O token CSRF fornecido é inválido.",
+	"rest-badtoken-missing": "O parâmetro <var>token</var> é obrigatório, a não ser que um método de autentificação seguro contra ataques CSRF seja usado.",
+	"rest-badtoken-nosession": "Erro CSRF - nenhuma sessão."
+=======
 	"rest-badtoken": "O token CSRF fornecido é inválido."
+>>>>>>> origin/1.39.7-test
 }

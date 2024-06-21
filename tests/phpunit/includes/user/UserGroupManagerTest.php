@@ -392,7 +392,7 @@ class UserGroupManagerTest extends MediaWikiIntegrationTestCase {
 		$manager = $this->getManager();
 		$anon = new UserIdentityValue( 0, 'Anon' );
 
-		$this->assertEmpty( $manager->getUserGroupMemberships( $anon ) );
+		$this->assertSame( [], $manager->getUserGroupMemberships( $anon ) );
 	}
 
 	/**
@@ -402,7 +402,7 @@ class UserGroupManagerTest extends MediaWikiIntegrationTestCase {
 		$manager = $this->getManager();
 		$anon = new UserIdentityValue( 0, 'Anon' );
 
-		$this->assertEmpty( $manager->getUserFormerGroups( $anon ) );
+		$this->assertSame( [], $manager->getUserFormerGroups( $anon ) );
 	}
 
 	/**
@@ -853,7 +853,7 @@ class UserGroupManagerTest extends MediaWikiIntegrationTestCase {
 			'GetAutoPromoteGroups',
 			function ( User $hookUser, array &$promote ) use ( $user ){
 				$this->assertTrue( $user->equals( $hookUser ) );
-				$this->assertEmpty( $promote );
+				$this->assertSame( [], $promote );
 				$promote[] = 'from_hook';
 			}
 		);
@@ -875,16 +875,16 @@ class UserGroupManagerTest extends MediaWikiIntegrationTestCase {
 				]
 			]
 		] );
-		$this->assertEmpty( $manager->getUserAutopromoteGroups(
+		$this->assertSame( [], $manager->getUserAutopromoteGroups(
 			$this->getTestUser( [ 'group1' ] )->getUser() )
 		);
-		$this->assertEmpty( $manager->getUserAutopromoteGroups(
+		$this->assertSame( [], $manager->getUserAutopromoteGroups(
 			$this->getTestUser( [ 'group1', 'group2' ] )->getUser() )
 		);
-		$this->assertEmpty( $manager->getUserAutopromoteGroups(
+		$this->assertSame( [], $manager->getUserAutopromoteGroups(
 			$this->getTestUser( [ 'group1', 'group3', 'group4' ] )->getUser() )
 		);
-		$this->assertEmpty( $manager->getUserAutopromoteGroups(
+		$this->assertSame( [], $manager->getUserAutopromoteGroups(
 			$this->getTestUser( [ 'group1', 'group3' ] )->getUser() )
 		);
 		$this->assertArrayEquals(
@@ -902,7 +902,7 @@ class UserGroupManagerTest extends MediaWikiIntegrationTestCase {
 			'Autopromote' => [ 'test_autoconfirmed' => [ APCOND_ISBOT ] ]
 		] );
 		$notBot = $this->getTestUser()->getUser();
-		$this->assertEmpty( $manager->getUserAutopromoteGroups( $notBot ) );
+		$this->assertSame( [], $manager->getUserAutopromoteGroups( $notBot ) );
 		$bot = $this->getTestUser( [ 'bot' ] )->getUser();
 		$this->assertArrayEquals( [ 'test_autoconfirmed' ],
 			$manager->getUserAutopromoteGroups( $bot ) );
@@ -917,7 +917,7 @@ class UserGroupManagerTest extends MediaWikiIntegrationTestCase {
 			'Autopromote' => [ 'test_autoconfirmed' => [ APCOND_BLOCKED ] ]
 		] );
 		$nonBlockedUser = $this->getTestUser()->getUser();
-		$this->assertEmpty( $manager->getUserAutopromoteGroups( $nonBlockedUser ) );
+		$this->assertSame( [], $manager->getUserAutopromoteGroups( $nonBlockedUser ) );
 		$blockedUser = $this->getTestUser( [ 'blocked' ] )->getUser();
 		$block = new DatabaseBlock();
 		$block->setTarget( $blockedUser );
@@ -964,7 +964,7 @@ class UserGroupManagerTest extends MediaWikiIntegrationTestCase {
 		$sc = RequestContext::importScopedSession( $sinfo ); // load new context
 		$info = $context->exportSession();
 
-		$this->assertEmpty( $user->getBlock() );
+		$this->assertNull( $user->getBlock() );
 	}
 
 	/**
@@ -1060,7 +1060,7 @@ class UserGroupManagerTest extends MediaWikiIntegrationTestCase {
 			->getUserGroupManager( 'TEST_DOMAIN' );
 		$user = $this->getTestUser()->getUser();
 		$this->expectException( PreconditionException::class );
-		$this->assertEmpty( $manager->addUserToAutopromoteOnceGroups( $user, 'TEST' ) );
+		$this->assertSame( [], $manager->addUserToAutopromoteOnceGroups( $user, 'TEST' ) );
 	}
 
 	/**
@@ -1069,7 +1069,7 @@ class UserGroupManagerTest extends MediaWikiIntegrationTestCase {
 	public function testAddUserToAutopromoteOnceGroupsAnon() {
 		$manager = $this->getManager();
 		$anon = new UserIdentityValue( 0, 'TEST' );
-		$this->assertEmpty( $manager->addUserToAutopromoteOnceGroups( $anon, 'TEST' ) );
+		$this->assertSame( [], $manager->addUserToAutopromoteOnceGroups( $anon, 'TEST' ) );
 	}
 
 	/**
@@ -1079,7 +1079,7 @@ class UserGroupManagerTest extends MediaWikiIntegrationTestCase {
 		$manager = $this->getManager();
 		$user = $this->getTestUser()->getUser();
 		$this->getServiceContainer()->getConfiguredReadOnlyMode()->setReason( 'TEST' );
-		$this->assertEmpty( $manager->addUserToAutopromoteOnceGroups( $user, 'TEST' ) );
+		$this->assertSame( [], $manager->addUserToAutopromoteOnceGroups( $user, 'TEST' ) );
 	}
 
 	/**
@@ -1088,7 +1088,7 @@ class UserGroupManagerTest extends MediaWikiIntegrationTestCase {
 	public function testAddUserToAutopromoteOnceGroupsNoGroups() {
 		$manager = $this->getManager();
 		$user = $this->getTestUser()->getUser();
-		$this->assertEmpty( $manager->addUserToAutopromoteOnceGroups( $user, 'TEST' ) );
+		$this->assertSame( [], $manager->addUserToAutopromoteOnceGroups( $user, 'TEST' ) );
 	}
 
 	/**
@@ -1106,7 +1106,7 @@ class UserGroupManagerTest extends MediaWikiIntegrationTestCase {
 			function ( User $hookUser, array $added, array $removed ) use ( $user, &$hookCalled ) {
 				$this->assertTrue( $user->equals( $hookUser ) );
 				$this->assertArrayEquals( [ 'autopromoteonce' ], $added );
-				$this->assertEmpty( $removed );
+				$this->assertSame( [], $removed );
 				$hookCalled = true;
 			}
 		);

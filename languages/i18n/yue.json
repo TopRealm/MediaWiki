@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Al12si",
 			"Anson2812",
 			"Antonytse",
 			"Asdfugil",
@@ -47,7 +48,10 @@
 			"Yueman",
 			"Z423x5c6",
 			"아라",
+<<<<<<< HEAD
+=======
 			"Al12si",
+>>>>>>> origin/1.39.7-test
 			"捍粵者"
 		]
 	},
@@ -161,7 +165,11 @@
 	"category-empty": "<em>呢類無任何版或媒體檔。</em>",
 	"hidden-categories": "屬於$1隱類",
 	"hidden-category-category": "隱藏類",
+<<<<<<< HEAD
+	"category-subcat-count": "{{PLURAL:$2|爾類淨係有下面嘅細類。|爾類有下面嘅$1細類，總共有$2類。}}",
+=======
 	"category-subcat-count": "{{PLURAL:$2|呢類淨係得下邊呢個細類。|呢類有下邊$1個細類，總共有$2細類。}}",
+>>>>>>> origin/1.39.7-test
 	"category-subcat-count-limited": "爾類有$1細類。",
 	"category-article-count": "{{PLURAL:$2|呢類淨係有下面嘅版。|呢類有下面嘅$1版，總共有$2版。}}",
 	"category-article-count-limited": "呢個類入邊有$1版。",
@@ -191,9 +199,15 @@
 	"tagline": "來自{{SITENAME}}",
 	"help": "幫手",
 	"help-mediawiki": "MediaWiki幫助",
+<<<<<<< HEAD
+	"search": "搵嘢",
+	"search-ignored-headings": "#<!-- 毋好改爾行 --> <pre>\n# 搵嘢嘅時候要忽略嘅標題。\n# 新嘅標題喺頁面索引嗰陣就會生效。\n# 你可以空修訂嚟強制重新索引頁面。\n# 語法如下：\n#   * 「#」開頭嘅行都係註釋。\n#   * 唔留空嘅行都係要忽略嘅標題。\n攷\n連\n睇埋\n #</pre> <!-- 毋好改爾行 -->",
+	"searchbutton": "搵嘢",
+=======
 	"search": "搜尋",
 	"search-ignored-headings": "#<!-- 毋好改爾行 --> <pre>\n# 搵嘢嘅時候要忽略嘅標題。\n# 新嘅標題喺頁面索引嗰陣就會生效。\n# 你可以空修訂嚟強制重新索引頁面。\n# 語法如下：\n#   * 「#」開頭嘅行都係註釋。\n#   * 唔留空嘅行都係要忽略嘅標題。\n攷\n連\n睇埋\n #</pre> <!-- 毋好改爾行 -->",
 	"searchbutton": "搜尋",
+>>>>>>> origin/1.39.7-test
 	"go": "去",
 	"searcharticle": "去",
 	"skin-view-history": "睇返紀錄",
@@ -313,7 +327,7 @@
 	"sort-initial": "首字母排序",
 	"sort-rowspan-error": "呢板有一個帶有rowspan（跨行）屬性值大過實際行數嘅表格。你可以透過改呢板嚟修正呢個問題。",
 	"nstab-main": "版",
-	"nstab-user": "{{GENDER:$1|用戶頁}}",
+	"nstab-user": "用戶頁",
 	"nstab-media": "媒體頁",
 	"nstab-special": "特別頁",
 	"nstab-project": "計劃頁",
@@ -870,7 +884,7 @@
 	"revdelete-hide-comment": "隱藏摘要",
 	"revdelete-hide-user": "編輯者嘅用戶名／IP地址",
 	"revdelete-hide-restricted": "同時壓制由操作員同埋第啲用戶嘅資料",
-	"revdelete-radio-same": "(唔改)",
+	"revdelete-radio-same": "唔改",
 	"revdelete-radio-set": "隱藏咗",
 	"revdelete-radio-unset": "顯示返",
 	"revdelete-suppress": "同時壓制由操作員以及其他用戶的資料",
@@ -1070,7 +1084,11 @@
 	"prefs-emailconfirm-label": "電郵確認:",
 	"youremail": "電郵:",
 	"username": "用戶名：",
+<<<<<<< HEAD
+	"prefs-memberingroups": "屬於嘅組：",
+=======
 	"prefs-memberingroups": "{{GENDER:$2|所屬}}嘅{{PLURAL:$1|組}}：",
+>>>>>>> origin/1.39.7-test
 	"group-membership-link-with-expiry": "$1 （直到 $2）",
 	"prefs-registration": "註冊時間:",
 	"yourrealname": "真名:",
@@ -1087,7 +1105,11 @@
 	"gender-unknown": "我唔想講",
 	"gender-male": "男",
 	"gender-female": "女",
+<<<<<<< HEAD
+	"prefs-help-gender": "爾項可以自己揀填定唔填。\n系統會用爾項資料判斷點用適當語法稱呼您。\n爾項資料會公開。",
+=======
 	"prefs-help-gender": "呢項可以自己揀填定唔填。\n系統用呢項資料來判斷點用適當語法去稱呼你。\n呢項資料會公開。",
+>>>>>>> origin/1.39.7-test
 	"email": "電郵",
 	"prefs-help-realname": "真名可以揀填定唔填。\n如果你畀埋佢，可能會用佢嚟標示你嘅貢獻。",
 	"prefs-help-email": "電郵地址可以唔填，但當你唔記得咗你個密碼嗰陣需要利用電郵地址將新密碼重設寄番畀你。",
@@ -1441,6 +1463,7 @@
 	"rcfilters-filter-categorization-description": "幫頁面加類或者減類嘅紀錄。",
 	"rcfilters-filter-logactions-label": "日誌操作",
 	"rcfilters-filter-logactions-description": "管理操作、開新戶口、刪頁、上傳等等。",
+	"rcfilters-filter-newuserlogactions-label": "開新戶口",
 	"rcfilters-hideminor-conflicts-typeofchange-global": "「細修改」篩選條件同另一個或者幾個篩選條件有衝突，皆因有啲改動唔可以係「細修改」。衝突嘅篩選條件已經喺上面用緊嘅篩選條件嗰度標示。",
 	"rcfilters-hideminor-conflicts-typeofchange": "有啲改動唔可以係「細修改」，所以呢個篩選條件同呢啲篩選條件有衝突：$1",
 	"rcfilters-typeofchange-conflicts-hideminor": "呢個篩選條件同「細修改」篩選條件有衝突。有啲改動唔可以係「細修改」。",
@@ -1648,7 +1671,11 @@
 	"lockmanager-fail-deletelock": "刪唔到鎖咗嘅$1文件",
 	"lockmanager-fail-openlock": "打唔開鎖咗嘅$1文件",
 	"zip-file-open-error": "開啟檔案檢查ZIP時出錯。",
+<<<<<<< HEAD
+	"zip-wrong-format": "爾份毋係ZIP檔。",
+=======
 	"zip-wrong-format": "呢個唔係ZIP檔案。",
+>>>>>>> origin/1.39.7-test
 	"zip-bad": "呢份ZIP檔壞徂或者讀毋到，安檢毋到。",
 	"zip-unsupported": "呢個ZIP檔案嘅功能，MediaWiki唔支持。\n因為呢個原因，做唔到保安檢查。",
 	"uploadstash": "上載貯藏",
@@ -1724,6 +1751,7 @@
 	"filehist-dimensions": "尺寸",
 	"filehist-filesize": "快勞大細",
 	"filehist-comment": "註解",
+	"filehist-missing": "檔案遺失",
 	"imagelinks": "檔案用途",
 	"linkstoimage": "以下嘅$1版用到呢個檔：",
 	"linkstoimage-more": "多過$1{{PLURAL:$1|版用到}}呢個檔。\n下面嘅表只係列示咗用到呢個檔案嘅最頭$1版。\n一個完整嘅一覽[[Special:WhatLinksHere/$2|喺度]]。",
@@ -2134,7 +2162,11 @@
 	"delete-edit-reasonlist": "編輯刪除原因",
 	"delete-toobig": "呢一版有一個好大量嘅編輯歷史，過咗$1次修訂。刪除呢類版嘅動作已經限制咗，以防止響{{SITENAME}}嘅意外擾亂。",
 	"delete-warning-toobig": "呢一版有一個好大量嘅編輯歷史，過咗$1次修訂。刪除佢可能會擾亂{{SITENAME}}嘅資料庫操作；響繼續嗰陣請小心。",
+<<<<<<< HEAD
+	"deleteprotected": "爾版受保護，你唔刪得。",
+=======
 	"deleteprotected": "你唔刪得呢版，因為佢畀人保護咗。",
+>>>>>>> origin/1.39.7-test
 	"deleting-backlinks-warning": "<strong>警告：</strong>有[[Special:WhatLinksHere/{{FULLPAGENAME}}|其他版]]連過來或嵌咗你準備刪嘅呢版。",
 	"deleting-subpages-warning": "<strong>警告：</strong>你刪緊嘅呢版有[[Special:PrefixIndex/{{FULLPAGENAME}}/|{{PLURAL:$1|1版|$1版|51=超過50版}}]]子頁。",
 	"rollback": "反轉修改",
@@ -2494,6 +2526,9 @@
 	"movesubpagetext": "呢版有$1版細頁列示如下。",
 	"movenosubpage": "呢版無細頁。",
 	"movereason": "原因",
+	"moveotherreason": "第啲理由：",
+	"movereasonotherlist": "第啲理由",
+	"movepage-reason-dropdown": "* 常見原因\n** 錯標題",
 	"revertmove": "恢復",
 	"delete_and_move_text": "目標頁「[[:$1]]」已經存在。\n你要唔要刪咗佢空個位出嚟畀個搬文動作？",
 	"delete_and_move_confirm": "好，刪咗嗰個頁面",
@@ -2620,7 +2655,11 @@
 	"tooltip-ca-talk": "關於內容頁嘅討論",
 	"tooltip-ca-edit": "改呢版",
 	"tooltip-ca-addsection": "開始新嘅小節",
+<<<<<<< HEAD
+	"tooltip-ca-viewsource": "爾頁受保護，您可以睇吓爾頁嘅原碼。",
+=======
 	"tooltip-ca-viewsource": "呢頁保護咗。\n你可以睇下佢嘅原始碼。",
+>>>>>>> origin/1.39.7-test
 	"tooltip-ca-history": "呢一頁之前嘅修訂",
 	"tooltip-ca-protect": "保護呢一頁",
 	"tooltip-ca-unprotect": "改呢版保護",
@@ -2885,7 +2924,11 @@
 	"confirm-watch-button": "好",
 	"confirm-watch-top": "將呢一版加入你嘅監視清單？",
 	"confirm-watch-label": "監視期限：",
+<<<<<<< HEAD
+	"watchlist-expiry-options": "永久:infinite,1個禮拜:1 week,1個月:1 month,3個月:3 months,6個月:6 months,1年:1 year",
+=======
 	"watchlist-expiry-options": "永久:infinite,1個禮拜:1 week,1個月:1 month,3個月:3 months,6個月:6 months",
+>>>>>>> origin/1.39.7-test
 	"confirm-watch-button-expiry": "監視",
 	"confirm-unwatch-button": "好",
 	"confirm-unwatch-top": "喺你嘅監視清單度刪走呢一版？",
@@ -3147,7 +3190,6 @@
 	"log-name-managetags": "標籤管理日誌",
 	"log-name-tag": "標籤日誌",
 	"rightsnone": "(冇)",
-	"feedback-back": "返轉頭",
 	"feedback-cancel": "取消",
 	"feedback-close": "搞掂",
 	"feedback-dialog-title": "遞交意見",
@@ -3310,5 +3352,27 @@
 	"newpages-showhide-bots": "$1機械人",
 	"newpages-showhide-patrolled": "$1巡過嘅修改",
 	"newpages-showhide-redirect": "$1跳轉",
-	"newpages-showhide-registered": "$1註冊咗嘅用戶"
+	"newpages-showhide-registered": "$1註冊咗嘅用戶",
+	"renameuser": "改用戶名",
+	"renameuserold": "現時嘅用戶名:",
+	"renameusernew": "新嘅用戶名:",
+	"renameuserreason": "原因：",
+	"renameusermove": "搬用戶頁同埋佢嘅對話頁（同埋佢哋嘅細頁）到新名",
+	"renameuserwarnings": "警告:",
+	"renameuserconfirm": "係，改呢個用戶名",
+	"renameusersubmit": "遞交",
+	"renameusererrordoesnotexist": "用戶\"<nowiki>$1</nowiki>\"唔存在",
+	"renameusererrorexists": "用戶\"<nowiki>$1</nowiki>\"已經存在",
+	"renameusererrorinvalid": "用戶名\"<nowiki>$1</nowiki>\"唔正確",
+	"renameuser-error-request": "響收到請求嗰陣出咗問題。\n請返去再試過。",
+	"renameuser-error-same-user": "你唔可以改一位用戶係同之前嘅嘢一樣。",
+	"renameusersuccess": "用戶\"<nowiki>$1</nowiki>\"已經改咗名做\"<nowiki>$2</nowiki>\"",
+	"renameuser-page-exists": "$1呢一版已經存在，唔可以自動重寫。",
+	"renameuser-page-moved": "$1呢一版已經搬到去$2。",
+	"renameuser-page-unmoved": "$1呢一版唔能夠搬到去$2。",
+	"log-name-renameuser": "用戶改名日誌",
+	"logentry-renameuser-renameuser": "$1 {{GENDER:$2|改咗}}用戶 $4 （{{PLURAL:$6|$6 次修改}}）嘅名做 {{GENDER:$7|$5}}",
+	"renameuser-move-log": "當由\"[[User:$1|$1]]\"改名做\"[[User:$2|$2]]\"嗰陣已經自動搬咗用戶頁",
+	"action-renameuser": "同用戶改名",
+	"right-renameuser": "改用戶名"
 }

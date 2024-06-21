@@ -44,10 +44,15 @@ trait MediaWikiTestCaseTrait {
 	/**
 	 * Return a PHPUnit mock that is expected to never have any methods called on it.
 	 *
-	 * @param string $type
-	 * @param string[] $allow methods to allow
+	 * @psalm-template RealInstanceType of object
 	 *
-	 * @return MockObject
+	 * @psalm-param class-string<RealInstanceType> $type
+	 * @psalm-param list<string> $allow Methods to allow
+	 *
+	 * @param string $type
+	 * @param string[] $allow Methods to allow
+	 *
+	 * @return MockObject&RealInstanceType
 	 */
 	protected function createNoOpMock( $type, $allow = [] ) {
 		$mock = $this->createMock( $type );
@@ -58,9 +63,15 @@ trait MediaWikiTestCaseTrait {
 	/**
 	 * Return a PHPUnit mock that is expected to never have any methods called on it.
 	 *
+	 * @psalm-template RealInstanceType of object
+	 *
+	 * @psalm-param class-string<RealInstanceType> $type
+	 * @psalm-param list<string> $allow Methods to allow
+	 *
 	 * @param string $type
 	 * @param string[] $allow methods to allow
-	 * @return MockObject
+	 *
+	 * @return MockObject&RealInstanceType
 	 */
 	protected function createNoOpAbstractMock( $type, $allow = [] ) {
 		$mock = $this->getMockBuilder( $type )
@@ -108,21 +119,17 @@ trait MediaWikiTestCaseTrait {
 	}
 
 	/**
-	 * Check if $extName is a loaded PHP extension, will skip the
-	 * test whenever it is not loaded.
+	 * Skip the test if not running the necessary php version
 	 *
-	 * @since 1.21 added to MediaWikiIntegrationTestCase
-	 * @since 1.37 moved to MediaWikiTestCaseTrait to be available in unit tests
-	 * @param string $extName
-	 * @return bool
+	 * @since 1.42 (also backported to 1.39.8, 1.40.4 and 1.41.2)
+	 *
+	 * @param string $op
+	 * @param string $version
 	 */
-	protected function checkPHPExtension( $extName ) {
-		$loaded = extension_loaded( $extName );
-		if ( !$loaded ) {
-			$this->markTestSkipped( "PHP extension '$extName' is not loaded, skipping." );
+	protected function markTestSkippedIfPhp( $op, $version ) {
+		if ( version_compare( PHP_VERSION, $version, $op ) ) {
+			$this->markTestSkipped( "PHP $version isn't supported for this test" );
 		}
-
-		return $loaded;
 	}
 
 	/**

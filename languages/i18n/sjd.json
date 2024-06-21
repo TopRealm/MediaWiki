@@ -268,7 +268,11 @@
 	"accmailtitle": "Пя̄ҋҋтса̄ннҍ вӯлкхувэ",
 	"newarticle": "(О̄дт)",
 	"noarticletext": "Адтҍ тэнн лыстэсьт элля нимӣ кырьйха.\nТо̄нн вуаяк [[Special:Search/{{PAGENAME}}|тэнн лыст нэ̄м мудта лыстэнҍ о̄дзлассьтэ]],\n<span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} пе̄ййвкыррьй тӣтэтҍ коа̄ввнэ] вай [{{fullurl:{{FULLPAGENAME}}|action=edit}} лыст мугка нэ̄мэнҍ лыһкэ]</span>.",
+<<<<<<< HEAD
+	"previewnote": "<strong>Мушт, тэдта лӣ лышэ э̄ввткӣһчмушш.</strong>\nТо̄нн воа̄йхэз вя̄л евла э̄ллмсаһтма!",
+=======
 	"previewnote": "<strong>Мушт, тэдта лӣ лышэ э̄ввткӣһмушш.</strong>\nТо̄нн воа̄йхэз вя̄л евла э̄ллмсаһтма!",
+>>>>>>> origin/1.39.7-test
 	"continue-editing": "Ю̄ттҍкэ воа̄йхэмуж",
 	"editing": "Воа̄йхэмушш: $1",
 	"creating": "Лыһкэ лыст $1",
@@ -357,6 +361,10 @@
 	"prefs-changeemail": "Воа̄йхэ вай вэ̄цксэ электроннэ по̄шта а̄дрез",
 	"prefs-email": "Электроннэ по̄шта оа̄ссмуж",
 	"prefs-rendering": "Ка̄ввь",
+<<<<<<< HEAD
+	"searchprefs": "О̄дзэ пыйнэмужэнҍ",
+=======
+>>>>>>> origin/1.39.7-test
 	"saveprefs": "Пынне",
 	"prefs-editing": "Воа̄йхэмушш",
 	"searchresultshead": "Озант",
@@ -474,6 +482,10 @@
 	"rcfilters-filter-major-label": "А̄рркъесь воа̄йхэз",
 	"rcfilters-filter-major-description": "Воа̄йхэз, кӯгк евла гу удць тӣһтма.",
 	"rcfilters-filter-logactions-label": "Протоколлуввэй лыһкмуж",
+<<<<<<< HEAD
+	"rcfilters-filter-newuserlogactions-label": "О̄дт оаннӭй",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-filtergroup-lastrevision": "Маӈьмусс ве̄рсья",
 	"rcfilters-filter-lastrevision-label": "Адтҍя ве̄рсья",
 	"rcfilters-filter-previousrevision-label": "Эйй адтҍя ве̄рсья",
@@ -553,6 +565,7 @@
 	"filehist-dimensions": "Ме̄рь",
 	"filehist-filesize": "Фа̄йл ме̄ррь",
 	"filehist-comment": "Комментаррьй",
+	"filehist-missing": "элля фа̄йлэ",
 	"imagelinks": "Фа̄йл оаннҍмушш",
 	"filepage-nofile": "Элля файл тэнна нэ̄мэнҍ.",
 	"filedelete-legend": "Вэ̄цксэ файл",
@@ -635,6 +648,10 @@
 	"contributions": "Оаннӭй воа̄йхэз",
 	"tool-link-contributions": "{{GENDER:$1|Оаннӭй|Оаннӭй}} воа̄йхэз",
 	"contributions-title": "{{GENDER:$1|Оаннӭй|Оаннӭй}} $1 воа̄йхэз",
+<<<<<<< HEAD
+	"contribute-title": "Оаннӭй воа̄йхэз",
+=======
+>>>>>>> origin/1.39.7-test
 	"mycontris": "Лыһкмуж",
 	"anoncontribs": "Лыһкмуж",
 	"uctop": "адтҍя",
@@ -735,6 +752,7 @@
 	"metadata": "Метада̄ннэ",
 	"namespacesall": "пугк",
 	"monthsall": "пугк",
+	"watchlist-expiry-options": "Агас:infinite,1 не̄дтӭль байя:1 week,1 ма̄н байя:1 month,3 ма̄н байя:3 months,6 ма̄ннэ байя:6 months,1 ыгь байя:1 year",
 	"imgmultipageprev": "← э̄ввтла лысст",
 	"imgmultipagenext": "пуэдтӭй лысст →",
 	"imgmultigo": "Мэ̄ннлэ!",
@@ -811,5 +829,12 @@
 	"nstab-mainpage": "Э̄ввт лысст",
 	"skin-action-protect": "Пынне",
 	"skin-action-delete": "Вэ̄цксэ",
+<<<<<<< HEAD
+	"skin-action-move": "Воа̄йхэ нэ̄м",
+	"renameuserold": "Адтҍя оаннӭй нэ̄мм:",
+	"renameusernew": "О̄дт оаннӭй нэ̄мм:",
+	"renameusersubmit": "Вуайхэ оаннӭй нэ̄м"
+=======
 	"skin-action-move": "Воа̄йхэ нэ̄м"
+>>>>>>> origin/1.39.7-test
 }

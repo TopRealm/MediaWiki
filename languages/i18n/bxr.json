@@ -167,6 +167,10 @@
 	"permalink": "Саг үргэлжын ссылкэ",
 	"print": "Хэблэлгэ",
 	"view": "Хараха",
+<<<<<<< HEAD
+	"viewcontribs": "Оруулһан хубита хараха",
+=======
+>>>>>>> origin/1.39.7-test
 	"skin-view-view": "Уншаха",
 	"skin-view-foreign": "$1 хараха",
 	"edit": "Заһаха",
@@ -183,6 +187,11 @@
 	"skin-action-unprotect": "Хамгаалга хубилгаха",
 	"unprotect": "Хамгаалга хубилгаха",
 	"newpage": "Шэнэ хуудаһан",
+<<<<<<< HEAD
+	"newpage-desc": "Һураглаһан сэдэбээр шэнэ хуудаһа эхилэгты.",
+	"view-missing-pages": "Үгы байһан хуудаһануудые хараха",
+=======
+>>>>>>> origin/1.39.7-test
 	"talkpagelinktext": "зүбшэн хэлсэлгэ",
 	"specialpage": "Тусхай хуудаһан",
 	"personaltools": "Хубиин зэмсэгүүд",
@@ -452,7 +461,10 @@
 	"nocookieslogin": "{{SITENAME}} хабаадагшадые танилсуулхадаа cookie хэрэглэнэ. Та cookie хэрэглэлгэ болюулаад байнат.\nТэрэниие оруулаад, шэнээр туршагты.",
 	"nocookiesfornew": "Эхи үндэһэ шалгаха боломжогүй байһанһаа, хабаадагшын бүридхэлэй бэшэлгэ зохеогдоогуй байна.\n\"cookies\" оруулагданхай байна гэжэ үнэншөөд, хуудаһаяа шэнэлээд үшөө дахин туршагты.",
 	"createacct-loginerror": "Бүридхэлэй бэшэлгэ урагшатайгаар зохеогдоо, харин таанар һурамхяар өөрөө системэ руу орожо шадаагуйт.[[Special:UserLogin|гараараа авторизацэ хэжэ хайрлыт]].",
+<<<<<<< HEAD
+=======
 	"createacct-temp-warning": "Танай саг зуурын буридхэлэй бэшэлгээр хэһэн заһабаринууд (заһалганууд), тогтомол бүридхэлэй бэшэлгэ руу дамжуулагдажа болохогуй байна.",
+>>>>>>> origin/1.39.7-test
 	"noname": "Та хабаадагшын багсаамжалһан нэрэ заагаагуй байнат.",
 	"loginsuccesstitle": "Оролго бүтөө.",
 	"loginsuccess": "Та {{SITENAME}} соо \"$1\" нэрэ доро хүдэлжэ байнат.",
@@ -627,6 +639,10 @@
 	"summary-preview": "Хубилалта тухай тодорхой бэшэлгые уридшалан харалга:",
 	"previewerrortext": "Танай оруулһан хубилалтануудые дахин уридшалан хаража туршаха үедэ алдуу гараа.",
 	"blockedtitle": "Хабаадагшада хаалта табигданхай",
+<<<<<<< HEAD
+	"blockedtext-partial": "<strong> Танай бүридхэлэй бэшэлгэдэ гү, али IP-хаягтатнай энэ үйлэ хаалтатай. Гэбэшье, энэ вики-проект соогоо урданайхидаал адляар ондоо үйлэнүүдые дүүргэхэ аргатайт (жэшээлхэдэ, тодорхойлогдоһон хуудаһануудые хинан заһабарилха). </strong> \n\nТа энэ хаалта табилгын бүхы тодорхойлолго [[Special:MyContributions|бүридхэлэй бэшэлгын хубитын]] энэ хуудаһан дээрэ хараха аргатайт .\n\n{{int:$1|зохёогдоһон хаалтатай текст}}\n\n{{int:$2|хаалта табигдаһанай шалтаг-тайлбари бэшэг}}.\n\n* {{int:$8|хаалта табюулһан текст-эхилһэн саг}}\n* {{int:$6|хаалта табюулһан текст-хэрэглэгдэхэ хугасаагай дүүрэхэ саг}}\n* {{int:$7|хаалта табюулһан текст-хаалта табигдаха гэжэ элирхэйлэгдэһэн}}\n\n* {{int:$5|хаалта табюулһан текст-хаалтын идентификатор}}",
+=======
+>>>>>>> origin/1.39.7-test
 	"blockednoreason": "шалтагынь заагдаагүй",
 	"blockedtext-composite-ids": "Бүһэлэлгын шухала идентификатор: $1 (танай IP-хаяг бүһэлэлгын список соо баһал байжа болохо).",
 	"blockedtext-composite-no-ids": "Танай IP-хаяг хэдэн бүһэлэлгын списогууд соо байна.",
@@ -648,6 +664,11 @@
 	"missing-revision-permission": "Энэ $1 хубилбари үгы болгогдоһон хуудаһанда хабаатай. Та энээниие [{{fullurl:{{#Special:Undelete}}|target=$3&timestamp=$2&diff=prev}} хараарайгты]; тодорхойлолто эндэ оложо болоно [{{fullurl:{{#Special:Log}}/delete|page=$3}} гаргалгын журнал соо].",
 	"missing-revision": "Хуудаһанай $1 хубилбари «{{FULLPAGENAME}}» үгы байна.\n\nХэрбээ хуушарһан ссылкэ дахажа, үгы болгогдоһон хуудаһанда ошоходо, юрэдөө иимэ байдаг.\nТодорхойлолтонь эндэ байжа болохо [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} гаргалгын журнал соо].",
 	"missing-revision-content": "$1 Хубилбариин $2 хуудаһанай удха ашаглаха болобогуй.",
+<<<<<<< HEAD
+	"userpage-userdoesnotexist": "$1 Бүридхэлэй бэшэлгэ энэ байһан вики соо үгы байна. Та үнэхөөрөө энэ хуудаһа хубилгахаяа гү, али зохёохоёо һанана гүт, үнэншэгты.",
+	"userpage-userdoesnotexist-view": "Энэ вики дотор бүридхэлэй «$1»  бэшэлгэ үгы байна.",
+=======
+>>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "{{GENDER:$1|Энэ хабаадагша|Энэ хабаадагша}} мунөө дээрээ {{GENDER:$1|бүһэлэгдэнхэй| бүһэлэгдэнхэй}}.\nБүһэлэлгын журналай һүүлшын бэшэлгэ доро үгтэнхэй байна:",
 	"clearyourcache": "<strong>Һургаал хэлэлгэ</strong> Хубилалтануудые харахын тула, хэблэһэнэй һүүлдэ браузерайнгаа кэш сэбэрлэхэтнай хэрэгтэй боложо магадгүй.\n\n*<strong>Firefox / Safari:</strong> <em>Shift</em> тобшо тогтоон барижа, зэмсэгүүдэй хабтагар хэсэг дарагты <em>Шэнэлхэ</em> үгы гэбэл, энээниие дарагты <em>Ctrl+F5</em>, үгышье һаа, <em>Ctrl+R</em> (<em>⌘+R</em> Mac дээрэ)\n* <strong>Google Chrome:</strong> Дарагты <em>Ctrl+Shift+R</em> (<em>⌘+Shift+R</em>  Mac дээрэ)\n* <strong>Internet Explorer / Edge:</strong> Тогтоон барижа <em>Ctrl</em>, дарагты <em>Обновить</em>, үгы гэбэл энээниие дарагты: <em>Ctrl+F5</em>\n* <strong>Opera:</strong> <em>Ctrl+F5</em> дарагты.",
 	"usercssyoucanpreview": "<strong>Хэлэжэ үгэлгэ.</strong> Хэблэхынгээ урда тээ, өөрынгөө шэнэ CSS-файл шалгахын тула, «{{int:showpreview}}» кнопко дарагты.",
@@ -847,8 +868,16 @@
 	"revdelete-hide-comment": "Хубилалтануудаа тодорхойлон бэшэжэ харуулха",
 	"revdelete-hide-user": "Хабаадагшын нэрэ/IP-хаяг",
 	"revdelete-hide-restricted": "Мүн баһа захирагшадһаашье мэдээнүүдые нюуха",
+<<<<<<< HEAD
+	"revdelete-radio-same": "Хубилгахагүй",
 	"revdelete-radio-set": "Нюугдаһан",
 	"revdelete-radio-unset": "Харагдаад байһан",
+	"revdelete-radio-set-suppress": "Дараха",
+	"revdelete-radio-unset-suppress": "Даралта болюулха",
+=======
+	"revdelete-radio-set": "Нюугдаһан",
+	"revdelete-radio-unset": "Харагдаад байһан",
+>>>>>>> origin/1.39.7-test
 	"revdelete-suppress": "Мүн баһа захирагшадһаашье мэдээнүүдые нюуха",
 	"revdelete-unsuppress": "Шэнэлэн зохёогдоһон хубилбаринуудһаа бараа харагдасын хизаарлалта болюулха",
 	"revdelete-log": "Шалтаг:",
@@ -913,6 +942,10 @@
 	"lineno": "$1 мүр:",
 	"compareselectedversions": "Шэлэгдэһэн хубилбаринуудые сасуулан хараха",
 	"showhideselectedversions": "Шэлэгдэһэн хубилбаринуудые харуулха/нюуха",
+<<<<<<< HEAD
+	"showhideselectedfileversions": "Файлай шэлэгдэһэн хубилбаринуудай бараа харагдаса хубилгаха",
+=======
+>>>>>>> origin/1.39.7-test
 	"editundo": "болюулха",
 	"diff-empty": "(илгаа үгы)",
 	"diff-multi-otherusers": "({{PLURAL:$1| хоорондын $1 хубилбари харуулагданагүй|хоорондын $1 хубилбаринууд харуулагданагүй|хоорондын $1 хубилбари харуулагданагүй }} {{PLURAL:$2|$2 хабаадагша|$2 хабаадагшадые}})",
@@ -920,6 +953,11 @@
 	"diff-paragraph-moved-tonew": "Параграф нүүлгэгдэһэн байна. Шэнэ газартань шэлжэн ошохын тула, эндэ дарагты.",
 	"diff-paragraph-moved-toold": "Пункт нүүлгэгдэһэн байна. Хуушан газартань орохын тула, эндэ дарагты.",
 	"difference-missing-revision": "Энэ сасуулгада {{PLURAL:$2|$2 хубилбари|$2 хубилбариин|$2 хубилбаринууд|1= хубилбаринуудай нэгэн}}{{PLURAL:$2|1=олдоо}}гүй ($1).\n\nУсадхагдаһан хуудаһанай хубилбаринуудые сасуулгын хуушарһан ссылкэ дахажа ерэхэдэ, юрэдөө иигэжэ болодог.\n[{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} усадхалгын журнал] соо тодорхойлолтонууд байжа болохо.",
+<<<<<<< HEAD
+	"difference-bad-old-revision": "Хуушан хубилбариин зосоохи юумэн үгы гү, али эбдэрээд байна.",
+	"difference-bad-new-revision": "Шэнэ хубилбариин зосоохи юумэн үгы гү, али эбдэрээд байна.",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchresults": "Бэдэрэлгын үрэ дүн",
 	"search-filter-title-prefix": "Гансал «$1» гээд эхилһэн нэрэнүүдтэй хуудаһануудта бэдэрхэ",
 	"search-filter-title-prefix-reset": "Бүхы хуудаһануудые бэдэрхэ",
@@ -959,6 +997,10 @@
 	"search-relatedarticle": "Холбоотой",
 	"search-invalid-sort-order": "$1 дотор илгаха гурим танигдаагүй, тэрэ хэбээрнь илгалга хэрэглэгдэхэ.\nИлгалга хэхэ бодото захилнууд:$2",
 	"search-unknown-profile": "Бэдэрэлгын $1 профиль танигдаагүй, тэрэ хэбээрнь бэдэрэлгын профиль хэрэглэгдэхэ.",
+<<<<<<< HEAD
+	"search-thumbnail-alt": "$1-дэ хэрэгтэй миниатюра",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchrelated": "холбоотой",
 	"searchall": "булта",
 	"showingresultsinrange": "<strong>$2</strong> эндэһээ эхилээд, <strong>$3</strong> хүрэтэр дэлисэдэ\n{{PLURAL:$1|<strong>1</strong> дүн| <strong>$1</strong> дүн| <strong>$1</strong> дүнгүүд}} хүрэтэр доро харуулагданхай.",
@@ -1008,6 +1050,11 @@
 	"prefs-email": "Сахим шууданай юрэнхы хэмжээнүүд",
 	"prefs-rendering": "Харагдаса түхэл",
 	"prefs-searchmisc": "Хамтын",
+<<<<<<< HEAD
+	"searchprefs": "Тааруулгануудаарнь бэдэрхэ",
+	"searchprefs-noresults": "Юуншье олдобогүй",
+=======
+>>>>>>> origin/1.39.7-test
 	"saveprefs": "Хадагалха",
 	"restoreprefs": "Бүхы тааруулгануудые тэрэ хэбээрнь шэнэдхэн байгуулха",
 	"prefs-editing": "Хинан заһалга",
@@ -1015,6 +1062,17 @@
 	"recentchangesdays": "Шэнэ заһабаринуудые харуулха үдэрнүүдэй тоо:",
 	"recentchangesdays-max": "(эгээ олон $1 {{PLURAL:$1|үдэр}})",
 	"recentchangescount": "Шэнэ заһабаринуудай списогтэ, хуудаһануудай түүхэдэ ба журналнуудта тэрэ хэбээрээ харуулагдадаг заһабаринуудай тоо:",
+<<<<<<< HEAD
+	"prefs-back-title": "Тааруулгануудта бусаха",
+	"prefs-description-personal": "Профильни ямар байнаб гэжэ, яагаад холболдодогоо ба харилсадагаа хинагты.",
+	"prefs-description-rendering": "Шэмэглэлгын сэдэб, хэмжээ ба уншалгын юрэнхы хэмжээ тааруулагты.",
+	"prefs-description-editing": "Заһабаринуудые яажа оруулдагаа, адагладаг ба харадагаа тааруулагты.",
+	"prefs-description-rc": "Һүүлшын хубилалтануудай һубарил тааруулагты.",
+	"prefs-description-watchlist": "Адаглажа байһан хуудаһануудайнгаа список хүтэлэгты ба нюур нюураарнь хубаарилагты.",
+	"prefs-description-searchoptions": "Автодүүргэлгэ болон дүнгүүдэй яагаад хүдэлхые шэлэгты.",
+	"prefs-description-misc": "Удхын зураглан харуулалгые тааруулагты.",
+=======
+>>>>>>> origin/1.39.7-test
 	"prefs-help-recentchangescount": "Эгээ ехэ удха шанар: 1000",
 	"prefs-help-watchlist-token2": "Энэ хадаа танай ажаглалтын списогэй веб-каналда хэрэгтэй нюуса тулхюур. Тэрэниие мэдэхэ хэншье танай ажаглалтын список уншажа шадаха, тиимэһээ тэрэнээ хэндэшье хэлэжэ болохогүй. \nХэрэгтэй һаань, [[Special:ResetTokens|та тэрэниие хаяха аргатайт]].",
 	"prefs-help-tokenmanagement": "Та өөрынгөө бүридхэлэй бэшэлгын нюуса түлхюур хараад, хаяха аргатайт. Тэрэ танай веб-каналай ажаглалтын списогтэ орохо боломжо абаха аргатай. Тэрэниие мэдэхэ хэншье танай ажаглалтын список уншажа шадаха, тиимэһээ хэнтэйшье хубаалдажа болохогүй.",
@@ -1029,6 +1087,10 @@
 	"timezoneuseserverdefault": "Серверэй тааруулга ($1)-е хэрэглэхэ",
 	"timezoneuseoffset": "Ондоо (UTC-һээ сагай хүдэлэлгэ)",
 	"timezone-useoffset-placeholder": "Жэшээнь: «-07:00» гү, али «01:00»",
+<<<<<<< HEAD
+	"timezone-invalid": "Сагай бүһэ буруу гү, али сагай хүдэлэлгэ буруу.",
+=======
+>>>>>>> origin/1.39.7-test
 	"servertime": "Серверэй саг:",
 	"guesstimezone": "Браузерһаа дүүргэхэ",
 	"timezoneregion-africa": "Африка",
@@ -1215,6 +1277,12 @@
 	"right-suppressrevision": "Харалга, нюулга болон нюугдаатай хуудаһануудай хубилбаринуудые хуушан хэмдэнь оруулга",
 	"right-viewsuppressed": "Ондоо хэрэглэгшэдһээ нюулгаатай хубилбаринуудые харалга",
 	"right-suppressionlog": "Хубиин журналнуудые харалга",
+<<<<<<< HEAD
+	"right-block": "Ондоо хэрэглэгшэдэй хинан заһаха арга боломжодо хаалта табилга ба хаалта болюулга",
+	"right-blockemail": "Сахим шуудан эльгээхые хорюултайгаар ондоо хабаадагшадта хаалта табилга ба хаалта болюулга",
+	"right-hideuser": "Хабаадагшын нэрэдэ хаалта табилга ба хаалта болюулга, тэрэниие нюулга гү, али бусад хабаадагшадта харуулга",
+=======
+>>>>>>> origin/1.39.7-test
 	"right-ipblock-exempt": "Хаалта табилга, автомат аргаар хаалта табилга болон дэлисэнүүдэй хаалта IP-гаар  тойрожо гаралга",
 	"right-unblockself": "Өөрөө өөрыгөө хаалтаһаа гаргалга",
 	"right-protect": "Хамгаалга тааруулгын хубилалта болон таһалгаряагүй үргэлжэлһэн хамгаалгатай хуудаһануудые заһалга",
@@ -1235,6 +1303,10 @@
 	"right-viewmywatchlist": "Өөрынгөө ажаглалтын список харалга",
 	"right-editmywatchlist": "Өөрынгөө ажаглалтын список хинан заһалга (зарим үйлэ ябадалнуудые нэмэхэ эрхэгүйшье хуудаһанууд нэмэхэ гэжэ мэдээрэйгты).",
 	"right-viewmyprivateinfo": "Өөрын хубиин баримтануудые харалга (жэшээнь, сахим хаяг, бодото нэрэ)",
+<<<<<<< HEAD
+	"right-editmyprivateinfo": "Өөрынгөө хубиин баримтануудые заһалга (жэшээнь, сахим хаягаа, бодото нэрэеэ) болон нюуса үгэ хаяхын тула сахим бэшэг эрилгэ",
+=======
+>>>>>>> origin/1.39.7-test
 	"right-editmyoptions": "Өөрынгөө тааруулгануудые хинан заһалга",
 	"right-rollback": "Тусхай хуудаһа хинан заһаһан һүүлшын хабаадагшын оруулһан заһабаринуудые түргэн бусаалга",
 	"right-markbotedits": "Бусааһан заһабаринуудые ботой заһабаринууд гэжэ тэмдэглэлгэ",
@@ -1276,6 +1348,10 @@
 	"grant-editsiteconfig": "Бүхы сайтын болон хэрэглэгшын CSS/JavaScript хинан заһагты",
 	"grant-editpage": "Байһан хуудаһануудые хинан заһалга",
 	"grant-editprotected": "Хамгаалагдаһан хуудаһануудые хинан заһалга",
+<<<<<<< HEAD
+	"grant-highvolume": "Ботнуудта олоной орохо үндэр боломжо",
+=======
+>>>>>>> origin/1.39.7-test
 	"grant-import": "Хубилбаринуудые оруулга",
 	"grant-mergehistory": "Заһабаринуудай түүхэ нэгэдүүлхэ",
 	"grant-oversight": "Хэрэглэгшэдэй заһабаринуудые болон хуудаһануудай хубилбаринуудые нюулга",
@@ -1315,9 +1391,21 @@
 	"action-writeapi": "заһабари хэхэдээ, API хэрэглэгты",
 	"action-delete": "энэ хуудаһа усадхалга",
 	"action-delete-redirect": "нэгэ хубилбаритай шэлжэн эльгээлгэ дахин бэшэхэ",
+<<<<<<< HEAD
+	"action-deleterevision": "хуудаһануудай элирхэйлэгдэһэн хубилбаринуудые усадхаха гү, али шэнээр байгуулха",
+	"action-deletelogentry": "журнал соохи элирхэйлэгдэһэн бэшэлгэ усадхаха гү, али шэнээр байгуулха",
+	"action-deletedhistory": "усадхагдаһан бэшэлгэнүүдэй түүхын метабаримтануудые хараха",
+	"action-deletedtext": "усадхагдаһан текст гү, али хуудаһануудай усадхагдаһан хубилбаринуудай хоорондохи илгаануудые харалга",
+	"action-browsearchive": "усадхагдаһан хуудаһануудые бэдэрэлгэ",
+	"action-undelete": "хуудаһануудые шэнээр байгуулга",
+	"action-suppressrevision": "харалга, нюулга болон ямаршье хабаадагшадһаа элирхэйлэгдэһэн хубилбаринуудтай хуудаһануудые шэнээр байгуулга",
+	"action-suppressionlog": "хубиин журнал харалга",
+	"action-block": "хэрэглэгшэдэй хинан заһабарилха арга боломжо бүһэлхэ гү, али бүһэлэлгэһөө гаргаха.",
+=======
 	"action-browsearchive": "усадхагдаһан хуудаһануудые бэдэрэлгэ",
 	"action-undelete": "хуудаһануудые шэнээр байгуулга",
 	"action-suppressionlog": "хубиин журнал харалга",
+>>>>>>> origin/1.39.7-test
 	"action-protect": "энэ хуудаһанай хамгаалалтын тааруулгануудые хубилалга",
 	"action-rollback": "заһабаринуудые түргэн бусаалга",
 	"action-import": "ондоо вики сооһоо хуудаһануудые оруулга",
@@ -1344,6 +1432,10 @@
 	"action-apihighlimits": "API-һуралганууд соо үлүү үндэр хизаарлалтануудые хэрэглэгты",
 	"action-autoconfirmed": "IP-хаягай хүдэлөөнэй түргэн хизаарлалтада бү орогты",
 	"action-bigdelete": "хубилалтын ута түүхэтэй хуудаһануудые усадхалга",
+<<<<<<< HEAD
+	"action-blockemail": "хабаадагшын сахим бэшэг эльгээхыень хааха ба нээхэ",
+=======
+>>>>>>> origin/1.39.7-test
 	"action-bot": "автомат аргатай ябадал гэжэ тоолохо хэрэгтэй",
 	"action-editprotected": "«{{int:protect-level-sysop}}» гэжэ хамгаалалтатай хуудаһануудые заһалга",
 	"action-editsemiprotected": "«{{int:protect-level-autoconfirmed}}» гэжэ хамгаалалтатай хуудаһануудые заһалга",
@@ -1359,6 +1451,10 @@
 	"action-editmyuserjs": "өөрын JavaScript-файлнуудые хинан заһалга",
 	"action-editmyuserjsredirect": "шэлжэн эльгээлгын түхэлтэй өөрын JavaScript-файлнуудаа хинан заһагты",
 	"action-viewsuppressed": "бүхы хэрэглэгшэдһээ нюулгаатай хубилбаринуудые харалга",
+<<<<<<< HEAD
+	"action-hideuser": "бусад олонһоо нюужа, хабаадагшын нэрэдэ хаалта табигты, үгышье һаа, хаалта болюулагты",
+=======
+>>>>>>> origin/1.39.7-test
 	"action-ipblock-exempt": "IP-хаалтануудые, автохаалтануудые ба дэлисын хаалтануудые тойрожо гаралга",
 	"action-unblockself": "өөрынгөө хаалта болюулагты",
 	"action-noratelimit": "хүдэлөөнэй түргэнэй хизаарлалта тойрон гаралга",
@@ -1499,6 +1595,11 @@
 	"rcfilters-filter-previousrevision-label": "Һүүлшын бэшэ хубилбари",
 	"rcfilters-filter-previousrevision-description": "\"Һүүлшын һанал\" гэхээр бэшэ бүхы заһабаринууд.",
 	"rcfilters-filter-excluded": "Гаргагдаа",
+<<<<<<< HEAD
+	"rcfilters-tag-prefix-namespace-inverted": "<strong>үгы</strong> :$1",
+	"rcfilters-tag-prefix-tags-inverted": "<strong>үгы</strong> #$1",
+=======
+>>>>>>> origin/1.39.7-test
 	"rcfilters-exclude-button-off": "Шэлэһэниие гаргаха",
 	"rcfilters-exclude-button-on": "Шэлэһэниие гаргаха",
 	"rcfilters-view-tags": "Тэмдэгтэй заһабаринууд",
@@ -1831,6 +1932,10 @@
 	"filehist-dimensions": "Хэмжээнүүд",
 	"filehist-filesize": "Файлай хэмжээ",
 	"filehist-comment": "Тайлбари",
+<<<<<<< HEAD
+	"filehist-missing": "файл үгы",
+=======
+>>>>>>> origin/1.39.7-test
 	"imagelinks": "Файл хэрэглэлгэ",
 	"linkstoimage": "Энэ файл {{PLURAL:$1|Удаадахи $1 хуудаһан хэрэглэнэ|Удаадахи $1 хуудаһанууд хэрэглэнэ|Удаадахи $1 хуудаһад хэрэглэнэ|1=Удаадахи хуудаһан хэрэглэнэ}}:",
 	"linkstoimage-more": "$1-һээ үлүү {{PLURAL:$1|хуудаһа|хуудаһануудые}} энэ файл хэрэглэнэ.\nБаримта список соо энэ файл {{PLURAL:$1|ганса $1 хэрэглэһэн хуудаһан танилсуулагдана|ганса $1 хэрэглэһэн хуудаһанууд танилсуулагдана}}.\n[[Special:WhatLinksHere/$2|дүүрэн список]]абажа болохоор.",
@@ -2017,6 +2122,10 @@
 	"notargettext": "Энэ үйлэ хэхын тула хабаадагшые гү, али зорилгын хуудаһа заагаагуй байнат.",
 	"nopagetitle": "Иимэ зорилгын хуудаһан үгы байна",
 	"nopagetext": "Заагдаһан зорилгын хуудаһан үгы байна.",
+<<<<<<< HEAD
+	"badrevision": "Хубилбариин текст үгы гү, али эбдэрһэн байна.",
+=======
+>>>>>>> origin/1.39.7-test
 	"pager-newer-n": "$1 шэб {{PLURAL:$1|шэнэ 1|шэнэнүүд|шэнэнүүдые $1}}",
 	"pager-older-n": "$1 бүри {{PLURAL:$1|хуушан 1|хуушанууд|хуушануудые $1}}",
 	"suppress": "Нюуха",
@@ -2323,7 +2432,10 @@
 	"changecontentmodel": "Хуудаһанай контентын хэб хинан заһалга.",
 	"changecontentmodel-legend": "Зосоохи юумэнэй хэб хубилгаха",
 	"changecontentmodel-title-label": "Хуудаһанай гаршаг:",
+<<<<<<< HEAD
+=======
 	"changecontentmodel-current-label": "Зосоохи юумэнэй байгша хэб:",
+>>>>>>> origin/1.39.7-test
 	"changecontentmodel-model-label": "Зосоохи юумэнэй шэнэ хэб:",
 	"changecontentmodel-reason-label": "Шалтаг:",
 	"changecontentmodel-submit": "Хубилгаха",
@@ -2444,8 +2556,15 @@
 	"contributions": "Хэрэглэгшын хубита",
 	"tool-link-contributions": "Оруулһан хубита {{GENDER:$1|эрэгтэй хабаадагшын|эмгтэй хабаадагшын}}",
 	"contributions-title": "{{GENDER:$1|эрэгтэй хабаадагшын|эмэгтэй хабаадагшын}} хубита",
+<<<<<<< HEAD
+	"contribute-title": "Хабаадагшын оруулһан хубита",
 	"mycontris": "Хубита",
 	"anoncontribs": "Хубита",
+	"contribute": "Оруулһан хубита",
+=======
+	"mycontris": "Хубита",
+	"anoncontribs": "Хубита",
+>>>>>>> origin/1.39.7-test
 	"contribsub2": " {{GENDER:$3|$1}} ($2)-ой хубита",
 	"contributions-userdoesnotexist": "$1 Бүридхэлэй бэшэлгэ бүридхэлдэ абтаагүй.",
 	"negative-namespace-not-supported": "Буруу удхатай орон зайн нэрэнүүд дэмжэгдэнэгүй.",
@@ -2480,6 +2599,10 @@
 	"whatlinkshere-page": "Хуудаһан:",
 	"linkshere": "Иимэ хуудаһанууд <strong>$2</strong> заана гэбэл:",
 	"nolinkshere": "<strong>$2</strong> хуудаһанда ондоо хуудаһануудһаа татагдаһан ссылкэнүүд үгы байна",
+<<<<<<< HEAD
+	"nolinkshere-filter": "Байгша бэдэрэлгын тааруулгануудта <strong>$2</strong> хандаһан хуудаһанууд үгы.",
+=======
+>>>>>>> origin/1.39.7-test
 	"nolinkshere-ns": "Шэлэгдэһэн нэрэнүүдэй орон зай соо <strong>$2</strong>-до хандаһан хуудаһанууд үгы.",
 	"isredirect": "шэлжэн эльгээлгын хуудаһан",
 	"istemplate": "оруулалга",
@@ -2695,6 +2818,13 @@
 	"movesubpagetalktext": "Энэ тааруу хэлсэлгын хуудаһанда $1 {{PLURAL:$1|харуулагдаһан доодо хуудаһан|харуулагдаһан доодо хуудаһанууд|харуулагдаһан доодо хуудаһануудай}} доро байна.",
 	"movenosubpage": "Энэ хуудаһанда доодо хуудаһанууд үгы.",
 	"movereason": "Шалтагаан",
+<<<<<<< HEAD
+	"moveotherreason": "Ондоо/нэмэлтэ шалтаг:",
+	"movereasonotherlist": "Ондоо шалтаг",
+	"movepage-reason-dropdown": "* Нэрэ һэлгэлгын нэгэ хэбэй шалтагууд\n**Алдуутай гаршаг",
+	"movepage-edit-reasonlist": "Шалтагуудай список заһабарилха",
+=======
+>>>>>>> origin/1.39.7-test
 	"revertmove": "бусаалга",
 	"delete_and_move_text": "«[[:$1]]» Нэрэтэй хуудаһан бии байна.\nНэрыень һэлгэхын тула та тэрэниие усадхахаяа һанажа байна гүт?",
 	"delete_redirect_and_move_text": "«[[:$1]]» Нэрэтэй зорилгын хуудаһан бии байна.\nНэрыень һэлгэхын тула та тэрэниие усадхахаяа һанажа байна гүт?",
@@ -2920,6 +3050,10 @@
 	"pageinfo-default-sort": "Илгалгын түлхюүр тэрэ хэбээрнь орхихо",
 	"pageinfo-length": "Хуудаһанай утые (байтаар)",
 	"pageinfo-namespace": "Нэрэнүүдэй орон зай",
+<<<<<<< HEAD
+	"pageinfo-namespace-id": "Нэрэнүүдэй орон зайн адлидхалга",
+=======
+>>>>>>> origin/1.39.7-test
 	"pageinfo-article-id": "Хуудаһанай адлидхалга",
 	"pageinfo-language": "Хуудаһанай контентын хэлэн",
 	"pageinfo-language-change": "Хубилагаха",
@@ -3046,6 +3180,10 @@
 	"metadata-help": "Тоо оньһоной камерануудаар гү, али сканернуудаар нэмэгдэдэг нэмэлтэ мэдээсэл энэ файл дотор байна. Хэрбэеэ анхан зохёогдоһонойнгоо удаа файл заһагдаһан байгаа һаа, зарим мэдээсэлынь мүнөөнэйнгөө зурагтай таарамжагүй байхадаа болохо.",
 	"metadata-expand": "Дэлгэрэнгы мэдээсэл харуулха",
 	"metadata-collapse": "Дэлгэрэнгы мэдээсэлнүүдые нюуха",
+<<<<<<< HEAD
+	"metadata-fields": "Энэ список соо тоологдоһон дүрсэ зурагуудай метабаримтын таланууд, метабаримтын  таблициин монсогойлогдоһон үедэ дүрсэ зурагай хуудаһан дээрэ харуулагдажа байха. Зарим ондоо таланууд тэрэл хэбээрээ орхигдожо нюугдаха.\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude\n* dc-rights\n* copyrightowner\n* usageterms\n* webstatement\n* licenseurl\n* attributionurl\n* preferredattributionname\n* credit\n* jpegfilecomment\n* pngfilecomment\n* giffilecomment\n* usercomment\n* citydest\n* citycreated\n* headline\n* source\n* locationdest\n* dc-contributor\n* dc-coverage\n* dc-publisher\n* dc-relation\n* label\n* nickname\n* personinimage\n* disclaimer\n* event\n* objectname",
+=======
+>>>>>>> origin/1.39.7-test
 	"namespacesall": "булта",
 	"monthsall": "булта",
 	"confirmemail": "Сахим хаяг баталагты",
@@ -3085,6 +3223,10 @@
 	"confirm-watch-button": "Зай",
 	"confirm-watch-top": "Танай ажаглалтын список руу энэ хуудаһа нэмэхэ гү?",
 	"confirm-watch-label": "Ажаглалтын список соохи сагай болзор:",
+<<<<<<< HEAD
+	"watchlist-expiry-options": "Болзоргүй:infinite,1 нэгэ долоон:1 week,1 һара:1 month,3 һара:3 months,6 һара:6 months,1 жэл:1 year",
+=======
+>>>>>>> origin/1.39.7-test
 	"watchlist-expires-in-aria-label": "Ажаглалтын список соо саг зуура оронхой",
 	"confirm-watch-button-expiry": "Хараха",
 	"confirm-unwatch-button": "Зай",
@@ -3199,6 +3341,10 @@
 	"version-entrypoints-header-entrypoint": "Оролгын сэг",
 	"version-entrypoints-header-url": "URL",
 	"version-libraries": "Тогтоогдоһон номой сангууд",
+<<<<<<< HEAD
+	"version-libraries-client": "Тогтоогдоһон хэрэглэгшын номой сангууд",
+=======
+>>>>>>> origin/1.39.7-test
 	"version-libraries-library": "Номой сан",
 	"version-libraries-version": "Хубилбари",
 	"version-libraries-license": "Зүбшөөрэл",
@@ -3532,6 +3678,13 @@
 	"feedback-useragent": "Браузер:",
 	"searchsuggest-search": "{{SITENAME}} сайтһаа бэдэрхэ",
 	"searchsuggest-containing": "... бэшэгдэнхэй хуудаһануудые бэдэрэлгэ",
+<<<<<<< HEAD
+	"search-match-redirect-label": "Бэдэрэлгын үедэ тон адлидань орохо",
+	"search-match-redirect-help": "Танай бэдэрһэн хуудаһанай гаршагтай таараһан нэрэ олдобол, энэ хуудаһанда шэлжэн орохые шэлэгты",
+	"search-thumbnail-extra-namespaces-label": "\"Тусхайта: ажалай стол дээрэ бэдэрэлгэ\" гэһэн бүлэг соо жэжэ зурагуудые харуулха",
+	"search-thumbnail-extra-namespaces-message": "Жэжэ зурагуудые харуулхын тула {{PLURAL:$2|нэрэнүүдэй орон зай|нэрэнүүдэй орон зайнууд}} $1 үрэ дүнгүүдэй хуудаһан дээрэ {{#special:search}}",
+=======
+>>>>>>> origin/1.39.7-test
 	"searchlimit-label": "Хуудаһан бүхэн дээрэ бэдэрэлгын үрэ дүнгүүдэй тоо харуулга:",
 	"searchlimit-help": "Хамагай ехэ тоо: $1",
 	"api-clientside-error-noconnect": "Сервертэй холболдохо боломжогүй. Интернеттэй холбоотой байһанаа үнэншөөд, дахинаа туршагты.",
@@ -3636,6 +3789,11 @@
 	"json-error-invalid-property-name": "Декодированнэ шэнжэ шанарай нэрэ буруу байна.",
 	"json-error-utf16": "Буруу байгуулһан UTF-16 һүлдэ тэмдэгүүд, магадгүй тэрэ буруу кодтой байгаа.",
 	"headline-anchor-title": "Энэ бүлэг руу эльгээһэн ссылкэ",
+<<<<<<< HEAD
+	"special-tab-contribute-short": "Оруулһан хубита",
+	"special-tab-contributions-short": "Оруулһан хубита харуулха.",
+=======
+>>>>>>> origin/1.39.7-test
 	"special-characters-group-latin": "Лата",
 	"special-characters-group-latinextended": "Үргэдхэгдэһэн лата",
 	"special-characters-group-ipa": "МПА",
@@ -3882,5 +4040,48 @@
 	"newpages-showhide-bots": "$1 ботуудай",
 	"newpages-showhide-patrolled": "$1 шалгагдаһан заһабаринууд",
 	"newpages-showhide-redirect": "$1 шэлжэн эльгээлгэнүүд",
+<<<<<<< HEAD
+	"newpages-showhide-registered": "$1 бүридхэлдэ абтаһан хабаадагшад",
+	"blockedtext-made-by": "$1 захиран эмхидхэгшэ хаалта табяа.",
+	"blockedtext-reason-comment": "Хаалтын шалтагаан: $1",
+	"blockedtext-start-time": "Хаалтын эхин: $1",
+	"blockedtext-expiration-time": "Хаалтын эсэс:$1",
+	"blockedtext-expiration-longest-block": "Эгээ ута бүридхэлгын хүдэлхэ хугасаа: $1",
+	"blockedtext-intended-blockee": "Хаалтын зорилго: $1",
+	"blockedtext-contact-blocker-admin": "Хаалта зүбшэн хэлсэхын тула Та $1-тэй гү, али ондоо [[{{MediaWiki:Grouppage-sysop}}|захиран эмхидхэгшэтэй]] холбогты.",
+	"blockedtext-block-id": "бүһэлэлгын адлидхалга - #$1",
+	"blockedtext-include-details-queries": "Өөрынгөө ямаршье хандалганууд соо та бүхы энэ мэдээгээ заадаг байгты гэжэ гуйнабди.",
+	"renameuser": "Хабаадагшын нэрэ һэлгэхэ",
+	"renameuser-linkoncontribs": "{{GENDER:$1|хэрэглэгшын}} нэрэ һэлгэхэ",
+	"renameuser-linkoncontribs-text": "Нэрэ һэлгэхэ {{GENDER:$1|эрэгтэй хабаадагшын|эмэгтэй хабаадагшын}}",
+	"renameuserold": "Хэрэглэгшын байгша нэрэ:",
+	"renameusernew": "Хэрэглэгшын шэнэ нэрэ:",
+	"renameuserreason": "Шалтаг:",
+	"renameusermove": "Хабаадагшын хуудаһанай нэрэ һэлгэхэ, үшөө тиихэдэ хубиин хэлсэлгэ болон тэрэнэй дорохи хуудаһанай.",
+	"renameusersuppress": "Шэнэ нэрэдэ шэлжэн эльгээлгэ бү зохёогты",
+	"renameuserreserve": "Саашадаа хэрэглэлгэһээ һэргылжэ хэрэглэгшын хуушан нэрэ бүһэлэгты.",
+	"renameuserwarnings": "Һануулан хэлэлгэ:",
+	"renameuserconfirm": "Тиимэ, хэрэглэгшын нэрэ һэлгэгты",
+	"renameusersubmit": "Дүүргэхэ",
+	"renameusererrordoesnotexist": "«<nowiki>$1</nowiki>» Нэрэтэй хабаадагша бүридхэлдэ абтаагүй.",
+	"renameusererrorexists": "{{GENDER:$1|Хабаадагша}} нэрэтэй «<nowiki>$1</nowiki>» бүридхэлдэ абтанхай байна.",
+	"renameusererrorinvalid": "<nowiki>$1</nowiki> Хабаадагшын нэрэ боломжогүй",
+	"renameuser-error-request": "Һуралга абахада орёо асуудал гараба. Һөөргөө бусаад үшөө дахин дабтахыетнай гүйжа байна.",
+	"renameuser-error-same-user": "Та хабаадагшада урид байһан тэрэл нэрыень үгэжэ шадахагүйт.",
+	"renameusersuccess": "{{GENDER:$2|Хабаадагша}} «<nowiki>$1</nowiki>» нэрэнь һэлгэгдээ «<nowiki>$2</nowiki>».",
+	"renameuser-page-exists": "$1 Хуудаһан бии байна, тиимэһээ автомат аргаар дахин бэшэгдэхэ аргагүй.",
+	"renameuser-page-moved": "$1 Хуудаһан $2 болгогдожо нэрэнь һэлгэгдээ",
+	"renameuser-page-unmoved": "$1 Хуудаһа $2 болгожо нэрыень һэлгэхэ болохогүй.",
+	"renameuser-warning-currentblock": "Энэ хэрэглэгшэ [$1 мүнөө сагта бүһэлэгдэнхэй].",
+	"log-name-renameuser": "Хабаадагшадай нэрэ һэлгэлгын журнал",
+	"log-description-renameuser": "Энэ хадаа бүридхэгдэһэн хабаадагшадай нэрэ һэлгэлгын журнал.",
+	"logentry-renameuser-renameuser": "$1 {{GENDER:$2|нэрээ һэлгээ}} $4 хабаадагша ({{PLURAL:$6|$6 хубилгаха|$6 хубилалтанууд}}) в {{GENDER:$7|$5}}",
+	"logentry-renameuser-renameuser-legacier": "$1 {{GENDER:$2|нэрээ һэлгээ}} $4 хэрэглэгшэ {{GENDER:$7|$5}}",
+	"renameuser-move-log": "Нэрээ һэлгэхэ үедөө хуудаһан автомат аргаар һууряа һэлгэбэ {{GENDER:$2|хэрэглэгшэ}} \"[[User:$1|$1]]\"-һээ \"[[User:$2|$2]]\"руу.",
+	"action-renameuser": "хабаадагшадай нэрэ һэлгэлгэ",
+	"right-renameuser": "Хабаадагшадай нэрэ һэлгэлгэ",
+	"renameuser-renamed-notice": "Энэ хэбаадагшын нэрэ һэлгэгдэһэн байгаа. Мэдэхын тула нэрэ һэлгэлгын журнал доро үгтэнэ"
+=======
 	"newpages-showhide-registered": "$1 бүридхэлдэ абтаһан хабаадагшад"
+>>>>>>> origin/1.39.7-test
 }

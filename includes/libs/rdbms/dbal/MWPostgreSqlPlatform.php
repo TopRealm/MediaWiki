@@ -2,11 +2,18 @@
 
 namespace Wikimedia\Rdbms;
 
+<<<<<<< HEAD
+use Doctrine\DBAL\Platforms\PostgreSQLPlatform;
+use Wikimedia\Timestamp\ConvertibleTimestamp;
+
+class MWPostgreSqlPlatform extends PostgreSQLPlatform {
+=======
 use Doctrine\DBAL\Platforms\PostgreSQL94Platform;
 use Wikimedia\Timestamp\ConvertibleTimestamp;
 
 class MWPostgreSqlPlatform extends PostgreSQL94Platform {
 
+>>>>>>> origin/1.39.7-test
 	/**
 	 * Handles Postgres unique timestamp format
 	 * @inheritDoc

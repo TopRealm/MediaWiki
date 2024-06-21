@@ -1,8 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+<<<<<<< HEAD
+			"Winston Sung",
+			"SupaplexTW",
+=======
 			"SupaplexTW",
 			"Winston Sung",
+>>>>>>> origin/1.39.7-test
 			"TongcyDai"
 		]
 	},
@@ -111,6 +116,10 @@
 	"permalink": "固定連結",
 	"print": "印刷",
 	"view": "看",
+<<<<<<< HEAD
+	"viewcontribs": "看貢獻",
+=======
+>>>>>>> origin/1.39.7-test
 	"skin-view-view": "讀",
 	"skin-view-foreign": "佇$1遐看",
 	"edit": "編輯",
@@ -417,6 +426,10 @@
 	"filehist-thumbtext": "$1版本的細圖",
 	"filehist-user": "用者",
 	"filehist-dimensions": "寸尺",
+<<<<<<< HEAD
+	"filehist-missing": "無檔案",
+=======
+>>>>>>> origin/1.39.7-test
 	"upload-disallowed-here": "你袂使換掉个檔案",
 	"filedelete": "刣「$1」",
 	"filedelete-legend": "刣檔案",
@@ -468,6 +481,10 @@
 	"undelete-show-file-submit": "是",
 	"contributions": "用者貢獻",
 	"tool-link-contributions": "{{GENDER:$1|用者}}貢獻",
+<<<<<<< HEAD
+	"contribute-title": "用者貢獻",
+=======
+>>>>>>> origin/1.39.7-test
 	"mycontris": "貢獻",
 	"anoncontribs": "貢獻",
 	"sp-contributions-logs": "日誌",
@@ -513,6 +530,10 @@
 	"pageinfo-header-basic": "基本資訊",
 	"pageinfo-display-title": "顯示標題",
 	"pageinfo-namespace": "名空間",
+<<<<<<< HEAD
+	"pageinfo-namespace-id": "名空間ID",
+=======
+>>>>>>> origin/1.39.7-test
 	"pageinfo-article-id": "頁ID",
 	"pageinfo-language": "頁內容語言",
 	"pageinfo-toolboxlink": "頁資訊",

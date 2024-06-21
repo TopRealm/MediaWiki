@@ -43,33 +43,28 @@ class ApiQueryLanguageinfoTest extends ApiTestCase {
 		return [ $res[0]['query']['languageinfo'], $res[0]['continue'] ?? null ];
 	}
 
-	public function testAllPropsForSingleLanguage() {
-		list( $response, $continue ) = $this->doQuery( [
-			'liprop' => 'code|bcp47|dir|autonym|name|fallbacks|variants',
-			'licode' => 'sh',
-		] );
-
-		$this->assertArrayEquals( [
-			'sh' => [
-				'code' => 'sh',
-				'bcp47' => 'sh',
-				'autonym' => 'srpskohrvatski / српскохрватски',
-				'name' => 'Serbo-Croatian',
-				'fallbacks' => [ 'bs', 'sr-el', 'sr-latn', 'hr' ],
+	public function provideTestAllPropsForSingleLanguage() {
+		yield [
+			'sr',
+			[
+				'code' => 'sr',
+				'bcp47' => 'sr',
+				'autonym' => 'српски / srpski',
+				'name' => 'српски / srpski',
+				'fallbacks' => [ 'sr-ec', 'sr-cyrl' ],
 				'dir' => 'ltr',
-				'variants' => [ 'sh' ],
-			],
-		], $response );
-	}
+				'variants' => [ 'sr', 'sr-ec', 'sr-el' ],
+				'variantnames' => [
+					'sr' => 'Ћир./lat.',
+					'sr-ec' => 'Ћирилица',
+					'sr-el' => 'Latinica',
+				],
+			]
+		];
 
-	public function testAllPropsForSingleCustomLanguage() {
-		list( $response, $continue ) = $this->doQuery( [
-			'liprop' => 'code|bcp47|dir|autonym|name|fallbacks|variants',
-			'licode' => 'qtp', // reserved for local use by ISO 639; registered in setUp()
-		] );
-
-		$this->assertArrayEquals( [
-			'qtp' => [
+		yield [
+			'qtp', // reserved for local use by ISO 639; registered in setUp()
+			[
 				'code' => 'qtp',
 				'bcp47' => 'qtp',
 				'autonym' => '',
@@ -77,12 +72,25 @@ class ApiQueryLanguageinfoTest extends ApiTestCase {
 				'fallbacks' => [],
 				'dir' => 'ltr',
 				'variants' => [ 'qtp' ],
-			],
-		], $response );
+				'variantnames' => [ 'qtp' => 'qtp' ],
+			]
+		];
+	}
+
+	/**
+	 * @dataProvider provideTestAllPropsForSingleLanguage
+	 */
+	public function testAllPropsForSingleLanguage( string $langCode, array $expected ) {
+		[ $response, $continue ] = $this->doQuery( [
+			'liprop' => 'code|bcp47|dir|autonym|name|fallbacks|variants|variantnames',
+			'licode' => $langCode,
+		] );
+
+		$this->assertArrayEquals( [ $langCode => $expected ], $response );
 	}
 
 	public function testNameInOtherLanguageForSingleLanguage() {
-		list( $response, $continue ) = $this->doQuery( [
+		[ $response, $continue ] = $this->doQuery( [
 			'liprop' => 'name',
 			'licode' => 'de',
 			'uselang' => 'pt',
@@ -105,7 +113,7 @@ class ApiQueryLanguageinfoTest extends ApiTestCase {
 			return $time += 1;
 		} );
 
-		list( $response, $continue ) = $this->doQuery( [] );
+		[ $response, $continue ] = $this->doQuery( [] );
 
 		$this->assertCount( 2, $response );
 		$this->assertArrayHasKey( 'licontinue', $continue );
@@ -125,7 +133,7 @@ class ApiQueryLanguageinfoTest extends ApiTestCase {
 			return $time += 2;
 		} );
 
-		list( $response, $continue ) = $this->doQuery( [
+		[ $response, $continue ] = $this->doQuery( [
 			'licode' => 'de',
 		] );
 
@@ -139,7 +147,7 @@ class ApiQueryLanguageinfoTest extends ApiTestCase {
 		} );
 		$params = [ 'licode' => 'en|ru|zh|de|yue' ];
 
-		list( $response, $continue ) = $this->doQuery( $params );
+		[ $response, $continue ] = $this->doQuery( $params );
 
 		$this->assertCount( 2, $response );
 		$this->assertArrayHasKey( 'licontinue', $continue );
@@ -147,7 +155,7 @@ class ApiQueryLanguageinfoTest extends ApiTestCase {
 
 		$time = 0;
 		$params = $continue + $params;
-		list( $response, $continue ) = $this->doQuery( $params );
+		[ $response, $continue ] = $this->doQuery( $params );
 
 		$this->assertCount( 2, $response );
 		$this->assertArrayHasKey( 'licontinue', $continue );
@@ -155,7 +163,7 @@ class ApiQueryLanguageinfoTest extends ApiTestCase {
 
 		$time = 0;
 		$params = $continue + $params;
-		list( $response, $continue ) = $this->doQuery( $params );
+		[ $response, $continue ] = $this->doQuery( $params );
 
 		$this->assertCount( 1, $response );
 		$this->assertNull( $continue );
@@ -163,7 +171,7 @@ class ApiQueryLanguageinfoTest extends ApiTestCase {
 	}
 
 	public function testResponseHasModulePathEvenIfEmpty() {
-		list( $response, $continue ) = $this->doQuery( [ 'licode' => '' ] );
+		[ $response, $continue ] = $this->doQuery( [ 'licode' => '' ] );
 		$this->assertSame( [], $response );
 		// the real test is that $res[0]['query']['languageinfo'] in doQuery() didn’t fail
 	}
