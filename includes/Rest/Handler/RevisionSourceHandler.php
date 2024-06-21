@@ -2,13 +2,15 @@
 
 namespace MediaWiki\Rest\Handler;
 
+use Config;
 use LogicException;
-use MediaWiki\Rest\Handler\Helper\PageRestHelperFactory;
-use MediaWiki\Rest\Handler\Helper\RevisionContentHelper;
+use MediaWiki\Page\PageLookup;
 use MediaWiki\Rest\LocalizedHttpException;
 use MediaWiki\Rest\Response;
 use MediaWiki\Rest\SimpleHandler;
+use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Revision\RevisionRecord;
+use TitleFormatter;
 
 /**
  * A handler that returns page source and metadata for the following routes:
@@ -21,10 +23,23 @@ class RevisionSourceHandler extends SimpleHandler {
 	private $contentHelper;
 
 	/**
-	 * @param PageRestHelperFactory $helperFactory
+	 * @param Config $config
+	 * @param RevisionLookup $revisionLookup
+	 * @param TitleFormatter $titleFormatter
+	 * @param PageLookup $pageLookup
 	 */
-	public function __construct( PageRestHelperFactory $helperFactory ) {
-		$this->contentHelper = $helperFactory->newRevisionContentHelper();
+	public function __construct(
+		Config $config,
+		RevisionLookup $revisionLookup,
+		TitleFormatter $titleFormatter,
+		PageLookup $pageLookup
+	) {
+		$this->contentHelper = new RevisionContentHelper(
+			$config,
+			$revisionLookup,
+			$titleFormatter,
+			$pageLookup
+		);
 	}
 
 	protected function postValidationSetup() {

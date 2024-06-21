@@ -18,7 +18,7 @@ class LayeredParameterizedPasswordTest extends PasswordTestCase {
 				],
 			],
 			'testLargeLayeredBottom' => [
-				'class' => Pbkdf2PasswordUsingHashExtension::class,
+				'class' => Pbkdf2Password::class,
 				'algo' => 'sha512',
 				'cost' => 1024,
 				'length' => 512,

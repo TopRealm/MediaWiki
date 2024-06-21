@@ -12,7 +12,6 @@
  * @file
  */
 
-use MediaWiki\Title\Title;
 use Wikimedia\TestingAccessWrapper;
 
 /**

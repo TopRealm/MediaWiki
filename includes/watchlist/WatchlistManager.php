@@ -22,9 +22,11 @@
 
 namespace MediaWiki\Watchlist;
 
+use MediaWiki\Config\ServiceOptions;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\HookContainer\HookRunner;
 use MediaWiki\Linker\LinkTarget;
+use MediaWiki\MainConfigNames;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Page\PageReference;
 use MediaWiki\Page\WikiPageFactory;
@@ -52,10 +54,14 @@ class WatchlistManager {
 	/**
 	 * @internal For use by ServiceWiring
 	 */
-	public const OPTION_ENOTIF = 'isEnotifEnabled';
+	public const CONSTRUCTOR_OPTIONS = [
+		MainConfigNames::EnotifUserTalk,
+		MainConfigNames::EnotifWatchlist,
+		MainConfigNames::ShowUpdatedMarker,
+	];
 
-	/** @var bool */
-	private $isEnotifEnabled;
+	/** @var ServiceOptions */
+	private $options;
 
 	/** @var HookRunner */
 	private $hookRunner;
@@ -100,7 +106,7 @@ class WatchlistManager {
 	private $notificationTimestampCache = [];
 
 	/**
-	 * @param array{isEnotifEnabled:bool} $options
+	 * @param ServiceOptions $options
 	 * @param HookContainer $hookContainer
 	 * @param ReadOnlyMode $readOnlyMode
 	 * @param RevisionLookup $revisionLookup
@@ -111,7 +117,7 @@ class WatchlistManager {
 	 * @param WikiPageFactory $wikiPageFactory
 	 */
 	public function __construct(
-		array $options,
+		ServiceOptions $options,
 		HookContainer $hookContainer,
 		ReadOnlyMode $readOnlyMode,
 		RevisionLookup $revisionLookup,
@@ -121,7 +127,8 @@ class WatchlistManager {
 		NamespaceInfo $nsInfo,
 		WikiPageFactory $wikiPageFactory
 	) {
-		$this->isEnotifEnabled = $options[ self::OPTION_ENOTIF ];
+		$options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
+		$this->options = $options;
 		$this->hookRunner = new HookRunner( $hookContainer );
 		$this->readOnlyMode = $readOnlyMode;
 		$this->revisionLookup = $revisionLookup;
@@ -158,7 +165,10 @@ class WatchlistManager {
 
 		$user = $performer->getUser();
 
-		if ( !$this->isEnotifEnabled ) {
+		if ( !$this->options->get( MainConfigNames::EnotifUserTalk ) &&
+			!$this->options->get( MainConfigNames::EnotifWatchlist ) &&
+			!$this->options->get( MainConfigNames::ShowUpdatedMarker )
+		) {
 			$this->talkPageNotificationManager->removeUserHasNewMessages( $user );
 			return;
 		}
@@ -221,7 +231,10 @@ class WatchlistManager {
 			$this->talkPageNotificationManager->clearForPageView( $userIdentity, $oldRev );
 		}
 
-		if ( !$this->isEnotifEnabled ) {
+		if ( !$this->options->get( MainConfigNames::EnotifUserTalk ) &&
+			!$this->options->get( MainConfigNames::EnotifWatchlist ) &&
+			!$this->options->get( MainConfigNames::ShowUpdatedMarker )
+		) {
 			return;
 		}
 

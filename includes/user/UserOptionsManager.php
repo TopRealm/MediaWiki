@@ -381,7 +381,7 @@ class UserOptionsManager extends UserOptionsLookup {
 				$mapping[$key] = 'registered-checkmatrix';
 			} elseif ( isset( $specialOptions[$key] ) ) {
 				$mapping[$key] = 'special';
-			} elseif ( str_starts_with( $key, 'userjs-' ) ) {
+			} elseif ( substr( $key, 0, 7 ) === 'userjs-' ) {
 				$mapping[$key] = 'userjs';
 			} else {
 				$mapping[$key] = 'unused';
@@ -443,22 +443,15 @@ class UserOptionsManager extends UserOptionsLookup {
 			$defaultValue = $this->defaultOptionsLookup->getDefaultOption( $key );
 			$oldValue = $this->optionsFromDb[$userKey][$key] ?? null;
 			if ( $value === null || $this->isValueEqual( $value, $defaultValue ) ) {
-				if ( array_key_exists( $key, $this->optionsFromDb[$userKey] ) ) {
-					// Delete the default value from the database
-					$keysToDelete[] = $key;
-				}
+				$keysToDelete[] = $key;
 			} elseif ( !$this->isValueEqual( $value, $oldValue ) ) {
-				// Update by deleting (if old value exists) and reinserting
+				// Update by deleting and reinserting
 				$rowsToInsert[] = [
 					'up_user' => $user->getId(),
 					'up_property' => $key,
-<<<<<<< HEAD
-					'up_value' => mb_strcut( $value, 0, self::MAX_BYTES_OPTION_VALUE ),
-=======
 					'up_value' => $this->contentLanguage->truncateForDatabase( $value, self::MAX_BYTES_OPTION_VALUE ),
->>>>>>> origin/1.39.7-test
 				];
-				if ( array_key_exists( $key, $this->optionsFromDb[$userKey] ) ) {
+				if ( $oldValue !== null ) {
 					$keysToDelete[] = $key;
 				}
 			}
@@ -669,7 +662,7 @@ class UserOptionsManager extends UserOptionsLookup {
 	 * @return array [ IDatabase $db, array $options ]
 	 */
 	private function getDBAndOptionsForQueryFlags( $queryFlags ): array {
-		[ $mode, $options ] = DBAccessObjectUtils::getDBOptions( $queryFlags );
+		list( $mode, $options ) = DBAccessObjectUtils::getDBOptions( $queryFlags );
 		return [ $this->loadBalancer->getConnectionRef( $mode, [] ), $options ];
 	}
 

@@ -1,6 +1,5 @@
 <?php
 
-use MediaWiki\Html\Html;
 use OOUI\Widget;
 
 /**
@@ -103,7 +102,6 @@ class HTMLTextField extends HTMLFormField {
 			'step',
 			'title',
 			'maxlength',
-			'minlength',
 			'tabindex',
 			'disabled',
 			'required',
@@ -181,7 +179,6 @@ class HTMLTextField extends HTMLFormField {
 			'step',
 			'title',
 			'maxlength',
-			'minlength',
 			'tabindex',
 			'disabled',
 			'required',

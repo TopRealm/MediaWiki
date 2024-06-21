@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\MainConfigNames;
-use MediaWiki\Title\Title;
 
 class CssContentHandlerTest extends MediaWikiLangTestCase {
 

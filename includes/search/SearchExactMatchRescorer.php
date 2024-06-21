@@ -22,7 +22,6 @@
  */
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Title\Title;
 
 /**
  * An utility class to rescore search results by looking for an exact match

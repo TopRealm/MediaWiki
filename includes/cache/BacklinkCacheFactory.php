@@ -24,7 +24,6 @@
 namespace MediaWiki\Cache;
 
 use BacklinkCache;
-use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Page\PageReference;
 use WANObjectCache;
 
@@ -38,19 +37,11 @@ class BacklinkCacheFactory {
 	/** @var WANObjectCache */
 	private $wanCache;
 
-	/** @var HookContainer */
-	private $hookContainer;
-
 	/**
 	 * @param WANObjectCache $wanCache
-	 * @param HookContainer $hookContainer
 	 */
-	public function __construct(
-		WANObjectCache $wanCache,
-		HookContainer $hookContainer
-	) {
+	public function __construct( WANObjectCache $wanCache ) {
 		$this->wanCache = $wanCache;
-		$this->hookContainer = $hookContainer;
 	}
 
 	/**
@@ -65,11 +56,7 @@ class BacklinkCacheFactory {
 	 */
 	public function getBacklinkCache( PageReference $page ): BacklinkCache {
 		if ( !$this->latestBacklinkCache || !$this->latestBacklinkCache->getPage()->isSamePageAs( $page ) ) {
-			$this->latestBacklinkCache = new BacklinkCache(
-				$this->wanCache,
-				$this->hookContainer,
-				$page
-			);
+			$this->latestBacklinkCache = new BacklinkCache( $this->wanCache, $page );
 		}
 		return $this->latestBacklinkCache;
 	}

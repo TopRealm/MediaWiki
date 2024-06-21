@@ -24,7 +24,6 @@ use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Revision\SlotRoleRegistry;
-use MediaWiki\Title\TitleFactory;
 
 /**
  * Factory service for WikiImporter instances.

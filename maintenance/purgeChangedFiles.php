@@ -22,7 +22,6 @@
  */
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Title\Title;
 
 require_once __DIR__ . '/Maintenance.php';
 
@@ -95,13 +94,14 @@ class PurgeChangedFiles extends Maintenance {
 
 		// Find out which actions we should be concerned with
 		$typeOpt = $this->getOption( 'type', 'all' );
+		$validTypes = array_keys( self::$typeMappings );
 		if ( $typeOpt === 'all' ) {
 			// Convert 'all' to all registered types
-			$typeOpt = implode( ',', array_keys( self::$typeMappings ) );
+			$typeOpt = implode( ',', $validTypes );
 		}
 		$typeList = explode( ',', $typeOpt );
 		foreach ( $typeList as $type ) {
-			if ( !isset( self::$typeMappings[$type] ) ) {
+			if ( !in_array( $type, $validTypes ) ) {
 				$this->error( "\nERROR: Unknown type: {$type}\n" );
 				$this->maybeHelp( true );
 			}

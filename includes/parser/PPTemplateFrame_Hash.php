@@ -19,8 +19,6 @@
  * @ingroup Parser
  */
 
-use MediaWiki\Title\Title;
-
 /**
  * Expansion frame with template arguments
  * @ingroup Parser

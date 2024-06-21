@@ -127,7 +127,7 @@ class UrlUtils {
 			}
 		}
 
-		if ( str_starts_with( $url, '/' ) ) {
+		if ( substr( $url, 0, 1 ) === '/' ) {
 			if ( $serverUrl === null ) {
 				throw new BadMethodCallException( 'Cannot call expand() if the appropriate ' .
 					'SERVER/CANONICAL_SERVER/INTERNAL_SERVER option was not passed to the ' .
@@ -147,7 +147,7 @@ class UrlUtils {
 			// @phan-suppress-next-line PhanTypeMismatchArgumentNullableInternal T308355
 			$defaultProtoWithoutSlashes = $defaultProto === PROTO_FALLBACK ? '' : substr( $defaultProto, 0, -2 );
 
-			if ( str_starts_with( $url, '//' ) ) {
+			if ( substr( $url, 0, 2 ) == '//' ) {
 				$url = $defaultProtoWithoutSlashes . $url;
 			} else {
 				// If $serverUrl is protocol-relative, prepend $defaultProtoWithoutSlashes,
@@ -178,7 +178,7 @@ class UrlUtils {
 		} elseif ( $bits ) {
 			# No path to expand
 			return $url;
-		} elseif ( !str_starts_with( $url, '/' ) ) {
+		} elseif ( substr( $url, 0, 1 ) != '/' ) {
 			# URL is a relative path
 			return $this->removeDotSegments( $url );
 		}
@@ -282,40 +282,45 @@ class UrlUtils {
 		$inputLength = strlen( $urlPath );
 
 		while ( $inputOffset < $inputLength ) {
+			$prefixLengthOne = substr( $urlPath, $inputOffset, 1 );
+			$prefixLengthTwo = substr( $urlPath, $inputOffset, 2 );
+			$prefixLengthThree = substr( $urlPath, $inputOffset, 3 );
+			$prefixLengthFour = substr( $urlPath, $inputOffset, 4 );
 			$trimOutput = false;
-			if ( substr_compare( $urlPath, './', $inputOffset, 2 ) === 0 ) {
+
+			if ( $prefixLengthTwo == './' ) {
 				# Step A, remove leading "./"
 				$inputOffset += 2;
-			} elseif ( substr_compare( $urlPath, '../', $inputOffset, 3 ) === 0 ) {
+			} elseif ( $prefixLengthThree == '../' ) {
 				# Step A, remove leading "../"
 				$inputOffset += 3;
-			} elseif ( $inputOffset + 2 === $inputLength && str_ends_with( $urlPath, '/.' ) ) {
+			} elseif ( ( $prefixLengthTwo == '/.' ) && ( $inputOffset + 2 == $inputLength ) ) {
 				# Step B, replace leading "/.$" with "/"
 				$inputOffset += 1;
 				$urlPath[$inputOffset] = '/';
-			} elseif ( substr_compare( $urlPath, '/./', $inputOffset, 3 ) === 0 ) {
+			} elseif ( $prefixLengthThree == '/./' ) {
 				# Step B, replace leading "/./" with "/"
 				$inputOffset += 2;
-			} elseif ( $inputOffset + 3 === $inputLength && str_ends_with( $urlPath, '/..' ) ) {
+			} elseif ( $prefixLengthThree == '/..' && ( $inputOffset + 3 == $inputLength ) ) {
 				# Step C, replace leading "/..$" with "/" and
 				# remove last path component in output
 				$inputOffset += 2;
 				$urlPath[$inputOffset] = '/';
 				$trimOutput = true;
-			} elseif ( substr_compare( $urlPath, '/../', $inputOffset, 4 ) === 0 ) {
+			} elseif ( $prefixLengthFour == '/../' ) {
 				# Step C, replace leading "/../" with "/" and
 				# remove last path component in output
 				$inputOffset += 3;
 				$trimOutput = true;
-			} elseif ( $inputOffset + 1 === $inputLength && str_ends_with( $urlPath, '.' ) ) {
+			} elseif ( ( $prefixLengthOne == '.' ) && ( $inputOffset + 1 == $inputLength ) ) {
 				# Step D, remove "^.$"
 				$inputOffset += 1;
-			} elseif ( $inputOffset + 2 === $inputLength && str_ends_with( $urlPath, '..' ) ) {
+			} elseif ( ( $prefixLengthTwo == '..' ) && ( $inputOffset + 2 == $inputLength ) ) {
 				# Step D, remove "^..$"
 				$inputOffset += 2;
 			} else {
 				# Step E, move leading path segment to output
-				if ( $urlPath[$inputOffset] === '/' ) {
+				if ( $prefixLengthOne == '/' ) {
 					$slashPos = strpos( $urlPath, '/', $inputOffset + 1 );
 				} else {
 					$slashPos = strpos( $urlPath, '/', $inputOffset );
@@ -420,7 +425,7 @@ class UrlUtils {
 	public function parse( string $url ): ?array {
 		// Protocol-relative URLs are handled really badly by parse_url(). It's so bad that the
 		// easiest way to handle them is to just prepend 'http:' and strip the protocol out later.
-		$wasRelative = str_starts_with( $url, '//' );
+		$wasRelative = substr( $url, 0, 2 ) == '//';
 		if ( $wasRelative ) {
 			$url = "http:$url";
 		}
@@ -456,7 +461,7 @@ class UrlUtils {
 			// See T47069
 			if ( isset( $bits['path'] ) ) {
 				/* parse_url loses the third / for file:///c:/ urls (but not on variants) */
-				if ( !str_starts_with( $bits['path'], '/' ) ) {
+				if ( substr( $bits['path'], 0, 1 ) !== '/' ) {
 					$bits['path'] = '/' . $bits['path'];
 				}
 			} else {
@@ -511,7 +516,7 @@ class UrlUtils {
 			$host = '.' . $bits['host'];
 			foreach ( $domains as $domain ) {
 				$domain = '.' . $domain;
-				if ( str_ends_with( $host, $domain ) ) {
+				if ( substr( $host, -strlen( $domain ) ) === $domain ) {
 					return true;
 				}
 			}

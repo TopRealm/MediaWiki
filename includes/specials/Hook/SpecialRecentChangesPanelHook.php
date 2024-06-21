@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Hook;
 
-use MediaWiki\Html\FormOptions;
+use FormOptions;
 
 /**
  * This is a hook handler interface, see docs/Hooks.md.

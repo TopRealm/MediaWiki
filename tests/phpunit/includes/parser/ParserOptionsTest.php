@@ -2,7 +2,6 @@
 
 use MediaWiki\MainConfigNames;
 use MediaWiki\Revision\SlotRecord;
-use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentityValue;
 use Wikimedia\ScopedCallback;
 
@@ -15,7 +14,6 @@ class ParserOptionsTest extends MediaWikiLangTestCase {
 		parent::setUp();
 
 		$this->overrideConfigValue( MainConfigNames::RenderHashAppend, '' );
-		$this->overrideConfigValue( MainConfigNames::UsePigLatinVariant, false );
 
 		// This is crazy, but registering false, null, or other falsey values
 		// as a hook callback "works".
@@ -384,14 +382,5 @@ class ParserOptionsTest extends MediaWikiLangTestCase {
 
 		ScopedCallback::consume( $fakeRevisionScope );
 		$this->assertFalse( $options->getCurrentRevisionRecordCallback()( $page ) );
-	}
-
-	public function testRenderReason() {
-		$options = ParserOptions::newFromAnon();
-
-		$this->assertIsString( $options->getRenderReason() );
-
-		$options->setRenderReason( 'just a test' );
-		$this->assertIsString( 'just a test', $options->getRenderReason() );
 	}
 }

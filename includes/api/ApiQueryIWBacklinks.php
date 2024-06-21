@@ -23,7 +23,6 @@
  * @file
  */
 
-use MediaWiki\Title\Title;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
@@ -68,14 +67,21 @@ class ApiQueryIWBacklinks extends ApiQueryGeneratorBase {
 		}
 
 		if ( $params['continue'] !== null ) {
-			$cont = $this->parseContinueParamOrDie( $params['continue'], [ 'string', 'string', 'int' ] );
+			$cont = explode( '|', $params['continue'] );
+			$this->dieContinueUsageIf( count( $cont ) != 3 );
+
 			$db = $this->getDB();
-			$op = $params['dir'] == 'descending' ? '<=' : '>=';
-			$this->addWhere( $db->buildComparison( $op, [
-				'iwl_prefix' => $cont[0],
-				'iwl_title' => $cont[1],
-				'iwl_from' => $cont[2],
-			] ) );
+			$op = $params['dir'] == 'descending' ? '<' : '>';
+			$prefix = $db->addQuotes( $cont[0] );
+			$title = $db->addQuotes( $cont[1] );
+			$from = (int)$cont[2];
+			$this->addWhere(
+				"iwl_prefix $op $prefix OR " .
+				"(iwl_prefix = $prefix AND " .
+				"(iwl_title $op $title OR " .
+				"(iwl_title = $title AND " .
+				"iwl_from $op= $from)))"
+			);
 		}
 
 		$prop = array_fill_keys( $params['prop'], true );

@@ -20,7 +20,6 @@
 
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Title\Title;
 use Psr\Log\LoggerInterface;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\ScopedCallback;
@@ -139,7 +138,7 @@ class LocalFileMoveBatch {
 				continue;
 			}
 
-			[ $timestamp, $filename ] = $bits;
+			list( $timestamp, $filename ) = $bits;
 
 			if ( $this->oldName != $filename ) {
 				$this->logger->debug(
@@ -333,21 +332,16 @@ class LocalFileMoveBatch {
 		$status = $repo->newGood();
 		$dbw = $this->db;
 
-		// Lock the image row
-		$hasCurrent = $dbw->newSelectQueryBuilder()
-			->from( 'image' )
-			->where( [ 'img_name' => $this->oldName ] )
-			->forUpdate()
-			->caller( __METHOD__ )
-			->fetchRowCount();
-
-		// Lock the oldimage rows
-		$oldRowCount = $dbw->newSelectQueryBuilder()
-			->from( 'oldimage' )
-			->where( [ 'oi_name' => $this->oldName ] )
-			->forUpdate()
-			->caller( __METHOD__ )
-			->fetchRowCount();
+		$hasCurrent = $dbw->lockForUpdate(
+			'image',
+			[ 'img_name' => $this->oldName ],
+			__METHOD__
+		);
+		$oldRowCount = $dbw->lockForUpdate(
+			'oldimage',
+			[ 'oi_name' => $this->oldName ],
+			__METHOD__
+		);
 
 		if ( $hasCurrent ) {
 			$status->successCount++;

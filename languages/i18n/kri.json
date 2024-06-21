@@ -318,10 +318,6 @@
 	"anontalkpagetext": "----\n <em>Dis na di diskishɔn pej fɔ pɔsin we nɔ no in nem we nɔ mek akɔn yet, ɔ we nɔ de yuz am.</em> \nSo wi fɔ yuz di nɔmba IP adrɛs fɔ no dɛn.\nDis kayn IP adrɛs kin sheb bay sɔm pipul dɛn we de yuz am.\nIf yu na pɔsin we nɔ no yu nem ɛn yu fil se dɛn dɔn rayt kɔmɛnt dɛn we nɔ impɔtant to yu, duya [[Special:CreateAccount|kriet wan akɔn]] ɔ [[Special:UserLogin|log in]] fɔ avɔyd fɔ kɔnfyus tumara bambay wit ɔda yuza dɛn we nɔ no dɛn nem.",
 	"noarticletext": "Naw no tɛks nɔ de na dis pej.\nYu kin [[Special:Search/{{PAGENAME}}|search fɔ dis pej taytul]] na ɔda pej dɛn,\n <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} fɛn di lɔg dɛn we gɛt fɔ du wit am],\nɔ [{{fullurl:{{FULLPAGENAME}}|akshɔn=ɛdit}} mek dis pej]</span> .",
 	"noarticletext-nopermission": "Naw no tɛks nɔ de na dis pej.\nYu kin [[Special:Search/{{PAGENAME}}|search fɔ dis pej taytul]] na ɔda pej dɛn,\n <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} fɛn di lɔg dɛn we gɛt fɔ du wit am],\nɔ [{{fullurl:{{FULLPAGENAME}}|akshɔn=ɛdit}} mek dis pej]</span> .",
-<<<<<<< HEAD
-	"userpage-userdoesnotexist-view": "Yuz akaunt \"$1\" nɔ rɛjista na dis wiki.",
-=======
->>>>>>> origin/1.39.7-test
 	"previewnote": "<strong>Mɛmba se dis na jɔs prɛviu.</strong> \nYu chenj dɛn nɔ dɔn pablish yet!",
 	"continue-editing": "Go na di say usay dɛn de ɛdit",
 	"editing": "De èdit $1",
@@ -705,12 +701,5 @@
 	"nstab-mainpage": "Men Pej",
 	"skin-action-protect": "Protèkt",
 	"skin-action-delete": "Delet",
-	"skin-action-move": "Muf",
-	"blockedtext-made-by": "Dɛn bin mek di blɔk wit $1.",
-	"blockedtext-reason-comment": "Di rizin we dɛn gi na <em>$1</em>",
-	"blockedtext-start-time": "Start fɔ blɔk: $1",
-	"blockedtext-expiration-time": "Di tɛm we di blɔk go dɔn: $1",
-	"blockedtext-intended-blockee": "Di wan we dɛn bin want fɔ blok: $1",
-	"blockedtext-contact-blocker-admin": "Yu kin kɔntak $1 ɔ ɔda [[{{MediaWiki:Grouppage-sysop}}|administreta]] fɔ tɔk bɔt di blɔk.",
-	"blockedtext-include-details-queries": "Duya put ɔl di ditil dɛn we de ɔp pan ɛni kwɛstyɔn we yu aks."
+	"skin-action-move": "Muf"
 }

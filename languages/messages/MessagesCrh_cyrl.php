@@ -1,6 +1,8 @@
 <?php
 /** Crimean Tatar (Cyrillic script) (къырымтатарджа (Кирилл))
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  */

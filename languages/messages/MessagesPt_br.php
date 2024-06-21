@@ -1,6 +1,8 @@
 <?php
 /** Brazilian Portuguese (português do Brasil)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  *
@@ -184,7 +186,6 @@ $specialPageAliases = [
 	'Randomredirect'            => [ 'Redirecionamento_aleatório' ],
 	'Recentchanges'             => [ 'Mudanças_recentes', 'Recentes' ],
 	'Recentchangeslinked'       => [ 'Mudanças_relacionadas', 'Novidades_relacionadas' ],
-	'Renameuser'                => [ 'Renomear_utilizador', 'Renomear_usuário' ],
 	'Revisiondelete'            => [ 'Eliminar_edição', 'Eliminar_revisão', 'Apagar_edição', 'Apagar_revisão' ],
 	'Search'                    => [ 'Busca', 'Buscar', 'Procurar', 'Pesquisar', 'Pesquisa' ],
 	'Shortpages'                => [ 'Páginas_curtas', 'Artigos_curtos' ],

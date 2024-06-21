@@ -1,5 +1,7 @@
 <?php
 /**
+ * Resource locking handling.
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -16,13 +18,12 @@
  * http://www.gnu.org/copyleft/gpl.html
  *
  * @file
+ * @ingroup LockManager
  */
 
 /**
- * Simple lock management based on in-process reference counting.
- *
+ * Simple version of LockManager that only does lock reference counting
  * @since 1.19
- * @ingroup LockManager
  */
 class NullLockManager extends LockManager {
 	protected function doLock( array $paths, $type ) {

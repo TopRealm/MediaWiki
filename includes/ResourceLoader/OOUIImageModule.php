@@ -102,6 +102,9 @@ class OOUIImageModule extends ImageModule {
 		// Find the path to the JSON file which contains the actual image definitions for this theme
 		if ( $module ) {
 			$dataPath = $this->getThemeImagesPath( $theme, $module );
+			if ( !$dataPath ) {
+				return [];
+			}
 		} else {
 			// Backwards-compatibility for things that probably shouldn't have used this class...
 			$dataPath =

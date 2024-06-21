@@ -1,6 +1,8 @@
 <?php
 /** Uzbek (oʻzbekcha)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  *

@@ -21,8 +21,6 @@
  * @ingroup SpecialPage
  */
 
-use MediaWiki\Html\FormOptions;
-use MediaWiki\Html\Html;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserOptionsLookup;
@@ -319,8 +317,6 @@ class SpecialRecentChanges extends ChangesListSpecialPage {
 	 * Add required values to a query's $tables, $fields, $joinConds, and $conds arrays to join to
 	 * the watchlist and watchlist_expiry tables where appropriate.
 	 *
-	 * SpecialRecentChangesLinked should also be updated accordingly when something changed here.
-	 *
 	 * @param IDatabase $dbr
 	 * @param string[] &$tables
 	 * @param string[] &$fields
@@ -378,8 +374,7 @@ class SpecialRecentChanges extends ChangesListSpecialPage {
 			$conds,
 			$join_conds,
 			$query_options,
-			$tagFilter,
-			$opts['inverttags']
+			$tagFilter
 		);
 
 		if ( !$this->runMainQueryHook( $tables, $fields, $conds, $query_options, $join_conds,
@@ -399,9 +394,9 @@ class SpecialRecentChanges extends ChangesListSpecialPage {
 
 		// Workaround for T298225: MySQL's lack of awareness of LIMIT when
 		// choosing the join order.
-		$ctTableName = ChangeTags::DISPLAY_TABLE_ALIAS;
+		$ctTableName = ChangeTags::getDisplayTableName();
 		if ( isset( $join_conds[$ctTableName] )
-			&& $this->isDenseTagFilter( $conds["$ctTableName.ct_tag_id"] ?? [], $opts['limit'] )
+			&& $this->isDenseTagFilter( $conds['ct_tag_id'] ?? [], $opts['limit'] )
 		) {
 			$join_conds[$ctTableName][0] = 'STRAIGHT_JOIN';
 		}
@@ -503,7 +498,8 @@ class SpecialRecentChanges extends ChangesListSpecialPage {
 
 	protected function getDB() {
 		if ( !$this->db ) {
-			$this->db = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_REPLICA );
+			$this->db = $this->loadBalancer->getConnectionRef(
+				ILoadBalancer::DB_REPLICA, 'recentchanges' );
 		}
 		return $this->db;
 	}
@@ -798,20 +794,15 @@ class SpecialRecentChanges extends ChangesListSpecialPage {
 	 */
 	public function getExtraOptions( $opts ) {
 		$opts->consumeValues( [
-			'namespace', 'invert', 'associated', 'tagfilter', 'inverttags'
+			'namespace', 'invert', 'associated', 'tagfilter'
 		] );
 
 		$extraOpts = [];
 		$extraOpts['namespace'] = $this->namespaceFilterForm( $opts );
 
 		$tagFilter = ChangeTags::buildTagFilterSelector(
-			$opts['tagfilter'], false, $this->getContext()
-		);
+			$opts['tagfilter'], false, $this->getContext() );
 		if ( count( $tagFilter ) ) {
-			$tagFilter[1] .= ' ' . Html::rawElement( 'span', [ 'class' => [ 'mw-input-with-label' ] ],
-				Xml::checkLabel(
-					$this->msg( 'invert' )->text(), 'inverttags', 'inverttags', $opts['inverttags'] )
-			);
 			$extraOpts['tagfilter'] = $tagFilter;
 		}
 

@@ -4,7 +4,7 @@ namespace MediaWiki\Api\Validator;
 
 use ApiBase;
 use ApiUsageException;
-use MediaWiki\Html\Html;
+use Html;
 use Wikimedia\ParamValidator\TypeDef\EnumDef;
 
 /**

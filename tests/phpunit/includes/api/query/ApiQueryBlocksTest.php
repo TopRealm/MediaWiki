@@ -20,7 +20,7 @@ class ApiQueryBlocksTest extends ApiTestCase {
 	];
 
 	public function testExecute() {
-		[ $data ] = $this->doApiRequest( [
+		list( $data ) = $this->doApiRequest( [
 			'action' => 'query',
 			'list' => 'blocks',
 		] );
@@ -40,7 +40,7 @@ class ApiQueryBlocksTest extends ApiTestCase {
 
 		$this->getServiceContainer()->getDatabaseBlockStore()->insertBlock( $block );
 
-		[ $data ] = $this->doApiRequest( [
+		list( $data ) = $this->doApiRequest( [
 			'action' => 'query',
 			'list' => 'blocks',
 		] );
@@ -69,7 +69,7 @@ class ApiQueryBlocksTest extends ApiTestCase {
 
 		$this->getServiceContainer()->getDatabaseBlockStore()->insertBlock( $block );
 
-		[ $data ] = $this->doApiRequest( [
+		list( $data ) = $this->doApiRequest( [
 			'action' => 'query',
 			'list' => 'blocks',
 		] );
@@ -140,7 +140,7 @@ class ApiQueryBlocksTest extends ApiTestCase {
 		] );
 
 		// Test without requesting restrictions.
-		[ $data ] = $this->doApiRequest( [
+		list( $data ) = $this->doApiRequest( [
 			'action' => 'query',
 			'list' => 'blocks',
 		] );
@@ -154,7 +154,7 @@ class ApiQueryBlocksTest extends ApiTestCase {
 		$this->assertArrayNotHasKey( 'restrictions', $data['query']['blocks'][0] );
 
 		// Test requesting the restrictions.
-		[ $data ] = $this->doApiRequest( [
+		list( $data ) = $this->doApiRequest( [
 			'action' => 'query',
 			'list' => 'blocks',
 			'bkprop' => 'id|user|expiry|restrictions'

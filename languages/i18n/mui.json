@@ -111,10 +111,6 @@
 	"permalink": "Gentolan ajek",
 	"print": "Citak",
 	"view": "Selik",
-<<<<<<< HEAD
-	"viewcontribs": "Selik sumbangan",
-=======
->>>>>>> origin/1.39.7-test
 	"skin-view-view": "Baco",
 	"skin-view-foreign": "Selik di $1",
 	"edit": "Dandan",
@@ -131,11 +127,6 @@
 	"skin-action-unprotect": "Robah alingan",
 	"unprotect": "Robah alingan",
 	"newpage": "Karangan anyar",
-<<<<<<< HEAD
-	"newpage-desc": "Gawek karangan anyar pekaro setuo yang la dimintak.",
-	"view-missing-pages": "Selik karangan tependep",
-=======
->>>>>>> origin/1.39.7-test
 	"talkpagelinktext": "ngomong",
 	"specialpage": "Karangan hos",
 	"personaltools": "Peranti dewek",
@@ -620,10 +611,6 @@
 	"bad_image_list": "Formatnyo sebagai berikut:\n\nCuman butir daftar (baris yang diawali dengen tando *) yang diperhitungke.\nPranala pertamo di suatu baris haruslah pranala ke berkas yang buruk.\nPranala-pranala selanjutnyo di baris yang samo dianggep sebagai pengecualian, yaitu halaman yang pacak nampilke berkas tersebut.",
 	"metadata": "Metadata",
 	"metadata-help": "Berkas ni punyo keterangan imbuhan yang pacak baé diimbuhke oleh kamera digital apo pemindai yang dipakék untuk mbuat apo ngedigitalisasi berkas. Kalu berkas ini elah terobah, rincian yang ado mungkén idak nian-nian nunjukke keterangan dari gambar yang elah dimodip ni.",
-<<<<<<< HEAD
-	"metadata-fields": "Galo-galo bidang metadata gambar yang ado di jero pesen ni kageknyo dimelokke ke selekan karangan gambar tabel amen metadatanyo disingitke.\nData laen kagek pacak nyingit dewek.\n* make \n* model \n* datetimeoriginal \n* exposuretime \n* fnumber \n* isospeedratings \n* focallength \n* artist \n* copyright \n* imagedescription \n* gpslatitude \n* gpslongitude \n* gpsaltitude \n* dc-rights \n* copyrightowner \n* usageterms \n* webstatement \n* licenseurl \n* attributionurl \n* preferredattributionname \n* credit \n* jpegfilecomment \n* pngfilecomment \n* giffilecomment \n* usercomment \n* citydest \n* citycreated \n* headline \n* source \n* locationdest \n* dc-contributor \n* dc-coverage \n* dc-publisher \n* dc-relation \n* label \n* nickname \n* personinimage \n* disclaimer \n* event \n* objectname",
-=======
->>>>>>> origin/1.39.7-test
 	"namespacesall": "galo-galo",
 	"monthsall": "galo-galo",
 	"imgmultigo": "Laju!",

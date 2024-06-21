@@ -87,6 +87,7 @@ phpunit.xml
 .phan/local-config.php
 
 # Composer
+/vendor
 /composer.lock
 /composer.local.json
 /composer.phar

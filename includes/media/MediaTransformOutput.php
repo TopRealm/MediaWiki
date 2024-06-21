@@ -190,19 +190,17 @@ abstract class MediaTransformOutput {
 	public function getLocalCopyPath() {
 		if ( $this->isError() ) {
 			return false;
-		}
-
-		if ( $this->path === null ) {
+		} elseif ( $this->path === null ) {
 			return $this->file->getLocalRefPath(); // assume thumb was not scaled
-		}
-		if ( FileBackend::isStoragePath( $this->path ) ) {
+		} elseif ( FileBackend::isStoragePath( $this->path ) ) {
 			$be = $this->file->getRepo()->getBackend();
 			// The temp file will be process cached by FileBackend
 			$fsFile = $be->getLocalReference( [ 'src' => $this->path ] );
 
 			return $fsFile ? $fsFile->getPath() : false;
+		} else {
+			return $this->path; // may return false
 		}
-		return $this->path; // may return false
 	}
 
 	/**
@@ -215,15 +213,14 @@ abstract class MediaTransformOutput {
 	public function streamFileWithStatus( $headers = [] ) {
 		if ( !$this->path ) {
 			return Status::newFatal( 'backend-fail-stream', '<no path>' );
-		}
-		if ( FileBackend::isStoragePath( $this->path ) ) {
+		} elseif ( FileBackend::isStoragePath( $this->path ) ) {
 			$be = $this->file->getRepo()->getBackend();
 			return Status::wrap(
 				$be->streamFile( [ 'src' => $this->path, 'headers' => $headers ] ) );
+		} else { // FS-file
+			$success = StreamFile::stream( $this->getLocalCopyPath(), $headers );
+			return $success ? Status::newGood() : Status::newFatal( 'backend-fail-stream', $this->path );
 		}
-		// FS-file
-		$success = StreamFile::stream( $this->getLocalCopyPath(), $headers );
-		return $success ? Status::newGood() : Status::newFatal( 'backend-fail-stream', $this->path );
 	}
 
 	/**
@@ -248,13 +245,15 @@ abstract class MediaTransformOutput {
 	protected function linkWrap( $linkAttribs, $contents ) {
 		if ( isset( $linkAttribs['href'] ) ) {
 			return Xml::tags( 'a', $linkAttribs, $contents );
+		} else {
+			$parserEnableLegacyMediaDOM = MediaWikiServices::getInstance()
+				->getMainConfig()->get( MainConfigNames::ParserEnableLegacyMediaDOM );
+			if ( $parserEnableLegacyMediaDOM ) {
+				return $contents;
+			} else {
+				return Xml::tags( 'span', $linkAttribs ?: null, $contents );
+			}
 		}
-		$parserEnableLegacyMediaDOM = MediaWikiServices::getInstance()
-			->getMainConfig()->get( MainConfigNames::ParserEnableLegacyMediaDOM );
-		if ( $parserEnableLegacyMediaDOM ) {
-			return $contents;
-		}
-		return Xml::tags( 'span', $linkAttribs ?: null, $contents );
 	}
 
 	/**

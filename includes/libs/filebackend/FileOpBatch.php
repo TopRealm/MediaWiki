@@ -87,6 +87,7 @@ class FileOpBatch {
 			// Update list of affected paths in this batch
 			$curBatchDeps = $fileOp->applyDependencies( $curBatchDeps );
 			// Simulate performing the operation...
+			$oldPredicates = $predicates;
 			$subStatus = $fileOp->precheck( $predicates ); // updates $predicates
 			$status->merge( $subStatus );
 			if ( !$subStatus->isOK() ) {

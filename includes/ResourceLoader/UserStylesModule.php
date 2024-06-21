@@ -35,6 +35,7 @@ use TitleValue;
 class UserStylesModule extends WikiModule {
 
 	protected $origin = self::ORIGIN_USER_INDIVIDUAL;
+	protected $targets = [ 'desktop', 'mobile' ];
 
 	/**
 	 * @param Context $context

@@ -20,7 +20,8 @@
 
 namespace MediaWiki\Page;
 
-use MediaWiki\Title\Title;
+use MovePage;
+use Title;
 
 /**
  * Service for page rename actions.

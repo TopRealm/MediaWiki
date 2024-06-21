@@ -21,7 +21,6 @@
  * @ingroup SpecialPage
  */
 
-use MediaWiki\Title\Title;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IResultWrapper;
 
@@ -60,7 +59,7 @@ abstract class ImageQueryPage extends QueryPage {
 				$namespace = $row->namespace ?? NS_FILE;
 				$title = Title::makeTitleSafe( $namespace, $row->title );
 				if ( $title instanceof Title && $title->getNamespace() === NS_FILE ) {
-					$gallery->add( $title, $this->getCellHtml( $row ), '', '', [], ImageGalleryBase::LOADING_LAZY );
+					$gallery->add( $title, $this->getCellHtml( $row ) );
 				}
 				if ( $i === $num ) {
 					break;

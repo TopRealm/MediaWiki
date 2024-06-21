@@ -1,7 +1,5 @@
 <?php
 
-use MediaWiki\Html\FormOptions;
-
 /**
  * An individual filter in a ChangesListStringOptionsFilterGroup.
  *

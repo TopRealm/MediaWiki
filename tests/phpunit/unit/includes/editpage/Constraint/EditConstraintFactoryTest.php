@@ -31,7 +31,6 @@ use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Logger\Spi;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Permissions\PermissionManager;
-use MediaWiki\Title\Title;
 use Psr\Log\NullLogger;
 
 /**

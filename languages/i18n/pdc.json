@@ -683,10 +683,5 @@
 	"special-characters-group-ipa": "IPA",
 	"skin-action-protect": "Schitze",
 	"skin-action-delete": "Verwische",
-	"skin-action-move": "Ziehe",
-	"renameuser": "Naame vum Yuuser ennere",
-	"renameuserold": "Current Yuusernaame:",
-	"renameusernew": "Nei Yuuser-Naame",
-	"renameuserreason": "Grund:",
-	"renameuserwarnings": "Warninge:"
+	"skin-action-move": "Ziehe"
 }

@@ -3,9 +3,7 @@
 use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Auth\AuthenticationResponse;
 use MediaWiki\Auth\AuthManager;
-use MediaWiki\Language\RawMessage;
 use MediaWiki\Logger\LoggerFactory;
-use MediaWiki\Request\DerivativeRequest;
 use MediaWiki\Session\Token;
 
 /**
@@ -87,11 +85,11 @@ abstract class AuthManagerSpecialPage extends SpecialPage {
 	 */
 	protected function setRequest( array $data, $wasPosted = null ) {
 		$request = $this->getContext()->getRequest();
-		$this->savedRequest = new DerivativeRequest(
-			$request,
-			$data + $request->getQueryValues(),
-			$wasPosted ?? $request->wasPosted()
-		);
+		if ( $wasPosted === null ) {
+			$wasPosted = $request->wasPosted();
+		}
+		$this->savedRequest = new DerivativeRequest( $request, $data + $request->getQueryValues(),
+			$wasPosted );
 	}
 
 	/**
@@ -615,7 +613,7 @@ abstract class AuthManagerSpecialPage extends SpecialPage {
 	 * @return bool
 	 */
 	protected function hasOwnSubmitButton( AuthenticationRequest $req ) {
-		foreach ( $req->getFieldInfo() as $info ) {
+		foreach ( $req->getFieldInfo() as $field => $info ) {
 			if ( $info['type'] === 'button' ) {
 				return true;
 			}
@@ -630,7 +628,7 @@ abstract class AuthManagerSpecialPage extends SpecialPage {
 	 */
 	protected function addTabIndex( &$formDescriptor ) {
 		$i = 1;
-		foreach ( $formDescriptor as &$definition ) {
+		foreach ( $formDescriptor as $field => &$definition ) {
 			$class = false;
 			if ( array_key_exists( 'class', $definition ) ) {
 				$class = $definition['class'];

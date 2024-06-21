@@ -31,7 +31,6 @@ require_once __DIR__ . '/../../includes/export/WikiExporter.php';
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Settings\SettingsBuilder;
-use MediaWiki\WikiMap\WikiMap;
 use Wikimedia\Rdbms\IMaintainableDatabase;
 use Wikimedia\Rdbms\LoadBalancer;
 
@@ -248,7 +247,7 @@ abstract class BackupDumper extends Maintenance {
 					if ( count( $split ) !== 2 ) {
 						$this->fatalError( 'Invalid output parameter' );
 					}
-					[ $type, $file ] = $split;
+					list( $type, $file ) = $split;
 					if ( $sink !== null ) {
 						$sinks[] = $sink;
 					}

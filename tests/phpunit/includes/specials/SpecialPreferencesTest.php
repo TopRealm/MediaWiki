@@ -8,8 +8,6 @@
 
 use MediaWiki\MainConfigNames;
 use MediaWiki\MainConfigSchema;
-use MediaWiki\Request\FauxRequest;
-use MediaWiki\Title\Title;
 use MediaWiki\User\UserOptionsLookup;
 
 /**

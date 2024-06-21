@@ -11,13 +11,14 @@ namespace MediaWiki\Hook;
  */
 interface RecentChangesPurgeRowsHook {
 	/**
-	 * This hook is called by RecentChangesUpdateJob when expired recentchanges rows are deleted, after
-	 * deleting those rows but within the same database transaction.
+	 * This hook is called when old recentchanges rows are purged, after
+	 * deleting those rows but within the same transaction.
 	 *
 	 * @since 1.35
+	 *
 	 * @param \stdClass[] $rows Deleted rows as an array of recentchanges row objects (with up to
 	 *   $wgUpdateRowsPerQuery items)
-	 * @return void This hook must not abort, it must return no value
+	 * @return bool|void True or no return value to continue or false to abort
 	 */
-	public function onRecentChangesPurgeRows( $rows ): void;
+	public function onRecentChangesPurgeRows( $rows );
 }

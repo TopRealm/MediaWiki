@@ -28,8 +28,6 @@
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\HookContainer\HookRunner;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Search\TitleMatcher;
-use MediaWiki\Title\Title;
 
 /**
  * Contain a class for special pages
@@ -259,23 +257,24 @@ abstract class SearchEngine {
 
 	/**
 	 * Get service class to finding near matches.
-	 *
-	 * @return TitleMatcher
-	 * @deprecated since 1.40, use MediaWikiServices::getInstance()->getTitleMatcher()
+	 * @param Config $config Configuration to use for the matcher.
+	 * @return SearchNearMatcher
 	 */
 	public function getNearMatcher( Config $config ) {
-		return MediaWikiServices::getInstance()->getTitleMatcher();
+		return new SearchNearMatcher( $config,
+			MediaWikiServices::getInstance()->getContentLanguage(),
+			$this->getHookContainer()
+		);
 	}
 
 	/**
 	 * Get near matcher for default SearchEngine.
-	 *
-	 * @return TitleMatcher
-	 * @deprecated since 1.40, MediaWikiServices::getInstance()->getTitleMatcher()
+	 * @return SearchNearMatcher
 	 */
 	protected static function defaultNearMatcher() {
-		wfDeprecated( __METHOD__, '1.40' );
-		return MediaWikiServices::getInstance()->getTitleMatcher();
+		$services = MediaWikiServices::getInstance();
+		$config = $services->getMainConfig();
+		return $services->newSearchEngine()->getNearMatcher( $config );
 	}
 
 	/**

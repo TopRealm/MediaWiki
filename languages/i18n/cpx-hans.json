@@ -101,10 +101,6 @@
 	"permalink": "固定链接",
 	"print": "拍印",
 	"view": "查看",
-<<<<<<< HEAD
-	"viewcontribs": "看奉献",
-=======
->>>>>>> origin/1.39.7-test
 	"skin-view-view": "读",
 	"skin-view-foreign": "伫$1许看",
 	"edit": "修改",
@@ -294,10 +290,6 @@
 	"anontalkpagetext": "----\n<em>者是蜀個复未创建账户或者毋拼创建账户兮匿名用户兮讨论页</em>\n因此我辈那会用IP地址来合伊联系。\n者個IP地址可能有几個用户齐使用。\n那卜汝是蜀個匿名用户，复认为者页内兮留言合汝无关系，请[[Special:CreateAccount|创建新账户]]或者[[Special:UserLogin|跞入]]，避免以后合其他匿名用户混淆。",
 	"noarticletext": "者个页面中央今无内容。汝可以伫其他页面中央[[Special:Search/{{PAGENAME}}|𢶀𢶀者蜀个标题]]、<span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} 𢶀𢶀相关兮日誌]或者[{{fullurl:{{FULLPAGENAME}}|action=edit}} 创建这蜀个页面]</span>。",
 	"noarticletext-nopermission": "者個页面中央今无内容。\n汝可以伫其他页面中央[[Special:Search/{{PAGENAME}}|𢶀𢶀者蜀個标题]]或者<span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} 𢶀𢶀相关兮日志]</span>，但是汝无权限创建者蜀個页面。",
-<<<<<<< HEAD
-	"userpage-userdoesnotexist-view": "用户账号“$1”复未注册伫者个wiki。",
-=======
->>>>>>> origin/1.39.7-test
 	"previewnote": "<strong>者复那是预览。</strong>汝兮修改复未发布！",
 	"continue-editing": "继续修改",
 	"editing": "修改$1",

@@ -6,7 +6,6 @@ use MediaWiki\MainConfigNames;
 use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\Parser\ParserCacheFactory;
 use MediaWiki\Parser\RevisionOutputCache;
-use MediaWiki\Title\TitleFactory;
 use Psr\Log\NullLogger;
 
 /**

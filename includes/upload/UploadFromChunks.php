@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Request\WebRequestUpload;
 
 /**
  * Backend for uploading files from chunks.
@@ -50,8 +49,8 @@ class UploadFromChunks extends UploadFromFile {
 	 * Setup local pointers to stash, repo and user (similar to UploadFromStash)
 	 *
 	 * @param User $user
-	 * @param UploadStash|false $stash Default: false
-	 * @param FileRepo|false $repo Default: false
+	 * @param UploadStash|bool $stash Default: false
+	 * @param FileRepo|bool $repo Default: false
 	 */
 	public function __construct( User $user, $stash = false, $repo = false ) {
 		$this->user = $user;
@@ -364,7 +363,11 @@ class UploadFromChunks extends UploadFromFile {
 	}
 
 	private function getChunkFileKey( $index = null ) {
-		return $this->mFileKey . '.' . ( $index ?? $this->getChunkIndex() );
+		if ( $index === null ) {
+			$index = $this->getChunkIndex();
+		}
+
+		return $this->mFileKey . '.' . $index;
 	}
 
 	/**

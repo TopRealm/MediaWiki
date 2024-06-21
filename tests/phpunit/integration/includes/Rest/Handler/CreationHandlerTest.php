@@ -4,6 +4,7 @@ namespace MediaWiki\Tests\Rest\Handler;
 
 use ApiUsageException;
 use HashConfig;
+use MediaWiki\Content\IContentHandlerFactory;
 use MediaWiki\Rest\Handler\CreationHandler;
 use MediaWiki\Rest\LocalizedHttpException;
 use MediaWiki\Rest\RequestData;
@@ -34,12 +35,16 @@ class CreationHandlerTest extends MediaWikiIntegrationTestCase {
 			'RightsText' => 'CC-BY-SA 4.0'
 		] );
 
-		// Claims that wikitext and plaintext are defined, but trying to get the actual
-		// content handlers would break
-		$contentHandlerFactory = $this->getDummyContentHandlerFactory( [
-			CONTENT_MODEL_WIKITEXT => true,
-			CONTENT_MODEL_TEXT => true,
-		] );
+		/** @var IContentHandlerFactory|MockObject $contentHandlerFactory */
+		$contentHandlerFactory =
+			$this->createNoOpMock( IContentHandlerFactory::class, [ 'isDefinedModel' ] );
+
+		$contentHandlerFactory
+			->method( 'isDefinedModel' )
+			->willReturnMap( [
+				[ CONTENT_MODEL_WIKITEXT, true ],
+				[ CONTENT_MODEL_TEXT, true ],
+			] );
 
 		// DummyServicesTrait::getDummyMediaWikiTitleCodec
 		$titleCodec = $this->getDummyMediaWikiTitleCodec();
@@ -300,7 +305,7 @@ class CreationHandlerTest extends MediaWikiIntegrationTestCase {
 
 		$handler = $this->newHandler( $actionResult, null, $csrfSafe );
 
-		$response = $this->executeHandler( $handler, $request, [], [], [], [], null, $this->getSession( $csrfSafe ) );
+		$response = $this->executeHandler( $handler, $request, [], [], [], [], null, $csrfSafe );
 
 		$this->assertSame( 201, $response->getStatusCode() );
 		$this->assertSame(

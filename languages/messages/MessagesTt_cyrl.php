@@ -1,6 +1,8 @@
 <?php
 /** Tatar (Cyrillic script) (татарча)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  *

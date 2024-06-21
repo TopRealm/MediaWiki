@@ -21,8 +21,6 @@
  * @ingroup Search
  */
 
-use MediaWiki\Title\Title;
-
 /**
  * NOTE: this class is being refactored into an abstract base class.
  * If you extend this class directly, please implement all the methods declared

@@ -56,9 +56,6 @@ class LinksDeletionUpdateTest extends MediaWikiLangTestCase {
 		$po->addTemplate( new TitleValue( NS_TEMPLATE, '!' ), 1, 1 );
 
 		$linksUpdate = new LinksUpdate( $title, $po, false );
-		$linksUpdate->setTransactionTicket(
-			$this->getServiceContainer()->getDBLoadBalancerFactory()->getEmptyTransactionTicket( __METHOD__ )
-		);
 		$linksUpdate->doUpdate();
 
 		$tables = [
@@ -77,9 +74,6 @@ class LinksDeletionUpdateTest extends MediaWikiLangTestCase {
 		}
 
 		$linksDeletionUpdate = new LinksDeletionUpdate( $wikiPage, $id );
-		$linksDeletionUpdate->setTransactionTicket(
-			$this->getServiceContainer()->getDBLoadBalancerFactory()->getEmptyTransactionTicket( __METHOD__ )
-		);
 		$linksDeletionUpdate->doUpdate();
 
 		foreach ( $tables as $table => $fromField ) {

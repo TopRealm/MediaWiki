@@ -32,7 +32,7 @@ class SwiftFileBackendFileList extends SwiftFileBackendList {
 	 */
 	#[\ReturnTypeWillChange]
 	public function current() {
-		[ $path, $stat ] = current( $this->bufferIter );
+		list( $path, $stat ) = current( $this->bufferIter );
 		$relPath = substr( $path, $this->suffixStart );
 		if ( is_array( $stat ) ) {
 			$storageDir = rtrim( $this->params['dir'], '/' );

@@ -27,7 +27,6 @@ use MediaWiki\Cache\LinkBatchFactory;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageReference;
-use MediaWiki\Title\Title;
 use MediaWiki\User\ActorNormalization;
 use Wikimedia\Rdbms\ILoadBalancer;
 
@@ -65,9 +64,6 @@ class LogPager extends ReverseChronologicalPager {
 	/** @var string */
 	private $mTagFilter;
 
-	/** @var bool */
-	private $mTagInvert;
-
 	/** @var LogEventsList */
 	public $mLogEventsList;
 
@@ -93,20 +89,21 @@ class LogPager extends ReverseChronologicalPager {
 	 * @param LinkBatchFactory|null $linkBatchFactory
 	 * @param ILoadBalancer|null $loadBalancer
 	 * @param ActorNormalization|null $actorNormalization
-	 * @param bool $tagInvert whether tags are filtered for (false) or out (true)
 	 */
 	public function __construct( $list, $types = [], $performer = '', $page = '',
 		$pattern = false, $conds = [], $year = false, $month = false, $day = false,
 		$tagFilter = '', $action = '', $logId = 0,
 		LinkBatchFactory $linkBatchFactory = null,
 		ILoadBalancer $loadBalancer = null,
-		ActorNormalization $actorNormalization = null,
-		$tagInvert = false
+		ActorNormalization $actorNormalization = null
 	) {
-		parent::__construct( $list->getContext() );
-
 		$services = MediaWikiServices::getInstance();
+		// Set database before parent constructor to avoid setting it there with wfGetDB
+		$this->mDb = ( $loadBalancer ?? $services->getDBLoadBalancer() )
+			->getConnectionRef( ILoadBalancer::DB_REPLICA, 'logpager' );
+		parent::__construct( $list->getContext() );
 		$this->mConds = $conds;
+
 		$this->mLogEventsList = $list;
 
 		// Class is used directly in extensions - T266480
@@ -121,7 +118,6 @@ class LogPager extends ReverseChronologicalPager {
 		$this->limitAction( $action );
 		$this->getDateCond( $year, $month, $day );
 		$this->mTagFilter = (string)$tagFilter;
-		$this->mTagInvert = (bool)$tagInvert;
 	}
 
 	public function getDefaultQuery() {
@@ -270,7 +266,7 @@ class LogPager extends ReverseChronologicalPager {
 		if ( $this->types == [ 'rights' ] ) {
 			$parts = explode( $interwikiDelimiter, $page->getDBkey() );
 			if ( count( $parts ) == 2 ) {
-				[ $name, $database ] = array_map( 'trim', $parts );
+				list( $name, $database ) = array_map( 'trim', $parts );
 				if ( strstr( $database, '*' ) ) { // Search for wildcard in database name
 					$doUserRightsLogLike = true;
 				}
@@ -381,7 +377,7 @@ class LogPager extends ReverseChronologicalPager {
 		} elseif ( array_key_exists( 'log_actor', $this->mConds ) ) {
 			// Optimizer doesn't pick the right index when a user has lots of log actions (T303089)
 			$index = 'log_actor_time';
-			foreach ( $this->getFilterParams() as $hide ) {
+			foreach ( $this->getFilterParams() as $type => $hide ) {
 				if ( !$hide ) {
 					$index = 'log_actor_type_time';
 					break;
@@ -412,7 +408,7 @@ class LogPager extends ReverseChronologicalPager {
 		];
 		# Add ChangeTags filter query
 		ChangeTags::modifyDisplayQuery( $info['tables'], $info['fields'], $info['conds'],
-			$info['join_conds'], $info['options'], $this->mTagFilter, $this->mTagInvert );
+			$info['join_conds'], $info['options'], $this->mTagFilter );
 
 		return $info;
 	}
@@ -430,7 +426,7 @@ class LogPager extends ReverseChronologicalPager {
 	}
 
 	public function getIndexField() {
-		return [ [ 'log_timestamp', 'log_id' ] ];
+		return 'log_timestamp';
 	}
 
 	protected function getStartBody() {
@@ -500,12 +496,15 @@ class LogPager extends ReverseChronologicalPager {
 		return $this->mTagFilter;
 	}
 
-	public function getTagInvert() {
-		return $this->mTagInvert;
-	}
-
 	public function getAction() {
 		return $this->action;
+	}
+
+	public function doQuery() {
+		// Workaround MySQL optimizer bug
+		$this->mDb->setBigSelects();
+		parent::doQuery();
+		$this->mDb->setBigSelects( 'default' );
 	}
 
 	/**

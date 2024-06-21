@@ -9,14 +9,14 @@ use MediaWiki;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Request\WebResponse;
 use MediaWiki\Rest\BasicAccess\CompoundAuthorizer;
 use MediaWiki\Rest\BasicAccess\MWBasicAuthorizer;
 use MediaWiki\Rest\Reporter\MWErrorReporter;
 use MediaWiki\Rest\Validator\Validator;
-use MediaWiki\Title\Title;
 use MWExceptionRenderer;
 use RequestContext;
+use Title;
+use WebResponse;
 use Wikimedia\Message\ITextFormatter;
 
 class EntryPoint {
@@ -34,21 +34,16 @@ class EntryPoint {
 	private static $mainRequest;
 
 	/**
-	 * @param MediaWikiServices $services
 	 * @param IContextSource $context
 	 * @param RequestInterface $request
 	 * @param ResponseFactory $responseFactory
 	 * @param CorsUtils $cors
-	 *
 	 * @return Router
 	 */
 	private static function createRouter(
-		MediaWikiServices $services,
-		IContextSource $context,
-		RequestInterface $request,
-		ResponseFactory $responseFactory,
-		CorsUtils $cors
+		IContextSource $context, RequestInterface $request, ResponseFactory $responseFactory, CorsUtils $cors
 	): Router {
+		$services = MediaWikiServices::getInstance();
 		$conf = $services->getMainConfig();
 
 		$authority = $context->getAuthority();
@@ -63,11 +58,6 @@ class EntryPoint {
 			$authority
 		);
 
-<<<<<<< HEAD
-		$stats = $services->getStatsdDataFactory();
-
-=======
->>>>>>> origin/1.39.7-test
 		return ( new Router(
 			self::getRouteFiles( $conf ),
 			ExtensionRegistry::getInstance()->getAttribute( 'RestRoutes' ),
@@ -81,9 +71,7 @@ class EntryPoint {
 			new MWErrorReporter(),
 			$services->getHookContainer(),
 			$context->getRequest()->getSession()
-		) )
-			->setCors( $cors )
-			->setStats( $stats );
+		) )->setCors( $cors );
 	}
 
 	/**
@@ -126,7 +114,7 @@ class EntryPoint {
 
 		$request = self::getMainRequest();
 
-		$router = self::createRouter( $services, $context, $request, $responseFactory, $cors );
+		$router = self::createRouter( $context, $request, $responseFactory, $cors );
 
 		$entryPoint = new self(
 			$context,

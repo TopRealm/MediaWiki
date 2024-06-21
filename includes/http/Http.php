@@ -30,17 +30,16 @@ class Http {
 	/**
 	 * Perform an HTTP request
 	 *
-	 * @deprecated since 1.34, use HttpRequestFactory::request(). Hard-deprecated since 1.40.
+	 * @deprecated since 1.34, use HttpRequestFactory::request()
 	 *
 	 * @param string $method HTTP method. Usually GET/POST
 	 * @param string $url Full URL to act on. If protocol-relative, will be expanded to an http:// URL
 	 * @param array $options Options to pass to MWHttpRequest object. See HttpRequestFactory::create
 	 *  docs
 	 * @param string $caller The method making this request, for profiling
-	 * @return string|false
+	 * @return string|bool (bool)false on failure or a string on success
 	 */
 	public static function request( $method, $url, array $options = [], $caller = __METHOD__ ) {
-		wfDeprecated( __METHOD__, '1.34' );
 		$ret = MediaWikiServices::getInstance()->getHttpRequestFactory()->request(
 			$method, $url, $options, $caller );
 		return is_string( $ret ) ? $ret : false;
@@ -49,7 +48,7 @@ class Http {
 	/**
 	 * Simple wrapper for Http::request( 'GET' )
 	 *
-	 * @deprecated since 1.34, use HttpRequestFactory::get(). Hard-deprecated since 1.40.
+	 * @deprecated since 1.34, use HttpRequestFactory::get()
 	 *
 	 * @since 1.25 Second parameter $timeout removed. Second parameter
 	 * is now $options which can be given a 'timeout'
@@ -57,10 +56,9 @@ class Http {
 	 * @param string $url
 	 * @param array $options
 	 * @param string $caller The method making this request, for profiling
-	 * @return string|false false on error
+	 * @return string|bool false on error
 	 */
 	public static function get( $url, array $options = [], $caller = __METHOD__ ) {
-		wfDeprecated( __METHOD__, '1.34' );
 		$args = func_get_args();
 		if ( isset( $args[1] ) && ( is_string( $args[1] ) || is_numeric( $args[1] ) ) ) {
 			// Second was used to be the timeout
@@ -77,26 +75,24 @@ class Http {
 	/**
 	 * Simple wrapper for Http::request( 'POST' )
 	 *
-	 * @deprecated since 1.34, use HttpRequestFactory::post(). Hard-deprecated since 1.40.
+	 * @deprecated since 1.34, use HttpRequestFactory::post()
 	 *
 	 * @param string $url
 	 * @param array $options
 	 * @param string $caller The method making this request, for profiling
-	 * @return string|false false on error
+	 * @return string|bool false on error
 	 */
 	public static function post( $url, array $options = [], $caller = __METHOD__ ) {
-		wfDeprecated( __METHOD__, '1.34' );
 		return self::request( 'POST', $url, $options, $caller );
 	}
 
 	/**
 	 * A standard user-agent we can use for external requests.
 	 *
-	 * @deprecated since 1.34, use HttpRequestFactory::getUserAgent(). Hard-deprecated since 1.40.
+	 * @deprecated since 1.34, use HttpRequestFactory::getUserAgent()
 	 * @return string
 	 */
 	public static function userAgent() {
-		wfDeprecated( __METHOD__, '1.34' );
 		return MediaWikiServices::getInstance()->getHttpRequestFactory()->getUserAgent();
 	}
 
@@ -112,12 +108,11 @@ class Http {
 	 *
 	 * @todo FIXME this is wildly inaccurate and fails to actually check most stuff
 	 *
-	 * @deprecated since 1.34, use MWHttpRequest::isValidURI. Hard-deprecated since 1.40.
+	 * @deprecated since 1.34, use MWHttpRequest::isValidURI
 	 * @param string $uri URI to check for validity
 	 * @return bool
 	 */
 	public static function isValidURI( $uri ) {
-		wfDeprecated( __METHOD__, '1.34' );
 		return MWHttpRequest::isValidURI( $uri );
 	}
 

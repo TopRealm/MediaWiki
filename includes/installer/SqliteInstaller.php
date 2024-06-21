@@ -23,7 +23,7 @@
 
 use MediaWiki\MediaWikiServices;
 use Wikimedia\AtEase\AtEase;
-use Wikimedia\Rdbms\DatabaseFactory;
+use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\DatabaseSqlite;
 use Wikimedia\Rdbms\DBConnectionError;
 
@@ -110,7 +110,12 @@ class SqliteInstaller extends DatabaseInstaller {
 	 * @return string
 	 */
 	private static function realpath( $path ) {
-		return realpath( $path ) ?: $path;
+		$result = realpath( $path );
+		if ( !$result ) {
+			return $path;
+		}
+
+		return $result;
 	}
 
 	/**
@@ -254,7 +259,7 @@ class SqliteInstaller extends DatabaseInstaller {
 
 		# Create the l10n cache DB
 		try {
-			$conn = ( new DatabaseFactory() )->create(
+			$conn = Database::factory(
 				'sqlite', [ 'dbname' => "{$db}_l10n_cache", 'dbDirectory' => $dir ] );
 			# @todo: don't duplicate l10n_cache definition, though it's very simple
 			$sql =
@@ -275,7 +280,7 @@ EOT;
 
 		# Create the job queue DB
 		try {
-			$conn = ( new DatabaseFactory() )->create(
+			$conn = Database::factory(
 				'sqlite', [ 'dbname' => "{$db}_jobqueue", 'dbDirectory' => $dir ] );
 			# @todo: don't duplicate job definition, though it's very static
 			$sql =

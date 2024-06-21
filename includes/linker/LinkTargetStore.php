@@ -123,7 +123,11 @@ class LinkTargetStore implements LinkTargetLookup {
 	 */
 	public function getLinkTargetId( LinkTarget $linkTarget ): ?int {
 		// allow cache to be used, because if it is in the cache, it already has a linktarget id
-		return $this->getLinkTargetIdFromCache( $linkTarget ) ?: null;
+		$existingLinktargetId = $this->getLinkTargetIdFromCache( $linkTarget );
+		if ( $existingLinktargetId ) {
+			return $existingLinktargetId;
+		}
+		return null;
 	}
 
 	/**
@@ -230,10 +234,6 @@ class LinkTargetStore implements LinkTargetLookup {
 		$this->byTitleCache = [];
 	}
 
-	/**
-	 * @param LinkTarget $linkTarget
-	 * @return int|false
-	 */
 	private function getLinkTargetIdFromCache( LinkTarget $linkTarget ) {
 		$linkTargetString = (string)$linkTarget;
 		if ( isset( $this->byTitleCache[$linkTargetString] ) ) {
@@ -263,7 +263,13 @@ class LinkTargetStore implements LinkTargetLookup {
 							],
 							$fname
 						);
-						return $row && $row->lt_id ? (int)$row->lt_id : false;
+
+						if ( !$row || !$row->lt_id ) {
+							// Don't store in cache
+							return false;
+						}
+
+						return (int)$row->lt_id;
 					}
 				);
 			}

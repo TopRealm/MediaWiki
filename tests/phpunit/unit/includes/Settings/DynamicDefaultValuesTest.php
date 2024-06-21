@@ -9,7 +9,7 @@ use MediaWiki\Settings\DynamicDefaultValues;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \MediaWiki\Settings\DynamicDefaultValuesTest
+ * @covers \MediaWiki\Settings\DynamicDefauoltValuesTest
  */
 class DynamicDefaultValuesTest extends TestCase {
 

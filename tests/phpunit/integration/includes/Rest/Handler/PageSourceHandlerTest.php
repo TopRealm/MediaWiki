@@ -2,8 +2,9 @@
 
 namespace MediaWiki\Tests\Rest\Handler;
 
+use BagOStuff;
 use Exception;
-use MediaWiki\MainConfigNames;
+use HashConfig;
 use MediaWiki\Rest\Handler\PageSourceHandler;
 use MediaWiki\Rest\LocalizedHttpException;
 use MediaWiki\Rest\RequestData;
@@ -19,7 +20,6 @@ use WikiPage;
  */
 class PageSourceHandlerTest extends MediaWikiIntegrationTestCase {
 	use HandlerTestTrait;
-	use PageHandlerTestTrait;
 
 	private const WIKITEXT = 'Hello \'\'\'World\'\'\'';
 
@@ -36,19 +36,25 @@ class PageSourceHandlerTest extends MediaWikiIntegrationTestCase {
 			'text',
 			'content'
 		];
-
-		$this->overrideConfigValues( [
-			MainConfigNames::RightsUrl => 'https://example.com/rights',
-			MainConfigNames::RightsText => 'some rights',
-		] );
 	}
 
 	/**
+	 * @param BagOStuff|null $cache
 	 * @return PageSourceHandler
 	 * @throws Exception
 	 */
-	private function newHandler(): PageSourceHandler {
-		return $this->newPageSourceHandler();
+	private function newHandler( BagOStuff $cache = null ): PageSourceHandler {
+		$handler = new PageSourceHandler(
+			new HashConfig( [
+				'RightsUrl' => 'https://example.com/rights',
+				'RightsText' => 'some rights',
+			] ),
+			$this->getServiceContainer()->getRevisionLookup(),
+			$this->getServiceContainer()->getTitleFormatter(),
+			$this->getServiceContainer()->getPageStore()
+		);
+
+		return $handler;
 	}
 
 	public function testExecuteBare() {

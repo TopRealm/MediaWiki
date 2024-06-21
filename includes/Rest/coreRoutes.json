@@ -21,8 +21,7 @@
 			"DBLoadBalancer",
 			"MainWANObjectCache",
 			"PageStore",
-			"ActorMigration",
-			"TitleFormatter"
+			"ActorMigration"
 		]
 	},
 	{
@@ -37,7 +36,10 @@
 		"path": "/v1/revision/{id}",
 		"class": "MediaWiki\\Rest\\Handler\\RevisionSourceHandler",
 		"services": [
-			"PageRestHelperFactory"
+			"MainConfig",
+			"RevisionLookup",
+			"TitleFormatter",
+			"PageStore"
 		],
 		"format": "source"
 	},
@@ -45,7 +47,13 @@
 		"path": "/v1/revision/{id}/html",
 		"class": "MediaWiki\\Rest\\Handler\\RevisionHTMLHandler",
 		"services": [
-			"PageRestHelperFactory"
+			"MainConfig",
+			"RevisionLookup",
+			"TitleFormatter",
+			"PageStore",
+			"ParsoidOutputStash",
+			"StatsdDataFactory",
+			"ParsoidOutputAccess"
 		],
 		"format": "html"
 	},
@@ -53,7 +61,13 @@
 		"path": "/v1/revision/{id}/with_html",
 		"class": "MediaWiki\\Rest\\Handler\\RevisionHTMLHandler",
 		"services": [
-			"PageRestHelperFactory"
+			"MainConfig",
+			"RevisionLookup",
+			"TitleFormatter",
+			"PageStore",
+			"ParsoidOutputStash",
+			"StatsdDataFactory",
+			"ParsoidOutputAccess"
 		],
 		"format": "with_html"
 	},
@@ -61,7 +75,10 @@
 		"path": "/v1/revision/{id}/bare",
 		"class": "MediaWiki\\Rest\\Handler\\RevisionSourceHandler",
 		"services": [
-			"PageRestHelperFactory"
+			"MainConfig",
+			"RevisionLookup",
+			"TitleFormatter",
+			"PageStore"
 		],
 		"format": "bare"
 	},
@@ -72,7 +89,6 @@
 			"MainConfig",
 			"SearchEngineFactory",
 			"SearchEngineConfig",
-			"SearchResultThumbnailProvider",
 			"PermissionManager",
 			"RedirectLookup",
 			"PageStore",
@@ -87,7 +103,6 @@
 			"MainConfig",
 			"SearchEngineFactory",
 			"SearchEngineConfig",
-			"SearchResultThumbnailProvider",
 			"PermissionManager",
 			"RedirectLookup",
 			"PageStore",
@@ -110,9 +125,10 @@
 		"path": "/v1/page/{title}",
 		"class": "MediaWiki\\Rest\\Handler\\PageSourceHandler",
 		"services": [
+			"MainConfig",
+			"RevisionLookup",
 			"TitleFormatter",
-			"RedirectStore",
-			"PageRestHelperFactory"
+			"PageStore"
 		],
 		"format": "source"
 	},
@@ -120,9 +136,10 @@
 		"path": "/v1/page/{title}/bare",
 		"class": "MediaWiki\\Rest\\Handler\\PageSourceHandler",
 		"services": [
+			"MainConfig",
+			"RevisionLookup",
 			"TitleFormatter",
-			"RedirectStore",
-			"PageRestHelperFactory"
+			"PageStore"
 		],
 		"format": "bare"
 	},
@@ -130,9 +147,13 @@
 		"path": "/v1/page/{title}/html",
 		"class": "MediaWiki\\Rest\\Handler\\PageHTMLHandler",
 		"services": [
+			"MainConfig",
+			"RevisionLookup",
 			"TitleFormatter",
-			"RedirectStore",
-			"PageRestHelperFactory"
+			"PageStore",
+			"ParsoidOutputStash",
+			"StatsdDataFactory",
+			"ParsoidOutputAccess"
 		],
 		"format": "html"
 	},
@@ -140,9 +161,13 @@
 		"path": "/v1/page/{title}/with_html",
 		"class": "MediaWiki\\Rest\\Handler\\PageHTMLHandler",
 		"services": [
+			"MainConfig",
+			"RevisionLookup",
 			"TitleFormatter",
-			"RedirectStore",
-			"PageRestHelperFactory"
+			"PageStore",
+			"ParsoidOutputStash",
+			"StatsdDataFactory",
+			"ParsoidOutputAccess"
 		],
 		"format": "with_html"
 	},
@@ -150,7 +175,7 @@
 		"path": "/v1/page/{title}/links/media",
 		"class": "MediaWiki\\Rest\\Handler\\MediaLinksHandler",
 		"services": [
-			"DBLoadBalancerFactory",
+			"DBLoadBalancer",
 			"RepoGroup",
 			"PageStore"
 		]

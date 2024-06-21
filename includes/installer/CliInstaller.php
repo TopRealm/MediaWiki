@@ -239,11 +239,7 @@ class CliInstaller extends Installer {
 
 	public function endStage( $step, $status ) {
 		$this->showStatusMessage( $status );
-		if ( $status->isOK() ) {
-			$this->showMessage( 'config-install-step-done' );
-		} else {
-			$this->showError( 'config-install-step-failed' );
-		}
+		$this->showMessage( 'config-install-step-done' );
 	}
 
 	public function showMessage( $msg, ...$params ) {

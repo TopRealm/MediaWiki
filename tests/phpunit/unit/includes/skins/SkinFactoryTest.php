@@ -1,15 +1,17 @@
 <?php
 
-use MediaWiki\Tests\Unit\DummyServicesTrait;
+use Psr\Container\ContainerInterface;
+use Wikimedia\ObjectFactory\ObjectFactory;
 
 /**
  * @covers SkinFactory
  */
 class SkinFactoryTest extends \MediaWikiUnitTestCase {
-	use DummyServicesTrait;
 
-	private function createSkinFactory( $services = [], $options = [] ): SkinFactory {
-		$objectFactory = $this->getDummyObjectFactory( $services );
+	private function createSkinFactory( $service = null, $options = [] ): SkinFactory {
+		$objectFactory = $service
+			? new ObjectFactory( $service )
+			: new ObjectFactory( $this->createMock( ContainerInterface::class ) );
 
 		return new SkinFactory( $objectFactory, $options );
 	}
@@ -70,10 +72,13 @@ class SkinFactoryTest extends \MediaWikiUnitTestCase {
 
 	public function testMakeSkinWithValidSpec() {
 		$serviceInstance = (object)[];
-		$services = [ 'testservice' => $serviceInstance ];
+
+		$serviceContainer = $this->createMock( ContainerInterface::class );
+		$serviceContainer->method( 'has' )->willReturn( true );
+		$serviceContainer->method( 'get' )->willReturn( $serviceInstance );
 
 		$args = [];
-		$factory = $this->createSkinFactory( $services );
+		$factory = $this->createSkinFactory( $serviceContainer );
 		$factory->register( 'testfallback', 'TestFallback', [
 			'factory' => static function ( $service, $options ) use ( &$args ) {
 				$args = [ $service, $options ];
@@ -128,7 +133,7 @@ class SkinFactoryTest extends \MediaWikiUnitTestCase {
 	}
 
 	public function testGetAllowedSkins() {
-		$sf = $this->createSkinFactory( [], [ 'quux' ] );
+		$sf = $this->createSkinFactory( null, [ 'quux' ] );
 		$sf->register( 'foo', 'Foo', [] );
 		$sf->register( 'apioutput', 'ApiOutput', [], true );
 

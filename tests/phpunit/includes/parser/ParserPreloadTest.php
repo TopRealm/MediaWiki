@@ -1,7 +1,5 @@
 <?php
 
-use MediaWiki\Title\Title;
-
 /**
  * Basic tests for Parser::getPreloadText
  * @author Antoine Musso

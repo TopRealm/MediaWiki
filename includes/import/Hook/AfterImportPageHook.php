@@ -3,7 +3,7 @@
 namespace MediaWiki\Hook;
 
 use ForeignTitle;
-use MediaWiki\Title\Title;
+use Title;
 
 /**
  * This is a hook handler interface, see docs/Hooks.md.

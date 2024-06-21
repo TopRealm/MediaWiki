@@ -3,8 +3,6 @@
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\Revision\RevisionRecord;
-use MediaWiki\Title\Title;
-use MediaWiki\WikiMap\WikiMap;
 
 require_once __DIR__ . '/Maintenance.php';
 

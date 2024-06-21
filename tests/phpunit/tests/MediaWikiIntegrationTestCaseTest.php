@@ -3,8 +3,8 @@
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
-use MediaWiki\Title\Title;
 use PHPUnit\Framework\AssertionFailedError;
 use Psr\Log\LoggerInterface;
 use Wikimedia\Rdbms\LoadBalancer;
@@ -337,7 +337,6 @@ class MediaWikiIntegrationTestCaseTest extends MediaWikiIntegrationTestCase {
 
 		// Make an untracked DB_PRIMARY connection
 		$lb = $this->getServiceContainer()->getDBLoadBalancerFactory()->newMainLB();
-		// Need a Database where the DB domain changes during table cloning
 		$db = $lb->getConnectionInternal( DB_PRIMARY );
 
 		$this->assertNotSame( $this->db, $db );
@@ -548,9 +547,10 @@ class MediaWikiIntegrationTestCaseTest extends MediaWikiIntegrationTestCase {
 	public function assertEditPage( $expected, $page, $content ) {
 		$status = $this->editPage( $page, $content );
 		$this->assertStatusOK( $status );
-		$this->assertNotNull( $status->getNewRevision() );
+		$this->assertNotNull( $status->getValue()['revision-record'] );
 
-		$rev = $status->getNewRevision();
+		/** @var RevisionRecord $rev */
+		$rev = $status->getValue()['revision-record'];
 		$cnt = $rev->getContent( SlotRecord::MAIN );
 
 		$this->assertSame( $expected, $cnt->serialize() );

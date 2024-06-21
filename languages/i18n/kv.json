@@ -2,21 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Comp1089",
-			"Enye Lav",
 			"Yufereff",
 			"ОйЛ",
-<<<<<<< HEAD
-			"Merrahtar",
-			"Amire80",
-			"Марина",
-			"СерМар",
-=======
 			"Enye Lav",
 			"Merrahtar",
 			"Amire80",
 			"СерМар",
 			"Марина",
->>>>>>> origin/1.39.7-test
 			"Albertoleoncio",
 			"Mićadźoridź"
 		]
@@ -98,20 +90,6 @@
 	"october": "йирым тӧлысь",
 	"november": "вӧльгым тӧлысь",
 	"december": "ӧшым тӧлысь",
-<<<<<<< HEAD
-	"january-gen": "тӧвшӧр",
-	"february-gen": "урасьӧм",
-	"march-gen": "рака т.",
-	"april-gen": "косму",
-	"may-gen": "ода-кора",
-	"june-gen": "лӧддза-номъя",
-	"july-gen": "сора т.",
-	"august-gen": "моз т.",
-	"september-gen": "кӧч т.",
-	"october-gen": "йирым",
-	"november-gen": "вӧльгым",
-	"december-gen": "ӧшым",
-=======
 	"january-gen": "тӧвшӧр тӧлысь",
 	"february-gen": "урасьӧм тӧлысь",
 	"march-gen": "рака тӧлысь",
@@ -124,7 +102,6 @@
 	"october-gen": "йирым тӧлысь",
 	"november-gen": "вӧльгым тӧлысь",
 	"december-gen": "ӧшым тӧлысь",
->>>>>>> origin/1.39.7-test
 	"jan": "твш",
 	"feb": "урс",
 	"mar": "ркт",
@@ -191,10 +168,6 @@
 	"permalink": "Вежласьтӧм ыстӧг",
 	"print": "Печать",
 	"view": "Видзӧдны",
-<<<<<<< HEAD
-	"viewcontribs": "Видзӧдлыны пуктӧм пай",
-=======
->>>>>>> origin/1.39.7-test
 	"skin-view-view": "Лыддьыны",
 	"skin-view-foreign": "Видзӧдны $1",
 	"edit": "Вежны",
@@ -211,8 +184,6 @@
 	"skin-action-unprotect": "Вежны дорйӧг",
 	"unprotect": "Вежны дорйӧг",
 	"newpage": "Выль лист бок",
-	"newpage-desc": "Восьтӧй выль лист бок корсян тема серти.",
-	"view-missing-pages": "Видзӧдлыны абутӧм лист бокъяс",
 	"talkpagelinktext": "сёрнитанін",
 	"specialpage": "Торъя мога лист бок",
 	"personaltools": "Аспом инструментъяс",
@@ -483,10 +454,7 @@
 	"nocookieslogin": "{{SITENAME}} вӧдитчӧ cookie файлъясӧн, медым пырӧдчысьяс вермисны пырны системаӧ. Тіян cookie файлъяс тупкӧмаӧсь. Пӧжалуйста, восьтӧй найӧс да видлӧй нӧшта ӧтчыдысь.",
 	"nocookiesfornew": "Пырӧдчысьлы аккаунт эз ло лӧсьӧдӧма, сы вӧсна мый эгӧ вермӧй эскӧдны сылысь ӧшмӧссӧ. Видзӧдлӧй, восьсаӧсь-ӧ cookie файлъяс, да видлӧй нӧшта ӧтчыдысь.",
 	"createacct-loginerror": "Аккаунтыс лои лӧсьӧдӧма, но автоматическӧя пырны системаӧ эз артмы. Пӧжалуйста, вуджӧй [[Special:UserLogin|киӧн пасйӧдчӧм]].",
-<<<<<<< HEAD
-=======
 	"createacct-temp-warning": "Недырся аккаунт пыр вӧчӧм вежӧмъясыс оз вуджны тіян пырся аккаунтӧ.",
->>>>>>> origin/1.39.7-test
 	"noname": "Абу индӧма пырӧдчысьлысь позяна ним.",
 	"loginsuccesstitle": "Пырӧма",
 	"loginsuccess": "<strong>Ті ӧні уджаланныд {{SITENAME}} кыдз \"$1\".</strong>",
@@ -661,10 +629,6 @@
 	"summary-preview": "Водзвыв видзӧдлыны вежӧмъяссӧ:",
 	"previewerrortext": "Вежӧмъяссӧ водзвыв видзӧдлігӧн лоис сорсьӧм.",
 	"blockedtitle": "Пырӧдчысьсӧ блокируйтӧма",
-<<<<<<< HEAD
-	"blockedtext-partial": "<strong>Тайӧс оз позь вӧчны тіян пасйӧдчан нимсянь либӧ IP адрессянь. Но ті важ моз верманныд вӧчны мукӧдтор, шуам, вежлавны торъя лист бокъяс.</strong>\n\nБлокируйтӧм йылысь паськыдджык юӧр верманныд лыддьыны татысь[[Special:MyContributions|аккаунтлӧн пай]].\n\n{{int:blockedtext-made-by|$1}}\n\n{{int:blockedtext-reason-comment|$2}}.\n\n*{{int:blockedtext-start-time|$8}}\n*{{int:blockedtext-expiration-time|$6}}\n*{{int:blockedtext-intended-blockee|$7}}\n\n*{{int:blockedtext-block-id|$5}}",
-=======
->>>>>>> origin/1.39.7-test
 	"blockednoreason": "помкаыс абу индӧма",
 	"blockedtext-composite-ids": "Блокируйтӧмлы лӧсялана идентификатор:$1 (тіян IP адресыс сідзжӧ вермас лоны тайӧ блокируйтан лыддьӧгас)",
 	"blockedtext-composite-no-ids": "Тіянлӧн IP адрес эм некымын блокируйтан лыддьӧгын",
@@ -686,11 +650,6 @@
 	"missing-revision-permission": "#$1 версияыс бырӧдӧм лист боклӧн. Ті верманныд [{{fullurl:{{#Special:Undelete}}|target=$3&timestamp=$2&diff=prev}} видзӧдлыны сійӧс]; стӧчджыка позьӧ видзӧдлыны [{{fullurl:{{#Special:Log}}/delete|page=$3}} бырӧдан журнал].",
 	"missing-revision": "\"{{FULLPAGENAME}}\" лист боклӧн #$1 версияыс абу.\nПырджык тадзи овлӧ, кор пыранныд важмӧм ыстӧг серти бырӧдӧм лист бокӧ.\nСтӧчджыка позьӧ видзӧдлыны [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} бырӧдан журнал].",
 	"missing-revision-content": "Эз артмы пыртӧдны \"$2\" лист боклысь #$1 версиясӧ.",
-<<<<<<< HEAD
-	"userpage-userdoesnotexist": "\"$1\" пырӧдчысьлӧн аккаунтыс тайӧ викиын абу.\nПӧжалуйста, мӧвпыштӧй, збыль-ӧ ті кӧсъянныд лӧсьӧдны либӧ вежны тайӧ лист боксӧ.",
-	"userpage-userdoesnotexist-view": "$1 пырӧдчысьлӧн аккаунтыс абу пасйӧма тайӧ викиын.",
-=======
->>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "Тайӧ {{GENDER:$1|пырӧдчысь}} ӧні блокируйтӧма.\nУлынджык сетӧма блокируйтан журналысь бӧръя гижӧдсӧ:",
 	"clearyourcache": "<strong>Пасйӧд:</strong> Вермас лоны, мый йӧзӧдӧм бӧрын тіянлы ковмас весавны браузерлысь кэшсӧ, медым аддзыны вежӧмъяссӧ.\n* <strong>Firefox / Safari:</strong> Кутны <em>Shift</em>  <em>Reload</em> личкигӧн, либӧ личкыны <em>Ctrl-F5</em> или <em>Ctrl-R</em> (<em>⌘-R</em> Mac вылын)\n* <strong>Google Chrome:</strong> Личкыны <em>Ctrl-Shift-R</em> (<em>⌘-Shift-R</em> Mac вылын)\n* <strong>Internet Explorer / Edge:</strong> Кутны <em>Ctrl</em> <em>Refresh</em> личкигӧн, либӧ личкыны <em>Ctrl-F5</em>\n* <strong>Opera:</strong> Личкыны <em>Ctrl-F5</em>.",
 	"usercssyoucanpreview": "<strong>Вӧзйӧм:</strong> Вӧдитчӧй \"{{int:showpreview}}\" кнопкаӧн, медым видлыны ассьыныд выль CSS файл йӧзӧдӧм водзын.",
@@ -890,16 +849,8 @@
 	"revdelete-hide-comment": "Вежӧмъяссӧ гӧгӧрвоӧдӧм",
 	"revdelete-hide-user": "Редакторлӧн пасйӧдчан ним/IP адрес",
 	"revdelete-hide-restricted": "Дзебны мыччӧдъяссӧ администраторысь да мукӧдысь",
-<<<<<<< HEAD
-	"revdelete-radio-same": "Оз ков вежны",
 	"revdelete-radio-set": "Сайӧдӧм",
 	"revdelete-radio-unset": "Тыдалана",
-	"revdelete-radio-set-suppress": "Дзебны",
-	"revdelete-radio-unset-suppress": "Оз ков дзебны",
-=======
-	"revdelete-radio-set": "Сайӧдӧм",
-	"revdelete-radio-unset": "Тыдалана",
->>>>>>> origin/1.39.7-test
 	"revdelete-suppress": "Дзебны мыччӧдъяссӧ администраторысь да мукӧдысь",
 	"revdelete-unsuppress": "Киритны тыдалӧм серти дзескӧдӧмъяс бӧр вайӧдӧм версияяысь",
 	"revdelete-log": "Помка:",
@@ -964,10 +915,6 @@
 	"lineno": "Визь $1:",
 	"compareselectedversions": "Орччӧдны бӧрйӧм версияяссӧ",
 	"showhideselectedversions": "Бӧрйӧм версияяслысь тыдалӧмсӧ вежӧм",
-<<<<<<< HEAD
-	"showhideselectedfileversions": "Вежны тыдалӧмсӧ бӧрйӧм версияяслысь",
-=======
->>>>>>> origin/1.39.7-test
 	"editundo": "косӧдны",
 	"diff-empty": "(торъялӧмыс абу)",
 	"diff-multi-otherusers": "({{PLURAL:$1|Ӧти шӧракостса версия|$1 шӧракостса версияяс}} сійӧ жӧ {{GENDER:$2|пырӧдчысь}} абу петкӧдлӧма)",
@@ -975,11 +922,6 @@
 	"diff-paragraph-moved-tonew": "Параграфыс вӧлі пуктӧма мӧдлаӧ. Личкӧй выль инас вуджӧм могысь.",
 	"diff-paragraph-moved-toold": "Параграфыс вӧлі пуктӧма мӧдлаӧ. Личкӧй важ инас вуджӧм могысь.",
 	"difference-missing-revision": "{{PLURAL:$2|Ӧти версия|$2 версияяс}}тайӧ орччӧдӧмлы ($1) {{PLURAL:$2|эз сюр| эз сюрны}}.\n\nПырджык тадзи овлӧ, кор пыранныд важмӧм ыстӧг серти бырӧдӧм лист бокӧ.\nСтӧчджыка позьӧ видзӧдлыны [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} бырӧдан журнал].",
-<<<<<<< HEAD
-	"difference-bad-old-revision": "Важъя версиялӧн контентыс абу либӧ жугӧдӧма.",
-	"difference-bad-new-revision": "Выль версиялӧн контентыс абу либӧ жугӧдӧма.",
-=======
->>>>>>> origin/1.39.7-test
 	"searchresults": "Корсигӧн сюрӧма",
 	"search-filter-title-prefix": "Корсьны сӧмын лист бокъясын, кӧні юрнимыс заводитчӧ \"$1\"-сянь",
 	"search-filter-title-prefix-reset": "Корсьны став лист боксӧ",
@@ -1019,10 +961,6 @@
 	"search-relatedarticle": "Йитчӧм",
 	"search-invalid-sort-order": "$1-ын дорвыв тэчӧм ладыс абу тӧдмалӧма, дорвыв тэчӧмыс лоас вӧчӧма висьтавтӧг.\nДорвыв тэчӧм вылӧ позяна корӧмъяс: $2",
 	"search-unknown-profile": "$1 корсьӧмлӧн профильыс абу тӧдмалӧма, корсьӧм профильыс лоас вӧчӧма висьтавтӧг.",
-<<<<<<< HEAD
-	"search-thumbnail-alt": "$1-лы миниатюра",
-=======
->>>>>>> origin/1.39.7-test
 	"searchrelated": "йитчӧм",
 	"searchall": "ставыс",
 	"showingresultsinrange": "Улынджык петкӧдлӧма татчӧдз: {{PLURAL:$1|<strong>1</strong> гижӧд|<strong>$1</strong> гижӧдъяс}}, #<strong>$2</strong> заводитӧмӧн да #<strong>$3</strong> помасьӧмӧн.",
@@ -1072,11 +1010,6 @@
 	"prefs-email": "Электрон пошталӧн параметръяс",
 	"prefs-rendering": "Ортсыладор",
 	"prefs-searchmisc": "Ӧтувъя",
-<<<<<<< HEAD
-	"searchprefs": "Корсьны ладмӧданінъясын",
-	"searchprefs-noresults": "Немтор абу аддзӧма",
-=======
->>>>>>> origin/1.39.7-test
 	"saveprefs": "Видзны",
 	"restoreprefs": "Бӧр вайӧдны висьтавтӧг став ладмӧдӧмсӧ",
 	"prefs-editing": "Вежӧм",
@@ -1084,17 +1017,6 @@
 	"recentchangesdays": "Бӧръя вежӧмъясын петкӧдлан лунъяс:",
 	"recentchangesdays-max": "$1-ысь абу унджык: {{PLURAL:$1|лун}}",
 	"recentchangescount": "Выль вежӧмъяслӧн лыддьӧгын, лист бокъяслӧн историяын да журналъясын висьтавтӧг петкӧдлӧм  вежӧмъяслӧн лыд:",
-<<<<<<< HEAD
-	"prefs-back-title": "Бергӧдчыны ладмӧданінӧ",
-	"prefs-description-personal": "Видзӧдӧй, кыдзи ті петкӧдчанныд асланыд профильын, кыдзи йитчанныд да сёрнитанныд-гижасянныд.",
-	"prefs-description-rendering": "Ладмӧдны ортсыладор темасӧ, ыдждасӧ да лыддьысян параметръяссӧ.",
-	"prefs-description-editing": "Ладмӧдӧй, кыдзи ті пыртанныд, видзӧданныд да видлаланныд вежӧмъяссӧ.",
-	"prefs-description-rc": "Ладмӧдӧй бӧръя вежӧмъяссӧ петкӧдланногсӧ.",
-	"prefs-description-watchlist": "Веськӧдлӧй да пасъялӧй видзӧдана лист бокъяслысь лыддьӧг.",
-	"prefs-description-searchoptions": "Бӧрйӧй, кутшӧм лоас автоматическӧя тыртӧмыс да удж бӧртасыс.",
-	"prefs-description-misc": "Ладмӧдӧй юриндалысьсӧ.",
-=======
->>>>>>> origin/1.39.7-test
 	"prefs-help-recentchangescount": "Медуна лыд: 1000",
 	"prefs-help-watchlist-token2": "Тайӧ тіян видзӧдана лыддьӧга веб-каналсӧ гуся восьтан.\nБыдӧн, коді тӧдӧ сійӧс, вермӧ лыддьыны тіянлысь видзӧдана лыддьӧгсӧ, та вӧсна некодлы энӧ юӧртӧй сійӧс.\nКолӧ кӧ, [[Special:ResetTokens|верманныд чӧвтны сійӧс]].",
 	"prefs-help-tokenmanagement": "Ті верманныд видзӧдлыны да чӧвтны гуся восьтан асланыд аккаунтлы. Сійӧ сетӧ позянлун тӧдмасьны тіян видзӧдана лыддьӧга веб-каналӧн.\nБыдӧн, коді тӧдӧ сійӧс, вермӧ лыддьыны тіянлысь видзӧдана лыддьӧгсӧ, та вӧсна некодкӧд энӧ юксьӧй сыӧн.",
@@ -1109,10 +1031,6 @@
 	"timezoneuseserverdefault": "Вӧдитчыны wikiӧн висьтавтӧг ($1)",
 	"timezoneuseoffset": "Мукӧд (UTC-сянь кад вешйӧм)",
 	"timezone-useoffset-placeholder": "Видлӧг:  \"-07:00\" либӧ \"01:00\"",
-<<<<<<< HEAD
-	"timezone-invalid": "Шогмытӧм час кытш либӧ шогмытӧм кад вешйӧм.",
-=======
->>>>>>> origin/1.39.7-test
 	"servertime": "Сервер кад:",
 	"guesstimezone": "Пыртны браузерысь",
 	"timezoneregion-africa": "Африка",
@@ -1299,12 +1217,6 @@
 	"right-suppressrevision": "Лист боклысь сайӧдӧм версияяс видзӧдлӧм, сайӧдӧм да бӧр вайӧдӧм",
 	"right-viewsuppressed": "Став мукӧд пырӧдчысьысь сайӧдӧм версияяс видзӧдлӧм",
 	"right-suppressionlog": "Асторъя журналъяс видзӧдлӧм",
-<<<<<<< HEAD
-	"right-block": "Мукӧд пырӧдчысьлы мыйкӧ вежны позянлун блокируйтӧм либӧ восьтӧм",
-	"right-blockemail": "Пырӧдчысьлы электрон поштаӧн вӧдитчыны позянлун блокируйтӧм либӧ восьтӧм",
-	"right-hideuser": "Пасйӧдчан нимсӧ, сійӧс сайӧдӧм либӧ мукӧд пырӧдчысьлы петкӧдлӧм блокируйтӧм либӧ восьтӧм",
-=======
->>>>>>> origin/1.39.7-test
 	"right-ipblock-exempt": "IP серти блокируйтӧмъяс, автоблокируйтӧмъяс да диапазон блокируйтӧмъяс кытшовтӧм",
 	"right-unblockself": " Асьсӧ восьтӧм",
 	"right-protect": "Дорйӧг ладмӧдӧмъяс вежӧм да каскадӧн дорйӧм лист бокъяс вежӧм",
@@ -1325,10 +1237,6 @@
 	"right-viewmywatchlist": "Ас видзӧдана лыддьӧг видзӧдлӧм",
 	"right-editmywatchlist": "Ас видзӧдана лыддьӧг вежӧм (босьтӧй тӧд вылӧ, мый мукӧд вӧчӧмторъясыс кутасны содтыны татчӧ лист бокъяссӧ татшӧм инӧдтӧг)",
 	"right-viewmyprivateinfo": "Ас йылысь юӧр видзӧдлӧм (видлӧг вылӧ, электрон пошта инпас, збыль ним)",
-<<<<<<< HEAD
-	"right-editmyprivateinfo": "Ас йылысь юӧр вежӧм (видлӧг вылӧ, электрон пошта инпас, збыль ним) да гусякыв чӧвтӧм могысь электрон письмӧяс корӧм",
-=======
->>>>>>> origin/1.39.7-test
 	"right-editmyoptions": "Ас ладмӧдӧмъяс вежӧм",
 	"right-rollback": "Бӧръя пырӧдчысьлысь, коді вежис торъя лист боксӧ, вежӧмъяссӧ ӧдйӧ косӧдӧм",
 	"right-markbotedits": "Пасйыны косӧдӧм вежӧмъяссӧ ботлӧн вежӧмъясӧн",
@@ -1370,10 +1278,6 @@
 	"grant-editsiteconfig": "Вежны став сайтса да вӧдитчана CSS/JS",
 	"grant-editpage": "Вежны ӧнія лист бокъяс",
 	"grant-editprotected": "Вежны дорйӧм лист бокъяс",
-<<<<<<< HEAD
-	"grant-highvolume": "Ыджыд йӧрыша судзанлун (ботъяслы)",
-=======
->>>>>>> origin/1.39.7-test
 	"grant-import": "Версияяс пыртӧм-вайӧм",
 	"grant-mergehistory": "Ӧтувтны лист боклысь историясӧ",
 	"grant-oversight": "Сайӧдны пырӧдчысьясӧс да пӧдтыны версияяс",
@@ -1413,21 +1317,9 @@
 	"action-writeapi": "API гижӧмӧн вӧдитчӧм",
 	"action-delete": "бырӧдны тайӧ лист боксӧ",
 	"action-delete-redirect": "выльысь гижны ӧти версияа мӧдлаӧ ыстӧмъяс",
-<<<<<<< HEAD
-	"action-deleterevision": "бырӧдны и бӧр вайӧдны лист боклысь торъя версияяс",
-	"action-deletelogentry": "бырӧдны и бӧр вайӧдны журналысь торъя гижӧдъяс",
-	"action-deletedhistory": "видзӧдлыны историяын бырӧдӧм гижӧдъяс серти метамыччӧдъяссӧ",
-	"action-deletedtext": "видзӧдлыны бырӧдӧм текст да бырӧдӧм версияяскостса торъялӧмъяссӧ",
-	"action-browsearchive": "бырӧдӧм лист бокъяс корсьӧм",
-	"action-undelete": "бӧр вайӧдны лист бокъяс",
-	"action-suppressrevision": "Мукӧд пырӧдчысьлӧн лист боклысь торъя версияяс видзӧдлӧм, сайӧдӧм да бӧр вайӧдӧм",
-	"action-suppressionlog": "видзӧдлыны тайӧ асторъя журналсӧ",
-	"action-block": "пырӧдчысьлы мыйкӧ вежны позянлун блокируйтӧм либӧ восьтӧм",
-=======
 	"action-browsearchive": "бырӧдӧм лист бокъяс корсьӧм",
 	"action-undelete": "бӧр вайӧдны лист бокъяс",
 	"action-suppressionlog": "видзӧдлыны тайӧ асторъя журналсӧ",
->>>>>>> origin/1.39.7-test
 	"action-protect": "Вежны доръян ладсӧ тайӧ лист боклысь",
 	"action-rollback": "бӧръя пырӧдчысьлысь, коді вежис торъя лист боксӧ, вежӧмъяссӧ ӧдйӧ косӧдӧм",
 	"action-import": "мӧд викиысь лист бокъяс вуджӧдӧм",
@@ -1454,10 +1346,6 @@
 	"action-apihighlimits": "вӧдитчыны API корӧмъясын ыджыд лимитъясӧн",
 	"action-autoconfirmed": "IP адресса ӧд дзескӧдӧмыс оз тӧдчы",
 	"action-bigdelete": "бырӧдны кузь историяа лист бокъяс",
-<<<<<<< HEAD
-	"action-blockemail": "пырӧдчысьлы электрон поштаӧн вӧдитчыны позянлун блокируйтӧм либӧ восьтӧм",
-=======
->>>>>>> origin/1.39.7-test
 	"action-bot": "лыддьыны автоматика отсӧгӧн керӧм-вӧчӧмӧн",
 	"action-editprotected": "\"{{int:protect-level-sysop}}\" дорйӧга лист бокъяс вежӧм",
 	"action-editsemiprotected": "\"{{int:protect-level-autoconfirmed}}\" дорйӧга лист бокъяс вежӧм",
@@ -1473,10 +1361,6 @@
 	"action-editmyuserjs": "ас JavaScript файлъяс вежӧм",
 	"action-editmyuserjsredirect": "мӧдлаысь ыстӧм ас JavaScript файлъяс вежӧм",
 	"action-viewsuppressed": "став мукӧд пырӧдчысьысь сайӧдӧм версияяс видзӧдлӧм",
-<<<<<<< HEAD
-	"action-hideuser": "пасйӧдчан нимсӧ, сійӧс сайӧдӧм либӧ мукӧд пырӧдчысьлы петкӧдлӧм блокируйтӧм либӧ восьтӧм",
-=======
->>>>>>> origin/1.39.7-test
 	"action-ipblock-exempt": "IP серти блокируйтӧмъяс, автоблокируйтӧмъяс да диапазон блокируйтӧмъяс кытшовтӧм",
 	"action-unblockself": " восьтыны ачымӧс",
 	"action-noratelimit": "ӧд дзескӧдӧмыс оз тӧдчы",
@@ -1617,11 +1501,6 @@
 	"rcfilters-filter-previousrevision-label": "Абу бӧръя версия",
 	"rcfilters-filter-previousrevision-description": "Став вежӧмыс, мый оз ло \"бӧръя версияӧн\".",
 	"rcfilters-filter-excluded": "Киритӧма",
-<<<<<<< HEAD
-	"rcfilters-tag-prefix-namespace-inverted": "<strong>абу</strong> :$1",
-	"rcfilters-tag-prefix-tags-inverted": "<strong>абу</strong> #$1",
-=======
->>>>>>> origin/1.39.7-test
 	"rcfilters-exclude-button-off": "Киритны бӧрйӧмасӧ",
 	"rcfilters-exclude-button-on": "Бӧрйӧмасӧ киритӧм",
 	"rcfilters-view-tags": "Пасйӧм вежӧмъяс",
@@ -1954,10 +1833,6 @@
 	"filehist-dimensions": "Ыджда",
 	"filehist-filesize": "Файл ыджда",
 	"filehist-comment": "Пасйӧд",
-<<<<<<< HEAD
-	"filehist-missing": "файлыс абу",
-=======
->>>>>>> origin/1.39.7-test
 	"imagelinks": "Файлӧн вӧдитчӧм",
 	"linkstoimage": "Тайӧ файлын вӧдитчӧма татшӧм {{PLURAL:$1|лист бокӧн|$1 лист бокъясӧн}} :",
 	"linkstoimage-more": "$1-ысь унджык {{PLURAL:$1|лист бок вӧдитчӧ|лист бокъяс вӧдитчӧны}} тайӧ файлӧн.\nТайӧ лыддьӧгын {{PLURAL:$1|петкӧдлӧма медводдза лист бок|петкӧдлӧмаӧсь $1 медводдза лист бокъяс}}, кӧні вӧдитчӧны сӧмын тайӧ файлӧн.\nСідзжӧ позьӧ видзӧдлыны[[Special:WhatLinksHere/$2|тырвыйӧ лыддьӧг]].",
@@ -2144,10 +2019,6 @@
 	"notargettext": "Ті энӧ индӧй мога лист боксӧ либӧ тайӧс вӧчысь пырӧдчысьсӧ.",
 	"nopagetitle": "Татшӧм мога лист бок абу",
 	"nopagetext": "Индӧм мога лист бокыс абу.",
-<<<<<<< HEAD
-	"badrevision": "Тайӧ версиялӧн текстыс абу либӧ жугӧдӧма.",
-=======
->>>>>>> origin/1.39.7-test
 	"pager-newer-n": "{{PLURAL:$1|выльджык 1|выльджык $1}}",
 	"pager-older-n": "{{PLURAL:$1|важджык 1|важджык $1}}",
 	"suppress": "Сайӧдны",
@@ -2574,15 +2445,8 @@
 	"contributions": "Пуктӧм пай",
 	"tool-link-contributions": "{{GENDER:$1|Пырӧдчысь}} пай",
 	"contributions-title": "Пырӧдчысьлӧн пай $1",
-<<<<<<< HEAD
-	"contribute-title": "Пуктӧм пай",
 	"mycontris": "Вӧчӧмтор",
 	"anoncontribs": "Вӧчӧмтор",
-	"contribute": "Пай",
-=======
-	"mycontris": "Вӧчӧмтор",
-	"anoncontribs": "Вӧчӧмтор",
->>>>>>> origin/1.39.7-test
 	"contribsub2": "{{GENDER:$3|$1}} ($2)-лы",
 	"contributions-userdoesnotexist": "\"$1\" пырӧдчысьлӧн аккаунтыс абу пасйӧма.",
 	"negative-namespace-not-supported": "Соссяна вежӧртаса ним пространствояс тані оз вермыны уджавны.",
@@ -2617,10 +2481,6 @@
 	"whatlinkshere-page": "Лист бок:",
 	"linkshere": "Табӧрса лист бокъясыс ыстысьӧны <strong>$2</strong> вылӧ:",
 	"nolinkshere": "<strong>$2</strong> лист бок вылӧ абуӧсь ыстӧгъяс мукӧд лист бокысь.",
-<<<<<<< HEAD
-	"nolinkshere-filter": "Абуӧсь <strong>$2</strong> вылӧ ыстысьысь ӧнія корсьӧм ладмӧдӧмъяса лист бокъяс.",
-=======
->>>>>>> origin/1.39.7-test
 	"nolinkshere-ns": "Бӧрйӧм ним пространствоын абуӧсь лист бокъяс, кутшӧмъяс ыстысьӧны <strong>$2</strong> вылӧ.",
 	"isredirect": "мӧдлаӧ ыстана лист бок",
 	"istemplate": "пыртӧм",
@@ -2836,13 +2696,6 @@
 	"movesubpagetalktext": "Улынджык индӧма лӧсялана сёрнитан лист бокыслысь $1 {{PLURAL:$1|лист бокув}}.",
 	"movenosubpage": "Тайӧ лист боклӧн абуӧсь лист бокувъяс.",
 	"movereason": "Помка:",
-<<<<<<< HEAD
-	"moveotherreason": "Мӧд/содтӧд помка:",
-	"movereasonotherlist": "Мӧд помка",
-	"movepage-reason-dropdown": "*Пырсякодь вештан помкаяс\n**Орфография сорсьӧм юрнимын",
-	"movepage-edit-reasonlist": "Вежны мӧдлаӧ ыстан помкаяс",
-=======
->>>>>>> origin/1.39.7-test
 	"revertmove": "бӧр бергӧдны",
 	"delete_and_move_text": "\"[[:$1]]\" мога лист бокыс эм нин.\nТі кӧсъянныд сійӧс бырӧдны, медым лоис позянлун вештыны сійӧс?",
 	"delete_redirect_and_move_text": "\"[[:$1]]\" мога лист бокыс эм нин кыдз мӧдлаӧ ыстӧм.\nТі кӧсъянныд сійӧс бырӧдны, медым лоис позянлун вештыны сійӧс?",
@@ -3068,10 +2921,6 @@
 	"pageinfo-default-sort": "Висьтавтӧг дорвыв тэчан восьтан",
 	"pageinfo-length": "Лист бок кузьта (байтын)",
 	"pageinfo-namespace": "Ним пространство",
-<<<<<<< HEAD
-	"pageinfo-namespace-id": "Ним пространство ID",
-=======
->>>>>>> origin/1.39.7-test
 	"pageinfo-article-id": "Лист бок ID",
 	"pageinfo-language": "Лист боклӧн кыв",
 	"pageinfo-language-change": "вежны",
@@ -3198,10 +3047,6 @@
 	"metadata-help": "Тайӧ файлас эм цифраа камера отсӧгӧн вӧчӧм либӧ сканералӧм содтӧд юӧр. Файлсӧ кӧ вӧлі выльмӧдӧма бӧрынджык, мукӧдторйыс вермас не лӧсявны серпаслы.",
 	"metadata-expand": "Петкӧдлыны содтӧд мыччӧдъяс",
 	"metadata-collapse": "Сайӧдны содтӧд мыччӧдъяс",
-<<<<<<< HEAD
-	"metadata-fields": "Тайӧ юӧрын лыддьӧдлӧм серпас метаммычӧдъяс эрдъясыс лоасны петкӧдлӧмаӧсь серпас лист бокын саймовтӧм метамыччӧд таблича дырйи. Мукӧд эрдъясыс лоасны висьтавтӧг сайӧдӧмаӧсь.\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude\n* dc-rights\n* copyrightowner\n* usageterms\n* webstatement\n* licenseurl\n* attributionurl\n* preferredattributionname\n* credit\n* jpegfilecomment\n* pngfilecomment\n* giffilecomment\n* usercomment\n* citydest\n* citycreated\n* headline\n* source\n* locationdest\n* dc-contributor\n* dc-coverage\n* dc-publisher\n* dc-relation\n* label\n* nickname\n* personinimage\n* disclaimer\n* event\n* objectname",
-=======
->>>>>>> origin/1.39.7-test
 	"namespacesall": "ставыс",
 	"monthsall": "ставыс",
 	"confirmemail": "Эскӧдны электрон пошта инпас",
@@ -3241,10 +3086,6 @@
 	"confirm-watch-button": "Бур",
 	"confirm-watch-top": "Содтыны тайӧ лист боксӧ ас видзӧдана лыддьӧгӧ?",
 	"confirm-watch-label": "Видзӧдана лыддьӧгын кутан кадколаст:",
-<<<<<<< HEAD
-	"watchlist-expiry-options": "Пыр кежлӧ:infinite,1 вежон:1 week,1 тӧлысь:1 month,3 тӧлысь:3 months,6 тӧлысь:6 months,1 во:1 year",
-=======
->>>>>>> origin/1.39.7-test
 	"watchlist-expires-in-aria-label": "Недыр кад кежлӧ видзӧдана лыддьӧгын",
 	"confirm-watch-button-expiry": "Видзӧдны",
 	"confirm-unwatch-button": "Бур",
@@ -3359,10 +3200,6 @@
 	"version-entrypoints-header-entrypoint": "Пыранін",
 	"version-entrypoints-header-url": "URL",
 	"version-libraries": "Пуктӧм небӧгаинъяс",
-<<<<<<< HEAD
-	"version-libraries-client": "Пуктӧм клиент небӧгаинъяс",
-=======
->>>>>>> origin/1.39.7-test
 	"version-libraries-library": "Небӧгаин",
 	"version-libraries-version": "Версия",
 	"version-libraries-license": "Лицензия",
@@ -3696,13 +3533,6 @@
 	"feedback-useragent": "Браузер:",
 	"searchsuggest-search": "Корсьны {{grammar:prepositional|{{SITENAME}}}}ысь",
 	"searchsuggest-containing": "Корсьны лист бокъяс, кӧні эм",
-<<<<<<< HEAD
-	"search-match-redirect-label": "Вуджны стӧч лӧсялана корсянтор аддзигӧн",
-	"search-match-redirect-help": "Бӧрйӧй тайӧс, медым вуджны лист бокӧ, мыйлӧн юрнимыс лӧсялӧ тіян корсянторлы",
-	"search-thumbnail-extra-namespaces-label": "Петкӧдлыны миниатюрасӧ Special:Search-ын пызанвывса версияын",
-	"search-thumbnail-extra-namespaces-message": "Петкӧдлӧ аддзӧмтор миниатюраяссӧ $1 {{PLURAL:$2|ним пространстволы|ним пространствояслы}} {{#special:search}} лист бокын",
-=======
->>>>>>> origin/1.39.7-test
 	"searchlimit-label": "Быд лист бокын петкӧдлӧм могысь аддзӧмтор лыд:",
 	"searchlimit-help": "Медуна лыд: $1",
 	"api-clientside-error-noconnect": "Оз артмы йитчыны серверкӧд. Прӧверитӧй, уджалӧ-ӧ тіян ӧтуввез йитӧдыс да видлӧй выльысь.",
@@ -3807,11 +3637,6 @@
 	"json-error-invalid-property-name": "Тӧдмӧслӧн декодируйтӧм нимыс абу ина",
 	"json-error-utf16": "Абу колана ногӧн лӧсьӧдӧм UTF-16 символъяс, вермас лоны, лӧсявтӧм кодируйтӧм",
 	"headline-anchor-title": "Тайӧ юкӧн вылӧ ыстӧг",
-<<<<<<< HEAD
-	"special-tab-contribute-short": "Пай",
-	"special-tab-contributions-short": "Видзӧдлыны пуктӧм пай",
-=======
->>>>>>> origin/1.39.7-test
 	"special-characters-group-latin": "Латин",
 	"special-characters-group-latinextended": "Паськӧдӧм латин",
 	"special-characters-group-ipa": "МФА (IPA)",
@@ -4058,48 +3883,5 @@
 	"newpages-showhide-bots": "$1 бот",
 	"newpages-showhide-patrolled": "$1 прӧверитӧм вежӧмъяс",
 	"newpages-showhide-redirect": "$1 мӧдлаӧ ыстӧмъяс",
-<<<<<<< HEAD
-	"newpages-showhide-registered": "$1 пасйӧдчӧм пырӧдчысьяс",
-	"blockedtext-made-by": "Блокируйтіс $1.",
-	"blockedtext-reason-comment": "Блокируйтан помканас лои <em>$1</em>",
-	"blockedtext-start-time": "Блокируйтӧмыс заводитчис: $1",
-	"blockedtext-expiration-time": "Блокировкалӧн пом: $1",
-	"blockedtext-expiration-longest-block": "Медся кузь блокируйтан кадколастыс: $1",
-	"blockedtext-intended-blockee": "Блокируйтӧмыслӧн вермана могыс: $1",
-	"blockedtext-contact-blocker-admin": "Ті верманныд йитчыны $1-кӧд либӧ мӧдкӧд [[{{MediaWiki:Grouppage-sysop}}|администратор]], медым сёрнитны блокируйтӧм йылысь.",
-	"blockedtext-block-id": "Блокируйтӧмлӧн ID #$1.",
-	"blockedtext-include-details-queries": "Пӧжалуйста, индӧй став тайӧ юӧрсӧ асланыд быд шыӧдчӧмын.",
-	"renameuser": "Сетны выль ним пырӧдчысьлы",
-	"renameuser-linkoncontribs": "сетны выль ним {{GENDER:$1|пырӧдчысьлы}}",
-	"renameuser-linkoncontribs-text": "Сетны выль ним тайӧ {{GENDER:$1|пырӧдчысьлы}}",
-	"renameuserold": "Ӧнія пасйӧдчан ним:",
-	"renameusernew": "Выль пасйӧдчан ним:",
-	"renameuserreason": "Помка:",
-	"renameusermove": "Сетны выль ним пырӧдчысьлӧн лист боклы да сёрнитан лист боклы (да налӧн  лист бокувъяслы)",
-	"renameusersuppress": "Абу лӧсьӧдны выль нимӧ ыстӧмъяс",
-	"renameuserreserve": "Блокируйтны важ пасйӧдчан нимсӧ водзӧ вылӧ вӧдитчӧм могысь",
-	"renameuserwarnings": "Ӧлӧдӧмъяс:",
-	"renameuserconfirm": "Да, сетны выль ним пырӧдчысьлы",
-	"renameusersubmit": "Мӧдӧдны",
-	"renameusererrordoesnotexist": "\"<nowiki>$1</nowiki>\" нима пырӧдчысь абу.",
-	"renameusererrorexists": "\"<nowiki>$1</nowiki>\" нима {{GENDER:$1|пырӧдчысь}} эм нин.",
-	"renameusererrorinvalid": "\"<nowiki>$1</nowiki>\" пасйӧдчан нимыс позьтӧм.",
-	"renameuser-error-request": "Лоисны мытшӧдъяс корӧмын.\nКорам бергӧдчыны бӧр да видлыны нӧшта ӧтчыд.",
-	"renameuser-error-same-user": "Ті онӧ вермӧй сетны пырӧдчысьлы выль ним, кутшӧм вӧлі таӧдз нин.",
-	"renameusersuccess": "{{GENDER:$2|пырӧдчысьлы}} \"<nowiki>$1</nowiki>\" вӧлі сетӧма выль ним \"<nowiki>$2</nowiki>\".",
-	"renameuser-page-exists": "$1 лист бокыс эм нин и сійӧс оз позь автоматическӧя выльысь гижны.",
-	"renameuser-page-moved": "$1 лист бокыс вӧлі вештӧма $2-ӧ.",
-	"renameuser-page-unmoved": "$1 лист бокыс оз вермы лоны вештӧма $2-ӧ.",
-	"renameuser-warning-currentblock": "Тайӧ пырӧдчысьыс [$1 блокируйтӧма].",
-	"log-name-renameuser": "Пырӧдчысьлы выль ним сетан журнал",
-	"log-description-renameuser": "Тайӧ пасйӧдчан нимъяс вежан журнал.",
-	"logentry-renameuser-renameuser": "$1 {{GENDER:$2|сетіс выль ним}} $4 пырӧдчысьлы ({{PLURAL:$6|$6 вежӧм}}) {{GENDER:$7|$5}}-ын",
-	"logentry-renameuser-renameuser-legacier": "$1 {{GENDER:$2|сетіс}} $4 пырӧдчысьлы {{GENDER:$7|$5}} выль ним",
-	"renameuser-move-log": "Автоматическӧя вештӧм лист бок, сы вӧсна мый {{GENDER:$2|пырӧдчысьлӧн}} \"[[User:$1|$1]]\" нимыс вӧлі вежӧма \"[[User:$2|$2]]\" вылӧ",
-	"action-renameuser": "сетны выль ним пырӧдчысьяслы",
-	"right-renameuser": "Сетны выль ним пырӧдчысьяслы",
-	"renameuser-renamed-notice": "Тайӧ пырӧдчысьлы вӧлі сетӧма выль ним.\nУлынджык вайӧдӧма выль ним сетан журнал."
-=======
 	"newpages-showhide-registered": "$1 пасйӧдчӧм пырӧдчысьяс"
->>>>>>> origin/1.39.7-test
 }

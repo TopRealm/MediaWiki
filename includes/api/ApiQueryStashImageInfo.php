@@ -20,7 +20,7 @@
  * @file
  */
 
-use MediaWiki\Page\File\BadFileLookup;
+use MediaWiki\BadFileLookup;
 use Wikimedia\ParamValidator\ParamValidator;
 
 /**
@@ -109,7 +109,10 @@ class ApiQueryStashImageInfo extends ApiQueryImageInfo {
 	 * @return array
 	 */
 	public static function getPropertyNames( $filter = null ) {
-		return parent::getPropertyNames( $filter ?? self::$propertyFilter );
+		if ( $filter === null ) {
+			$filter = self::$propertyFilter;
+		}
+		return parent::getPropertyNames( $filter );
 	}
 
 	/**
@@ -119,7 +122,10 @@ class ApiQueryStashImageInfo extends ApiQueryImageInfo {
 	 * @return array
 	 */
 	public static function getPropertyMessages( $filter = null ) {
-		return parent::getPropertyMessages( $filter ?? self::$propertyFilter );
+		if ( $filter === null ) {
+			$filter = self::$propertyFilter;
+		}
+		return parent::getPropertyMessages( $filter );
 	}
 
 	public function getAllowedParams() {

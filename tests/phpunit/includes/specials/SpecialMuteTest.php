@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\MainConfigNames;
-use MediaWiki\Request\FauxRequest;
 use MediaWiki\User\UserOptionsManager;
 
 /**
@@ -82,7 +81,7 @@ class SpecialMuteTest extends SpecialPageTestBase {
 		$loggedInUser->saveSettings();
 
 		$fauxRequest = new FauxRequest( [ 'wpemail-blacklist' => true ], true );
-		[ $html, ] = $this->executeSpecialPage(
+		list( $html, ) = $this->executeSpecialPage(
 			$targetUser->getName(), $fauxRequest, 'qqx', $loggedInUser
 		);
 
@@ -105,7 +104,7 @@ class SpecialMuteTest extends SpecialPageTestBase {
 		$loggedInUser->saveSettings();
 
 		$fauxRequest = new FauxRequest( [ 'wpemail-blacklist' => false ], true );
-		[ $html, ] = $this->executeSpecialPage(
+		list( $html, ) = $this->executeSpecialPage(
 			$targetUser->getName(), $fauxRequest, 'qqx', $loggedInUser
 		);
 

@@ -21,7 +21,6 @@
  */
 
 use MediaWiki\MainConfigNames;
-use MediaWiki\Request\FauxResponse;
 
 class FauxResponseTest extends \MediaWikiUnitTestCase {
 	/** @var FauxResponse */

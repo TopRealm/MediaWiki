@@ -97,10 +97,6 @@
 	"permalink": "Marampa bai gamaa bo",
 	"print": "Fidda",
 	"view": "Naa",
-<<<<<<< HEAD
-	"viewcontribs": "Naa wàanàu",
-=======
->>>>>>> origin/1.39.7-test
 	"skin-view-view": "Karanta",
 	"skin-view-foreign": "Naa a $1",
 	"edit": "Yawantu",
@@ -273,10 +269,6 @@
 	"newarticletext": "You have followed a link to a page that does not exist yet.\nTo create the page, start typing in the box below (see the [$1 help page] for more info).\nIf you are here by mistake, click your browser's <strong>back</strong> button.",
 	"noarticletext": "Ka rubutu bai a shafi ayam.\nKa 'yu [[Special:Search/{{PAGENAME}}|search for this page title]] in other pages,\n<span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} search the related logs],\nor [{{fullurl:{{FULLPAGENAME}}|action=edit}} create this page]</span>.",
 	"noarticletext-nopermission": "Ance ka rubutu bai a shafi ayam.\nKo yina [[Special:Search/{{PAGENAME}}|wùtlkàɗu sim ma shafi ayam]] a shafi wadi, or <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} search the related logs]</span>, but you do not have permission to create this page.",
-<<<<<<< HEAD
-	"userpage-userdoesnotexist-view": "Akawun ma ba wàano \"$1\" ka rajista bai a wiki ayam.",
-=======
->>>>>>> origin/1.39.7-test
 	"previewnote": "<strong>Remember that this is only a preview.</strong>\nYour changes have not yet been published!",
 	"continue-editing": "Wàalu ka gī ma yawantu",
 	"editing": "Yawantu $1",
@@ -505,10 +497,6 @@
 	"filehist-user": "Ba waano",
 	"filehist-dimensions": "Yeh",
 	"filehist-comment": "Tàmu",
-<<<<<<< HEAD
-	"filehist-missing": "ka payiil bai",
-=======
->>>>>>> origin/1.39.7-test
 	"imagelinks": "Ampani ka payiil",
 	"linkstoimage-redirect": "$1 (payiil na ngùzē) $2",
 	"sharedupload-desc-here": "Aye payiil na daga $1 kà ampani ma project kinē. Bayani nnno [$2 file description page] tiimi a gi ta ràwài.",
@@ -627,14 +615,5 @@
 	"revdelete-content-hid": "bayani ka bìnku",
 	"searchsuggest-search": "Baku {{SITENAME}}",
 	"searchsuggest-containing": "Bakaa ta shafi ma",
-<<<<<<< HEAD
-	"duration-days": "$1 {{PLURAL:$1|fàti}}",
-	"blockedtext-made-by": "Minɗu ka 'yu ka $1.",
-	"blockedtext-reason-comment": "Dàlīlì bàru na <em>$1</em>",
-	"blockedtext-start-time": "Cinàa ma minɗu: $1",
-	"blockedtext-expiration-time": "Minɗu gaɗatakauː $1",
-	"blockedtext-intended-blockee": "Intended blockee: $1"
-=======
 	"duration-days": "$1 {{PLURAL:$1|fàti}}"
->>>>>>> origin/1.39.7-test
 }

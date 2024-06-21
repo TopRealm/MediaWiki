@@ -1,7 +1,5 @@
 <?php
 
-use MediaWiki\Title\Title;
-
 /** @covers ForeignDBFile */
 class ForeignDBFileTest extends \MediaWikiUnitTestCase {
 

@@ -16,6 +16,8 @@
  * http://www.gnu.org/copyleft/gpl.html
  *
  * @file
+ *
+ * @author Ostrzyciel
  */
 
 namespace MediaWiki\Storage;
@@ -34,9 +36,9 @@ use Wikimedia\Rdbms\ILoadBalancer;
  * asked to retrieve an EditResult for an edit and the requested key is not present in the
  * main stash, the class will attempt to retrieve the EditResult from revert tags.
  *
- * @internal Used by RevertedTagUpdateManager
  * @since 1.36
- * @author Ostrzyciel
+ *
+ * @internal Used by RevertedTagUpdateManager
  */
 class EditResultCache {
 

@@ -21,7 +21,6 @@
  * @ingroup SpecialPage
  */
 
-use MediaWiki\Html\FormOptions;
 use MediaWiki\Languages\LanguageFactory;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\MainConfigNames;
@@ -153,7 +152,7 @@ class SpecialAllMessages extends SpecialPage {
 		$htmlForm = HTMLForm::factory( 'ooui', $formDescriptor, $this->getContext() );
 		$htmlForm
 			->setMethod( 'get' )
-			->setPreHtml( $this->msg( 'allmessagestext' )->parse() )
+			->setIntro( $this->msg( 'allmessagestext' ) )
 			->setWrapperLegendMsg( 'allmessages' )
 			->setSubmitTextMsg( 'allmessages-filter-submit' )
 			->prepareForm()

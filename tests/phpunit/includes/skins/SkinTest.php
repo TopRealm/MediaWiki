@@ -7,7 +7,6 @@ use MediaWiki\MainConfigNames;
 use MediaWiki\Page\PageReferenceValue;
 use MediaWiki\Permissions\Authority;
 use MediaWiki\Tests\Unit\Permissions\MockAuthorityTrait;
-use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserIdentityValue;
 
@@ -298,6 +297,7 @@ class SkinTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @covers Skin::makeLink
+	 * @covers Skin::applyLinkTitleAttribs
 	 * @dataProvider provideMakeLink
 	 * @param array $data
 	 * @param array $options

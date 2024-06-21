@@ -11,7 +11,7 @@ use MediaWiki\Rest\Handler\LanguageLinksHandler;
 use MediaWiki\Rest\LocalizedHttpException;
 use MediaWiki\Rest\RequestData;
 use MediaWiki\Tests\Unit\DummyServicesTrait;
-use MediaWiki\Title\Title;
+use Title;
 use Wikimedia\Message\MessageValue;
 
 /**

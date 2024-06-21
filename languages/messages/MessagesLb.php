@@ -1,6 +1,8 @@
 <?php
 /** Luxembourgish (Lëtzebuergesch)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  *
@@ -125,7 +127,6 @@ $specialPageAliases = [
 	'Recentchanges'             => [ 'Rezent_Ännerungen' ],
 	'Recentchangeslinked'       => [ 'Ännerungen_op_verlinkte_Säiten' ],
 	'Redirect'                  => [ 'Viruleedung' ],
-	'Renameuser'                => [ 'Benotzer_ëmbenennen' ],
 	'ResetTokens'               => [ 'Token_zrécksetzen' ],
 	'Revisiondelete'            => [ 'Versioun_läschen' ],
 	'Search'                    => [ 'Sichen' ],

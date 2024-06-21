@@ -27,7 +27,6 @@ use MediaWiki\Content\IContentHandlerFactory;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
-use MediaWiki\Title\Title;
 
 /**
  * Implements Special:ComparePages

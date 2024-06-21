@@ -312,7 +312,6 @@
 				// So, this is going to be an ugly conversion.
 				reader.onload = function () {
 					var i,
-						// eslint-disable-next-line es-x/no-typed-arrays
 						buffer = new Uint8Array( reader.result ),
 						string = '';
 					for ( i = 0; i < buffer.byteLength; i++ ) {

@@ -76,12 +76,12 @@ class SqlModuleDependencyStore extends DependencyStore {
 			return;
 		}
 
-		$dbw = $this->getPrimaryDb();
+		$dbw = $this->getPrimaryDB();
 		$depsBlobByEntity = $this->fetchDependencyBlobs( array_keys( $dataByEntity ), $dbw );
 
 		$rows = [];
 		foreach ( $dataByEntity as $entity => $data ) {
-			[ $module, $variant ] = $this->getEntityNameComponents( $entity );
+			list( $module, $variant ) = $this->getEntityNameComponents( $entity );
 			if ( !is_array( $data[self::KEY_PATHS] ) ) {
 				throw new InvalidArgumentException( "Invalid entry for '$entity'" );
 			}
@@ -124,10 +124,10 @@ class SqlModuleDependencyStore extends DependencyStore {
 			return;
 		}
 
-		$dbw = $this->getPrimaryDb();
+		$dbw = $this->getPrimaryDB();
 		$disjunctionConds = [];
 		foreach ( (array)$entities as $entity ) {
-			[ $module, $variant ] = $this->getEntityNameComponents( $entity );
+			list( $module, $variant ) = $this->getEntityNameComponents( $entity );
 			$disjunctionConds[] = $dbw->makeList(
 				[ 'md_skin' => $variant, 'md_module' => $module ],
 				$dbw::LIST_AND
@@ -151,7 +151,7 @@ class SqlModuleDependencyStore extends DependencyStore {
 	private function fetchDependencyBlobs( array $entities, IDatabase $db ) {
 		$modulesByVariant = [];
 		foreach ( $entities as $entity ) {
-			[ $module, $variant ] = $this->getEntityNameComponents( $entity );
+			list( $module, $variant ) = $this->getEntityNameComponents( $entity );
 			$modulesByVariant[$variant][] = $module;
 		}
 
@@ -166,11 +166,12 @@ class SqlModuleDependencyStore extends DependencyStore {
 		$depsBlobByEntity = [];
 
 		if ( $disjunctionConds ) {
-			$res = $db->newSelectQueryBuilder()
-				->select( [ 'md_module', 'md_skin', 'md_deps' ] )
-				->from( 'module_deps' )
-				->where( $db->makeList( $disjunctionConds, $db::LIST_OR ) )
-				->caller( __METHOD__ )->fetchResultSet();
+			$res = $db->select(
+				'module_deps',
+				[ 'md_module', 'md_skin', 'md_deps' ],
+				$db->makeList( $disjunctionConds, $db::LIST_OR ),
+				__METHOD__
+			);
 
 			foreach ( $res as $row ) {
 				$entity = "{$row->md_module}|{$row->md_skin}";

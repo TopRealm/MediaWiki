@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\Revision\SlotRecord;
-use MediaWiki\Title\Title;
 use Psr\Log\NullLogger;
 
 /**
@@ -32,7 +31,7 @@ class ImportableOldRevisionImporterTest extends MediaWikiIntegrationTestCase {
 		$services = $this->getServiceContainer();
 
 		$title = Title::newFromText( __CLASS__ . rand() );
-		$revision = new WikiRevision();
+		$revision = new WikiRevision( $services->getMainConfig() );
 		$revision->setTitle( $title );
 		$revision->setTags( $expectedTags );
 		$content = ContentHandler::makeContent( 'dummy edit', $title );
@@ -51,10 +50,11 @@ class ImportableOldRevisionImporterTest extends MediaWikiIntegrationTestCase {
 		$result = $importer->import( $revision );
 		$this->assertTrue( $result );
 
+		$page = WikiPage::factory( $title );
 		$tags = ChangeTags::getTags(
 			$services->getDBLoadBalancer()->getConnection( DB_PRIMARY ),
 			null,
-			$title->getLatestRevID()
+			$page->getLatest()
 		);
 		$this->assertSame( $expectedTags, $tags );
 	}

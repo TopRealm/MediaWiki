@@ -21,8 +21,6 @@
  * @ingroup Maintenance
  */
 
-use MediaWiki\WikiMap\WikiMap;
-
 require_once __DIR__ . '/Maintenance.php';
 
 /**
@@ -107,6 +105,7 @@ class TableCleanup extends Maintenance {
 
 	/**
 	 * @param array $params
+	 * @throws MWException
 	 */
 	public function runTable( $params ) {
 		$dbr = $this->getDB( DB_REPLICA );
@@ -114,7 +113,7 @@ class TableCleanup extends Maintenance {
 		if ( array_diff( array_keys( $params ),
 			[ 'table', 'conds', 'index', 'callback' ] )
 		) {
-			$this->fatalError( __METHOD__ . ': Missing parameter ' . implode( ', ', $params ) );
+			throw new MWException( __METHOD__ . ': Missing parameter ' . implode( ', ', $params ) );
 		}
 
 		$table = $params['table'];
@@ -149,12 +148,20 @@ class TableCleanup extends Maintenance {
 			}
 
 			// Update the conditions to select the next batch.
-			$conds = [];
-			foreach ( $index as $field ) {
+			// Construct a condition string by starting with the least significant part
+			// of the index, and adding more significant parts progressively to the left
+			// of the string.
+			$nextCond = '';
+			foreach ( array_reverse( $index ) as $field ) {
 				// @phan-suppress-next-line PhanPossiblyUndeclaredVariable $res has at at least one item
-				$conds[ $field ] = $row->$field;
+				$encValue = $dbr->addQuotes( $row->$field );
+				if ( $nextCond === '' ) {
+					$nextCond = "$field > $encValue";
+				} else {
+					$nextCond = "$field > $encValue OR ($field = $encValue AND ($nextCond))";
+				}
 			}
-			$indexConds = [ $dbr->buildComparison( '>', $conds ) ];
+			$indexConds = [ $nextCond ];
 		}
 
 		$this->output( "Finished $table... $this->updated of $this->processed rows updated\n" );

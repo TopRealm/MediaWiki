@@ -9,7 +9,7 @@ class HTTPFileStreamerTest extends TestCase {
 	 * @dataProvider providePreprocessHeaders
 	 */
 	public function testPreprocessHeaders( array $input, array $expectedRaw, array $expectedOpt ) {
-		[ $actualRaw, $actualOpt ] = HTTPFileStreamer::preprocessHeaders( $input );
+		list( $actualRaw, $actualOpt ) = HTTPFileStreamer::preprocessHeaders( $input );
 		$this->assertSame( $expectedRaw, $actualRaw );
 		$this->assertSame( $expectedOpt, $actualOpt );
 	}

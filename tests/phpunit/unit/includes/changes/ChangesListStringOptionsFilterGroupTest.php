@@ -1,6 +1,5 @@
 <?php
 
-use MediaWiki\Html\FormOptions;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\TestingAccessWrapper;
 
@@ -23,7 +22,7 @@ class ChangesListStringOptionsFilterGroupTest extends MediaWikiUnitTestCase {
 
 		$this->assertFalse( $falseGroup->isFullCoverage );
 
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( MWException::class );
 		$this->expectExceptionMessage( 'You must specify isFullCoverage' );
 		$undefinedFullCoverageGroup = new ChangesListStringOptionsFilterGroup( [
 			'name' => 'othergroup',

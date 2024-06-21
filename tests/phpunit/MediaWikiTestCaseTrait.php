@@ -44,15 +44,10 @@ trait MediaWikiTestCaseTrait {
 	/**
 	 * Return a PHPUnit mock that is expected to never have any methods called on it.
 	 *
-	 * @psalm-template RealInstanceType of object
-	 *
-	 * @psalm-param class-string<RealInstanceType> $type
-	 * @psalm-param list<string> $allow Methods to allow
-	 *
 	 * @param string $type
-	 * @param string[] $allow Methods to allow
+	 * @param string[] $allow methods to allow
 	 *
-	 * @return MockObject&RealInstanceType
+	 * @return MockObject
 	 */
 	protected function createNoOpMock( $type, $allow = [] ) {
 		$mock = $this->createMock( $type );
@@ -63,15 +58,9 @@ trait MediaWikiTestCaseTrait {
 	/**
 	 * Return a PHPUnit mock that is expected to never have any methods called on it.
 	 *
-	 * @psalm-template RealInstanceType of object
-	 *
-	 * @psalm-param class-string<RealInstanceType> $type
-	 * @psalm-param list<string> $allow Methods to allow
-	 *
 	 * @param string $type
 	 * @param string[] $allow methods to allow
-	 *
-	 * @return MockObject&RealInstanceType
+	 * @return MockObject
 	 */
 	protected function createNoOpAbstractMock( $type, $allow = [] ) {
 		$mock = $this->getMockBuilder( $type )
@@ -119,17 +108,21 @@ trait MediaWikiTestCaseTrait {
 	}
 
 	/**
-	 * Skip the test if not running the necessary php version
+	 * Check if $extName is a loaded PHP extension, will skip the
+	 * test whenever it is not loaded.
 	 *
-	 * @since 1.42 (also backported to 1.39.8, 1.40.4 and 1.41.2)
-	 *
-	 * @param string $op
-	 * @param string $version
+	 * @since 1.21 added to MediaWikiIntegrationTestCase
+	 * @since 1.37 moved to MediaWikiTestCaseTrait to be available in unit tests
+	 * @param string $extName
+	 * @return bool
 	 */
-	protected function markTestSkippedIfPhp( $op, $version ) {
-		if ( version_compare( PHP_VERSION, $version, $op ) ) {
-			$this->markTestSkipped( "PHP $version isn't supported for this test" );
+	protected function checkPHPExtension( $extName ) {
+		$loaded = extension_loaded( $extName );
+		if ( !$loaded ) {
+			$this->markTestSkipped( "PHP extension '$extName' is not loaded, skipping." );
 		}
+
+		return $loaded;
 	}
 
 	/**

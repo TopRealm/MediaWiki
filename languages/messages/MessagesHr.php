@@ -1,6 +1,8 @@
 <?php
 /** Croatian (hrvatski)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  */
@@ -94,7 +96,6 @@ $specialPageAliases = [
 	'Randomredirect'            => [ 'Slučajno_preusmjeravanje' ],
 	'Recentchanges'             => [ 'Nedavne_promjene' ],
 	'Recentchangeslinked'       => [ 'Povezane_promjene' ],
-	'Renameuser'                => [ 'Preimenuj_suradnika' ],
 	'Revisiondelete'            => [ 'Brisanje_izmjene' ],
 	'Search'                    => [ 'Traži' ],
 	'Shortpages'                => [ 'Kratke_stranice' ],

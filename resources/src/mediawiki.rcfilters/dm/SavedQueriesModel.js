@@ -241,10 +241,6 @@ SavedQueriesModel.prototype.addNewQuery = function ( label, fulldata, isDefault,
 	if ( normalizedData.params.invert && !this.filtersModel.areNamespacesEffectivelyInverted() ) {
 		delete normalizedData.params.invert;
 	}
-	// Correct the inverttags state for effective selection
-	if ( normalizedData.params.inverttags && !this.filtersModel.areTagsEffectivelyInverted() ) {
-		delete normalizedData.params.inverttags;
-	}
 
 	// Add item
 	this.addItems( [

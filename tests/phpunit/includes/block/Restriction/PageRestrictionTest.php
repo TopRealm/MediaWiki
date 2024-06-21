@@ -3,7 +3,6 @@
 namespace MediaWiki\Tests\Block\Restriction;
 
 use MediaWiki\Block\Restriction\PageRestriction;
-use MediaWiki\Title\Title;
 
 /**
  * @group Database
@@ -37,13 +36,13 @@ class PageRestrictionTest extends RestrictionTestCase {
 	public function testGetTitle() {
 		$class = $this->getClass();
 		$restriction = new $class( 1, 2 );
-		$title = Title::makeTitle( NS_MAIN, 'Pluto' );
+		$title = \Title::makeTitle( NS_MAIN, 'Pluto' );
 		$title->mArticleID = 2;
 		$restriction->setTitle( $title );
 		$this->assertSame( $title, $restriction->getTitle() );
 
 		$restriction = new $class( 1, 1 );
-		$title = Title::newFromID( 1 );
+		$title = \Title::newFromID( 1 );
 		$this->assertEquals( $title->getArticleID(), $restriction->getTitle()->getArticleID() );
 	}
 
@@ -63,7 +62,7 @@ class PageRestrictionTest extends RestrictionTestCase {
 
 	public function testNewFromTitle() {
 		$class = $this->getClass();
-		$title = Title::makeTitle( NS_MAIN, 'Pluto' );
+		$title = \Title::makeTitle( NS_MAIN, 'Pluto' );
 		$restriction = $class::newFromTitle( 'Mars' );
 		$restriction2 = $class::newFromTitle( $title );
 

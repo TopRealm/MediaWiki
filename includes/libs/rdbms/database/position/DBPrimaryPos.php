@@ -2,6 +2,8 @@
 
 namespace Wikimedia\Rdbms;
 
+use Serializable;
+
 /**
  * An object representing a primary or replica DB position in a replicated setup.
  *
@@ -10,7 +12,7 @@ namespace Wikimedia\Rdbms;
  * @since 1.37
  * @stable to implement
  */
-interface DBPrimaryPos {
+interface DBPrimaryPos extends Serializable {
 	/**
 	 * @since 1.25
 	 * @return float UNIX timestamp
@@ -23,6 +25,13 @@ interface DBPrimaryPos {
 	 * @return bool Whether this position is at or higher than $pos
 	 */
 	public function hasReached( DBPrimaryPos $pos );
+
+	/**
+	 * @since 1.27
+	 * @param DBPrimaryPos $pos
+	 * @return bool Whether this position appears to be for the same channel as another
+	 */
+	public function channelsMatch( DBPrimaryPos $pos );
 
 	/**
 	 * @since 1.27

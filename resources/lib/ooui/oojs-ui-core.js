@@ -1,20 +1,12 @@
 /*!
-<<<<<<< HEAD
- * OOUI v0.46.3
-=======
  * OOUI v0.44.5
->>>>>>> origin/1.39.7-test
  * https://www.mediawiki.org/wiki/OOUI
  *
  * Copyright 2011–2023 OOUI Team and other contributors.
  * Released under the MIT license
  * http://oojs.mit-license.org
  *
-<<<<<<< HEAD
- * Date: 2023-02-07T00:43:59Z
-=======
  * Date: 2023-02-06T22:04:43Z
->>>>>>> origin/1.39.7-test
  */
 ( function ( OO ) {
 
@@ -624,7 +616,13 @@ OO.ui.Element = function OoUiElement( config ) {
 	// Initialization
 	var doc = OO.ui.Element.static.getDocument( this.$element );
 	if ( Array.isArray( config.classes ) ) {
-		this.$element.addClass( config.classes );
+		this.$element.addClass(
+			// Remove empty strings to work around jQuery bug
+			// https://github.com/jquery/jquery/issues/4998
+			config.classes.filter( function ( val ) {
+				return val;
+			} )
+		);
 	}
 	if ( config.id ) {
 		this.setElementId( config.id );
@@ -1341,10 +1339,6 @@ OO.ui.Element.static.scrollIntoView = function ( elOrPosition, config ) {
 	}, config.padding );
 
 	var animate = config.animate !== false;
-	if ( window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches ) {
-		// Respect 'prefers-reduced-motion' user preference
-		animate = false;
-	}
 
 	var animations = {};
 	var elementPosition = elOrPosition instanceof HTMLElement ?
@@ -1451,8 +1445,8 @@ OO.ui.Element.static.reconsiderScrollbars = function ( el ) {
 		el.removeChild( el.firstChild );
 	}
 	// Force reflow
-	// eslint-disable-next-line no-unused-expressions
-	el.offsetHeight;
+	// eslint-disable-next-line no-void
+	void el.offsetHeight;
 	// Reattach all children
 	for ( var i = 0, len = nodes.length; i < len; i++ ) {
 		el.appendChild( nodes[ i ] );
@@ -2595,13 +2589,13 @@ OO.ui.mixin.GroupElement.prototype.findItemsFromData = function ( data ) {
  * specifies a different insertion point. Adding an existing item will move it to the end of the
  * array or the point specified by the `index`.
  *
- * @param {OO.ui.Element|OO.ui.Element[]} [items] Elements to add to the group
+ * @param {OO.ui.Element[]} [items] Elements to add to the group
  * @param {number} [index] Index of the insertion point
  * @chainable
  * @return {OO.ui.Element} The element, for chaining
  */
 OO.ui.mixin.GroupElement.prototype.addItems = function ( items, index ) {
-	if ( !items || items.length === 0 ) {
+	if ( !items || !items.length ) {
 		return this;
 	}
 
@@ -4606,7 +4600,7 @@ OO.ui.MessageWidget.static.iconMap = {
 	notice: 'infoFilled',
 	error: 'error',
 	warning: 'alert',
-	success: 'success'
+	success: 'check'
 };
 
 /* Methods */
@@ -4875,7 +4869,7 @@ OO.ui.mixin.FloatableElement = function OoUiMixinFloatableElement( config ) {
 OO.ui.mixin.FloatableElement.prototype.setFloatableElement = function ( $floatable ) {
 	if ( this.$floatable ) {
 		this.$floatable.removeClass( 'oo-ui-floatableElement-floatable' );
-		this.$floatable.css( { top: '', left: '', bottom: '', right: '' } );
+		this.$floatable.css( { left: '', top: '' } );
 	}
 
 	this.$floatable = $floatable.addClass( 'oo-ui-floatableElement-floatable' );
@@ -4985,7 +4979,7 @@ OO.ui.mixin.FloatableElement.prototype.togglePositioning = function ( positionin
 				this.$floatableClosestScrollable = null;
 			}
 
-			this.$floatable.css( { top: '', left: '', bottom: '', right: '' } );
+			this.$floatable.css( { left: '', right: '', top: '' } );
 		}
 	}
 
@@ -5092,9 +5086,11 @@ OO.ui.mixin.FloatableElement.prototype.position = function () {
 
 	this.floatableOutOfView = this.hideWhenOutOfView &&
 		!this.isElementInViewport( this.$floatableContainer, this.$floatableClosestScrollable );
-	this.$floatable.toggleClass( 'oo-ui-element-hidden', this.floatableOutOfView );
 	if ( this.floatableOutOfView ) {
+		this.$floatable.addClass( 'oo-ui-element-hidden' );
 		return this;
+	} else {
+		this.$floatable.removeClass( 'oo-ui-element-hidden' );
 	}
 
 	this.$floatable.css( this.computePosition() );
@@ -5581,13 +5577,13 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 		// Forcing a reflow is a smaller workaround than calling reconsiderScrollbars() for
 		// this case.
 		this.$clippable.css( 'overflowX', 'scroll' );
-		// eslint-disable-next-line no-unused-expressions
-		this.$clippable[ 0 ].offsetHeight; // Force reflow
+		// eslint-disable-next-line no-void
+		void this.$clippable[ 0 ].offsetHeight; // Force reflow
 		// The order matters here. If overflow is not set first, Chrome displays bogus scrollbars.
 		// See T157672.
 		this.$clippable.css( 'overflowX', 'auto' );
-		// eslint-disable-next-line no-unused-expressions
-		this.$clippable[ 0 ].offsetHeight; // Force reflow
+		// eslint-disable-next-line no-void
+		void this.$clippable[ 0 ].offsetHeight; // Force reflow
 		this.$clippable.css( {
 			width: Math.max( 0, allotedWidth ),
 			maxWidth: ''
@@ -5605,13 +5601,13 @@ OO.ui.mixin.ClippableElement.prototype.clip = function () {
 		// Forcing a reflow is a smaller workaround than calling reconsiderScrollbars() for
 		// this case.
 		this.$clippable.css( 'overflowY', 'scroll' );
-		// eslint-disable-next-line no-unused-expressions
-		this.$clippable[ 0 ].offsetHeight; // Force reflow
+		// eslint-disable-next-line no-void
+		void this.$clippable[ 0 ].offsetHeight; // Force reflow
 		// The order matters here. If overflow is not set first, Chrome displays bogus scrollbars.
 		// See T157672.
 		this.$clippable.css( 'overflowY', 'auto' );
-		// eslint-disable-next-line no-unused-expressions
-		this.$clippable[ 0 ].offsetHeight; // Force reflow
+		// eslint-disable-next-line no-void
+		void this.$clippable[ 0 ].offsetHeight; // Force reflow
 		this.$clippable.css( {
 			height: Math.max( 0, allotedHeight ),
 			maxHeight: ''
@@ -5946,7 +5942,13 @@ OO.ui.PopupWidget.prototype.toggleAnchor = function ( show ) {
 	show = show === undefined ? !this.anchored : !!show;
 
 	if ( this.anchored !== show ) {
-		this.$element.toggleClass( 'oo-ui-popupWidget-anchored oo-ui-popupWidget-anchored-' + this.anchorEdge, show );
+		if ( show ) {
+			this.$element.addClass( 'oo-ui-popupWidget-anchored' );
+			this.$element.addClass( 'oo-ui-popupWidget-anchored-' + this.anchorEdge );
+		} else {
+			this.$element.removeClass( 'oo-ui-popupWidget-anchored' );
+			this.$element.removeClass( 'oo-ui-popupWidget-anchored-' + this.anchorEdge );
+		}
 		this.anchored = show;
 	}
 };
@@ -7922,7 +7924,7 @@ OO.ui.SelectWidget.prototype.findFirstSelectableItem = function () {
  * @return {OO.ui.Widget} The widget, for chaining
  */
 OO.ui.SelectWidget.prototype.addItems = function ( items, index ) {
-	if ( !items || items.length === 0 ) {
+	if ( !items || !items.length ) {
 		return this;
 	}
 
@@ -8525,7 +8527,7 @@ OO.ui.MenuSelectWidget.prototype.chooseItem = function ( item ) {
  * @inheritdoc
  */
 OO.ui.MenuSelectWidget.prototype.addItems = function ( items, index ) {
-	if ( !items || items.length === 0 ) {
+	if ( !items || !items.length ) {
 		return this;
 	}
 
@@ -11271,7 +11273,6 @@ OO.ui.CheckboxMultiselectInputWidget.prototype.focus = function () {
  *  instruct the browser to focus this widget.
  * @cfg {boolean} [readOnly=false] Prevent changes to the value of the text input.
  * @cfg {number} [maxLength] Maximum number of characters allowed in the input.
- * @cfg {number} [minLength] Minimum number of characters allowed in the input.
  *
  *  For unfortunate historical reasons, this counts the number of UTF-16 code units rather than
  *  Unicode codepoints, which means that codepoints outside the Basic Multilingual Plane (e.g.
@@ -11341,9 +11342,6 @@ OO.ui.TextInputWidget = function OoUiTextInputWidget( config ) {
 	}
 	if ( config.maxLength !== undefined ) {
 		this.$input.attr( 'maxlength', config.maxLength );
-	}
-	if ( config.minLength !== undefined ) {
-		this.$input.attr( 'minlength', config.minLength );
 	}
 	if ( config.autofocus ) {
 		this.$input.attr( 'autofocus', 'autofocus' );
@@ -12181,14 +12179,12 @@ OO.ui.MultilineTextInputWidget.prototype.adjustSize = function ( force ) {
 				.val( this.$input.val() )
 				.attr( 'rows', this.minRows )
 				// Set inline height property to 0 to measure scroll height
-				.css( 'height', 0 )
-				.removeClass( 'oo-ui-element-hidden' );
+				.css( 'height', 0 );
+
+			this.$clone.removeClass( 'oo-ui-element-hidden' );
 
 			this.valCache = this.$input.val();
 
-			// https://bugzilla.mozilla.org/show_bug.cgi?id=1799404
-			// eslint-disable-next-line no-unused-expressions
-			this.$clone[ 0 ].scrollHeight;
 			var scrollHeight = this.$clone[ 0 ].scrollHeight;
 
 			// Remove inline height property to measure natural heights
@@ -12340,6 +12336,9 @@ OO.ui.ComboBoxInputWidget = function OoUiComboBoxInputWidget( config ) {
 	config = $.extend( {
 		autocomplete: false
 	}, config );
+
+	// ComboBoxInputWidget shouldn't support `multiline`
+	config.multiline = false;
 
 	// See InputWidget#reusePreInfuseDOM about `config.$input`
 	if ( config.$input ) {
@@ -12643,8 +12642,6 @@ OO.ui.ComboBoxInputWidget.prototype.setOptions = function ( options ) {
  *  See <https://www.mediawiki.org/wiki/OOUI/Concepts#Overlays>.
  *
  * @throws {Error} An error is thrown if no widget is specified
- *
- * @property {OO.ui.Widget} fieldWidget
  */
 OO.ui.FieldLayout = function OoUiFieldLayout( fieldWidget, config ) {
 	// Allow passing positional parameters inside the config object

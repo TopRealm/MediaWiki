@@ -1,9 +1,9 @@
 <?php
 
 use MediaWiki\MainConfigNames;
+use MediaWiki\MainConfigSchema;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
-use MediaWiki\Title\Title;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -69,7 +69,7 @@ class MessageCacheTest extends MediaWikiLangTestCase {
 			$title = "$title/$lang";
 		}
 
-		$title = Title::makeTitle( NS_MEDIAWIKI, $title );
+		$title = Title::newFromText( $title, NS_MEDIAWIKI );
 		$wikiPage = $this->getServiceContainer()->getWikiPageFactory()->newFromTitle( $title );
 		$content = ContentHandler::makeContent( $content, $title );
 		$summary = CommentStoreComment::newUnsavedComment( "$lang translation test case" );
@@ -136,8 +136,17 @@ class MessageCacheTest extends MediaWikiLangTestCase {
 	}
 
 	public function testReplaceCache() {
+		// We need a WAN cache for this.
 		$this->overrideConfigValues( [
-			MainConfigNames::MainCacheType => CACHE_HASH,
+			MainConfigNames::MainWANCache => CACHE_HASH,
+			MainConfigNames::WANObjectCaches =>
+				MainConfigSchema::getDefaultValue( MainConfigNames::WANObjectCaches ) + [
+				'hash' => [
+					'class'    => WANObjectCache::class,
+					'cacheId'  => CACHE_HASH,
+					'channels' => []
+				]
+			]
 		] );
 
 		$messageCache = $this->getServiceContainer()->getMessageCache();
@@ -238,7 +247,7 @@ class MessageCacheTest extends MediaWikiLangTestCase {
 
 		// Create an out-of-sequence revision by importing a
 		// revision with an old timestamp. Hacky.
-		$importRevision = new WikiRevision();
+		$importRevision = new WikiRevision( new HashConfig() );
 		$title = Title::newFromLinkTarget( $r3->getPageAsLinkTarget() );
 		$importRevision->setTitle( $title );
 		$importRevision->setComment( 'Imported edit' );

@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\MainConfigNames;
-use MediaWiki\Title\Title;
 
 /**
  * Tests for MediaWiki api.php?action=delete.
@@ -248,7 +247,7 @@ class ApiDeleteTest extends ApiTestCase {
 		$this->editPage( $name, 'Some text' );
 		$this->assertTrue( Title::newFromText( $name )->exists() );
 		$watchlistManager = $this->getServiceContainer()->getWatchlistManager();
-		$watchlistManager->addWatch( $user, Title::newFromText( $name ) );
+		$watchlistManager->addWatch( $user,  Title::newFromText( $name ) );
 		$this->assertTrue( $watchlistManager->isWatched( $user, Title::newFromText( $name ) ) );
 
 		$this->doApiRequestWithToken( [

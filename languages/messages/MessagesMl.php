@@ -1,6 +1,8 @@
 <?php
 /** Malayalam (മലയാളം)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  *
@@ -157,7 +159,6 @@ $specialPageAliases = [
 	'Recentchanges'             => [ 'സമീപകാലമാറ്റങ്ങൾ' ],
 	'Recentchangeslinked'       => [ 'ബന്ധപ്പെട്ട_മാറ്റങ്ങൾ' ],
 	'Redirect'                  => [ 'തിരിച്ചുവിടൽ' ],
-	'Renameuser'                => [ 'ഉപയോക്തൃപുനർനാമകരണം' ],
 	'ResetTokens'               => [ 'ചീട്ട്പുനഃസജ്ജീകരിക്കുക' ],
 	'Revisiondelete'            => [ 'നാൾപ്പതിപ്പ്_മായ്ക്കൽ' ],
 	'RunJobs'                   => [ 'പ്രവൃത്തിനടപ്പാക്കൽ' ],

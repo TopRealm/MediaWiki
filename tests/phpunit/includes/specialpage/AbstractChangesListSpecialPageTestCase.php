@@ -1,6 +1,5 @@
 <?php
 
-use MediaWiki\Html\FormOptions;
 use MediaWiki\MainConfigNames;
 
 /**
@@ -140,7 +139,7 @@ abstract class AbstractChangesListSpecialPageTestCase extends MediaWikiIntegrati
 
 		$clsp->validateOptions( $opts );
 
-		$this->assertEquals( $expectedRedirect, $redirected, 'redirection - ' . print_r( $optionsToSet, true ) );
+		$this->assertEquals( $expectedRedirect, $redirected, 'redirection' );
 
 		if ( $expectedRedirect ) {
 			if ( count( $expectedRedirectOptions ) > 0 ) {

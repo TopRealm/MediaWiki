@@ -3,7 +3,6 @@
 use MediaWiki\Content\ValidationParams;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Page\PageIdentityValue;
-use MediaWiki\Title\Title;
 
 class JsonContentHandlerIntegrationTest extends MediaWikiLangTestCase {
 

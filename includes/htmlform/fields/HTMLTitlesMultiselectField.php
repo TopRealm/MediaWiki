@@ -78,8 +78,6 @@ class HTMLTitlesMultiselectField extends HTMLTitleTextField {
 	}
 
 	public function getInputOOUI( $value ) {
-		$this->mParent->getOutput()->addModuleStyles( 'mediawiki.widgets.TagMultiselectWidget.styles' );
-
 		$params = [
 			'id' => $this->mID,
 			'name' => $this->mName,
@@ -120,16 +118,9 @@ class HTMLTitlesMultiselectField extends HTMLTitleTextField {
 		// Make the field auto-infusable when it's used inside a legacy HTMLForm rather than OOUIHTMLForm
 		$params['infusable'] = true;
 		$params['classes'] = [ 'mw-htmlform-autoinfuse' ];
-
-		return $this->getInputWidget( $params );
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	protected function getInputWidget( $params ) {
 		$widget = new TitlesMultiselectWidget( $params );
 		$widget->setAttributes( [ 'data-mw-modules' => implode( ',', $this->getOOUIModules() ) ] );
+
 		return $widget;
 	}
 

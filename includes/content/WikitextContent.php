@@ -27,8 +27,6 @@
 
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Parser\MagicWord;
-use MediaWiki\Title\Title;
 
 /**
  * Content object for wiki text pages.
@@ -56,7 +54,7 @@ class WikitextContent extends TextContent {
 	/**
 	 * @param string|int $sectionId
 	 *
-	 * @return Content|false|null
+	 * @return Content|bool|null
 	 *
 	 * @see Content::getSection()
 	 */
@@ -73,7 +71,7 @@ class WikitextContent extends TextContent {
 	}
 
 	/**
-	 * @param string|int|null|false $sectionId
+	 * @param string|int|null|bool $sectionId
 	 * @param Content $with
 	 * @param string $sectionTitle
 	 *
@@ -190,7 +188,7 @@ class WikitextContent extends TextContent {
 	 * @see Content::getRedirectTarget
 	 */
 	public function getRedirectTarget() {
-		[ $title, ] = $this->getRedirectTargetAndText();
+		list( $title, ) = $this->getRedirectTargetAndText();
 
 		return $title;
 	}

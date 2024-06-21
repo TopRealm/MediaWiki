@@ -84,13 +84,9 @@ class WikiTextStructure {
 	 */
 	public function headings() {
 		$headings = [];
-		$tocData = $this->parserOutput->getTOCData();
-		if ( $tocData === null ) {
-			return $headings;
-		}
 		$ignoredHeadings = $this->getIgnoredHeadings();
-		foreach ( $tocData->getSections() as $heading ) {
-			$heading = $heading->line;
+		foreach ( $this->parserOutput->getSections() as $heading ) {
+			$heading = $heading[ 'line' ];
 
 			// Some wikis wrap the brackets in a span:
 			// https://en.wikipedia.org/wiki/MediaWiki:Cite_reference_link
@@ -247,10 +243,6 @@ class WikiTextStructure {
 	 * @return string|null
 	 */
 	public function getDefaultSort() {
-		$sort = $this->parserOutput->getPageProperty( 'defaultsort' );
-		if ( $sort === false ) {
-			return null;
-		}
-		return $sort;
+		return $this->parserOutput->getPageProperty( 'defaultsort' );
 	}
 }

@@ -3,7 +3,7 @@
 namespace MediaWiki\Tests\ResourceLoader;
 
 use EmptyResourceLoader;
-use MediaWiki\Request\FauxRequest;
+use FauxRequest;
 use MediaWiki\ResourceLoader\Context;
 use MediaWiki\ResourceLoader\FilePath;
 use MediaWiki\ResourceLoader\Image;
@@ -258,12 +258,19 @@ class ImageModuleTest extends ResourceLoaderTestCase {
 		return [
 			[
 				false,
-				'background-image: url(original.svg);',
+<<<TEXT
+background-image: url(rasterized.png);
+	background-image: linear-gradient(transparent, transparent), url(original.svg);
+TEXT
 			],
 			[
 				'data:image/svg+xml',
-				'background-image: url(data:image/svg+xml);',
+<<<TEXT
+background-image: url(rasterized.png);
+	background-image: linear-gradient(transparent, transparent), url(data:image/svg+xml);
+TEXT
 			],
+
 		];
 	}
 

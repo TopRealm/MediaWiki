@@ -16,6 +16,7 @@
  * http://www.gnu.org/copyleft/gpl.html
  *
  * @file
+ * @ingroup JobQueue
  */
 
 use MediaWiki\Linker\LinkTarget;
@@ -30,8 +31,8 @@ use MediaWiki\Page\PageReference;
  *   - notifTime: timestamp to set watchlist entries to [required]
  *   - curTime: UNIX timestamp of the event that triggered this job [required]
  *
- * @since 1.26
  * @ingroup JobQueue
+ * @since 1.26
  */
 class ActivityUpdateJob extends Job {
 	/**

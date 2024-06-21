@@ -21,7 +21,6 @@
  * @since 1.21
  */
 
-use MediaWiki\Title\Title;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
@@ -79,9 +78,12 @@ class ApiQueryPagesWithProp extends ApiQueryGeneratorBase {
 		$dir = ( $params['dir'] == 'ascending' ) ? 'newer' : 'older';
 
 		if ( $params['continue'] ) {
-			$cont = $this->parseContinueParamOrDie( $params['continue'], [ 'int' ] );
+			$cont = explode( '|', $params['continue'] );
+			$this->dieContinueUsageIf( count( $cont ) != 1 );
+
 			// Add a WHERE clause
-			$this->addWhereRange( 'pp_page', $dir, $cont[0], null );
+			$from = (int)$cont[0];
+			$this->addWhereRange( 'pp_page', $dir, $from, null );
 		}
 
 		$sort = ( $params['dir'] === 'descending' ? ' DESC' : '' );

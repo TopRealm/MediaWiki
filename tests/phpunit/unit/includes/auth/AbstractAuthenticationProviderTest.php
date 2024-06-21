@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Tests\Unit\Auth;
 
-use HashConfig;
+use Config;
 use MediaWiki\Auth\AbstractAuthenticationProvider;
 use MediaWiki\Auth\AuthManager;
 use MediaWiki\HookContainer\HookContainer;
@@ -30,7 +30,7 @@ class AbstractAuthenticationProviderTest extends \MediaWikiUnitTestCase {
 		$logger = $this->getMockForAbstractClass( LoggerInterface::class );
 		$authManager = $this->createMock( AuthManager::class );
 		$hookContainer = $this->createMock( HookContainer::class );
-		$config = new HashConfig();
+		$config = $this->getMockForAbstractClass( Config::class );
 		$userNameUtils = $this->createNoOpMock( UserNameUtils::class );
 		$this->initProvider( $provider, $config, $logger, $authManager, $hookContainer, $userNameUtils );
 		$this->assertSame( $logger, $providerPriv->logger );
@@ -50,7 +50,7 @@ class AbstractAuthenticationProviderTest extends \MediaWikiUnitTestCase {
 		$this->assertSame( $obj, $providerPriv->manager, 'setManager' );
 
 		// test AbstractAuthenticationProvider::setConfig
-		$obj = new HashConfig();
+		$obj = $this->getMockForAbstractClass( Config::class );
 		$provider->setConfig( $obj );
 		$this->assertSame( $obj, $providerPriv->config, 'setConfig' );
 

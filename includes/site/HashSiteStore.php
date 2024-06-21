@@ -1,5 +1,7 @@
 <?php
 /**
+ * In-memory implementation of SiteStore.
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -19,29 +21,35 @@
  */
 
 /**
- * In-memory SiteStore implementation, stored in an associative array.
+ * In-memory SiteStore implementation, storing sites in an associative array.
+ *
+ * @author Daniel Kinzler
+ * @author Katie Filbert < aude.wiki@gmail.com >
  *
  * @since 1.25
  * @ingroup Site
- * @author Daniel Kinzler
- * @author Katie Filbert < aude.wiki@gmail.com >
  */
 class HashSiteStore implements SiteStore {
-	/** @var Site[] */
+
+	/**
+	 * @var Site[]
+	 */
 	private $sites = [];
 
 	/**
 	 * @param Site[] $sites
 	 */
-	public function __construct( array $sites = [] ) {
+	public function __construct( $sites = [] ) {
 		$this->saveSites( $sites );
 	}
 
 	/**
-	 * Save the provided site.
+	 * Saves the provided site.
 	 *
 	 * @since 1.25
+	 *
 	 * @param Site $site
+	 *
 	 * @return bool Success indicator
 	 */
 	public function saveSite( Site $site ) {
@@ -51,10 +59,12 @@ class HashSiteStore implements SiteStore {
 	}
 
 	/**
-	 * Save the provided sites.
+	 * Saves the provided sites.
 	 *
 	 * @since 1.25
+	 *
 	 * @param Site[] $sites
+	 *
 	 * @return bool Success indicator
 	 */
 	public function saveSites( array $sites ) {
@@ -66,12 +76,14 @@ class HashSiteStore implements SiteStore {
 	}
 
 	/**
-	 * Return the site with provided global ID, or null if there is no such site.
+	 * Returns the site with provided global id, or null if there is no such site.
 	 *
 	 * @since 1.25
+	 *
 	 * @param string $globalId
 	 * @param string $source either 'cache' or 'recache'.
-	 *  If 'cache', the values can (but not obliged) come from a cache.
+	 *                       If 'cache', the values can (but not obliged) come from a cache.
+	 *
 	 * @return Site|null
 	 */
 	public function getSite( $globalId, $source = 'cache' ) {
@@ -79,14 +91,15 @@ class HashSiteStore implements SiteStore {
 	}
 
 	/**
-	 * Return a list of all sites.
-	 *
-	 * By default this list is fetched from the cache, which can be changed to loading
+	 * Returns a list of all sites. By default this site is
+	 * fetched from the cache, which can be changed to loading
 	 * the list from the database using the $useCache parameter.
 	 *
 	 * @since 1.25
+	 *
 	 * @param string $source either 'cache' or 'recache'.
-	 *  If 'cache', the values can (but not obliged) come from a cache.
+	 *                       If 'cache', the values can (but not obliged) come from a cache.
+	 *
 	 * @return SiteList
 	 */
 	public function getSites( $source = 'cache' ) {
@@ -94,15 +107,13 @@ class HashSiteStore implements SiteStore {
 	}
 
 	/**
-	 * Delete all sites from the database.
-	 *
-	 * After calling clear(), getSites() will return an empty list and getSite() will
-	 * return null until saveSite() or saveSites() is called.
-	 *
+	 * Deletes all sites from the database. After calling clear(), getSites() will return an empty
+	 * list and getSite() will return null until saveSite() or saveSites() is called.
 	 * @return bool
 	 */
 	public function clear() {
 		$this->sites = [];
+
 		return true;
 	}
 

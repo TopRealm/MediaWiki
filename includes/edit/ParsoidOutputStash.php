@@ -3,44 +3,39 @@
 namespace MediaWiki\Edit;
 
 use MediaWiki\Parser\Parsoid\ParsoidRenderID;
-use Wikimedia\Parsoid\Core\SelserData;
+use Wikimedia\Parsoid\Core\PageBundle;
 
 /**
- * Stash for Parsoid output and associated data as needed to perform selective serialization (aka "selser")
- * of modified HTML.
+ * Interface for saving and retrieval of Parsoid HTML and
+ * Parsoid metadata from storage.
  *
- * @see SelserData
- *
- * @internal
  * @since 1.39
  */
 interface ParsoidOutputStash {
 
 	/**
-	 * Stash a SelserContext representing a rendering of a revision at a given point in time,
-	 * along with information about the content the rendering was based on.
+	 * Stash a PageBundle representing a rendering of a revision at a given point in time.
 	 *
-	 * A SelserContext stashed by calling this method can for some time be retrieved by
-	 * calling the get() method.
+	 * The given PageBundle can for some time later be retrieved by calling get( $renderId ).
 	 *
 	 * @param ParsoidRenderID $renderId Combination of revision ID and revision's time ID
-	 * @param SelserContext $selserContext
+	 * @param PageBundle $bundle
 	 *
 	 * @return bool True on success
 	 */
-	public function set( ParsoidRenderID $renderId, SelserContext $selserContext ): bool;
+	public function set( ParsoidRenderID $renderId, PageBundle $bundle ): bool;
 
 	/**
-	 * Retrieve a SelserContext representing a rendering of a revision at a given point in time,
-	 * along with information about the content the rendering was based on.
+	 * Retrieve a page bundle (that was previously put in the stash using the ->set() method)
+	 * from the stash using a unique render ID.
 	 *
-	 * If a SelserContext was stahed using the set() method not too long ago, it can be expected
-	 * to be returned from this method.
+	 * The page bundle stays in the stash for some time and not guaranteed to be persistent
+	 * across requests.
 	 *
 	 * @param ParsoidRenderID $renderId
 	 *
-	 * @return ?SelserContext
+	 * @return ?PageBundle
 	 */
-	public function get( ParsoidRenderID $renderId ): ?SelserContext;
+	public function get( ParsoidRenderID $renderId ): ?PageBundle;
 
 }

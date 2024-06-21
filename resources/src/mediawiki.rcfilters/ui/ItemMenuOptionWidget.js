@@ -11,7 +11,7 @@ var FilterItemHighlightButton = require( './FilterItemHighlightButton.js' ),
  * @constructor
  * @param {mw.rcfilters.Controller} controller RCFilters controller
  * @param {mw.rcfilters.dm.FiltersViewModel} filtersViewModel
- * @param {mw.rcfilters.dm.ItemModel|null} invertModel
+ * @param {mw.rcfilters.dm.ItemModel} invertModel
  * @param {mw.rcfilters.dm.ItemModel} itemModel Item model
  * @param {mw.rcfilters.ui.HighlightPopupWidget} highlightPopup Shared highlight color picker
  * @param {Object} config Configuration object
@@ -73,9 +73,9 @@ ItemMenuOptionWidget = function MwRcfiltersUiItemMenuOptionWidget(
 		label: mw.msg( 'rcfilters-filter-excluded' )
 	} );
 	this.excludeLabel.toggle(
-		this.invertModel &&
-		this.invertModel.isSelected() &&
-		this.itemModel.isSelected()
+		this.itemModel.getGroupModel().getView() === 'namespaces' &&
+		this.itemModel.isSelected() &&
+		this.invertModel.isSelected()
 	);
 
 	layout = new OO.ui.FieldLayout( this.checkboxWidget, {
@@ -85,9 +85,7 @@ ItemMenuOptionWidget = function MwRcfiltersUiItemMenuOptionWidget(
 
 	// Events
 	this.filtersViewModel.connect( this, { highlightChange: 'updateUiBasedOnState' } );
-	if ( this.invertModel ) {
-		this.invertModel.connect( this, { update: 'updateUiBasedOnState' } );
-	}
+	this.invertModel.connect( this, { update: 'updateUiBasedOnState' } );
 	this.itemModel.connect( this, { update: 'updateUiBasedOnState' } );
 	// HACK: Prevent defaults on 'click' for the label so it
 	// doesn't steal the focus away from the input. This means
@@ -159,9 +157,9 @@ ItemMenuOptionWidget.prototype.updateUiBasedOnState = function () {
 
 	this.highlightButton.toggle( this.filtersViewModel.isHighlightEnabled() );
 	this.excludeLabel.toggle(
-		this.invertModel &&
-		this.invertModel.isSelected() &&
-		this.itemModel.isSelected()
+		this.itemModel.getGroupModel().getView() === 'namespaces' &&
+		this.itemModel.isSelected() &&
+		this.invertModel.isSelected()
 	);
 	this.toggle( this.itemModel.isVisible() );
 };

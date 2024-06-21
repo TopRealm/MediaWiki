@@ -48,6 +48,7 @@ class CookieSessionProvider extends SessionProvider {
 	/**
 	 * @param array $params Keys include:
 	 *  - priority: (required) Priority of the returned sessions
+	 *  - callUserSetCookiesHook: Whether to call the deprecated hook
 	 *  - sessionName: Session cookie name. Doesn't honor 'prefix'. Defaults to
 	 *    $wgSessionName, or $wgCookiePrefix . '_session' if that is unset.
 	 *  - cookieOptions: Options to pass to WebRequest::setCookie():
@@ -88,7 +89,10 @@ class CookieSessionProvider extends SessionProvider {
 	}
 
 	protected function postInitSetup() {
+		// @codeCoverageIgnoreStart
 		$this->params += [
+			// @codeCoverageIgnoreEnd
+			'callUserSetCookiesHook' => false,
 			'sessionName' =>
 				$this->getConfig()->get( MainConfigNames::SessionName )
 				?: $this->getConfig()->get( MainConfigNames::CookiePrefix ) . '_session',
@@ -121,7 +125,7 @@ class CookieSessionProvider extends SessionProvider {
 			$info['persisted'] = true;
 		}
 
-		[ $userId, $userName, $token ] = $this->getUserInfoFromCookies( $request );
+		list( $userId, $userName, $token ) = $this->getUserInfoFromCookies( $request );
 		if ( $userId !== null ) {
 			try {
 				$userInfo = UserInfo::newFromId( $userId );
@@ -204,6 +208,11 @@ class CookieSessionProvider extends SessionProvider {
 
 		$cookies = $this->cookieDataToExport( $user, $session->shouldRememberUser() );
 		$sessionData = $this->sessionDataToExport( $user );
+
+		// Legacy hook
+		if ( $this->params['callUserSetCookiesHook'] && !$user->isAnon() ) {
+			$this->getHookRunner()->onUserSetCookies( $user, $sessionData, $cookies );
+		}
 
 		$options = $this->cookieOptions;
 
@@ -392,6 +401,16 @@ class CookieSessionProvider extends SessionProvider {
 	 * @return array
 	 */
 	protected function sessionDataToExport( $user ) {
+		// If we're calling the legacy hook, we should populate $session
+		// like User::setCookies() did.
+		if ( !$user->isAnon() && $this->params['callUserSetCookiesHook'] ) {
+			return [
+				'wsUserID' => $user->getId(),
+				'wsToken' => $user->getToken(),
+				'wsUserName' => $user->getName(),
+			];
+		}
+
 		return [];
 	}
 

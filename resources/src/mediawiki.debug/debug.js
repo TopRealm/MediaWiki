@@ -1,5 +1,3 @@
-/* eslint-disable es-x/no-string-prototype-includes, es-x/no-array-prototype-includes */
-
 ( function () {
 	'use strict';
 

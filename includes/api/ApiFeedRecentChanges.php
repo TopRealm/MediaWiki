@@ -19,11 +19,8 @@
  * @since 1.23
  */
 
-use MediaWiki\Feed\ChannelFeed;
 use MediaWiki\MainConfigNames;
-use MediaWiki\Request\DerivativeRequest;
 use MediaWiki\SpecialPage\SpecialPageFactory;
-use MediaWiki\Title\Title;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
@@ -116,7 +113,7 @@ class ApiFeedRecentChanges extends ApiBase {
 	}
 
 	/**
-	 * Return a MediaWiki\Feed\ChannelFeed object.
+	 * Return a ChannelFeed object.
 	 *
 	 * @param string $feedFormat Feed's format (either 'rss' or 'atom')
 	 * @param string $specialPageName Relevant special page name (either 'Recentchanges' or
@@ -162,7 +159,6 @@ class ApiFeedRecentChanges extends ApiBase {
 			'namespace' => [
 				ParamValidator::PARAM_TYPE => 'namespace',
 			],
-			// TODO: Rename this option to 'invertnamespaces'?
 			'invert' => false,
 			'associated' => false,
 
@@ -192,7 +188,6 @@ class ApiFeedRecentChanges extends ApiBase {
 			'tagfilter' => [
 				ParamValidator::PARAM_TYPE => 'string',
 			],
-			'inverttags' => false,
 
 			'target' => [
 				ParamValidator::PARAM_TYPE => 'string',

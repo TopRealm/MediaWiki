@@ -4,7 +4,6 @@
  * @stable to extend
  */
 
-use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 
 class HTMLTextAreaField extends HTMLFormField {

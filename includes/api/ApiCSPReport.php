@@ -22,7 +22,6 @@
 
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MainConfigNames;
-use MediaWiki\Request\ContentSecurityPolicy;
 use Psr\Log\LoggerInterface;
 use Wikimedia\ParamValidator\ParamValidator;
 
@@ -147,7 +146,7 @@ class ApiCSPReport extends ApiBase {
 			// We only use this pattern if it ends in a slash, this prevents
 			// "/foos" from matching "/foo", and "https://good.combo.bad" matching
 			// "https://good.com".
-			if ( str_ends_with( $pattern, '/' ) && str_starts_with( $url, $pattern ) ) {
+			if ( substr( $pattern, -1 ) === '/' && strpos( $url, $pattern ) === 0 ) {
 				// The pattern starts with the same as the url
 				// e.g. "https://example.org/foo/" matches "https://example.org/foo/b?a#r"
 				return true;

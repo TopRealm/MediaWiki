@@ -22,7 +22,6 @@
  */
 
 use MediaWiki\Config\ServiceOptions;
-use MediaWiki\Html\Html;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 
@@ -119,7 +118,7 @@ class CoreTagHooks {
 					[ 'class' => 'error' ],
 					// Using ->text() not ->parse() as
 					// a paranoia measure against a loop.
-					$parser->msg( 'rawhtml-notallowed' )->escaped()
+					wfMessage( 'rawhtml-notallowed' )->escaped()
 				);
 			}
 		} else {
@@ -193,7 +192,7 @@ class CoreTagHooks {
 	public static function indicator( ?string $content, array $attributes, Parser $parser, PPFrame $frame ): string {
 		if ( !isset( $attributes['name'] ) || trim( $attributes['name'] ) === '' ) {
 			return '<span class="error">' .
-				$parser->msg( 'invalid-indicator-name' )->parse() .
+				wfMessage( 'invalid-indicator-name' )->inContentLanguage()->parse() .
 				'</span>';
 		}
 
@@ -248,7 +247,7 @@ class CoreTagHooks {
 		return Html::rawElement(
 			'span',
 			[ 'class' => 'error' ],
-			$parser->msg( 'invalid-langconvert-attrs' )->parse()
+			wfMessage( 'invalid-langconvert-attrs' )->inContentLanguage()->parse()
 		);
 	}
 

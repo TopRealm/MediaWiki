@@ -22,14 +22,7 @@ namespace Wikimedia\Rdbms;
 use InvalidArgumentException;
 
 /**
- * Manager for sites with a single "main" cluster and any number of "external" clusters
- *
- * @see LBFactoryMulti
- *
- * The class allows for large site farms to split up their data in the following ways:
- *   - Vertically shard compact site-specific data by site (e.g. page/comment metadata)
- *   - Vertically shard compact global data by module (e.g. account/notification data)
- *   - Horizontally shard any bulk data by blob key (e.g. page/comment content)
+ * Manage a simple setup with one primary database and optionally some replicas.
  *
  * @ingroup Database
  */
@@ -87,7 +80,9 @@ class LBFactorySimple extends LBFactory {
 	}
 
 	public function getMainLB( $domain = false ): ILoadBalancer {
-		$this->mainLB ??= $this->newMainLB( $domain );
+		if ( $this->mainLB === null ) {
+			$this->mainLB = $this->newMainLB( $domain );
+		}
 
 		return $this->mainLB;
 	}
@@ -136,6 +131,16 @@ class LBFactorySimple extends LBFactory {
 		$this->initLoadBalancer( $lb );
 
 		return $lb;
+	}
+
+	public function forEachLB( $callback, array $params = [] ) {
+		wfDeprecated( __METHOD__, '1.39' );
+		if ( $this->mainLB !== null ) {
+			$callback( $this->mainLB, ...$params );
+		}
+		foreach ( $this->externalLBs as $lb ) {
+			$callback( $lb, ...$params );
+		}
 	}
 
 	protected function getLBsForOwner() {

@@ -1,5 +1,8 @@
 <?php
+
 /**
+ * Interface for service objects providing a storage interface for Site objects.
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -15,16 +18,12 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  * http://www.gnu.org/copyleft/gpl.html
  *
- * @file
- */
-
-/**
- * Interface for storing and retreiving Site objects.
- *
- * Default implementation is DBSiteStore.
- *
  * @since 1.21
+ *
+ * @file
  * @ingroup Site
+ *
+ * @license GPL-2.0-or-later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 interface SiteStore extends SiteLookup {
@@ -33,7 +32,9 @@ interface SiteStore extends SiteLookup {
 	 * Saves the provided site.
 	 *
 	 * @since 1.21
+	 *
 	 * @param Site $site
+	 *
 	 * @return bool Success indicator
 	 */
 	public function saveSite( Site $site );
@@ -42,7 +43,9 @@ interface SiteStore extends SiteLookup {
 	 * Saves the provided sites.
 	 *
 	 * @since 1.21
+	 *
 	 * @param Site[] $sites
+	 *
 	 * @return bool Success indicator
 	 */
 	public function saveSites( array $sites );

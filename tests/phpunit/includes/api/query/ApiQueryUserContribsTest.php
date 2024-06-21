@@ -1,7 +1,5 @@
 <?php
 
-use MediaWiki\Title\Title;
-
 /**
  * @group API
  * @group Database
@@ -45,15 +43,7 @@ class ApiQueryUserContribsTest extends ApiTestCase {
 	 */
 	public function testSorting( $params, $reverse, $revs ) {
 		if ( isset( $params['ucuserids'] ) ) {
-			$userIdentities = $this->getServiceContainer()->getUserIdentityLookup()
-				->newSelectQueryBuilder()
-				->whereUserNames( $params['ucuserids'] )
-				->fetchUserIdentities();
-			$userIds = [];
-			foreach ( $userIdentities as $userIdentity ) {
-				$userIds[] = $userIdentity->getId();
-			}
-			$params['ucuserids'] = implode( '|', $userIds );
+			$params['ucuserids'] = implode( '|', array_map( [ User::class, 'idFromName' ], $params['ucuserids'] ) );
 		}
 		if ( isset( $params['ucuser'] ) ) {
 			$params['ucuser'] = implode( '|', $params['ucuser'] );

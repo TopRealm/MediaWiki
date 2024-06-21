@@ -20,13 +20,9 @@
  * @file
  */
 
-use MediaWiki\Feed\ChannelFeed;
-use MediaWiki\Feed\FeedItem;
-use MediaWiki\Feed\FeedUtils;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
-use MediaWiki\Title\Title;
 use Wikimedia\Rdbms\IResultWrapper;
 
 /**
@@ -45,12 +41,12 @@ class ChangesFeed {
 	}
 
 	/**
-	 * Get a MediaWiki\Feed\ChannelFeed subclass object to use
+	 * Get a ChannelFeed subclass object to use
 	 *
 	 * @param string $title Feed's title
 	 * @param string $description Feed's description
 	 * @param string $url Url of origin page
-	 * @return ChannelFeed|bool MediaWiki\Feed\ChannelFeed subclass or false on failure
+	 * @return ChannelFeed|bool ChannelFeed subclass or false on failure
 	 */
 	public function getFeedObject( $title, $description, $url ) {
 		$mainConfig = MediaWikiServices::getInstance()->getMainConfig();

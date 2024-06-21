@@ -22,7 +22,6 @@
 
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\MainConfigNames;
-use MediaWiki\Title\Title;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
@@ -85,13 +84,16 @@ class ApiQueryLangLinks extends ApiQueryBase {
 		$this->addTables( 'langlinks' );
 		$this->addWhereFld( 'll_from', array_keys( $pages ) );
 		if ( $params['continue'] !== null ) {
-			$db = $this->getDB();
-			$cont = $this->parseContinueParamOrDie( $params['continue'], [ 'int', 'string' ] );
-			$op = $params['dir'] == 'descending' ? '<=' : '>=';
-			$this->addWhere( $db->buildComparison( $op, [
-				'll_from' => $cont[0],
-				'll_lang' => $cont[1],
-			] ) );
+			$cont = explode( '|', $params['continue'] );
+			$this->dieContinueUsageIf( count( $cont ) != 2 );
+			$op = $params['dir'] == 'descending' ? '<' : '>';
+			$llfrom = (int)$cont[0];
+			$lllang = $this->getDB()->addQuotes( $cont[1] );
+			$this->addWhere(
+				"ll_from $op $llfrom OR " .
+				"(ll_from = $llfrom AND " .
+				"ll_lang $op= $lllang)"
+			);
 		}
 
 		// FIXME: (follow-up) To allow extensions to add to the language links, we need

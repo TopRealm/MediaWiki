@@ -72,7 +72,7 @@ class NaiveForeignTitleFactory implements ForeignTitleFactory {
 			: $ns != 0;
 
 		if ( count( $pieces ) === 2 && $isNamespacePartValid ) {
-			[ $namespaceName, $pageName ] = $pieces;
+			list( $namespaceName, $pageName ) = $pieces;
 		} else {
 			$namespaceName = '';
 			$pageName = $title;

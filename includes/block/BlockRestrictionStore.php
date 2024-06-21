@@ -413,6 +413,10 @@ class BlockRestrictionStore {
 				continue;
 			}
 
+			if ( !isset( $blockRestrictions[$restriction->getBlockId()] ) ) {
+				$blockRestrictions[$restriction->getBlockId()] = [];
+			}
+
 			$blockRestrictions[$restriction->getBlockId()][] = $restriction;
 		}
 

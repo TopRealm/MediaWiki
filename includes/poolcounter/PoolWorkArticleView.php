@@ -31,12 +31,16 @@ use MediaWiki\Revision\RevisionRenderer;
  * @internal
  */
 class PoolWorkArticleView extends PoolCounterWork {
+
 	/** @var ParserOptions */
 	protected $parserOptions;
+
 	/** @var RevisionRecord */
 	protected $revision;
+
 	/** @var RevisionRenderer */
 	private $renderer;
+
 	/** @var LoggerSpi */
 	protected $loggerSpi;
 

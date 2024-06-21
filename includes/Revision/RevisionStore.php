@@ -1,5 +1,7 @@
 <?php
 /**
+ * Service for looking up page revisions.
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -25,15 +27,16 @@
 
 namespace MediaWiki\Revision;
 
+use ActorMigration;
 use BagOStuff;
+use CommentStore;
+use CommentStoreComment;
 use Content;
 use DBAccessObjectUtils;
 use FallbackContent;
 use IDBAccessObject;
 use InvalidArgumentException;
 use LogicException;
-use MediaWiki\CommentStore\CommentStore;
-use MediaWiki\CommentStore\CommentStoreComment;
 use MediaWiki\Content\IContentHandlerFactory;
 use MediaWiki\DAO\WikiAwareEntity;
 use MediaWiki\HookContainer\HookContainer;
@@ -44,15 +47,11 @@ use MediaWiki\Page\PageIdentity;
 use MediaWiki\Page\PageIdentityValue;
 use MediaWiki\Page\PageStore;
 use MediaWiki\Permissions\Authority;
-use MediaWiki\Storage\BadBlobException;
 use MediaWiki\Storage\BlobAccessException;
 use MediaWiki\Storage\BlobStore;
 use MediaWiki\Storage\NameTableStore;
 use MediaWiki\Storage\RevisionSlotsUpdate;
 use MediaWiki\Storage\SqlBlobStore;
-use MediaWiki\Title\Title;
-use MediaWiki\Title\TitleFactory;
-use MediaWiki\User\ActorMigration;
 use MediaWiki\User\ActorStore;
 use MediaWiki\User\UserIdentity;
 use MWException;
@@ -65,6 +64,8 @@ use RecentChange;
 use RuntimeException;
 use StatusValue;
 use stdClass;
+use Title;
+use TitleFactory;
 use Traversable;
 use WANObjectCache;
 use Wikimedia\Assert\Assert;
@@ -73,7 +74,6 @@ use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\DBConnRef;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\ILoadBalancer;
-use Wikimedia\Rdbms\IReadableDatabase;
 use Wikimedia\Rdbms\IResultWrapper;
 
 /**
@@ -242,6 +242,13 @@ class RevisionStore
 	}
 
 	/**
+	 * @return ILoadBalancer
+	 */
+	private function getDBLoadBalancer() {
+		return $this->loadBalancer;
+	}
+
+	/**
 	 * Get the ID of the wiki this revision belongs to.
 	 *
 	 * @return string|false The wiki's logical name, of false to indicate the local wiki.
@@ -256,17 +263,19 @@ class RevisionStore
 	 * @return DBConnRef
 	 */
 	private function getDBConnectionRefForQueryFlags( $queryFlags ) {
-		[ $mode, ] = DBAccessObjectUtils::getDBOptions( $queryFlags );
+		list( $mode, ) = DBAccessObjectUtils::getDBOptions( $queryFlags );
 		return $this->getDBConnectionRef( $mode );
 	}
 
 	/**
 	 * @param int $mode DB_PRIMARY or DB_REPLICA
-	 * @param string|array $groups
+	 *
+	 * @param array $groups
 	 * @return DBConnRef
 	 */
 	private function getDBConnectionRef( $mode, $groups = [] ) {
-		return $this->loadBalancer->getConnectionRef( $mode, $groups, $this->wikiId );
+		$lb = $this->getDBLoadBalancer();
+		return $lb->getConnectionRef( $mode, $groups, $this->wikiId );
 	}
 
 	/**
@@ -763,7 +772,7 @@ class RevisionStore
 	) {
 		$revisionRow = $this->getBaseRevisionRow( $dbw, $rev, $parentId );
 
-		[ $commentFields, $commentCallback ] =
+		list( $commentFields, $commentCallback ) =
 			$this->commentStore->insertWithTempTable(
 				$dbw,
 				'rev_comment',
@@ -771,7 +780,7 @@ class RevisionStore
 			);
 		$revisionRow += $commentFields;
 
-		[ $actorFields, $actorCallback ] =
+		list( $actorFields, $actorCallback ) =
 			$this->actorMigration->getInsertValuesWithTempTable(
 				$dbw,
 				'rev_user',
@@ -1114,17 +1123,10 @@ class RevisionStore
 	 * @return null|RecentChange
 	 */
 	public function getRecentChange( RevisionRecord $rev, $flags = 0 ) {
-		[ $dbType, ] = DBAccessObjectUtils::getDBOptions( $flags );
+		list( $dbType, ) = DBAccessObjectUtils::getDBOptions( $flags );
 
 		$rc = RecentChange::newFromConds(
-			[
-				'rc_this_oldid' => $rev->getId( $this->wikiId ),
-				// rc_this_oldid does not have to be unique,
-				// in particular, it is shared with categorization
-				// changes. Prefer the original change because callers
-				// often expect a change for patrolling.
-				'rc_type' => [ RC_EDIT, RC_NEW, RC_LOG ],
-			],
+			[ 'rc_this_oldid' => $rev->getId( $this->wikiId ) ],
 			__METHOD__,
 			$dbType
 		);
@@ -1160,24 +1162,19 @@ class RevisionStore
 		int $queryFlags = 0
 	) {
 		if ( $blobData !== null ) {
-			$blobAddress = $slot->hasAddress() ? $slot->getAddress() : null;
+			$cacheKey = $slot->hasAddress() ? $slot->getAddress() : null;
 
 			if ( $blobFlags === null ) {
 				// No blob flags, so use the blob verbatim.
 				$data = $blobData;
 			} else {
-				try {
-					$data = $this->blobStore->expandBlob( $blobData, $blobFlags, $blobAddress );
-				} catch ( BadBlobException $e ) {
-					throw new BadRevisionException( $e->getMessage(), [], 0, $e );
-				}
-
+				$data = $this->blobStore->expandBlob( $blobData, $blobFlags, $cacheKey );
 				if ( $data === false ) {
 					throw new RevisionAccessException(
 						'Failed to expand blob data using flags {flags} (key: {cache_key})',
 						[
 							'flags' => $blobFlags,
-							'cache_key' => $blobAddress,
+							'cache_key' => $cacheKey,
 						]
 					);
 				}
@@ -1187,14 +1184,12 @@ class RevisionStore
 			$address = $slot->getAddress();
 			try {
 				$data = $this->blobStore->getBlob( $address, $queryFlags );
-			} catch ( BadBlobException $e ) {
-				throw new BadRevisionException( $e->getMessage(), [], 0, $e );
 			} catch ( BlobAccessException $e ) {
 				throw new RevisionAccessException(
-					'Failed to load data blob from {address} for revision {revision}. '
+					'Failed to load data blob from {address}'
 						. 'If this problem persist, use the findBadBlobs maintenance script '
 						. 'to investigate the issue and mark bad blobs.',
-					[ 'address' => $e->getMessage(), 'revision' => $slot->getRevision() ],
+					[ 'address' => $e->getMessage() ],
 					0,
 					$e
 				);
@@ -1421,7 +1416,7 @@ class RevisionStore
 	private function loadSlotRecordsFromDb( $revId, $queryFlags, PageIdentity $page ): array {
 		$revQuery = $this->getSlotsQueryInfo( [ 'content' ] );
 
-		[ $dbMode, $dbOptions ] = DBAccessObjectUtils::getDBOptions( $queryFlags );
+		list( $dbMode, $dbOptions ) = DBAccessObjectUtils::getDBOptions( $queryFlags );
 		$db = $this->getDBConnectionRef( $dbMode );
 
 		$res = $db->select(
@@ -1535,6 +1530,7 @@ class RevisionStore
 	 * public, since RevisionSlots instances should not be constructed directly.
 	 *
 	 * @param int $revId
+	 * @param \stdClass $revisionRow
 	 * @param \stdClass[]|null $slotRows
 	 * @param int $queryFlags
 	 * @param PageIdentity $page
@@ -1544,6 +1540,7 @@ class RevisionStore
 	 */
 	private function newRevisionSlots(
 		$revId,
+		$revisionRow,
 		$slotRows,
 		$queryFlags,
 		PageIdentity $page
@@ -1683,7 +1680,7 @@ class RevisionStore
 		$comment = $this->commentStore->getCommentLegacy( $db, 'ar_comment', $row, true );
 
 		if ( !( $slots instanceof RevisionSlots ) ) {
-			$slots = $this->newRevisionSlots( (int)$row->ar_rev_id, $slots, $queryFlags, $page );
+			$slots = $this->newRevisionSlots( (int)$row->ar_rev_id, $row, $slots, $queryFlags, $page );
 		}
 		return new RevisionArchiveRecord( $page, $user, $comment, $row, $slots, $this->wikiId );
 	}
@@ -1766,7 +1763,7 @@ class RevisionStore
 		$comment = $this->commentStore->getCommentLegacy( $db, 'rev_comment', $row, true );
 
 		if ( !( $slots instanceof RevisionSlots ) ) {
-			$slots = $this->newRevisionSlots( (int)$row->rev_id, $slots, $queryFlags, $page );
+			$slots = $this->newRevisionSlots( (int)$row->rev_id, $row, $slots, $queryFlags, $page );
 		}
 
 		// If this is a cached row, instantiate a cache-aware RevisionRecord to avoid stale data.
@@ -2308,12 +2305,14 @@ class RevisionStore
 		$db = $this->getDBConnectionRefForQueryFlags( $flags );
 		$rev = $this->loadRevisionFromConds( $db, $conditions, $flags, $page, $options );
 
+		$lb = $this->getDBLoadBalancer();
+
 		// Make sure new pending/committed revision are visible later on
 		// within web requests to certain avoid bugs like T93866 and T94407.
 		if ( !$rev
 			&& !( $flags & self::READ_LATEST )
-			&& $this->loadBalancer->hasStreamingReplicaServers()
-			&& $this->loadBalancer->hasOrMadeRecentPrimaryChanges()
+			&& $lb->hasStreamingReplicaServers()
+			&& $lb->hasOrMadeRecentPrimaryChanges()
 		) {
 			$flags = self::READ_LATEST;
 			$dbw = $this->getDBConnectionRef( DB_PRIMARY );
@@ -2356,10 +2355,10 @@ class RevisionStore
 	 * Throws an exception if the given database connection does not belong to the wiki this
 	 * RevisionStore is bound to.
 	 *
-	 * @param IReadableDatabase $db
+	 * @param IDatabase $db
 	 * @throws MWException
 	 */
-	private function checkDatabaseDomain( IReadableDatabase $db ) {
+	private function checkDatabaseDomain( IDatabase $db ) {
 		$dbDomain = $db->getDomainID();
 		$storeDomain = $this->loadBalancer->resolveDomainID( $this->wikiId );
 		if ( $dbDomain === $storeDomain ) {
@@ -2683,10 +2682,13 @@ class RevisionStore
 			return null;
 		}
 
-		[ $dbType, ] = DBAccessObjectUtils::getDBOptions( $flags );
-		$db = $this->getDBConnectionRef( $dbType );
+		list( $dbType, ) = DBAccessObjectUtils::getDBOptions( $flags );
+		$db = $this->getDBConnectionRef( $dbType, [ 'contributions' ] );
 
-		$ts = $rev->getTimestamp() ?? $this->getTimestampFromId( $revisionIdValue, $flags );
+		$ts = $rev->getTimestamp();
+		if ( $ts === null ) {
+			$ts = $this->getTimestampFromId( $revisionIdValue, $flags );
+		}
 		if ( $ts === false ) {
 			// XXX Should this be moved into getTimestampFromId?
 			$ts = $db->selectField( 'archive', 'ar_timestamp',
@@ -2696,14 +2698,12 @@ class RevisionStore
 				return null;
 			}
 		}
+		$dbts = $db->addQuotes( $db->timestamp( $ts ) );
 
 		$revId = $db->selectField( 'revision', 'rev_id',
 			[
 				'rev_page' => $rev->getPageId( $this->wikiId ),
-				$db->buildComparison( $op, [
-					'rev_timestamp' => $db->timestamp( $ts ),
-					'rev_id' => $revisionIdValue,
-				] ),
+				"rev_timestamp $op $dbts OR (rev_timestamp = $dbts AND rev_id $op $revisionIdValue )"
 			],
 			__METHOD__,
 			[
@@ -2797,7 +2797,7 @@ class RevisionStore
 	 *
 	 * @param int $id
 	 * @param int $flags
-	 * @return string|false False if not found
+	 * @return string|bool False if not found
 	 */
 	public function getTimestampFromId( $id, $flags = 0 ) {
 		if ( $id instanceof Title ) {
@@ -2828,11 +2828,11 @@ class RevisionStore
 	 *
 	 * MCR migration note: this replaced Revision::countByPageId
 	 *
-	 * @param IReadableDatabase $db
+	 * @param IDatabase $db
 	 * @param int $id Page id
 	 * @return int
 	 */
-	public function countRevisionsByPageId( IReadableDatabase $db, $id ) {
+	public function countRevisionsByPageId( IDatabase $db, $id ) {
 		$this->checkDatabaseDomain( $db );
 
 		$row = $db->selectRow( 'revision',
@@ -2921,7 +2921,7 @@ class RevisionStore
 	 * @param PageIdentity $page the associated page
 	 * @param int $revId current revision of this page. Defaults to $title->getLatestRevID().
 	 *
-	 * @return RevisionRecord|false Returns false if missing
+	 * @return RevisionRecord|bool Returns false if missing
 	 */
 	public function getKnownCurrentRevision( PageIdentity $page, $revId = 0 ) {
 		$db = $this->getDBConnectionRef( DB_REPLICA );
@@ -3078,29 +3078,29 @@ class RevisionStore
 		$options = []
 	) {
 		$options = (array)$options;
-		if ( in_array( self::INCLUDE_OLD, $options ) || in_array( self::INCLUDE_BOTH, $options ) ) {
+		$oldCmp = '>';
+		$newCmp = '<';
+		if ( in_array( self::INCLUDE_OLD, $options ) ) {
 			$oldCmp = '>=';
-		} else {
-			$oldCmp = '>';
 		}
-		if ( in_array( self::INCLUDE_NEW, $options ) || in_array( self::INCLUDE_BOTH, $options ) ) {
+		if ( in_array( self::INCLUDE_NEW, $options ) ) {
 			$newCmp = '<=';
-		} else {
-			$newCmp = '<';
+		}
+		if ( in_array( self::INCLUDE_BOTH, $options ) ) {
+			$oldCmp = '>=';
+			$newCmp = '<=';
 		}
 
 		$conds = [];
 		if ( $old ) {
-			$conds[] = $dbr->buildComparison( $oldCmp, [
-				'rev_timestamp' => $dbr->timestamp( $old->getTimestamp() ),
-				'rev_id' => $old->getId( $this->wikiId ),
-			] );
+			$oldTs = $dbr->addQuotes( $dbr->timestamp( $old->getTimestamp() ) );
+			$conds[] = "(rev_timestamp = {$oldTs} AND rev_id {$oldCmp} {$old->getId( $this->wikiId )}) " .
+				"OR rev_timestamp > {$oldTs}";
 		}
 		if ( $new ) {
-			$conds[] = $dbr->buildComparison( $newCmp, [
-				'rev_timestamp' => $dbr->timestamp( $new->getTimestamp() ),
-				'rev_id' => $new->getId( $this->wikiId ),
-			] );
+			$newTs = $dbr->addQuotes( $dbr->timestamp( $new->getTimestamp() ) );
+			$conds[] = "(rev_timestamp = {$newTs} AND rev_id {$newCmp} {$new->getId( $this->wikiId )}) " .
+				"OR rev_timestamp < {$newTs}";
 		}
 		return $conds;
 	}
@@ -3195,7 +3195,7 @@ class RevisionStore
 	 *  If null is provided, count starting from the first revision (inclusive).
 	 * @param RevisionRecord|null $new New revision.
 	 *  If null is provided, count until the last revision (inclusive).
-	 * @param Authority|null $performer the user whose access rights to apply
+	 * @param Authority|null $performer the user who's access rights to apply
 	 * @param int|null $max Limit of Revisions to count, will be incremented to detect truncations.
 	 * @param string|array $options Single option, or an array of options:
 	 *     RevisionStore::INCLUDE_OLD Include $old in the range; $new is excluded.
@@ -3272,7 +3272,7 @@ class RevisionStore
 	 *  If null is provided, count starting from the first revision (inclusive).
 	 * @param RevisionRecord|null $new New revision.
 	 *  If null is provided, count until the last revision (inclusive).
-	 * @param Authority|null $performer the user whose access rights to apply
+	 * @param Authority|null $performer the user who's access rights to apply
 	 * @param int|null $max Limit of Revisions to count, will be incremented to detect truncations.
 	 * @param string|array $options Single option, or an array of options:
 	 *     RevisionStore::INCLUDE_OLD Include $old in the range; $new is excluded.

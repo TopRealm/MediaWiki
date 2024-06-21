@@ -3,9 +3,7 @@
 use MediaWiki\MainConfigNames;
 use MediaWiki\MainConfigSchema;
 use MediaWiki\Page\PageReferenceValue;
-use MediaWiki\Request\FauxRequest;
 use MediaWiki\SpecialPage\SpecialPageFactory;
-use MediaWiki\Title\Title;
 use Wikimedia\ScopedCallback;
 use Wikimedia\TestingAccessWrapper;
 
@@ -117,7 +115,7 @@ class SpecialPageFactoryTest extends MediaWikiIntegrationTestCase {
 	public function testResolveAlias() {
 		$this->overrideConfigValue( MainConfigNames::LanguageCode, 'de' );
 
-		[ $name, $param ] = $this->getFactory()->resolveAlias( 'Spezialseiten/Foo' );
+		list( $name, $param ) = $this->getFactory()->resolveAlias( 'Spezialseiten/Foo' );
 		$this->assertEquals( 'Specialpages', $name );
 		$this->assertEquals( 'Foo', $param );
 	}
@@ -196,7 +194,7 @@ class SpecialPageFactoryTest extends MediaWikiIntegrationTestCase {
 		} );
 		$reset = new ScopedCallback( 'restore_error_handler' );
 
-		[ $name, /*...*/ ] = $this->getFactory()->resolveAlias( $alias );
+		list( $name, /*...*/ ) = $this->getFactory()->resolveAlias( $alias );
 		$this->assertEquals( $expectedName, $name, "$test: Alias to name" );
 		$result = $this->getFactory()->getLocalNameFor( $name );
 		$this->assertEquals( $expectedAlias, $result, "$test: Alias to name to alias" );
@@ -337,35 +335,5 @@ class SpecialPageFactoryTest extends MediaWikiIntegrationTestCase {
 		$this->getFactory()->getPage( 'TestPage' );
 
 		$this->assertEquals( SpecialPageFactory::class, $type );
-	}
-
-	/**
-	 * @covers \MediaWiki\SpecialPage\SpecialPageFactory::capturePath
-	 */
-	public function testSpecialPageCapturePathExceptions() {
-		$this->overrideConfigValue( MainConfigNames::SpecialPages, [
-			'ExceptionPage' => [
-				'factory' => static function () {
-					return new class() extends SpecialPage {
-						public function execute( $par ) {
-							throw new MWException( 'for testing' );
-						}
-
-						public function isIncludable() {
-							return true;
-						}
-					};
-				},
-			]
-		] );
-
-		$factory = $this->getFactory();
-		$factory->getPage( 'ExceptionPage' );
-
-		$this->expectException( MWException::class );
-		$factory->capturePath(
-			Title::makeTitle( NS_SPECIAL, 'ExceptionPage' ),
-			RequestContext::getMain()
-		);
 	}
 }

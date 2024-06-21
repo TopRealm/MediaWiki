@@ -10,15 +10,16 @@ use MediaWiki\Page\PageIdentity;
 use MediaWiki\Page\PageIdentityValue;
 use MediaWiki\Page\RollbackPage;
 use MediaWiki\Permissions\Authority;
+use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Tests\Unit\MockServiceDependenciesTrait;
 use MediaWiki\Tests\Unit\Permissions\MockAuthorityTrait;
-use MediaWiki\Title\Title;
 use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserIdentityValue;
 use MediaWikiIntegrationTestCase;
 use ReadOnlyMode;
 use RecentChange;
+use Title;
 use User;
 use WikiPage;
 use WikitextContent;
@@ -134,9 +135,12 @@ class RollbackPageTest extends MediaWikiIntegrationTestCase {
 		$status3 = $this->editPage( $page, $text, "adding section three", NS_MAIN, $user2 );
 		$this->assertStatusGood( $status3, 'edit 3 success' );
 
-		$rev1 = $status1->getNewRevision();
-		$rev2 = $status2->getNewRevision();
-		$rev3 = $status3->getNewRevision();
+		/** @var RevisionRecord $rev1 */
+		/** @var RevisionRecord $rev2 */
+		/** @var RevisionRecord $rev3 */
+		$rev1 = $status1->getValue()['revision-record'];
+		$rev2 = $status2->getValue()['revision-record'];
+		$rev3 = $status3->getValue()['revision-record'];
 
 		$revisionStore = $this->getServiceContainer()->getRevisionStore();
 		/**
@@ -240,12 +244,12 @@ class RollbackPageTest extends MediaWikiIntegrationTestCase {
 		$text = "one";
 		$status = $this->editPage( $page, $text, "section one", NS_MAIN, $user1 );
 		$this->assertStatusGood( $status, 'edit 1 success' );
-		$result['revision-one'] = $status->getNewRevision();
+		$result['revision-one'] = $status->getValue()['revision-record'];
 
 		$text .= "\n\ntwo";
 		$status = $this->editPage( $page, $text, "adding section two", NS_MAIN, $user2 );
 		$this->assertStatusGood( $status, 'edit 2 success' );
-		$result['revision-two'] = $status->getNewRevision();
+		$result['revision-two'] = $status->getValue()['revision-record'];
 		return $result;
 	}
 
@@ -328,7 +332,7 @@ class RollbackPageTest extends MediaWikiIntegrationTestCase {
 		$text = "one\n\ntwo\n\nthree";
 		$status = $this->editPage( $page, $text, "adding section three", NS_MAIN, $user1 );
 		$this->assertStatusGood( $status, 'edit 3 success' );
-		$rev3 = $status->getNewRevision();
+		$rev3 = $status->getValue()['revision-record'];
 
 		$revisionStore = $this->getServiceContainer()->getRevisionStore();
 

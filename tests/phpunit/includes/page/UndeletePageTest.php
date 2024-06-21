@@ -1,8 +1,6 @@
 <?php
 
 use MediaWiki\Page\UndeletePage;
-use MediaWiki\Revision\SlotRecord;
-use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentityValue;
 use Wikimedia\IPUtils;
 
@@ -60,12 +58,12 @@ class UndeletePageTest extends MediaWikiIntegrationTestCase {
 	 * @param string $content
 	 */
 	private function setupPage( string $titleText, int $ns, string $content ): void {
-		$title = Title::makeTitle( $ns, $titleText );
+		$title = Title::newFromText( $titleText, $ns );
 		$page = $this->getServiceContainer()->getWikiPageFactory()->newFromTitle( $title );
 		$performer = static::getTestUser()->getUser();
 		$content = ContentHandler::makeContent( $content, $page->getTitle(), CONTENT_MODEL_WIKITEXT );
 		$updater = $page->newPageUpdater( UserIdentityValue::newAnonymous( $this->ipEditor ) )
-			->setContent( SlotRecord::MAIN, $content );
+			->setContent( 'main', $content );
 
 		$revisionRecord = $updater->saveRevision( CommentStoreComment::newUnsavedComment( "testing" ) );
 		if ( !$updater->wasSuccessful() ) {

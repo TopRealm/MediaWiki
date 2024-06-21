@@ -21,8 +21,6 @@
  * @ingroup SpecialPage
  */
 
-use MediaWiki\Title\Title;
-
 /**
  * A special page that redirects to the URL of a given file
  *

@@ -2,10 +2,6 @@
 
 use MediaWiki\MediaWikiServices;
 
-/**
- * @internal For use by WatchedItemStore
- * @ingroup JobQueue
- */
 class WatchlistExpiryJob extends Job {
 
 	public function __construct( string $command = 'watchlistExpiry', array $params = [] ) {

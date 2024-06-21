@@ -38,7 +38,6 @@ class ApiQueryPrefixSearchTest extends ApiTestCase {
 	 * @dataProvider offsetContinueProvider
 	 */
 	public function testOffsetContinue( $expectedOffset, $expectedResults, $offset, $limit ) {
-		$this->overrideConfigValue( MainConfigNames::UsePigLatinVariant, false );
 		$response = $this->doApiRequest( [
 			'action' => 'query',
 			'list' => 'prefixsearch',

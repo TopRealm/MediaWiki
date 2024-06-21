@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"1233qwer1234qwer4",
 			"AlefZet",
 			"Amire80",
 			"DannyS712",
@@ -12,10 +11,7 @@
 			"TayfunEt.",
 			"Urhixidur",
 			"아라",
-<<<<<<< HEAD
-=======
 			"1233qwer1234qwer4",
->>>>>>> origin/1.39.7-test
 			"Zolgoyo"
 		]
 	},
@@ -579,7 +575,7 @@
 	"revdelete-hide-comment": "Qısqa tarifni kösterme",
 	"revdelete-hide-user": "Deñiştirmeni yapqannıñ qullanıcı adı/IP-si",
 	"revdelete-hide-restricted": "Malümatnı adiy qullanıcılardan kibi idarecilerden de gizle",
-	"revdelete-radio-same": "Deñiştirmeñiz",
+	"revdelete-radio-same": "(deñiştirmeñiz)",
 	"revdelete-radio-set": "Gizlenilgen",
 	"revdelete-radio-unset": "Körsetilgen",
 	"revdelete-log": "Sebep:",
@@ -850,7 +846,6 @@
 	"rcfilters-filter-pageedits-label": "Saife deñiştirilmeleri",
 	"rcfilters-filter-newpages-label": "Saife yaratılmaları",
 	"rcfilters-filter-logactions-label": "Kündeligi yapılğan areketler",
-	"rcfilters-filter-newuserlogactions-label": "Yañı qullanıcılar",
 	"rcfilters-liveupdates-button": "Canlı yañartuv",
 	"rcfilters-target-page-placeholder": "Bir saife (yada kategoriya) adı kirsetiñiz",
 	"rcnotefrom": "<strong>$3, $4</strong> tarihından başlap yapılğan {{PLURAL:$5|deñiştirme|deñiştirmeler}} aşağıdadır (eñ çоq <strong>$1</strong> dane saife kösterile).",
@@ -1005,10 +1000,6 @@
 	"filehist-dimensions": "En × boy",
 	"filehist-filesize": "Fayl büyükligi",
 	"filehist-comment": "İzaat",
-<<<<<<< HEAD
-	"filehist-missing": "Fayl yoq",
-=======
->>>>>>> origin/1.39.7-test
 	"imagelinks": "Fayl qullanıluvı",
 	"linkstoimage": "Bu {{PLURAL:$1|saife qullana|$1 saifeler qullana}} bu fayldı:",
 	"linkstoimage-more": "Bar yoq $1 {{PLURAL:$1|saife}} bu fayldı qullana. Mına cedvel köstere qaysı {{PLURAL:$1|birinci saife|birinci saifeler}} sadece bu fayldı qullana. [[Special:WhatLinksHere/$2|Episinide]] köstergeni tapıla.",
@@ -1527,7 +1518,7 @@
 	"metadata-help": "Faylda (adetince raqamlı kamera ve skanerlernen qoşulğan) ilâve malümatı bar. Eger bu fayl yaratılğandan soñ deñiştirilse edi, belki de bazı parametrler eskirdi.",
 	"metadata-expand": "Tafsilâtnı köster",
 	"metadata-collapse": "Tafsilâtnı kösterme",
-	"metadata-fields": "Bu cedveldeki EXIF meta malümatı resim saifesinde kösterilecek, başqaları ise gizlenecek.\n* make \n* model \n* datetimeoriginal \n* exposuretime \n* fnumber \n* isospeedratings \n* focallength \n* artist \n* copyright \n* imagedescription \n* gpslatitude \n* gpslongitude \n* gpsaltitude \n* dc-rights \n* copyrightowner \n* usageterms \n* webstatement \n* licenseurl \n* attributionurl \n* preferredattributionname \n* credit \n* jpegfilecomment \n* pngfilecomment \n* giffilecomment \n* usercomment \n* citydest \n* citycreated \n* headline \n* source \n* locationdest \n* dc-contributor \n* dc-coverage \n* dc-publisher \n* dc-relation \n* label \n* nickname \n* personinimage \n* disclaimer \n* event \n* objectname",
+	"metadata-fields": "Bu cedveldeki EXIF meta malümatı resim saifesinde kösterilecek, başqaları ise gizlenecek.\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude",
 	"namespacesall": "Episi",
 	"monthsall": "Episi",
 	"confirmemail": "E-mail adresini tasdıqla",
@@ -1646,10 +1637,7 @@
 	"logentry-move-move-noredirect": "$1 adlı qullanıcı $3 saifesiniñ adını yönetme qaldırmayıp $4 dep {{GENDER:$2|deñiştirdi}}",
 	"logentry-move-move_redir": "$1, $3 saifesiniñ adını yönetme üzerinden $4 dep {{GENDER:$2|deñiştirdi}}",
 	"logentry-move-move_redir-noredirect": "$1 adlı qullanıcı $3 saifesiniñ adını yönetme üzerinden yañı bir yönetme qaldırmayıp $4 dep {{GENDER:$2|deñiştirdi}}",
-<<<<<<< HEAD
-=======
 	"feedback-back": "Keri",
->>>>>>> origin/1.39.7-test
 	"feedback-cancel": "Lâğu",
 	"feedback-close": "Bitti",
 	"feedback-message": "Mektüp:",
@@ -1693,8 +1681,5 @@
 	"skin-action-protect": "Qorçala",
 	"skin-action-undelete": "Yañıdan yarat",
 	"skin-action-delete": "Yoq et",
-	"skin-action-move": "Adını deñiştir",
-	"renameuser-page-moved": "$1 saifesiniñ adı $2 dep deñiştirildi.",
-	"renameuser-page-unmoved": "$1 saifesiniñ adı $2 olaraq deñiştirilip olamay.",
-	"log-name-renameuser": "Qullanıcı adı deñişikligi jurnalı"
+	"skin-action-move": "Adını deñiştir"
 }

@@ -94,8 +94,8 @@ class CreateBotPassword extends Maintenance {
 
 		$passwordFactory = $services->getPasswordFactory();
 
-		$userIdentity = $services->getUserIdentityLookup()->getUserIdentityByName( $username );
-		if ( !$userIdentity || !$userIdentity->isRegistered() ) {
+		$userId = User::idFromName( $username );
+		if ( $userId === null ) {
 			$this->fatalError( "Cannot create bot password for non-existent user '$username'." );
 		}
 

@@ -156,7 +156,7 @@ class LanguageFi extends Language {
 		foreach ( $tokens as $item ) {
 			if ( !is_numeric( $item ) ) {
 				if ( count( explode( '-', $item ) ) == 3 && strlen( $item ) == 10 ) {
-					[ $yyyy, $mm, $dd ] = explode( '-', $item );
+					list( $yyyy, $mm, $dd ) = explode( '-', $item );
 					$final .= ' ' . $this->date( "{$yyyy}{$mm}{$dd}000000" );
 					continue;
 				}

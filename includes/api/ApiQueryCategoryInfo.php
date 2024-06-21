@@ -20,8 +20,6 @@
  * @file
  */
 
-use MediaWiki\Title\Title;
-
 /**
  * This query adds the "<categories>" subelement to all pages with the list of
  * categories the page is in.

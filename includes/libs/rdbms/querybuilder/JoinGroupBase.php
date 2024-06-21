@@ -27,16 +27,15 @@ abstract class JoinGroupBase {
 	 */
 	public function table( $table, $alias = null ) {
 		if ( $table instanceof JoinGroup ) {
-			$alias ??= $table->getAlias();
+			if ( $alias === null ) {
+				$alias = $table->getAlias();
+			}
 			$table = $table->getRawTables();
 		} elseif ( $table instanceof SelectQueryBuilder ) {
-			$alias ??= $this->getAutoAlias();
-			$table = new Subquery( $table->getSQL() );
-		} elseif ( $table instanceof Subquery ) {
 			if ( $alias === null ) {
-				throw new \InvalidArgumentException( __METHOD__ .
-					': Subquery as table must provide an alias.' );
+				$alias = $this->getAutoAlias();
 			}
+			$table = new Subquery( $table->getSQL() );
 		} elseif ( !is_string( $table ) ) {
 			throw new \InvalidArgumentException( __METHOD__ .
 				': $table must be either string, JoinGroup or SelectQueryBuilder' );

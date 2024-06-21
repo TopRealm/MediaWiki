@@ -24,7 +24,6 @@ use MediaWiki\MainConfigNames;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Page\PageIdentityValue;
 use MediaWiki\Tests\Unit\DummyServicesTrait;
-use MediaWiki\Title\Title;
 
 /**
  * @covers MediaWikiTitleCodec
@@ -411,7 +410,6 @@ class MediaWikiTitleCodecTest extends MediaWikiIntegrationTestCase {
 			'fragment with space' => [ 'X#z z', NS_MAIN, 'en', new TitleValue( NS_MAIN, 'X', 'z z' ) ],
 			'fragment with percent' => [ 'X#z%z', NS_MAIN, 'en', new TitleValue( NS_MAIN, 'X', 'z%z' ) ],
 			'fragment with amp' => [ 'X#z&z', NS_MAIN, 'en', new TitleValue( NS_MAIN, 'X', 'z&z' ) ],
-			'remotetestiw in user' => [ 'User:remotetestiw:', NS_MAIN, 'en', new TitleValue( NS_USER, 'Remotetestiw:' ) ],
 		];
 	}
 
@@ -445,7 +443,6 @@ class MediaWikiTitleCodecTest extends MediaWikiIntegrationTestCase {
 			[ 'Talk:localtestiw:Foo' ],
 			[ '::1' ], // only valid in user namespace
 			[ 'User::x' ], // leading ":" in a user name is only valid of IPv6 addresses
-			[ 'remotetestiw:', NS_USER ],
 
 			// NOTE: cases copied from TitleTest::testSecureAndSplit. Keep in sync.
 			[ '' ],
@@ -500,11 +497,11 @@ class MediaWikiTitleCodecTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * @dataProvider provideParseTitle_invalid
 	 */
-	public function testParseTitle_invalid( $text, $ns = NS_MAIN ) {
+	public function testParseTitle_invalid( $text ) {
 		$this->expectException( MalformedTitleException::class );
 
 		$codec = $this->makeCodec( 'en' );
-		$codec->parseTitle( $text, $ns );
+		$codec->parseTitle( $text, NS_MAIN );
 	}
 
 	/**

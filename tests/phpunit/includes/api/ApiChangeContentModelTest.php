@@ -2,7 +2,6 @@
 
 use MediaWiki\MainConfigNames;
 use MediaWiki\Tests\Unit\Permissions\MockAuthorityTrait;
-use MediaWiki\Title\Title;
 
 /**
  * Tests for editing page content model via api
@@ -83,7 +82,7 @@ class ApiChangeContentModelTest extends ApiTestCase {
 	public function testChangeNeeded() {
 		$this->assertSame(
 			'wikitext',
-			Title::makeTitle( NS_MAIN, 'ExistingPage' )->getContentModel(),
+			Title::newFromText( 'ExistingPage' )->getContentModel(),
 			'`ExistingPage` should be wikitext'
 		);
 
@@ -135,7 +134,7 @@ class ApiChangeContentModelTest extends ApiTestCase {
 	 * @param string $expectedMessage expected fatal
 	 */
 	public function testEditFilterMergedContent( $customMessage, $expectedMessage ) {
-		$title = Title::makeTitle( NS_MAIN, 'ExistingPage' );
+		$title = Title::newFromText( 'ExistingPage' );
 
 		$this->assertSame(
 			'wikitext',
@@ -181,7 +180,7 @@ class ApiChangeContentModelTest extends ApiTestCase {
 	 * Test the ContentModelCanBeUsedOn hook can be intercepted
 	 */
 	public function testContentModelCanBeUsedOn() {
-		$title = Title::makeTitle( NS_MAIN, 'ExistingPage' );
+		$title = Title::newFromText( 'ExistingPage' );
 
 		$this->assertSame(
 			'wikitext',
@@ -268,7 +267,7 @@ class ApiChangeContentModelTest extends ApiTestCase {
 	 * Test that it works
 	 */
 	public function testEverythingWorks() {
-		$title = Title::makeTitle( NS_MAIN, 'ExistingPage' );
+		$title = Title::newFromText( 'ExistingPage' );
 		$performer = $this->mockAnonAuthorityWithPermissions(
 			[ 'edit', 'editcontentmodel', 'writeapi', 'applychangetags' ]
 		);

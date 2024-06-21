@@ -1,18 +1,5 @@
 <?php
 
-namespace MediaWiki\Tests\Unit;
-
-use FileContentHandler;
-use MediaWiki\Languages\LanguageNameUtils;
-use MediaWiki\Parser\MagicWordFactory;
-use MediaWiki\Title\TitleFactory;
-use MediaWikiUnitTestCase;
-use ParserFactory;
-use SearchEngine;
-use SearchIndexField;
-use SearchIndexFieldDefinition;
-use Wikimedia\UUID\GlobalIdGenerator;
-
 /**
  * @group ContentHandler
  *
@@ -27,14 +14,7 @@ class FileContentHandlerTest extends MediaWikiUnitTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->handler = new FileContentHandler(
-			CONTENT_MODEL_WIKITEXT,
-			$this->createMock( TitleFactory::class ),
-			$this->createMock( ParserFactory::class ),
-			$this->createMock( GlobalIdGenerator::class ),
-			$this->createMock( LanguageNameUtils::class ),
-			$this->createMock( MagicWordFactory::class )
-		);
+		$this->handler = new FileContentHandler();
 	}
 
 	public function testIndexMapping() {

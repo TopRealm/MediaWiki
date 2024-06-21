@@ -21,9 +21,6 @@
  * @ingroup Maintenance
  */
 
-use MediaWiki\StubObject\StubGlobalUser;
-use MediaWiki\Title\Title;
-
 require_once __DIR__ . '/Maintenance.php';
 
 class Undelete extends Maintenance {

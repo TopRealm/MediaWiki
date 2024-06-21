@@ -1,7 +1,5 @@
 <?php
 
-use MediaWiki\Title\Title;
-
 /**
  * @covers EnhancedChangesList
  *
@@ -118,10 +116,10 @@ class EnhancedChangesListTest extends MediaWikiLangTestCase {
 
 		$html = $enhancedChangesList->endRecentChangesList();
 
-		$this->assertMatchesRegularExpression( '/Hello world prefix/', $html );
+		$this->assertRegExp( '/Hello world prefix/', $html );
 
 		// Test EnhancedChangesListModifyLineData hook was run
-		$this->assertMatchesRegularExpression( '/This is a minor edit/', $html );
+		$this->assertRegExp( '/This is a minor edit/', $html );
 
 		// Two separate lines
 		$enhancedChangesList->beginRecentChangesList();
@@ -134,7 +132,7 @@ class EnhancedChangesListTest extends MediaWikiLangTestCase {
 		$html = $enhancedChangesList->endRecentChangesList();
 
 		// Test EnhancedChangesListModifyBlockLineData hook was run
-		$this->assertMatchesRegularExpression( '/This edit was performed by a bot/', $html );
+		$this->assertRegExp( '/This edit was performed by a bot/', $html );
 
 		preg_match_all( '/Hello world prefix/', $html, $matches );
 		$this->assertCount( 2, $matches[0] );
@@ -165,7 +163,7 @@ class EnhancedChangesListTest extends MediaWikiLangTestCase {
 		$enhancedChangesList->recentChangesLine( $recentChange, false );
 
 		$html = $enhancedChangesList->endRecentChangesList();
-		$this->assertMatchesRegularExpression(
+		$this->assertRegExp(
 			'/data-mw-revid="5" data-mw-ts="20131103092153" class="[^"]*mw-enhanced-rc[^"]*"/',
 			$html
 		);

@@ -20,7 +20,6 @@
  * @file
  */
 
-use MediaWiki\Html\Html;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use Wikimedia\ParamValidator\ParamValidator;
@@ -45,7 +44,7 @@ abstract class ApiFormatBase extends ApiBase {
 	public function __construct( ApiMain $main, $format ) {
 		parent::__construct( $main, $format );
 
-		$this->mIsHtml = str_ends_with( $format, 'fm' );
+		$this->mIsHtml = ( substr( $format, -2, 2 ) === 'fm' ); // ends with 'fm'
 		if ( $this->mIsHtml ) {
 			$this->mFormat = substr( $format, 0, -2 ); // remove ending 'fm'
 			$this->mIsWrappedHtml = $this->getMain()->getCheck( 'wrappedhtml' );

@@ -6,7 +6,6 @@ use MediaWiki\Block\Restriction\ActionRestriction;
 use MediaWiki\Block\Restriction\NamespaceRestriction;
 use MediaWiki\Block\Restriction\PageRestriction;
 use MediaWiki\MainConfigNames;
-use MediaWiki\Request\FauxRequest;
 use Wikimedia\Rdbms\LoadBalancer;
 use Wikimedia\TestingAccessWrapper;
 
@@ -869,7 +868,7 @@ class SpecialBlockTest extends SpecialPageTestBase {
 	public function testGetTargetAndType( $par, $requestData, $expectedTarget ) {
 		$request = $requestData ? new FauxRequest( $requestData ) : null;
 		$page = $this->newSpecialPage();
-		[ $target, $type ] = $page->getTargetAndType( $par, $request );
+		list( $target, $type ) = $page->getTargetAndType( $par, $request );
 		$this->assertSame( $expectedTarget, $target );
 	}
 

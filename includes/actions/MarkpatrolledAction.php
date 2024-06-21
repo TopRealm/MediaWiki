@@ -33,16 +33,16 @@ class MarkpatrolledAction extends FormAction {
 	private $linkRenderer;
 
 	/**
-	 * @param Article $article
+	 * @param Page $page
 	 * @param IContextSource $context
 	 * @param LinkRenderer $linkRenderer
 	 */
 	public function __construct(
-		Article $article,
+		Page $page,
 		IContextSource $context,
 		LinkRenderer $linkRenderer
 	) {
-		parent::__construct( $article, $context );
+		parent::__construct( $page, $context );
 		$this->linkRenderer = $linkRenderer;
 	}
 

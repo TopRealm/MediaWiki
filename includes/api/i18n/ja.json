@@ -208,7 +208,6 @@
 	"apihelp-feedrecentchanges-param-hidemyself": "現在の利用者による編集を非表示にする。",
 	"apihelp-feedrecentchanges-param-hidecategorization": "カテゴリのメンバーの変更を非表示にする。",
 	"apihelp-feedrecentchanges-param-tagfilter": "タグにより絞り込む。",
-	"apihelp-feedrecentchanges-param-inverttags": "選択したものでタグ付けされたものを除くすべての編集。",
 	"apihelp-feedrecentchanges-param-target": "このページからリンクされているページの変更のみを表示する。",
 	"apihelp-feedrecentchanges-param-showlinkedto": "選択したページへのリンク元での変更の表示に切り替え",
 	"apihelp-feedrecentchanges-example-simple": "最近の更新を表示する。",

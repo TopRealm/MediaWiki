@@ -23,7 +23,6 @@
  */
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Title\Title;
 
 /**
  * This class formats protect log entries.

@@ -8,7 +8,7 @@
  * @constructor
  * @param {mw.rcfilters.Controller} controller
  * @param {mw.rcfilters.dm.FiltersViewModel} filtersViewModel
- * @param {mw.rcfilters.dm.FilterItem|null} invertModel
+ * @param {mw.rcfilters.dm.FilterItem} invertModel
  * @param {mw.rcfilters.dm.FilterItem} itemModel Item model
  * @param {Object} config Configuration object
  * @cfg {jQuery} [$overlay] A jQuery object serving as overlay for popups
@@ -57,9 +57,7 @@ var TagItemWidget = function MwRcfiltersUiTagItemWidget(
 
 	// Events
 	this.filtersViewModel.connect( this, { highlightChange: 'updateUiBasedOnState' } );
-	if ( this.invertModel ) {
-		this.invertModel.connect( this, { update: 'updateUiBasedOnState' } );
-	}
+	this.invertModel.connect( this, { update: 'updateUiBasedOnState' } );
 	this.itemModel.connect( this, { update: 'updateUiBasedOnState' } );
 
 	// Initialization
@@ -86,7 +84,7 @@ OO.mixinClass( TagItemWidget, OO.ui.mixin.PopupElement );
  */
 TagItemWidget.prototype.updateUiBasedOnState = function () {
 	// Update label if needed
-	var labelMsg = this.itemModel.getLabelMessageKey( this.invertModel && this.invertModel.isSelected() );
+	var labelMsg = this.itemModel.getLabelMessageKey( this.invertModel.isSelected() );
 	if ( labelMsg ) {
 		this.setLabel( $( '<div>' ).append(
 			$( '<bdi>' ).html(

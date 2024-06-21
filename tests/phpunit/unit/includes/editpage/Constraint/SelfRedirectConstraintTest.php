@@ -20,7 +20,6 @@
 
 use MediaWiki\EditPage\Constraint\IEditConstraint;
 use MediaWiki\EditPage\Constraint\SelfRedirectConstraint;
-use MediaWiki\Title\Title;
 
 /**
  * Tests the SelfRedirectConstraint

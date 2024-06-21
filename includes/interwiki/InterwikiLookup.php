@@ -1,5 +1,10 @@
 <?php
+
+namespace MediaWiki\Interwiki;
+
 /**
+ * Service interface for looking up Interwiki records.
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -17,15 +22,10 @@
  *
  * @file
  */
-
-namespace MediaWiki\Interwiki;
-
 use Interwiki;
 
 /**
  * Service interface for looking up Interwiki records.
- *
- * Default implementation is ClassicInterwikiLookup.
  *
  * @since 1.28
  */
@@ -34,16 +34,16 @@ interface InterwikiLookup {
 	/**
 	 * Check whether an interwiki prefix exists
 	 *
-	 * @param string $prefix Interwiki prefix
+	 * @param string $prefix Interwiki prefix to use
 	 * @return bool Whether it exists
 	 */
 	public function isValidInterwiki( $prefix );
 
 	/**
-	 * Get the Interwiki object for a given prefix
+	 * Fetch an Interwiki object
 	 *
-	 * @param string $prefix Interwiki prefix
-	 * @return Interwiki|null|false Null for invalid, false for not found
+	 * @param string $prefix Interwiki prefix to use
+	 * @return Interwiki|null|bool
 	 */
 	public function fetch( $prefix );
 
@@ -61,14 +61,13 @@ interface InterwikiLookup {
 	 * - iw_trans: whether "scary transclusion" is allowed for this site.
 	 *             Defaults to false.
 	 *
-	 * @param bool|null $local If set, limit output to local or non-local interwikis
+	 * @param bool|null $local If set, limits output to local/non-local interwikis
 	 * @return array[] interwiki rows.
 	 */
 	public function getAllPrefixes( $local = null );
 
 	/**
-	 * Purge the in-process and any persistent cache (e.g. memcached) for an interwiki prefix.
-	 *
+	 * Purge the in-process and persistent object cache for an interwiki prefix
 	 * @param string $prefix
 	 */
 	public function invalidateCache( $prefix );

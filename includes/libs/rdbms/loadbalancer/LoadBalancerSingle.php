@@ -27,8 +27,8 @@ use InvalidArgumentException;
  * @ingroup Database
  */
 class LoadBalancerSingle extends LoadBalancer {
-	/** @var Database */
-	private $conn;
+	/** @var IDatabase */
+	private $db;
 
 	/**
 	 * You probably want to use {@link newFromConnection} instead.
@@ -37,13 +37,13 @@ class LoadBalancerSingle extends LoadBalancer {
 	 *   - connection: An IDatabase connection object
 	 */
 	public function __construct( array $params ) {
-		/** @var Database $conn */
+		/** @var IDatabase $conn */
 		$conn = $params['connection'] ?? null;
 		if ( !$conn ) {
 			throw new InvalidArgumentException( "Missing 'connection' argument." );
 		}
 
-		$this->conn = $conn;
+		$this->db = $conn;
 
 		parent::__construct( [
 			'servers' => [ [
@@ -55,7 +55,7 @@ class LoadBalancerSingle extends LoadBalancer {
 			'trxProfiler' => $params['trxProfiler'] ?? null,
 			'srvCache' => $params['srvCache'] ?? null,
 			'wanCache' => $params['wanCache'] ?? null,
-			'localDomain' => $params['localDomain'] ?? $this->conn->getDomainID(),
+			'localDomain' => $params['localDomain'] ?? $this->db->getDomainID(),
 			'readOnlyReason' => $params['readOnlyReason'] ?? false,
 			'clusterName' => $params['clusterName'] ?? null,
 		] );
@@ -79,16 +79,8 @@ class LoadBalancerSingle extends LoadBalancer {
 		) );
 	}
 
-	protected function reallyOpenConnection( $i, DatabaseDomain $domain, array $lbInfo ) {
-		foreach ( $lbInfo as $k => $v ) {
-			$this->conn->setLBInfo( $k, $v );
-		}
-
-		return $this->conn;
-	}
-
-	public function reuseConnection( IDatabase $conn ) {
-		// do nothing since the connection was injected
+	protected function reallyOpenConnection( $i, DatabaseDomain $domain, array $lbInfo = [] ) {
+		return $this->db;
 	}
 
 	public function __destruct() {

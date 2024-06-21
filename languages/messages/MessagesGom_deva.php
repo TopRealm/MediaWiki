@@ -1,6 +1,8 @@
 <?php
 /** Goan Konkani - Devanagari script (गोंयची कोंकणी)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  *

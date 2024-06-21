@@ -21,8 +21,6 @@
  */
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Title\Title;
-use MediaWiki\Title\TitleArray;
 
 /**
  * Handles searching prefixes of titles and finding any page
@@ -50,7 +48,7 @@ abstract class PrefixSearch {
 
 		$hasNamespace = SearchEngine::parseNamespacePrefixes( $search, false, true );
 		if ( $hasNamespace !== false ) {
-			[ $search, $namespaces ] = $hasNamespace;
+			list( $search, $namespaces ) = $hasNamespace;
 		}
 
 		return $this->searchBackend( $namespaces, $search, $limit, $offset );

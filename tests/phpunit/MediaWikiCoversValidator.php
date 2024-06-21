@@ -39,7 +39,6 @@ trait MediaWikiCoversValidator {
 	 * at that scale. Also, when using a data provider, the setUp() and tearDown()
 	 * of the host class would be re-run for every check, which becomes very
 	 * expensive for integration tests that involve databases.
-	 * @coversNothing
 	 */
 	public function testValidCovers() {
 		$class = static::class;

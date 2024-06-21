@@ -28,10 +28,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Page\PageReference;
 use MediaWiki\Page\WikiPageFactory;
-use MediaWiki\Request\FauxRequest;
 use MediaWiki\SpecialPage\SpecialPageFactory;
-use MediaWiki\Title\Title;
-use MediaWiki\Title\TitleFactory;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IResultWrapper;
@@ -1434,7 +1431,7 @@ class ApiPageSet extends ApiBase {
 								$context->setTitle( $titleObj );
 								$context->setRequest( new FauxRequest );
 								$special->setContext( $context );
-								[ /* $alias */, $subpage ] = $this->specialPageFactory->resolveAlias( $dbkey );
+								list( /* $alias */, $subpage ) = $this->specialPageFactory->resolveAlias( $dbkey );
 								$target = $special->getRedirect( $subpage );
 							}
 						}

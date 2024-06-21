@@ -20,8 +20,6 @@
 
 namespace MediaWiki\Maintenance;
 
-use UnexpectedValueException;
-
 /**
  * Command line parameter handling for maintenance scripts.
  *
@@ -37,7 +35,7 @@ class MaintenanceParameters {
 	 */
 	private $mOptDefs = [];
 
-	/** @var array<string,string> Mapping short options to long ones */
+	/** @var array<string,string> Mapping short parameters to long ones */
 	private $mShortOptionMap = [];
 
 	/** @var array<int,array> Desired/allowed args */
@@ -61,13 +59,13 @@ class MaintenanceParameters {
 	/** @var array<int,string> This is the list of arguments that were actually passed */
 	private $mArgs = [];
 
-	/** @var array<string,array> maps group names to lists of option names */
+	/** @var array<string,array> maps group names to lists of parameter names */
 	private $mOptionGroups = [];
 
 	/**
 	 * Used to read the options in the order they were passed.
 	 * This is an array of arrays where
-	 * 0 => the option name and 1 => option value.
+	 * 0 => the option and 1 => parameter value.
 	 *
 	 * @var array
 	 */
@@ -75,9 +73,6 @@ class MaintenanceParameters {
 
 	/** @var string[] */
 	private $errors = [];
-
-	/** @var string */
-	private $usagePrefix = 'php';
 
 	/**
 	 * Returns a reference to a member field.
@@ -93,8 +88,8 @@ class MaintenanceParameters {
 	}
 
 	/**
-	 * Assigns a list of options to the given group.
-	 * The given options will be shown as part of the given group
+	 * Assigns a list of parameters to the given group.
+	 * The given parameters will be shown as part of the given group
 	 * in the help message.
 	 *
 	 * @param string $groupName
@@ -118,7 +113,7 @@ class MaintenanceParameters {
 	}
 
 	/**
-	 * Add a option to the script. Will be displayed on --help
+	 * Add a parameter to the script. Will be displayed on --help
 	 * with the associated description
 	 *
 	 * @param string $name The name of the param (help, version, etc)
@@ -180,35 +175,13 @@ class MaintenanceParameters {
 	 * @param string $arg Name of the arg, like 'start'
 	 * @param string $description Short description of the arg
 	 * @param bool $required Is this required?
-	 * @param bool $multi Does it allow multiple values? (Last arg only)
 	 * @return int the offset of the argument
 	 */
-	public function addArg( string $arg, string $description, bool $required = true, bool $multi = false ): int {
-		if ( isset( $this->mArgOffsets[$arg] ) ) {
-			throw new UnexpectedValueException( "Argument already defined: $arg" );
-		}
-
-		$argCount = count( $this->mArgDefs );
-		if ( $argCount ) {
-			$prevArg = $this->mArgDefs[ $argCount - 1 ];
-			if ( !$prevArg['require'] && $required ) {
-				throw new UnexpectedValueException(
-					"Required argument {$arg} cannot follow an optional argument {$prevArg['name']}"
-				);
-			}
-
-			if ( $prevArg['multi'] ) {
-				throw new UnexpectedValueException(
-					"Argument {$arg} cannot follow multi-value argument {$prevArg['name']}"
-				);
-			}
-		}
-
+	public function addArg( string $arg, string $description, bool $required = true ): int {
 		$this->mArgDefs[] = [
 			'name' => $arg,
 			'desc' => $description,
-			'require' => $required,
-			'multi' => $multi,
+			'require' => $required
 		];
 
 		$ofs = count( $this->mArgDefs ) - 1;
@@ -282,20 +255,6 @@ class MaintenanceParameters {
 	}
 
 	/**
-	 * Get arguments.
-	 * @param int|string $offset The index (from zero) of the first argument, or
-	 *                   the name declared for the argument by addArg().
-	 * @return string[]
-	 */
-	public function getArgs( $offset = 0 ): array {
-		if ( is_string( $offset ) && isset( $this->mArgOffsets[$offset] ) ) {
-			$offset = $this->mArgOffsets[$offset];
-		}
-
-		return array_slice( $this->mArgs, $offset );
-	}
-
-	/**
 	 * Get the name of an argument at the given index.
 	 *
 	 * @param int $argIndex The integer value (from zero) for the arg
@@ -333,7 +292,7 @@ class MaintenanceParameters {
 	}
 
 	/**
-	 * Clear all parameter values.
+	 * Clear all parameter and argument values.
 	 * Note that all parameter definitions remain intact.
 	 */
 	public function clear() {
@@ -352,8 +311,6 @@ class MaintenanceParameters {
 		$this->mOptDefs = $other->mOptDefs + $this->mOptDefs;
 		$this->mShortOptionMap = $other->mShortOptionMap + $this->mShortOptionMap;
 
-		$this->mOptionGroups = array_merge_recursive( $this->mOptionGroups, $other->mOptionGroups );
-
 		$this->clear();
 	}
 
@@ -361,19 +318,14 @@ class MaintenanceParameters {
 	 * Load params and arguments from a given array
 	 * of command-line arguments
 	 *
-	 * @param array $argv The argument array.
-	 * @param int $skip Skip that many elements at the beginning of $argv.
+	 * @param array $argv
 	 */
-	public function loadWithArgv( array $argv, int $skip = 0 ) {
+	public function loadWithArgv( array $argv ) {
 		$this->clear();
 
 		$options = [];
 		$args = [];
 		$this->optionsSequence = [];
-
-		// Ignore a number of arguments at the beginning of the array.
-		// Typically used to ignore the script name at index 0.
-		$argv = array_slice( $argv, $skip );
 
 		# Parse arguments
 		for ( $arg = reset( $argv ); $arg !== false; $arg = next( $argv ) ) {
@@ -493,15 +445,6 @@ class MaintenanceParameters {
 	}
 
 	/**
-	 * Get the script name, as shown in the help message
-	 *
-	 * @return string
-	 */
-	public function getName(): string {
-		return $this->mName;
-	}
-
-	/**
 	 * Force option and argument values.
 	 *
 	 * @internal
@@ -577,39 +520,32 @@ class MaintenanceParameters {
 		if ( $this->mDescription ) {
 			$output[] = "\n" . wordwrap( $this->mDescription, $screenWidth ) . "\n";
 		}
-		$output[] = "\nUsage: {$this->usagePrefix} " . basename( $this->mName );
+		$output[] = "\nUsage: php " . basename( $this->mName );
 
-		// ... append options ...
+		// ... append parameters ...
 		if ( $this->mOptDefs ) {
-			$output[] = ' [OPTION]...';
-
-			foreach ( $this->mOptDefs as $name => $opt ) {
-				if ( $opt['require'] ) {
-					$output[] = " --$name";
-
-					if ( $opt['withArg'] ) {
-						$vname = strtoupper( $name );
-						$output[] = " <$vname>";
-					}
-				}
-			}
+			$output[] = " [--" . implode( "|--", array_keys( $this->mOptDefs ) ) . "]";
 		}
 
 		// ... and append arguments.
 		if ( $this->mArgDefs ) {
-			$args = '';
-			foreach ( $this->mArgDefs as $arg ) {
-				$argRepr = $this->getArgRepresentation( $arg );
-
-				$args .= ' ';
-				$args .= $argRepr;
+			$args = ' ';
+			foreach ( $this->mArgDefs as $k => $arg ) {
+				if ( $arg['require'] ) {
+					$args .= '<' . $arg['name'] . '>';
+				} else {
+					$args .= '[' . $arg['name'] . ']';
+				}
+				if ( $k < count( $this->mArgDefs ) - 1 ) {
+					$args .= ' ';
+				}
 			}
 			$output[] = $args;
 		}
 		$output[] = "\n\n";
 
-		// Go through the declared groups and output the options for each group separately.
-		// Maintain the remaining options in $params.
+		// Go through the declared groups and output the parameters for each group separately.
+		// Maintain the remaining parameters in $params.
 		$params = $this->mOptDefs;
 		foreach ( $this->mOptionGroups as $groupName => $groupOptions ) {
 			$output[] = $this->formatHelpItems(
@@ -622,7 +558,7 @@ class MaintenanceParameters {
 
 		$output[] = $this->formatHelpItems(
 			$params,
-			'Script specific options',
+			'Script specific parameters',
 			$descWidth, $tab
 		);
 
@@ -631,10 +567,11 @@ class MaintenanceParameters {
 			$output[] = "Arguments:\n";
 			// Arguments description
 			foreach ( $this->mArgDefs as $info ) {
-				$argRepr = $this->getArgRepresentation( $info );
+				$openChar = $info['require'] ? '<' : '[';
+				$closeChar = $info['require'] ? '>' : ']';
 				$output[] =
 					wordwrap(
-						"$tab$argRepr: " . $info['desc'],
+						"$tab$openChar" . $info['name'] . "$closeChar: " . $info['desc'],
 						$descWidth,
 						"\n$tab$tab"
 					) . "\n";
@@ -658,11 +595,6 @@ class MaintenanceParameters {
 			if ( $info['shortName'] !== false ) {
 				$name .= ' (-' . $info['shortName'] . ')';
 			}
-			if ( $info['withArg'] ) {
-				$vname = strtoupper( $name );
-				$name .= " <$vname>";
-			}
-
 			$output[] =
 				wordwrap(
 					"$tab--$name: " . strtr( $info['desc'], [ "\n" => "\n$tab$tab" ] ),
@@ -702,29 +634,11 @@ class MaintenanceParameters {
 	}
 
 	/**
-	 * @param string $usagePrefix
+	 * Returns argument values
+	 * @return array
 	 */
-	public function setUsagePrefix( string $usagePrefix ) {
-		$this->usagePrefix = $usagePrefix;
-	}
-
-	/**
-	 * @param array $argInfo
-	 *
-	 * @return string
-	 */
-	private function getArgRepresentation( array $argInfo ): string {
-		if ( $argInfo['require'] ) {
-			$rep = '<' . $argInfo['name'] . '>';
-		} else {
-			$rep = '[' . $argInfo['name'] . ']';
-		}
-
-		if ( $argInfo['multi'] ) {
-			$rep .= '...';
-		}
-
-		return $rep;
+	public function getArgs(): array {
+		return $this->mArgs;
 	}
 
 }

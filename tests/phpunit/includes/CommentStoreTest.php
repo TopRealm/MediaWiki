@@ -1,8 +1,5 @@
 <?php
 
-use MediaWiki\CommentStore\CommentStore;
-use MediaWiki\CommentStore\CommentStoreBase;
-use MediaWiki\Language\RawMessage;
 use Wikimedia\Rdbms\IMaintainableDatabase;
 
 /**
@@ -43,7 +40,7 @@ class CommentStoreTest extends MediaWikiLangTestCase {
 		$lang->method( 'truncateForVisual' )->willReturnCallback( static function ( $str, $len ) {
 			return mb_strlen( $str ) > $len ? mb_substr( $str, 0, $len - 3 ) . '...' : $str;
 		} );
-		return new class( $lang, $stage ) extends CommentStoreBase {
+		return new class( $lang, $stage ) extends CommentStore {
 			protected const TEMP_TABLES = [
 				'rev_comment' => [
 					'table' => 'revision_comment_temp',
@@ -62,10 +59,6 @@ class CommentStoreTest extends MediaWikiLangTestCase {
 					'deprecatedIn' => null,
 				],
 			];
-
-			public function __construct( $lang, $stage ) {
-				parent::__construct( self::TEMP_TABLES, $lang, $stage );
-			}
 		};
 	}
 
@@ -78,8 +71,7 @@ class CommentStoreTest extends MediaWikiLangTestCase {
 		try {
 			$m = new CommentStore(
 				$this->createMock( Language::class ),
-				$stage,
-				[]
+				$stage
 			);
 			if ( $exceptionMsg !== null ) {
 				$this->fail( 'Expected exception not thrown' );
@@ -561,7 +553,7 @@ class CommentStoreTest extends MediaWikiLangTestCase {
 			$usesTemp = $key === 'cs2_comment';
 
 			if ( $usesTemp ) {
-				[ $fields, $callback ] = $wstore->insertWithTempTable(
+				list( $fields, $callback ) = $wstore->insertWithTempTable(
 					$this->db, $key, $comment, $data
 				);
 			} else {
@@ -813,25 +805,17 @@ class CommentStoreTest extends MediaWikiLangTestCase {
 	 */
 	public function testInsertWithTempTableDeprecated( $stage ) {
 		$lang = $this->getServiceContainer()->getContentLanguage();
-		$store = new class( $lang, $stage ) extends CommentStoreBase {
-			public function __construct( $lang, $stage ) {
-				parent::__construct(
-					[
-						'ipb_reason' => [
-							'stage' => MIGRATION_NEW,
-							'deprecatedIn' => '1.30',
-						],
-					],
-					$lang,
-					$stage
-				);
-			}
+		$store = new class( $lang, $stage ) extends CommentStore {
+			protected const TEMP_TABLES = [
+				'ipb_reason' => [
+					'stage' => MIGRATION_NEW,
+					'deprecatedIn' => '1.30',
+				],
+			];
 		};
 
-		$this->hideDeprecated(
-			'MediaWiki\\CommentStore\\CommentStoreBase::insertWithTempTable for ipb_reason'
-		);
-		[ $fields, $callback ] = $store->insertWithTempTable( $this->db, 'ipb_reason', 'foo' );
+		$this->hideDeprecated( 'CommentStore::insertWithTempTable for ipb_reason' );
+		list( $fields, $callback ) = $store->insertWithTempTable( $this->db, 'ipb_reason', 'foo' );
 		$this->assertIsCallable( $callback );
 	}
 
@@ -859,7 +843,6 @@ class CommentStoreTest extends MediaWikiLangTestCase {
 	}
 
 	public function testGetStore() {
-		$this->hideDeprecated( 'MediaWiki\\CommentStore\\CommentStore::getStore' );
 		$this->assertInstanceOf( CommentStore::class, CommentStore::getStore() );
 	}
 

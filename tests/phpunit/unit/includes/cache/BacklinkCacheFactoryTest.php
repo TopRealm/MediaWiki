@@ -14,10 +14,7 @@ class BacklinkCacheFactoryTest extends MediaWikiUnitTestCase {
 	public function testGetBacklinkCache() {
 		$wanCache = new WANObjectCache( [ 'cache' => new EmptyBagOStuff() ] );
 		$page = PageReferenceValue::localReference( NS_CATEGORY, "kittens" );
-		$factory = new BacklinkCacheFactory(
-			$wanCache,
-			$this->createHookContainer()
-		);
+		$factory = new BacklinkCacheFactory( $wanCache );
 		$cache = $factory->getBacklinkCache( $page );
 		$this->assertTrue( $cache->getPage()->isSamePageAs( $page ) );
 

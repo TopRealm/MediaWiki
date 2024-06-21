@@ -264,7 +264,7 @@ class ApiContinuationManager {
 	 * @param ApiResult $result
 	 */
 	public function setContinuationIntoResult( ApiResult $result ) {
-		[ $data, $batchcomplete ] = $this->getContinuation();
+		list( $data, $batchcomplete ) = $this->getContinuation();
 		if ( $data ) {
 			$result->addValue( null, 'continue', $data,
 				ApiResult::ADD_ON_TOP | ApiResult::NO_SIZE_CHECK );

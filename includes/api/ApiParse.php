@@ -25,18 +25,12 @@ use MediaWiki\CommentFormatter\CommentFormatter;
 use MediaWiki\Content\IContentHandlerFactory;
 use MediaWiki\Content\Renderer\ContentRenderer;
 use MediaWiki\Content\Transform\ContentTransformer;
-use MediaWiki\EditPage\EditPage;
-use MediaWiki\Language\RawMessage;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\Page\PageReference;
 use MediaWiki\Page\WikiPageFactory;
-use MediaWiki\Parser\ParserOutputFlags;
-use MediaWiki\Request\FauxRequest;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
-use MediaWiki\Title\Title;
-use MediaWiki\WikiMap\WikiMap;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\EnumDef;
 
@@ -257,7 +251,7 @@ class ApiParse extends ApiBase {
 				$titleObj = Title::newFromLinkTarget( $revLinkTarget );
 				$wgTitle = $titleObj;
 				$pageObj = $this->wikiPageFactory->newFromTitle( $titleObj );
-				[ $popts, $reset, $suppressCache ] = $this->makeParserOptions( $pageObj, $params );
+				list( $popts, $reset, $suppressCache ) = $this->makeParserOptions( $pageObj, $params );
 				$p_result = $this->getParsedContent(
 					$pageObj, $popts, $suppressCache, $pageid, $rev, $needContent
 				);
@@ -302,7 +296,7 @@ class ApiParse extends ApiBase {
 					$oldid = $pageObj->getLatest();
 				}
 
-				[ $popts, $reset, $suppressCache ] = $this->makeParserOptions( $pageObj, $params );
+				list( $popts, $reset, $suppressCache ) = $this->makeParserOptions( $pageObj, $params );
 				$p_result = $this->getParsedContent(
 					$pageObj, $popts, $suppressCache, $pageid, null, $needContent
 				);
@@ -337,12 +331,12 @@ class ApiParse extends ApiBase {
 			$wgTitle = $titleObj;
 			if ( $titleObj->canExist() ) {
 				$pageObj = $this->wikiPageFactory->newFromTitle( $titleObj );
-				[ $popts, $reset ] = $this->makeParserOptions( $pageObj, $params );
-			} else {
-				// Allow parsing wikitext in the context of special pages (T51477)
+				list( $popts, $reset ) = $this->makeParserOptions( $pageObj, $params );
+			} else { // A special page, presumably
+				// XXX: Why is this needed at all? Can't we just fail?
 				$pageObj = null;
-				$popts = ParserOptions::newFromContext( $this->getContext() );
-				[ $popts, $reset ] = $this->tweakParserOptions( $popts, $titleObj, $params );
+				$popts = ParserOptions::newCanonical( $this->getContext() );
+				list( $popts, $reset ) = $this->tweakParserOptions( $popts, $titleObj, $params );
 			}
 
 			$textProvided = $text !== null;
@@ -526,7 +520,6 @@ class ApiParse extends ApiBase {
 				'enableSectionEditLinks' => !$params['disableeditsection'],
 				'wrapperDivClass' => $params['wrapoutputclass'],
 				'deduplicateStyles' => !$params['disablestylededuplication'],
-				'userLang' => $context ? $context->getLanguage() : null,
 				'skin' => $skin,
 				'includeDebugInfo' => !$params['disablepp'] && !$params['disablelimitreport']
 			] );
@@ -580,7 +573,7 @@ class ApiParse extends ApiBase {
 		}
 		if ( isset( $prop['sections'] ) ) {
 			$result_array['sections'] = $p_result->getSections();
-			$result_array['showtoc'] = $p_result->getOutputFlag( ParserOutputFlags::SHOW_TOC );
+			$result_array['showtoc'] = (bool)$p_result->getTOCHTML();
 		}
 		if ( isset( $prop['parsewarnings'] ) ) {
 			$result_array['parsewarnings'] = $p_result->getWarnings();
@@ -600,8 +593,7 @@ class ApiParse extends ApiBase {
 		}
 
 		if ( isset( $prop['subtitle'] ) ) {
-			// Get the subtitle without its container element to support UI refreshing
-			$result_array['subtitle'] = $context->getSkin()->prepareSubtitle( false );
+			$result_array['subtitle'] = $context->getSkin()->prepareSubtitle();
 		}
 
 		if ( isset( $prop['headitems'] ) ) {
@@ -734,7 +726,6 @@ class ApiParse extends ApiBase {
 	 */
 	private function makeParserOptions( WikiPage $pageObj, array $params ) {
 		$popts = $pageObj->makeParserOptions( $this->getContext() );
-		$popts->setRenderReason( 'api-parse' );
 		return $this->tweakParserOptions( $popts, $pageObj->getTitle(), $params );
 	}
 
@@ -1127,6 +1118,6 @@ class ApiParse extends ApiBase {
 	}
 
 	public function getHelpUrls() {
-		return 'https://www.mediawiki.org/wiki/Special:MyLanguage/API:Parsing_wikitext';
+		return 'https://www.mediawiki.org/wiki/Special:MyLanguage/API:Parsing_wikitext#parse';
 	}
 }

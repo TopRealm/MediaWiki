@@ -20,7 +20,6 @@
 
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Page\WikiPageFactory;
-use MediaWiki\Title\Title;
 
 /**
  * API interface for page purging
@@ -151,7 +150,9 @@ class ApiPurge extends ApiBase {
 	 * @return ApiPageSet
 	 */
 	private function getPageSet() {
-		$this->mPageSet ??= new ApiPageSet( $this );
+		if ( $this->mPageSet === null ) {
+			$this->mPageSet = new ApiPageSet( $this );
+		}
 
 		return $this->mPageSet;
 	}

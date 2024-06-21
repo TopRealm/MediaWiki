@@ -1,6 +1,8 @@
 <?php
 /** Serbian (Latin script) (srpski (latinica))
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  *
@@ -178,7 +180,6 @@ $specialPageAliases = [
 	'Recentchangeslinked'       => [ 'Povezane_izmene', 'SrodneIzmene' ],
 	'Redirect'                  => [ 'Preusmerenje' ],
 	'RemoveCredentials'         => [ 'Ukloni_akreditive', 'UkloniAkreditive' ],
-	'Renameuser'                => [ 'PreimenujKorisnika', 'Preimenuj_korisnika' ],
 	'ResetTokens'               => [ 'Resetuj_tokene', 'ResetujŽetone' ],
 	'Revisiondelete'            => [ 'Brisanje_izmene', 'BrisanjeIzmene', 'UklanjanjeIzmene' ],
 	'RunJobs'                   => [ 'Izvrši_poslove', 'IzvršiPoslove' ],

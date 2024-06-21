@@ -36,6 +36,7 @@ class EmptyUserGroup extends Maintenance {
 
 	public function execute() {
 		$group = $this->getArg( 0 );
+		$lb = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		$userGroupManager = MediaWikiServices::getInstance()->getUserGroupManager();
 
 		$totalCount = 0;
@@ -49,7 +50,7 @@ class EmptyUserGroup extends Maintenance {
 			foreach ( $users as $user ) {
 				$totalCount += (int)$userGroupManager->removeUserFromGroup( $user, $group );
 			}
-			$this->waitForReplication();
+			$lb->waitForReplication();
 		}
 		if ( $totalCount ) {
 			$this->output( "  ...done! Removed $totalCount users in total.\n" );

@@ -39,9 +39,6 @@
  * @ingroup entrypoint
  */
 
-use MediaWiki\Html\TemplateParser;
-use MediaWiki\Title\Title;
-
 define( 'MW_NO_OUTPUT_COMPRESSION', 1 );
 define( 'MW_ENTRY_POINT', 'img_auth' );
 require __DIR__ . '/includes/WebStart.php';
@@ -58,7 +55,7 @@ function wfImageAuthMain() {
 	$permissionManager = $services->getPermissionManager();
 
 	$request = RequestContext::getMain()->getRequest();
-	$publicWiki = $services->getGroupPermissionsLookup()->groupHasPermission( '*', 'read' );
+	$publicWiki = in_array( 'read', $permissionManager->getGroupPermissions( [ '*' ] ), true );
 
 	// Find the path assuming the request URL is relative to the local public zone URL
 	$baseUrl = $services->getRepoGroup()->getLocalRepo()->getZoneUrl( 'public' );
@@ -191,7 +188,7 @@ function wfImageAuthMain() {
 	Hooks::runner()->onImgAuthModifyHeaders( $title->getTitleValue(), $headers );
 
 	// Stream the requested file
-	[ $headers, $options ] = HTTPFileStreamer::preprocessHeaders( $headers );
+	list( $headers, $options ) = HTTPFileStreamer::preprocessHeaders( $headers );
 	wfDebugLog( 'img_auth', "Streaming `" . $filename . "`." );
 	$repo->streamFileWithStatus( $filename, $headers, $options );
 }

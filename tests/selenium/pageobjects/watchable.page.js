@@ -6,9 +6,9 @@ class WatchablePage extends Page {
 
 	get confirmWatch() { return $( '#mw-content-text button[type="submit"]' ); }
 
-	async watch( title ) {
-		await super.openTitle( title, { action: 'watch' } );
-		await this.confirmWatch.click();
+	watch( title ) {
+		super.openTitle( title, { action: 'watch' } );
+		this.confirmWatch.click();
 	}
 }
 

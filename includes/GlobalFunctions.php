@@ -25,8 +25,6 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\ProcOpenError;
 use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\Shell\Shell;
-use MediaWiki\StubObject\StubUserLang;
-use MediaWiki\Title\Title;
 use MediaWiki\Utils\UrlUtils;
 use Wikimedia\AtEase\AtEase;
 use Wikimedia\ParamValidator\TypeDef\ExpiryDef;
@@ -394,7 +392,7 @@ function wfCgiToArray( $query ) {
 			$key = $bit;
 			$value = '';
 		} else {
-			[ $key, $value ] = explode( '=', $bit );
+			list( $key, $value ) = explode( '=', $bit );
 		}
 		$key = urldecode( $key );
 		$value = urldecode( $value );
@@ -590,7 +588,7 @@ function wfUrlProtocolsWithoutProtRel() {
  *
  * @deprecated since 1.39, use UrlUtils::parse()
  * @param string $url A URL to parse
- * @return string[]|false Bits of the URL in an associative array, or false on failure.
+ * @return string[]|bool Bits of the URL in an associative array, or false on failure.
  *   Possible fields:
  *   - scheme: URI scheme (protocol), e.g. 'http', 'mailto'. Lowercase, always present, but can
  *       be an empty string for protocol-relative URLs.
@@ -820,6 +818,50 @@ function wfLogWarning( $msg, $callerOffset = 1, $level = E_USER_WARNING ) {
 }
 
 /**
+ * @deprecated since 1.38
+ */
+function wfLogProfilingData() {
+	wfDeprecated( __FUNCTION__, '1.38' );
+	$profiler = Profiler::instance();
+	$profiler->logData();
+
+	// Send out any buffered statsd metrics as needed
+	MediaWiki::emitBufferedStatsdData(
+		MediaWikiServices::getInstance()->getStatsdDataFactory(),
+		MediaWikiServices::getInstance()->getMainConfig()
+	);
+}
+
+/**
+ * Check whether the wiki is in read-only mode.
+ *
+ * @deprecated since 1.38, use ReadOnlyMode::isReadOnly() instead, hard-deprecated in 1.39
+ *
+ * @return bool
+ */
+function wfReadOnly() {
+	wfDeprecated( __FUNCTION__, '1.38' );
+	return MediaWikiServices::getInstance()->getReadOnlyMode()
+		->isReadOnly();
+}
+
+/**
+ * Check if the site is in read-only mode and return the message if so
+ *
+ * This checks wfConfiguredReadOnlyReason() and the main load balancer
+ * for replica DB lag. This may result in DB connection being made.
+ *
+ * @deprecated since 1.38, use ReadOnlyMode::getReason() instead, hard-deprecated in 1.39
+ *
+ * @return string|bool String when in read-only mode; false otherwise
+ */
+function wfReadOnlyReason() {
+	wfDeprecated( __FUNCTION__, '1.38' );
+	return MediaWikiServices::getInstance()->getReadOnlyMode()
+		->getReason();
+}
+
+/**
  * Return a Language object from $langcode
  *
  * @param Language|string|bool $langcode Either:
@@ -857,9 +899,8 @@ function wfGetLangObj( $langcode = false ) {
 		return $wgLang;
 	}
 
-	$languageNames = $services->getLanguageNameUtils()->getLanguageNames();
-	// FIXME: Can we use isSupportedLanguage here?
-	if ( isset( $languageNames[$langcode] ) ) {
+	$validCodes = array_keys( $services->getLanguageNameUtils()->getLanguageNames() );
+	if ( in_array( $langcode, $validCodes ) ) {
 		# $langcode corresponds to a valid language.
 		return $services->getLanguageFactory()->getLanguage( $langcode );
 	}
@@ -975,7 +1016,6 @@ function wfHostname() {
  * If $wgShowHostnames is true, the script will also set 'wgHostname' to the
  * hostname of the server handling the request.
  *
- * @deprecated since 1.40
  * @param string|null $nonce Value from OutputPage->getCSP()->getNonce()
  * @return string|WrappedString HTML
  */
@@ -1039,7 +1079,11 @@ function wfDebugBacktrace( $limit = 0 ) {
 function wfBacktrace( $raw = null ) {
 	global $wgCommandLineMode;
 
-	if ( $raw ?? $wgCommandLineMode ) {
+	if ( $raw === null ) {
+		$raw = $wgCommandLineMode;
+	}
+
+	if ( $raw ) {
 		$frameFormat = "%s line %s calls %s()\n";
 		$traceFormat = "%s";
 	} else {
@@ -1114,13 +1158,11 @@ function wfFormatStackFrame( $frame ) {
 /**
  * @todo document
  *
- * @deprecated with warnings since 1.40
  * @param int $offset
  * @param int $limit
  * @return string
  */
 function wfShowingResults( $offset, $limit ) {
-	wfDeprecated( __FUNCTION__, '1.40' );
 	return wfMessage( 'showingresults' )->numParams( $limit, $offset + 1 )->parse();
 }
 
@@ -1284,7 +1326,7 @@ function wfHttpError( $code, $label, $desc ) {
 		$wgOut->sendCacheControl();
 	}
 
-	\MediaWiki\Request\HeaderCallback::warnIfHeadersSent();
+	MediaWiki\HeaderCallback::warnIfHeadersSent();
 	header( 'Content-type: text/html; charset=utf-8' );
 	ob_start();
 	print '<!DOCTYPE html>' .
@@ -1413,6 +1455,25 @@ function wfTimestampNow() {
 }
 
 /**
+ * Check if the operating system is Windows
+ *
+ * @return bool True if it's Windows, false otherwise.
+ */
+function wfIsWindows() {
+	return PHP_OS_FAMILY === 'Windows';
+}
+
+/**
+ * Check if we are running from the commandline
+ *
+ * @since 1.31
+ * @return bool
+ */
+function wfIsCLI() {
+	return PHP_SAPI === 'cli' || PHP_SAPI === 'phpdbg';
+}
+
+/**
  * Tries to get the system directory for temporary files. First
  * $wgTmpDirectory is checked, and then the TMPDIR, TMP, and TEMP
  * environment variables are then checked in sequence, then
@@ -1486,6 +1547,7 @@ function wfMkdirParents( $dir, $mode = null, $caller = null ) {
  * @param string $dir
  */
 function wfRecursiveRemoveDir( $dir ) {
+	wfDebug( __FUNCTION__ . "( $dir )" );
 	// taken from https://www.php.net/manual/en/function.rmdir.php#98622
 	if ( is_dir( $dir ) ) {
 		$objects = scandir( $dir );
@@ -1693,27 +1755,16 @@ function wfShellWikiCmd( $script, array $parameters = [], array $options = [] ) 
 
 /**
  * wfMerge attempts to merge differences between three texts.
+ * Returns true for a clean merge and false for failure or a conflict.
  *
- * @param string $old Common base revision
- * @param string $mine The edit we wish to store but which potentially conflicts with another edit
- *     which happened since we started editing.
- * @param string $yours The most recent stored revision of the article. Note that "mine" and "yours"
- *     might have another meaning depending on the specific use case.
- * @param string|null &$simplisticMergeAttempt Automatically merged text, with overlapping edits
- *     falling back to "my" text.
- * @param string|null &$mergeLeftovers Optional out parameter containing an "ed" script with the
- *     remaining bits of "your" text that could not be merged into $simplisticMergeAttempt.
- *     The "ed" file format is documented here:
- *     https://www.gnu.org/software/diffutils/manual/html_node/Detailed-ed.html
- * @return bool true for a clean merge and false for failure or a conflict.
+ * @param string $old
+ * @param string $mine
+ * @param string $yours
+ * @param string &$result
+ * @param string|null &$mergeAttemptResult
+ * @return bool
  */
-function wfMerge(
-	string $old,
-	string $mine,
-	string $yours,
-	?string &$simplisticMergeAttempt,
-	string &$mergeLeftovers = null
-): bool {
+function wfMerge( $old, $mine, $yours, &$result, &$mergeAttemptResult = null ) {
 	global $wgDiff3;
 
 	# This check may also protect against code injection in
@@ -1745,40 +1796,40 @@ function wfMerge(
 	fclose( $yourtextFile );
 
 	# Check for a conflict
-	$cmd = Shell::escape( $wgDiff3, '--text', '--overlap-only', $mytextName,
+	$cmd = Shell::escape( $wgDiff3, '-a', '--overlap-only', $mytextName,
 		$oldtextName, $yourtextName );
 	$handle = popen( $cmd, 'r' );
 
-	$mergeLeftovers = '';
+	$mergeAttemptResult = '';
 	do {
 		$data = fread( $handle, 8192 );
 		if ( strlen( $data ) == 0 ) {
 			break;
 		}
-		$mergeLeftovers .= $data;
+		$mergeAttemptResult .= $data;
 	} while ( true );
 	pclose( $handle );
 
-	$conflict = $mergeLeftovers !== '';
+	$conflict = $mergeAttemptResult !== '';
 
-	# Merge differences automatically where possible, preferring "my" text for conflicts.
-	$cmd = Shell::escape( $wgDiff3, '--text', '--ed', '--merge', $mytextName,
+	# Merge differences
+	$cmd = Shell::escape( $wgDiff3, '-a', '-e', '--merge', $mytextName,
 		$oldtextName, $yourtextName );
 	$handle = popen( $cmd, 'r' );
-	$simplisticMergeAttempt = '';
+	$result = '';
 	do {
 		$data = fread( $handle, 8192 );
 		if ( strlen( $data ) == 0 ) {
 			break;
 		}
-		$simplisticMergeAttempt .= $data;
+		$result .= $data;
 	} while ( true );
 	pclose( $handle );
 	unlink( $mytextName );
 	unlink( $oldtextName );
 	unlink( $yourtextName );
 
-	if ( $simplisticMergeAttempt === '' && $old !== '' && !$conflict ) {
+	if ( $result === '' && $old !== '' && !$conflict ) {
 		wfDebug( "Unexpected null result from diff3. Command: $cmd" );
 		$conflict = true;
 	}
@@ -1868,7 +1919,7 @@ function wfRelativePath( $path, $from ) {
  *                belongs to. May contain a single string if the query is only
  *                in one group.
  *
- * @param string|false $wiki The wiki ID, or false for the current wiki
+ * @param string|bool $wiki The wiki ID, or false for the current wiki
  *
  * Note: multiple calls to wfGetDB(DB_REPLICA) during the course of one request
  * will always return the same object, unless the underlying connection or load
@@ -1899,6 +1950,22 @@ function wfGetDB( $db, $groups = [], $wiki = false ) {
 			->getMainLB( $wiki )
 			->getMaintenanceConnectionRef( $db, $groups, $wiki );
 	}
+}
+
+/**
+ * Should low-performance queries be disabled?
+ *
+ * @deprecated since 1.39, unused and directly hard-deprecated
+ * @return bool
+ * @codeCoverageIgnore
+ */
+function wfQueriesMustScale() {
+	wfDeprecated( __FUNCTION__, '1.39' );
+	global $wgMiserMode;
+	return $wgMiserMode
+		|| ( SiteStats::pages() > 100000
+		&& SiteStats::edits() > 1000000
+		&& SiteStats::users() > 10000 );
 }
 
 /**

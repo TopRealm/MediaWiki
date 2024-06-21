@@ -7,7 +7,6 @@ use MediaWiki\MediaWikiServices;
  * or via the 'UserGetAllRights' hook.
  *
  * @author Marius Hoch < hoo@online.de >
- * @coversNothing
  */
 class AvailableRightsTest extends PHPUnit\Framework\TestCase {
 

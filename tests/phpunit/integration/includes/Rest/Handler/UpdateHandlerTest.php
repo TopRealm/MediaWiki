@@ -5,8 +5,7 @@ namespace MediaWiki\Tests\Rest\Handler;
 use ApiUsageException;
 use FormatJson;
 use HashConfig;
-use MediaWiki\Languages\LanguageNameUtils;
-use MediaWiki\Parser\MagicWordFactory;
+use MediaWiki\Content\IContentHandlerFactory;
 use MediaWiki\Rest\Handler\UpdateHandler;
 use MediaWiki\Rest\LocalizedHttpException;
 use MediaWiki\Rest\RequestData;
@@ -14,16 +13,13 @@ use MediaWiki\Revision\MutableRevisionRecord;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Tests\Unit\DummyServicesTrait;
-use MediaWiki\Title\Title;
-use MediaWiki\Title\TitleFactory;
 use MockTitleTrait;
-use ParserFactory;
 use PHPUnit\Framework\MockObject\MockObject;
 use Status;
+use Title;
 use Wikimedia\Message\MessageValue;
 use Wikimedia\Message\ParamType;
 use Wikimedia\Message\ScalarParam;
-use Wikimedia\UUID\GlobalIdGenerator;
 use WikitextContent;
 use WikitextContentHandler;
 
@@ -41,19 +37,22 @@ class UpdateHandlerTest extends \MediaWikiLangTestCase {
 			'RightsText' => 'CC-BY-SA 4.0'
 		] );
 
-		$wikitextContentHandler = new WikitextContentHandler(
-			CONTENT_MODEL_WIKITEXT,
-			$this->createMock( TitleFactory::class ),
-			$this->createMock( ParserFactory::class ),
-			$this->createMock( GlobalIdGenerator::class ),
-			$this->createMock( LanguageNameUtils::class ),
-			$this->createMock( MagicWordFactory::class )
-		);
+		/** @var IContentHandlerFactory|MockObject $contentHandlerFactory */
+		$contentHandlerFactory =
+			$this->createNoOpMock(
+				IContentHandlerFactory::class,
+				[ 'isDefinedModel', 'getContentHandler' ]
+			);
 
-		// Only wikitext is defined, returns specific handler instance
-		$contentHandlerFactory = $this->getDummyContentHandlerFactory(
-			[ CONTENT_MODEL_WIKITEXT => $wikitextContentHandler ]
-		);
+		$contentHandlerFactory
+			->method( 'isDefinedModel' )
+			->willReturnMap( [
+				[ CONTENT_MODEL_WIKITEXT, true ],
+			] );
+
+		$contentHandlerFactory
+			->method( 'getContentHandler' )
+			->willReturn( new WikitextContentHandler() );
 
 		// DummyServicesTrait::getDummyMediaWikiTitleCodec
 		$titleCodec = $this->getDummyMediaWikiTitleCodec();
@@ -420,7 +419,7 @@ class UpdateHandlerTest extends \MediaWikiLangTestCase {
 		$handler = $this->newHandler( $actionResult, null, $csrfSafe );
 
 		$responseData = $this->executeHandlerAndGetBodyData(
-			$handler, $request, [], [], [], [], null, $this->getSession( $csrfSafe )
+			$handler, $request, [], [], [], [], null, $csrfSafe
 		);
 
 		// Check parameters passed to ApiEditPage by UpdateHandler based on $requestData

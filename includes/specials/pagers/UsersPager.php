@@ -26,13 +26,9 @@
 use MediaWiki\Cache\LinkBatchFactory;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\HookContainer\HookRunner;
-use MediaWiki\Html\Html;
-use MediaWiki\Linker\Linker;
 use MediaWiki\MainConfigNames;
-use MediaWiki\Title\Title;
 use MediaWiki\User\UserGroupManager;
 use MediaWiki\User\UserIdentity;
-use MediaWiki\User\UserIdentityLookup;
 use MediaWiki\User\UserIdentityValue;
 use Wikimedia\Rdbms\ILoadBalancer;
 
@@ -77,16 +73,12 @@ class UsersPager extends AlphabeticPager {
 	/** @var UserGroupManager */
 	private $userGroupManager;
 
-	/** @var UserIdentityLookup */
-	private $userIdentityLookup;
-
 	/**
 	 * @param IContextSource $context
 	 * @param HookContainer $hookContainer
 	 * @param LinkBatchFactory $linkBatchFactory
 	 * @param ILoadBalancer $loadBalancer
 	 * @param UserGroupManager $userGroupManager
-	 * @param UserIdentityLookup $userIdentityLookup
 	 * @param string|null $par
 	 * @param bool|null $including Whether this page is being transcluded in
 	 * another page
@@ -97,14 +89,13 @@ class UsersPager extends AlphabeticPager {
 		LinkBatchFactory $linkBatchFactory,
 		ILoadBalancer $loadBalancer,
 		UserGroupManager $userGroupManager,
-		UserIdentityLookup $userIdentityLookup,
 		$par,
 		$including
 	) {
 		$this->setContext( $context );
 
 		$request = $this->getRequest();
-		$par ??= '';
+		$par = $par ?? '';
 		$parms = explode( '/', $par );
 		$symsForAll = [ '*', 'user' ];
 
@@ -148,7 +139,6 @@ class UsersPager extends AlphabeticPager {
 		$this->userGroupManager = $userGroupManager;
 		$this->hookRunner = new HookRunner( $hookContainer );
 		$this->linkBatchFactory = $linkBatchFactory;
-		$this->userIdentityLookup = $userIdentityLookup;
 	}
 
 	/**
@@ -184,10 +174,7 @@ class UsersPager extends AlphabeticPager {
 		if ( $this->requestedUser != '' ) {
 			# Sorted either by account creation or name
 			if ( $this->creationSort ) {
-				$userIdentity = $this->userIdentityLookup->getUserIdentityByName( $this->requestedUser );
-				if ( $userIdentity && $userIdentity->isRegistered() ) {
-					$conds[] = 'user_id >= ' . $userIdentity->getId();
-				}
+				$conds[] = 'user_id >= ' . intval( User::idFromName( $this->requestedUser ) );
 			} else {
 				$conds[] = 'user_name >= ' . $dbr->addQuotes( $this->requestedUser );
 			}
@@ -303,10 +290,15 @@ class UsersPager extends AlphabeticPager {
 		}
 
 		// Lookup groups for all the users
-		$queryBuilder = $this->userGroupManager->newQueryBuilder( $this->getDatabase() );
-		$groupRes = $queryBuilder->where( [ 'ug_user' => $userIds ] )
-			->caller( __METHOD__ )
-			->fetchResultSet();
+		$dbr = $this->getDatabase();
+		$groupsQueryInfo = $this->userGroupManager->getQueryInfo();
+		$groupRes = $dbr->select(
+			$groupsQueryInfo['tables'],
+			$groupsQueryInfo['fields'],
+			[ 'ug_user' => $userIds ],
+			__METHOD__,
+			$groupsQueryInfo['joins']
+		);
 		$cache = [];
 		$groups = [];
 		foreach ( $groupRes as $row ) {
@@ -319,7 +311,7 @@ class UsersPager extends AlphabeticPager {
 
 		// Give extensions a chance to add things like global user group data
 		// into the cache array to ensure proper output later on
-		$this->hookRunner->onUsersPagerDoBatchLookups( $this->getDatabase(), $userIds, $cache, $groups );
+		$this->hookRunner->onUsersPagerDoBatchLookups( $dbr, $userIds, $cache, $groups );
 
 		$this->userGroupCache = $cache;
 

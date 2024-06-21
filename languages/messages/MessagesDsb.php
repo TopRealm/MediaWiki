@@ -1,6 +1,8 @@
 <?php
 /** Lower Sorbian (dolnoserbski)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  */
@@ -95,7 +97,6 @@ $specialPageAliases = [
 	'Randomredirect'            => [ 'Pśipadne_pśesměrowanje' ],
 	'Recentchanges'             => [ 'Aktualne_změny' ],
 	'Recentchangeslinked'       => [ 'Změny_na_zalinkowanych_bokach' ],
-	'Renameuser'                => [ 'Wužywarja_pśemjeniś' ],
 	'Revisiondelete'            => [ 'Wulašowanje_wersijow' ],
 	'Search'                    => [ 'Pytaś' ],
 	'Shortpages'                => [ 'Nejkrotše_boki' ],

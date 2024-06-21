@@ -23,10 +23,7 @@
  */
 
 use MediaWiki\Cache\LinkBatchFactory;
-use MediaWiki\Html\Html;
-use MediaWiki\Linker\Linker;
 use MediaWiki\Linker\LinksMigration;
-use MediaWiki\Title\Title;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\ILoadBalancer;
 use Wikimedia\Rdbms\IResultWrapper;
@@ -87,7 +84,7 @@ class SpecialMostLinkedTemplates extends QueryPage {
 
 	public function getQueryInfo() {
 		$queryInfo = $this->linksMigration->getQueryInfo( 'templatelinks' );
-		[ $ns, $title ] = $this->linksMigration->getTitleFields( 'templatelinks' );
+		list( $ns, $title ) = $this->linksMigration->getTitleFields( 'templatelinks' );
 		return [
 			'tables' => $queryInfo['tables'],
 			'fields' => [

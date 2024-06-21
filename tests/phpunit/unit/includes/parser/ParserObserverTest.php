@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\Parser\ParserObserver;
-use MediaWiki\Title\Title;
 
 /**
  * @covers \MediaWiki\Parser\ParserObserver

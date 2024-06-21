@@ -92,9 +92,9 @@ class DatabaseDomain {
 		if ( count( $parts ) == 1 ) {
 			$database = $parts[0];
 		} elseif ( count( $parts ) == 2 ) {
-			[ $database, $prefix ] = $parts;
+			list( $database, $prefix ) = $parts;
 		} elseif ( count( $parts ) == 3 ) {
-			[ $database, $schema, $prefix ] = $parts;
+			list( $database, $schema, $prefix ) = $parts;
 		} else {
 			throw new InvalidArgumentException( "Domain '$domain' has too few or too many parts." );
 		}
@@ -199,7 +199,9 @@ class DatabaseDomain {
 	 * @return string
 	 */
 	public function getId(): string {
-		$this->equivalentString ??= $this->convertToString();
+		if ( $this->equivalentString === null ) {
+			$this->equivalentString = $this->convertToString();
+		}
 
 		return $this->equivalentString;
 	}

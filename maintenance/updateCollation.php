@@ -28,7 +28,6 @@ require_once __DIR__ . '/Maintenance.php';
 
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Title\Title;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IMaintainableDatabase;
 use Wikimedia\Rdbms\IResultWrapper;
@@ -272,19 +271,31 @@ TEXT
 		} else {
 			$fields = [ 'cl_collation', 'cl_to', 'cl_type', 'cl_from' ];
 		}
-		$conds = [];
+		$first = true;
+		$cond = false;
+		$prefix = false;
 		foreach ( $fields as $field ) {
 			if ( $dbw->getType() === 'mysql' && $field === 'cl_type' ) {
 				// Range conditions with enums are weird in mysql
 				// This must be a numeric literal, or it won't work.
-				$value = intval( $row->cl_type_numeric );
+				$encValue = intval( $row->cl_type_numeric );
 			} else {
-				$value = $row->$field;
+				$encValue = $dbw->addQuotes( $row->$field );
 			}
-			$conds[ $field ] = $value;
+			$inequality = "$field > $encValue";
+			$equality = "$field = $encValue";
+			if ( $first ) {
+				$cond = $inequality;
+				$prefix = $equality;
+				$first = false;
+			} else {
+				// @phan-suppress-next-line PhanTypeSuspiciousStringExpression False positive
+				$cond .= " OR ($prefix AND $inequality)";
+				$prefix .= " AND $equality";
+			}
 		}
 
-		return $dbw->buildComparison( '>', $conds );
+		return $cond;
 	}
 
 	/**
@@ -361,7 +372,7 @@ TEXT
 		$rowsToInsert = [];
 		foreach ( $res as $i => $row ) {
 			if ( !isset( $sortKeys[$i] ) ) {
-				throw new RuntimeException( 'Unable to get sort key' );
+				throw new MWException( 'Unable to get sort key' );
 			}
 			$newSortKey = $sortKeys[$i];
 			$this->updateSortKeySizeHistogram( $newSortKey );

@@ -19,7 +19,6 @@
 namespace MediaWiki\Skin;
 
 use Config;
-use Language;
 use MediaWiki\ResourceLoader as RL;
 
 /**
@@ -34,11 +33,11 @@ class SkinComponentLogo implements SkinComponent {
 
 	/**
 	 * @param Config $config
-	 * @param Language $language
+	 * @param string|null $language
 	 */
-	public function __construct( Config $config, Language $language ) {
+	public function __construct( Config $config, ?string $language ) {
 		$this->config = $config;
-		$this->language = $language->getCode();
+		$this->language = $language;
 	}
 
 	/**

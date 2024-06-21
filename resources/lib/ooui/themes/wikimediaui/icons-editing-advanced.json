@@ -18,7 +18,7 @@
 			"color": "#d33"
 		},
 		"warning": {
-			"color": "#edab00"
+			"color": "#fc3"
 		},
 		"success": {
 			"color": "#14866d"
@@ -113,12 +113,6 @@
 			"file": {
 				"ltr": "images/icons/outline-ltr.svg",
 				"rtl": "images/icons/outline-rtl.svg"
-			}
-		},
-		"palette": {
-			"file": {
-				"ltr": "images/icons/palette-ltr.svg",
-				"rtl": "images/icons/palette-rtl.svg"
 			}
 		},
 		"paste": {

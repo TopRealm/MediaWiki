@@ -1,13 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"Artificial123",
 			"Artsiom91",
 			"Chadyka",
 			"Goshaproject",
 			"Mechanizatar",
-			"Plaga med",
 			"Чаховіч Уладзіслаў"
 		]
 	},
@@ -16,7 +14,7 @@
 	"ooui-outline-control-remove": "Выдаліць элемент",
 	"ooui-toolbar-more": "Яшчэ",
 	"ooui-toolgroup-expand": "Яшчэ",
-	"ooui-toolgroup-collapse": "Меней",
+	"ooui-toolgroup-collapse": "Менш",
 	"ooui-item-remove": "Выдаліць",
 	"ooui-dialog-message-accept": "ОК",
 	"ooui-dialog-message-reject": "Адмяніць",
@@ -31,6 +29,6 @@
 	"ooui-selectfile-placeholder": "Файл не выбраны",
 	"ooui-selectfile-dragdrop-placeholder": "Перацягніце файл сюды",
 	"ooui-selectfile-dragdrop-placeholder-multiple": "Перацягніце файлы сюды",
-	"ooui-popup-widget-close-button-aria-label": "Закрыць",
+	"ooui-popup-widget-close-button-aria-label": "Зачыніць",
 	"ooui-field-help": "Даведка"
 }

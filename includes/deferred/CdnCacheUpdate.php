@@ -67,6 +67,20 @@ class CdnCacheUpdate implements DeferrableUpdate, MergeableUpdate {
 		$this->pageTuples = array_merge( $this->pageTuples, $update->pageTuples );
 	}
 
+	/**
+	 * Create an update object from an array of Title objects, or a TitleArray object
+	 *
+	 * @param PageReference[] $pages
+	 * @param string[] $urls
+	 *
+	 * @return CdnCacheUpdate
+	 * @deprecated Since 1.35 Use HtmlCacheUpdater instead. Hard deprecated since 1.39.
+	 */
+	public static function newFromTitles( $pages, $urls = [] ) {
+		wfDeprecated( __METHOD__, '1.35' );
+		return new CdnCacheUpdate( array_merge( $pages, $urls ) );
+	}
+
 	public function doUpdate() {
 		// Resolve the final list of URLs just before purging them (T240083)
 		$reboundDelayByUrl = $this->resolveReboundDelayByUrl();
@@ -155,7 +169,7 @@ class CdnCacheUpdate implements DeferrableUpdate, MergeableUpdate {
 
 		// Avoid multiple queries for HtmlCacheUpdater::getUrls() call
 		$lb = $services->getLinkBatchFactory()->newLinkBatch();
-		foreach ( $this->pageTuples as [ $page, ] ) {
+		foreach ( $this->pageTuples as list( $page, $delay ) ) {
 			$lb->addObj( $page );
 		}
 		$lb->execute();
@@ -164,14 +178,14 @@ class CdnCacheUpdate implements DeferrableUpdate, MergeableUpdate {
 
 		// Resolve the titles into CDN URLs
 		$htmlCacheUpdater = $services->getHtmlCacheUpdater();
-		foreach ( $this->pageTuples as [ $page, $delay ] ) {
+		foreach ( $this->pageTuples as list( $page, $delay ) ) {
 			foreach ( $htmlCacheUpdater->getUrls( $page ) as $url ) {
 				// Use the highest rebound for duplicate URLs in order to handle the most lag
 				$reboundDelayByUrl[$url] = max( $reboundDelayByUrl[$url] ?? 0, $delay );
 			}
 		}
 
-		foreach ( $this->urlTuples as [ $url, $delay ] ) {
+		foreach ( $this->urlTuples as list( $url, $delay ) ) {
 			// Use the highest rebound for duplicate URLs in order to handle the most lag
 			$reboundDelayByUrl[$url] = max( $reboundDelayByUrl[$url] ?? 0, $delay );
 		}

@@ -19,7 +19,6 @@ namespace MediaWiki\Page;
  *
  * @stable to type
  * @since 1.36
- * @ingroup Page
  */
 interface PageRecord extends ProperPageIdentity {
 

@@ -76,7 +76,7 @@ class MultiHttpClient implements LoggerAwareInterface {
 	protected $maxConnsPerHost = 50;
 	/** @var string|null proxy */
 	protected $proxy;
-	/** @var string|false */
+	/** @var string|bool */
 	protected $localProxy = false;
 	/** @var string[] */
 	protected $localVirtualHosts = [];
@@ -127,7 +127,9 @@ class MultiHttpClient implements LoggerAwareInterface {
 				$this->$key = $options[$key];
 			}
 		}
-		$this->logger ??= new NullLogger;
+		if ( $this->logger === null ) {
+			$this->logger = new NullLogger;
+		}
 	}
 
 	/**
@@ -141,7 +143,7 @@ class MultiHttpClient implements LoggerAwareInterface {
 	 *   - error     : Any error string
 	 * The map also stores integer-indexed copies of these values. This lets callers do:
 	 * @code
-	 * 		[ $rcode, $rdesc, $rhdrs, $rbody, $rerr ] = $http->run( $req );
+	 * 		list( $rcode, $rdesc, $rhdrs, $rbody, $rerr ) = $http->run( $req );
 	 * @endcode
 	 * @param array $req HTTP request array
 	 * @param array $opts
@@ -171,7 +173,7 @@ class MultiHttpClient implements LoggerAwareInterface {
 	 *   - error   : Any error string
 	 * The map also stores integer-indexed copies of these values. This lets callers do:
 	 * @code
-	 *        [ $rcode, $rdesc, $rhdrs, $rbody, $rerr ] = $req['response'];
+	 *        list( $rcode, $rdesc, $rhdrs, $rbody, $rerr ) = $req['response'];
 	 * @endcode
 	 * All headers in the 'headers' field are normalized to use lower case names.
 	 * This is true for the request headers and the response headers. Integer-indexed
@@ -321,7 +323,7 @@ class MultiHttpClient implements LoggerAwareInterface {
 				$req['response']['error'] = "(curl error: no status set)";
 			}
 
-			// For convenience with array destructuring
+			// For convenience with the list() operator
 			$req['response'][0] = $req['response']['code'];
 			$req['response'][1] = $req['response']['reason'];
 			$req['response'][2] = $req['response']['headers'];
@@ -447,7 +449,7 @@ class MultiHttpClient implements LoggerAwareInterface {
 				if ( strpos( $header, ":" ) === false ) {
 					return $length;
 				}
-				[ $name, $value ] = explode( ":", $header, 2 );
+				list( $name, $value ) = explode( ":", $header, 2 );
 				$name = strtolower( $name );
 				$value = trim( $value );
 				if ( isset( $req['response']['headers'][$name] ) ) {
@@ -653,7 +655,7 @@ class MultiHttpClient implements LoggerAwareInterface {
 			if ( $this->localProxy !== false && $this->isLocalURL( $req['url'] ) ) {
 				$this->useReverseProxy( $req, $this->localProxy );
 			}
-			$req['query'] ??= [];
+			$req['query'] = $req['query'] ?? [];
 			$headers = []; // normalized headers
 			if ( isset( $req['headers'] ) ) {
 				foreach ( $req['headers'] as $name => $value ) {
@@ -679,7 +681,7 @@ class MultiHttpClient implements LoggerAwareInterface {
 					'headers' => $logHeaders,
 				]
 			);
-			$req['flags'] ??= [];
+			$req['flags'] = $req['flags'] ?? [];
 		}
 	}
 

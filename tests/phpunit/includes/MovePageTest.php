@@ -4,15 +4,10 @@ use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Interwiki\InterwikiLookup;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
-<<<<<<< HEAD
-use MediaWiki\Page\MovePage;
-=======
->>>>>>> origin/1.39.7-test
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Tests\Rest\Handler\MediaTestTrait;
 use MediaWiki\Tests\Unit\DummyServicesTrait;
-use MediaWiki\Title\Title;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\LoadBalancer;
 
@@ -27,7 +22,7 @@ class MovePageTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * @param Title $old
 	 * @param Title $new
-	 * @param array $params Valid keys are: db, options,
+	 * @param array $params Valid keys are: db, options, nsInfo, wiStore, repoGroup, contentHandlerFactory.
 	 *   options is an indexed array that will overwrite our defaults, not a ServiceOptions, so it
 	 *   need not contain all keys.
 	 * @return MovePage
@@ -36,6 +31,10 @@ class MovePageTest extends MediaWikiIntegrationTestCase {
 		$mockLB = $this->createNoOpMock( LoadBalancer::class, [ 'getConnectionRef' ] );
 		$mockLB->method( 'getConnectionRef' )
 			->willReturn( $params['db'] ?? $this->createNoOpMock( IDatabase::class ) );
+
+		// If we don't use a manual mock for something specific, get a full
+		// NamespaceInfo service from DummyServicesTrait::getDummyNamespaceInfo
+		$nsInfo = $params['nsInfo'] ?? $this->getDummyNamespaceInfo();
 
 		return new MovePage(
 			$old,
@@ -49,12 +48,13 @@ class MovePageTest extends MediaWikiIntegrationTestCase {
 				]
 			),
 			$mockLB,
-			$this->getDummyNamespaceInfo(),
-			$this->createMock( WatchedItemStore::class ),
-			$this->makeMockRepoGroup(
+			$nsInfo,
+			$params['wiStore'] ?? $this->createMock( WatchedItemStore::class ),
+			$params['repoGroup'] ?? $this->makeMockRepoGroup(
 				[ 'Existent.jpg', 'Existent2.jpg', 'Existent-file-no-page.jpg' ]
 			),
-			$this->getServiceContainer()->getContentHandlerFactory(),
+			$params['contentHandlerFactory']
+				?? $this->getServiceContainer()->getContentHandlerFactory(),
 			$this->getServiceContainer()->getRevisionStore(),
 			$this->getServiceContainer()->getSpamChecker(),
 			$this->getServiceContainer()->getHookContainer(),
@@ -131,10 +131,17 @@ class MovePageTest extends MediaWikiIntegrationTestCase {
 		$iwLookup->method( 'isValidInterwiki' )
 			->willReturn( true );
 
-		$this->setService( 'InterwikiLookup', $iwLookup );
+		$this->setService(
+			'InterwikiLookup',
+			$iwLookup
+		);
 
-		$old = $old instanceof Title ? $old : Title::newFromText( $old );
-		$new = $new instanceof Title ? $new : Title::newFromText( $new );
+		if ( is_string( $old ) ) {
+			$old = Title::newFromText( $old );
+		}
+		if ( is_string( $new ) ) {
+			$new = Title::newFromText( $new );
+		}
 		$mp = $this->newMovePageWithMocks( $old, $new, [ 'options' => $extraOptions ] );
 		$this->assertSame( $expectedErrors, $mp->isValidMove()->getErrorsArray() );
 	}
@@ -301,8 +308,8 @@ class MovePageTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * @dataProvider provideIsValidMove
 	 *
-	 * @param string|Title $old Old name
-	 * @param string|Title $new New name
+	 * @param string $old Old name
+	 * @param string $new New name
 	 * @param array $expectedErrors
 	 * @param array $extraOptions
 	 */
@@ -311,10 +318,17 @@ class MovePageTest extends MediaWikiIntegrationTestCase {
 		$iwLookup->method( 'isValidInterwiki' )
 			->willReturn( true );
 
-		$this->setService( 'InterwikiLookup', $iwLookup );
+		$this->setService(
+			'InterwikiLookup',
+			$iwLookup
+		);
 
-		$old = $old instanceof Title ? $old : Title::newFromText( $old );
-		$new = $new instanceof Title ? $new : Title::newFromText( $new );
+		if ( is_string( $old ) ) {
+			$old = Title::newFromText( $old );
+		}
+		if ( is_string( $new ) ) {
+			$new = Title::newFromText( $new );
+		}
 
 		$createRedirect = $extraOptions['createRedirect'] ?? true;
 		unset( $extraOptions['createRedirect'] );
@@ -360,15 +374,13 @@ class MovePageTest extends MediaWikiIntegrationTestCase {
 			}
 		);
 
-		$oldTitle = Title::makeTitle( NS_MAIN, 'Some old title' );
-		$this->editPage(
-			$oldTitle,
+		$oldTitle = Title::newFromText( 'Some old title' );
+		WikiPage::factory( $oldTitle )->doUserEditContent(
 			new WikitextContent( 'foo' ),
-			'bar',
-			NS_MAIN,
-			$this->getTestSysop()->getAuthority()
+			$this->getTestSysop()->getUser(),
+			'bar'
 		);
-		$newTitle = Title::makeTitle( NS_MAIN, 'A brand new title' );
+		$newTitle = Title::newFromText( 'A brand new title' );
 		$mp = $this->newMovePageWithMocks( $oldTitle, $newTitle );
 		$user = User::newFromName( 'TitleMove tester' );
 		$status = $mp->move( $user, 'Reason', true );
@@ -448,7 +460,7 @@ class MovePageTest extends MediaWikiIntegrationTestCase {
 	 * @return int ID of created page
 	 */
 	protected function createPage( $name ) {
-		return $this->editPage( $name, 'Content' )->getNewRevision()->getPageId();
+		return $this->editPage( $name, 'Content' )->value['revision-record']->getPageId();
 	}
 
 	/**
@@ -493,8 +505,8 @@ class MovePageTest extends MediaWikiIntegrationTestCase {
 	public function testRedirects() {
 		$this->editPage( 'ExistentRedirect', '#REDIRECT [[Existent]]' );
 		$mp = $this->newMovePageWithMocks(
-			Title::makeTitle( NS_MAIN, 'Existent' ),
-			Title::makeTitle( NS_MAIN, 'ExistentRedirect' )
+			Title::newFromText( 'Existent' ),
+			Title::newFromText( 'ExistentRedirect' )
 		);
 		$this->assertSame(
 			[],
@@ -504,8 +516,8 @@ class MovePageTest extends MediaWikiIntegrationTestCase {
 
 		$this->editPage( 'ExistentRedirect3', '#REDIRECT [[Existent]]' );
 		$mp = $this->newMovePageWithMocks(
-			Title::makeTitle( NS_MAIN, 'Existent2' ),
-			Title::makeTitle( NS_MAIN, 'ExistentRedirect3' )
+			Title::newFromText( 'Existent2' ),
+			Title::newFromText( 'ExistentRedirect3' )
 		);
 		$this->assertSame(
 			[ [ 'redirectexists', 'ExistentRedirect3' ] ],
@@ -515,8 +527,8 @@ class MovePageTest extends MediaWikiIntegrationTestCase {
 
 		$this->editPage( 'ExistentRedirect3', '#REDIRECT [[Existent2]]' );
 		$mp = $this->newMovePageWithMocks(
-			Title::makeTitle( NS_MAIN, 'Existent' ),
-			Title::makeTitle( NS_MAIN, 'ExistentRedirect3' )
+			Title::newFromText( 'Existent' ),
+			Title::newFromText( 'ExistentRedirect3' )
 		);
 		$this->assertSame(
 			[ [ 'articleexists', 'ExistentRedirect3' ] ],

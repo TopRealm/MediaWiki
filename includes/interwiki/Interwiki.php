@@ -1,5 +1,7 @@
 <?php
 /**
+ * Interwiki table entry.
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -19,20 +21,17 @@
  */
 
 /**
- * An interwiki record value object.
- *
- * By default these represent a row in the `interwiki` database table.
- * See @ref \MediaWiki\Interwiki\ClassicInterwikiLookup for where this is used.
+ * Value object for representing interwiki records.
  */
 class Interwiki {
 
 	/** @var string The interwiki prefix, (e.g. "Meatball", or the language prefix "de") */
 	protected $mPrefix;
 
-	/** @var string The article path URL of the wiki, with "$1" as a placeholder for an article name. */
+	/** @var string The URL of the wiki, with "$1" as a placeholder for an article name. */
 	protected $mURL;
 
-	/** @var string The URL to the api.php entry point of the wiki. */
+	/** @var string The URL of the file api.php */
 	protected $mAPI;
 
 	/** @var string The name of the database (for a connection to be established

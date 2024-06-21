@@ -32,8 +32,6 @@ use MediaWiki\Content\Transform\PreloadTransformParamsValue;
 use MediaWiki\Content\Transform\PreSaveTransformParamsValue;
 use MediaWiki\Content\ValidationParams;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Parser\MagicWord;
-use MediaWiki\Title\Title;
 
 /**
  * Base implementation for content objects.
@@ -387,7 +385,7 @@ abstract class AbstractContent implements Content {
 	 * @stable to override
 	 * @since 1.21
 	 *
-	 * @param string|int|null|false $sectionId
+	 * @param string|int|null|bool $sectionId
 	 * @param Content $with
 	 * @param string $sectionTitle
 	 * @return null
@@ -518,7 +516,7 @@ abstract class AbstractContent implements Content {
 	 * @param string $toModel
 	 * @param string $lossy
 	 *
-	 * @return Content|false
+	 * @return Content|bool
 	 *
 	 * @see Content::convert()
 	 */
@@ -575,7 +573,9 @@ abstract class AbstractContent implements Content {
 		);
 
 		if ( $detectGPODeprecatedOverride || $detectFPODeprecatedOverride ) {
-			$options ??= ParserOptions::newFromAnon();
+			if ( $options === null ) {
+				$options = ParserOptions::newFromAnon();
+			}
 
 			$po = new ParserOutput();
 			$options->registerWatcher( [ $po, 'recordOption' ] );

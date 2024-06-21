@@ -21,7 +21,6 @@
  * @ingroup Maintenance
  */
 
-use MediaWiki\ExternalLinks\LinkFilter;
 use MediaWiki\MainConfigNames;
 
 require_once __DIR__ . '/Maintenance.php';

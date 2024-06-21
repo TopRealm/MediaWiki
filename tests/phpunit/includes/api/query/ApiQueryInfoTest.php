@@ -2,7 +2,6 @@
 
 use MediaWiki\Block\DatabaseBlock;
 use MediaWiki\MainConfigNames;
-use MediaWiki\Title\Title;
 use Wikimedia\Timestamp\ConvertibleTimestamp;
 
 /**
@@ -47,7 +46,7 @@ class ApiQueryInfoTest extends ApiTestCase {
 			'2011-04-01T00:00:00Z'
 		);
 
-		[ $data ] = $this->doApiRequest( [
+		list( $data ) = $this->doApiRequest( [
 				'action' => 'query',
 				'prop' => 'info',
 				'inprop' => 'watched|notificationtimestamp',
@@ -84,7 +83,7 @@ class ApiQueryInfoTest extends ApiTestCase {
 		$page = $this->getExistingTestPage( 'Pluto' );
 		$title = $page->getTitle();
 
-		[ $data ] = $this->doApiRequest( [
+		list( $data ) = $this->doApiRequest( [
 				'action' => 'query',
 				'prop' => 'info',
 				'titles' => $title->getText(),
@@ -109,7 +108,7 @@ class ApiQueryInfoTest extends ApiTestCase {
 		$page = $this->getExistingTestPage( 'Pluto' );
 		$title = $page->getTitle();
 
-		[ $data ] = $this->doApiRequest( [
+		list( $data ) = $this->doApiRequest( [
 				'action' => 'query',
 				'prop' => 'info',
 				'titles' => $title->getText(),
@@ -134,7 +133,7 @@ class ApiQueryInfoTest extends ApiTestCase {
 		$page = $this->getExistingTestPage( 'Pluto' );
 		$title = $page->getTitle();
 
-		[ $data ] = $this->doApiRequest( [
+		list( $data ) = $this->doApiRequest( [
 				'action' => 'query',
 				'prop' => 'info',
 				'titles' => $title->getText(),
@@ -176,7 +175,7 @@ class ApiQueryInfoTest extends ApiTestCase {
 		$page = $this->getExistingTestPage( 'Pluto' );
 		$title = $page->getTitle();
 
-		[ $data ] = $this->doApiRequest( [
+		list( $data ) = $this->doApiRequest( [
 				'action' => 'query',
 				'prop' => 'info',
 				'titles' => $title->getText(),
@@ -215,7 +214,7 @@ class ApiQueryInfoTest extends ApiTestCase {
 		// Make sure it doesn't exist
 		$this->getNonexistingTestPage( $title2 );
 
-		[ $data ] = $this->doApiRequest( [
+		list( $data ) = $this->doApiRequest( [
 			'action' => 'query',
 			'prop' => 'info',
 			'titles' => $title->getPrefixedText() . '|' . $title2->getPrefixedText(),
@@ -249,7 +248,7 @@ class ApiQueryInfoTest extends ApiTestCase {
 	 * @covers ::extractPageInfo
 	 */
 	public function testDisplayTitle() {
-		[ $data ] = $this->doApiRequest( [
+		list( $data ) = $this->doApiRequest( [
 			'action' => 'query',
 			'prop' => 'info',
 			'inprop' => 'displaytitle',

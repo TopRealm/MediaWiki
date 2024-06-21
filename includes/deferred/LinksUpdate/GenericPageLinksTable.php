@@ -4,7 +4,7 @@ namespace MediaWiki\Deferred\LinksUpdate;
 
 use MediaWiki\DAO\WikiAwareEntity;
 use MediaWiki\Page\PageReferenceValue;
-use MediaWiki\Title\Title;
+use Title;
 use Wikimedia\Rdbms\IResultWrapper;
 
 /**

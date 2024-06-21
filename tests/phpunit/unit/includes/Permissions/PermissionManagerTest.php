@@ -13,11 +13,11 @@ use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Permissions\RestrictionStore;
 use MediaWiki\SpecialPage\SpecialPageFactory;
 use MediaWiki\Tests\Unit\DummyServicesTrait;
-use MediaWiki\Title\Title;
 use MediaWiki\User\TempUser\RealTempUserConfig;
 use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserGroupManager;
 use MediaWikiUnitTestCase;
+use Title;
 use TitleFormatter;
 use User;
 use UserCache;
@@ -49,34 +49,56 @@ class PermissionManagerTest extends MediaWikiUnitTestCase {
 			MainConfigNames::DeleteRevisionsLimit => false,
 		];
 		$config = $overrideConfig + $baseConfig;
+		$specialPageFactory = $options['specialPageFactory'] ??
+			$this->createMock( SpecialPageFactory::class );
 
+		// DummyServicesTrait::getDummyNamespaceInfo
+		$namespaceInfo = $this->getDummyNamespaceInfo();
+
+		$groupPermissionsLookup = $options['groupPermissionsLookup'] ??
+			new GroupPermissionsLookup(
+				new ServiceOptions( GroupPermissionsLookup::CONSTRUCTOR_OPTIONS, $config )
+			);
+		$userGroupManager = $options['userGroupManager'] ??
+			$this->createMock( UserGroupManager::class );
+		$blockErrorFormatter = $options['blockErrorFormatter'] ??
+			$this->createMock( BlockErrorFormatter::class );
 		$hookContainer = $options['hookContainer'] ??
 			$this->createMock( HookContainer::class );
+		$userCache = $options['userCache'] ??
+			$this->createMock( UserCache::class );
 		$redirectLookup = $options['redirectLookup'] ??
 			$this->createMock( RedirectLookup::class );
 		$restrictionStore = $options['restrictionStore'] ??
 			$this->createMock( RestrictionStore::class );
+		$titleFormatter = $options['titleFormatter'] ??
+			$this->createMock( TitleFormatter::class );
+		$tempUserConfig = $options['tempUserConfig'] ??
+			new RealTempUserConfig( [] );
+		$userFactory = $options['userFactory'] ??
+			$this->createMock( UserFactory::class );
+		$actionFactory = $options['actionFactory'] ??
+			$this->createMock( ActionFactory::class );
 
 		$permissionManager = new PermissionManager(
 			new ServiceOptions( PermissionManager::CONSTRUCTOR_OPTIONS, $config ),
-			$this->createMock( SpecialPageFactory::class ),
-			$this->getDummyNamespaceInfo(),
-			new GroupPermissionsLookup(
-				new ServiceOptions( GroupPermissionsLookup::CONSTRUCTOR_OPTIONS, $config )
-			),
-			$this->createMock( UserGroupManager::class ),
-			$this->createMock( BlockErrorFormatter::class ),
+			$specialPageFactory,
+			$namespaceInfo,
+			$groupPermissionsLookup,
+			$userGroupManager,
+			$blockErrorFormatter,
 			$hookContainer,
-			$this->createMock( UserCache::class ),
+			$userCache,
 			$redirectLookup,
 			$restrictionStore,
-			$this->createMock( TitleFormatter::class ),
-			new RealTempUserConfig( [] ),
-			$this->createMock( UserFactory::class ),
-			$this->createMock( ActionFactory::class )
+			$titleFormatter,
+			$tempUserConfig,
+			$userFactory,
+			$actionFactory
 		);
 
-		return TestingAccessWrapper::newFromObject( $permissionManager );
+		$accessPermissionManager = TestingAccessWrapper::newFromObject( $permissionManager );
+		return $accessPermissionManager;
 	}
 
 	/**
@@ -346,7 +368,7 @@ class PermissionManagerTest extends MediaWikiUnitTestCase {
 		$hookContainer->method( 'run' )
 			->willReturn( true );
 
-		// Overrides needed in case `GroupPermissionsLookup::groupHasPermission` is called
+		// Overrides needed in case `groupHasPermission` is called
 		$config = [
 			MainConfigNames::GroupPermissions => [
 				'autoconfirmed' => [

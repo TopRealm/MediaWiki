@@ -227,10 +227,9 @@ TEXT
 			if ( !$this->dryRun ) {
 				// bluuuh hack
 				// call_user_func( $this->uploadCallback, $revision );
-				$importer = MediaWikiServices::getInstance()->getWikiRevisionUploadImporter();
-				$statusValue = $importer->import( $revision );
+				$dbw = $this->getDB( DB_PRIMARY );
 
-				return $statusValue->isGood();
+				return $dbw->deadlockLoop( [ $revision, 'importUpload' ] );
 			}
 		}
 

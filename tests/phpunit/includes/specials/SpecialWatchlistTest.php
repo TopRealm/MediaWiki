@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\MainConfigNames;
-use MediaWiki\Request\FauxRequest;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -62,7 +61,7 @@ class SpecialWatchlistTest extends SpecialPageTestBase {
 
 	public function testUserWithNoWatchedItems_displaysNoWatchlistMessage() {
 		$user = new TestUser( __METHOD__ );
-		[ $html, ] = $this->executeSpecialPage( '', null, 'qqx', $user->getUser() );
+		list( $html, ) = $this->executeSpecialPage( '', null, 'qqx', $user->getUser() );
 		$this->assertStringContainsString( '(nowatchlist)', $html );
 	}
 

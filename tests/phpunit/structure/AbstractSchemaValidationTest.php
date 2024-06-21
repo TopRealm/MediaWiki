@@ -21,7 +21,6 @@ use MediaWiki\DB\AbstractSchemaValidator;
 
 /**
  * Validates all abstract schemas against the abstract-schema schemas in the docs/ folder.
- * @coversNothing
  */
 class AbstractSchemaValidationTest extends PHPUnit\Framework\TestCase {
 	use MediaWikiCoversValidator;

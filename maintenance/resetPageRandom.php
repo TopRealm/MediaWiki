@@ -48,6 +48,7 @@ class ResetPageRandom extends Maintenance {
 	public function execute() {
 		$batchSize = $this->getBatchSize();
 		$dbw = $this->getDB( DB_PRIMARY );
+		$lbFactory = \MediaWiki\MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		$dbr = $this->getDB( DB_REPLICA );
 		$from = wfTimestampOrNull( TS_MW, $this->getOption( 'from' ) );
 		$to = wfTimestampOrNull( TS_MW, $this->getOption( 'to' ) );
@@ -119,7 +120,7 @@ class ResetPageRandom extends Maintenance {
 				// we will leave the do{}while() block.
 			}
 
-			$this->waitForReplication();
+			$lbFactory->waitForReplication();
 		} while ( $res->numRows() === $batchSize );
 		$this->output( "page_random reset complete ... changed $changed rows" . PHP_EOL );
 

@@ -21,10 +21,8 @@
  * @ingroup Installer
  */
 
-use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use Wikimedia\Rdbms\Database;
-use Wikimedia\Rdbms\DatabaseFactory;
 use Wikimedia\Rdbms\DBConnectionError;
 use Wikimedia\Rdbms\DBQueryError;
 use Wikimedia\Rdbms\IDatabase;
@@ -160,7 +158,7 @@ class MysqlInstaller extends DatabaseInstaller {
 		$status = Status::newGood();
 		try {
 			/** @var DatabaseMysqlBase $db */
-			$db = ( new DatabaseFactory() )->create( 'mysql', [
+			$db = Database::factory( 'mysql', [
 				'host' => $this->getVar( 'wgDBserver' ),
 				'user' => $this->getVar( '_InstallUser' ),
 				'password' => $this->getVar( '_InstallPassword' ),
@@ -188,7 +186,8 @@ class MysqlInstaller extends DatabaseInstaller {
 		 * @var Database $conn
 		 */
 		$conn = $status->value;
-		$this->selectDatabase( $conn, $this->getVar( 'wgDBname' ) );
+		$conn->selectDB( $this->getVar( 'wgDBname' ) );
+
 		# Determine existing default character set
 		if ( $conn->tableExists( "revision", __METHOD__ ) ) {
 			$revision = $this->escapeLikeInternal( $this->getVar( 'wgDBprefix' ) . 'revision', '\\' );
@@ -465,7 +464,7 @@ class MysqlInstaller extends DatabaseInstaller {
 				__METHOD__
 			);
 		}
-		$this->selectDatabase( $conn, $dbName );
+		$conn->selectDB( $dbName );
 		$this->setupSchemaVars();
 
 		return $status;
@@ -500,7 +499,7 @@ class MysqlInstaller extends DatabaseInstaller {
 
 		$this->setupSchemaVars();
 		$dbName = $this->getVar( 'wgDBname' );
-		$this->selectDatabase( $this->db, $dbName );
+		$this->db->selectDB( $dbName );
 		$server = $this->getVar( 'wgDBserver' );
 		$password = $this->getVar( 'wgDBpassword' );
 		$grantableNames = [];
@@ -508,7 +507,7 @@ class MysqlInstaller extends DatabaseInstaller {
 		if ( $this->getVar( '_CreateDBAccount' ) ) {
 			// Before we blindly try to create a user that already has access,
 			try { // first attempt to connect to the database
-				( new DatabaseFactory() )->create( 'mysql', [
+				Database::factory( 'mysql', [
 					'host' => $server,
 					'user' => $dbUser,
 					'password' => $password,

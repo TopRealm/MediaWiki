@@ -1,8 +1,6 @@
 <?php
 
-use MediaWiki\Request\FauxRequest;
 use MediaWiki\Revision\MutableRevisionRecord;
-use MediaWiki\Title\Title;
 use Wikimedia\Rdbms\FakeResultWrapper;
 use Wikimedia\TestingAccessWrapper;
 

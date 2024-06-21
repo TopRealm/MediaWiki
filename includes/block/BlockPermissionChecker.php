@@ -76,7 +76,7 @@ class BlockPermissionChecker {
 	) {
 		$options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
 		$this->options = $options;
-		[ $this->target, $this->targetType ] = $blockUtils->parseBlockTarget( $target );
+		list( $this->target, $this->targetType ) = $blockUtils->parseBlockTarget( $target );
 		$this->performer = $performer;
 	}
 

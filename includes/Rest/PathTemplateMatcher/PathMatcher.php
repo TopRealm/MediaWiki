@@ -111,7 +111,7 @@ class PathMatcher {
 		$part = $parts[$index];
 		$result = false;
 		if ( $this->isParam( $part ) ) {
-			foreach ( $node as $childNode ) {
+			foreach ( $node as $key => $childNode ) {
 				$result = $this->findConflict( $childNode, $parts, $index + 1 );
 				if ( $result !== false ) {
 					break;

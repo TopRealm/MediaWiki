@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Hook;
 
-use MediaWiki\EditPage\EditPage;
+use EditPage;
 use OutputPage;
 
 /**

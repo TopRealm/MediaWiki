@@ -159,10 +159,6 @@
 	"permalink": "Linku çë nëng lëvizet",
 	"print": "Stampar",
 	"view": "Vrej",
-<<<<<<< HEAD
-	"viewcontribs": "Vrehj kontributet",
-=======
->>>>>>> origin/1.39.7-test
 	"skin-view-view": "Djovas/Zglidh",
 	"skin-view-foreign": "Vrej mi $1",
 	"edit": "Ndroje",
@@ -179,11 +175,6 @@
 	"skin-action-unprotect": "Ndro protezionin",
 	"unprotect": "Ndri protezionin",
 	"newpage": "Pagina e re",
-<<<<<<< HEAD
-	"newpage-desc": "Zë fih na pagina e re pë gnë diskurs cë lipën",
-	"view-missing-pages": "Ftoj paginet cë mankaren",
-=======
->>>>>>> origin/1.39.7-test
 	"talkpagelinktext": "diskurs",
 	"specialpage": "Pagina spiciali",
 	"personaltools": "Strumente pirsonali",
@@ -320,10 +311,6 @@
 	"anontalkpagetext": "----\n<em>Kjo ësht pagina pë gnë utent anonimu çë ankora nëng kriarti gnë kunt, o çë nëng e usar.</em>\nPërkisu kemi mbsogn t'e identifikarëm sa të usarëm ndirizzin IP. Gnë IP shtu mënd e dividirsh tra shum utente.\nNa je gnë utent anonimu e pinzar se bëjën komente pa kontestu, të parkalesëm të [[Special:CreateAccount|kriar gnë kunt]] o [[Special:UserLogin|hin]] sa të evitarsh të kunfundirsh me tjerët utente anonimu.",
 	"noarticletext": "In questo momento la pagina richiesta è vuota.\nPuoi [[Special:Search/{{PAGENAME}}|cercare questo titolo]] nelle altre pagine del sito, <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} cercare nei registri correlati] oppure [{{fullurl:{{FULLPAGENAME}}|action=edit}} kriar sta pagina]</span>.",
 	"noarticletext-nopermission": "In questo momento la pagina richiesta è vuota.\nPuoi [[Special:Search/{{PAGENAME}}|cercare questo titolo]] nelle altre pagine del sito, <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} cercare nei registri correlati] oppure [{{fullurl:{{FULLPAGENAME}}|action=edit}} kriar sta pagina]</span>.",
-<<<<<<< HEAD
-	"userpage-userdoesnotexist-view": "Kunti i utentit \"$1\" nëng rigistrarti te stu wiki.",
-=======
->>>>>>> origin/1.39.7-test
 	"previewnote": "<strong>Mos harro se kjo ësht po gnë antiprima.</strong>\nAtë çë ndrove nëng kleu ankora publikarm!",
 	"continue-editing": "Jizz te l'aria të modifikazjonvet",
 	"editing": "To modifikartur $1",
@@ -564,16 +551,5 @@
 	"revdelete-content-hid": "Kontenutu i fshehur",
 	"searchsuggest-search": "Kërkoj te {{SITENAME}}",
 	"searchsuggest-containing": "Kërkoj paginet ç'e kan",
-<<<<<<< HEAD
-	"duration-days": "$1 {{PLURAL:$1|dit}}",
-	"blockedtext-made-by": "Bloku kleu bër ka $1.",
-	"blockedtext-reason-comment": "Motivazioni ësht <em>$1</em>",
-	"blockedtext-start-time": "U bloku zëfill te :$1",
-	"blockedtext-expiration-time": "Skandenza të blokut: $1",
-	"blockedtext-intended-blockee": "Destinatari të bloku: $1",
-	"blockedtext-contact-blocker-admin": "Mënd të vush me kontat $1 o gnatrë [[{{MediaWiki:Grouppage-sysop}}|aministratur]] sa të diskutur mi blokun.",
-	"blockedtext-include-details-queries": "Pifauri/Të parkales speçifikar gjith i detaje ktu inkluirmë kur lip ndogjegjë."
-=======
 	"duration-days": "$1 {{PLURAL:$1|dit}}"
->>>>>>> origin/1.39.7-test
 }

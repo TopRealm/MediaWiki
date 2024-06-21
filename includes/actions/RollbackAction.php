@@ -22,7 +22,6 @@
 
 use MediaWiki\CommentFormatter\CommentFormatter;
 use MediaWiki\Content\IContentHandlerFactory;
-use MediaWiki\Linker\Linker;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\RollbackPageFactory;
@@ -54,8 +53,8 @@ class RollbackAction extends FormAction {
 	private $commentFormatter;
 
 	/**
-	 * @param Article $article
-	 * @param IContextSource $context
+	 * @param Page $page
+	 * @param IContextSource|null $context
 	 * @param IContentHandlerFactory $contentHandlerFactory
 	 * @param RollbackPageFactory $rollbackPageFactory
 	 * @param UserOptionsLookup $userOptionsLookup
@@ -63,15 +62,15 @@ class RollbackAction extends FormAction {
 	 * @param CommentFormatter $commentFormatter
 	 */
 	public function __construct(
-		Article $article,
-		IContextSource $context,
+		Page $page,
+		?IContextSource $context,
 		IContentHandlerFactory $contentHandlerFactory,
 		RollbackPageFactory $rollbackPageFactory,
 		UserOptionsLookup $userOptionsLookup,
 		WatchlistManager $watchlistManager,
 		CommentFormatter $commentFormatter
 	) {
-		parent::__construct( $article, $context );
+		parent::__construct( $page, $context );
 		$this->contentHandlerFactory = $contentHandlerFactory;
 		$this->rollbackPageFactory = $rollbackPageFactory;
 		$this->userOptionsLookup = $userOptionsLookup;

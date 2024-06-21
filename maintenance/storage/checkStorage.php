@@ -187,7 +187,7 @@ class CheckStorage {
 						$this->addError( 'restore text', "Error: invalid URL \"{$row->old_text}\"", $row->old_id );
 						continue;
 					}
-					[ $proto, ] = $urlParts;
+					list( $proto, ) = $urlParts;
 					if ( $proto != 'DB' ) {
 						$this->addError(
 							'restore text',

@@ -22,8 +22,6 @@
  */
 
 use MediaWiki\Cache\LinkBatchFactory;
-use MediaWiki\Category\TrackingCategories;
-use MediaWiki\Html\Html;
 
 /**
  * A special page that displays list of tracking categories
@@ -85,7 +83,7 @@ class SpecialTrackingCategories extends SpecialPage {
 		$categoryList = $this->trackingCategories->getTrackingCategories();
 
 		$batch = $this->linkBatchFactory->newLinkBatch();
-		foreach ( $categoryList as $data ) {
+		foreach ( $categoryList as $catMsg => $data ) {
 			$batch->addObj( $data['msg'] );
 			foreach ( $data['cats'] as $catTitle ) {
 				$batch->addObj( $catTitle );

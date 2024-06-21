@@ -1,8 +1,5 @@
 <?php
 
-use MediaWiki\Html\Html;
-use MediaWiki\Linker\Linker;
-
 /**
  * The parent class to generate form fields.  Any field type should
  * be a subclass of this.
@@ -24,7 +21,7 @@ abstract class HTMLFormField {
 	protected $mHelpClass = false;
 	protected $mDefault;
 	/**
-	 * @var array|null|false
+	 * @var array|bool|null
 	 */
 	protected $mOptions = false;
 	protected $mOptionsLabelsNotFromMessage = false;
@@ -139,7 +136,7 @@ abstract class HTMLFormField {
 			}
 		}
 
-		if ( $backCompat && str_starts_with( $name, 'wp' ) &&
+		if ( $backCompat && substr( $name, 0, 2 ) === 'wp' &&
 			!$this->mParent->hasField( $name )
 		) {
 			// Don't break the existed use cases.
@@ -230,7 +227,7 @@ abstract class HTMLFormField {
 					if ( count( $params ) !== 2 ) {
 						throw new MWException( "$op takes exactly two parameters" );
 					}
-					[ $name, $value ] = $params;
+					list( $name, $value ) = $params;
 					if ( !is_string( $name ) || !is_string( $value ) ) {
 						throw new MWException( "Parameters for $op must be strings" );
 					}
@@ -257,6 +254,7 @@ abstract class HTMLFormField {
 	 * @throws MWException
 	 */
 	protected function checkStateRecurse( array $alldata, array $params ) {
+		$origParams = $params;
 		$op = array_shift( $params );
 		$valueChk = [ 'AND' => false, 'OR' => true, 'NAND' => false, 'NOR' => true ];
 		$valueRet = [ 'AND' => true, 'OR' => false, 'NAND' => false, 'NOR' => true ];
@@ -266,7 +264,7 @@ abstract class HTMLFormField {
 			case 'OR':
 			case 'NAND':
 			case 'NOR':
-				foreach ( $params as $p ) {
+				foreach ( $params as $i => $p ) {
 					if ( $valueChk[$op] === $this->checkStateRecurse( $alldata, $p ) ) {
 						return !$valueRet[$op];
 					}
@@ -278,7 +276,7 @@ abstract class HTMLFormField {
 
 			case '===':
 			case '!==':
-				[ $field, $value ] = $params;
+				list( $field, $value ) = $params;
 				$testValue = (string)$this->getNearestFieldValue( $alldata, $field, true, true );
 				switch ( $op ) {
 					case '===':
@@ -298,6 +296,7 @@ abstract class HTMLFormField {
 	 * @return mixed[]
 	 */
 	protected function parseCondState( $params ) {
+		$origParams = $params;
 		$op = array_shift( $params );
 
 		switch ( $op ) {
@@ -306,7 +305,7 @@ abstract class HTMLFormField {
 			case 'NAND':
 			case 'NOR':
 				$ret = [ $op ];
-				foreach ( $params as $p ) {
+				foreach ( $params as $i => $p ) {
 					$ret[] = $this->parseCondState( $p );
 				}
 				return $ret;
@@ -316,7 +315,7 @@ abstract class HTMLFormField {
 
 			case '===':
 			case '!==':
-				[ $name, $value ] = $params;
+				list( $name, $value ) = $params;
 				$field = $this->getNearestField( $name, true );
 				return [ $op, $field->getName(), $value ];
 		}
@@ -405,7 +404,7 @@ abstract class HTMLFormField {
 
 		if ( isset( $this->mParams['required'] )
 			&& $this->mParams['required'] !== false
-			&& ( $value === '' || $value === false || $value === null )
+			&& ( $value === '' || $value === false )
 		) {
 			return $this->msg( 'htmlform-required' );
 		}
@@ -505,14 +504,6 @@ abstract class HTMLFormField {
 
 		if ( isset( $params['parent'] ) && $params['parent'] instanceof HTMLForm ) {
 			$this->mParent = $params['parent'];
-		} else {
-			// Normally parent is added automatically by HTMLForm::factory.
-			// Several field types already assume unconditionally this is always set,
-			// so deprecate manually creating an HTMLFormField without a parent form set.
-			wfDeprecatedMsg(
-				__METHOD__ . ": Constructing an HTMLFormField without a 'parent' parameter",
-				"1.40"
-			);
 		}
 
 		# Generate the label from a message, if possible
@@ -592,7 +583,7 @@ abstract class HTMLFormField {
 	 * @return string Complete HTML table row.
 	 */
 	public function getTableRow( $value ) {
-		[ $errors, $errorClass ] = $this->getErrorsAndErrorClass( $value );
+		list( $errors, $errorClass ) = $this->getErrorsAndErrorClass( $value );
 		$inputHtml = $this->getInputHTML( $value );
 		$fieldType = $this->getClassName();
 		$helptext = $this->getHelpTextHtmlTable( $this->getHelpText() );
@@ -650,7 +641,7 @@ abstract class HTMLFormField {
 	 * @return string Complete HTML table row.
 	 */
 	public function getDiv( $value ) {
-		[ $errors, $errorClass ] = $this->getErrorsAndErrorClass( $value );
+		list( $errors, $errorClass ) = $this->getErrorsAndErrorClass( $value );
 		$inputHtml = $this->getInputHTML( $value );
 		$fieldType = $this->getClassName();
 		$helptext = $this->getHelpTextHtmlDiv( $this->getHelpText() );
@@ -837,7 +828,7 @@ abstract class HTMLFormField {
 	 * @return string Complete HTML table row.
 	 */
 	public function getRaw( $value ) {
-		[ $errors, ] = $this->getErrorsAndErrorClass( $value );
+		list( $errors, ) = $this->getErrorsAndErrorClass( $value );
 		$inputHtml = $this->getInputHTML( $value );
 		$helptext = $this->getHelpTextHtmlRaw( $this->getHelpText() );
 		$cellAttributes = [];
@@ -874,7 +865,7 @@ abstract class HTMLFormField {
 	 * @return string Complete HTML inline element
 	 */
 	public function getInline( $value ) {
-		[ $errors, ] = $this->getErrorsAndErrorClass( $value );
+		list( $errors, $errorClass ) = $this->getErrorsAndErrorClass( $value );
 		$inputHtml = $this->getInputHTML( $value );
 		$helptext = $this->getHelpTextHtmlDiv( $this->getHelpText() );
 		$cellAttributes = [];

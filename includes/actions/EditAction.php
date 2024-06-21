@@ -18,7 +18,6 @@
  * @ingroup Actions
  */
 
-use MediaWiki\EditPage\EditPage;
 use MediaWiki\MainConfigNames;
 
 /**

@@ -2,7 +2,6 @@
 
 use MediaWiki\Page\PageReference;
 use MediaWiki\Page\PageReferenceValue;
-use MediaWiki\Title\Title;
 
 /**
  * @group Database
@@ -308,22 +307,31 @@ class LinkCacheTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @covers LinkCache::addLinkObj()
+	 * @covers LinkCache::getMutableCacheKeys()
 	 */
 	public function testAddLinkObjUsesWANCache() {
-		// For some namespaces we cache data (Template, File, etc)
+		// Pages in some namespaces use the WAN cache: Template, File, Category, MediaWiki
 		$existing = $this->getExistingTestPage( Title::makeTitle( NS_TEMPLATE, __METHOD__ ) );
-		$wanCache = new WANObjectCache( [ 'cache' => new HashBagOStuff() ] );
+
+		$fakeRow = $this->getPageRow( $existing->getId() + 100 );
+
+		$cache = new HashBagOStuff();
+		$wanCache = new WANObjectCache( [ 'cache' => $cache ] );
 		$linkCache = $this->newLinkCache( $wanCache );
 
 		// load the page row into the cache
 		$linkCache->addLinkObj( $existing );
 
+		$keys = $linkCache->getMutableCacheKeys( $wanCache, $existing );
+		$this->assertNotEmpty( $keys );
+
+		foreach ( $keys as $key ) {
+			$this->assertNotFalse( $wanCache->get( $key ) );
+		}
+
 		// replace real row data with fake, and assert that it gets used
-		$key = $wanCache->makeKey( 'page', $existing->getNamespace(), sha1( $existing->getDBkey() ) );
-		$fakeRow = $this->getPageRow( $existing->getId() + 100 );
 		$wanCache->set( $key, $fakeRow );
-		// clear in-class cache
-		$linkCache->clearLink( $existing );
+		$linkCache->clearLink( $existing ); // clear local cache
 		$this->assertSame( (int)$fakeRow->page_id, $linkCache->addLinkObj( $existing ) );
 
 		// set the "read latest" flag and try again
@@ -475,6 +483,81 @@ class LinkCacheTest extends MediaWikiIntegrationTestCase {
 			$linkCache->getGoodLinkRow(
 				$missing->getNamespace(),
 				$missing->getDBkey(),
+				$callback,
+				$flags
+			)
+		);
+	}
+
+	/**
+	 * @covers LinkCache::getGoodLinkRow()
+	 */
+	public function testGetGoodLinkRowGetsIncompleteCachedInfo() {
+		// Pages in some namespaces use the WAN cache: Template, File, Category, MediaWiki
+		$existing = new TitleValue( NS_TEMPLATE, 'Existing' );
+		$brokenRow = $this->getPageRow( 3 );
+		unset( $brokenRow->page_len ); // make incomplete row
+
+		$cache = new HashBagOStuff();
+		$wanCache = new WANObjectCache( [ 'cache' => $cache ] );
+		$linkCache = $this->newLinkCache( $wanCache );
+
+		// force the incomplete row into the cache
+		$keys = $linkCache->getMutableCacheKeys( $wanCache, $existing );
+		$wanCache->set( $keys[0], $brokenRow );
+
+		// check that we are not getting the broken row, but load a good row
+		$callback = [ $this, 'getRowIfExisting' ];
+		$row = $linkCache->getGoodLinkRow( $existing->getNamespace(), $existing->getDBkey(), $callback );
+
+		$this->assertNotEquals( $brokenRow, $row );
+	}
+
+	/**
+	 * @covers LinkCache::getGoodLinkRow()
+	 * @covers LinkCache::getMutableCacheKeys()
+	 */
+	public function testGetGoodLinkRowUsesWANCache() {
+		// Pages in some namespaces use the WAN cache: Template, File, Category, MediaWiki
+		$existing = new TitleValue( NS_TEMPLATE, 'Existing' );
+		$callback = [ $this, 'getRowIfExisting' ];
+
+		$existingRow = $this->getPageRow( 0 );
+		$fakeRow = $this->getPageRow( 3 );
+
+		$cache = new HashBagOStuff();
+		$wanCache = new WANObjectCache( [ 'cache' => $cache ] );
+		$linkCache = $this->newLinkCache( $wanCache );
+
+		// load the page row into the cache
+		$linkCache->getGoodLinkRow( $existing->getNamespace(), $existing->getDBkey(), $callback );
+
+		$keys = $linkCache->getMutableCacheKeys( $wanCache, $existing );
+		$this->assertNotEmpty( $keys );
+
+		foreach ( $keys as $key ) {
+			$this->assertNotFalse( $wanCache->get( $key ) );
+		}
+
+		// replace real row data with fake, and assert that it gets used
+		$wanCache->set( $key, $fakeRow );
+		$linkCache->clearLink( $existing ); // clear local cache
+		$this->assertSame(
+			$fakeRow,
+			$linkCache->getGoodLinkRow(
+				$existing->getNamespace(),
+				$existing->getDBkey(),
+				$callback
+			)
+		);
+
+		// set the "read latest" flag and try again
+		$flags = IDBAccessObject::READ_LATEST;
+		$this->assertEquals(
+			$existingRow,
+			$linkCache->getGoodLinkRow(
+				$existing->getNamespace(),
+				$existing->getDBkey(),
 				$callback,
 				$flags
 			)

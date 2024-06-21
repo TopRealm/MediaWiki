@@ -34,7 +34,7 @@ class PermissionStatusTest extends MediaWikiUnitTestCase {
 
 		$this->assertStatusOK( $status );
 		$this->assertStatusGood( $status );
-		$this->assertSame( [], $status->getErrors() );
+		$this->assertEmpty( $status->getErrors() );
 	}
 
 	public function testBlock() {

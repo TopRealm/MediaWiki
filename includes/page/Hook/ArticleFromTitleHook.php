@@ -4,7 +4,7 @@ namespace MediaWiki\Page\Hook;
 
 use Article;
 use IContextSource;
-use MediaWiki\Title\Title;
+use Title;
 
 /**
  * This is a hook handler interface, see docs/Hooks.md.

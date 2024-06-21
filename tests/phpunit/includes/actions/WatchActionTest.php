@@ -1,10 +1,8 @@
 <?php
 
-use MediaWiki\Language\RawMessage;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Tests\Unit\DummyServicesTrait;
 use MediaWiki\Tests\Unit\Permissions\MockAuthorityTrait;
-use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentityValue;
 use PHPUnit\Framework\MockObject\MockObject;
 use Wikimedia\TestingAccessWrapper;
@@ -132,7 +130,7 @@ class WatchActionTest extends MediaWikiIntegrationTestCase {
 			$testContext
 		);
 
-		$this->setTemporaryHook( 'WatchArticle', static function () {
+		Hooks::register( 'WatchArticle', static function () {
 			return false;
 		} );
 
@@ -357,8 +355,7 @@ class WatchActionTest extends MediaWikiIntegrationTestCase {
 				'1 week' => '1 week',
 				'1 month' => '1 month',
 				'3 months' => '3 months',
-				'6 months' => '6 months',
-				'1 year' => '1 year',
+				'6 months' => '6 months'
 			],
 			'default' => 'infinite'
 		];
@@ -375,8 +372,7 @@ class WatchActionTest extends MediaWikiIntegrationTestCase {
 				'1 week' => '1 week',
 				'1 month' => '1 month',
 				'3 months' => '3 months',
-				'6 months' => '6 months',
-				'1 year' => '1 year',
+				'6 months' => '6 months'
 			],
 			'default' => '2020-07-10T00:00:00Z'
 		];
@@ -393,8 +389,7 @@ class WatchActionTest extends MediaWikiIntegrationTestCase {
 				'1 week' => '1 week',
 				'1 month' => '1 month',
 				'3 months' => '3 months',
-				'6 months' => '6 months',
-				'1 year' => '1 year',
+				'6 months' => '6 months'
 			],
 			'default' => '2020-06-17T00:00:00Z'
 		];
@@ -409,8 +404,7 @@ class WatchActionTest extends MediaWikiIntegrationTestCase {
 				'1 week' => '1 week',
 				'1 month' => '1 month',
 				'3 months' => '3 months',
-				'6 months' => '6 months',
-				'1 year' => '1 year',
+				'6 months' => '6 months'
 			],
 			'default' => 'infinite'
 		];

@@ -17,13 +17,8 @@
 			"Санюн Вадик",
 			"Сергей Иванов",
 			"아라",
-<<<<<<< HEAD
-			"Валентина Семёнова",
-			"Венина Наталья Константиновна",
-=======
 			"Венина Наталья Константиновна",
 			"Валентина Семёнова",
->>>>>>> origin/1.39.7-test
 			"Mxalexandrov86"
 		]
 	},
@@ -182,7 +177,6 @@
 	"permalink": "Тутыш кылвер",
 	"print": "Савыктымаш",
 	"view": "Ончалаш",
-	"viewcontribs": "Надырым ончалаш",
 	"skin-view-view": "Лудаш",
 	"skin-view-foreign": "$1 аралыме верыште ончалаш",
 	"edit": "Тӧрлаташ",
@@ -199,8 +193,6 @@
 	"skin-action-unprotect": "Аралалтмашым вашталташ",
 	"unprotect": "Аралалтмашым вашталташ",
 	"newpage": "У лаштык",
-	"newpage-desc": "Йодмо теме почеш у велыжым тӱҥал.",
-	"view-missing-pages": "Улдымо велыж-влакым ончалаш",
 	"talkpagelinktext": "каҥашымаш",
 	"specialpage": "Спецлаштык",
 	"personaltools": "Лӱмал ӱзгар-влак",
@@ -646,10 +638,6 @@
 	"summary-preview": "Вашталтымаш нерген ончылгоч ончымаш:",
 	"previewerrortext": "Тыйын вашталтымашым ончылгоч ончаш тӧчымӧ годым йоҥылыш лийын.",
 	"blockedtitle": "Ушнышым петырыме",
-<<<<<<< HEAD
-	"blockedtext-partial": "<strong>Тыйын ушнышо лӱметлан але IP адресетлан тидым ыштымым петырыме. Но тый тыгакак ты вики-проектыште вес пашам шуктен кертат (палемдыме велыж-влакым тӧрлатыме гайым).</strong> \n\nТый петырымаш нерген чыла рашлыкым [[Special:MyContributions|ушнышын надырже]] велыжыште ужын кертат.\n\n{{int:blockedtext-made-by|$1}}\n\n{{int:blockedtext-reason-comment|$2}}.\n\n* {{int:blockedtext-start-time|$8}}\n* {{int:blockedtext-expiration-time|$6}}\n* {{int:blockedtext-intended-blockee|$7}}\n\n* {{int:blockedtext-block-id|$5}}",
-=======
->>>>>>> origin/1.39.7-test
 	"blockednoreason": "амалым ончыктымо огыл",
 	"blockedtext-composite-ids": "Кызытсе петырымаш ID: $1 (тыйын IP адресет чарымаш спискыш логалын кертеш)",
 	"blockedtext-composite-no-ids": "Тыйын IP адресет икмыняр петырымаш спискыште улеш",
@@ -671,11 +659,6 @@
 	"missing-revision-permission": "#$1 версий — кораҥдыме лаштык. Тый [{{fullurl:{{#Special:Undelete}}|target=$3&timestamp=$2&diff=prev}} тудым ончалын] кертат; шукырак [{{fullurl:{{#Special:Log}}/delete|page=$3}} кораҥдымаш журналыште] муын кертат.",
 	"missing-revision": "«{{FULLPAGENAME}}» велыжын #$1 версийже уке улеш.\n\nТыгай шукыж годым кораҥдыме велыжыш тоштемше кылвер дене куснымылан лиеда.\nРашлык [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} кораҥдымаш журналыште] лийын кертеш.",
 	"missing-revision-content": "«$2» лӱман велыжын #$1 версийжын контентшым вераҥден кертме огыл.",
-<<<<<<< HEAD
-	"userpage-userdoesnotexist": "Тиде викиште «$1» аккаунт уке улеш. Тый чынак тиде велыжым ыштынет але вашталтынет манын, инане.",
-	"userpage-userdoesnotexist-view": "$1 аккаунт ты викиште регистрацийым эртен огыл.",
-=======
->>>>>>> origin/1.39.7-test
 	"blocked-notice-logextract": "Тиде {{GENDER:$1|ушнышо}} кызытсе жапыште петыралтын.\nӰлнӧ петырымаш журнал гыч пытартыш возышым ончыктымо:",
 	"clearyourcache": "<strong>Палемдымаш:</strong> Очыни, савыктыме деч вара вашталтышым ужаш манын, тылат шке браузеретын кэшыжым эрыкташ логалеш.\n* <strong>Firefox / Safari:</strong> <em>Shift</em> манмым темдал кучен, ӱзгар панельыште <em>Уэмдымаш</em> але <em>Ctrl+F5</em> але <em>Ctrl+R</em> манмым темдал (Mac: <em>⌘+R</em>)\n* <strong>Google Chrome:</strong> <em>Ctrl+Shift+R</em> манмым темдал (Mac: <em>⌘+Shift+R</em>)\n* <strong>Internet Explorer / Edge:</strong> <em>Ctrl</em> манмым темдал кучен, <em>Уэмдымаш</em> але <em>Ctrl+F5</em> манмым темдал\n* <strong>Opera:</strong> <em>Ctrl+F5</em> манмым темдал.",
 	"usercssyoucanpreview": "<strong>Каҥаш:</strong> Савыктыме деч ончыч шке у CSS файлет тергаш манын, «{{int:showpreview}}» кнопкым темдал.",
@@ -877,16 +860,8 @@
 	"revdelete-hide-comment": "Вашталтыш-влакын возен ончыктымашышт",
 	"revdelete-hide-user": "Ушнышын лӱмжӧ/IP адрес",
 	"revdelete-hide-restricted": "Данныйым тыгак администратор-влак дечат шылташ",
-<<<<<<< HEAD
-	"revdelete-radio-same": "Вашталташ огыл",
 	"revdelete-radio-set": "Шылтыме",
 	"revdelete-radio-unset": "Койшо",
-	"revdelete-radio-set-suppress": "Темдалаш",
-	"revdelete-radio-unset-suppress": "Темдалмым чараш",
-=======
-	"revdelete-radio-set": "Шылтыме",
-	"revdelete-radio-unset": "Койшо",
->>>>>>> origin/1.39.7-test
 	"revdelete-suppress": "Данныйым тыгак администратор-влак дечат шылташ",
 	"revdelete-unsuppress": "Пӧртылтымӧ версий-влак гыч коймаш шыгыремдымашым кораҥдаш",
 	"revdelete-log": "Амал:",
@@ -951,10 +926,6 @@
 	"lineno": "$1 корно:",
 	"compareselectedversions": "Ойырымо версий-влакым таҥастараш",
 	"showhideselectedversions": "Ойырымо версий-влакым ончыкташ/шылташ",
-<<<<<<< HEAD
-	"showhideselectedfileversions": "Ойырымо файл версий-влакын коймыштым вашталташ",
-=======
->>>>>>> origin/1.39.7-test
 	"editundo": "чараш",
 	"diff-empty": "(Ойыртем уке)",
 	"diff-multi-otherusers": "({{PLURAL:$2|ушнышын|$2 ушнышын}} {{PLURAL:$1|кокла версийжым|$1 кокла версийыштым}} ончыктымо огыл)",
@@ -962,11 +933,6 @@
 	"diff-paragraph-moved-tonew": "Параграф кусарыме лийын. У вераҥдыш деке куснаш манын, темдал.",
 	"diff-paragraph-moved-toold": "Параграф кусарыме лийын. Тошто вераҥдыш деке куснаш манын, темдал.",
 	"difference-missing-revision": "Тиде таҥастарымашлан ($1) {{PLURAL:$2|ик версийым|$2 версийым}} {{PLURAL:$2|мумо огыл}}.\n\nТыгай шукыж годым кораҥдыме велыжлан версий-влакым таҥастарашлан тоштемше кылвер дене куснымылан лиеда.\nРашлык [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} кораҥдымаш журналыште] лийын кертеш.",
-<<<<<<< HEAD
-	"difference-bad-old-revision": "Контентын тошто версийже уке улеш але локтылалтын.",
-	"difference-bad-new-revision": "Контентын у версийже уке улеш але локтылалтын.",
-=======
->>>>>>> origin/1.39.7-test
 	"searchresults": "Кычалмын лектышыже",
 	"search-filter-title-prefix": "«$1» дене тӱҥалше вуйлӱман велыжлаште гына кычалаш",
 	"search-filter-title-prefix-reset": "Чыла велыжым кычалаш",
@@ -1006,10 +972,6 @@
 	"search-relatedarticle": "Кылдалтше",
 	"search-invalid-sort-order": "Ойырымаш радам $1 палдырнен огыл, тудо тӱҥалтыш келыштарымаш почеш лиеш. Ойырымаш радам тыгай: $2",
 	"search-unknown-profile": "$1 кычалме профильым пален налме огыл, тӱҥалтыш кычалме профиль кучылтмо лиеш.",
-<<<<<<< HEAD
-	"search-thumbnail-alt": "$1 лектышлан изисӱрет",
-=======
->>>>>>> origin/1.39.7-test
 	"searchrelated": "кылдалтше",
 	"searchall": "чыла",
 	"showingresultsinrange": "Ӱлнӧ #<strong>$2</strong> гыч #<strong>$3</strong> марте диапазонышто {{PLURAL:$1|<strong>1</strong> лектышым|<strong>$1</strong> лектышым}} ончыктымо.",
@@ -1059,11 +1021,6 @@
 	"prefs-email": "Электрон почто келыштарымаш",
 	"prefs-rendering": "Тӱжвал сын",
 	"prefs-searchmisc": "Тӱшка",
-<<<<<<< HEAD
-	"searchprefs": "Келыштарымаш дене кычалаш",
-	"searchprefs-noresults": "Лектыш уке",
-=======
->>>>>>> origin/1.39.7-test
 	"saveprefs": "Аралаш",
 	"restoreprefs": "Тӱҥалтыш келыштарымашыш пӧртылаш",
 	"prefs-editing": "Тӧрлатымаш",
@@ -1071,17 +1028,6 @@
 	"recentchangesdays": "Пытартыш тӧрлымаш-влакым мыняр кечылан ончыкташ:",
 	"recentchangesdays-max": "Эн шукыжо $1 {{PLURAL:$1|кече}}",
 	"recentchangescount": "Тӱҥалтыш келыштарымаш почеш пытартыш вашталтышын, лаштык да журнал историйын тӧрлымӧ чотшо:",
-<<<<<<< HEAD
-	"prefs-back-title": "Келыштарымашыш пӧртылаш",
-	"prefs-description-personal": "Эскере, кузе аккаунтет коеш, кузе чӱкталтат да ваш кутырет",
-	"prefs-description-rendering": "Сылнештарыме темым, кугытым да лудмо йӧным келыштаре.",
-	"prefs-description-editing": "Тӧрлымаш-влакым пуртыметым, эскерыметым да ончен лекметым келыштаре.",
-	"prefs-description-rc": "Пытартыш вашталтыш тасмам келыштаре.",
-	"prefs-description-watchlist": "Эскерыме лаштык спискым виктаре да шкаланет йӧрышын келыштаре.",
-	"prefs-description-searchoptions": "Вигак тичмашлымашын пашажым да лектышым ойыро.",
-	"prefs-description-misc": "Контентын ончыктымашым келыштаре.",
-=======
->>>>>>> origin/1.39.7-test
 	"prefs-help-recentchangescount": "Эн кугу значений: 1000",
 	"prefs-help-watchlist-token2": "Тиде эскерыме спискетын веб-каналлан шолып ключ.\nКеч-кӧ тудым пала гын, тыйын эскерыме спискетым лудын кертеш, сандене тудым весылан ит каласе.\nКӱлеш гын, [[Special:ResetTokens|тый тудым кудалтен кертат]].",
 	"prefs-help-tokenmanagement": "Тый шке аккаунтетлан шолып ключым, кудо тыйын эскерыме спискетын веб-каналжым кучылташ лиймым налын кертеш, ончен лектын да кудалтен кертат. Ключым палыше кеч-кӧ тыйын эскерыме спискетым лудын лектын кертеш, сандене туддене нигӧ дене ит пайлалт.",
@@ -1096,10 +1042,6 @@
 	"timezoneuseserverdefault": "Серверын келыштарымашыжым кучылташ ($1)",
 	"timezoneuseoffset": "Моло (UTC жап деч шӱкалтмаш)",
 	"timezone-useoffset-placeholder": "Мутлан: «-07:00» але «01:00»",
-<<<<<<< HEAD
-	"timezone-invalid": "Чын огыл ӱштӧ шагат але чын огыл жапын шӱкалтмыже",
-=======
->>>>>>> origin/1.39.7-test
 	"servertime": "Серверын жапше:",
 	"guesstimezone": "Браузер гыч тичмашлаш",
 	"timezoneregion-africa": "Африка",
@@ -1288,12 +1230,6 @@
 	"right-suppressrevision": "Велыжын шылтыме версий-влакшым ончымаш, шылтымаш да пӧртылтымаш",
 	"right-viewsuppressed": "Чыла ушнышо деч шылтыме версий-влакым ончымаш",
 	"right-suppressionlog": "Шолып журнал-влакым ончымаш",
-<<<<<<< HEAD
-	"right-block": "Вес ушнышылан тӧрлаташ йӧным петырымаш да петырыме гыч лукмаш",
-	"right-blockemail": "Вес ушнышылан электрон почтым колтымым петырымаш да петырыме гыч лукмаш",
-	"right-hideuser": "Ушнышын лӱмжым петырымаш але петырыме гыч лукмаш, тудым шылтымаш але вес ушнышо-влаклан ончыктымаш",
-=======
->>>>>>> origin/1.39.7-test
 	"right-ipblock-exempt": "IP дене петырымашым, вигак петырымашым да диапазоным петырымашым кораҥ кайымаш",
 	"right-unblockself": "Шкем петырыме гыч лукташ",
 	"right-protect": "Аралалтмаш келыштарымашым вашталтымаш да йыжыҥан аралалтше велыж-влакым тӧрлымаш",
@@ -1314,10 +1250,6 @@
 	"right-viewmywatchlist": "Шке эскерыме спискетым ончымаш",
 	"right-editmywatchlist": "Шке эскерыме спискым тӧрлатымаш (шотыш нал, южо ыштымаш эсогыл тыгай права деч поснат велыж-влакым ешаркалаш тӱҥалыт).",
 	"right-viewmyprivateinfo": "Шке лӱмал данныйым ончымаш (мутлан, электрон почто адресым, чын лӱмым)",
-<<<<<<< HEAD
-	"right-editmyprivateinfo": "Шке лӱмал данныйым тӧрлымаш (мутлан, электрон почто адресым, чын лӱмым) да шолыпмутым кудалташлан электрон серышым йодмаш",
-=======
->>>>>>> origin/1.39.7-test
 	"right-editmyoptions": "Шке келыштарымашым тӧрлатымаш",
 	"right-rollback": "Велыжым тӧрлатыше пытартыш ушнышын тӧрлымашым писын мӧҥгеш пӧртылтымаш",
 	"right-markbotedits": "Мӧҥгеш пӧртылтымӧ тӧрлымаш-влакым ботын тӧрлымаш семын палемдымаш",
@@ -1359,10 +1291,6 @@
 	"grant-editsiteconfig": "Сайтын да ушнышын CSS/JavaScrip-ыштым тӧрлымаш",
 	"grant-editpage": "Улшо велыж-влакым тӧрлатымаш",
 	"grant-editprotected": "Аралалтше велыж-влакым тӧрлатымаш",
-<<<<<<< HEAD
-	"grant-highvolume": "Кугу куатлыканым (ботым) кучылтын кертмаш",
-=======
->>>>>>> origin/1.39.7-test
 	"grant-import": "Версий-влакым пуртымаш",
 	"grant-mergehistory": "Тӧрлымаш историйым иктыш ушаш",
 	"grant-oversight": "Ушнышын тӧрлымашыжым да велыж версийым шылтымаш",
@@ -1402,21 +1330,9 @@
 	"action-writeapi": "тӧрлымашлан API-м кучылтмаш",
 	"action-delete": "Шӧраш",
 	"action-delete-redirect": "ик версий дене вес вере колтымым угыч возаш",
-<<<<<<< HEAD
-	"action-deleterevision": "велыжын палемдыме версий-влакшым кораҥдымаш да мӧҥгеш пӧртылтымаш",
-	"action-deletelogentry": "журналын палемдыме возыш-влакшым кораҥдымаш да мӧҥгеш пӧртылтымаш",
-	"action-deletedhistory": "журналын кораҥдыме возыш-влакын метаданныйжым ончымаш",
-	"action-deletedtext": "кораҥдыме текстым але кораҥдыме версий коклаште вашталтышым ончымаш",
-	"action-browsearchive": "кораҥдыме велыж-влакым кычалаш",
-	"action-undelete": "Шӧрымым пӧртылаш",
-	"action-suppressrevision": "кеч-могай ушнышо деч велыж-влакын палемдыме версий-влакшым ончымаш, шылтымаш да пӧртылтымаш",
-	"action-suppressionlog": "шолып журналым ончымаш",
-	"action-block": "ушнышылан тӧрлаташ йӧным петырымаш да петырыме гыч лукмаш",
-=======
 	"action-browsearchive": "кораҥдыме велыж-влакым кычалаш",
 	"action-undelete": "Шӧрымым пӧртылаш",
 	"action-suppressionlog": "шолып журналым ончымаш",
->>>>>>> origin/1.39.7-test
 	"action-protect": "тиде велыжын аралалтмаш келыштарымашым вашталтымаш",
 	"action-rollback": "вашталтышым писын мӧҥгеш пӧртылтымаш",
 	"action-import": "велыж-влакым вес вики гыч пурташ",
@@ -1443,10 +1359,6 @@
 	"action-apihighlimits": "API йодмашлаште кӱкшӧ лимитым кучылтмаш",
 	"action-autoconfirmed": "IP адреслан писылыкым шыгыремдымашым кораҥ кайымаш",
 	"action-bigdelete": "кужу вашталтыш историй дене велыж-влакым кораҥдымаш",
-<<<<<<< HEAD
-	"action-blockemail": "ушнышылан электрон почтым колтымым петырымаш да петырыме гыч лукмаш",
-=======
->>>>>>> origin/1.39.7-test
 	"action-bot": "тидым автоматический процесс семын ончыман",
 	"action-editprotected": "«{{int:protect-level-sysop}}» семын аралалтше велыж-влакым тӧрлымаш",
 	"action-editsemiprotected": "«{{int:protect-level-autoconfirmed}}» семын аралалтше велыж-влакым тӧрлымаш",
@@ -1462,10 +1374,6 @@
 	"action-editmyuserjs": "шке кучылтмо JavaScript файл-влакым тӧрлатымаш",
 	"action-editmyuserjsredirect": "шке кучылтмо JavaScript файл-влакым, кудо вес вере колтымаш улыт, тӧрлатымаш",
 	"action-viewsuppressed": "чыла ушнышо деч шылтыме версий-влакым ончымаш",
-<<<<<<< HEAD
-	"action-hideuser": "ушнышын лӱмжым петырымаш але петырыме гыч лукмаш, тудым шылтымаш але вес ушнышо-влаклан ончыктымаш",
-=======
->>>>>>> origin/1.39.7-test
 	"action-ipblock-exempt": "IP дене петырымашым, вигак петырымашым да диапазоным петырымашым кораҥ кайымаш",
 	"action-unblockself": "шкем петырыме гыч лукташ",
 	"action-noratelimit": "писылыкым шыгыремдымашым кораҥ кайымаш",
@@ -1598,11 +1506,6 @@
 	"rcfilters-filter-categorization-description": "Категорийыш ешарыме але кораҥдыме велыж нерген возыш-влак.",
 	"rcfilters-filter-logactions-label": "Журналыш пурталтше ыштымаш",
 	"rcfilters-filter-logactions-description": "Административ паша, аккаунтым ыштымаш, велыжым кораҥдымаш, файл-влакым вераҥдымаш…",
-<<<<<<< HEAD
-	"rcfilters-filter-newuserlogactions-label": "У ушнышо-влак",
-	"rcfilters-filter-newuserlogactions-description": "Аккаунт ыштымаш нерген журналын возыш-влакше. Журналыш возалтшаш ыштымашым ойырыман.",
-=======
->>>>>>> origin/1.39.7-test
 	"rcfilters-hideminor-conflicts-typeofchange-global": "Южо тӧрлымаш тӱрлылыкым изи манаш лийдымылан кӧра, «изи тӧрлымаш» фильтр ик але икмыняр фильтр дене ваштӱкна. Ваштӱкныман фильтр-влакым кӱшнӧ, Чолга фильтр-влак кумдыкышто, ончыктымо.",
 	"rcfilters-hideminor-conflicts-typeofchange": "Палемдыме тӧрлымаш тӱрлылык-влакым «изирак» улыт манаш огеш лий, сандене тиде фильтр тыгай тӧрлымаш тӱрлылык фильтр дене ваштӱкна: $1",
 	"rcfilters-typeofchange-conflicts-hideminor": "Тиде тӧрлымаш тӱрлылык фильтр изирак тӧрлымаш фильтр дене ваштӱкна. Палемдыме тӧрлымаш тӱрлылык-влакым «изирак» семын палемдаш огеш лий.",
@@ -1612,11 +1515,6 @@
 	"rcfilters-filter-previousrevision-label": "Пытартыш огыл версий",
 	"rcfilters-filter-previousrevision-description": "«Пытартыш версий» улшо огыл чыла тӧрлымаш.",
 	"rcfilters-filter-excluded": "Луктын шумо",
-<<<<<<< HEAD
-	"rcfilters-tag-prefix-namespace-inverted": "<strong>уке</strong> :$1",
-	"rcfilters-tag-prefix-tags-inverted": "<strong>уке</strong> #$1",
-=======
->>>>>>> origin/1.39.7-test
 	"rcfilters-exclude-button-off": "Ойырымым луктын шуаш",
 	"rcfilters-exclude-button-on": "Ойырымым луктын шуымаш",
 	"rcfilters-view-tags": "Пале дене тӧрлымаш-влак",
@@ -1950,10 +1848,6 @@
 	"filehist-dimensions": "Кугытшо",
 	"filehist-filesize": "Файлын кугытшо",
 	"filehist-comment": "Рашемдымаш",
-<<<<<<< HEAD
-	"filehist-missing": "файл уке",
-=======
->>>>>>> origin/1.39.7-test
 	"imagelinks": "Файлым кучылтмаш",
 	"linkstoimage": "Тиде файлым тыгай {{PLURAL:$1|велыж кучылтеш|$1 велыж кучылтеш}}:",
 	"linkstoimage-more": "Тиде файлым $1 {{PLURAL:$1|велыж}} утла кучылтеш.\nТиде спискыште ты файлым кучылтшо {{PLURAL:$1|$1 велыжым гына}} ончыктымо.\nТыгак [[Special:WhatLinksHere/$2|тичмаш спискым]] ончаш лиеш.",
@@ -2142,10 +2036,6 @@
 	"notargettext": "Тиде ыштымылан тый шумлык велыжым але ушнышым ончыктен отыл.",
 	"nopagetitle": "Тыгай шумлык велыж уке",
 	"nopagetext": "Ончыктымо шумлык велыж уке.",
-<<<<<<< HEAD
-	"badrevision": "Тиде версийын текстше уке улеш але локтылалтын.",
-=======
->>>>>>> origin/1.39.7-test
 	"pager-newer-n": "{{PLURAL:$1|1=урак|$1 урак}}",
 	"pager-older-n": "{{PLURAL:$1|1=тоштырак|$1 тоштырак}}",
 	"suppress": "Шылтымаш",
@@ -2575,15 +2465,8 @@
 	"contributions": "Ушнышын надырже",
 	"tool-link-contributions": "{{GENDER:$1|ушнышын}} надырже",
 	"contributions-title": "$1 ушнышын надырже",
-<<<<<<< HEAD
-	"contribute-title": "Ушнышын надырже",
 	"mycontris": "Мыйын надырем",
 	"anoncontribs": "Надыр",
-	"contribute": "Надыр",
-=======
-	"mycontris": "Мыйын надырем",
-	"anoncontribs": "Надыр",
->>>>>>> origin/1.39.7-test
 	"contribsub2": "{{GENDER:$3|$1}} ушнышын надырже ($2)",
 	"contributions-userdoesnotexist": "«$1» аккаунт регистрацийым эртен огыл.",
 	"negative-namespace-not-supported": "Шӧрымашан значений дене лӱм кумдык-влак огыт кучылталт.",
@@ -2618,10 +2501,6 @@
 	"whatlinkshere-page": "Лаштык:",
 	"linkshere": "<strong>$2</strong> дене кылдалтше лаштык-влак:",
 	"nolinkshere": "<strong>$2</strong> лаштык дене тетла нимогай лаштык кылдалтын огыл",
-<<<<<<< HEAD
-	"nolinkshere-filter": "Кызытсе кычалме келыштарымаш дене <strong>$2</strong> дене кылдалтше велыж уке.",
-=======
->>>>>>> origin/1.39.7-test
 	"nolinkshere-ns": "Тыгай лӱм-влакын кумдыкышто <strong>$2<strong> лаштык дене нимогай лаштык-влак огыт кылдалт.",
 	"isredirect": "вес вере колтышо лаштык",
 	"istemplate": "пуртымаш",
@@ -2842,10 +2721,6 @@
 	"movesubpagetalktext-truncated": "Ӱлнӧ келшен толшо кутырымо велыжлан икымше $1 {{PLURAL:$1|subpage|subpages}} ончыктымо.",
 	"movenosubpage": "Тиде велыжын укшыжо уке.",
 	"movereason": "Амал:",
-	"moveotherreason": "Вес/ешартыш амал:",
-	"movereasonotherlist": "Вес амал",
-	"movepage-reason-dropdown": "* Вес семын лӱмдымылан тыглай амал\n** Йоҥылыш дене вуйлӱм",
-	"movepage-edit-reasonlist": "Амал спискым тӧрлаш",
 	"revertmove": "мӧҥгешла пӧртылаш",
 	"delete_and_move_text": "«[[:$1]]» лӱман велыж ынде уло. \nТый тудым, вес семын лӱмдаш йӧн лийже манын, кораҥдынет?",
 	"delete_redirect_and_move_text": "«[[:$1]]» лӱман шумлык велыж ынде уло. \nТый тудым, вес семын лӱмдаш йӧн лийже манын, кораҥдынет?",
@@ -3075,10 +2950,6 @@
 	"pageinfo-default-sort": "Ончылгочсо ойыркалымаш ключ",
 	"pageinfo-length": "Велыж кужыт (байт дене)",
 	"pageinfo-namespace": "Лӱм кумдык",
-<<<<<<< HEAD
-	"pageinfo-namespace-id": "ID лӱм кумдык",
-=======
->>>>>>> origin/1.39.7-test
 	"pageinfo-article-id": "ID велыж",
 	"pageinfo-language": "Велыжын йылмыже",
 	"pageinfo-language-change": "вашталташ",
@@ -3205,7 +3076,7 @@
 	"metadata-help": "Тиде файлыште фотоаппаратын але сканерын данныйже-влак улыт.\nЫшталтме деч вара файлым тӧрлатеныт гын, южо данныйже тиде файллан келшыдыме лийын кертеш.",
 	"metadata-expand": "Ешартыш рашлык-влакым ончыкташ",
 	"metadata-collapse": "Ешартыш рашлык-влакым шылташ",
-	"metadata-fields": "Тиде спискыште радамлыме сӱретын метаданный кышкар-влакше сӱретын велыжыштыже вӱдылмӧ метаданный таблице дене ончыктымо лийыт. Моло кышкар-влак ончылгочсо гай шылтыме лийыт.\n* make \n* model \n* datetimeoriginal \n* exposuretime \n* fnumber \n* isospeedratings \n* focallength \n* artist \n* copyright \n* imagedescription \n* gpslatitude \n* gpslongitude \n* gpsaltitude \n* dc-rights \n* copyrightowner \n* usageterms \n* webstatement \n* licenseurl \n* attributionurl \n* preferredattributionname \n* credit \n* jpegfilecomment \n* pngfilecomment \n* giffilecomment \n* usercomment \n* citydest \n* citycreated \n* headline \n* source \n* locationdest \n* dc-contributor \n* dc-coverage \n* dc-publisher \n* dc-relation \n* label \n* nickname \n* personinimage \n* disclaimer \n* event \n* objectname",
+	"metadata-fields": "Поля метаданных изображения, перечисленные в этом списке, будут показаны на странице изображения при свёрнутой таблице метаданных. Остальные поля будут по умолчанию скрыты.\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude",
 	"namespacesall": "чыла",
 	"monthsall": "чыла",
 	"confirmemail": "Электрон почто адресым чынлымаш",
@@ -3245,10 +3116,6 @@
 	"confirm-watch-button": "Йӧра",
 	"confirm-watch-top": "Тиде велыжым тыйын эскерыме лӱмерышкет ешараш?",
 	"confirm-watch-label": "Эскерыме спискыште жап пагыт:",
-<<<<<<< HEAD
-	"watchlist-expiry-options": "Эрелан:infinite,1 арня:1 week,1 тылзе:1 month,3 тылзе:3 months,6 тылзе:6 months,1 ий:1 year",
-=======
->>>>>>> origin/1.39.7-test
 	"watchlist-expires-in-aria-label": "Эскерыме спискыште жаплан",
 	"confirm-watch-button-expiry": "Эскераш",
 	"confirm-unwatch-button": "Йӧра",
@@ -3363,10 +3230,6 @@
 	"version-entrypoints-header-entrypoint": "Пурымо точко",
 	"version-entrypoints-header-url": "URL",
 	"version-libraries": "Шындыме библиотеке-влак",
-<<<<<<< HEAD
-	"version-libraries-client": "Шындыме клиентлык библиотеке-влак",
-=======
->>>>>>> origin/1.39.7-test
 	"version-libraries-library": "Библиотеке",
 	"version-libraries-version": "Версий",
 	"version-libraries-license": "Лицензий",
@@ -3701,13 +3564,6 @@
 	"feedback-useragent": "Браузер:",
 	"searchsuggest-search": "{{SITENAME}} сайтыште кычалаш",
 	"searchsuggest-containing": "Кӱлеш мутан лаштыклам кычалмаш",
-<<<<<<< HEAD
-	"search-match-redirect-label": "Кычалме годым чылт икгайыш куснаш",
-	"search-match-redirect-help": "Лаштыкын вуймутшо кычалметлан келшен толеш гын, лаштыкыш куснаш манын, тидым ойыро",
-	"search-thumbnail-extra-namespaces-label": "Изисӱрет-влакым Special:Search десктоп версийыште ончыкташ",
-	"search-thumbnail-extra-namespaces-message": "{{#special:search}} лектыш велыжыште $1 {{PLURAL:$2|лӱм кумдыклан|лӱм кумдык-влаклан}} изисӱретым ончыкта",
-=======
->>>>>>> origin/1.39.7-test
 	"searchlimit-label": "Кажне велыжыште ончыкташлан кычалмаш лектыш чот:",
 	"searchlimit-help": "Эн кугу значений: $1",
 	"api-clientside-error-noconnect": "Сервер дене ушалтын керташ огеш лий. Тыйын интернет дене ушалтмаш уло манын, инане да тӧчымашым уэштаре.",
@@ -3812,11 +3668,6 @@
 	"json-error-invalid-property-name": "Койыш лӱмын декодированийже чын огыл",
 	"json-error-utf16": "Чын огыл UTF-16 символ-влак, очыни, чын огыл кодировко",
 	"headline-anchor-title": "Тиде ужашыш кылвер",
-<<<<<<< HEAD
-	"special-tab-contribute-short": "Надыр",
-	"special-tab-contributions-short": "Надырым ончалаш",
-=======
->>>>>>> origin/1.39.7-test
 	"special-characters-group-latin": "Латин",
 	"special-characters-group-latinextended": "Кумдаҥдыме латин",
 	"special-characters-group-ipa": "ТФА (IPA)",
@@ -4065,48 +3916,5 @@
 	"newpages-showhide-bots": "$1 бот-влакым",
 	"newpages-showhide-patrolled": "$1 тергыме тӧрлатымаш",
 	"newpages-showhide-redirect": "$1 вес вере колтымаш",
-<<<<<<< HEAD
-	"newpages-showhide-registered": "$1 регистрацийым эртыше",
-	"blockedtext-made-by": "$1 администратор петырен.",
-	"blockedtext-reason-comment": "Петырыме амал: <em>$1</em>",
-	"blockedtext-start-time": "Петырыме тӱҥалтыш: $1",
-	"blockedtext-expiration-time": "Петырыме мучаш: $1",
-	"blockedtext-expiration-longest-block": "Эн кужу петырымашын ыштыме жапше: $1",
-	"blockedtext-intended-blockee": "Петырыме шумлык: $1",
-	"blockedtext-contact-blocker-admin": "Петырыме шотышто каҥашашлан тый $1 але вес [[{{MediaWiki:Grouppage-sysop}}|администратор]] дене кылдалтын кертат.",
-	"blockedtext-block-id": "Петырымаш ID #$1.",
-	"blockedtext-include-details-queries": "Порылий, кеч-могай шке йодмашыштет чыла тиде рашлыкым ончыкто.",
-	"renameuser": "Ушнышым вес семын лӱмдымаш",
-	"renameuser-linkoncontribs": "{{GENDER:$1|ушнышым}} вес семын лӱмдаш",
-	"renameuser-linkoncontribs-text": "Тиде {{GENDER:$1|ушнышым}} вес семын лӱмдаш",
-	"renameuserold": "Кызытсе татлан лӱм:",
-	"renameusernew": "У лӱм:",
-	"renameuserreason": "Амал:",
-	"renameusermove": "Тыгак ушнышын велыжшым, каҥашымаш велыжшым да нунын укш-влакшым вес семын лӱмдаш",
-	"renameusersuppress": "У лӱмыш колтымашым ышташ огыл",
-	"renameuserreserve": "Ушнышын тошто лӱмжым ончыкыжым кучылташлан шапашлен кодаш",
-	"renameuserwarnings": "Шижтарымаш:",
-	"renameuserconfirm": "Туге, ушнышым вес семын лӱмдаш",
-	"renameusersubmit": "Шукташ",
-	"renameusererrordoesnotexist": "«<nowiki>$1</nowiki>» лӱм дене ушнышо регистрацийым эртен огыл.",
-	"renameusererrorexists": "«<nowiki>$1</nowiki>» лӱман {{GENDER:$1|ушнышо}} ынде регистрацийым эртен.",
-	"renameusererrorinvalid": "«<nowiki>$1</nowiki>» ушнышын лийын кертдыме лӱмжӧ.",
-	"renameuser-error-request": "Йодмашым налме дене нелылык лектын.\nПорылий, шеҥгек пӧртыл да эше ик гана уэштаре.",
-	"renameuser-error-same-user": "Тый ушнышылан ондакысе лийше лӱмжым пуэн от керт.",
-	"renameusersuccess": "«<nowiki>$1</nowiki>» {{GENDER:$2|ушнышым}} «<nowiki>$2</nowiki>» семын лӱмдымӧ.",
-	"renameuser-page-exists": "$1 велыж ынде уло да тудым вигак угыч возаш огеш лий.",
-	"renameuser-page-moved": "$1 велыжым $2 семын лӱмдымӧ.",
-	"renameuser-page-unmoved": "$1 велыжым $2 семын лӱмдаш огеш лий.",
-	"renameuser-warning-currentblock": "Тиде ушнышо [$1 петыралтын].",
-	"log-name-renameuser": "Ушнышым вес семын лӱмдымӧ шотышто журнал",
-	"log-description-renameuser": "Тиде регистрацийым эртыше ушнышо-влакым вес семын лӱмдымӧ нерген журнал.",
-	"logentry-renameuser-renameuser": "$1 $4 ({{PLURAL:$6|$6 тӧрлымаш}}) ушнышым {{GENDER:$7|$5}} семын {{GENDER:$2|лӱмден}}",
-	"logentry-renameuser-renameuser-legacier": "$1 $4 ушнышым {{GENDER:$7|$5}} семын {{GENDER:$2|лӱмден}}",
-	"renameuser-move-log": "«[[User:$1|$1]]» {{GENDER:$2|ушнышым}} «[[User:$2|$2]]» семын лӱмдымылан кӧра, вигак вес семын лӱмдымӧ велыж",
-	"action-renameuser": "ушнышо-влакым вес семын лӱмдымаш",
-	"right-renameuser": "Ушнышо-влакым вес семын лӱмдымаш",
-	"renameuser-renamed-notice": "Тиде ушнышым вес семын лӱмдымӧ.\nӰлнӧ вес семын лӱмдымӧ нерген журналым ончыктымо."
-=======
 	"newpages-showhide-registered": "$1 регистрацийым эртыше"
->>>>>>> origin/1.39.7-test
 }

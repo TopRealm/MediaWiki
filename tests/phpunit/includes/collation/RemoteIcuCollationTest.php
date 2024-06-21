@@ -79,6 +79,9 @@ class RemoteIcuCollationTest extends MediaWikiLangTestCase {
 
 	/** @dataProvider provideGetSortKeys */
 	public function testGetSortKeys( $inputs ) {
+		if ( !extension_loaded( 'intl' ) ) {
+			$this->markTestSkipped( 'Need PHP intl' );
+		}
 		$coll = new RemoteIcuCollation(
 			$this->getServiceContainer()->getShellboxClientFactory(),
 			'uca-default-u-kn'
@@ -104,6 +107,9 @@ class RemoteIcuCollationTest extends MediaWikiLangTestCase {
 		if ( !count( $inputs ) ) {
 			// Not risky, it's just handy to reuse the provider
 			$this->assertTrue( true );
+		}
+		if ( !extension_loaded( 'intl' ) ) {
+			$this->markTestSkipped( 'Need PHP intl' );
 		}
 		$coll = new RemoteIcuCollation(
 			$this->getServiceContainer()->getShellboxClientFactory(),

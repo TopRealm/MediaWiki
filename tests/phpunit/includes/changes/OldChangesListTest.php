@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\MainConfigNames;
-use MediaWiki\Title\Title;
 
 /**
  * @covers OldChangesList
@@ -38,7 +37,7 @@ class OldChangesListTest extends MediaWikiLangTestCase {
 
 		$line = $oldChangesList->recentChangesLine( $recentChange, false, $linenumber );
 
-		$this->assertMatchesRegularExpression( $expected, $line, $message );
+		$this->assertRegExp( $expected, $line, $message );
 	}
 
 	public function recentChangesLine_CssForLineNumberProvider() {
@@ -54,7 +53,7 @@ class OldChangesListTest extends MediaWikiLangTestCase {
 
 		$line = $oldChangesList->recentChangesLine( $recentChange, false, 1 );
 
-		$this->assertMatchesRegularExpression( '/mw-changeslist-line-not-watched/', $line );
+		$this->assertRegExp( '/mw-changeslist-line-not-watched/', $line );
 	}
 
 	public function testRecentChangesLine_WatchedCssClass() {
@@ -63,7 +62,7 @@ class OldChangesListTest extends MediaWikiLangTestCase {
 
 		$line = $oldChangesList->recentChangesLine( $recentChange, true, 1 );
 
-		$this->assertMatchesRegularExpression( '/mw-changeslist-line-watched/', $line );
+		$this->assertRegExp( '/mw-changeslist-line-watched/', $line );
 	}
 
 	public function testRecentChangesLine_LogTitle() {
@@ -72,9 +71,9 @@ class OldChangesListTest extends MediaWikiLangTestCase {
 
 		$line = $oldChangesList->recentChangesLine( $recentChange, false, 1 );
 
-		$this->assertMatchesRegularExpression( '/href="\/wiki\/Special:Log\/delete/', $line, 'link has href attribute' );
-		$this->assertMatchesRegularExpression( '/title="Special:Log\/delete/', $line, 'link has title attribute' );
-		$this->assertMatchesRegularExpression( "/dellogpage/", $line, 'link text' );
+		$this->assertRegExp( '/href="\/wiki\/Special:Log\/delete/', $line, 'link has href attribute' );
+		$this->assertRegExp( '/title="Special:Log\/delete/', $line, 'link has title attribute' );
+		$this->assertRegExp( "/dellogpage/", $line, 'link text' );
 	}
 
 	public function testRecentChangesLine_DiffHistLinks() {
@@ -83,13 +82,13 @@ class OldChangesListTest extends MediaWikiLangTestCase {
 
 		$line = $oldChangesList->recentChangesLine( $recentChange, false, 1 );
 
-		$this->assertMatchesRegularExpression(
+		$this->assertRegExp(
 			'/title=Cat&amp;curid=20131103212153&amp;diff=5&amp;oldid=191/',
 			$line,
 			'assert diff link'
 		);
 
-		$this->assertMatchesRegularExpression(
+		$this->assertRegExp(
 			'/title=Cat&amp;curid=20131103212153&amp;action=history"/',
 			$line,
 			'assert history link'
@@ -132,11 +131,11 @@ class OldChangesListTest extends MediaWikiLangTestCase {
 			'/<div>Additional change line </div>/',
 			$line
 		);
-		$this->assertMatchesRegularExpression(
+		$this->assertRegExp(
 			'/<li data-mw-revid="\d+" data-mw-ts="\d+" class="[\w\s-]*mw-tag-vandalism[\w\s-]*">/',
 			$line
 		);
-		$this->assertMatchesRegularExpression(
+		$this->assertRegExp(
 			'/<li data-mw-revid="\d+" data-mw-ts="\d+" class="[\w\s-]*mw-tag-newbie[\w\s-]*">/',
 			$line
 		);
@@ -149,7 +148,7 @@ class OldChangesListTest extends MediaWikiLangTestCase {
 		$recentChange->numberofWatchingusers = 100;
 
 		$line = $oldChangesList->recentChangesLine( $recentChange, false, 1 );
-		$this->assertMatchesRegularExpression( "/(number-of-watching-users-for-recent-changes: 100)/", $line );
+		$this->assertRegExp( "/(number-of-watching-users-for-recent-changes: 100)/", $line );
 	}
 
 	public function testRecentChangesLine_watchlistCssClass() {
@@ -158,7 +157,7 @@ class OldChangesListTest extends MediaWikiLangTestCase {
 
 		$recentChange = $this->getEditChange();
 		$line = $oldChangesList->recentChangesLine( $recentChange, false, 1 );
-		$this->assertMatchesRegularExpression( "/watchlist-0-Cat/", $line );
+		$this->assertRegExp( "/watchlist-0-Cat/", $line );
 	}
 
 	public function testRecentChangesLine_dataAttribute() {
@@ -167,11 +166,11 @@ class OldChangesListTest extends MediaWikiLangTestCase {
 
 		$recentChange = $this->getEditChange();
 		$line = $oldChangesList->recentChangesLine( $recentChange, false, 1 );
-		$this->assertMatchesRegularExpression( '/data-target-page=\"Cat\"/', $line );
+		$this->assertRegExp( '/data-target-page=\"Cat\"/', $line );
 
 		$recentChange = $this->getLogChange( 'delete', 'delete' );
 		$line = $oldChangesList->recentChangesLine( $recentChange, false, 1 );
-		$this->assertMatchesRegularExpression( '/data-target-page="Abc"/', $line );
+		$this->assertRegExp( '/data-target-page="Abc"/', $line );
 	}
 
 	public function testRecentChangesLine_prefix() {
@@ -192,7 +191,7 @@ class OldChangesListTest extends MediaWikiLangTestCase {
 			return 'I am a prefix';
 		} );
 		$line = $oldChangesList->recentChangesLine( $recentChange );
-		$this->assertMatchesRegularExpression( "/I am a prefix/", $line );
+		$this->assertRegExp( "/I am a prefix/", $line );
 	}
 
 	private function getNewBotEditChange() {

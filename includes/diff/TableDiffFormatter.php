@@ -24,8 +24,6 @@
  * @ingroup DifferenceEngine
  */
 
-use MediaWiki\Html\Html;
-
 /**
  * MediaWiki default table style diff formatter
  * @todo document
@@ -78,13 +76,13 @@ class TableDiffFormatter extends DiffFormatter {
 			[],
 			Html::rawElement(
 				'td',
-				[ 'colspan' => '2', 'class' => 'diff-lineno', 'id' => 'mw-diff-left-l' . $xbeg ],
+				[ 'colspan' => '2',  'class' => 'diff-lineno', 'id' => 'mw-diff-left-l' . $xbeg ],
 				'<!--LINE ' . $xbeg . '-->'
 			) .
 			"\n" .
 			Html::rawElement(
 				'td',
-				[ 'colspan' => '2', 'class' => 'diff-lineno' ],
+				[ 'colspan' => '2',  'class' => 'diff-lineno' ],
 				'<!--LINE ' . $ybeg . '-->'
 			)
 		) . "\n";

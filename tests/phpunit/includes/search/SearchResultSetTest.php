@@ -1,7 +1,5 @@
 <?php
 
-use MediaWiki\Title\Title;
-
 class SearchResultSetTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * @covers SearchResultSet::getIterator

@@ -22,9 +22,7 @@
  * @since 1.25
  */
 
-use MediaWiki\Linker\Linker;
 use MediaWiki\MainConfigNames;
-use MediaWiki\Title\Title;
 
 /**
  * This class formats block log entries.
@@ -68,7 +66,6 @@ class BlockLogFormatter extends LogFormatter {
 				(int)wfTimestamp( TS_UNIX, $this->entry->getTimestamp() )
 			);
 			if ( $this->plaintext ) {
-				// @phan-suppress-next-line SecurityCheck-XSS Unlikely positive, only if language format is bad
 				$params[4] = Message::rawParam( $blockExpiry );
 			} else {
 				$params[4] = Message::rawParam(

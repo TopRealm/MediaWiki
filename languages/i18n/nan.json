@@ -14,18 +14,13 @@
 			"Matěj Suchánek",
 			"Reke",
 			"Ripunn",
-			"SupaplexTW",
 			"TongcyDai",
 			"Yoxem",
 			"唐吉訶德的侍從",
-			"沈澄心",
 			"進也",
 			"아라",
-<<<<<<< HEAD
-=======
 			"沈澄心",
 			"SupaplexTW",
->>>>>>> origin/1.39.7-test
 			"Winston Sung",
 			"Amire80"
 		]
@@ -1259,10 +1254,5 @@
 	"skin-action-protect": "Pó-hō͘",
 	"skin-action-undelete": "chhú-siau thâi tiàu",
 	"skin-action-delete": "Thâi",
-	"skin-action-move": "Sóa khì",
-	"renameuser": "Kái iōng-chiá ê miâ",
-	"renameuser-page-moved": "$1 í-keng sóa khì tī $2.",
-	"log-name-renameuser": "Iōng-chiá têng-hō-miâ kì-lio̍k",
-	"logentry-renameuser-renameuser": "$1 kā iōng-chiá $4 ({{PLURAL:$6|$6 pái pian-chi̍p|$6 pái pian-chi̍p}}) {{GENDER:$2|kái-miâ}} pìⁿ {{GENDER:$7|$5}}",
-	"logentry-renameuser-renameuser-legacier": "$1 kā iōng-chiá $4 ê hō-miâ kái chò {{GENDER:$7|$5}}"
+	"skin-action-move": "Sóa khì"
 }

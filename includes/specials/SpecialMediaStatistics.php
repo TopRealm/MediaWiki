@@ -23,7 +23,6 @@
  */
 
 use MediaWiki\Cache\LinkBatchFactory;
-use MediaWiki\Html\Html;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\ILoadBalancer;
 use Wikimedia\Rdbms\IResultWrapper;
@@ -151,7 +150,7 @@ class SpecialMediaStatistics extends QueryPage {
 			if ( count( $mediaStats ) < 4 ) {
 				continue;
 			}
-			[ $mediaType, $mime, $totalCount, $totalBytes ] = $mediaStats;
+			list( $mediaType, $mime, $totalCount, $totalBytes ) = $mediaStats;
 			if ( $prevMediaType !== $mediaType ) {
 				if ( $prevMediaType !== null ) {
 					// We're not at beginning, so we have to
@@ -381,10 +380,11 @@ class SpecialMediaStatistics extends QueryPage {
 	 * @param Skin $skin
 	 * @param stdClass $result Result row
 	 * @return bool|string|void
+	 * @throws MWException
 	 * @suppress PhanPluginNeverReturnMethod
 	 */
 	public function formatResult( $skin, $result ) {
-		throw new LogicException( "unimplemented" );
+		throw new MWException( "unimplemented" );
 	}
 
 	/**

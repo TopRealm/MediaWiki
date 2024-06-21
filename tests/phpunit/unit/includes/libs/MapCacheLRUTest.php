@@ -49,8 +49,8 @@ class MapCacheLRUTest extends PHPUnit\Framework\TestCase {
 	}
 
 	/**
-	 * @covers MapCacheLRU::__serialize()
-	 * @covers MapCacheLRU::__unserialize()
+	 * @covers MapCacheLRU::serialize()
+	 * @covers MapCacheLRU::unserialize()
 	 */
 	public function testSerialize() {
 		$cache = new MapCacheLRU( 3 );

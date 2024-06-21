@@ -72,6 +72,23 @@ class BenchmarkSettings extends Benchmarker {
 			}
 		];
 
+		$benches['DefaultSettings.php + config-merge-strategies.php'] = [
+			'setup' => static function () {
+				// do this once beforehand
+				include MW_INSTALL_PATH . '/includes/DefaultSettings.php';
+			},
+			'function' => function () {
+				include MW_INSTALL_PATH . '/includes/DefaultSettings.php';
+				$settingsBuilder = $this->newSettingsBuilder();
+				$settingsBuilder->load(
+					new PhpSettingsSource(
+						MW_INSTALL_PATH . '/includes/config-merge-strategies.php'
+					)
+				);
+				$settingsBuilder->apply();
+			}
+		];
+
 		$benches['config-schema.php'] = [
 			'function' => function () {
 				$settingsBuilder = $this->newSettingsBuilder();
@@ -120,7 +137,7 @@ class BenchmarkSettings extends Benchmarker {
 				$settingsBuilder->load(
 					new PhpSettingsSource( MW_INSTALL_PATH . '/includes/config-schema.php' )
 				);
-				$settingsBuilder->enterRegistrationStage(); // applies some dynamic defaults
+				$settingsBuilder->finalize(); // applies some dynamic defaults
 
 				// phpcs:ignore MediaWiki.Usage.ForbiddenFunctions.extract
 				extract( $GLOBALS );

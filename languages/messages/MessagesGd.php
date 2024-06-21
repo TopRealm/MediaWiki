@@ -1,6 +1,8 @@
 <?php
 /** Scottish Gaelic (Gàidhlig)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  */

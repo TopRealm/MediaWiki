@@ -34,16 +34,23 @@ class BlockUtilsTest extends MediaWikiUnitTestCase {
 				'IPv6' => 19
 			]
 		];
+		$config = $options + $baseOptions;
 		$serviceOptions = new ServiceOptions(
 			BlockUtils::CONSTRUCTOR_OPTIONS,
-			$options + $baseOptions
+			$config
 		);
 
-		return TestingAccessWrapper::newFromObject( new BlockUtils(
+		if ( $userIdentityLookup === null ) {
+			$userIdentityLookup = $this->createMock( UserIdentityLookup::class );
+		}
+
+		$utils = new BlockUtils(
 			$serviceOptions,
-			$userIdentityLookup ?? $this->createMock( UserIdentityLookup::class ),
+			$userIdentityLookup,
 			$this->getDummyUserNameUtils()
-		) );
+		);
+		$wrapper = TestingAccessWrapper::newFromObject( $utils );
+		return $wrapper;
 	}
 
 	/**
@@ -86,9 +93,9 @@ class BlockUtilsTest extends MediaWikiUnitTestCase {
 		$userIdentity = UserIdentityValue::newAnonymous( $ip );
 
 		$blockUtils = $this->getUtils();
-		[ $target, $type ] = $blockUtils->parseBlockTarget( $ip );
+		list( $target, $type ) = $blockUtils->parseBlockTarget( $ip );
 		$this->assertTrue( $userIdentity->equals( $target ) );
-		$this->assertSame( AbstractBlock::TYPE_IP, $type );
+		$this->assertSame( $type, AbstractBlock::TYPE_IP );
 
 		// - valid IP range
 		$ipRange = '127.111.113.151/24';

@@ -4,8 +4,6 @@
  * @author Legoktm
  */
 
-use MediaWiki\Request\FauxRequest;
-
 /**
  * @covers SpecialLog
  */
@@ -31,7 +29,7 @@ class SpecialLogTest extends SpecialPageTestBase {
 	 * @see T201411
 	 */
 	public function testInvalidDate() {
-		[ $html, ] = $this->executeSpecialPage(
+		list( $html, ) = $this->executeSpecialPage(
 			'',
 			// There is no 13th month
 			new FauxRequest( [ 'wpdate' => '2018-13-01' ] ),

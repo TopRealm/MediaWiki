@@ -21,8 +21,6 @@
  * @ingroup DifferenceEngine
  */
 
-use MediaWiki\Html\Html;
-
 /**
  * Produces a warning message about not being able to render a slot diff.
  *

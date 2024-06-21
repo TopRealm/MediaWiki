@@ -16,6 +16,9 @@
  * http://www.gnu.org/copyleft/gpl.html
  *
  * @file
+ * @ingroup JobQueue
+ *
+ * @author Ostrzyciel
  */
 
 use MediaWiki\Config\ServiceOptions;
@@ -27,10 +30,10 @@ use MediaWiki\Storage\RevertedTagUpdate;
 /**
  * Job for deferring the execution of RevertedTagUpdate.
  *
- * @internal For use by \MediaWiki\Storage\RevertedTagUpdate
+ * @see \MediaWiki\Storage\RevertedTagUpdate
  * @since 1.36
+ *
  * @ingroup JobQueue
- * @author Ostrzyciel
  */
 class RevertedTagUpdateJob extends Job implements GenericParameterJob {
 

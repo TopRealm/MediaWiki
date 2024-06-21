@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Request\FauxRequest;
 use MediaWiki\ResourceLoader as RL;
 use Wikimedia\Minify\CSSMin;
 use Wikimedia\TestingAccessWrapper;
@@ -15,18 +14,15 @@ use Wikimedia\TestingAccessWrapper;
  * @copyright © 2012, Antoine Musso
  * @copyright © 2012, Niklas Laxström
  * @copyright © 2012, Santhosh Thottingal
- *
- * @coversNothing
  */
 class ResourcesTest extends MediaWikiIntegrationTestCase {
 
 	public function testStyleMedia() {
-		foreach ( self::provideMediaStylesheets() as [ $moduleName, $media, $filename, $css ] ) {
+		foreach ( self::provideMediaStylesheets() as list( $moduleName, $media, $filename, $css ) ) {
 			$cssText = CSSMin::minify( $css->cssText );
 
-			$this->assertStringNotContainsString(
-				'@media',
-				$cssText,
+			$this->assertTrue(
+				strpos( $cssText, '@media' ) === false,
 				'Stylesheets should not both specify "media" and contain @media'
 			);
 		}
@@ -51,6 +47,8 @@ class ResourcesTest extends MediaWikiIntegrationTestCase {
 			}
 		}
 
+		$knownDeps = array_keys( $data['modules'] );
+
 		// Avoid an assert for each module to keep the test fast.
 		// Instead, perform a single assertion against everything at once.
 		// When all is good, actual/expected are both empty arrays.
@@ -65,7 +63,7 @@ class ResourcesTest extends MediaWikiIntegrationTestCase {
 		/** @var RL\Module $module */
 		foreach ( $data['modules'] as $moduleName => $module ) {
 			foreach ( $module->getDependencies( $data['context'] ) as $dep ) {
-				if ( !isset( $data['modules'][$dep] ) ) {
+				if ( !in_array( $dep, $knownDeps, true ) ) {
 					$actualUnknown[$moduleName][] = $dep;
 					$expectedUnknown[$moduleName] = [];
 				}
@@ -110,8 +108,6 @@ class ResourcesTest extends MediaWikiIntegrationTestCase {
 		$data = self::getAllModules();
 
 		/** @var RL\Module $module */
-		$incompatibleTargetNames = [];
-		$targetsErrMsg = '';
 		foreach ( $data['modules'] as $moduleName => $module ) {
 			$depNames = $module->getDependencies( $data['context'] );
 			$moduleTargets = $module->getTargets();
@@ -126,18 +122,14 @@ class ResourcesTest extends MediaWikiIntegrationTestCase {
 					// Missing dependencies reported by testMissingDependencies
 					continue;
 				}
-				if ( $moduleTargets === [ 'test' ] ) {
-					// Target filter does not apply under tests, which may include
-					// both module-only and desktop-only dependencies.
-					continue;
-				}
 				$targets = $dep->getTargets();
 				foreach ( $moduleTargets as $moduleTarget ) {
-					if ( !in_array( $moduleTarget, $targets ) ) {
-						$incompatibleTargetNames[] = $moduleName;
-						$targetsErrMsg .= "* The module '$moduleName' must not have target '$moduleTarget' "
-								. "because its dependency '$depName' does not have it\n";
-					}
+					$this->assertContains(
+						$moduleTarget,
+						$targets,
+						"The module '$moduleName' must not have target '$moduleTarget' "
+							. "because its dependency '$depName' does not have it"
+					);
 				}
 				if ( !$requiresES6 && $dep->requiresES6() ) {
 					$incompatibleDepNames[] = $depName;
@@ -147,7 +139,6 @@ class ResourcesTest extends MediaWikiIntegrationTestCase {
 				"The module '$moduleName' must not depend on modules with requiresES6=true"
 			);
 		}
-		$this->assertEquals( [], $incompatibleTargetNames, $targetsErrMsg );
 	}
 
 	/**

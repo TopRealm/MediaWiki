@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\Page\PageReferenceValue;
-use MediaWiki\Title\Title;
 
 /**
  * @group Database
@@ -22,7 +21,7 @@ class BacklinkCacheTest extends MediaWikiIntegrationTestCase {
 		$this->insertPage( 'BacklinkCacheTest_5', '[[BacklinkCacheTest_1]]' );
 
 		$cascade = 1;
-		$this->getServiceContainer()->getWikiPageFactory()->newFromTitle( self::$backlinkCacheTest['title'] )->doUpdateRestrictions(
+		WikiPage::factory( self::$backlinkCacheTest['title'] )->doUpdateRestrictions(
 			[ 'edit' => 'sysop' ],
 			[],
 			$cascade,
@@ -108,7 +107,6 @@ class BacklinkCacheTest extends MediaWikiIntegrationTestCase {
 	public function testGetLinks(
 		array $expectedTitles, string $title, string $table, $startId = false, $endId = false, $max = INF
 	) {
-		$this->hideDeprecated( 'BacklinkCache::getLinks' );
 		$startId = $startId ? Title::newFromText( $startId )->getId() : false;
 		$endId = $endId ? Title::newFromText( $endId )->getId() : false;
 		$blcFactory = $this->getServiceContainer()->getBacklinkCacheFactory();
@@ -143,7 +141,7 @@ class BacklinkCacheTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testPartition() {
 		$targetId = $this->getServiceContainer()->getLinkTargetLookup()->acquireLinkTargetId(
-			Title::makeTitle( NS_MAIN, 'BLCTest1234' ),
+			Title::newFromText( 'BLCTest1234' ),
 			$this->db
 		);
 		$targetRow = [
@@ -170,7 +168,6 @@ class BacklinkCacheTest extends MediaWikiIntegrationTestCase {
 	 * @covers BacklinkCache::getCascadeProtectedLinks
 	 */
 	public function testGetCascadeProtectedLinks() {
-		$this->hideDeprecated( 'BacklinkCache::getCascadeProtectedLinks' );
 		$blcFactory = $this->getServiceContainer()->getBacklinkCacheFactory();
 		$backlinkCache = $blcFactory->getBacklinkCache( Title::makeTitle( NS_TEMPLATE, 'BacklinkCacheTestA' ) );
 		$iterator = $backlinkCache->getCascadeProtectedLinks();
@@ -195,7 +192,6 @@ class BacklinkCacheTest extends MediaWikiIntegrationTestCase {
 	 * @covers BacklinkCache::get
 	 */
 	public function testGet() {
-		$this->hideDeprecated( 'BacklinkCache::get' );
 		$page = PageReferenceValue::localReference( NS_CATEGORY, "kittens" );
 		$cache = BacklinkCache::get( $page );
 		$this->assertTrue( $cache->getPage()->isSamePageAs( $page ) );

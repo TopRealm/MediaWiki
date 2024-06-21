@@ -257,8 +257,7 @@ class ConverterRule {
 	}
 
 	/**
-	 * Similar to getRuleConvertedStr(), but this prefers to use MediaWiki\Title\Title;
-	 * use original
+	 * Similar to getRuleConvertedStr(), but this prefers to use original
 	 * page title if $variant === $this->mConverter->getMainCode()
 	 * and may return false in this case (so this title conversion rule
 	 * will be ignored and the original title is shown).
