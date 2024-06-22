@@ -4,7 +4,6 @@ use MediaWiki\MainConfigNames;
 
 /**
  * @group Media
- * @requires extension exif
  */
 class TiffTest extends MediaWikiIntegrationTestCase {
 
@@ -15,6 +14,7 @@ class TiffTest extends MediaWikiIntegrationTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();
+		$this->checkPHPExtension( 'exif' );
 
 		$this->overrideConfigValue( MainConfigNames::ShowEXIF, true );
 

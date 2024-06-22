@@ -105,7 +105,7 @@ class UnblockUser {
 		$this->hookRunner = new HookRunner( $hookContainer );
 
 		// Process params
-		[ $this->target, $this->targetType ] = $this->blockUtils->parseBlockTarget( $target );
+		list( $this->target, $this->targetType ) = $this->blockUtils->parseBlockTarget( $target );
 		if (
 			$this->targetType === AbstractBlock::TYPE_AUTO &&
 			is_numeric( $this->target )

@@ -15,12 +15,14 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  * http://www.gnu.org/copyleft/gpl.html
  *
+ * @since 1.18
+ *
+ * @author Happy-melon
  * @file
  */
 
 use MediaWiki\Permissions\Authority;
 use MediaWiki\Session\CsrfTokenSetProvider;
-use MediaWiki\Title\Title;
 
 /**
  * Interface for objects which can provide a MediaWiki context on request
@@ -51,11 +53,7 @@ use MediaWiki\Title\Title;
  * belong here either. Session state changes should only be propagated on
  * shutdown by separate persistence handler objects, for example.
  *
- * Must not be implemented directly by extensions, extend ContextSource instead.
- *
- * @since 1.18
- * @stable to type
- * @author Happy-melon
+ * @unstable for implementation, extensions should subclass ContextSource instead.
  */
 interface IContextSource extends MessageLocalizer, CsrfTokenSetProvider {
 
@@ -132,6 +130,14 @@ interface IContextSource extends MessageLocalizer, CsrfTokenSetProvider {
 	 * @return Config
 	 */
 	public function getConfig();
+
+	/**
+	 * @deprecated since 1.27 use a StatsdDataFactory from MediaWikiServices (preferably injected)
+	 *
+	 * @since 1.25
+	 * @return IBufferingStatsdDataFactory
+	 */
+	public function getStats();
 
 	/**
 	 * @since 1.27

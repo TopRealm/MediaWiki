@@ -1,6 +1,8 @@
 <?php
 /** Galician (galego)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  */
@@ -121,7 +123,6 @@ $specialPageAliases = [
 	'Recentchanges'             => [ 'Cambios_recentes' ],
 	'Recentchangeslinked'       => [ 'Cambios_relacionados' ],
 	'Redirect'                  => [ 'Redirección' ],
-	'Renameuser'                => [ 'Renomear_o_usuario', 'Renomear_usuario', 'Renomear_a_usuaria', 'Renomear_usuaria' ],
 	'ResetTokens'               => [ 'Restablecer_os_pases' ],
 	'Revisiondelete'            => [ 'Revisións_borradas' ],
 	'Search'                    => [ 'Procurar', 'Buscar' ],

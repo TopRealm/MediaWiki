@@ -38,10 +38,7 @@ class LinksTableGroup {
 			'needCollation' => true,
 		],
 		'externallinks' => [
-			'class' => ExternalLinksTable::class,
-			'services' => [
-				'MainConfig'
-			],
+			'class' => ExternalLinksTable::class
 		],
 		'imagelinks' => [
 			'class' => ImageLinksTable::class
@@ -94,6 +91,9 @@ class LinksTableGroup {
 	/** @var int */
 	private $batchSize;
 
+	/** @var callable|null */
+	private $afterUpdateHook;
+
 	/** @var mixed */
 	private $ticket;
 
@@ -113,6 +113,7 @@ class LinksTableGroup {
 	 * @param PageIdentity $page
 	 * @param LinkTargetLookup $linkTargetLookup
 	 * @param int $batchSize
+	 * @param callable|null $afterUpdateHook
 	 * @param array $tempCollations
 	 */
 	public function __construct(
@@ -122,6 +123,7 @@ class LinksTableGroup {
 		PageIdentity $page,
 		LinkTargetLookup $linkTargetLookup,
 		$batchSize,
+		$afterUpdateHook,
 		array $tempCollations
 	) {
 		$this->objectFactory = $objectFactory;
@@ -129,6 +131,7 @@ class LinksTableGroup {
 		$this->collationFactory = $collationFactory;
 		$this->page = $page;
 		$this->batchSize = $batchSize;
+		$this->afterUpdateHook = $afterUpdateHook;
 		$this->linkTargetLookup = $linkTargetLookup;
 		$this->tempCollations = [];
 		foreach ( $tempCollations as $info ) {
@@ -266,7 +269,8 @@ class LinksTableGroup {
 				$this->lbFactory,
 				$this->linkTargetLookup,
 				$this->page,
-				$this->batchSize
+				$this->batchSize,
+				$this->afterUpdateHook
 			);
 			if ( $this->parserOutput ) {
 				$table->setParserOutput( $this->parserOutput );

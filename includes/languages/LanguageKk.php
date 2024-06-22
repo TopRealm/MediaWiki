@@ -37,7 +37,7 @@ class LanguageKk extends LanguageKk_cyrl {
 	 */
 	public function ucfirst( $string ) {
 		if ( substr( $string, 0, 1 ) === 'i' ) {
-			$variant = $this->getConverterInternal()->getPreferredVariant();
+			$variant = $this->getPreferredVariant();
 			if ( $variant == 'kk-latn' || $variant == 'kk-tr' ) {
 				return 'İ' . substr( $string, 1 );
 			}
@@ -54,7 +54,7 @@ class LanguageKk extends LanguageKk_cyrl {
 	 */
 	public function lcfirst( $string ) {
 		if ( substr( $string, 0, 1 ) === 'I' ) {
-			$variant = $this->getConverterInternal()->getPreferredVariant();
+			$variant = $this->getPreferredVariant();
 			if ( $variant == 'kk-latn' || $variant == 'kk-tr' ) {
 				return 'ı' . substr( $string, 1 );
 			}
@@ -73,7 +73,7 @@ class LanguageKk extends LanguageKk_cyrl {
 			return '';
 		}
 
-		$variant = $this->getConverterInternal()->getPreferredVariant();
+		$variant = $this->getPreferredVariant();
 		switch ( $variant ) {
 			case 'kk-arab':
 			case 'kk-cn':

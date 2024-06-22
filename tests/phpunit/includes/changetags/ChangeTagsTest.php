@@ -1,6 +1,5 @@
 <?php
 
-use MediaWiki\Language\RawMessage;
 use MediaWiki\MainConfigNames;
 
 /**
@@ -184,10 +183,10 @@ class ChangeTagsTest extends MediaWikiIntegrationTestCase {
 				true, // tag filtering enabled
 				false, // not avoiding reopening tables
 				[
-					'tables' => [ 'recentchanges', 'changetagdisplay' => 'change_tag' ],
+					'tables' => [ 'recentchanges', 'change_tag' ],
 					'fields' => [ 'rc_id', 'rc_timestamp', 'ts_tags' => $groupConcats['recentchanges'] ],
-					'conds' => [ "rc_timestamp > '20170714183203'", 'changetagdisplay.ct_tag_id' => [ 1 ] ],
-					'join_conds' => [ 'changetagdisplay' => [ 'JOIN', 'changetagdisplay.ct_rc_id=rc_id' ] ],
+					'conds' => [ "rc_timestamp > '20170714183203'", 'ct_tag_id' => [ 1 ] ],
+					'join_conds' => [ 'change_tag' => [ 'JOIN', 'ct_rc_id=rc_id' ] ],
 					'options' => [ 'ORDER BY' => 'rc_timestamp DESC' ],
 				]
 			],
@@ -203,10 +202,10 @@ class ChangeTagsTest extends MediaWikiIntegrationTestCase {
 				true, // tag filtering enabled
 				false, // not avoiding reopening tables
 				[
-					'tables' => [ 'recentchanges', 'changetagdisplay' => 'change_tag' ],
+					'tables' => [ 'recentchanges', 'change_tag' ],
 					'fields' => [ 'rc_id', 'rc_timestamp', 'ts_tags' => $groupConcats['recentchanges'] ],
-					'conds' => [ "rc_timestamp > '20170714183203'", 'changetagdisplay.ct_tag_id' => [ 3 ] ],
-					'join_conds' => [ 'changetagdisplay' => [ 'JOIN', 'changetagdisplay.ct_rc_id=rc_id' ] ],
+					'conds' => [ "rc_timestamp > '20170714183203'", 'ct_tag_id' => [ 3 ] ],
+					'join_conds' => [ 'change_tag' => [ 'JOIN', 'ct_rc_id=rc_id' ] ],
 					'options' => [ 'ORDER BY' => 'rc_timestamp DESC' ],
 				]
 			],
@@ -216,17 +215,17 @@ class ChangeTagsTest extends MediaWikiIntegrationTestCase {
 					'fields' => 'log_id',
 					'conds' => "log_timestamp > '20170714183203'",
 					'join_conds' => [],
-					'options' => [ 'ORDER BY' => [ 'log_timestamp DESC', 'log_id DESC' ] ],
+					'options' => 'ORDER BY log_timestamp DESC',
 				],
 				'foo',
 				true, // tag filtering enabled
 				false, // not avoiding reopening tables
 				[
-					'tables' => [ 'logging', 'changetagdisplay' => 'change_tag' ],
+					'tables' => [ 'logging', 'change_tag' ],
 					'fields' => [ 'log_id', 'ts_tags' => $groupConcats['logging'] ],
-					'conds' => [ "log_timestamp > '20170714183203'", 'changetagdisplay.ct_tag_id' => [ 1 ] ],
-					'join_conds' => [ 'changetagdisplay' => [ 'JOIN', 'changetagdisplay.ct_log_id=log_id' ] ],
-					'options' => [ 'ORDER BY' => [ 'log_timestamp DESC', 'log_id DESC' ] ],
+					'conds' => [ "log_timestamp > '20170714183203'", 'ct_tag_id' => [ 1 ] ],
+					'join_conds' => [ 'change_tag' => [ 'JOIN', 'ct_log_id=log_id' ] ],
+					'options' => [ 'ORDER BY log_timestamp DESC' ],
 				]
 			],
 			'revision query with single tag filter' => [
@@ -241,10 +240,10 @@ class ChangeTagsTest extends MediaWikiIntegrationTestCase {
 				true, // tag filtering enabled
 				false, // not avoiding reopening tables
 				[
-					'tables' => [ 'revision', 'changetagdisplay' => 'change_tag' ],
+					'tables' => [ 'revision', 'change_tag' ],
 					'fields' => [ 'rev_id', 'rev_timestamp', 'ts_tags' => $groupConcats['revision'] ],
-					'conds' => [ "rev_timestamp > '20170714183203'", 'changetagdisplay.ct_tag_id' => [ 1 ] ],
-					'join_conds' => [ 'changetagdisplay' => [ 'JOIN', 'changetagdisplay.ct_rev_id=rev_id' ] ],
+					'conds' => [ "rev_timestamp > '20170714183203'", 'ct_tag_id' => [ 1 ] ],
+					'join_conds' => [ 'change_tag' => [ 'JOIN', 'ct_rev_id=rev_id' ] ],
 					'options' => [ 'ORDER BY' => 'rev_timestamp DESC' ],
 				]
 			],
@@ -260,10 +259,10 @@ class ChangeTagsTest extends MediaWikiIntegrationTestCase {
 				true, // tag filtering enabled
 				false, // not avoiding reopening tables
 				[
-					'tables' => [ 'archive', 'changetagdisplay' => 'change_tag' ],
+					'tables' => [ 'archive', 'change_tag' ],
 					'fields' => [ 'ar_id', 'ar_timestamp', 'ts_tags' => $groupConcats['archive'] ],
-					'conds' => [ "ar_timestamp > '20170714183203'", 'changetagdisplay.ct_tag_id' => [ 1 ] ],
-					'join_conds' => [ 'changetagdisplay' => [ 'JOIN', 'changetagdisplay.ct_rev_id=ar_rev_id' ] ],
+					'conds' => [ "ar_timestamp > '20170714183203'", 'ct_tag_id' => [ 1 ] ],
+					'join_conds' => [ 'change_tag' => [ 'JOIN', 'ct_rev_id=ar_rev_id' ] ],
 					'options' => [ 'ORDER BY' => 'ar_timestamp DESC' ],
 				]
 			],
@@ -279,10 +278,10 @@ class ChangeTagsTest extends MediaWikiIntegrationTestCase {
 				true, // tag filtering enabled
 				true, // avoid reopening tables
 				[
-					'tables' => [ 'archive', 'changetagdisplay' => 'change_tag_for_display_query' ],
+					'tables' => [ 'archive', 'change_tag_for_display_query' ],
 					'fields' => [ 'ar_id', 'ar_timestamp', 'ts_tags' => $groupConcats['archive'] ],
-					'conds' => [ "ar_timestamp > '20170714183203'", 'changetagdisplay.ct_tag_id' => [ 1 ] ],
-					'join_conds' => [ 'changetagdisplay' => [ 'JOIN', 'changetagdisplay.ct_rev_id=ar_rev_id' ] ],
+					'conds' => [ "ar_timestamp > '20170714183203'", 'ct_tag_id' => [ 1 ] ],
+					'join_conds' => [ 'change_tag_for_display_query' => [ 'JOIN', 'ct_rev_id=ar_rev_id' ] ],
 					'options' => [ 'ORDER BY' => 'ar_timestamp DESC' ],
 				]
 			],
@@ -297,7 +296,7 @@ class ChangeTagsTest extends MediaWikiIntegrationTestCase {
 				'',
 				true, // tag filtering enabled
 				false, // not avoiding reopening tables
-				[ 'exception' => InvalidArgumentException::class ]
+				[ 'exception' => MWException::class ]
 			],
 			'tag filter ignored when tag filtering is disabled' => [
 				[
@@ -330,10 +329,10 @@ class ChangeTagsTest extends MediaWikiIntegrationTestCase {
 				true, // tag filtering enabled
 				false, // not avoiding reopening tables
 				[
-					'tables' => [ 'recentchanges', 'changetagdisplay' => 'change_tag' ],
+					'tables' => [ 'recentchanges', 'change_tag' ],
 					'fields' => [ 'rc_id', 'rc_timestamp', 'ts_tags' => $groupConcats['recentchanges'] ],
-					'conds' => [ "rc_timestamp > '20170714183203'", 'changetagdisplay.ct_tag_id' => [ 1, 2 ] ],
-					'join_conds' => [ 'changetagdisplay' => [ 'JOIN', 'changetagdisplay.ct_rc_id=rc_id' ] ],
+					'conds' => [ "rc_timestamp > '20170714183203'", 'ct_tag_id' => [ 1, 2 ] ],
+					'join_conds' => [ 'change_tag' => [ 'JOIN', 'ct_rc_id=rc_id' ] ],
 					'options' => [ 'ORDER BY' => 'rc_timestamp DESC', 'DISTINCT' ],
 				]
 			],
@@ -349,10 +348,10 @@ class ChangeTagsTest extends MediaWikiIntegrationTestCase {
 				true, // tag filtering enabled
 				false, // not avoiding reopening tables
 				[
-					'tables' => [ 'recentchanges', 'changetagdisplay' => 'change_tag' ],
+					'tables' => [ 'recentchanges', 'change_tag' ],
 					'fields' => [ 'rc_id', 'rc_timestamp', 'ts_tags' => $groupConcats['recentchanges'] ],
-					'conds' => [ "rc_timestamp > '20170714183203'", 'changetagdisplay.ct_tag_id IS NULL' ],
-					'join_conds' => [ 'changetagdisplay' => [ 'LEFT JOIN', [ 'changetagdisplay.ct_rc_id=rc_id', 'changetagdisplay.ct_tag_id' => [ 1, 2 ] ] ] ],
+					'conds' => [ "rc_timestamp > '20170714183203'", 'ct_tag_id IS NULL' ],
+					'join_conds' => [ 'change_tag' => [ 'LEFT JOIN', [ 'ct_rc_id=rc_id', 'ct_tag_id' => [ 1, 2 ] ] ] ],
 					'options' => [ 'ORDER BY' => 'rc_timestamp DESC' ],
 				],
 				true // exclude
@@ -369,10 +368,10 @@ class ChangeTagsTest extends MediaWikiIntegrationTestCase {
 				true, // tag filtering enabled
 				false, // not avoiding reopening tables
 				[
-					'tables' => [ 'recentchanges', 'changetagdisplay' => 'change_tag' ],
+					'tables' => [ 'recentchanges', 'change_tag' ],
 					'fields' => [ 'rc_id', 'rc_timestamp', 'ts_tags' => $groupConcats['recentchanges'] ],
-					'conds' => [ "rc_timestamp > '20170714183203'", 'changetagdisplay.ct_tag_id' => [ 1, 2 ] ],
-					'join_conds' => [ 'changetagdisplay' => [ 'JOIN', 'changetagdisplay.ct_rc_id=rc_id' ] ],
+					'conds' => [ "rc_timestamp > '20170714183203'", 'ct_tag_id' => [ 1, 2 ] ],
+					'join_conds' => [ 'change_tag' => [ 'JOIN', 'ct_rc_id=rc_id' ] ],
 					'options' => [ 'DISTINCT', 'ORDER BY' => 'rc_timestamp DESC' ],
 				]
 			],
@@ -388,10 +387,10 @@ class ChangeTagsTest extends MediaWikiIntegrationTestCase {
 				true, // tag filtering enabled
 				false, // not avoiding reopening tables
 				[
-					'tables' => [ 'recentchanges', 'changetagdisplay' => 'change_tag' ],
+					'tables' => [ 'recentchanges', 'change_tag' ],
 					'fields' => [ 'rc_id', 'ts_tags' => $groupConcats['recentchanges'] ],
-					'conds' => [ "rc_timestamp > '20170714183203'", 'changetagdisplay.ct_tag_id' => [ 1, 2 ] ],
-					'join_conds' => [ 'changetagdisplay' => [ 'JOIN', 'changetagdisplay.ct_rc_id=rc_id' ] ],
+					'conds' => [ "rc_timestamp > '20170714183203'", 'ct_tag_id' => [ 1, 2 ] ],
+					'join_conds' => [ 'change_tag' => [ 'JOIN', 'ct_rc_id=rc_id' ] ],
 					'options' => [ 'ORDER BY rc_timestamp DESC', 'DISTINCT' ],
 				]
 			],
@@ -407,10 +406,10 @@ class ChangeTagsTest extends MediaWikiIntegrationTestCase {
 				true, // tag filtering enabled
 				true, // avoid reopening tables
 				[
-					'tables' => [ 'recentchanges', 'changetagdisplay' => 'change_tag_for_display_query' ],
+					'tables' => [ 'recentchanges', 'change_tag_for_display_query' ],
 					'fields' => [ 'rc_id', 'ts_tags' => $groupConcats['recentchanges'] ],
-					'conds' => [ "rc_timestamp > '20170714183203'", 'changetagdisplay.ct_tag_id' => [ 1, 2 ] ],
-					'join_conds' => [ 'changetagdisplay' => [ 'JOIN', 'changetagdisplay.ct_rc_id=rc_id' ] ],
+					'conds' => [ "rc_timestamp > '20170714183203'", 'ct_tag_id' => [ 1, 2 ] ],
+					'join_conds' => [ 'change_tag_for_display_query' => [ 'JOIN', 'ct_rc_id=rc_id' ] ],
 					'options' => [ 'ORDER BY rc_timestamp DESC', 'DISTINCT' ],
 				]
 			],

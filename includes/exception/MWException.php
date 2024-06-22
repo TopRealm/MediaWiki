@@ -18,8 +18,6 @@
  * @file
  */
 
-use MediaWiki\Html\Html;
-
 /**
  * MediaWiki exception
  *
@@ -27,7 +25,6 @@ use MediaWiki\Html\Html;
  * @stable to extend
  *
  * @ingroup Exception
- * @deprecated since 1.40, use native exceptions instead (either directly, or defining subclasses when appropriate)
  */
 class MWException extends Exception {
 	/**

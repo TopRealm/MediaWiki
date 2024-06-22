@@ -63,49 +63,39 @@
 	 * @return {string}
 	 */
 	function getElementSortKey( node ) {
-		// Browse the node to build the raw sort key, which will then be normalized.
-		function buildRawSortKey( currentNode ) {
-			// Get data-sort-value attribute. Uses jQuery to allow live value
-			// changes from other code paths via data(), which reside only in jQuery.
-			// Must use $().data() instead of $.data(), as the latter *only*
-			// accesses the live values, without reading HTML5 attribs first (T40152).
-			var data = $( currentNode ).data( 'sortValue' );
+		// Get data-sort-value attribute. Uses jQuery to allow live value
+		// changes from other code paths via data(), which reside only in jQuery.
+		// Must use $().data() instead of $.data(), as the latter *only*
+		// accesses the live values, without reading HTML5 attribs first (T40152).
+		var data = $( node ).data( 'sortValue' );
 
-			if ( data !== null && data !== undefined ) {
-				// Cast any numbers or other stuff to a string. Methods
-				// like charAt, toLowerCase and split are expected in callers.
-				return String( data );
-			}
-
-			// Iterate the NodeList (not an array).
-			// Also uses null-return as filter in the same pass.
-			// eslint-disable-next-line no-jquery/no-map-util
-			return $.map( currentNode.childNodes, function ( elem ) {
-				if ( elem.nodeType === Node.ELEMENT_NODE ) {
-					var nodeName = elem.nodeName.toLowerCase();
-					if ( nodeName === 'img' ) {
-						return elem.alt;
-					}
-					if ( nodeName === 'br' ) {
-						return ' ';
-					}
-					if ( nodeName === 'style' ) {
-						return null;
-					}
-					if ( elem.classList.contains( 'reference' ) ) {
-						return null;
-					}
-					return buildRawSortKey( elem );
-				}
-				if ( elem.nodeType === Node.TEXT_NODE ) {
-					return elem.textContent;
-				}
-				// Ignore other node types, such as HTML comments.
-				return null;
-			} ).join( '' );
+		if ( data !== null && data !== undefined ) {
+			// Cast any numbers or other stuff to a string, methods
+			// like charAt, toLowerCase and split are expected.
+			return String( data );
 		}
-
-		return buildRawSortKey( node ).replace( /  +/g, ' ' ).trim();
+		if ( node.tagName.toLowerCase() === 'img' ) {
+			return node.alt;
+		}
+		// Iterate the NodeList (not an array).
+		// Also uses null-return as filter in the same pass.
+		// eslint-disable-next-line no-jquery/no-map-util
+		return $.map( node.childNodes, function ( elem ) {
+			if ( elem.nodeType === Node.ELEMENT_NODE ) {
+				if ( elem.nodeName.toLowerCase() === 'style' ) {
+					return null;
+				}
+				if ( elem.classList.contains( 'reference' ) ) {
+					return null;
+				}
+				return getElementSortKey( elem );
+			}
+			if ( elem.nodeType === Node.TEXT_NODE ) {
+				return elem.textContent;
+			}
+			// Ignore other node types, such as HTML comments.
+			return null;
+		} ).join( '' );
 	}
 
 	function detectParserForColumn( table, rows, column ) {
@@ -129,7 +119,7 @@
 				if ( rowIndex !== lastRowIndex ) {
 					lastRowIndex = rowIndex;
 					cellIndex = $( rows[ rowIndex ] ).data( 'columnToCell' )[ column ];
-					nodeValue = getElementSortKey( rows[ rowIndex ].cells[ cellIndex ] );
+					nodeValue = getElementSortKey( rows[ rowIndex ].cells[ cellIndex ] ).trim();
 				}
 			} else {
 				nodeValue = '';
@@ -143,6 +133,10 @@
 						// Confirmed the parser for multiple cells, let's return it
 						return parsers[ i ];
 					}
+				} else if ( parsers[ i ].id.match( /isoDate/ ) && /^\D*(\d{1,4}) ?(\[.+\])?$/.test( nodeValue ) ) {
+					// For 1-4 digits and maybe reference(s) parser "isoDate" or "number" is possible, check next row
+					empty++;
+					nextRow = true;
 				} else {
 					// Check next parser, reset rows
 					i++;
@@ -596,7 +590,7 @@
 
 		// Written Month name, dmy
 		ts.dateRegex[ 1 ] = new RegExp(
-			'^\\s*(\\d{1,2})[\\,\\.\\-\\/\'º\\s]+(' +
+			'^\\s*(\\d{1,2})[\\,\\.\\-\\/\'\\s]+(' +
 				regex +
 			')' +
 			'[\\,\\.\\-\\/\'\\s]+(\\d{2,4})\\s*$',
@@ -789,6 +783,14 @@
 			currency: [
 				new RegExp( /(^[£$€¥]|[£$€¥]$)/ ),
 				new RegExp( /[£$€¥]/g )
+			],
+			url: [
+				new RegExp( /^(https?|ftp|file):\/\/$/ ),
+				new RegExp( /(https?|ftp|file):\/\// )
+			],
+			isoDate: [
+				new RegExp( /^[^-\d]*(-?\d{1,4})-(0\d|1[0-2])(-([0-3]\d))?([T\s]([01]\d|2[0-4]):?(([0-5]\d):?(([0-5]\d|60)([.,]\d{1,3})?)?)?([zZ]|([-+])([01]\d|2[0-3]):?([0-5]\d)?)?)?/ ),
+				new RegExp( /^[^-\d]*(-?\d{1,4})-?(\d\d)?(-?(\d\d))?([T\s](\d\d):?((\d\d)?:?((\d\d)?([.,]\d{1,3})?)?)?([zZ]|([-+])(\d\d):?(\d\d)?)?)?/ )
 			],
 			usLongDate: [
 				new RegExp( /^[A-Za-z]{3,10}\.? [0-9]{1,2}, ([0-9]{4}|'?[0-9]{2}) (([0-2]?[0-9]:[0-5][0-9])|([0-1]?[0-9]:[0-5][0-9]\s(AM|PM)))$/ )
@@ -1139,6 +1141,7 @@
 			return true;
 		},
 		format: function ( s ) {
+			s = s.trim();
 			if ( ts.collationRegex ) {
 				var tsc = ts.collationTable;
 				s = s.replace( ts.collationRegex, function ( match ) {
@@ -1194,6 +1197,57 @@
 	} );
 
 	ts.addParser( {
+		id: 'url',
+		is: function ( s ) {
+			return ts.rgx.url[ 0 ].test( s );
+		},
+		format: function ( s ) {
+			return s.replace( ts.rgx.url[ 1 ], '' ).trim();
+		},
+		type: 'text'
+	} );
+
+	ts.addParser( {
+		id: 'isoDate',
+		is: function ( s ) {
+			return ts.rgx.isoDate[ 0 ].test( s );
+		},
+		format: function ( s ) {
+			var match = s.match( ts.rgx.isoDate[ 0 ] );
+			if ( match === null ) {
+				// Otherwise a signed number with 1-4 digit is parsed as isoDate
+				match = s.match( ts.rgx.isoDate[ 1 ] );
+			}
+			if ( !match ) {
+				return -Infinity;
+			}
+			var i;
+			// Month and day
+			for ( i = 2; i <= 4; i += 2 ) {
+				if ( !match[ i ] || match[ i ].length === 0 ) {
+					match[ i ] = 1;
+				}
+			}
+			// Time
+			for ( i = 6; i <= 15; i++ ) {
+				if ( !match[ i ] || match[ i ].length === 0 ) {
+					match[ i ] = '0';
+				}
+			}
+			var ms = parseFloat( match[ 11 ].replace( /,/, '.' ) ) * 1000;
+			var hOffset = $.tablesorter.formatInt( match[ 13 ] + match[ 14 ] );
+			var mOffset = $.tablesorter.formatInt( match[ 13 ] + match[ 15 ] );
+
+			var isodate = new Date( 0 );
+			// Because Date constructor changes year 0-99 to 1900-1999, use setUTCFullYear()
+			isodate.setUTCFullYear( match[ 1 ], match[ 2 ] - 1, match[ 4 ] );
+			isodate.setUTCHours( match[ 6 ] - hOffset, match[ 8 ] - mOffset, match[ 10 ], ms );
+			return isodate.getTime();
+		},
+		type: 'numeric'
+	} );
+
+	ts.addParser( {
 		id: 'usLongDate',
 		is: function ( s ) {
 			return ts.rgx.usLongDate[ 0 ].test( s );
@@ -1210,7 +1264,7 @@
 			return ( ts.dateRegex[ 0 ].test( s ) || ts.dateRegex[ 1 ].test( s ) || ts.dateRegex[ 2 ].test( s ) );
 		},
 		format: function ( s ) {
-			s = s.toLowerCase();
+			s = s.toLowerCase().trim();
 
 			var match;
 			if ( ( match = s.match( ts.dateRegex[ 0 ] ) ) !== null ) {
@@ -1271,7 +1325,7 @@
 	ts.addParser( {
 		id: 'number',
 		is: function ( s ) {
-			return $.tablesorter.numberRegex.test( s );
+			return $.tablesorter.numberRegex.test( s.trim() );
 		},
 		format: function ( s ) {
 			return $.tablesorter.formatDigit( s );

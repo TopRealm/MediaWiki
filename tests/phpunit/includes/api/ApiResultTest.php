@@ -1,7 +1,5 @@
 <?php
 
-use MediaWiki\Title\Title;
-
 /**
  * @covers ApiResult
  * @group API
@@ -89,7 +87,7 @@ class ApiResultTest extends MediaWikiIntegrationTestCase {
 		}
 
 		$arr = [];
-		$title = Title::makeTitle( NS_MEDIAWIKI, "Foobar" );
+		$title = Title::newFromText( "MediaWiki:Foobar" );
 		$obj = (object)[ 'foo' => 1, 'bar' => 2 ];
 		ApiResult::setValue( $arr, 'title', $title );
 		ApiResult::setValue( $arr, 'obj', $obj );
@@ -336,7 +334,7 @@ class ApiResultTest extends MediaWikiIntegrationTestCase {
 		}
 
 		$result->reset();
-		$title = Title::makeTitle( NS_MEDIAWIKI, "Foobar" );
+		$title = Title::newFromText( "MediaWiki:Foobar" );
 		$obj = (object)[ 'foo' => 1, 'bar' => 2 ];
 		$result->addValue( null, 'title', $title );
 		$result->addValue( null, 'obj', $obj );

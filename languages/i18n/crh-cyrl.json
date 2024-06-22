@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"1233qwer1234qwer4",
 			"AlefZet",
 			"Alessandro",
 			"Amire80",
@@ -15,6 +14,7 @@
 			"Исмаил Садуев",
 			"Умар",
 			"아라",
+			"1233qwer1234qwer4",
 			"Рустам Нурыев",
 			"Lemara Selendili"
 		]
@@ -878,7 +878,6 @@
 	"filehist-dimensions": "Эн × бой",
 	"filehist-filesize": "Файл буюклиги",
 	"filehist-comment": "Изаат",
-	"filehist-missing": "Файл ёкъ",
 	"imagelinks": "Файл багълантылары",
 	"linkstoimage": "Бу файлгъа багъланты олгъан {{PLURAL:$1|1=1|$1}} саифе:",
 	"nolinkstoimage": "Бу файлгъа багълангъан саифе ёкъ.",
@@ -1330,7 +1329,7 @@
 	"metadata-help": "Файлда (адетиндже ракъамлы камера ве сканерлернен къошулгъан) иляве малюматы бар. Эгер бу файл яратылгъандан сонъ денъиштирильсе эди, бельки де базы параметрлер эскирди.",
 	"metadata-expand": "Тафсилятны косьтер",
 	"metadata-collapse": "Тафсилятны косьтерме",
-	"metadata-fields": "Бу джедвельдеки EXIF мета малюматы ресим саифесинде косьтериледжек, башкъалары исе гизленеджек.\n* make \n* model \n* datetimeoriginal \n* exposuretime \n* fnumber \n* isospeedratings \n* focallength \n* artist \n* copyright \n* imagedescription \n* gpslatitude \n* gpslongitude \n* gpsaltitude \n* dc-rights \n* copyrightowner \n* usageterms \n* webstatement \n* licenseurl \n* attributionurl \n* preferredattributionname \n* credit \n* jpegfilecomment \n* pngfilecomment \n* giffilecomment \n* usercomment \n* citydest \n* citycreated \n* headline \n* source \n* locationdest \n* dc-contributor \n* dc-coverage \n* dc-publisher \n* dc-relation \n* label \n* nickname \n* personinimage \n* disclaimer \n* event \n* objectname",
+	"metadata-fields": "Бу джедвельдеки EXIF мета малюматы ресим саифесинде косьтериледжек, башкъалары исе гизленеджек.\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude",
 	"namespacesall": "Эписи",
 	"monthsall": "Эписи",
 	"confirmemail": "E-mail адресини тасдыкъла",
@@ -1429,8 +1428,5 @@
 	"skin-action-protect": "Къорчала",
 	"skin-action-undelete": "Янъыдан ярат",
 	"skin-action-delete": "Ёкъ эт",
-	"skin-action-move": "Адыны денъиштир",
-	"renameuser-page-moved": "$1 саифесининъ ады $2 деп денъиштирильди.",
-	"renameuser-page-unmoved": "$1 саифесининъ ады $2 оларакъ денъиштирилип оламай.",
-	"log-name-renameuser": "Къулланыджы ады денъишиклиги журналы"
+	"skin-action-move": "Адыны денъиштир"
 }

@@ -53,7 +53,7 @@ class HashBagOStuff extends MediumSpecificBagOStuff {
 	 * @phan-param array{logger?:Psr\Log\LoggerInterface,asyncHandler?:callable,keyspace?:string,reportDupes?:bool,segmentationSize?:int,segmentedValueMaxSize?:int,maxKeys?:int} $params
 	 */
 	public function __construct( $params = [] ) {
-		$params['segmentationSize'] ??= INF;
+		$params['segmentationSize'] = $params['segmentationSize'] ?? INF;
 		parent::__construct( $params );
 
 		$this->token = microtime( true ) . ':' . mt_rand();
@@ -97,7 +97,8 @@ class HashBagOStuff extends MediumSpecificBagOStuff {
 		];
 
 		if ( count( $this->bag ) > $this->maxCacheKeys ) {
-			$evictKey = array_key_first( $this->bag );
+			reset( $this->bag );
+			$evictKey = key( $this->bag );
 			unset( $this->bag[$evictKey] );
 		}
 
@@ -117,6 +118,26 @@ class HashBagOStuff extends MediumSpecificBagOStuff {
 		unset( $this->bag[$key] );
 
 		return true;
+	}
+
+	public function incr( $key, $value = 1, $flags = 0 ) {
+		return $this->doIncr( $key, $value, $flags );
+	}
+
+	public function decr( $key, $value = 1, $flags = 0 ) {
+		return $this->doIncr( $key, -$value, $flags );
+	}
+
+	private function doIncr( $key, $value = 1, $flags = 0 ) {
+		$n = $this->doGet( $key );
+		if ( $this->isInteger( $n ) ) {
+			$n = max( $n + (int)$value, 0 );
+			$this->bag[$key][self::KEY_VAL] = $n;
+
+			return $n;
+		}
+
+		return false;
 	}
 
 	protected function doIncrWithInit( $key, $exptime, $step, $init, $flags ) {
@@ -155,6 +176,11 @@ class HashBagOStuff extends MediumSpecificBagOStuff {
 		return true;
 	}
 
+	public function setNewPreparedValues( array $valueByKey ) {
+		// Do not bother staging serialized values as this class does not serialize values
+		return $this->guessSerialSizeOfValues( $valueByKey );
+	}
+
 	/**
 	 * Does this bag have a non-null value for the given key?
 	 *
@@ -166,7 +192,7 @@ class HashBagOStuff extends MediumSpecificBagOStuff {
 		return isset( $this->bag[$key] );
 	}
 
-	protected function makeKeyInternal( $keyspace, $components ) {
+	public function makeKeyInternal( $keyspace, $components ) {
 		return $this->genericKeyFromComponents( $keyspace, ...$components );
 	}
 

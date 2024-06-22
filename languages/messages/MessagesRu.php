@@ -1,6 +1,8 @@
 <?php
 /** Russian (русский)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  *
@@ -201,7 +203,6 @@ $specialPageAliases = [
 	'Randomredirect'            => [ 'Случайное_перенаправление' ],
 	'Recentchanges'             => [ 'Свежие_правки' ],
 	'Recentchangeslinked'       => [ 'Связанные_правки' ],
-	'Renameuser'                => [ 'Переименовать_участника' ],
 	'Revisiondelete'            => [ 'Удаление_правки' ],
 	'Search'                    => [ 'Поиск' ],
 	'Shortpages'                => [ 'Короткие_страницы' ],

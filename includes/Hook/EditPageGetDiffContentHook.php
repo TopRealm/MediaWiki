@@ -3,7 +3,7 @@
 namespace MediaWiki\Hook;
 
 use Content;
-use MediaWiki\EditPage\EditPage;
+use EditPage;
 
 /**
  * This is a hook handler interface, see docs/Hooks.md.

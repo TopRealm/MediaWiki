@@ -9,7 +9,6 @@
 	"rest-nonexistent-revision": "A megadott változat ($1) nem létezik",
 	"rest-nonexistent-user": "A megadott felhasználó ($1) nem létezik",
 	"rest-invalid-user": "A megadott felhasználónév ($1) érvénytelen",
-	"rest-unsupported-content-type": "Nem támogatott tartalomtípus: $1",
 	"rest-permission-denied-anon": "Névtelen felhasználó nem férhet hozzá",
 	"rest-permission-denied-title": "A felhasználónak nincs joga a cím olvasásához ($1)",
 	"rest-permission-denied-revision": "A felhasználónak nincs hozzáférése a kért változathoz ($1).",

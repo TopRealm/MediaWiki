@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-banana-checker' );
 	grunt.loadNpmTasks( 'grunt-contrib-copy' );
@@ -6,8 +7,6 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-karma' );
 	grunt.loadNpmTasks( 'grunt-stylelint' );
 
-	const fs = require( 'fs' );
-	const path = require( 'path' );
 	const wgServer = process.env.MW_SERVER;
 	const wgScriptPath = process.env.MW_SCRIPT_PATH;
 	const karmaProxy = {};
@@ -15,52 +14,9 @@ module.exports = function ( grunt ) {
 	let qunitPattern = wgServer + wgScriptPath + '/index.php?title=Special:JavaScriptTest/qunit/export';
 
 	// "MediaWiki" for core, or extension/skin name (e.g. "GrowthExperiments")
-	const qunitComponent = grunt.option( 'qunit-component' );
-	const qunitWatch = grunt.option( 'qunit-watch' ) || false;
-	const qunitWatchFiles = [];
+	const qunitComponent = grunt.option( 'qunit-component' ) || null;
 	if ( qunitComponent ) {
-		let qunitWatchSourcePattern;
-		let qunitWatchTestPattern;
 		qunitPattern = qunitPattern + '&component=' + qunitComponent;
-		if ( qunitWatch ) {
-			// Special-case MediaWiki core.
-			if ( qunitComponent === 'MediaWiki' ) {
-				qunitWatchTestPattern = 'tests/qunit/**/*.js';
-				qunitWatchSourcePattern = 'resources/**/*.js';
-			} else {
-				let settingsJson,
-					basePath;
-				try {
-					basePath = 'extensions';
-					settingsJson = fs.readFileSync(
-						path.resolve( __dirname + '/' + basePath + '/' + qunitComponent + '/extension.json' )
-					);
-				} catch ( e ) {
-					basePath = 'skins';
-					settingsJson = fs.readFileSync(
-						path.resolve( __dirname + '/' + basePath + '/' + qunitComponent + '/skin.json' )
-					);
-				}
-				settingsJson = JSON.parse( settingsJson );
-				qunitWatchSourcePattern =
-					path.resolve( __dirname + '/' + basePath + '/' + qunitComponent + '/' + settingsJson.ResourceFileModulePaths.localBasePath + '/**/*.js' );
-				qunitWatchTestPattern = path.resolve( __dirname + '/' + basePath + '/' + qunitComponent + '/tests/qunit/**/*.js' );
-			}
-			qunitWatchFiles.push( {
-				pattern: qunitWatchSourcePattern,
-				type: 'js',
-				watched: true,
-				included: false,
-				served: false
-			} );
-			qunitWatchFiles.push( {
-				pattern: qunitWatchTestPattern,
-				type: 'js',
-				watched: true,
-				included: false,
-				served: false
-			} );
-		}
 	}
 
 	karmaProxy[ wgScriptPath ] = {
@@ -120,12 +76,12 @@ module.exports = function ( grunt ) {
 					watched: false,
 					included: true,
 					served: false
-				}, ...qunitWatchFiles ],
+				} ],
 				logLevel: ( process.env.ZUUL_PROJECT ? 'DEBUG' : 'INFO' ),
 				frameworks: [ 'qunit' ],
 				reporters: [ 'mocha' ],
-				singleRun: !qunitWatch,
-				autoWatch: qunitWatch,
+				singleRun: true,
+				autoWatch: false,
 				// Some tests in extensions don't yield for more than the default 10s (T89075)
 				browserNoActivityTimeout: 60 * 1000,
 				// Karma requires Same-Origin (or CORS) by default since v1.1.1

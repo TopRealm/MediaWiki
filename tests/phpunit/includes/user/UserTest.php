@@ -8,9 +8,8 @@ use MediaWiki\Block\SystemBlock;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Permissions\RateLimiter;
 use MediaWiki\Permissions\RateLimitSubject;
-use MediaWiki\Request\FauxRequest;
+use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Tests\Unit\DummyServicesTrait;
-use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentityValue;
 use Wikimedia\Assert\PreconditionException;
 use Wikimedia\TestingAccessWrapper;
@@ -103,7 +102,6 @@ class UserTest extends MediaWikiIntegrationTestCase {
 	 * @covers User::getGroupPermissions
 	 */
 	public function testGroupPermissions() {
-		$this->hideDeprecated( 'User::getGroupPermissions' );
 		$rights = User::getGroupPermissions( [ 'unittesters' ] );
 		$this->assertContains( 'runtest', $rights );
 		$this->assertNotContains( 'writetest', $rights );
@@ -121,7 +119,6 @@ class UserTest extends MediaWikiIntegrationTestCase {
 	 * @covers User::getGroupPermissions
 	 */
 	public function testRevokePermissions() {
-		$this->hideDeprecated( 'User::getGroupPermissions' );
 		$rights = User::getGroupPermissions( [ 'unittesters', 'formertesters' ] );
 		$this->assertNotContains( 'runtest', $rights );
 		$this->assertNotContains( 'writetest', $rights );
@@ -134,7 +131,6 @@ class UserTest extends MediaWikiIntegrationTestCase {
 	 * @covers User::getGroupsWithPermission
 	 */
 	public function testGetGroupsWithPermission( array $expected, $right ) {
-		$this->hideDeprecated( 'User::getGroupsWithPermission' );
 		$result = User::getGroupsWithPermission( $right );
 		$this->assertArrayEquals( $expected, $result );
 	}
@@ -228,7 +224,7 @@ class UserTest extends MediaWikiIntegrationTestCase {
 	public function testBot() {
 		$user = $this->getTestUser( 'bot' )->getUser();
 
-		$this->assertSame( [ 'bot' ], $user->getGroups() );
+		$this->assertSame( $user->getGroups(), [ 'bot' ] );
 		$this->assertArrayHasKey( 'bot', $user->getGroupMemberships() );
 		$this->assertTrue( $user->isBot() );
 
@@ -245,14 +241,12 @@ class UserTest extends MediaWikiIntegrationTestCase {
 		$user = $this->getMutableTestUser()->getUser();
 
 		// let the user have a few (3) edits
-		$title = Title::makeTitle( NS_HELP, 'UserTest_EditCount' );
+		$page = WikiPage::factory( Title::makeTitle( NS_HELP, 'UserTest_EditCount' ) );
 		for ( $i = 0; $i < 3; $i++ ) {
-			$this->editPage(
-				$title,
-				(string)$i,
-				'test',
-				NS_MAIN,
-				$user
+			$page->doUserEditContent(
+				ContentHandler::makeContent( (string)$i, $page->getTitle() ),
+				$user,
+				'test'
 			);
 		}
 
@@ -263,7 +257,7 @@ class UserTest extends MediaWikiIntegrationTestCase {
 		);
 
 		// increase the edit count
-		$this->getServiceContainer()->getUserEditTracker()->incrementUserEditCount( $user );
+		$user->incEditCount();
 		$user->clearInstanceCache();
 
 		$this->assertSame(
@@ -277,6 +271,7 @@ class UserTest extends MediaWikiIntegrationTestCase {
 	 * Test User::editCount
 	 * @group medium
 	 * @covers User::getEditCount
+	 * @covers User::incEditCount
 	 */
 	public function testGetEditCountForAnons() {
 		$user = User::newFromName( 'Anonymous' );
@@ -287,7 +282,7 @@ class UserTest extends MediaWikiIntegrationTestCase {
 		);
 
 		$this->assertNull(
-			$this->getServiceContainer()->getUserEditTracker()->incrementUserEditCount( $user ),
+			$user->incEditCount(),
 			'Edit count cannot be increased for anonymous users'
 		);
 
@@ -303,7 +298,6 @@ class UserTest extends MediaWikiIntegrationTestCase {
 	 * @covers User::incEditCount
 	 */
 	public function testIncEditCount() {
-		$this->hideDeprecated( 'User::incEditCount' );
 		$user = $this->getMutableTestUser()->getUser();
 		$user->incEditCount();
 
@@ -1343,10 +1337,24 @@ class UserTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
+	 * @param User $user
+	 * @param string $title
+	 * @param string $content
+	 * @param string $comment
+	 * @return \MediaWiki\Revision\RevisionRecord|null
+	 */
+	private static function makeEdit( User $user, $title, $content, $comment ) {
+		$page = WikiPage::factory( Title::newFromText( $title ) );
+		$content = ContentHandler::makeContent( $content, $page->getTitle() );
+		return $page->newPageUpdater( $user )
+			->setContent( SlotRecord::MAIN, $content )
+			->saveRevision( CommentStoreComment::newUnsavedComment( $comment ) );
+	}
+
+	/**
 	 * @covers User::idFromName
 	 */
 	public function testExistingIdFromName() {
-		$this->hideDeprecated( 'User::idFromName' );
 		$this->assertSame(
 			$this->user->getId(), User::idFromName( $this->user->getName() ),
 			'Id is correctly retrieved from the cache.'
@@ -1361,7 +1369,6 @@ class UserTest extends MediaWikiIntegrationTestCase {
 	 * @covers User::idFromName
 	 */
 	public function testNonExistingIdFromName() {
-		$this->hideDeprecated( 'User::idFromName' );
 		$this->assertNull( User::idFromName( 'NotExisitngUser' ) );
 	}
 
@@ -1431,7 +1438,7 @@ class UserTest extends MediaWikiIntegrationTestCase {
 
 		if ( $expect === 'exception' ) {
 			// T248195: Duplicate entry errors will log the exception, don't fail because of that.
-			$this->setNullLogger( 'rdbms' );
+			$this->setNullLogger( 'DBQuery' );
 			$this->expectException( Exception::class );
 		}
 		$user = User::newSystemUser( $name, $options );

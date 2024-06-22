@@ -106,6 +106,8 @@ class ApiStashEdit extends ApiBase {
 
 		$this->requireOnlyOneParameter( $params, 'stashedtexthash', 'text' );
 
+		$text = null;
+		$textHash = null;
 		if ( $params['stashedtexthash'] !== null ) {
 			// Load from cache since the client indicates the text is the same as last stash
 			$textHash = $params['stashedtexthash'];

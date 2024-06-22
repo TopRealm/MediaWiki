@@ -11,7 +11,6 @@ use Shellbox\Shellbox;
 class CommandTest extends PHPUnit\Framework\TestCase {
 
 	use MediaWikiCoversValidator;
-	use MediaWikiTestCaseTrait;
 
 	private function requirePosix() {
 		if ( wfIsWindows() ) {
@@ -95,8 +94,8 @@ class CommandTest extends PHPUnit\Framework\TestCase {
 		$result = $command
 			->includeStderr()
 			->execute();
-		$this->assertMatchesRegularExpression( '/correct stdout/m', $result->getStdout() );
-		$this->assertMatchesRegularExpression( '/correct stderr/m', $result->getStdout() );
+		$this->assertRegExp( '/correct stdout/m', $result->getStdout() );
+		$this->assertRegExp( '/correct stderr/m', $result->getStdout() );
 		$this->assertSame( '', $result->getStderr() );
 
 		$command = $this->getPhpCommand(
@@ -157,7 +156,7 @@ class CommandTest extends PHPUnit\Framework\TestCase {
 		$command->unsafeParams( 'ThisIsStderr', '1>&2' );
 		$command->execute();
 		$this->assertCount( 1, $logger->getBuffer() );
-		$this->assertSame( 'ThisIsStderr', trim( $logger->getBuffer()[0][2]['error'] ) );
+		$this->assertSame( trim( $logger->getBuffer()[0][2]['error'] ), 'ThisIsStderr' );
 	}
 
 	public function testInput() {

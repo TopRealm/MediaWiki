@@ -88,7 +88,8 @@ class ActorCache {
 	 */
 	public function add( int $actorId, UserIdentity $actor ) {
 		while ( count( $this->cache[self::KEY_ACTOR_ID] ) >= $this->maxSize ) {
-			$evictId = array_key_first( $this->cache[self::KEY_ACTOR_ID] );
+			reset( $this->cache[self::KEY_ACTOR_ID] );
+			$evictId = key( $this->cache[self::KEY_ACTOR_ID] );
 			$this->remove( $this->cache[self::KEY_ACTOR_ID][$evictId]['actor'] );
 		}
 		$value = [ 'actorId' => $actorId, 'actor' => $actor ];

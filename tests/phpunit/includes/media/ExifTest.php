@@ -5,7 +5,6 @@ use MediaWiki\MainConfigNames;
 /**
  * @group Media
  * @covers Exif
- * @requires extension exif
  */
 class ExifTest extends MediaWikiIntegrationTestCase {
 
@@ -14,6 +13,7 @@ class ExifTest extends MediaWikiIntegrationTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();
+		$this->checkPHPExtension( 'exif' );
 
 		$this->mediaPath = __DIR__ . '/../../data/media/';
 

@@ -1,6 +1,8 @@
 <?php
 /** Lower Silesian (Schläsch)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  *

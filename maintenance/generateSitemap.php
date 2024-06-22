@@ -28,8 +28,6 @@
 
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Title\Title;
-use MediaWiki\WikiMap\WikiMap;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IResultWrapper;
 
@@ -386,6 +384,7 @@ class GenerateSitemap extends Maintenance {
 				$entry = $this->fileEntry( $title->getCanonicalURL(), $date, $this->priority( $namespace ) );
 				$length += strlen( $entry );
 				$this->write( $this->file, $entry );
+				/*
 				// generate pages for language variants
 				if ( $langConverter->hasVariants() ) {
 					$variants = $langConverter->getVariants();
@@ -402,6 +401,7 @@ class GenerateSitemap extends Maintenance {
 						$this->write( $this->file, $entry );
 					}
 				}
+				*/
 			}
 
 			if ( $skippedNoindex > 0 ) {
@@ -431,7 +431,7 @@ class GenerateSitemap extends Maintenance {
 	private function open( $file, $flags ) {
 		$resource = $this->compress ? gzopen( $file, $flags ) : fopen( $file, $flags );
 		if ( $resource === false ) {
-			throw new RuntimeException( __METHOD__
+			throw new MWException( __METHOD__
 				. " error opening file $file with flags $flags. Check permissions?" );
 		}
 
@@ -446,7 +446,7 @@ class GenerateSitemap extends Maintenance {
 	 */
 	private function write( &$handle, $str ) {
 		if ( $handle === true || $handle === false ) {
-			throw new InvalidArgumentException( __METHOD__ . " was passed a boolean as a file handle.\n" );
+			throw new MWException( __METHOD__ . " was passed a boolean as a file handle.\n" );
 		}
 		if ( $this->compress ) {
 			gzwrite( $handle, $str );

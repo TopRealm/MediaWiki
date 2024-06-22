@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Page;
 
-use MediaWiki\Title\Title;
+use Title;
 
 /**
  * Convenience trait for conversion to PageIdentity.

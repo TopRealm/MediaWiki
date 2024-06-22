@@ -226,7 +226,6 @@
 	"anontalkpagetext": "----\n<em>Tilixam hilu laysins yaka wawa-pipa ukuk, pi naika nanich yaka IP-k'winin-ikta. Ixt-ixt hayu tilixam t'uʔan ixt IP-k'winin-ikta.\nPus wik kopa laysins maika, [[Special:CreateAccount\n|mamuk laysins]] epe [[Special:UserLogin|ɬatwa kopa maika laysins]] pus maika tiki.",
 	"noarticletext": "hilu t’səm ukuk pipa.\n[[Special:Search/{{PAGENAME}}|ɬatwa-nanich ukuk pipa yaka nim]] pus mayka tiki,\n<span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} ɬatwa-nanich kapho-log],\nəbə [{{fullurl:{{FULLPAGENAME}}|action=edit}} munk ukuk pipa.]</span>.",
 	"noarticletext-nopermission": "Halo tsəm ukuk pipa. Naika [[Special:Search/{{PAGENAME}}|nanich-ɬatwa ukuk pipa yaka nim]] kopa x̣luima pipa, epe <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} x̣luima kanawi ulman kapho ts'əm]</span> pus naika tiki. Maika x̣awqaɬ mamuk ukuk pipa.",
-	"userpage-userdoesnotexist-view": "hilu-tilixam pus t’uʔan ukuk yax̣al: \"$1\", ukuk wiki.",
 	"previewnote": "<strong>Təmtəm alta: ukuk pipa wik delet!</strong>",
 	"continue-editing": "munk-t’səm",
 	"editing": "alta mayka munk-t’səm kʰapa \"$1\".",
@@ -406,7 +405,6 @@
 	"filehist-user": "tilixam",
 	"filehist-dimensions": "qʰənchi-hayash",
 	"filehist-comment": "munk-t’səm",
-	"filehist-missing": "hilu fayl",
 	"imagelinks": "qʰa nsayka munk uk ikta",
 	"nolinkstoimage": "hilu pipa tʼuʔan ukuk fayl.",
 	"sharedupload-desc-here": "chaku kʰapa $1 ukuk fayl, pi x̣luyma wiki munk ukuk. Nanich ukuk fayl yaka [$2 wawa-ikta-pipa] kikwəli.",
@@ -602,16 +600,5 @@
 	"pagelang-reason": "Qhata",
 	"pagelang-submit": "Mamuk ukuk",
 	"log-action-filter-all": "kʰanawi",
-	"paramvalidator-help-type-user-subtype-name": "nim",
-	"blockedtext-made-by": "$1 mamuk ukuk tilixam chako x̣awqaɬ munk-ts'əm.",
-	"blockedtext-reason-comment": "Qhata? <em>$1</em>",
-	"blockedtext-start-time": "x̣awqaɬ-munk-ts'əm yaka chako-taym: $1",
-	"blockedtext-expiration-time": "x̣awqaɬ-munk-ts'əm yaka elip-kimta-taym: $1",
-	"blockedtext-intended-blockee": "Tilixam ukuk tilixam yaka tiki mamuk-x̣auqaɬ-munk-ts'əm: $1",
-	"blockedtext-contact-blocker-admin": "Wawa kopa $1 epe x̣luima [[{{MediaWiki:Grouppage-sysop}}|tayi-tilixam]] pus maika tiki wawa pus ukuk.",
-	"blockedtext-include-details-queries": "Mamuk kanawi sax̣ali-ikta kopa kanawi pus-ikta pus maika mamuk ukuk pus-ikta.",
-	"renameuserold": "alta-munk nim:",
-	"renameusernew": "chxi nim:",
-	"renameuserreason": "Qhata:",
-	"renameusersubmit": "Mamuk ukuk"
+	"paramvalidator-help-type-user-subtype-name": "nim"
 }

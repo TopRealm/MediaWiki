@@ -77,8 +77,9 @@ class DjVuImage {
 				'width' => $data['width'],
 				'height' => $data['height']
 			];
+		} else {
+			return [];
 		}
-		return [];
 	}
 
 	// ---------
@@ -111,7 +112,7 @@ class DjVuImage {
 			$chunkLength = $arr['chunkLength'];
 			echo str_repeat( ' ', $indent * 4 ) . "$chunk $chunkLength\n";
 
-			if ( $chunk === 'FORM' ) {
+			if ( $chunk == 'FORM' ) {
 				$this->dumpForm( $file, $chunkLength, $indent + 1 );
 			} else {
 				fseek( $file, $chunkLength, SEEK_CUR );
@@ -142,12 +143,12 @@ class DjVuImage {
 			$arr = unpack( 'a4magic/a4form/NformLength/a4subtype', $header );
 
 			$subtype = $arr['subtype'];
-			if ( $arr['magic'] !== 'AT&T' ) {
+			if ( $arr['magic'] != 'AT&T' ) {
 				wfDebug( __METHOD__ . ": not a DjVu file" );
-			} elseif ( $subtype === 'DJVU' ) {
+			} elseif ( $subtype == 'DJVU' ) {
 				// Single-page document
 				$info = $this->getPageInfo( $file );
-			} elseif ( $subtype === 'DJVM' ) {
+			} elseif ( $subtype == 'DJVM' ) {
 				// Multi-page document
 				$info = $this->getMultiPageInfo( $file, $arr['formLength'] );
 			} else {
@@ -163,10 +164,11 @@ class DjVuImage {
 		$header = fread( $file, 8 );
 		if ( strlen( $header ) < 8 ) {
 			return [ false, 0 ];
-		}
-		$arr = unpack( 'a4chunk/Nlength', $header );
+		} else {
+			$arr = unpack( 'a4chunk/Nlength', $header );
 
-		return [ $arr['chunk'], $arr['length'] ];
+			return [ $arr['chunk'], $arr['length'] ];
+		}
 	}
 
 	private function skipChunk( $file, $chunkLength ) {
@@ -183,14 +185,14 @@ class DjVuImage {
 		// and report its information, hoping others are the same size.
 		$start = ftell( $file );
 		do {
-			[ $chunk, $length ] = $this->readChunk( $file );
+			list( $chunk, $length ) = $this->readChunk( $file );
 			if ( !$chunk ) {
 				break;
 			}
 
-			if ( $chunk === 'FORM' ) {
+			if ( $chunk == 'FORM' ) {
 				$subtype = fread( $file, 4 );
-				if ( $subtype === 'DJVU' ) {
+				if ( $subtype == 'DJVU' ) {
 					wfDebug( __METHOD__ . ": found first subpage" );
 
 					return $this->getPageInfo( $file );
@@ -208,8 +210,8 @@ class DjVuImage {
 	}
 
 	private function getPageInfo( $file ) {
-		[ $chunk, $length ] = $this->readChunk( $file );
-		if ( $chunk !== 'INFO' ) {
+		list( $chunk, $length ) = $this->readChunk( $file );
+		if ( $chunk != 'INFO' ) {
 			wfDebug( __METHOD__ . ": expected INFO chunk, got '$chunk'" );
 
 			return false;
@@ -269,10 +271,10 @@ class DjVuImage {
 		if ( isset( $djvuTxt ) ) {
 			$cmd = Shell::escape( $djvuTxt ) . ' --detail=page ' . Shell::escape( $this->mFilename );
 			wfDebug( __METHOD__ . ": $cmd" );
-			$retval = 0;
+			$retval = '';
 			$txt = wfShellExec( $cmd, $retval, [], [ 'memory' => self::DJVUTXT_MEMORY_LIMIT ] );
 			$json['text'] = [];
-			if ( $retval === 0 ) {
+			if ( $retval == 0 ) {
 				# Strip some control characters
 				# Ignore carriage returns
 				$txt = preg_replace( "/\\\\013/", "", $txt );
@@ -302,7 +304,8 @@ EOR;
 	private function pageTextCallback( string $match ) {
 		# Get rid of invalid UTF-8
 		$val = UtfNormal\Validator::cleanUp( stripcslashes( $match ) );
-		return str_replace( '�', '', $val );
+		$val = str_replace( '�', '', $val );
+		return $val;
 	}
 
 	/**
@@ -379,7 +382,7 @@ EOR;
 			}
 
 			if ( preg_match(
-				'/^ *INFO *\[\d*] *DjVu *(\d+)x(\d+), *\w*, *(\d+) *dpi, *gamma=([0-9.-]+)/',
+				'/^ *INFO *\[\d*\] *DjVu *(\d+)x(\d+), *\w*, *(\d+) *dpi, *gamma=([0-9.-]+)/',
 				$line,
 				$m
 			) ) {

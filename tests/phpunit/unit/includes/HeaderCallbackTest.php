@@ -1,9 +1,9 @@
 <?php
 
-use MediaWiki\Request\HeaderCallback;
+use MediaWiki\HeaderCallback;
 
 /**
- * @coversDefaultClass \MediaWiki\Request\HeaderCallback
+ * @coversDefaultClass MediaWiki\HeaderCallback
  */
 class HeaderCallbackTest extends MediaWikiUnitTestCase {
 

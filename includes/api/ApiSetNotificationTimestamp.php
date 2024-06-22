@@ -24,7 +24,6 @@
  */
 
 use MediaWiki\Revision\RevisionStore;
-use MediaWiki\Title\Title;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\Rdbms\ILoadBalancer;
 
@@ -231,7 +230,9 @@ class ApiSetNotificationTimestamp extends ApiBase {
 	 * @return ApiPageSet
 	 */
 	private function getPageSet() {
-		$this->mPageSet ??= new ApiPageSet( $this );
+		if ( $this->mPageSet === null ) {
+			$this->mPageSet = new ApiPageSet( $this );
+		}
 
 		return $this->mPageSet;
 	}

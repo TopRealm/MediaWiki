@@ -25,8 +25,6 @@
 require_once __DIR__ . '/Maintenance.php';
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\User\ActorMigration;
-use MediaWiki\WikiMap\WikiMap;
 
 class InitEditCount extends Maintenance {
 	public function __construct() {
@@ -49,7 +47,7 @@ class InitEditCount extends Maintenance {
 			$backgroundMode = false;
 		} else {
 			$lb = MediaWikiServices::getInstance()->getDBLoadBalancer();
-			$backgroundMode = $lb->hasReplicaServers();
+			$backgroundMode = $lb->getServerCount() > 1;
 		}
 
 		$actorQuery = ActorMigration::newMigration()->getJoin( 'rev_user' );
@@ -63,6 +61,7 @@ class InitEditCount extends Maintenance {
 
 			$start = microtime( true );
 			$migrated = 0;
+			$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 			for ( $min = 0; $min <= $lastUser; $min += $chunkSize ) {
 				$max = $min + $chunkSize;
 
@@ -93,7 +92,7 @@ class InitEditCount extends Maintenance {
 					$delta,
 					$rate ) );
 
-				$this->waitForReplication();
+				$lbFactory->waitForReplication();
 			}
 		} else {
 			$this->output( "Using single-query mode...\n" );

@@ -22,6 +22,7 @@
  * @ingroup Maintenance
  */
 
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Session\SessionManager;
 
 require_once __DIR__ . '/Maintenance.php';
@@ -64,6 +65,7 @@ class InvalidateUserSessions extends Maintenance {
 		}
 
 		$i = 0;
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		$sessionManager = SessionManager::singleton();
 		foreach ( $usernames as $username ) {
 			$i++;
@@ -82,7 +84,7 @@ class InvalidateUserSessions extends Maintenance {
 			}
 
 			if ( $i % $this->getBatchSize() ) {
-				$this->waitForReplication();
+				$lbFactory->waitForReplication();
 			}
 		}
 	}

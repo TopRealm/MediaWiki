@@ -47,7 +47,7 @@ class SpinnerWidget {
 	 * @return string HTML serialization
 	 */
 	public function toString() {
-		return \MediaWiki\Html\Html::rawElement( 'div', $this->attributes, $this->content );
+		return \Html::rawElement( 'div', $this->attributes, $this->content );
 	}
 
 	/**

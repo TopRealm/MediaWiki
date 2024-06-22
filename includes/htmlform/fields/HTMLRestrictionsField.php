@@ -29,7 +29,11 @@ class HTMLRestrictionsField extends HTMLTextAreaField {
 	}
 
 	public function getHelpText() {
-		return parent::getHelpText() ?? $this->msg( 'restrictionsfield-help' )->parse();
+		$helpText = parent::getHelpText();
+		if ( $helpText === null ) {
+			$helpText = $this->msg( 'restrictionsfield-help' )->parse();
+		}
+		return $helpText;
 	}
 
 	/**
@@ -54,7 +58,11 @@ class HTMLRestrictionsField extends HTMLTextAreaField {
 	 * @return MWRestrictions
 	 */
 	public function getDefault() {
-		return parent::getDefault() ?? MWRestrictions::newDefault();
+		$default = parent::getDefault();
+		if ( $default === null ) {
+			$default = MWRestrictions::newDefault();
+		}
+		return $default;
 	}
 
 	/**

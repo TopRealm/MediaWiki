@@ -19,22 +19,22 @@
 
 namespace MediaWiki\Parser\Parsoid\Config;
 
+use Language;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Revision\SlotRoleHandler;
-use MediaWiki\Title\Title;
 use ParserOptions;
-use Wikimedia\Bcp47Code\Bcp47Code;
+use Title;
 use Wikimedia\Parsoid\Config\PageConfig as IPageConfig;
 use Wikimedia\Parsoid\Config\PageContent as IPageContent;
 
 /**
  * Page-level configuration interface for Parsoid
  *
- * This is effectively "Parsoid's view of ParserOptions".
- *
+ * @todo We should probably deprecate ParserOptions somehow, using a version of
+ *  this directly instead.
  * @since 1.39
- * @internal
  */
 class PageConfig extends IPageConfig {
 
@@ -50,34 +50,34 @@ class PageConfig extends IPageConfig {
 	/** @var ?RevisionRecord */
 	private $revision;
 
-	/** @var Bcp47Code|null */
-	private $pageLanguage;
+	/** @var string|null */
+	private $pagelanguage;
 
-	/** @var string */
-	private $pageLanguageDir;
+	/** @var string|null */
+	private $pagelanguageDir;
 
 	/**
 	 * @param ParserOptions $parserOptions
 	 * @param SlotRoleHandler $slotRoleHandler
 	 * @param Title $title Title being parsed
 	 * @param ?RevisionRecord $revision
-	 * @param Bcp47Code $pageLanguage
-	 * @param string $pageLanguageDir
+	 * @param ?string $pagelanguage
+	 * @param ?string $pagelanguageDir
 	 */
 	public function __construct(
 		ParserOptions $parserOptions,
 		SlotRoleHandler $slotRoleHandler,
 		Title $title,
-		?RevisionRecord $revision,
-		Bcp47Code $pageLanguage,
-		string $pageLanguageDir
+		?RevisionRecord $revision = null,
+		?string $pagelanguage = null,
+		?string $pagelanguageDir = null
 	) {
 		$this->parserOptions = $parserOptions;
 		$this->slotRoleHandler = $slotRoleHandler;
 		$this->title = $title;
 		$this->revision = $revision;
-		$this->pageLanguage = $pageLanguage;
-		$this->pageLanguageDir = $pageLanguageDir;
+		$this->pagelanguage = $pagelanguage;
+		$this->pagelanguageDir = $pagelanguageDir;
 	}
 
 	/**
@@ -125,17 +125,30 @@ class PageConfig extends IPageConfig {
 	}
 
 	/** @inheritDoc */
-	public function getPageLanguageBcp47(): Bcp47Code {
-		return $this->pageLanguage;
+	public function getPageLanguage(): string {
+		return $this->pagelanguage ??
+			$this->title->getPageLanguage()->getCode();
+	}
+
+	/**
+	 * Helper function: get the Language object corresponding to
+	 * PageConfig::getPageLanguage()
+	 * @return Language
+	 */
+	private function getPageLanguageObject(): Language {
+		return $this->pagelanguage ?
+			MediaWikiServices::getInstance()->getLanguageFactory()
+				->getLanguage( $this->pagelanguage ) :
+			$this->title->getPageLanguage();
 	}
 
 	/** @inheritDoc */
 	public function getPageLanguageDir(): string {
-		return $this->pageLanguageDir;
+		return $this->pagelanguageDir ??
+			$this->getPageLanguageObject()->getDir();
 	}
 
 	/**
-	 * @internal Used by DataAccess; not part of Parsoid's interface.
 	 * @return ParserOptions
 	 */
 	public function getParserOptions(): ParserOptions {

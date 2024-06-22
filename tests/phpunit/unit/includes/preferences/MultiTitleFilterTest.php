@@ -22,8 +22,6 @@ use MediaWiki\Page\PageIdentityValue;
 use MediaWiki\Page\PageSelectQueryBuilder;
 use MediaWiki\Page\PageStore;
 use MediaWiki\Preferences\MultiTitleFilter;
-use MediaWiki\Title\Title;
-use MediaWiki\Title\TitleFactory;
 
 /**
  * @group Preferences

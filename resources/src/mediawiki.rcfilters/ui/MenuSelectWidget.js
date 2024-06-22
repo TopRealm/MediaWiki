@@ -201,7 +201,7 @@ MenuSelectWidget.prototype.lazyMenuCreation = function () {
 					new FilterMenuOptionWidget(
 						widget.controller,
 						widget.model,
-						widget.model.getInvertModel( view ),
+						widget.model.getInvertModel(),
 						filterItem,
 						widget.highlightPopup,
 						{

@@ -2,42 +2,29 @@
 
 namespace MediaWiki\Rest;
 
-use Wikimedia\Message\DataMessageValue;
 use Wikimedia\Message\MessageValue;
 
 /**
  * @newable
  */
 class LocalizedHttpException extends HttpException {
-	private MessageValue $messageValue;
-	private string $errorKey;
+	private $messageValue;
 
 	/**
 	 * @stable to call
 	 *
 	 * @param MessageValue $messageValue
 	 * @param int $code
-	 * @param array $errorData
+	 * @param array|null $errorData
 	 */
-	public function __construct( MessageValue $messageValue, $code = 500, $errorData = [] ) {
-		if ( $messageValue instanceof DataMessageValue ) {
-			$errorKey = $messageValue->getCode();
-			$errorData += $messageValue->getData() ?? [];
-		} else {
-			$errorKey = $messageValue->getKey();
-		}
+	public function __construct( MessageValue $messageValue, $code = 500, $errorData = null ) {
 		parent::__construct(
 			'Localized exception with key ' . $messageValue->getKey(), $code, $errorData
 		);
 		$this->messageValue = $messageValue;
-		$this->errorKey = $errorKey;
 	}
 
-	public function getMessageValue(): MessageValue {
+	public function getMessageValue() {
 		return $this->messageValue;
-	}
-
-	public function getErrorKey(): string {
-		return $this->errorKey;
 	}
 }

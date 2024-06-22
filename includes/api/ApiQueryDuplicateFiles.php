@@ -76,7 +76,8 @@ class ApiQueryDuplicateFiles extends ApiQueryGeneratorBase {
 
 		$skipUntilThisDup = false;
 		if ( isset( $params['continue'] ) ) {
-			$cont = $this->parseContinueParamOrDie( $params['continue'], [ 'string', 'string' ] );
+			$cont = explode( '|', $params['continue'] );
+			$this->dieContinueUsageIf( count( $cont ) != 2 );
 			$fromImage = $cont[0];
 			$skipUntilThisDup = $cont[1];
 			// Filter out any images before $fromImage

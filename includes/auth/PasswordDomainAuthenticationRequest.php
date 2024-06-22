@@ -21,8 +21,6 @@
 
 namespace MediaWiki\Auth;
 
-use MediaWiki\Language\RawMessage;
-
 /**
  * This is a value object for authentication requests with a username, password, and domain
  * @stable to extend
@@ -60,7 +58,7 @@ class PasswordDomainAuthenticationRequest extends PasswordAuthenticationRequest 
 				'help' => wfMessage( 'authmanager-domain-help' ),
 			];
 			foreach ( $this->domainList as $domain ) {
-				$ret['domain']['options'][$domain] = new RawMessage( '$1', [ $domain ] );
+				$ret['domain']['options'][$domain] = new \RawMessage( '$1', [ $domain ] );
 			}
 		}
 

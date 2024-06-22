@@ -42,18 +42,18 @@ class SpecialPageAction extends FormlessAction {
 	private $actionName;
 
 	/**
-	 * @param Article $article
+	 * @param Page $page
 	 * @param IContextSource $context
 	 * @param SpecialPageFactory $specialPageFactory
 	 * @param string $actionName
 	 */
 	public function __construct(
-		Article $article,
+		Page $page,
 		IContextSource $context,
 		SpecialPageFactory $specialPageFactory,
 		string $actionName
 	) {
-		parent::__construct( $article, $context );
+		parent::__construct( $page, $context );
 		$this->specialPageFactory = $specialPageFactory;
 		if ( !isset( self::$actionToSpecialPageMapping[$actionName] ) ) {
 			throw new InvalidArgumentException(

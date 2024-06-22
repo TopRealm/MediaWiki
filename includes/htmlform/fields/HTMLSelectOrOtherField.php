@@ -1,7 +1,5 @@
 <?php
 
-use MediaWiki\Html\Html;
-
 /**
  * Select dropdown field, with an additional "other" textbox.
  *
@@ -61,18 +59,14 @@ class HTMLSelectOrOtherField extends HTMLTextField {
 			$tbAttribs['maxlength'] = $this->mParams['maxlength'];
 		}
 
-		if ( isset( $this->mParams['minlength'] ) ) {
-			$tbAttribs['minlength'] = $this->mParams['minlength'];
-		}
-
 		$textbox = Html::input( $this->mName . '-other', $valInSelect ? '' : $value, 'text', $tbAttribs );
 
 		$wrapperAttribs = [
 			'id' => $this->mID,
-			'class' => $this->getFieldClasses()
+			'class' => self::FIELD_CLASS
 		];
 		if ( $this->mClass !== '' ) {
-			$wrapperAttribs['class'][] = $this->mClass;
+			$wrapperAttribs['class'] .= ' ' . $this->mClass;
 		}
 		return Html::rawElement(
 			'div',
@@ -130,7 +124,6 @@ class HTMLSelectOrOtherField extends HTMLTextField {
 			'disabled',
 			'tabindex',
 			'maxlength',
-			'minlength',
 		];
 
 		$textAttribs += OOUI\Element::configFromHtmlAttributes(
@@ -146,7 +139,7 @@ class HTMLSelectOrOtherField extends HTMLTextField {
 			$disabled = true;
 		}
 
-		$inputClasses = $this->getFieldClasses();
+		$inputClasses = [ self::FIELD_CLASS ];
 		if ( $this->mClass !== '' ) {
 			$inputClasses = array_merge( $inputClasses, explode( ' ', $this->mClass ) );
 		}
@@ -182,17 +175,5 @@ class HTMLSelectOrOtherField extends HTMLTextField {
 		} else {
 			return $this->getDefault();
 		}
-	}
-
-	/**
-	 * Returns a list of classes that should be applied to the widget itself. Unfortunately, we can't use
-	 * $this->mClass or the 'cssclass' config option, because they're also added to the outer field wrapper
-	 * (which includes the label). This method exists a temporary workaround until HTMLFormField will have
-	 * a stable way for subclasses to specify additional classes for the widget itself.
-	 * @internal Should only be used in HTMLTimezoneField
-	 * @return string[]
-	 */
-	protected function getFieldClasses(): array {
-		return [ self::FIELD_CLASS ];
 	}
 }

@@ -21,22 +21,16 @@
  */
 
 use MediaWiki\HookContainer\ProtectedHookAccessorTrait;
-use MediaWiki\Html\Html;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageRecord;
 use MediaWiki\Page\PageReference;
-use MediaWiki\Parser\ParserOutputFlags;
 use MediaWiki\Permissions\PermissionStatus;
-use MediaWiki\Request\ContentSecurityPolicy;
-use MediaWiki\Request\FauxRequest;
 use MediaWiki\ResourceLoader as RL;
 use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\Session\SessionManager;
-use MediaWiki\Title\Title;
 use Wikimedia\AtEase\AtEase;
-use Wikimedia\Parsoid\Core\TOCData;
 use Wikimedia\Rdbms\IResultWrapper;
 use Wikimedia\RelPath;
 use Wikimedia\WrappedString;
@@ -60,21 +54,13 @@ use Wikimedia\WrappedStringList;
 class OutputPage extends ContextSource {
 	use ProtectedHookAccessorTrait;
 
-	// Constants for getJSVars()
-	private const JS_VAR_EARLY = 1;
-	private const JS_VAR_LATE = 2;
-
-	// Core config vars that opt-in to JS_VAR_LATE.
-	// Extensions use the 'LateJSConfigVarNames' attribute instead.
-	private const CORE_LATE_JS_CONFIG_VAR_NAMES = [];
-
 	/** @var string[][] Should be private. Used with addMeta() which adds "<meta>" */
 	protected $mMetatags = [];
 
 	/** @var array */
 	protected $mLinktags = [];
 
-	/** @var string|false */
+	/** @var string|bool */
 	protected $mCanonicalUrl = false;
 
 	/**
@@ -122,10 +108,9 @@ class OutputPage extends ContextSource {
 	private $mPrintable = false;
 
 	/**
-	 * @var ?TOCData Table of Contents information from ParserOutput, or
-	 *   null if no TOCData was ever set.
+	 * @var array sections from ParserOutput
 	 */
-	private $tocData;
+	private $mSections = [];
 
 	/**
 	 * @var array Contains the page subtitle. Special pages usually have some
@@ -167,7 +152,7 @@ class OutputPage extends ContextSource {
 	protected $mIndicators = [];
 
 	/**
-	 * @var string[] Array of Interwiki Prefixed (non DB key) Titles (e.g. 'fr:Test page')
+	 * @var array Array of Interwiki Prefixed (non DB key) Titles (e.g. 'fr:Test page')
 	 */
 	private $mLanguageLinks = [];
 
@@ -195,7 +180,7 @@ class OutputPage extends ContextSource {
 	protected $mAdditionalHtmlClasses = [];
 
 	/**
-	 * @var string[] Array of elements in "<head>". Parser might add its own headers!
+	 * @var array Array of elements in "<head>". Parser might add its own headers!
 	 * @deprecated since 1.38; will be made private (T301020)
 	 */
 	protected $mHeadItems = [];
@@ -343,7 +328,7 @@ class OutputPage extends ContextSource {
 	private $mFollowPolicy = 'follow';
 
 	/** @var array */
-	private $mRobotsOptions = [ 'max-image-preview' => 'standard' ];
+	private $mRobotsOptions = [];
 
 	/**
 	 * @var array Headers that cause the cache to vary.  Key is header name,
@@ -715,7 +700,7 @@ class OutputPage extends ContextSource {
 	/**
 	 * Get an array of head items
 	 *
-	 * @return string[]
+	 * @return array
 	 */
 	public function getHeadItemsArray() {
 		return $this->mHeadItems;
@@ -1691,7 +1676,7 @@ class OutputPage extends ContextSource {
 	 * Link target can be overridden by a local message containing a wikilink:
 	 * the message key is: lowercase action or special page name + '-helppage'.
 	 * @param string $to Target MediaWiki.org page title or encoded URL.
-	 * @param bool $overrideBaseUrl Whether $url is a full URL, to avoid MediaWiki.org.
+	 * @param bool $overrideBaseUrl Whether $url is a full URL, to avoid MW.o.
 	 * @since 1.25
 	 */
 	public function addHelpLink( $to, $overrideBaseUrl = false ) {
@@ -1973,7 +1958,9 @@ class OutputPage extends ContextSource {
 	public function addWikiTextAsInterface(
 		$text, $linestart = true, PageReference $title = null
 	) {
-		$title ??= $this->getTitle();
+		if ( $title === null ) {
+			$title = $this->getTitle();
+		}
 		if ( !$title ) {
 			throw new MWException( 'Title is null' );
 		}
@@ -2021,7 +2008,9 @@ class OutputPage extends ContextSource {
 	public function addWikiTextAsContent(
 		$text, $linestart = true, PageReference $title = null
 	) {
-		$title ??= $this->getTitle();
+		if ( $title === null ) {
+			$title = $this->getTitle();
+		}
 		if ( !$title ) {
 			throw new MWException( 'Title is null' );
 		}
@@ -2054,21 +2043,21 @@ class OutputPage extends ContextSource {
 	}
 
 	/**
-	 * Adds Table of Contents data to OutputPage from ParserOutput
-	 * @param TOCData $tocData
+	 * Adds sections to OutputPage from ParserOutput
+	 * @param array $sections
 	 * @internal For use by Article.php
 	 */
-	public function setTOCData( TOCData $tocData ) {
-		$this->tocData = $tocData;
+	public function setSections( array $sections ) {
+		$this->mSections = $sections;
 	}
 
 	/**
-	 * @internal For usage in Skin::getTOCData() only.
-	 * @return ?TOCData Table of Contents data, or
-	 *   null if OutputPage::setTOCData() has not been called.
+	 * @internal For usage in Skin::getSectionsData() only.
+	 * @return array Array of sections.
+	 *   Empty if OutputPage::setSections() has not been called.
 	 */
-	public function getTOCData(): ?TOCData {
-		return $this->tocData;
+	public function getSections(): array {
+		return $this->mSections;
 	}
 
 	/**
@@ -2096,11 +2085,6 @@ class OutputPage extends ContextSource {
 			$result[$name] = $html;
 		}
 		$this->setIndicators( $result );
-
-		$tocData = $parserOutput->getTOCData();
-		if ( $tocData !== null ) {
-			$this->setTOCData( $tocData );
-		}
 
 		// FIXME: Best practice is for OutputPage to be an accumulator, as
 		// addParserOutputMetadata() may be called multiple times, but the
@@ -2188,7 +2172,7 @@ class OutputPage extends ContextSource {
 		// Include parser limit report
 		// FIXME: This should append, rather than overwrite, or else this
 		// data should be injected into the OutputPage like is done for the
-		// other page-level things (like OutputPage::setTOCData()).
+		// other page-level things (like OutputPage::setSections()).
 		if ( !$this->limitReportJSData ) {
 			$this->limitReportJSData = $parserOutput->getLimitReportJSData();
 		}
@@ -2197,26 +2181,13 @@ class OutputPage extends ContextSource {
 		// used to mark individual language links.
 		$linkFlags = [];
 		$this->getHookRunner()->onLanguageLinks( $this->getTitle(), $this->mLanguageLinks, $linkFlags );
-
 		$this->getHookRunner()->onOutputPageParserOutput( $this, $parserOutput );
 
 		// This check must be after 'OutputPageParserOutput' runs in addParserOutputMetadata
 		// so that extensions may modify ParserOutput to toggle TOC.
 		// This cannot be moved to addParserOutputText because that is not
 		// called by EditPage for Preview.
-
-		// T294950/T293513: ParserOutput::getTOCHTML() has been
-		// replaced by ParserOutput::getTOCData(), and
-		// ParserOutputFlags::SHOW_TOC is used to indicate whether the TOC
-		// should be shown (or hidden) in the output.
-		$this->mEnableTOC = $this->mEnableTOC ||
-			$parserOutput->getOutputFlag( ParserOutputFlags::SHOW_TOC );
-		// But extensions used to be able to modify ParserOutput::setTOCHTML()
-		// to toggle TOC in the OutputPageParserOutput hook; so for backward
-		// compatibility check to see if that happened.
-		$isTocPresent = $parserOutput->hasTOCHTML();
-		if ( $isTocPresent && !$this->mEnableTOC ) {
-			// Eventually we'll emit a deprecation message here (T293513)
+		if ( $parserOutput->getTOCHTML() ) {
 			$this->mEnableTOC = true;
 		}
 	}
@@ -2246,13 +2217,6 @@ class OutputPage extends ContextSource {
 	 * @param array $poOptions Options to ParserOutput::getText()
 	 */
 	public function addParserOutputText( ParserOutput $parserOutput, $poOptions = [] ) {
-		// Add default options from the skin
-		$skin = $this->getSkin();
-		$skinOptions = $skin->getOptions();
-		$poOptions += [
-			'skin' => $skin,
-			'injectTOC' => $skinOptions['toc'],
-		];
 		$text = $parserOutput->getText( $poOptions );
 		$this->getHookRunner()->onOutputPageBeforeHTML( $this, $text );
 		$this->addHTML( $text );
@@ -2293,10 +2257,8 @@ class OutputPage extends ContextSource {
 		return $this->parseInternal(
 			$text, $this->getTitle(), $linestart, /*interface*/false
 		)->getText( [
-			'allowTOC' => false,
 			'enableSectionEditLinks' => false,
-			'wrapperDivClass' => '',
-			'userLang' => $this->getContext()->getLanguage(),
+			'wrapperDivClass' => ''
 		] );
 	}
 
@@ -2316,10 +2278,8 @@ class OutputPage extends ContextSource {
 		return $this->parseInternal(
 			$text, $this->getTitle(), $linestart, /*interface*/true
 		)->getText( [
-			'allowTOC' => false,
 			'enableSectionEditLinks' => false,
-			'wrapperDivClass' => '',
-			'userLang' => $this->getContext()->getLanguage(),
+			'wrapperDivClass' => ''
 		] );
 	}
 
@@ -2426,10 +2386,17 @@ class OutputPage extends ContextSource {
 	}
 
 	/**
-	 * Do not send nocache headers
+	 * Use enableClientCache(false) to force it to send nocache headers
+	 *
+	 * @param bool|null $state New value, or null to not set the value
+	 *
+	 * @return bool Old value
+	 * @deprecated since 1.38; use disableClientCache() instead
+	 * ($state is almost always `false` when this method is called)
 	 */
-	public function enableClientCache(): void {
-		$this->mEnableClientCache = true;
+	public function enableClientCache( $state ) {
+		wfDeprecated( __METHOD__, '1.38' );
+		return wfSetVar( $this->mEnableClientCache, $state );
 	}
 
 	/**
@@ -2666,6 +2633,18 @@ class OutputPage extends ContextSource {
 		return false;
 	}
 
+	/**
+	 * Get the Origin-Trial header values. This is used to enable Chrome Origin
+	 * Trials: https://github.com/GoogleChrome/OriginTrials
+	 *
+	 * @return array
+	 */
+	private function getOriginTrials() {
+		$config = $this->getConfig();
+
+		return $config->get( MainConfigNames::OriginTrials );
+	}
+
 	private function getReportTo() {
 		$config = $this->getConfig();
 
@@ -2771,7 +2750,7 @@ class OutputPage extends ContextSource {
 	public function loadSkinModules( $sk ) {
 		foreach ( $sk->getDefaultModules() as $group => $modules ) {
 			if ( $group === 'styles' ) {
-				foreach ( $modules as $moduleMembers ) {
+				foreach ( $modules as $key => $moduleMembers ) {
 					$this->addModuleStyles( $moduleMembers );
 				}
 			} else {
@@ -2858,9 +2837,7 @@ class OutputPage extends ContextSource {
 			$response->header( "X-Frame-Options: $frameOptions" );
 		}
 
-		// Get the Origin-Trial header values. This is used to enable Chrome Origin
-		// Trials: https://github.com/GoogleChrome/OriginTrials
-		$originTrials = $config->get( MainConfigNames::OriginTrials );
+		$originTrials = $this->getOriginTrials();
 		foreach ( $originTrials as $originTrial ) {
 			$response->header( "Origin-Trial: $originTrial", false );
 		}
@@ -2991,7 +2968,7 @@ class OutputPage extends ContextSource {
 	 */
 	public function showPermissionsErrorPage( array $errors, $action = null ) {
 		$services = MediaWikiServices::getInstance();
-		$groupPermissionsLookup = $services->getGroupPermissionsLookup();
+		$permissionManager = $services->getPermissionManager();
 		foreach ( $errors as $key => $error ) {
 			$errors[$key] = (array)$error;
 		}
@@ -3005,8 +2982,8 @@ class OutputPage extends ContextSource {
 		if ( in_array( $action, [ 'read', 'edit', 'createpage', 'createtalk', 'upload' ] )
 			&& $this->getUser()->isAnon() && count( $errors ) == 1 && isset( $errors[0][0] )
 			&& ( $errors[0][0] == 'badaccess-groups' || $errors[0][0] == 'badaccess-group0' )
-			&& ( $groupPermissionsLookup->groupHasPermission( 'user', $action )
-				|| $groupPermissionsLookup->groupHasPermission( 'autoconfirmed', $action ) )
+			&& ( $permissionManager->groupHasPermission( 'user', $action )
+				|| $permissionManager->groupHasPermission( 'autoconfirmed', $action ) )
 		) {
 			$displayReturnto = null;
 
@@ -3192,9 +3169,13 @@ class OutputPage extends ContextSource {
 	 * @param string|null $returntoquery Query string for the return to link
 	 */
 	public function returnToMain( $unused = null, $returnto = null, $returntoquery = null ) {
-		$returnto ??= $this->getRequest()->getText( 'returnto' );
+		if ( $returnto == null ) {
+			$returnto = $this->getRequest()->getText( 'returnto' );
+		}
 
-		$returntoquery ??= $this->getRequest()->getText( 'returntoquery' );
+		if ( $returntoquery == null ) {
+			$returntoquery = $this->getRequest()->getText( 'returntoquery' );
+		}
 
 		if ( $returnto === '' ) {
 			$returnto = Title::newMainPage();
@@ -3326,13 +3307,6 @@ class OutputPage extends ContextSource {
 			);
 			$this->rlExemptStyleModules = $exemptGroups;
 
-			$config = $this->getConfig();
-			$clientPrefEnabled = (
-				$config->get( MainConfigNames::ResourceLoaderClientPreferences ) &&
-				!$this->getUser()->isRegistered()
-			);
-			$clientPrefCookiePrefix = $config->get( MainConfigNames::CookiePrefix );
-
 			$rlClient = new RL\ClientHtml( $context, [
 				'target' => $this->getTarget(),
 				'nonce' => $this->CSP->getNonce(),
@@ -3346,10 +3320,8 @@ class OutputPage extends ContextSource {
 				'safemode' => ( $this->getAllowedModules( RL\Module::TYPE_COMBINED )
 					<= RL\Module::ORIGIN_CORE_INDIVIDUAL
 				) ? '1' : null,
-				'clientPrefEnabled' => $clientPrefEnabled,
-				'clientPrefCookiePrefix' => $clientPrefCookiePrefix,
 			] );
-			$rlClient->setConfig( $this->getJSVars( self::JS_VAR_EARLY ) );
+			$rlClient->setConfig( $this->getJSVars() );
 			$rlClient->setModules( $this->getModules( /*filter*/ true ) );
 			$rlClient->setModuleStyles( $moduleStyles );
 			$rlClient->setExemptStates( $exemptStates );
@@ -3505,38 +3477,24 @@ class OutputPage extends ContextSource {
 	 * @return string|WrappedStringList HTML
 	 */
 	public function getBottomScripts() {
-		// Keep the hook appendage separate to preserve WrappedString objects.
-		// This enables BaseTemplate::getTrail() to merge them where possible.
-		$extraHtml = '';
-		$this->getHookRunner()->onSkinAfterBottomScripts( $this->getSkin(), $extraHtml );
-
 		$chunks = [];
 		$chunks[] = $this->getRlClient()->getBodyHtml();
 
 		// Legacy non-ResourceLoader scripts
 		$chunks[] = $this->mScripts;
 
-		// Keep hostname and backend time as the first variables for quick view-source access.
-		// This other variables will form a very long inline blob.
-		$vars = [];
-		if ( $this->getConfig()->get( MainConfigNames::ShowHostnames ) ) {
-			$vars['wgHostname'] = wfHostname();
-		}
-		$elapsed = $this->getRequest()->getElapsedTime();
-		// seconds to milliseconds
-		$vars['wgBackendResponseTime'] = round( $elapsed * 1000 );
-
-		$vars += $this->getJSVars( self::JS_VAR_LATE );
 		if ( $this->limitReportJSData ) {
-			$vars['wgPageParseReport'] = $this->limitReportJSData;
+			$chunks[] = ResourceLoader::makeInlineScript(
+				ResourceLoader::makeConfigSetScript(
+					[ 'wgPageParseReport' => $this->limitReportJSData ]
+				),
+				$this->CSP->getNonce()
+			);
 		}
-
-		$rlContext = $this->getRlClientContext();
-		$chunks[] = ResourceLoader::makeInlineScript(
-			'mw.config.set(' . $rlContext->encodeJson( $vars ) . ');',
-			$this->CSP->getNonce()
-		);
-
+		// Keep the hook appendage separate to preserve WrappedString objects.
+		// This enables BaseTemplate::getTrail() to merge them where possible.
+		$extraHtml = '';
+		$this->getHookRunner()->onSkinAfterBottomScripts( $this->getSkin(), $extraHtml );
 		$chunks = [ self::combineWrappedStrings( $chunks ) ];
 		if ( $extraHtml !== '' ) {
 			$chunks[] = $extraHtml;
@@ -3575,22 +3533,13 @@ class OutputPage extends ContextSource {
 	/**
 	 * Get an array containing the variables to be set in mw.config in JavaScript.
 	 *
-	 * Do not add things here which can be evaluated in RL\StartUpModule,
-	 * in other words, page-independent/site-wide variables (without state).
-	 * These would add a blocking HTML cost to page rendering time, and require waiting for
-	 * HTTP caches to expire before configuration changes take effect everywhere.
-	 *
-	 * By default, these are loaded in the HTML head and block page rendering.
-	 * Config variable names can be set in CORE_LATE_JS_CONFIG_VAR_NAMES, or
-	 * for extensions via the 'LateJSConfigVarNames' attribute, to opt-in to
-	 * being sent from the end of the HTML body instead, to improve page load time.
-	 * In JavaScript, late variables should be accessed via mw.hook('wikipage.content').
-	 *
-	 * @param int|null $flag Return only the specified kind of variables: self::JS_VAR_EARLY or self::JS_VAR_LATE.
-	 *   For internal use only.
+	 * Do not add things here which can be evaluated in RL\StartUpModule
+	 * - in other words, page-independent/site-wide variables (without state).
+	 * You will only be adding bloat to the html page and causing page caches to
+	 * have to be purged on configuration changes.
 	 * @return array
 	 */
-	public function getJSVars( ?int $flag = null ) {
+	public function getJSVars() {
 		$curRevisionId = 0;
 		$articleId = 0;
 		$canonicalSpecialPageName = false; # T23115
@@ -3677,7 +3626,6 @@ class OutputPage extends ContextSource {
 		];
 		if ( $user->isRegistered() ) {
 			$vars['wgUserId'] = $user->getId();
-			$vars['wgUserIsTemp'] = $user->isTemp();
 			$vars['wgUserEditCount'] = $user->getEditCount();
 			$userReg = $user->getRegistration();
 			$vars['wgUserRegistration'] = $userReg ? (int)wfTimestamp( TS_UNIX, $userReg ) * 1000 : null;
@@ -3730,22 +3678,7 @@ class OutputPage extends ContextSource {
 		$this->getHookRunner()->onMakeGlobalVariablesScript( $vars, $this );
 
 		// Merge in variables from addJsConfigVars last
-		$vars = array_merge( $vars, $this->getJsConfigVars() );
-
-		// Return only early or late vars if requested
-		if ( $flag !== null ) {
-			$lateVarNames =
-				array_fill_keys( self::CORE_LATE_JS_CONFIG_VAR_NAMES, true ) +
-				array_fill_keys( ExtensionRegistry::getInstance()->getAttribute( 'LateJSConfigVarNames' ), true );
-			foreach ( array_keys( $vars ) as $name ) {
-				// If the variable's late flag doesn't match the requested late flag, unset it
-				if ( isset( $lateVarNames[ $name ] ) !== ( $flag === self::JS_VAR_LATE ) ) {
-					unset( $vars[ $name ] );
-				}
-			}
-		}
-
-		return $vars;
+		return array_merge( $vars, $this->getJsConfigVars() );
 	}
 
 	/**
@@ -3766,6 +3699,7 @@ class OutputPage extends ContextSource {
 		$timestamp = $services
 			->getTalkPageNotificationManager()
 			->getLatestSeenMessageTimestamp( $user );
+
 		if ( !$timestamp ) {
 			return null;
 		}
@@ -3774,7 +3708,12 @@ class OutputPage extends ContextSource {
 			$user->getTalkPage(),
 			$timestamp
 		);
-		return $revRecord ? $revRecord->getId() : null;
+
+		if ( !$revRecord ) {
+			return null;
+		}
+
+		return $revRecord->getId();
 	}
 
 	/**
@@ -3819,6 +3758,8 @@ class OutputPage extends ContextSource {
 	public function getHeadLinksArray() {
 		$tags = [];
 		$config = $this->getConfig();
+
+		$canonicalUrl = $this->mCanonicalUrl;
 
 		$tags['meta-generator'] = Html::element( 'meta', [
 			'name' => 'generator',
@@ -3935,156 +3876,33 @@ class OutputPage extends ContextSource {
 			),
 		] );
 
-		$tags = array_merge(
-			$tags,
-			$this->getHeadLinksCanonicalURLArray( $config ),
-			$this->getHeadLinksAlternateURLsArray(),
-			$this->getHeadLinksCopyrightArray( $config ),
-			$this->getHeadLinksSyndicationArray( $config ),
-		);
-
-		// Allow extensions to add, remove and/or otherwise manipulate these links
-		// If you want only to *add* <head> links, please use the addHeadItem()
-		// (or addHeadItems() for multiple items) method instead.
-		// This hook is provided as a last resort for extensions to modify these
-		// links before the output is sent to client.
-		$this->getHookRunner()->onOutputPageAfterGetHeadLinksArray( $tags, $this );
-
-		return $tags;
-	}
-
-	/**
-	 * Canonical URL and alternate URLs
-	 *
-	 * isCanonicalUrlAction affects all requests where "setArticleRelated" is true.
-	 * This is typically all requests that show content (query title, curid, oldid, diff),
-	 *  and all wikipage actions (edit, delete, purge, info, history etc.).
-	 * It does not apply to file pages and special pages.
-	 * 'history' and 'info' actions address page metadata rather than the page
-	 *  content itself, so they may not be canonicalized to the view page url.
-	 * TODO: this logic should be owned by Action subclasses.
-	 * See T67402
-	 */
-
-	/**
-	 * Get head links relating to the canonical URL
-	 * Note: There should only be one canonical URL.
-	 * @param Config $config
-	 * @return array
-	 */
-	private function getHeadLinksCanonicalURLArray( Config $config ) {
-		$tags = [];
-		$canonicalUrl = $this->mCanonicalUrl;
-
-		if ( $config->get( MainConfigNames::EnableCanonicalServerLink ) ) {
-			$query = [];
-			$action = $this->getContext()->getActionName();
-			$isCanonicalUrlAction = in_array( $action, [ 'history', 'info' ] );
-			$services = MediaWikiServices::getInstance();
-			$languageConverterFactory = $services->getLanguageConverterFactory();
-			$isLangConversionDisabled = $languageConverterFactory->isConversionDisabled();
-			$pageLang = $this->getTitle()->getPageLanguage();
-			$pageLanguageConverter = $languageConverterFactory->getLanguageConverter( $pageLang );
-			$urlVariant = $pageLanguageConverter->getURLVariant();
-
-			if ( $canonicalUrl !== false ) {
-				$canonicalUrl = wfExpandUrl( $canonicalUrl, PROTO_CANONICAL );
-			} elseif ( $this->isArticleRelated() ) {
-				if ( $isCanonicalUrlAction ) {
-					$query['action'] = $action;
-				} elseif ( !$isLangConversionDisabled && $urlVariant ) {
-					# T54429, T108443: Making canonical URL language-variant-aware.
-					$query['variant'] = $urlVariant;
-				}
-				$canonicalUrl = $this->getTitle()->getCanonicalURL( $query );
-			} else {
-				$reqUrl = $this->getRequest()->getRequestURL();
-				$canonicalUrl = wfExpandUrl( $reqUrl, PROTO_CANONICAL );
-			}
-		}
-
-		if ( $canonicalUrl !== false ) {
-			$tags['link-canonical'] = Html::element( 'link', [
-				'rel' => 'canonical',
-				'href' => $canonicalUrl
-			] );
-		}
-
-		return $tags;
-	}
-
-	/**
-	 * Get head links relating to alternate URL(s) in languages including language variants
-	 * Output fully-qualified URL since meta alternate URLs must be fully-qualified
-	 * Per https://developers.google.com/search/docs/advanced/crawling/localized-versions
-	 * See T294716
-	 *
-	 * @return array
-	 */
-	private function getHeadLinksAlternateURLsArray() {
-		$tags = [];
-		$languageUrls = [];
-		$action = $this->getContext()->getActionName();
-		$isCanonicalUrlAction = in_array( $action, [ 'history', 'info' ] );
+		# Language variants
 		$services = MediaWikiServices::getInstance();
 		$languageConverterFactory = $services->getLanguageConverterFactory();
-		$isLangConversionDisabled = $languageConverterFactory->isConversionDisabled();
-		$pageLang = $this->getTitle()->getPageLanguage();
-		$pageLanguageConverter = $languageConverterFactory->getLanguageConverter( $pageLang );
-
-		# Language variants
-		if (
-			$this->isArticleRelated() &&
-			!$isCanonicalUrlAction &&
-			$pageLanguageConverter->hasVariants() &&
-			!$isLangConversionDisabled
-		) {
-			$variants = $pageLanguageConverter->getVariants();
-			foreach ( $variants as $variant ) {
-				$bcp47 = LanguageCode::bcp47( $variant );
-				$languageUrls[$bcp47] = $this->getTitle()
-					->getFullURL( [ 'variant' => $variant ], false, PROTO_CURRENT );
-			}
-		}
-
-		# Alternate URLs for interlanguage links would be handeled in HTML body tag instead of
-		#  head tag, see T326829.
-
-		if ( $languageUrls ) {
-			# Force the alternate URL of page language code to be self.
-			# T123901, T305540, T108443: Override mixed-variant variant link in language variant links.
-			$currentUrl = $this->getTitle()->getFullURL( [], false, PROTO_CURRENT );
-			$pageLangCodeBcp47 = LanguageCode::bcp47( $pageLang->getCode() );
-			$languageUrls[$pageLangCodeBcp47] = $currentUrl;
-
-			ksort( $languageUrls );
-
-			# Also add x-default link per https://support.google.com/webmasters/answer/189077?hl=en
-			$languageUrls['x-default'] = $currentUrl;
-
-			# Process all of language variants and interlanguage links
-			foreach ( $languageUrls as $bcp47 => $languageUrl ) {
-				$bcp47lowercase = strtolower( $bcp47 );
-				$tags['link-alternate-language-' . $bcp47lowercase] = Html::element( 'link', [
+		$disableLangConversion = $languageConverterFactory->isConversionDisabled();
+		if ( !$disableLangConversion ) {
+			$lang = $this->getTitle()->getPageLanguage();
+			$languageConverter = $languageConverterFactory->getLanguageConverter( $lang );
+			if ( $languageConverter->hasVariants() ) {
+				$variants = $languageConverter->getVariants();
+				foreach ( $variants as $variant ) {
+					$tags["variant-$variant"] = Html::element( 'link', [
+						'rel' => 'alternate',
+						'hreflang' => LanguageCode::bcp47( $variant ),
+						'href' => $this->getTitle()->getLocalURL(
+							[ 'variant' => $variant ] )
+						]
+					);
+				}
+				# x-default link per https://support.google.com/webmasters/answer/189077?hl=en
+				$tags["variant-x-default"] = Html::element( 'link', [
 					'rel' => 'alternate',
-					'hreflang' => $bcp47,
-					'href' => $languageUrl,
-				] );
+					'hreflang' => 'x-default',
+					'href' => $this->getTitle()->getLocalURL() ] );
 			}
 		}
 
-		return $tags;
-	}
-
-	/**
-	 * Get head links relating to copyright
-	 *
-	 * @param Config $config
-	 * @return array
-	 */
-	private function getHeadLinksCopyrightArray( Config $config ) {
-		$tags = [];
-
+		# Copyright
 		if ( $this->copyrightUrl !== null ) {
 			$copyright = $this->copyrightUrl;
 		} else {
@@ -4105,79 +3923,107 @@ class OutputPage extends ContextSource {
 		if ( $copyright ) {
 			$tags['copyright'] = Html::element( 'link', [
 				'rel' => 'license',
-				'href' => $copyright
-			] );
-		}
-
-		return $tags;
-	}
-
-	/**
-	 * Get head links relating to syndication feeds.
-	 *
-	 * @param Config $config
-	 * @return array
-	 */
-	private function getHeadLinksSyndicationArray( Config $config ) {
-		if ( !$config->get( MainConfigNames::Feed ) ) {
-			return [];
-		}
-
-		$tags = [];
-		$feedLinks = [];
-
-		foreach ( $this->getSyndicationLinks() as $format => $link ) {
-			# Use the page name for the title.  In principle, this could
-			# lead to issues with having the same name for different feeds
-			# corresponding to the same page, but we can't avoid that at
-			# this low a level.
-
-			$feedLinks[] = $this->feedLink(
-				$format,
-				$link,
-				# Used messages: 'page-rss-feed' and 'page-atom-feed' (for an easier grep)
-				$this->msg(
-					"page-{$format}-feed", $this->getTitle()->getPrefixedText()
-				)->text()
+				'href' => $copyright ]
 			);
 		}
 
-		# Recent changes feed should appear on every page (except recentchanges,
-		# that would be redundant). Put it after the per-page feed to avoid
-		# changing existing behavior. It's still available, probably via a
-		# menu in your browser. Some sites might have a different feed they'd
-		# like to promote instead of the RC feed (maybe like a "Recent New Articles"
-		# or "Breaking news" one). For this, we see if $wgOverrideSiteFeed is defined.
-		# If so, use it instead.
-		$sitename = $config->get( MainConfigNames::Sitename );
-		$overrideSiteFeed = $config->get( MainConfigNames::OverrideSiteFeed );
-		if ( $overrideSiteFeed ) {
-			foreach ( $overrideSiteFeed as $type => $feedUrl ) {
-				// Note, this->feedLink escapes the url.
-				$feedLinks[] = $this->feedLink(
-					$type,
-					$feedUrl,
-					$this->msg( "site-{$type}-feed", $sitename )->text()
-				);
-			}
-		} elseif ( !$this->getTitle()->isSpecial( 'Recentchanges' ) ) {
-			$rctitle = SpecialPage::getTitleFor( 'Recentchanges' );
-			foreach ( $this->getAdvertisedFeedTypes() as $format ) {
+		# Feeds
+		if ( $config->get( MainConfigNames::Feed ) ) {
+			$feedLinks = [];
+
+			foreach ( $this->getSyndicationLinks() as $format => $link ) {
+				# Use the page name for the title.  In principle, this could
+				# lead to issues with having the same name for different feeds
+				# corresponding to the same page, but we can't avoid that at
+				# this low a level.
+
 				$feedLinks[] = $this->feedLink(
 					$format,
-					$rctitle->getLocalURL( [ 'feed' => $format ] ),
-					# For grep: 'site-rss-feed', 'site-atom-feed'
-					$this->msg( "site-{$format}-feed", $sitename )->text()
+					$link,
+					# Used messages: 'page-rss-feed' and 'page-atom-feed' (for an easier grep)
+					$this->msg(
+						"page-{$format}-feed", $this->getTitle()->getPrefixedText()
+					)->text()
 				);
 			}
+
+			# Recent changes feed should appear on every page (except recentchanges,
+			# that would be redundant). Put it after the per-page feed to avoid
+			# changing existing behavior. It's still available, probably via a
+			# menu in your browser. Some sites might have a different feed they'd
+			# like to promote instead of the RC feed (maybe like a "Recent New Articles"
+			# or "Breaking news" one). For this, we see if $wgOverrideSiteFeed is defined.
+			# If so, use it instead.
+			$sitename = $config->get( MainConfigNames::Sitename );
+			$overrideSiteFeed = $config->get( MainConfigNames::OverrideSiteFeed );
+			if ( $overrideSiteFeed ) {
+				foreach ( $overrideSiteFeed as $type => $feedUrl ) {
+					// Note, this->feedLink escapes the url.
+					$feedLinks[] = $this->feedLink(
+						$type,
+						$feedUrl,
+						$this->msg( "site-{$type}-feed", $sitename )->text()
+					);
+				}
+			} elseif ( !$this->getTitle()->isSpecial( 'Recentchanges' ) ) {
+				$rctitle = SpecialPage::getTitleFor( 'Recentchanges' );
+				foreach ( $this->getAdvertisedFeedTypes() as $format ) {
+					$feedLinks[] = $this->feedLink(
+						$format,
+						$rctitle->getLocalURL( [ 'feed' => $format ] ),
+						# For grep: 'site-rss-feed', 'site-atom-feed'
+						$this->msg( "site-{$format}-feed", $sitename )->text()
+					);
+				}
+			}
+
+			# Allow extensions to change the list pf feeds. This hook is primarily for changing,
+			# manipulating or removing existing feed tags. If you want to add new feeds, you should
+			# use OutputPage::addFeedLink() instead.
+			$this->getHookRunner()->onAfterBuildFeedLinks( $feedLinks );
+
+			$tags += $feedLinks;
 		}
 
-		# Allow extensions to change the list pf feeds. This hook is primarily for changing,
-		# manipulating or removing existing feed tags. If you want to add new feeds, you should
-		# use OutputPage::addFeedLink() instead.
-		$this->getHookRunner()->onAfterBuildFeedLinks( $feedLinks );
+		# Canonical URL
+		if ( $config->get( MainConfigNames::EnableCanonicalServerLink ) ) {
+			if ( $canonicalUrl !== false ) {
+				$canonicalUrl = wfExpandUrl( $canonicalUrl, PROTO_CANONICAL );
+			} elseif ( $this->isArticleRelated() ) {
+				// This affects all requests where "setArticleRelated" is true. This is
+				// typically all requests that show content (query title, curid, oldid, diff),
+				// and all wikipage actions (edit, delete, purge, info, history etc.).
+				// It does not apply to File pages and Special pages.
+				//
+				// 'history' and 'info' actions address page metadata rather than the page
+				// content itself, so they may not be canonicalized to the view page url.
+				//
+				// TODO: this logic should be owned by Action subclasses.
+				$action = $this->getContext()->getActionName();
+				if ( in_array( $action, [ 'history', 'info' ] ) ) {
+					$query = "action={$action}";
+				} else {
+					$query = '';
+				}
+				$canonicalUrl = $this->getTitle()->getCanonicalURL( $query );
+			} else {
+				$reqUrl = $this->getRequest()->getRequestURL();
+				$canonicalUrl = wfExpandUrl( $reqUrl, PROTO_CANONICAL );
+			}
+		}
+		if ( $canonicalUrl !== false ) {
+			$tags[] = Html::element( 'link', [
+				'rel' => 'canonical',
+				'href' => $canonicalUrl
+			] );
+		}
 
-		$tags += $feedLinks;
+		// Allow extensions to add, remove and/or otherwise manipulate these links
+		// If you want only to *add* <head> links, please use the addHeadItem()
+		// (or addHeadItems() for multiple items) method instead.
+		// This hook is provided as a last resort for extensions to modify these
+		// links before the output is sent to client.
+		$this->getHookRunner()->onOutputPageAfterGetHeadLinksArray( $tags, $this );
 
 		return $tags;
 	}
@@ -4267,7 +4113,7 @@ class OutputPage extends ContextSource {
 		// Things that go after the ResourceLoaderDynamicStyles marker
 		$append = [];
 		$separateReq = [ 'site.styles', 'user.styles' ];
-		foreach ( $this->rlExemptStyleModules as $moduleNames ) {
+		foreach ( $this->rlExemptStyleModules as $group => $moduleNames ) {
 			if ( $moduleNames ) {
 				$append[] = $this->makeResourceLoaderLink(
 					array_diff( $moduleNames, $separateReq ),
@@ -4613,6 +4459,7 @@ class OutputPage extends ContextSource {
 		$tail = [
 			MWDebug::getDebugHTML( $skin ),
 			$this->getBottomScripts(),
+			wfReportTime( $this->getCSP()->getNonce() ),
 			MWDebug::getHTMLDebugLog(),
 			Html::closeElement( 'body' ),
 			Html::closeElement( 'html' ),

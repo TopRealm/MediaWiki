@@ -1,9 +1,6 @@
 <?php
 
-use MediaWiki\Linker\Linker;
 use MediaWiki\MainConfigNames;
-use MediaWiki\Permissions\SimpleAuthority;
-use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentityValue;
 
 /**
@@ -270,113 +267,30 @@ class LogFormatterTest extends MediaWikiLangTestCase {
 
 	/**
 	 * @covers LogFormatter::getPerformerElement
-	 * @dataProvider provideLogElement
 	 */
-	public function testGetPerformerElement( $deletedFlag, $allowedAction ) {
+	public function testGetPerformerElement() {
 		$entry = $this->newLogEntry( 'param', [] );
 		$entry->setPerformer( new UserIdentityValue( 1328435, 'Test' ) );
-		if ( $deletedFlag !== 'none' ) {
-			$entry->setDeleted(
-				LogPage::DELETED_USER |
-					( $deletedFlag === 'suppressed' ? LogPage::DELETED_RESTRICTED : 0 )
-			);
-		}
-
-		$context = new DerivativeContext( $this->context );
-		if ( $allowedAction !== 'none' ) {
-			$context->setAuthority( new SimpleAuthority(
-				$this->context->getUser(),
-				[ $deletedFlag === 'suppressed' ? 'suppressrevision' : 'deletedhistory' ]
-			) );
-		}
 
 		$formatter = LogFormatter::newFromEntry( $entry );
-		$formatter->setContext( $context );
-		if ( $allowedAction === 'view-for-user' ) {
-			$formatter->setAudience( LogFormatter::FOR_THIS_USER );
-		}
+		$formatter->setContext( $this->context );
 
 		$element = $formatter->getPerformerElement();
-		if ( $allowedAction === 'none' ||
-			( $deletedFlag !== 'none' && $allowedAction === 'view-public' )
-		) {
-			$this->assertStringNotContainsString( 'User:Test', $element );
-		} else {
-			$this->assertStringContainsString( 'User:Test', $element );
-		}
-
-		if ( $deletedFlag === 'none' ) {
-			$this->assertStringNotContainsString( 'history-deleted', $element );
-		} else {
-			$this->assertStringContainsString( 'history-deleted', $element );
-		}
-		if ( $deletedFlag === 'suppressed' ) {
-			$this->assertStringContainsString( 'mw-history-suppressed', $element );
-		} else {
-			$this->assertStringNotContainsString( 'mw-history-suppressed', $element );
-		}
+		$this->assertStringContainsString( 'User:Test', $element );
 	}
 
 	/**
 	 * @covers LogFormatter::newFromEntry
 	 * @covers LogFormatter::getComment
-	 * @dataProvider provideLogElement
 	 */
-	public function testLogComment( $deletedFlag, $allowedAction ) {
+	public function testLogComment() {
 		$entry = $this->newLogEntry( 'test', [] );
-		if ( $deletedFlag !== 'none' ) {
-			$entry->setDeleted(
-				LogPage::DELETED_COMMENT |
-					( $deletedFlag === 'suppressed' ? LogPage::DELETED_RESTRICTED : 0 )
-			);
-		}
-
-		$context = new DerivativeContext( $this->context );
-		if ( $allowedAction !== 'none' ) {
-			$context->setAuthority( new SimpleAuthority(
-				$this->context->getUser(),
-				[ $deletedFlag === 'suppressed' ? 'suppressrevision' : 'deletedhistory' ]
-			) );
-		}
-
 		$formatter = LogFormatter::newFromEntry( $entry );
-		$formatter->setContext( $context );
-		if ( $allowedAction === 'view-for-user' ) {
-			$formatter->setAudience( LogFormatter::FOR_THIS_USER );
-		}
+		$formatter->setContext( $this->context );
 
-		$expectedComment = ltrim( $this->getServiceContainer()->getCommentFormatter()->formatBlock( $entry->getComment() ) );
-		$comment = $formatter->getComment();
+		$comment = ltrim( Linker::commentBlock( $entry->getComment() ) );
 
-		if ( $allowedAction === 'none' ||
-			( $deletedFlag !== 'none' && $allowedAction === 'view-public' )
-		) {
-			$this->assertStringNotContainsString( $expectedComment, $comment );
-		} else {
-			$this->assertStringContainsString( $expectedComment, $comment );
-		}
-		if ( $deletedFlag === 'none' ) {
-			$this->assertStringNotContainsString( 'history-deleted', $comment );
-		} else {
-			$this->assertStringContainsString( 'history-deleted', $comment );
-		}
-		if ( $deletedFlag === 'suppressed' ) {
-			$this->assertStringContainsString( 'mw-history-suppressed', $comment );
-		} else {
-			$this->assertStringNotContainsString( 'mw-history-suppressed', $comment );
-		}
-	}
-
-	public function provideLogElement() {
-		return [
-			[ 'none', 'view' ],
-			[ 'deleted', 'none' ],
-			[ 'deleted', 'view-for-user' ],
-			[ 'deleted', 'view-public' ],
-			[ 'suppressed', 'none' ],
-			[ 'suppressed', 'view-for-user' ],
-			[ 'suppressed', 'view-public' ],
-		];
+		$this->assertEquals( $comment, $formatter->getComment() );
 	}
 
 	/**

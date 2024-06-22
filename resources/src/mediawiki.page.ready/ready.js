@@ -57,7 +57,6 @@ $( function () {
 	 * in an unwanted zoom on mobile devices. To avoid this we check innerWidth and set the initial-scale
 	 * on the client where needed. The width must be synced with the value in Skin::initPage.
 	 * More information on this bug in [[phab:T311795]].
-	 *
 	 * @ignore
 	 */
 	function fixViewportForTabletDevices() {
@@ -66,9 +65,7 @@ $( function () {
 		var scale = window.outerWidth / window.innerWidth;
 		// This adjustment is limited to tablet devices. It must be a non-zero value to work.
 		// (these values correspond to @width-breakpoint-tablet and @width-breakpoint-desktop
-		if ( window.innerWidth >= 720 && window.innerWidth <= 1000 &&
-			content && content.indexOf( 'initial-scale' ) === -1
-		) {
+		if ( window.innerWidth >= 720 && window.innerWidth <= 1000 && content.indexOf( 'initial-scale' ) === -1 ) {
 			// Note: If the value is 1 the font-size adjust feature will not work on iPad
 			$viewport.attr( 'content', 'width=1000,initial-scale=' + scale );
 		}
@@ -152,41 +149,19 @@ $( function () {
 		e.preventDefault();
 	} );
 
-	var $permanentLink = $( '#t-permalink a' );
-	function updatePermanentLinkHash() {
-		if ( mw.util.getTargetFromFragment() ) {
-			$permanentLink[ 0 ].hash = location.hash;
-		} else {
-			$permanentLink[ 0 ].hash = '';
-		}
-	}
-	if ( $permanentLink.length ) {
-		$( window ).on( 'hashchange', updatePermanentLinkHash );
-		updatePermanentLinkHash();
-	}
-
-	/**
-	 * Fired when a trusted UI element to perform a logout has been activated.
-	 *
-	 * This will end the user session, and either redirect to the given URL
-	 * on success, or queue an error message via mw.notification.
-	 *
-	 * @event skin_logout
-	 * @member mw.hook
-	 * @param {string} href Full URL
-	 */
-	var LOGOUT_EVENT = 'skin.logout';
-	function logoutViaPost( href ) {
+	// Turn logout to a POST action
+	$( config.selectorLogoutLink ).on( 'click', function ( e ) {
 		mw.notify(
 			mw.message( 'logging-out-notify' ),
 			{ tag: 'logout', autoHide: false }
 		);
 		var api = new mw.Api();
+		var url = this.href;
 		api.postWithToken( 'csrf', {
 			action: 'logout'
 		} ).then(
 			function () {
-				location.href = href;
+				location.href = url;
 			},
 			function ( err, data ) {
 				mw.notify(
@@ -195,11 +170,6 @@ $( function () {
 				);
 			}
 		);
-	}
-	// Turn logout to a POST action
-	mw.hook( LOGOUT_EVENT ).add( logoutViaPost );
-	$( config.selectorLogoutLink ).on( 'click', function ( e ) {
-		mw.hook( LOGOUT_EVENT ).fire( this.href );
 		e.preventDefault();
 	} );
 	fixViewportForTabletDevices();

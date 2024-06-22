@@ -20,7 +20,6 @@
  * @file
  */
 
-use MediaWiki\Title\Title;
 use Wikimedia\ParamValidator\ParamValidator;
 
 /**
@@ -271,7 +270,7 @@ class ApiFormatXml extends ApiFormatBase {
 
 			return;
 		}
-		if ( !str_ends_with( $nt->getText(), '.xsl' ) ) {
+		if ( substr( $nt->getText(), -4 ) !== '.xsl' ) {
 			$this->addWarning( 'apiwarn-invalidxmlstylesheetext' );
 
 			return;

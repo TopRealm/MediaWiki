@@ -18,8 +18,6 @@
  * @file
  */
 
-use MediaWiki\Html\Html;
-
 /**
  * A form field that contains a radio box in the label
  */

@@ -1,33 +1,250 @@
-QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
-	beforeEach: function () {
-		this.liveMonths = mw.language.months;
-		mw.language.months = {
-			keys: {
-				names: [ 'january', 'february', 'march', 'april', 'may_long', 'june',
-					'july', 'august', 'september', 'october', 'november', 'december' ],
-				genitive: [ 'january-gen', 'february-gen', 'march-gen', 'april-gen', 'may-gen', 'june-gen',
-					'july-gen', 'august-gen', 'september-gen', 'october-gen', 'november-gen', 'december-gen' ],
-				abbrev: [ 'jan', 'feb', 'mar', 'apr', 'may', 'jun',
-					'jul', 'aug', 'sep', 'oct', 'nov', 'dec' ]
-			},
-			names: [ 'January', 'February', 'March', 'April', 'May', 'June',
-				'July', 'August', 'September', 'October', 'November', 'December' ],
-			genitive: [ 'January', 'February', 'March', 'April', 'May', 'June',
-				'July', 'August', 'September', 'October', 'November', 'December' ],
-			abbrev: [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-				'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ]
-		};
-	},
-	afterEach: function () {
-		mw.language.months = this.liveMonths;
-	},
-	config: {
-		wgDefaultDateFormat: 'dmy',
-		wgSeparatorTransformTable: [ '', '' ],
-		wgDigitTransformTable: [ '', '' ],
-		wgPageContentLanguage: 'en'
-	}
-} ), function () {
+( function () {
+	var planetHeader = [ 'Planet', 'Radius (km)' ],
+
+		// Data set "planets"
+		mercury = [ 'Mercury', '2439.7' ],
+		venus = [ 'Venus', '6051.8' ],
+		earth = [ 'Earth', '6371.0' ],
+		mars = [ 'Mars', '3390.0' ],
+		jupiter = [ 'Jupiter', '69911' ],
+		saturn = [ 'Saturn', '58232' ],
+		planets = [ mercury, venus, earth, mars, jupiter, saturn ],
+		planetsAscName = [ earth, jupiter, mars, mercury, saturn, venus ],
+		planetsAscRadius = [ mercury, mars, venus, earth, saturn, jupiter ],
+		planetsTotal = [ [ 'total', '146395.5' ] ],
+		planetsRowspan,
+		planetsRowspanII,
+
+		// Data set "simple"
+		a1 = [ 'A', '1' ],
+		a2 = [ 'A', '2' ],
+		a3 = [ 'A', '3' ],
+		b1 = [ 'B', '1' ],
+		b2 = [ 'B', '2' ],
+		b3 = [ 'B', '3' ],
+		simple = [ a2, b3, a1, a3, b2, b1 ],
+		simpleAsc = [ a1, a2, a3, b1, b2, b3 ],
+		simpleDescasc = [ b1, b2, b3, a1, a2, a3 ],
+
+		// Data set "colspan"
+		header4 = [ 'column1a', 'column1b', 'column1c', 'column2' ],
+		aaa1 = [ 'A', 'A', 'A', '1' ],
+		aab5 = [ 'A', 'A', 'B', '5' ],
+		abc3 = [ 'A', 'B', 'C', '3' ],
+		bbc2 = [ 'B', 'B', 'C', '2' ],
+		caa4 = [ 'C', 'A', 'A', '4' ],
+		colspanInitial = [ aab5, aaa1, abc3, bbc2, caa4 ],
+
+		// Data set "ipv4"
+		ipv4 = [
+			// Some randomly generated fake IPs
+			[ '45.238.27.109' ],
+			[ '44.172.9.22' ],
+			[ '247.240.82.209' ],
+			[ '204.204.132.158' ],
+			[ '170.38.91.162' ],
+			[ '197.219.164.9' ],
+			[ '45.68.154.72' ],
+			[ '182.195.149.80' ]
+		],
+		ipv4Sorted = [
+			// Sort order should go octet by octet
+			[ '44.172.9.22' ],
+			[ '45.68.154.72' ],
+			[ '45.238.27.109' ],
+			[ '170.38.91.162' ],
+			[ '182.195.149.80' ],
+			[ '197.219.164.9' ],
+			[ '204.204.132.158' ],
+			[ '247.240.82.209' ]
+		],
+
+		// Data set "umlaut"
+		umlautWords = [
+			[ 'Günther' ],
+			[ 'Peter' ],
+			[ 'Björn' ],
+			[ 'ä' ],
+			[ 'z' ],
+			[ 'Bjorn' ],
+			[ 'BjÖrn' ],
+			[ 'apfel' ],
+			[ 'Apfel' ],
+			[ 'Äpfel' ],
+			[ 'Strasse' ],
+			[ 'Sträßschen' ]
+		],
+		umlautWordsSortedEn = [
+			[ 'ä' ],
+			[ 'Äpfel' ],
+			[ 'apfel' ],
+			[ 'Apfel' ],
+			[ 'Björn' ],
+			[ 'BjÖrn' ],
+			[ 'Bjorn' ],
+			[ 'Günther' ],
+			[ 'Peter' ],
+			[ 'Sträßschen' ],
+			[ 'Strasse' ],
+			[ 'z' ]
+		],
+		umlautWordsSortedSv = [
+			[ 'apfel' ],
+			[ 'Apfel' ],
+			[ 'Bjorn' ],
+			[ 'Björn' ],
+			[ 'BjÖrn' ],
+			[ 'Günther' ],
+			[ 'Peter' ],
+			[ 'Strasse' ],
+			[ 'Sträßschen' ],
+			[ 'z' ],
+			[ 'ä' ], // ä sorts after z in Swedish
+			[ 'Äpfel' ]
+		],
+
+		// Data set "digraph"
+		digraphWords = [
+			[ 'London' ],
+			[ 'Ljubljana' ],
+			[ 'Luxembourg' ],
+			[ 'Njivice' ],
+			[ 'Norwich' ],
+			[ 'New York' ]
+		],
+		digraphWordsSorted = [
+			[ 'London' ],
+			[ 'Luxembourg' ],
+			[ 'Ljubljana' ],
+			[ 'New York' ],
+			[ 'Norwich' ],
+			[ 'Njivice' ]
+		],
+
+		complexMDYDates = [
+			[ 'January, 19 2010' ],
+			[ 'April 21 1991' ],
+			[ '04 22 1991' ],
+			[ '5.12.1990' ],
+			[ 'December 12 \'10' ]
+		],
+		complexMDYSorted = [
+			[ '5.12.1990' ],
+			[ 'April 21 1991' ],
+			[ '04 22 1991' ],
+			[ 'January, 19 2010' ],
+			[ 'December 12 \'10' ]
+		],
+
+		currencyUnsorted = [
+			[ '1.02 $' ],
+			[ '$ 3.00' ],
+			[ '€ 2,99' ],
+			[ '$ 1.00' ],
+			[ '$3.50' ],
+			[ '$ 1.50' ],
+			[ '€ 0.99' ]
+		],
+		currencySorted = [
+			[ '€ 0.99' ],
+			[ '$ 1.00' ],
+			[ '1.02 $' ],
+			[ '$ 1.50' ],
+			[ '$ 3.00' ],
+			[ '$3.50' ],
+			// Commas sort after dots
+			// Not intentional but test to detect changes
+			[ '€ 2,99' ]
+		],
+
+		numbers = [
+			[ '12' ],
+			[ '7' ],
+			[ '13,000' ],
+			[ '9' ],
+			[ '14' ],
+			[ '8.0' ]
+		],
+		numbersAsc = [
+			[ '7' ],
+			[ '8.0' ],
+			[ '9' ],
+			[ '12' ],
+			[ '14' ],
+			[ '13,000' ]
+		],
+
+		correctDateSorting1 = [
+			[ '01 January 2010' ],
+			[ '05 February 2010' ],
+			[ '16 January 2010' ]
+		],
+		correctDateSortingSorted1 = [
+			[ '01 January 2010' ],
+			[ '16 January 2010' ],
+			[ '05 February 2010' ]
+		],
+
+		correctDateSorting2 = [
+			[ 'January 01 2010' ],
+			[ 'February 05 2010' ],
+			[ 'January 16 2010' ]
+		],
+		correctDateSortingSorted2 = [
+			[ 'January 01 2010' ],
+			[ 'January 16 2010' ],
+			[ 'February 05 2010' ]
+		],
+		isoDateSorting = [
+			[ '2010-02-01' ],
+			[ '2009-12-25T12:30:45.001Z' ],
+			[ '2010-01-31' ],
+			[ '2009' ],
+			[ '2009-12-25T12:30:45' ],
+			[ '2009-12-25T12:30:45.111' ],
+			[ '2009-12-25T12:30:45+01:00' ]
+		],
+		isoDateSortingSorted = [
+			[ '2009' ],
+			[ '2009-12-25T12:30:45+01:00' ],
+			[ '2009-12-25T12:30:45' ],
+			[ '2009-12-25T12:30:45.001Z' ],
+			[ '2009-12-25T12:30:45.111' ],
+			[ '2010-01-31' ],
+			[ '2010-02-01' ]
+		];
+
+	QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
+		beforeEach: function () {
+			this.liveMonths = mw.language.months;
+			mw.language.months = {
+				keys: {
+					names: [ 'january', 'february', 'march', 'april', 'may_long', 'june',
+						'july', 'august', 'september', 'october', 'november', 'december' ],
+					genitive: [ 'january-gen', 'february-gen', 'march-gen', 'april-gen', 'may-gen', 'june-gen',
+						'july-gen', 'august-gen', 'september-gen', 'october-gen', 'november-gen', 'december-gen' ],
+					abbrev: [ 'jan', 'feb', 'mar', 'apr', 'may', 'jun',
+						'jul', 'aug', 'sep', 'oct', 'nov', 'dec' ]
+				},
+				names: [ 'January', 'February', 'March', 'April', 'May', 'June',
+					'July', 'August', 'September', 'October', 'November', 'December' ],
+				genitive: [ 'January', 'February', 'March', 'April', 'May', 'June',
+					'July', 'August', 'September', 'October', 'November', 'December' ],
+				abbrev: [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+					'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ]
+			};
+		},
+		afterEach: function () {
+			mw.language.months = this.liveMonths;
+		},
+		config: {
+			wgDefaultDateFormat: 'dmy',
+			wgSeparatorTransformTable: [ '', '' ],
+			wgDigitTransformTable: [ '', '' ],
+			wgPageContentLanguage: 'en'
+		}
+	} ) );
+
 	/**
 	 * Create an HTML table from an array of row arrays containing text strings.
 	 * First row will be header row. No fancy rowspan/colspan stuff.
@@ -69,14 +286,39 @@ QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
 	function tableExtract( $table ) {
 		var data = [];
 
-		$table.find( 'tbody tr' ).each( function ( i, tr ) {
+		$table.find( 'tbody' ).find( 'tr' ).each( function ( i, tr ) {
 			var row = [];
-			$( tr ).find( 'td, th' ).each( function ( j, td ) {
+			$( tr ).find( 'td,th' ).each( function ( j, td ) {
 				row.push( $( td ).text() );
 			} );
 			data.push( row );
 		} );
 		return data;
+	}
+
+	/**
+	 * Run a table test by building a table with the given data,
+	 * running some callback on it, then checking the results.
+	 *
+	 * @param {string} msg text to pass on to qunit for the comparison
+	 * @param {string[]} header cols to make the table
+	 * @param {string[][]} data rows/cols to make the table
+	 * @param {string[][]} expected rows/cols to compare against at end
+	 * @param {Function} callback Callback on $table before we compare
+	 */
+	function tableTest( msg, header, data, expected, callback ) {
+		QUnit.test( msg, function ( assert ) {
+			var extracted,
+				$table = tableCreate( header, data );
+
+			// Give caller a chance to set up sorting and manipulate the table.
+			callback( $table );
+
+			// Table sorting is done synchronously; if it ever needs to change back
+			// to asynchronous, we'll need a timeout or a callback here.
+			extracted = tableExtract( $table );
+			assert.deepEqual( extracted, expected, msg );
+		} );
 	}
 
 	/**
@@ -90,9 +332,10 @@ QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
 	 */
 	function tableTestHTML( msg, html, expected, callback ) {
 		QUnit.test( msg, function ( assert ) {
-			var $table = $( html );
+			var extracted,
+				$table = $( html );
 
-			// Let caller manipulate the table and setup sorting
+			// Give caller a chance to set up sorting and manipulate the table.
 			if ( callback ) {
 				callback( $table );
 			} else {
@@ -102,7 +345,7 @@ QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
 
 			// Table sorting is done synchronously; if it ever needs to change back
 			// to asynchronous, we'll need a timeout or a callback here.
-			var extracted = tableExtract( $table );
+			extracted = tableExtract( $table );
 			assert.deepEqual( extracted, expected, msg );
 		} );
 	}
@@ -110,146 +353,128 @@ QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
 	function reversed( arr ) {
 		// Clone array
 		var arr2 = arr.slice( 0 );
+
 		arr2.reverse();
+
 		return arr2;
 	}
 
-	// Data set "planets"
-	var planetHeader = [ 'Planet', 'Radius (km)' ];
-	var mercury = [ 'Mercury', '2439.7' ];
-	var venus = [ 'Venus', '6051.8' ];
-	var earth = [ 'Earth', '6371.0' ];
-	var mars = [ 'Mars', '3390.0' ];
-	var jupiter = [ 'Jupiter', '69911' ];
-	var saturn = [ 'Saturn', '58232' ];
-	var planets = [ mercury, venus, earth, mars, jupiter, saturn ];
-	var planetsAscName = [ earth, jupiter, mars, mercury, saturn, venus ];
-	var planetsAscRadius = [ mercury, mars, venus, earth, saturn, jupiter ];
-	var planetsTotal = [ [ 'total', '146395.5' ] ];
+	// Sample data set using planets named and their radius
 
-	// Data set "simple"
-	var a1 = [ 'A', '1' ];
-	var a2 = [ 'A', '2' ];
-	var a3 = [ 'A', '3' ];
-	var b1 = [ 'B', '1' ];
-	var b2 = [ 'B', '2' ];
-	var b3 = [ 'B', '3' ];
-	var simple = [ a2, b3, a1, a3, b2, b1 ];
-	var simpleAsc = [ a1, a2, a3, b1, b2, b3 ];
-	var simpleDescasc = [ b1, b2, b3, a1, a2, a3 ];
-
-	QUnit.test(
-		'Planets: initial sort ascending by name',
-		function ( assert ) {
-			var $table = tableCreate( planetHeader, planets );
+	tableTest(
+		'Basic planet table: sorting initially - ascending by name',
+		planetHeader,
+		planets,
+		planetsAscName,
+		function ( $table ) {
 			$table.tablesorter( { sortList: [
 				{ 0: 'asc' }
 			] } );
-
-			assert.deepEqual( tableExtract( $table ), planetsAscName );
 		}
 	);
-	QUnit.test(
-		'Planets: initial sort descending by radius',
-		function ( assert ) {
-			var $table = tableCreate( planetHeader, planets );
+	tableTest(
+		'Basic planet table: sorting initially - descending by radius',
+		planetHeader,
+		planets,
+		reversed( planetsAscRadius ),
+		function ( $table ) {
 			$table.tablesorter( { sortList: [
 				{ 1: 'desc' }
 			] } );
-
-			assert.deepEqual( tableExtract( $table ), reversed( planetsAscRadius ) );
 		}
 	);
-	QUnit.test(
-		'Planets: ascending by name',
-		function ( assert ) {
-			var $table = tableCreate( planetHeader, planets );
+	tableTest(
+		'Basic planet table: ascending by name',
+		planetHeader,
+		planets,
+		planetsAscName,
+		function ( $table ) {
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), planetsAscName );
 		}
 	);
-	QUnit.test(
-		'Planets: ascending by name (again)',
-		function ( assert ) {
-			var $table = tableCreate( planetHeader, planets );
+	tableTest(
+		'Basic planet table: ascending by name a second time',
+		planetHeader,
+		planets,
+		planetsAscName,
+		function ( $table ) {
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), planetsAscName );
 		}
 	);
-	QUnit.test(
-		'Planets: ascending by name (multiple clicks)',
-		function ( assert ) {
-			var $table = tableCreate( planetHeader, planets );
+	tableTest(
+		'Basic planet table: ascending by name (multiple clicks)',
+		planetHeader,
+		planets,
+		planetsAscName,
+		function ( $table ) {
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' );
 			$table.find( '.headerSort' ).eq( 1 ).trigger( 'click' );
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), planetsAscName );
 		}
 	);
-	QUnit.test(
-		'Planets: descending by name',
-		function ( assert ) {
-			var $table = tableCreate( planetHeader, planets );
+	tableTest(
+		'Basic planet table: descending by name',
+		planetHeader,
+		planets,
+		reversed( planetsAscName ),
+		function ( $table ) {
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), reversed( planetsAscName ) );
 		}
 	);
-	QUnit.test(
-		'Planets: return to initial sort',
-		function ( assert ) {
-			var $table = tableCreate( planetHeader, planets );
+	tableTest(
+		'Basic planet table: return to initial sort',
+		planetHeader,
+		planets,
+		planets,
+		function ( $table ) {
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' ).trigger( 'click' ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), planets );
 		}
 	);
-	QUnit.test(
-		'Planets: ascending radius',
-		function ( assert ) {
-			var $table = tableCreate( planetHeader, planets );
+	tableTest(
+		'Basic planet table: ascending radius',
+		planetHeader,
+		planets,
+		planetsAscRadius,
+		function ( $table ) {
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 1 ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), planetsAscRadius );
 		}
 	);
-	QUnit.test(
-		'Planets: descending radius',
-		function ( assert ) {
-			var $table = tableCreate( planetHeader, planets );
+	tableTest(
+		'Basic planet table: descending radius',
+		planetHeader,
+		planets,
+		reversed( planetsAscRadius ),
+		function ( $table ) {
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 1 ).trigger( 'click' ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), reversed( planetsAscRadius ) );
 		}
 	);
-	QUnit.test(
+	tableTest(
 		'Sorting multiple columns by passing sort list',
-		function ( assert ) {
-			var $table = tableCreate( planetHeader, simple );
+		planetHeader,
+		simple,
+		simpleAsc,
+		function ( $table ) {
 			$table.tablesorter(
 				{ sortList: [
 					{ 0: 'asc' },
 					{ 1: 'asc' }
 				] }
 			);
-
-			assert.deepEqual( tableExtract( $table ), simpleAsc );
 		}
 	);
-	QUnit.test(
+	tableTest(
 		'Sorting multiple columns by programmatically triggering sort()',
-		function ( assert ) {
-			var $table = tableCreate( planetHeader, simple );
+		planetHeader,
+		simple,
+		simpleDescasc,
+		function ( $table ) {
 			$table.tablesorter();
 			$table.data( 'tablesorter' ).sort(
 				[
@@ -257,14 +482,14 @@ QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
 					{ 1: 'asc' }
 				]
 			);
-
-			assert.deepEqual( tableExtract( $table ), simpleDescasc );
 		}
 	);
-	QUnit.test(
+	tableTest(
 		'Reset to initial sorting by triggering sort() without any parameters',
-		function ( assert ) {
-			var $table = tableCreate( planetHeader, simple );
+		planetHeader,
+		simple,
+		simpleAsc,
+		function ( $table ) {
 			$table.tablesorter(
 				{ sortList: [
 					{ 0: 'asc' },
@@ -278,26 +503,27 @@ QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
 				]
 			);
 			$table.data( 'tablesorter' ).sort();
-
-			assert.deepEqual( tableExtract( $table ), simpleAsc );
 		}
 	);
-	QUnit.test(
+	tableTest(
 		'Sort via click event after having initialized the tablesorter with initial sorting',
-		function ( assert ) {
-			var $table = tableCreate( planetHeader, simple );
+		planetHeader,
+		simple,
+		simpleDescasc,
+		function ( $table ) {
 			$table.tablesorter(
 				{ sortList: [ { 0: 'asc' }, { 1: 'asc' } ] }
 			);
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), simpleDescasc );
 		}
 	);
-	QUnit.test(
+	tableTest(
 		'Multi-sort via click event after having initialized the tablesorter with initial sorting',
-		function ( assert ) {
-			var $table = tableCreate( planetHeader, simple );
+		planetHeader,
+		simple,
+		simpleAsc,
+		function ( $table ) {
+			var event;
 			$table.tablesorter(
 				{ sortList: [ { 0: 'desc' }, { 1: 'desc' } ] }
 			);
@@ -307,11 +533,9 @@ QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' );
 
 			// Pretend to click while pressing the multi-sort key
-			var event = $.Event( 'click' );
+			event = $.Event( 'click' );
 			event[ $table.data( 'tablesorter' ).config.sortMultiSortKey ] = true;
 			$table.find( '.headerSort' ).eq( 1 ).trigger( event );
-
-			assert.deepEqual( tableExtract( $table ), simpleAsc );
 		}
 	);
 	QUnit.test( 'Reset sorting making table appear unsorted', function ( assert ) {
@@ -344,16 +568,12 @@ QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
 	} );
 
 	// Sorting with colspans
-	var header4 = [ 'column1a', 'column1b', 'column1c', 'column2' ];
-	var aaa1 = [ 'A', 'A', 'A', '1' ];
-	var aab5 = [ 'A', 'A', 'B', '5' ];
-	var abc3 = [ 'A', 'B', 'C', '3' ];
-	var bbc2 = [ 'B', 'B', 'C', '2' ];
-	var caa4 = [ 'C', 'A', 'A', '4' ];
-	var colspanInitial = [ aab5, aaa1, abc3, bbc2, caa4 ];
-	QUnit.test( 'Sorting with colspanned headers: spanned column',
-		function ( assert ) {
-			var $table = tableCreate( header4, colspanInitial );
+
+	tableTest( 'Sorting with colspanned headers: spanned column',
+		header4,
+		colspanInitial,
+		[ aaa1, aab5, abc3, bbc2, caa4 ],
+		function ( $table ) {
 			// Make colspanned header for test
 			$table.find( 'tr th' ).eq( 1 ).remove();
 			$table.find( 'tr th' ).eq( 1 ).remove();
@@ -361,13 +581,13 @@ QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
 
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), [ aaa1, aab5, abc3, bbc2, caa4 ] );
 		}
 	);
-	QUnit.test( 'Sorting with colspanned headers: sort spanned column twice',
-		function ( assert ) {
-			var $table = tableCreate( header4, colspanInitial );
+	tableTest( 'Sorting with colspanned headers: sort spanned column twice',
+		header4,
+		colspanInitial,
+		[ caa4, bbc2, abc3, aab5, aaa1 ],
+		function ( $table ) {
 			// Make colspanned header for test
 			$table.find( 'tr th' ).eq( 1 ).remove();
 			$table.find( 'tr th' ).eq( 1 ).remove();
@@ -376,13 +596,13 @@ QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' );
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), [ caa4, bbc2, abc3, aab5, aaa1 ] );
 		}
 	);
-	QUnit.test( 'Sorting with colspanned headers: subsequent column',
-		function ( assert ) {
-			var $table = tableCreate( header4, colspanInitial );
+	tableTest( 'Sorting with colspanned headers: subsequent column',
+		header4,
+		colspanInitial,
+		[ aaa1, bbc2, abc3, caa4, aab5 ],
+		function ( $table ) {
 			// Make colspanned header for test
 			$table.find( 'tr th' ).eq( 1 ).remove();
 			$table.find( 'tr th' ).eq( 1 ).remove();
@@ -390,13 +610,13 @@ QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
 
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 1 ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), [ aaa1, bbc2, abc3, caa4, aab5 ] );
 		}
 	);
-	QUnit.test( 'Sorting with colspanned headers: sort subsequent column twice',
-		function ( assert ) {
-			var $table = tableCreate( header4, colspanInitial );
+	tableTest( 'Sorting with colspanned headers: sort subsequent column twice',
+		header4,
+		colspanInitial,
+		[ aab5, caa4, abc3, bbc2, aaa1 ],
+		function ( $table ) {
 			// Make colspanned header for test
 			$table.find( 'tr th' ).eq( 1 ).remove();
 			$table.find( 'tr th' ).eq( 1 ).remove();
@@ -405,13 +625,12 @@ QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 1 ).trigger( 'click' );
 			$table.find( '.headerSort' ).eq( 1 ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), [ aab5, caa4, abc3, bbc2, aaa1 ] );
 		}
 	);
 
 	QUnit.test( 'Basic planet table: one unsortable column', function ( assert ) {
-		var $table = tableCreate( planetHeader, planets );
+		var $table = tableCreate( planetHeader, planets ),
+			$cell;
 		$table.find( 'tr > th' ).eq( 0 ).addClass( 'unsortable' );
 
 		$table.tablesorter();
@@ -423,7 +642,7 @@ QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
 			'table not sorted'
 		);
 
-		var $cell = $table.find( 'tr > th' ).eq( 0 );
+		$cell = $table.find( 'tr > th' ).eq( 0 );
 		$table.find( 'tr > th' ).eq( 1 ).trigger( 'click' );
 
 		assert.strictEqual(
@@ -441,149 +660,89 @@ QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
 
 	} );
 
-	QUnit.test(
+	// Regression tests!
+	tableTest(
 		'T30775: German-style (dmy) short numeric dates',
-		function ( assert ) {
-			var $table = tableCreate( [ 'Date' ], [
-				// German-style dates are day-month-year
-				[ '11.11.2011' ],
-				[ '01.11.2011' ],
-				[ '02.10.2011' ],
-				[ '03.08.2011' ],
-				[ '09.11.2011' ]
-			] );
+		[ 'Date' ],
+		[
+			// German-style dates are day-month-year
+			[ '11.11.2011' ],
+			[ '01.11.2011' ],
+			[ '02.10.2011' ],
+			[ '03.08.2011' ],
+			[ '09.11.2011' ]
+		],
+		[
+			// Sorted by ascending date
+			[ '03.08.2011' ],
+			[ '02.10.2011' ],
+			[ '01.11.2011' ],
+			[ '09.11.2011' ],
+			[ '11.11.2011' ]
+		],
+		function ( $table ) {
 			mw.config.set( 'wgDefaultDateFormat', 'dmy' );
 			mw.config.set( 'wgPageContentLanguage', 'de' );
+
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), [
-				// Sorted by ascending date
-				[ '03.08.2011' ],
-				[ '02.10.2011' ],
-				[ '01.11.2011' ],
-				[ '09.11.2011' ],
-				[ '11.11.2011' ]
-			] );
 		}
 	);
 
-	QUnit.test(
+	tableTest(
 		'T30775: American-style (mdy) short numeric dates',
-		function ( assert ) {
-			var $table = tableCreate( [ 'Date' ], [
-				// American-style dates are month-day-year
-				[ '11.11.2011' ],
-				[ '01.11.2011' ],
-				[ '02.10.2011' ],
-				[ '03.08.2011' ],
-				[ '09.11.2011' ]
-			] );
+		[ 'Date' ],
+		[
+			// American-style dates are month-day-year
+			[ '11.11.2011' ],
+			[ '01.11.2011' ],
+			[ '02.10.2011' ],
+			[ '03.08.2011' ],
+			[ '09.11.2011' ]
+		],
+		[
+			// Sorted by ascending date
+			[ '01.11.2011' ],
+			[ '02.10.2011' ],
+			[ '03.08.2011' ],
+			[ '09.11.2011' ],
+			[ '11.11.2011' ]
+		],
+		function ( $table ) {
 			mw.config.set( 'wgDefaultDateFormat', 'mdy' );
 
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), [
-				// Sorted by ascending date
-				[ '01.11.2011' ],
-				[ '02.10.2011' ],
-				[ '03.08.2011' ],
-				[ '09.11.2011' ],
-				[ '11.11.2011' ]
-			] );
 		}
 	);
 
-	var ipv4 = [
-		// Some randomly generated fake IPs
-		[ '45.238.27.109' ],
-		[ '44.172.9.22' ],
-		[ '247.240.82.209' ],
-		[ '204.204.132.158' ],
-		[ '170.38.91.162' ],
-		[ '197.219.164.9' ],
-		[ '45.68.154.72' ],
-		[ '182.195.149.80' ]
-	];
-	var ipv4Sorted = [
-		// Sort order should go octet by octet
-		[ '44.172.9.22' ],
-		[ '45.68.154.72' ],
-		[ '45.238.27.109' ],
-		[ '170.38.91.162' ],
-		[ '182.195.149.80' ],
-		[ '197.219.164.9' ],
-		[ '204.204.132.158' ],
-		[ '247.240.82.209' ]
-	];
-	QUnit.test(
-		'IPv4 address sorting (T19141)',
-		function ( assert ) {
-			var $table = tableCreate( [ 'IP' ], ipv4 );
+	tableTest(
+		'T19141: IPv4 address sorting',
+		[ 'IP' ],
+		ipv4,
+		ipv4Sorted,
+		function ( $table ) {
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), ipv4Sorted );
 		}
 	);
-	QUnit.test(
-		'IPv4 address reverse sorting (T19141)',
-		function ( assert ) {
-			var $table = tableCreate( [ 'IP' ], ipv4 );
+	tableTest(
+		'T19141: IPv4 address sorting (reverse)',
+		[ 'IP' ],
+		ipv4,
+		reversed( ipv4Sorted ),
+		function ( $table ) {
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), reversed( ipv4Sorted ) );
 		}
 	);
 
-	var umlautWords = [
-		[ 'Günther' ],
-		[ 'Peter' ],
-		[ 'Björn' ],
-		[ 'ä' ],
-		[ 'z' ],
-		[ 'Bjorn' ],
-		[ 'BjÖrn' ],
-		[ 'apfel' ],
-		[ 'Apfel' ],
-		[ 'Äpfel' ],
-		[ 'Strasse' ],
-		[ 'Sträßschen' ]
-	];
-	var umlautWordsSortedEn = [
-		[ 'ä' ],
-		[ 'Äpfel' ],
-		[ 'apfel' ],
-		[ 'Apfel' ],
-		[ 'Björn' ],
-		[ 'BjÖrn' ],
-		[ 'Bjorn' ],
-		[ 'Günther' ],
-		[ 'Peter' ],
-		[ 'Sträßschen' ],
-		[ 'Strasse' ],
-		[ 'z' ]
-	];
-	var umlautWordsSortedSv = [
-		[ 'apfel' ],
-		[ 'Apfel' ],
-		[ 'Bjorn' ],
-		[ 'Björn' ],
-		[ 'BjÖrn' ],
-		[ 'Günther' ],
-		[ 'Peter' ],
-		[ 'Strasse' ],
-		[ 'Sträßschen' ],
-		[ 'z' ],
-		[ 'ä' ], // ä sorts after z in Swedish
-		[ 'Äpfel' ]
-	];
-	QUnit.test(
+	tableTest(
 		'Accented Characters with custom collation',
-		function ( assert ) {
-			var $table = tableCreate( [ 'Name' ], umlautWords );
+		[ 'Name' ],
+		umlautWords,
+		umlautWordsSortedEn,
+		function ( $table ) {
 			mw.config.set( 'tableSorterCollation', {
 				ä: 'ae',
 				ö: 'oe',
@@ -593,34 +752,29 @@ QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
 
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), umlautWordsSortedEn );
 		}
 	);
-	QUnit.test(
+
+	tableTest(
 		'Accented Characters Swedish locale',
-		function ( assert ) {
-			var $table = tableCreate( [ 'Name' ], umlautWords );
+		[ 'Name' ],
+		umlautWords,
+		umlautWordsSortedSv,
+		function ( $table ) {
 			mw.config.set( 'wgPageContentLanguage', 'sv' );
 
 			$table.tablesorter();
 			// eslint-disable-next-line no-jquery/no-sizzle
 			$table.find( '.headerSort:eq(0)' ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), umlautWordsSortedSv );
 		}
 	);
-	QUnit.test(
+
+	tableTest(
 		'Digraphs with custom collation',
-		function ( assert ) {
-			var $table = tableCreate( [ 'City' ], [
-				[ 'London' ],
-				[ 'Ljubljana' ],
-				[ 'Luxembourg' ],
-				[ 'Njivice' ],
-				[ 'Norwich' ],
-				[ 'New York' ]
-			] );
+		[ 'City' ],
+		digraphWords,
+		digraphWordsSorted,
+		function ( $table ) {
 			mw.config.set( 'tableSorterCollation', {
 				lj: 'lzzzz',
 				nj: 'nzzzz'
@@ -628,15 +782,6 @@ QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
 
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), [
-				[ 'London' ],
-				[ 'Luxembourg' ],
-				[ 'Ljubljana' ],
-				[ 'New York' ],
-				[ 'Norwich' ],
-				[ 'Njivice' ]
-			] );
 		}
 	);
 
@@ -660,7 +805,7 @@ QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
 		);
 	} );
 
-	var planetsRowspan = [
+	planetsRowspan = [
 		[ 'Earth', '6051.8' ],
 		jupiter,
 		[ 'Mars', '6051.8' ],
@@ -668,11 +813,14 @@ QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
 		saturn,
 		venus
 	];
-	var planetsRowspanII = [ jupiter, mercury, saturn, venus, [ 'Venus', '6371.0' ], [ 'Venus', '3390.0' ] ];
-	QUnit.test(
+	planetsRowspanII = [ jupiter, mercury, saturn, venus, [ 'Venus', '6371.0' ], [ 'Venus', '3390.0' ] ];
+
+	tableTest(
 		'Basic planet table: same value for multiple rows via rowspan',
-		function ( assert ) {
-			var $table = tableCreate( planetHeader, planets );
+		planetHeader,
+		planets,
+		planetsRowspan,
+		function ( $table ) {
 			// Modify the table to have a multiple-row-spanning cell:
 			// - Remove 2nd cell of 4th row, and, 2nd cell or 5th row.
 			$table.find( 'tr' ).eq( 3 ).find( 'td' ).eq( 1 ).remove();
@@ -683,14 +831,14 @@ QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
 
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), planetsRowspan );
 		}
 	);
-	QUnit.test(
+	tableTest(
 		'Basic planet table: same value for multiple rows via rowspan (sorting initially)',
-		function ( assert ) {
-			var $table = tableCreate( planetHeader, planets );
+		planetHeader,
+		planets,
+		planetsRowspan,
+		function ( $table ) {
 			// Modify the table to have a multiple-row-spanning cell:
 			// - Remove 2nd cell of 4th row, and, 2nd cell or 5th row.
 			$table.find( 'tr' ).eq( 3 ).find( 'td' ).eq( 1 ).remove();
@@ -702,14 +850,14 @@ QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
 			$table.tablesorter( { sortList: [
 				{ 0: 'asc' }
 			] } );
-
-			assert.deepEqual( tableExtract( $table ), planetsRowspan );
 		}
 	);
-	QUnit.test(
+	tableTest(
 		'Basic planet table: Same value for multiple rows via rowspan II',
-		function ( assert ) {
-			var $table = tableCreate( planetHeader, planets );
+		planetHeader,
+		planets,
+		planetsRowspanII,
+		function ( $table ) {
 			// Modify the table to have a multiple-row-spanning cell:
 			// - Remove 1st cell of 4th row, and, 1st cell or 5th row.
 			$table.find( 'tr' ).eq( 3 ).find( 'td' ).eq( 0 ).remove();
@@ -720,102 +868,70 @@ QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
 
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), planetsRowspanII );
 		}
 	);
 
-	QUnit.test(
+	tableTest(
 		'Complex date parsing I',
-		function ( assert ) {
-			var $table = tableCreate( [ 'Date' ], [
-				[ 'January, 19 2010' ],
-				[ 'April 21 1991' ],
-				[ '04 22 1991' ],
-				[ '5.12.1990' ],
-				[ 'December 12 \'10' ]
-			] );
+		[ 'date' ],
+		complexMDYDates,
+		complexMDYSorted,
+		function ( $table ) {
 			mw.config.set( 'wgDefaultDateFormat', 'mdy' );
 
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), [
-				[ '5.12.1990' ],
-				[ 'April 21 1991' ],
-				[ '04 22 1991' ],
-				[ 'January, 19 2010' ],
-				[ 'December 12 \'10' ]
-			] );
 		}
 	);
 
-	QUnit.test(
+	tableTest(
 		'Currency parsing I',
-		function ( assert ) {
-			var $table = tableCreate( [ 'Currency' ], [
-				[ '1.02 $' ],
-				[ '$ 3.00' ],
-				[ '€ 2,99' ],
-				[ '$ 1.00' ],
-				[ '$3.50' ],
-				[ '$ 1.50' ],
-				[ '€ 0.99' ]
-			] );
+		[ 'currency' ],
+		currencyUnsorted,
+		currencySorted,
+		function ( $table ) {
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), [
-				[ '€ 0.99' ],
-				[ '$ 1.00' ],
-				[ '1.02 $' ],
-				[ '$ 1.50' ],
-				[ '$ 3.00' ],
-				[ '$3.50' ],
-				// Commas sort after dots
-				// Not intentional but test to detect changes
-				[ '€ 2,99' ]
-			] );
 		}
 	);
 
-	QUnit.test(
+	tableTest(
 		'Handling of .sortbottom',
-		function ( assert ) {
-			var $table = tableCreate( planetHeader, planets.concat( planetsTotal ) );
+		planetHeader,
+		planets.concat( planetsTotal ),
+		planetsAscName,
+		function ( $table ) {
 			$table.find( 'tr' ).last().addClass( 'sortbottom' );
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), planetsAscName );
 		}
 	);
 
-	QUnit.test(
+	tableTest(
 		'Handling of .sorttop',
-		function ( assert ) {
-			var $table = tableCreate( planetHeader, planetsTotal.concat( planets ) );
+		planetHeader,
+		planetsTotal.concat( planets ),
+		planetsAscName,
+		function ( $table ) {
 			$table.find( 'tbody > tr' ).first().addClass( 'sorttop' );
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), planetsAscName );
 		}
 	);
 
 	QUnit.test( 'Rowspan invalid value (T265503)', function ( assert ) {
-		var rowspanText = 'Row 1 col 3, Row 2 col 3, row 3 col 3 (but there is no row 3)';
-		var $table = $(
-			'<table class="sortable">' +
-				'<thead>' +
-				'<tr><th>table heading 1</th><th>table heading 2</th><th>table heading 3</th></tr>' +
-				'</thead>' +
-				'<tr><td>Row 1 col 1</td><td>Row 1 col 2</td>' +
-					'<td rowspan="3">' + rowspanText + '</td>' +
-				'</tr>' +
-				'<tr><td>Row 2 col 1</td><td>Row 2 col 2</td></tr>' +
-				'</table>'
-		);
+		var rowspanText = 'Row 1 col 3, Row 2 col 3, row 3 col 3 (but there is no row 3)',
+			$table = $(
+				'<table class="sortable">' +
+					'<thead>' +
+					'<tr><th>table heading 1</th><th>table heading 2</th><th>table heading 3</th></tr>' +
+					'</thead>' +
+					'<tr><td>Row 1 col 1</td><td>Row 1 col 2</td>' +
+						'<td rowspan="3">' + rowspanText + '</td>' +
+					'</tr>' +
+					'<tr><td>Row 2 col 1</td><td>Row 2 col 2</td></tr>' +
+					'</table>'
+			);
 		$table.tablesorter();
 		$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' );
 		assert.strictEqual(
@@ -882,9 +998,11 @@ QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
 	} );
 
 	QUnit.test( 'data-sort-value attribute, when available, should override sorting position', function ( assert ) {
+		var $table, data;
+
 		// Example 1: All cells except one cell without data-sort-value,
 		// which should be sorted at it's text content value.
-		var $table = $(
+		$table = $(
 			'<table class="sortable"><thead><tr><th>Data</th></tr></thead>' +
 				'<tbody>' +
 				'<tr><td>Cheetah</td></tr>' +
@@ -896,7 +1014,7 @@ QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
 		);
 		$table.tablesorter().find( '.headerSort' ).eq( 0 ).trigger( 'click' );
 
-		var data = [];
+		data = [];
 		$table.find( 'tbody > tr' ).each( function ( i, tr ) {
 			$( tr ).find( 'td' ).each( function ( j, td ) {
 				data.push( {
@@ -1040,47 +1158,29 @@ QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
 				text: 'D'
 			}
 		], 'Order matches expected order, using the current sortValue in $.data()' );
+
 	} );
 
-	var numbers = [
-		[ '12' ],
-		[ '7' ],
-		[ '13,000' ],
-		[ '9' ],
-		[ '14' ],
-		[ '8.0' ]
-	];
-	var numbersAsc = [
-		[ '7' ],
-		[ '8.0' ],
-		[ '9' ],
-		[ '12' ],
-		[ '14' ],
-		[ '13,000' ]
-	];
-	QUnit.test( 'T10115: sort numbers with commas (ascending)',
-		function ( assert ) {
-			var $table = tableCreate( [ 'Numbers' ], numbers );
+	tableTest( 'T10115: sort numbers with commas (ascending)',
+		[ 'Numbers' ], numbers, numbersAsc,
+		function ( $table ) {
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), numbersAsc );
 		}
 	);
 
-	QUnit.test( 'T10115: sort numbers with commas (descending)',
-		function ( assert ) {
-			var $table = tableCreate( [ 'Numbers' ], numbers );
+	tableTest( 'T10115: sort numbers with commas (descending)',
+		[ 'Numbers' ], numbers, reversed( numbersAsc ),
+		function ( $table ) {
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), reversed( numbersAsc ) );
 		}
 	);
 	// TODO add numbers sorting tests for T10115 with a different language
 
 	QUnit.test( 'T34888 - Tables inside a tableheader cell', function ( assert ) {
-		var $table = $(
+		var $table;
+		$table = $(
 			'<table class="sortable" id="mw-bug-32888">' +
 				'<tr><th>header<table id="mw-bug-32888-2">' +
 				'<tr><th>1</th><th>2</th></tr>' +
@@ -1103,75 +1203,42 @@ QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
 		);
 	} );
 
-	QUnit.test(
+	tableTest(
 		'Correct date sorting I',
-		function ( assert ) {
-			var $table = tableCreate( [ 'Date' ], [
-				[ '01 January 2010' ],
-				[ '05 February 2010' ],
-				[ '16 January 2010' ]
-			] );
+		[ 'date' ],
+		correctDateSorting1,
+		correctDateSortingSorted1,
+		function ( $table ) {
 			mw.config.set( 'wgDefaultDateFormat', 'mdy' );
 
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), [
-				[ '01 January 2010' ],
-				[ '16 January 2010' ],
-				[ '05 February 2010' ]
-			] );
 		}
 	);
 
-	QUnit.test(
+	tableTest(
 		'Correct date sorting II',
-		function ( assert ) {
-			var $table = tableCreate( [ 'Date' ], [
-				[ 'January 01 2010' ],
-				[ 'February 05 2010' ],
-				[ 'January 16 2010' ]
-			] );
+		[ 'date' ],
+		correctDateSorting2,
+		correctDateSortingSorted2,
+		function ( $table ) {
 			mw.config.set( 'wgDefaultDateFormat', 'dmy' );
 
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), [
-				[ 'January 01 2010' ],
-				[ 'January 16 2010' ],
-				[ 'February 05 2010' ]
-			] );
 		}
 	);
 
-	QUnit.test(
+	tableTest(
 		'ISO date sorting',
-		function ( assert ) {
-			var $table = tableCreate( [ 'ISO date' ], [
-				[ '2010-02-01' ],
-				[ '2009-12-25T12:30:45.001Z' ],
-				[ '2010-01-31' ],
-				[ '2009' ],
-				[ '2009-12-25T12:30:45' ],
-				[ '2009-12-25T12:30:45.111' ],
-				[ '2009-12-25T12:30:45+01:00' ]
-			] );
+		[ 'isoDate' ],
+		isoDateSorting,
+		isoDateSortingSorted,
+		function ( $table ) {
 			mw.config.set( 'wgDefaultDateFormat', 'dmy' );
 
 			$table.tablesorter();
 			$table.find( '.headerSort' ).eq( 0 ).trigger( 'click' );
-
-			assert.deepEqual( tableExtract( $table ), [
-				[ '2009' ],
-				[ '2009-12-25T12:30:45' ],
-				[ '2009-12-25T12:30:45.001Z' ],
-				[ '2009-12-25T12:30:45.111' ],
-				// Effectively 11:30 UTC (earlier than above). No longer timezone-aware (T47161).
-				[ '2009-12-25T12:30:45+01:00' ],
-				[ '2010-01-31' ],
-				[ '2010-02-01' ]
-			] );
 		}
 	);
 
@@ -1588,196 +1655,4 @@ QUnit.module( 'jquery.tablesorter', QUnit.newMwEnvironment( {
 		);
 	} );
 
-	QUnit.module( 'parsers', function ( hooks ) {
-		hooks.beforeEach( function () {
-			/**
-			 * Check how the parser recognizes and transforms the data
-			 *
-			 * @param {Object} assert
-			 * @param {string} parserId The parser that will be tested
-			 * @param {string[][]} data Array of testcases. Each testcase, array of:
-			 *  - inputValue: The string value that we want to test the parser for.
-			 *  - recognized: If we expect that this value's type is detectable by the parser.
-			 *  - outputValue: The value the parser has converted the input to.
-			 *  - msg: describing the testcase.
-			 */
-			this.parser = function assertParser( assert, parserId, data ) {
-				var parser = $.tablesorter.getParser( parserId );
-				data.forEach( function ( testcase ) {
-					var extractedR = parser.is( testcase[ 0 ] );
-					var extractedF = parser.format( testcase[ 0 ] );
-
-					assert.strictEqual( extractedR, testcase[ 1 ], 'Detect: ' + testcase[ 3 ] );
-					assert.strictEqual( extractedF, testcase[ 2 ], 'Sortkey: ' + testcase[ 3 ] );
-				} );
-			};
-		} );
-
-		QUnit.test( 'Textual keys', function ( assert ) {
-			this.parser( assert, 'text', [
-				[ 'Mars', true, 'Mars', 'Simple text' ],
-				[ 'Mẘas', true, 'Mẘas', 'Non ascii character' ],
-				[ 'A sentence', true, 'A sentence', 'A sentence with space chars' ]
-			] );
-		} );
-
-		QUnit.test( 'IPv4', function ( assert ) {
-			this.parser( assert, 'IPAddress', [
-				// Some randomly generated fake IPs
-				[ '0.0.0.0', true, 0, 'An IP address' ],
-				[ '255.255.255.255', true, 255255255255, 'An IP address' ],
-				[ '45.238.27.109', true, 45238027109, 'An IP address' ],
-				[ '1.238.27.1', true, 1238027001, 'An IP address with small numbers' ],
-				[ '238.27.1', false, 238027001, 'A malformed IP Address' ],
-				[ '1', false, 1, 'A super malformed IP Address' ],
-				[ 'Just text', false, -Infinity, 'A line with just text' ],
-				[ '45.238.27.109Postfix', false, 45238027109, 'An IP address with a connected postfix' ],
-				[ '45.238.27.109 postfix', false, 45238027109, 'An IP address with a separated postfix' ]
-			] );
-		} );
-
-		QUnit.test( 'MDY Dates using mdy content language', function ( assert ) {
-			this.parser( assert, 'date', [
-				[ 'January 17, 2010', true, 20100117, 'Long middle endian date' ],
-				[ 'Jan 17, 2010', true, 20100117, 'Short middle endian date' ],
-				[ '1/17/2010', true, 20100117, 'Numeric middle endian date' ],
-				[ '01/17/2010', true, 20100117, 'Numeric middle endian date with padding on month' ],
-				[ '01/07/2010', true, 20100107, 'Numeric middle endian date with padding on day' ],
-				[ '01/07/0010', true, 20100107, 'Numeric middle endian date with padding on year' ],
-				[ '5.12.1990', true, 19900512, 'Numeric middle endian date with . separator' ]
-			] );
-		} );
-
-		QUnit.test( 'MDY Dates using dmy content language', function ( assert ) {
-			mw.config.set( {
-				wgDefaultDateFormat: 'dmy',
-				wgPageContentLanguage: 'de'
-			} );
-			this.parser( assert, 'date', [
-				[ 'January 17, 2010', true, 20100117, 'Long middle endian date' ],
-				[ 'Jan 17, 2010', true, 20100117, 'Short middle endian date' ],
-				[ '1/17/2010', true, 20101701, 'Numeric middle endian date' ],
-				[ '01/17/2010', true, 20101701, 'Numeric middle endian date with padding on month' ],
-				[ '01/07/2010', true, 20100701, 'Numeric middle endian date with padding on day' ],
-				[ '01/07/0010', true, 20100701, 'Numeric middle endian date with padding on year' ],
-				[ '5.12.1990', true, 19901205, 'Numeric middle endian date with . separator' ]
-			] );
-		} );
-
-		QUnit.test( 'Very old MDY dates', function ( assert ) {
-			this.parser( assert, 'date', [
-				[ 'January 19, 1400 BC', false, '99999999', 'BC' ],
-				[ 'January 19, 1400BC', false, '99999999', 'Connected BC' ],
-				[ 'January, 19 1400 B.C.', false, '99999999', 'B.C.' ],
-				[ 'January 19, 1400 AD', false, '99999999', 'AD' ],
-				[ 'January, 19 10', true, 20100119, 'AD' ],
-				[ 'January, 19 1', false, '99999999', 'AD' ]
-			] );
-		} );
-
-		QUnit.test( 'MDY Dates', function ( assert ) {
-			this.parser( assert, 'date', [
-				[ 'January, 19 2010', true, 20100119, 'Comma after month' ],
-				[ 'January 19, 2010', true, 20100119, 'Comma after day' ],
-				[ 'January/19/2010', true, 20100119, 'Forward slash separator' ],
-				[ '04 22 1991', true, 19910422, 'Month with 0 padding' ],
-				[ 'April 21 1991', true, 19910421, 'Space separation' ],
-				[ '04 22 1991', true, 19910422, 'Month with 0 padding' ],
-				[ 'December 12 \'10', true, 20101212, '' ],
-				[ 'Dec 12 \'10', true, 20101212, '' ],
-				[ 'Dec. 12 \'10', true, 20101212, '' ]
-			] );
-		} );
-
-		QUnit.test( 'DMY Dates', function ( assert ) {
-			mw.config.set( {
-				wgDefaultDateFormat: 'dmy',
-				wgPageContentLanguage: 'it'
-			} );
-			this.parser( assert, 'date', [
-				[ '1º January 2010', true, 20100101, 'T305375 - dates with the ordinal indicator º' ]
-			] );
-		} );
-
-		QUnit.test( 'Clobbered Dates', function ( assert ) {
-			this.parser( assert, 'date', [
-				[ 'January, 19 2010 - January, 20 2010', false, '99999999', 'Date range with hyphen' ],
-				[ 'January, 19 2010 — January, 20 2010', false, '99999999', 'Date range with mdash' ],
-				[ 'prefixJanuary, 19 2010', false, '99999999', 'Connected prefix' ],
-				[ 'prefix January, 19 2010', false, '99999999', 'Prefix' ],
-				[ 'December 12 2010postfix', false, '99999999', 'ConnectedPostfix' ],
-				[ 'December 12 2010 postfix', false, '99999999', 'Postfix' ],
-				[ 'A simple text', false, '99999999', 'Plain text in date sort' ],
-				[ '04l22l1991', false, '99999999', 'l char as separator' ],
-				[ 'January\\19\\2010', false, '99999999', 'backslash as date separator' ]
-			] );
-		} );
-
-		QUnit.test( 'MY Dates', function ( assert ) {
-			this.parser( assert, 'date', [
-				[ 'December 2010', false, '99999999', 'Plain month year' ],
-				[ 'Dec 2010', false, '99999999', 'Abreviated month year' ],
-				[ '12 2010', false, '99999999', 'Numeric month year' ]
-			] );
-		} );
-
-		QUnit.test( 'Y Dates', function ( assert ) {
-			this.parser( assert, 'date', [
-				[ '2010', false, '99999999', 'Plain 4-digit year' ],
-				[ '876', false, '99999999', '3-digit year' ],
-				[ '76', false, '99999999', '2-digit year' ],
-				[ '\'76', false, '99999999', '2-digit millenium bug year' ],
-				[ '2010 BC', false, '99999999', '4-digit year BC' ]
-			] );
-		} );
-
-		QUnit.test( 'Currency', function ( assert ) {
-			this.parser( assert, 'currency', [
-				[ '1.02 $', true, 1.02, '' ],
-				[ '$ 3.00', true, 3, '' ],
-				[ '€ 2,99', true, 299, '' ],
-				[ '$ 1.00', true, 1, '' ],
-				[ '$3.50', true, 3.50, '' ],
-				[ '$ 1.50', true, 1.50, '' ],
-				[ '€ 0.99', true, 0.99, '' ],
-				[ '$ 299.99', true, 299.99, '' ],
-				[ '$ 2,299.99', true, 2299.99, '' ],
-				[ '$ 2,989', true, 2989, '' ],
-				[ '$ 2 299.99', true, 2299.99, '' ],
-				[ '$ 2 989', true, 2989, '' ],
-				[ '$ 2.989', true, 2.989, '' ]
-			] );
-		} );
-
-		QUnit.test( 'Currency with european separators', function ( assert ) {
-			mw.config.set( {
-				// We expect 22'234.444,22
-				// Map from ascii separators => localized separators
-				wgSeparatorTransformTable: [ ',\t.\t,', '\'\t,\t.' ],
-				wgDigitTransformTable: [ '', '' ]
-			} );
-			this.parser( assert, 'currency', [
-				[ '1.02 $', true, 102, '' ],
-				[ '$ 3.00', true, 300, '' ],
-				[ '€ 2,99', true, 2.99, '' ],
-				[ '$ 1.00', true, 100, '' ],
-				[ '$3.50', true, 350, '' ],
-				[ '$ 1.50', true, 150, '' ],
-				[ '€ 0.99', true, 99, '' ],
-				[ '$ 299.99', true, 29999, '' ],
-				[ '$ 2\'299,99', true, 2299.99, '' ],
-				[ '$ 2,989', true, 2.989, '' ],
-				[ '$ 2 299.99', true, 229999, '' ],
-				[ '2 989 $', true, 2989, '' ],
-				[ '299.99 $', true, 29999, '' ],
-				[ '2\'299,99 $', true, 2299.99, '' ],
-				[ '2,989 $', true, 2.989, '' ],
-				[ '2 299.99 $', true, 229999, '' ],
-				[ '2 989 $', true, 2989, '' ]
-			] );
-		} );
-
-		// TODO add numbers sorting tests for T10115 with a different language
-	} );
-
-} );
+}() );

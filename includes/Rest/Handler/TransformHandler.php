@@ -20,11 +20,9 @@
 
 namespace MediaWiki\Rest\Handler;
 
-use MediaWiki\Rest\Handler\Helper\ParsoidFormatHelper;
 use MediaWiki\Rest\HttpException;
 use MediaWiki\Rest\Response;
 use Wikimedia\ParamValidator\ParamValidator;
-use Wikimedia\Parsoid\Parsoid;
 
 /**
  * Handler for transforming content given in the request.
@@ -35,7 +33,6 @@ use Wikimedia\Parsoid\Parsoid;
  * @see https://www.mediawiki.org/wiki/Parsoid/API#POST
  */
 class TransformHandler extends ParsoidHandler {
-
 	/** @inheritDoc */
 	public function getParamSettings() {
 		return [
@@ -51,29 +48,6 @@ class TransformHandler extends ParsoidHandler {
 			'revision' => [ self::PARAM_SOURCE => 'path',
 				ParamValidator::PARAM_TYPE => 'string',
 				ParamValidator::PARAM_REQUIRED => false, ], ];
-	}
-
-	public function checkPreconditions() {
-		// NOTE: disable all precondition checks.
-		// If-(not)-Modified-Since is not supported by the /transform/ handler.
-		// If-None-Match is not supported by the /transform/ handler.
-		// If-Match for wt2html is handled in getRequestAttributes.
-	}
-
-	protected function &getRequestAttributes(): array {
-		$attribs =& parent::getRequestAttributes();
-
-		$request = $this->getRequest();
-
-		// NOTE: If there is more than one ETag, this will break.
-		//       We don't have a good way to test multiple ETag to see if one of them is a working stash key.
-		$ifMatch = $request->getHeaderLine( 'If-Match' );
-
-		if ( $ifMatch ) {
-			$attribs['opts']['original']['etag'] = $ifMatch;
-		}
-
-		return $attribs;
 	}
 
 	/**
@@ -142,16 +116,14 @@ class TransformHandler extends ParsoidHandler {
 				throw new HttpException( 'No html was supplied.',
 					400 );
 			}
+			$wikitext = $attribs['opts']['original']['wikitext']['body'] ?? null;
+			$pageConfig = $this->tryToCreatePageConfig( $attribs,
+				$wikitext,
+				true );
 
-			// TODO: use ETag from If-Match header, for compat!
-
-			$page = $this->tryToCreatePageIdentity( $attribs );
-
-			return $this->html2wt(
-				$page,
+			return $this->html2wt( $pageConfig,
 				$attribs,
-				$html
-			);
+				$html );
 		} else {
 			return $this->pb2pb( $attribs );
 		}

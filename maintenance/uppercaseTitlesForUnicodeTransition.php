@@ -23,11 +23,7 @@
  */
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Title\Title;
-use MediaWiki\WikiMap\WikiMap;
 use Wikimedia\Rdbms\IDatabase;
-use Wikimedia\Rdbms\IReadableDatabase;
-use Wikimedia\Rdbms\Platform\ISQLPlatform;
 
 require_once __DIR__ . '/Maintenance.php';
 
@@ -205,12 +201,12 @@ class UppercaseTitlesForUnicodeTransition extends Maintenance {
 
 	/**
 	 * Get batched LIKE conditions from the charmap
-	 * @param ISQLPlatform $db Database handle
+	 * @param IDatabase $db Database handle
 	 * @param string $field Field name
 	 * @param int $batchSize Size of the batches
 	 * @return array
 	 */
-	private function getLikeBatches( ISQLPlatform $db, $field, $batchSize = 100 ) {
+	private function getLikeBatches( IDatabase $db, $field, $batchSize = 100 ) {
 		$ret = [];
 		$likes = [];
 		foreach ( $this->charmap as $from => $to ) {
@@ -275,17 +271,17 @@ class UppercaseTitlesForUnicodeTransition extends Maintenance {
 
 	/**
 	 * Check if a ns+title is a registered user's page
-	 * @param IReadableDatabase $db Database handle
+	 * @param IDatabase $db Database handle
 	 * @param int $ns
 	 * @param string $title
 	 * @return bool
 	 */
-	private function isUserPage( IReadableDatabase $db, $ns, $title ) {
+	private function isUserPage( IDatabase $db, $ns, $title ) {
 		if ( $ns !== NS_USER && $ns !== NS_USER_TALK ) {
 			return false;
 		}
 
-		[ $base ] = explode( '/', $title, 2 );
+		list( $base ) = explode( '/', $title, 2 );
 		if ( !isset( $this->seenUsers[$base] ) ) {
 			// Can't use User directly because it might uppercase the name
 			$this->seenUsers[$base] = (bool)$db->selectField(
@@ -300,12 +296,12 @@ class UppercaseTitlesForUnicodeTransition extends Maintenance {
 
 	/**
 	 * Munge a target title, if necessary
-	 * @param IReadableDatabase $db Database handle
+	 * @param IDatabase $db Database handle
 	 * @param Title $oldTitle
 	 * @param Title &$newTitle
 	 * @return bool If $newTitle is (now) ok
 	 */
-	private function mungeTitle( IReadableDatabase $db, Title $oldTitle, Title &$newTitle ) {
+	private function mungeTitle( IDatabase $db, Title $oldTitle, Title &$newTitle ) {
 		$nt = $newTitle->getPrefixedText();
 
 		$munge = false;
@@ -476,12 +472,12 @@ class UppercaseTitlesForUnicodeTransition extends Maintenance {
 	 * Note the caller will still rename it before deleting it, so the archive
 	 * and logging rows wind up in a sensible place.
 	 *
-	 * @param IReadableDatabase $db
+	 * @param IDatabase $db
 	 * @param Title $oldTitle
 	 * @param Title $newTitle
 	 * @return string|null Deletion reason, or null if it shouldn't be deleted
 	 */
-	private function shouldDelete( IReadableDatabase $db, Title $oldTitle, Title $newTitle ) {
+	private function shouldDelete( IDatabase $db, Title $oldTitle, Title $newTitle ) {
 		$oldRow = $db->selectRow(
 			[ 'page', 'redirect' ],
 			[ 'ns' => 'rd_namespace', 'title' => 'rd_title' ],
@@ -610,7 +606,7 @@ class UppercaseTitlesForUnicodeTransition extends Maintenance {
 			[ $titleField ],
 			$pkFields
 		);
-		$contFields = array_merge( [ $titleField ], $pkFields );
+		$contFields = array_reverse( array_merge( [ $titleField ], $pkFields ) );
 
 		$lastReplicationWait = 0.0;
 		$count = 0;
@@ -622,16 +618,22 @@ class UppercaseTitlesForUnicodeTransition extends Maintenance {
 					$res = $db->select(
 						$table,
 						$selectFields,
-						[ "$nsField = $ns", $like, $cont ? $db->buildComparison( '>', $cont ) : '1=1' ],
+						array_merge( [ "$nsField = $ns", $like ], $cont ),
 						__METHOD__,
 						[ 'ORDER BY' => array_merge( [ $titleField ], $pkFields ), 'LIMIT' => $batchSize ]
 					);
 					$cont = [];
 					foreach ( $res as $row ) {
-						$cont = [];
+						$cont = '';
 						foreach ( $contFields as $field ) {
-							$cont[ $field ] = $row->$field;
+							$v = $db->addQuotes( $row->$field );
+							if ( $cont === '' ) {
+								$cont = "$field > $v";
+							} else {
+								$cont = "$field > $v OR $field = $v AND ($cont)";
+							}
 						}
+						$cont = [ $cont ];
 
 						if ( $op === self::MOVE ) {
 							$ns = is_int( $nsField ) ? $nsField : (int)$row->$nsField;
@@ -664,9 +666,9 @@ class UppercaseTitlesForUnicodeTransition extends Maintenance {
 
 	/**
 	 * List users needing renaming
-	 * @param IReadableDatabase $db Database handle
+	 * @param IDatabase $db Database handle
 	 */
-	private function processUsers( IReadableDatabase $db ) {
+	private function processUsers( IDatabase $db ) {
 		$userlistFile = $this->getOption( 'userlist' );
 		if ( $userlistFile === null ) {
 			$this->output( "Not generating user list, --userlist was not specified.\n" );

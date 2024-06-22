@@ -1,7 +1,5 @@
 <?php
 
-use MediaWiki\Title\Title;
-
 /**
  * A manually constructed search result set.
  * Mainly meant for supporting developer setups where the search operation might be

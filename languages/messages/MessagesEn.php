@@ -4,6 +4,7 @@
  * information excluding interface strings, which are stored in JSON files.
  *
  * Please see https://www.mediawiki.org/wiki/Localisation for more information.
+ * To improve a translation please visit https://translatewiki.net
  */
 
 /**
@@ -411,7 +412,6 @@ $specialPageAliases = [
 	'ChangePassword'            => [ 'ChangePassword', 'ResetPass', 'ResetPassword' ],
 	'ComparePages'              => [ 'ComparePages' ],
 	'Confirmemail'              => [ 'ConfirmEmail' ],
-	'Contribute'                => [ 'Contribute' ],
 	'Contributions'             => [ 'Contributions', 'Contribs' ],
 	'CreateAccount'             => [ 'CreateAccount' ],
 	'Deadendpages'              => [ 'DeadendPages' ],
@@ -460,7 +460,6 @@ $specialPageAliases = [
 	'Mute'                      => [ 'Mute' ],
 	'Mycontributions'           => [ 'MyContributions', 'MyContribs' ],
 	'MyLanguage'                => [ 'MyLanguage' ],
-	'Mylog'                     => [ 'MyLog' ],
 	'Mypage'                    => [ 'MyPage' ],
 	'Mytalk'                    => [ 'MyTalk' ],
 	'Myuploads'                 => [ 'MyUploads', 'MyFiles' ],
@@ -489,7 +488,6 @@ $specialPageAliases = [
 	'Recentchangeslinked'       => [ 'RecentChangesLinked', 'RelatedChanges' ],
 	'Redirect'                  => [ 'Redirect' ],
 	'RemoveCredentials'         => [ 'RemoveCredentials' ],
-	'Renameuser'                => [ 'RenameUser' ],
 	'ResetTokens'               => [ 'ResetTokens' ],
 	'Revisiondelete'            => [ 'RevisionDelete' ],
 	'RunJobs'                   => [ 'RunJobs' ],

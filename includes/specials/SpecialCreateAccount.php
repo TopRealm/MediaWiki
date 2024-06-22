@@ -23,7 +23,6 @@
 
 use MediaWiki\Auth\AuthManager;
 use MediaWiki\Logger\LoggerFactory;
-use MediaWiki\Title\Title;
 
 /**
  * Implements Special:CreateAccount

@@ -5,8 +5,6 @@
  * @since 1.24
  * @file
  */
-
-use MediaWiki\Html\Html;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 

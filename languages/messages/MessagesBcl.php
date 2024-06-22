@@ -1,6 +1,8 @@
 <?php
 /** Bikol Central (Bikol Central)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  */

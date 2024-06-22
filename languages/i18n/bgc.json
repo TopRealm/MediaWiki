@@ -204,7 +204,6 @@
 	"anontalkpagetext": "----\n<em>यह वार्ता पृष्ठ उस गुमनाम सदस्य के लिए है जिसे या तो खाता नहीं खोला है या खाते का प्रयोग नहीं कर रहे हैं।</em>\nइसलिए उनकी पहचान के लिए हमें उनका संख्यात्मक IP पता प्रयोग करना पड़ता है।\nऐसा IP पता कई सदस्यों के लिए एक हो सकता है।\nअगर आप एक गुमनाम सदस्य हैं और आपको लगता है कि आपके बारे में अप्रासंगिक टिप्पणियाँ की गई हैं तो कृपया [[Special:CreateAccount|खाता बनाएँ]] या [[Special:UserLogin|खाते में प्रवेश करें]] ताकि दूसरे गुमनाम सदस्यों में से आपको अलग से पहचाना जा सके।",
 	"noarticletext": "फ़िलहाल इस पृष्ठ पै कोई सामग्री कोनि।\nथम दूसरे पृष्ठों में [[Special:Search/{{PAGENAME}}|इस शीर्षक की खोज]] कर सको हो,\n<span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} संबंधित लॉग खोज सकी सीं],\nया इस पृष्ठ को [{{fullurl:{{FULLPAGENAME}}|action=edit}} बना] सकीं सी</span>।",
 	"noarticletext-nopermission": "फ़िलहाल इस पन्ना पै कोई सामग्री कोनि।\nथम दूसरे पन्नां मै [[Special:Search/{{PAGENAME}}|इस शीर्षक की खोज]] कर सको हो,<span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} संबंधित लॉग खोज सकी सीं],\nया फेर इस पन्ना को [{{fullurl:{{FULLPAGENAME}}|action=edit}} बना] सकीं सी</span>।",
-	"userpage-userdoesnotexist-view": "सदस्य खातो \"$1\" इस विकी पै पंजीकृत कोन्या।",
 	"continue-editing": "संपादन क्षेत्र पै जाएँ",
 	"editing": "$1 को सम्पादन होते हुए",
 	"creating": "$1 बनाएँ",
@@ -504,13 +503,5 @@
 	"expand_templates_preview": "झलक",
 	"pagelang-language": "भाषा",
 	"pagelang-reason": "वजह",
-	"pagelang-submit": "प्रस्तुत करैं",
-	"blockedtext-made-by": "खंड $1 द्वारा बनायो गयो थो।",
-	"blockedtext-reason-comment": "दियो गयो वजह <em>$1</em> सै",
-	"blockedtext-start-time": "खंड की शुरुआत: $1",
-	"blockedtext-expiration-time": "खंड को निःश्वसन: $1",
-	"blockedtext-intended-blockee": "अभिप्रेत खंडें: $1",
-	"blockedtext-include-details-queries": "कृपया सारे उपरी-विवरण शामिल करें जो-जो सवाल थम पुछो सो उन सब मे।",
-	"renameuserreason": "वजह:",
-	"renameusersubmit": "प्रस्तुत करैं"
+	"pagelang-submit": "प्रस्तुत करैं"
 }

@@ -13,7 +13,7 @@ class ApiPurgeTest extends ApiTestCase {
 		$this->getExistingTestPage( 'UTPage' );
 		$this->getNonexistingTestPage( 'UTPage-NotFound' );
 
-		[ $data ] = $this->doApiRequest( [
+		list( $data ) = $this->doApiRequest( [
 			'action' => 'purge',
 			'titles' => 'UTPage|UTPage-NotFound|%5D'
 		] );

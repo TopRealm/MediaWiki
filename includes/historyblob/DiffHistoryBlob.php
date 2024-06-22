@@ -23,9 +23,6 @@
 /**
  * Diff-based history compression
  * Requires xdiff and zlib
- *
- * WARNING: Objects of this class are serialized and permanently stored in the DB.
- * Do not change the name or visibility of any property!
  */
 class DiffHistoryBlob implements HistoryBlob {
 	/** @var string[] Uncompressed item cache */
@@ -322,7 +319,7 @@ class DiffHistoryBlob implements HistoryBlob {
 	public function __wakeup() {
 		// addItem() doesn't work if mItems is partially filled from mDiffs
 		$this->mFrozen = true;
-		$info = HistoryBlobUtils::unserializeArray( gzinflate( $this->mCompressed ) );
+		$info = unserialize( gzinflate( $this->mCompressed ) );
 		$this->mCompressed = null;
 
 		if ( !$info ) {

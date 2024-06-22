@@ -1,6 +1,8 @@
 <?php
 /** Cornish (kernowek)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  *
@@ -125,7 +127,6 @@ $specialPageAliases = [
 	'Randomredirect'            => [ 'DaskedyansDreJons' ],
 	'Recentchanges'             => [ 'Chanjyow_a-dhiwedhes' ],
 	'Recentchangeslinked'       => [ 'ChanjyowKelmys' ],
-	'Renameuser'                => [ 'DashenwelDevnydhyer' ],
 	'Revisiondelete'            => [ 'DileaAmendyans' ],
 	'Search'                    => [ 'Hwilas' ],
 	'Shortpages'                => [ 'FolennowBerr' ],

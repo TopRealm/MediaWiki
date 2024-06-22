@@ -191,7 +191,7 @@ class LocalFileRestoreBatch {
 				// Required for a new current revision; nice for older ones too. :)
 				$this->file->loadFromFile( $deletedUrl );
 				$mime = $this->file->getMimeType();
-				[ $majorMime, $minorMime ] = File::splitMime( $mime );
+				list( $majorMime, $minorMime ) = File::splitMime( $mime );
 				$mediaInfo = [
 					'minor_mime' => $minorMime,
 					'major_mime' => $majorMime,

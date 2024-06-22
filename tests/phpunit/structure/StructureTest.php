@@ -5,7 +5,6 @@ use SebastianBergmann\FileIterator\Facade;
 /**
  * The tests here verify the structure of the code.  This is for outright bugs,
  * not just style issues.
- * @coversNothing
  */
 class StructureTest extends \PHPUnit\Framework\TestCase {
 	/**

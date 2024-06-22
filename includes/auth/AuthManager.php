@@ -1087,10 +1087,12 @@ class AuthManager implements LoggerAwareInterface {
 
 	/**
 	 * @param callable $authorizer ( string $action, PageIdentity $target, PermissionStatus $status )
+	 * @param Authority $creator
 	 * @return StatusValue
 	 */
 	private function authorizeInternal(
-		callable $authorizer
+		callable $authorizer,
+		Authority $creator
 	): StatusValue {
 		// Wiki is read-only?
 		if ( $this->readOnlyMode->isReadOnly() ) {
@@ -1133,7 +1135,8 @@ class AuthManager implements LoggerAwareInterface {
 				PermissionStatus $status
 			) use ( $creator ) {
 				return $creator->probablyCan( $action, $target, $status );
-			}
+			},
+			$creator
 		);
 	}
 
@@ -1156,7 +1159,8 @@ class AuthManager implements LoggerAwareInterface {
 				PermissionStatus $status
 			) use ( $creator ) {
 				return $creator->authorizeWrite( $action, $target, $status );
-			}
+			},
+			$creator
 		);
 	}
 
@@ -1865,8 +1869,7 @@ class AuthManager implements LoggerAwareInterface {
 		] );
 
 		// Ignore warnings about primary connections/writes...hard to avoid here
-		$trxProfiler = \Profiler::instance()->getTransactionProfiler();
-		$scope = $trxProfiler->silenceForScope( $trxProfiler::EXPECTATION_REPLICAS_ONLY );
+		$trxProfilerSilencedScope = \Profiler::instance()->getTransactionProfiler()->silenceForScope();
 		try {
 			$status = $user->addToDatabase();
 			if ( !$status->isOK() ) {
@@ -1928,7 +1931,7 @@ class AuthManager implements LoggerAwareInterface {
 			$logEntry->insert();
 		}
 
-		ScopedCallback::consume( $scope );
+		ScopedCallback::consume( $trxProfilerSilencedScope );
 
 		if ( $login ) {
 			$remember = $source === self::AUTOCREATE_SOURCE_TEMP;
@@ -2329,7 +2332,9 @@ class AuthManager implements LoggerAwareInterface {
 			if ( !$req->action || $forceAction ) {
 				$req->action = $action;
 			}
-			$req->username ??= $username;
+			if ( $req->username === null ) {
+				$req->username = $username;
+			}
 		}
 	}
 

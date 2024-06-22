@@ -1,5 +1,7 @@
 <?php
 /**
+ * Simple version of LockManager based on using FS lock files.
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -16,14 +18,16 @@
  * http://www.gnu.org/copyleft/gpl.html
  *
  * @file
+ * @ingroup LockManager
  */
 
+use Wikimedia\AtEase\AtEase;
+
 /**
- * Simple lock management based on server-local temporary files.
- *
+ * Simple version of LockManager based on using FS lock files.
  * All locks are non-blocking, which avoids deadlocks.
  *
- * This should work fine for small sites running from a single web server.
+ * This should work fine for small sites running off one server.
  * Do not use this with 'lockDirectory' set to an NFS mount unless the
  * NFS client is at least version 2.6.12. Otherwise, the BSD flock()
  * locks will be ignored; see http://nfs.sourceforge.net/#section_d.
@@ -120,18 +124,17 @@ class FSLockManager extends LockManager {
 			if ( isset( $this->handles[$path] ) ) {
 				$handle = $this->handles[$path];
 			} else {
-				// phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged
-				$handle = @fopen( $this->getLockPath( $path ), 'a+' );
+				AtEase::suppressWarnings();
+				$handle = fopen( $this->getLockPath( $path ), 'a+' );
 				if ( !$handle && !is_dir( $this->lockDir ) ) {
-					// Create the lock directory and try again
-					// phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged
-					if ( @mkdir( $this->lockDir, 0777, true ) ) {
-						// phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged
-						$handle = @fopen( $this->getLockPath( $path ), 'a+' );
+					// Create the lock directory in case it is missing
+					if ( mkdir( $this->lockDir, 0777, true ) ) {
+						$handle = fopen( $this->getLockPath( $path ), 'a+' ); // try again
 					} else {
 						$this->logger->error( "Cannot create directory '{$this->lockDir}'." );
 					}
 				}
+				AtEase::restoreWarnings();
 			}
 			if ( $handle ) {
 				// Either a shared or exclusive lock

@@ -6,7 +6,7 @@ use CommentStoreComment;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\SlotRecord;
-use MediaWiki\Title\Title;
+use Title;
 use TitleValue;
 use User;
 use Wikimedia\ParamValidator\ParamValidator;

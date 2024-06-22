@@ -25,7 +25,6 @@
 
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\Page\RedirectLookup;
-use MediaWiki\Title\Title;
 
 /**
  * Unlisted special page just to redirect the user to the translated version of
@@ -124,7 +123,7 @@ class SpecialMyLanguage extends RedirectSpecialArticle {
 			$provided = Title::newFromText( $subpage );
 			$base = $provided;
 
-			if ( $provided && str_contains( $subpage, '/' ) ) {
+			if ( $provided && strpos( $subpage, '/' ) !== false ) {
 				$pos = strrpos( $subpage, '/' );
 				$basepage = substr( $subpage, 0, $pos );
 				$code = substr( $subpage, $pos + 1 );
@@ -139,47 +138,36 @@ class SpecialMyLanguage extends RedirectSpecialArticle {
 			return null;
 		}
 
-		$fragment = '';
 		if ( $base->isRedirect() ) {
 			$base = $this->redirectLookup->getRedirectTarget( $base );
-			// Preserve the fragment from the redirect target
-			$fragment = $base->getFragment();
 		}
 
 		$uiLang = $this->getLanguage();
-		$baseLang = $base->getPageLanguage();
+		$contLang = $this->getContentLanguage();
 
-		// $baseLang can be StubUserLang, this order would pass the typehint on Language::equals - T326400
-		if ( !$forTransclusion && $baseLang->equals( $uiLang ) ) {
+		if ( $uiLang->equals( $contLang ) && !$forTransclusion ) {
 			// Short circuit when the current UI language is the
-			// page's content language to avoid unnecessary page lookups.
+			// wiki's default language to avoid unnecessary page lookups.
 			return $base;
 		}
 
 		// Check for a subpage in current UI language
 		$proposed = $base->getSubpage( $uiLang->getCode() );
 		if ( $proposed && $proposed->exists() ) {
-			if ( $fragment !== '' ) {
-				$proposed->setFragment( $fragment );
-			}
 			return $proposed;
 		}
 
-		// Explicit language code given and the page exists
 		if ( $provided !== $base && $provided->exists() ) {
-			// Not based on the redirect target, don't need the fragment
+			// Explicit language code given and the page exists
 			return $provided;
 		}
 
 		// Check for fallback languages specified by the UI language
 		$possibilities = $uiLang->getFallbackLanguages();
 		foreach ( $possibilities as $lang ) {
-			if ( $forTransclusion || $lang !== $baseLang->getCode() ) {
+			if ( $forTransclusion || $lang !== $contLang->getCode() ) {
 				$proposed = $base->getSubpage( $lang );
 				if ( $proposed && $proposed->exists() ) {
-					if ( $fragment !== '' ) {
-						$proposed->setFragment( $fragment );
-					}
 					return $proposed;
 				}
 			}

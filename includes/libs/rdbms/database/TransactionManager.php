@@ -56,8 +56,6 @@ class TransactionManager {
 	private $trxId;
 	/** @var float|null UNIX timestamp at the time of BEGIN for the last transaction */
 	private $trxTimestamp = null;
-	/** @var float|null Round trip time estimate for queries during this transaction */
-	private $trxRoundTripDelay = null;
 	/** @var int Transaction status */
 	private $trxStatus = self::STATUS_TRX_NONE;
 	/** @var Throwable|null The cause of any unresolved transaction state error, or, null */
@@ -129,9 +127,8 @@ class TransactionManager {
 	 * TODO: This should be removed once all usages have been migrated here
 	 * @param string $mode One of IDatabase::TRANSACTION_* values
 	 * @param string $fname method name
-	 * @param float $rtt Trivial query round-trip-delay
 	 */
-	public function newTrxId( $mode, $fname, $rtt ) {
+	public function newTrxId( $mode, $fname ) {
 		$this->trxId = new TransactionIdentifier();
 		$this->trxStatus = self::STATUS_TRX_OK;
 		$this->trxStatusCause = null;
@@ -153,7 +150,6 @@ class TransactionManager {
 		$this->trxDoneWrites = false;
 		$this->trxAtomicCounter = 0;
 		$this->trxTimestamp = microtime( true );
-		$this->trxRoundTripDelay = $rtt;
 	}
 
 	/**
@@ -211,7 +207,7 @@ class TransactionManager {
 				$this->trxStatusCause
 			);
 		} elseif ( $this->trxStatus === self::STATUS_TRX_OK && $this->trxStatusIgnoredCause ) {
-			[ $iLastError, $iLastErrno, $iFname ] = $this->trxStatusIgnoredCause;
+			list( $iLastError, $iLastErrno, $iFname ) = $this->trxStatusIgnoredCause;
 			call_user_func( $deprecationLogger,
 				"Caller from $fname ignored an error originally raised from $iFname: " .
 				"[$iLastErrno] $iLastError"
@@ -266,7 +262,7 @@ class TransactionManager {
 	 * @param Throwable $sessionError
 	 */
 	public function setSessionError( Throwable $sessionError ) {
-		$this->sessionError ??= $sessionError;
+		$this->sessionError = $this->sessionError ?? $sessionError;
 	}
 
 	/**
@@ -330,17 +326,18 @@ class TransactionManager {
 		$this->trxWriteCallers[] = $fname;
 	}
 
-	public function pendingWriteQueryDuration( $type = IDatabase::ESTIMATE_TOTAL ) {
+	public function pendingWriteQueryDuration( IDatabase $db, $type = IDatabase::ESTIMATE_TOTAL ) {
 		if ( !$this->trxLevel() ) {
 			return false;
 		} elseif ( !$this->trxDoneWrites ) {
 			return 0.0;
 		}
-
-		if ( $type === IDatabase::ESTIMATE_DB_APPLY ) {
-			return $this->calculateLastTrxApplyTime( $this->trxRoundTripDelay );
+		if ( $type == IDatabase::ESTIMATE_DB_APPLY ) {
+			$rtt = null;
+			// passed by reference
+			$db->ping( $rtt );
+			return $this->calculateLastTrxApplyTime( $rtt );
 		}
-
 		return $this->trxWriteDuration;
 	}
 
@@ -484,7 +481,7 @@ class TransactionManager {
 		}
 		// Check if the current section matches $fname
 		$pos = count( $this->trxAtomicLevels ) - 1;
-		[ $savedFname, $sectionId, $savepointId ] = $this->trxAtomicLevels[$pos];
+		list( $savedFname, $sectionId, $savepointId ) = $this->trxAtomicLevels[$pos];
 		$this->logger->debug( "endAtomic: leaving level $pos ($fname)", [ 'db_log_category' => 'trx' ] );
 
 		if ( $savedFname !== $fname ) {
@@ -501,7 +498,7 @@ class TransactionManager {
 		if ( $sectionId !== null ) {
 			// Find the (last) section with the given $sectionId
 			$pos = -1;
-			foreach ( $this->trxAtomicLevels as $i => [ , $asId, ] ) {
+			foreach ( $this->trxAtomicLevels as $i => list( $asFname, $asId, $spId ) ) {
 				if ( $asId === $sectionId ) {
 					$pos = $i;
 				}
@@ -530,7 +527,7 @@ class TransactionManager {
 
 		// Check if the current section matches $fname
 		$pos = count( $this->trxAtomicLevels ) - 1;
-		[ $savedFname, $savedSectionId, $savepointId ] = $this->trxAtomicLevels[$pos];
+		list( $savedFname, $savedSectionId, $savepointId ) = $this->trxAtomicLevels[$pos];
 
 		if ( $excisedFnames ) {
 			$this->logger->debug( "cancelAtomic: canceling level $pos ($savedFname) " .
@@ -604,7 +601,7 @@ class TransactionManager {
 				$db->getServerName(),
 				$db->getDomainID(),
 				$oldId,
-				$this->pendingWriteQueryDuration( IDatabase::ESTIMATE_TOTAL ),
+				$this->pendingWriteQueryDuration( $db, IDatabase::ESTIMATE_TOTAL ),
 				$this->trxWriteAffectedRows
 			);
 		}

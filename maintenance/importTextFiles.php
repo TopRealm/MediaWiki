@@ -23,7 +23,6 @@
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\SlotRecord;
-use MediaWiki\Title\Title;
 
 require_once __DIR__ . '/Maintenance.php';
 
@@ -135,7 +134,7 @@ class ImportTextFiles extends Maintenance {
 			}
 
 			$content = ContentHandler::makeContent( rtrim( $text ), $title );
-			$rev = new WikiRevision();
+			$rev = new WikiRevision( MediaWikiServices::getInstance()->getMainConfig() );
 			$rev->setContent( SlotRecord::MAIN, $content );
 			$rev->setTitle( $title );
 			$rev->setUserObj( $user );

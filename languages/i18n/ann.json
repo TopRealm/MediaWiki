@@ -266,7 +266,6 @@
 	"anontalkpagetext": "----\n<em>Eyi ìre akpọk ukpatu òkup inyi ogwu òsikwaan̄ ogwu ìkasan̄a erieen̄ kan̄ ìsibi, ogwu ìkachili-nu irek ikwaan̄, mè ìre ìkakisa irọ ikwaan̄.</em>\nEya orọ eji esabe ifuk eyi IP address isa ijeen̄ ema.\nOwuwa ene mêkọt ikaan̄ ojelek IP address yaage.\nIre owu ire òsikwaan̄ ogwu ìkasan̄a erieen̄ kan̄ isibi, mè ikeek ibe ke mîtumu owuwa ikọ ikagbege ikikpọ ere owu okupbe, soso [[Special:CreateAccount|chili irek ikwaan̄]] mè ìre [[Special:UserLogin|tibi nin̄]] inyi wọlọwọlọ ikakup òborọ es owu egwen ufi ene.",
 	"noarticletext": "Kpunu etip geege me akpọk yi mgbọ keyi.\nOwu môkọt [[Special:Search/{{PAGENAME}}|wèek akpọk òkaan̄ erieen̄ yi]] me emen ebi kè ofifi akpọk,\n<span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} week logs ògbaan̄ me lek],\nmè ìre [{{fullurl:{{FULLPAGENAME}}|action=edit}} inama akpọk yi]</span>.",
 	"noarticletext-nopermission": "Kpunu inu-nge geege me akpọk yi.\nOwu môkọt [[Special:Search/{{PAGENAME}}|week erieen̄ akpọk yi]] me ebi kè ofifi akpọk, mè ìre <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} week log ògbaan̄ me lek]</span>, ire, owu òkakaan̄ unye irorom akpọk yi.",
-	"userpage-userdoesnotexist-view": "Òsikwaan̄ \"$1\" ìkatap erieen̄ me wiki yi.",
 	"previewnote": "<strong>Keek ibe ke eyi ìre gaalek ikpọkpọ-nu.</strong>\nKpegogon-nu unwene kwun̄ ijeen̄!",
 	"continue-editing": "Si agan̄ ekikup inen̄e inu ige",
 	"editing": "Mêkinen̄e $1 ige",
@@ -675,13 +674,5 @@
 	"paramvalidator-help-type-user-subtype-name": "erieen̄ òsikwaan̄",
 	"nstab-mainpage": "Uwu",
 	"skin-action-protect": "Bem",
-	"skin-action-delete": "Chọk",
-	"blockedtext-made-by": "Îre $1 otap igban yi.",
-	"blockedtext-reason-comment": "Ibot ìre <em>$1</em>",
-	"blockedtext-start-time": "Igban ìbene me: $1",
-	"blockedtext-expiration-time": "Igban ìta me: $1",
-	"blockedtext-intended-blockee": "Ogwu ebenbe me ejit igbagban: $1",
-	"blockedtext-contact-blocker-admin": "Owu môkọt isi lek $1 mè ìyaka ire ufi [[{{MediaWiki:Grouppage-sysop}}|ogwu adimin]] isi ikpa ikọ ofolek igban yi.",
-	"blockedtext-include-details-queries": "Soso tap otutuuk etip egobe me inyọn̄ yi me lek idodo geelek odobe.",
-	"renameuserreason": "Ibot:"
+	"skin-action-delete": "Chọk"
 }

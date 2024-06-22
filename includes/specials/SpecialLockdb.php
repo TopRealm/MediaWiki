@@ -70,7 +70,7 @@ class SpecialLockdb extends FormSpecialPage {
 
 	protected function alterForm( HTMLForm $form ) {
 		$form->setWrapperLegend( false )
-			->setHeaderHtml( $this->msg( 'lockdbtext' )->parseAsBlock() )
+			->setHeaderText( $this->msg( 'lockdbtext' )->parseAsBlock() )
 			->setSubmitTextMsg( 'lockbtn' );
 	}
 

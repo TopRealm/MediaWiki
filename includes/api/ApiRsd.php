@@ -23,8 +23,6 @@
  * @file
  */
 
-use MediaWiki\Title\Title;
-
 /**
  * API module for sending out RSD information
  * @ingroup API

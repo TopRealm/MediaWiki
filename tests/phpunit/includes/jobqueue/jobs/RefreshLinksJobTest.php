@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\Page\PageAssertionException;
-use MediaWiki\Title\Title;
 
 /**
  * @covers RefreshLinksJob
@@ -32,7 +31,7 @@ class RefreshLinksJobTest extends MediaWikiIntegrationTestCase {
 	 */
 	private function createPage( $name, array $content ) {
 		$title = Title::makeTitle( $this->getDefaultWikitextNS(), $name );
-		$page = $this->getServiceContainer()->getWikiPageFactory()->newFromTitle( $title );
+		$page = WikiPage::factory( $title );
 
 		$updater = $page->newPageUpdater( $this->getTestUser()->getUser() );
 

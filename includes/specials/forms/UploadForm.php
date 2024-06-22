@@ -18,9 +18,6 @@
  * @file
  */
 
-use MediaWiki\HookContainer\HookContainer;
-use MediaWiki\HookContainer\HookRunner;
-use MediaWiki\Html\Html;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
@@ -59,9 +56,6 @@ class UploadForm extends HTMLForm {
 	/** @var NamespaceInfo */
 	private $nsInfo;
 
-	/** @var HookRunner */
-	private $hookRunner;
-
 	/**
 	 * @param array $options
 	 * @param IContextSource|null $context
@@ -69,7 +63,6 @@ class UploadForm extends HTMLForm {
 	 * @param LocalRepo|null $localRepo
 	 * @param Language|null $contentLanguage
 	 * @param NamespaceInfo|null $nsInfo
-	 * @param HookContainer|null $hookContainer
 	 */
 	public function __construct(
 		array $options = [],
@@ -77,8 +70,7 @@ class UploadForm extends HTMLForm {
 		LinkRenderer $linkRenderer = null,
 		LocalRepo $localRepo = null,
 		Language $contentLanguage = null,
-		NamespaceInfo $nsInfo = null,
-		HookContainer $hookContainer = null
+		NamespaceInfo $nsInfo = null
 	) {
 		if ( $context instanceof IContextSource ) {
 			$this->setContext( $context );
@@ -100,7 +92,6 @@ class UploadForm extends HTMLForm {
 		$this->localRepo = $localRepo;
 		$this->contentLanguage = $contentLanguage;
 		$this->nsInfo = $nsInfo;
-		$this->hookRunner = new HookRunner( $hookContainer ?? $services->getHookContainer() );
 
 		$this->mWatch = !empty( $options['watch'] );
 		$this->mForReUpload = !empty( $options['forreupload'] );
@@ -120,7 +111,7 @@ class UploadForm extends HTMLForm {
 			+ $this->getDescriptionSection()
 			+ $this->getOptionsSection();
 
-		$this->hookRunner->onUploadFormInitDescriptor( $descriptor );
+		$this->getHookRunner()->onUploadFormInitDescriptor( $descriptor );
 		parent::__construct( $descriptor, $this->getContext(), 'upload' );
 
 		# Add a link to edit MediaWiki:Licenses
@@ -231,7 +222,7 @@ class UploadForm extends HTMLForm {
 				'checked' => $selectedSourceType == 'url',
 			];
 		}
-		$this->hookRunner->onUploadFormSourceDescriptors(
+		$this->getHookRunner()->onUploadFormSourceDescriptors(
 			$descriptor, $radio, $selectedSourceType );
 
 		$descriptor['Extensions'] = [

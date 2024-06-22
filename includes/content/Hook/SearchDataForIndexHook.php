@@ -12,7 +12,6 @@ use WikiPage;
  * Use the hook name "SearchDataForIndex" to register handlers implementing this interface.
  *
  * @stable to implement
- * @deprecated since 1.40, use SearchDataForIndexHook2 instead.
  * @ingroup Hooks
  */
 interface SearchDataForIndexHook {

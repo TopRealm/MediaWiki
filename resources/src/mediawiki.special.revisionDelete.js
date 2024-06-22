@@ -3,11 +3,11 @@
  */
 ( function () {
 	var colonSeparator = mw.msg( 'colon-separator' ),
-		wpRevDeleteReasonList = OO.ui.infuse( $( '#wpRevDeleteReasonList' ) ),
-		wpReason = OO.ui.infuse( $( '#wpReason' ) ),
+		$wpRevDeleteReasonList = $( '#wpRevDeleteReasonList' ),
+		$wpReason = $( '#wpReason' ),
 		filterFunction = function ( input ) {
 			// Should be built the same as in SpecialRevisionDelete::submit()
-			var comment = wpRevDeleteReasonList.getValue();
+			var comment = $wpRevDeleteReasonList.val();
 			if ( comment === 'other' ) {
 				comment = input;
 			} else if ( input !== '' ) {
@@ -17,9 +17,6 @@
 			return comment;
 		};
 
-	mw.widgets.visibleCodePointLimit( wpReason, mw.config.get( 'wgCommentCodePointLimit' ), filterFunction );
-	// Keep the remaining counter in sync when reason list changed
-	wpRevDeleteReasonList.on( 'change', function () {
-		wpReason.emit( 'change' );
-	} );
+	$wpReason.codePointLimit( mw.config.get( 'wgCommentCodePointLimit' ), filterFunction );
+
 }() );

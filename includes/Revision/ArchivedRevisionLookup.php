@@ -53,7 +53,7 @@ class ArchivedRevisionLookup {
 	 * various archive table fields.
 	 *
 	 * @param PageIdentity $page
-	 * @return IResultWrapper
+	 * @return IResultWrapper|bool
 	 */
 	public function listRevisions( PageIdentity $page ) {
 		$queryInfo = $this->revisionStore->getArchiveQueryInfo();

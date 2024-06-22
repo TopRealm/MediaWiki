@@ -47,7 +47,7 @@ class Pingback {
 	 * @var int Revision ID of the JSON schema that describes the pingback payload.
 	 * The schema lives on Meta-Wiki, at <https://meta.wikimedia.org/wiki/Schema:MediaWikiPingback>.
 	 */
-	private const SCHEMA_REV = 20104427;
+	private const SCHEMA_REV = 15781718;
 
 	/** @var LoggerInterface */
 	protected $logger;
@@ -120,11 +120,13 @@ class Pingback {
 	 * @return bool
 	 */
 	private function wasRecentlySent(): bool {
-		$timestamp = $this->lb->getConnection( DB_REPLICA )->newSelectQueryBuilder()
-			->select( 'ul_value' )
-			->from( 'updatelog' )
-			->where( [ 'ul_key' => $this->key ] )
-			->caller( __METHOD__ )->fetchField();
+		$dbr = $this->lb->getConnectionRef( DB_REPLICA );
+		$timestamp = $dbr->selectField(
+			'updatelog',
+			'ul_value',
+			[ 'ul_key' => $this->key ],
+			__METHOD__
+		);
 		if ( $timestamp === false ) {
 			return false;
 		}
@@ -150,7 +152,7 @@ class Pingback {
 			return false;
 		}
 
-		$dbw = $this->lb->getConnection( DB_PRIMARY );
+		$dbw = $this->lb->getConnectionRef( DB_PRIMARY );
 		if ( !$dbw->lock( $this->key, __METHOD__, 0 ) ) {
 			// already in progress
 			return false;
@@ -220,21 +222,14 @@ class Pingback {
 	private function fetchOrInsertId(): string {
 		// We've already obtained a primary connection for the lock, and plan to do a write.
 		// But, still prefer reading this immutable value from a replica to reduce load.
-		$id = $this->lb->getConnection( DB_REPLICA )->newSelectQueryBuilder()
-			->select( 'ul_value' )
-			->from( 'updatelog' )
-			->where( [ 'ul_key' => 'PingBack' ] )
-			->caller( __METHOD__ )->fetchField();
+		$dbr = $this->lb->getConnectionRef( DB_REPLICA );
+		$id = $dbr->selectField( 'updatelog', 'ul_value', [ 'ul_key' => 'PingBack' ], __METHOD__ );
 		if ( $id !== false ) {
 			return $id;
 		}
 
-		$dbw = $this->lb->getConnection( DB_PRIMARY );
-		$id = $dbw->newSelectQueryBuilder()
-			->select( 'ul_value' )
-			->from( 'updatelog' )
-			->where( [ 'ul_key' => 'PingBack' ] )
-			->caller( __METHOD__ )->fetchField();
+		$dbw = $this->lb->getConnectionRef( DB_PRIMARY );
+		$id = $dbw->selectField( 'updatelog', 'ul_value', [ 'ul_key' => 'PingBack' ], __METHOD__ );
 		if ( $id !== false ) {
 			return $id;
 		}
@@ -278,7 +273,7 @@ class Pingback {
 	 * @throws DBError If timestamp upsert fails
 	 */
 	private function markSent(): void {
-		$dbw = $this->lb->getConnection( DB_PRIMARY );
+		$dbw = $this->lb->getConnectionRef( DB_PRIMARY );
 		$timestamp = ConvertibleTimestamp::time();
 		$dbw->upsert(
 			'updatelog',

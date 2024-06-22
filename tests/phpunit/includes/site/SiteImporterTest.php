@@ -186,7 +186,7 @@ class SiteImporterTest extends MediaWikiIntegrationTestCase {
 
 		foreach ( $sites as $site ) {
 			$key = $site->getGlobalId();
-			$data = unserialize( serialize( $site ) );
+			$data = unserialize( $site->serialize() );
 
 			$serialized[$key] = $data;
 		}

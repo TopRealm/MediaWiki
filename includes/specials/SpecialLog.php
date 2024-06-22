@@ -23,11 +23,7 @@
 
 use MediaWiki\Cache\LinkBatchFactory;
 use MediaWiki\HookContainer\HookRunner;
-use MediaWiki\Html\FormOptions;
-use MediaWiki\Html\Html;
-use MediaWiki\Html\ListToggle;
 use MediaWiki\MainConfigNames;
-use MediaWiki\Title\Title;
 use MediaWiki\User\ActorNormalization;
 use MediaWiki\User\UserIdentityLookup;
 use Wikimedia\IPUtils;
@@ -89,7 +85,6 @@ class SpecialLog extends SpecialPage {
 		$opts->add( 'month', null, FormOptions::INTNULL );
 		$opts->add( 'day', null, FormOptions::INTNULL );
 		$opts->add( 'tagfilter', '' );
-		$opts->add( 'tagInvert', false );
 		$opts->add( 'offset', '' );
 		$opts->add( 'dir', '' );
 		$opts->add( 'offender', '' );
@@ -117,6 +112,12 @@ class SpecialLog extends SpecialPage {
 				$opts->setValue( 'month', (int)$dateStamp->format( 'm' ) );
 				$opts->setValue( 'day', (int)$dateStamp->format( 'd' ) );
 			}
+		}
+
+		# Don't let the user get stuck with a certain date
+		if ( $opts->getValue( 'offset' ) || $opts->getValue( 'dir' ) == 'prev' ) {
+			$opts->setValue( 'year', '' );
+			$opts->setValue( 'month', '' );
 		}
 
 		// If the user doesn't have the right permission to view the specific
@@ -195,7 +196,6 @@ class SpecialLog extends SpecialPage {
 			'block',
 			'newusers',
 			'rights',
-			'renameuser',
 		];
 
 		( $runner ?? Hooks::runner() )->onGetLogTypesOnUser( $types );
@@ -225,7 +225,7 @@ class SpecialLog extends SpecialPage {
 	 */
 	private function parseParams( FormOptions $opts, $par ) {
 		# Get parameters
-		$par ??= '';
+		$par = $par ?? '';
 		$parms = explode( '/', $par );
 		$symsForAll = [ '*', 'all' ];
 		if ( $parms[0] != '' &&
@@ -262,8 +262,7 @@ class SpecialLog extends SpecialPage {
 			$opts->getValue( 'logid' ),
 			$this->linkBatchFactory,
 			$this->loadBalancer,
-			$this->actorNormalization,
-			$opts->getValue( 'tagInvert' )
+			$this->actorNormalization
 		);
 
 		$this->addHeader( $opts->getValue( 'type' ) );
@@ -288,11 +287,7 @@ class SpecialLog extends SpecialPage {
 			$pager->getDay(),
 			$pager->getFilterParams(),
 			$pager->getTagFilter(),
-			$pager->getAction(),
-			[
-				'offender' => $opts->getValue( 'offender' ),
-			],
-			$pager->getTagInvert()
+			$pager->getAction()
 		);
 
 		# Insert list

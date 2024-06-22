@@ -21,8 +21,6 @@
  * @ingroup Upload
  */
 
-use MediaWiki\Request\WebRequestUpload;
-
 /**
  * Implements regular file uploads
  *
@@ -50,7 +48,7 @@ class UploadFromFile extends UploadBase {
 	}
 
 	/**
-	 * Initialize from a filename and a MediaWiki\Request\WebRequestUpload
+	 * Initialize from a filename and a WebRequestUpload
 	 * @param string $name
 	 * @param WebRequestUpload $webRequestUpload
 	 */

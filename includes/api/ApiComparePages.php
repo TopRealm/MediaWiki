@@ -27,7 +27,6 @@ use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\RevisionStore;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Revision\SlotRoleRegistry;
-use MediaWiki\Title\Title;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\RequestTimeout\TimeoutException;
 
@@ -102,7 +101,7 @@ class ApiComparePages extends ApiBase {
 		$this->getMain()->setCacheMode( 'public' );
 
 		// Get the 'from' RevisionRecord
-		[ $fromRev, $fromRelRev, $fromValsRev ] = $this->getDiffRevision( 'from', $params );
+		list( $fromRev, $fromRelRev, $fromValsRev ) = $this->getDiffRevision( 'from', $params );
 
 		// Get the 'to' RevisionRecord
 		if ( $params['torelative'] !== null ) {
@@ -117,7 +116,7 @@ class ApiComparePages extends ApiBase {
 			switch ( $params['torelative'] ) {
 				case 'prev':
 					// Swap 'from' and 'to'
-					[ $toRev, $toRelRev, $toValsRev ] = [ $fromRev, $fromRelRev, $fromValsRev ];
+					list( $toRev, $toRelRev, $toValsRev ) = [ $fromRev, $fromRelRev, $fromValsRev ];
 					$fromRev = $this->revisionStore->getPreviousRevision( $toRelRev );
 					$fromRelRev = $fromRev;
 					$fromValsRev = $fromRev;
@@ -176,7 +175,7 @@ class ApiComparePages extends ApiBase {
 					break;
 			}
 		} else {
-			[ $toRev, $toRelRev, $toValsRev ] = $this->getDiffRevision( 'to', $params );
+			list( $toRev, $toRelRev, $toValsRev ) = $this->getDiffRevision( 'to', $params );
 		}
 
 		// Handle missing from or to revisions (should never happen)
@@ -224,9 +223,6 @@ class ApiComparePages extends ApiBase {
 			foreach ( $params['slots'] as $role ) {
 				$difftext[$role] = $de->getDiffBodyForRole( $role );
 			}
-		}
-		foreach ( $de->getRevisionLoadErrors() as $msg ) {
-			$this->addWarning( $msg );
 		}
 
 		// Fill in the response

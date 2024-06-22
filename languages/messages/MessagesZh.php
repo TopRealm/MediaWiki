@@ -1,6 +1,8 @@
 <?php
 /** Chinese (中文)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  *
@@ -33,6 +35,12 @@ $namespaceNames = [
 	NS_HELP_TALK        => 'Help_talk',
 	NS_CATEGORY         => 'Category',
 	NS_CATEGORY_TALK    => 'Category_talk',
+	NS_FANMADE         => 'Fanmade',
+	NS_FANMADE_TALK    => 'Fanmade_talk',
+	NS_DRAFT         => 'Draft',
+	NS_DRAFT_TALK    => 'Draft_talk',
+	NS_SMWDATA         => 'SMWData',
+	NS_SMWDATA_TALK    => 'SMWData_talk',
 ];
 
 # T296188: Store namespace aliases of language variants
@@ -99,7 +107,6 @@ $specialPageAliases = [
 	'Recentchanges'             => [ '最近更改', '近期變動' ],
 	'Recentchangeslinked'       => [ '链出更改', '鏈出更改', '連出更改' ],
 	'Redirect'                  => [ '重定向', '重新導向' ],
-	'Renameuser'                => [ '重命名用户', '重新命名用户', '重新命名用戶', '重新命名使用者' ],
 	'ResetTokens'               => [ '重置密钥', '重設金鑰' ],
 	'Revisiondelete'            => [ '版本删除' ],
 	'Search'                    => [ '搜索', '搜尋' ],

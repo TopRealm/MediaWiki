@@ -24,7 +24,6 @@
  */
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\User\ActorMigration;
 use MediaWiki\User\UserIdentity;
 
 require_once __DIR__ . '/Maintenance.php';

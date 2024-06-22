@@ -64,7 +64,7 @@ class MWDoxygenFilter {
 				$output .= $token;
 				continue;
 			}
-			[ $id, $content ] = $token;
+			list( $id, $content ) = $token;
 			switch ( $id ) {
 				case T_DOC_COMMENT:
 					// Escape slashes so that references to namespaces are not

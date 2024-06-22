@@ -21,7 +21,6 @@
  * @file
  */
 
-use MediaWiki\Language\RawMessage;
 use MediaWiki\Page\PageReference;
 use MediaWiki\Page\PageReferenceValue;
 

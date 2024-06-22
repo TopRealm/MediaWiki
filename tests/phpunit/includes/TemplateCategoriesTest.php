@@ -1,18 +1,9 @@
 <?php
 
-use MediaWiki\Title\Title;
-
 /**
  * @group Database
  */
 class TemplateCategoriesTest extends MediaWikiIntegrationTestCase {
-
-	protected function setUp(): void {
-		parent::setUp();
-
-		// Don't let PageStore hit WANObjectCache process cache for revision metadata
-		$this->setMainCache( CACHE_NONE );
-	}
 
 	/**
 	 * @covers Title::getParentCategories
@@ -20,10 +11,9 @@ class TemplateCategoriesTest extends MediaWikiIntegrationTestCase {
 	public function testTemplateCategories() {
 		$user = new User();
 		$this->overrideUserPermissions( $user, [ 'createpage', 'edit', 'purge', 'delete' ] );
-		$wikiPageFactory = $this->getServiceContainer()->getWikiPageFactory();
 
-		$title = Title::makeTitle( NS_MAIN, "Categorized from template" );
-		$page = $wikiPageFactory->newFromTitle( $title );
+		$title = Title::newFromText( "Categorized from template" );
+		$page = WikiPage::factory( $title );
 		$page->doUserEditContent(
 			new WikitextContent( '{{Categorising template}}' ),
 			$user,
@@ -37,7 +27,7 @@ class TemplateCategoriesTest extends MediaWikiIntegrationTestCase {
 		);
 
 		// Create template
-		$template = $wikiPageFactory->newFromTitle( Title::makeTitle( NS_TEMPLATE, 'Categorising template' ) );
+		$template = WikiPage::factory( Title::newFromText( 'Template:Categorising template' ) );
 		$template->doUserEditContent(
 			new WikitextContent( '[[Category:Solved bugs]]' ),
 			$user,

@@ -1,6 +1,8 @@
 <?php
 /** Upper Sorbian (hornjoserbsce)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  */
@@ -113,7 +115,6 @@ $specialPageAliases = [
 	'Recentchanges'             => [ 'Aktualne_změny' ],
 	'Recentchangeslinked'       => [ 'Změny_zwjazanych_stronow' ],
 	'Redirect'                  => [ 'Dalesposrědkowanje' ],
-	'Renameuser'                => [ 'Wužiwarja_přemjenować' ],
 	'Revisiondelete'            => [ 'Wušmórnjenje_wersijow' ],
 	'Search'                    => [ 'Pytać' ],
 	'Shortpages'                => [ 'Najkrótše_strony' ],

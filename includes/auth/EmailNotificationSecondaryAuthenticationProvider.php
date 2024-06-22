@@ -34,8 +34,10 @@ class EmailNotificationSecondaryAuthenticationProvider
 	}
 
 	protected function postInitSetup() {
-		$this->sendConfirmationEmail ??= $this->config->get( MainConfigNames::EnableEmail )
+		if ( $this->sendConfirmationEmail === null ) {
+			$this->sendConfirmationEmail = $this->config->get( MainConfigNames::EnableEmail )
 				&& $this->config->get( MainConfigNames::EmailAuthentication );
+		}
 	}
 
 	public function getAuthenticationRequests( $action, array $options ) {

@@ -20,7 +20,6 @@
  * @file
  */
 
-use MediaWiki\CommentFormatter\CommentFormatter;
 use MediaWiki\Content\IContentHandlerFactory;
 use MediaWiki\Content\Renderer\ContentRenderer;
 use MediaWiki\Content\Transform\ContentTransformer;
@@ -32,7 +31,6 @@ use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\RevisionStore;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Revision\SlotRoleRegistry;
-use MediaWiki\Title\Title;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\EnumDef;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
@@ -90,9 +88,6 @@ abstract class ApiQueryRevisionsBase extends ApiQueryGeneratorBase {
 	/** @var ContentTransformer */
 	private $contentTransformer;
 
-	/** @var CommentFormatter */
-	private $commentFormatter;
-
 	/**
 	 * @since 1.37 Support injection of services
 	 * @stable to call
@@ -105,7 +100,6 @@ abstract class ApiQueryRevisionsBase extends ApiQueryGeneratorBase {
 	 * @param SlotRoleRegistry|null $slotRoleRegistry
 	 * @param ContentRenderer|null $contentRenderer
 	 * @param ContentTransformer|null $contentTransformer
-	 * @param CommentFormatter|null $commentFormatter
 	 */
 	public function __construct(
 		ApiQuery $queryModule,
@@ -116,8 +110,7 @@ abstract class ApiQueryRevisionsBase extends ApiQueryGeneratorBase {
 		ParserFactory $parserFactory = null,
 		SlotRoleRegistry $slotRoleRegistry = null,
 		ContentRenderer $contentRenderer = null,
-		ContentTransformer $contentTransformer = null,
-		CommentFormatter $commentFormatter = null
+		ContentTransformer $contentTransformer = null
 	) {
 		parent::__construct( $queryModule, $moduleName, $paramPrefix );
 		// This class is part of the stable interface and
@@ -129,7 +122,6 @@ abstract class ApiQueryRevisionsBase extends ApiQueryGeneratorBase {
 		$this->slotRoleRegistry = $slotRoleRegistry ?? $services->getSlotRoleRegistry();
 		$this->contentRenderer = $contentRenderer ?? $services->getContentRenderer();
 		$this->contentTransformer = $contentTransformer ?? $services->getContentTransformer();
-		$this->commentFormatter = $commentFormatter ?? $services->getCommentFormatter();
 	}
 
 	public function execute() {
@@ -243,7 +235,9 @@ abstract class ApiQueryRevisionsBase extends ApiQueryGeneratorBase {
 			$this->parseContent = $params['parse'];
 			if ( $this->parseContent ) {
 				// Must manually initialize unset limit
-				$this->limit ??= 1;
+				if ( $this->limit === null ) {
+					$this->limit = 1;
+				}
 			}
 			$this->section = $params['section'] ?? false;
 		}
@@ -410,7 +404,7 @@ abstract class ApiQueryRevisionsBase extends ApiQueryGeneratorBase {
 				}
 
 				if ( $this->fld_parsedcomment ) {
-					$vals['parsedcomment'] = $this->commentFormatter->format(
+					$vals['parsedcomment'] = Linker::formatComment(
 						$comment, Title::newFromLinkTarget( $revision->getPageAsLinkTarget() )
 					);
 				}
@@ -716,9 +710,6 @@ abstract class ApiQueryRevisionsBase extends ApiQueryGeneratorBase {
 					ApiResult::setContentValue( $vals['diff'], 'body', $difftext );
 					if ( !$engine->wasCacheHit() ) {
 						$this->numUncachedDiffs++;
-					}
-					foreach ( $engine->getRevisionLoadErrors() as $msg ) {
-						$this->addWarning( $msg );
 					}
 				}
 			} else {

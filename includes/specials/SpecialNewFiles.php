@@ -22,10 +22,7 @@
  */
 
 use MediaWiki\Cache\LinkBatchFactory;
-use MediaWiki\Html\FormOptions;
-use MediaWiki\Html\Html;
 use MediaWiki\Permissions\GroupPermissionsLookup;
-use MediaWiki\Request\DerivativeRequest;
 use Wikimedia\Rdbms\ILoadBalancer;
 
 class SpecialNewFiles extends IncludableSpecialPage {
@@ -111,17 +108,13 @@ class SpecialNewFiles extends IncludableSpecialPage {
 			) );
 		}
 
-		// Avoid unexpected query or query errors to assoc array input, or nested arrays via
-		// URL query params. Keep only string values (T321133).
-		$mediaTypes = $opts->getValue( 'mediatype' );
-		$mediaTypes = array_filter( $mediaTypes, 'is_string' );
-		// Avoid unbounded query size with bogus values. Keep only known types.
-		$mediaTypes = array_values( array_intersect( $this->mediaTypes, $mediaTypes ) );
-		// Optimization: Remove redundant IN() query condition if all types are checked.
-		if ( !array_diff( $this->mediaTypes, $mediaTypes ) ) {
-			$mediaTypes = [];
+		// if all media types have been selected, wipe out the array to prevent
+		// the pointless IN(...) query condition (which would have no effect
+		// because every possible type has been selected)
+		$missingMediaTypes = array_diff( $this->mediaTypes, $opts->getValue( 'mediatype' ) );
+		if ( empty( $missingMediaTypes ) ) {
+			$opts->setValue( 'mediatype', [] );
 		}
-		$opts->setValue( 'mediatype', $mediaTypes );
 
 		$opts->validateIntBounds( 'limit', 0, 500 );
 

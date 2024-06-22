@@ -269,6 +269,7 @@ class SpecialBotPasswords extends FormSpecialPage {
 	protected function alterForm( HTMLForm $form ) {
 		$form->setId( 'mw-botpasswords-form' );
 		$form->setTableId( 'mw-botpasswords-table' );
+		$form->addPreText( $this->msg( 'botpasswords-summary' )->parseAsBlock() );
 		$form->suppressDefaultSubmit();
 
 		if ( $this->par !== null ) {

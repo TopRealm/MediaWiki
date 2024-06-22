@@ -149,7 +149,7 @@ class ImageBuilder extends Maintenance {
 		flush();
 	}
 
-	private function buildTable( $table, $queryInfo, $callback ) {
+	private function buildTable( $table, $key, $queryInfo, $callback ) {
 		$count = $this->dbw->selectField( $table, 'count(*)', '', __METHOD__ );
 		$this->init( $count, $table );
 		$this->output( "Processing $table...\n" );
@@ -159,7 +159,7 @@ class ImageBuilder extends Maintenance {
 		);
 
 		foreach ( $result as $row ) {
-			$update = call_user_func( $callback, $row );
+			$update = call_user_func( $callback, $row, null );
 			if ( $update ) {
 				$this->progress( 1 );
 			} else {
@@ -171,10 +171,10 @@ class ImageBuilder extends Maintenance {
 
 	private function buildImage() {
 		$callback = [ $this, 'imageCallback' ];
-		$this->buildTable( 'image', LocalFile::getQueryInfo(), $callback );
+		$this->buildTable( 'image', 'img_name', LocalFile::getQueryInfo(), $callback );
 	}
 
-	private function imageCallback( $row ) {
+	private function imageCallback( $row, $copy ) {
 		// Create a File object from the row
 		// This will also upgrade it
 		$file = $this->getRepo()->newFileFromRow( $row );
@@ -183,11 +183,11 @@ class ImageBuilder extends Maintenance {
 	}
 
 	private function buildOldImage() {
-		$this->buildTable( 'oldimage', OldLocalFile::getQueryInfo(),
+		$this->buildTable( 'oldimage', 'oi_archive_name', OldLocalFile::getQueryInfo(),
 			[ $this, 'oldimageCallback' ] );
 	}
 
-	private function oldimageCallback( $row ) {
+	private function oldimageCallback( $row, $copy ) {
 		// Create a File object from the row
 		// This will also upgrade it
 		if ( $row->oi_archive_name == '' ) {

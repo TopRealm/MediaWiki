@@ -1,5 +1,15 @@
 <?php
+
 /**
+ * Extends ArrayObject and does two things:
+ *
+ * Allows for deriving classes to easily intercept additions
+ * and deletions for purposes such as additional indexing.
+ *
+ * Enforces the objects to be of a certain type, so this
+ * can be replied upon, much like if this had true support
+ * for generics, which sadly enough is not possible in PHP.
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -15,21 +25,10 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  * http://www.gnu.org/copyleft/gpl.html
  *
- * @file
- */
-
-/**
- * Extends ArrayObject and does two things:
- *
- * Allows for deriving classes to easily intercept additions
- * and deletions for purposes such as additional indexing.
- *
- * Enforces the objects to be of a certain type, so this
- * can be replied upon, much like if this had true support
- * for generics, which sadly enough is not possible in PHP.
- *
- * @deprecated since 1.40 Use built-in ArrayObject instead.
  * @since 1.20
+ *
+ * @file
+ *
  * @license GPL-2.0-or-later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
@@ -83,10 +82,6 @@ abstract class GenericArrayObject extends ArrayObject {
 			foreach ( $input as $offset => $value ) {
 				$this->offsetSet( $offset, $value );
 			}
-		}
-
-		if ( static::class !== 'SiteList' ) {
-			wfDeprecated( __CLASS__, '1.40' );
 		}
 	}
 
@@ -152,7 +147,9 @@ abstract class GenericArrayObject extends ArrayObject {
 			);
 		}
 
-		$index ??= $this->getNewOffset();
+		if ( $index === null ) {
+			$index = $this->getNewOffset();
+		}
 
 		if ( $this->preSetElement( $index, $value ) ) {
 			parent::offsetSet( $index, $value );
@@ -182,6 +179,17 @@ abstract class GenericArrayObject extends ArrayObject {
 	/**
 	 * @see Serializable::serialize
 	 *
+	 * @since 1.20
+	 *
+	 * @return string
+	 */
+	public function serialize(): string {
+		return serialize( $this->__serialize() );
+	}
+
+	/**
+	 * @see Serializable::serialize
+	 *
 	 * @since 1.38
 	 *
 	 * @return array
@@ -204,6 +212,17 @@ abstract class GenericArrayObject extends ArrayObject {
 			'data' => $this->getArrayCopy(),
 			'index' => $this->indexOffset,
 		];
+	}
+
+	/**
+	 * @see Serializable::unserialize
+	 *
+	 * @since 1.20
+	 *
+	 * @param string $serialization
+	 */
+	public function unserialize( $serialization ): void {
+		$this->__unserialize( unserialize( $serialization ) );
 	}
 
 	/**

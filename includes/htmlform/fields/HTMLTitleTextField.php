@@ -1,6 +1,5 @@
 <?php
 
-use MediaWiki\Title\Title;
 use MediaWiki\Widget\TitleInputWidget;
 
 /**

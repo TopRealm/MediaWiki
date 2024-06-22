@@ -35,8 +35,6 @@
 
 require_once __DIR__ . '/Maintenance.php';
 
-use MediaWiki\Title\Title;
-
 /**
  * Maintenance script that removes pages with only one revision from the
  * MediaWiki namespace.

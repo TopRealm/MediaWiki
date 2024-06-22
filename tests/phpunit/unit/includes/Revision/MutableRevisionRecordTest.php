@@ -7,7 +7,6 @@ use DummyContentForTesting;
 use InvalidArgumentException;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Page\PageIdentityValue;
-use MediaWiki\Revision\BadRevisionException;
 use MediaWiki\Revision\MutableRevisionRecord;
 use MediaWiki\Revision\MutableRevisionSlots;
 use MediaWiki\Revision\RevisionAccessException;
@@ -277,10 +276,10 @@ class MutableRevisionRecordTest extends MediaWikiUnitTestCase {
 				'slot_content_id' => 1,
 				'content_address' => null, // touched
 				'model_name' => 'x',
-				'role_name' => SlotRecord::MAIN,
+				'role_name' => 'main',
 				'slot_origin' => null // touched
 			],
-			new DummyContentForTesting( SlotRecord::MAIN )
+			new DummyContentForTesting( 'main' )
 		);
 		$auxSlot = new SlotRecord(
 			(object)[
@@ -298,7 +297,7 @@ class MutableRevisionRecordTest extends MediaWikiUnitTestCase {
 		$record->setSlot( $mainSlot );
 		$record->setSlot( $auxSlot );
 
-		$this->assertSame( [ SlotRecord::MAIN ], $record->getOriginalSlots()->getSlotRoles() );
+		$this->assertSame( [ 'main' ], $record->getOriginalSlots()->getSlotRoles() );
 		$this->assertSame( $mainSlot, $record->getOriginalSlots()->getSlot( SlotRecord::MAIN ) );
 
 		$this->assertSame( [ 'aux' ], $record->getInheritedSlots()->getSlotRoles() );
@@ -434,34 +433,5 @@ class MutableRevisionRecordTest extends MediaWikiUnitTestCase {
 			'An Authority object must be given when checking FOR_THIS_USER audience.'
 		);
 		$record->audienceCan( RevisionRecord::DELETED_TEXT, RevisionRecord::FOR_THIS_USER );
-	}
-
-	public function testGetContent_bad() {
-		$record = new MutableRevisionRecord(
-			new PageIdentityValue( 1, NS_MAIN, 'Foo', PageIdentity::LOCAL )
-		);
-		$slot = new SlotRecord(
-			(object)[
-				'slot_id' => 1,
-				'slot_revision_id' => null,
-				'slot_content_id' => 1,
-				'content_address' => null,
-				'model_name' => 'x',
-				'role_name' => SlotRecord::MAIN,
-				'slot_origin' => null
-			],
-			static function () {
-				throw new BadRevisionException( 'bad' );
-			}
-		);
-		$record->setSlot( $slot );
-
-		$exception = null;
-		try {
-			$record->getContentOrThrow( SlotRecord::MAIN );
-		} catch ( BadRevisionException $exception ) {
-		}
-		$this->assertNotNull( $exception );
-		$this->assertNull( $record->getContent( SlotRecord::MAIN ) );
 	}
 }

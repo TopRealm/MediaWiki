@@ -18,13 +18,12 @@
  * @file
  */
 
-use MediaWiki\CommentStore\CommentStoreComment;
 use MediaWiki\Deferred\LinksUpdate\LinksUpdate;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\Authority;
-use MediaWiki\Title\Title;
+use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserIdentityValue;
 use Wikimedia\Rdbms\Blob;
@@ -228,8 +227,8 @@ class LocalFile extends File {
 	 *
 	 * @param string $sha1 Base-36 SHA-1
 	 * @param LocalRepo $repo
-	 * @param string|false $timestamp MW_timestamp (optional)
-	 * @return static|false
+	 * @param string|bool $timestamp MW_timestamp (optional)
+	 * @return bool|LocalFile
 	 */
 	public static function newFromKey( $sha1, $repo, $timestamp = false ) {
 		$dbr = $repo->getReplicaDB();
@@ -326,7 +325,7 @@ class LocalFile extends File {
 	}
 
 	/**
-	 * @return LocalRepo|false
+	 * @return LocalRepo|bool
 	 */
 	public function getRepo() {
 		return $this->repo;
@@ -336,10 +335,19 @@ class LocalFile extends File {
 	 * Get the memcached key for the main data for this file, or false if
 	 * there is no access to the shared cache.
 	 * @stable to override
-	 * @return string|false
+	 * @return string|bool
 	 */
 	protected function getCacheKey() {
 		return $this->repo->getSharedCacheKey( 'file', sha1( $this->getName() ) );
+	}
+
+	/**
+	 * @param WANObjectCache $cache
+	 * @return string[]
+	 * @since 1.28
+	 */
+	public function getMutableCacheKeys( WANObjectCache $cache ) {
+		return [ $this->getCacheKey() ];
 	}
 
 	/**
@@ -561,7 +569,7 @@ class LocalFile extends File {
 	/**
 	 * @param IDatabase $dbr
 	 * @param string $fname
-	 * @return string[]|false
+	 * @return string[]|bool
 	 */
 	private function loadExtraFieldsWithTimestamp( $dbr, $fname ) {
 		$fieldMap = false;
@@ -613,7 +621,7 @@ class LocalFile extends File {
 		$prefixLength = strlen( $prefix );
 
 		// Double check prefix once
-		if ( substr( array_key_first( $array ), 0, $prefixLength ) !== $prefix ) {
+		if ( substr( key( $array ), 0, $prefixLength ) !== $prefix ) {
 			throw new MWException( __METHOD__ . ': incorrect $prefix parameter' );
 		}
 
@@ -814,7 +822,7 @@ class LocalFile extends File {
 			return;
 		}
 
-		[ $major, $minor ] = self::splitMime( $this->mime );
+		list( $major, $minor ) = self::splitMime( $this->mime );
 
 		wfDebug( __METHOD__ . ': upgrading ' . $this->getName() . " to the current schema" );
 
@@ -898,7 +906,7 @@ class LocalFile extends File {
 			$this->mime = "{$info['major_mime']}/{$info['minor_mime']}";
 		} elseif ( isset( $info['mime'] ) ) {
 			$this->mime = $info['mime'];
-			[ $this->major_mime, $this->minor_mime ] = self::splitMime( $this->mime );
+			list( $this->major_mime, $this->minor_mime ) = self::splitMime( $this->mime );
 		}
 
 		if ( isset( $info['metadata'] ) ) {
@@ -1145,7 +1153,7 @@ class LocalFile extends File {
 			$envelope['blobs'] = $this->metadataBlobs;
 		}
 
-		[ $s, $blobAddresses ] = $this->metadataStorageHelper->getJsonMetadata( $this, $envelope );
+		list( $s, $blobAddresses ) = $this->metadataStorageHelper->getJsonMetadata( $this, $envelope );
 
 		// Repeated calls to this function should not keep inserting more blobs
 		$this->metadataBlobs += $blobAddresses;
@@ -1305,7 +1313,7 @@ class LocalFile extends File {
 	/**
 	 * Get all thumbnail names previously generated for this file
 	 * @stable to override
-	 * @param string|false $archiveName Name of an archive file, default false
+	 * @param string|bool $archiveName Name of an archive file, default false
 	 * @return array First element is the base dir, then files in that base dir.
 	 */
 	protected function getThumbnails( $archiveName = false ) {
@@ -1495,8 +1503,8 @@ class LocalFile extends File {
 		foreach ( $files as $file ) {
 			# Check that the reference (filename or sha1) is part of the thumb name
 			# This is a basic check to avoid erasing unrelated directories
-			if ( str_contains( $file, $reference )
-				|| str_contains( $file, "-thumbnail" ) // "short" thumb name
+			if ( strpos( $file, $reference ) !== false
+				|| strpos( $file, "-thumbnail" ) !== false // "short" thumb name
 			) {
 				$purgeList[] = "{$dir}/{$file}";
 			}
@@ -1576,7 +1584,7 @@ class LocalFile extends File {
 	 *  1      query for old versions, return first one
 	 *  2, ... return next old version from above query
 	 * @stable to override
-	 * @return stdClass|false
+	 * @return stdClass|bool
 	 */
 	public function nextHistoryLine() {
 		if ( !$this->exists() ) {
@@ -1652,12 +1660,12 @@ class LocalFile extends File {
 	 * @param string $comment Upload description
 	 * @param string $pageText Text to use for the new description page,
 	 *   if a new description page is created
-	 * @param int $flags Flags for publish()
-	 * @param array|false $props File properties, if known. This can be used to
+	 * @param int|bool $flags Flags for publish()
+	 * @param array|bool $props File properties, if known. This can be used to
 	 *   reduce the upload time when uploading virtual URLs for which the file
 	 *   info is already known
-	 * @param string|false $timestamp Timestamp for img_timestamp, or false to use the
-	 *   current time. Can be in any format accepted by ConvertibleTimestamp.
+	 * @param string|bool $timestamp Timestamp for img_timestamp, or false to use the
+	 *   current time
 	 * @param Authority|null $uploader object or null to use the context authority
 	 * @param string[] $tags Change tags to add to the log entry and page revision.
 	 *   (This doesn't check $uploader's permissions.)
@@ -1725,11 +1733,16 @@ class LocalFile extends File {
 			// updated and we must therefore update the DB too.
 			$oldver = $status->value;
 
+			if ( $uploader === null ) {
+				// Uploader argument is optional, fall back to the context authority
+				$uploader = RequestContext::getMain()->getAuthority();
+			}
+
 			$uploadStatus = $this->recordUpload3(
 				$oldver,
 				$comment,
 				$pageText,
-				$uploader ?? RequestContext::getMain()->getAuthority(),
+				$uploader,
 				$props,
 				$timestamp,
 				$tags,
@@ -1757,8 +1770,8 @@ class LocalFile extends File {
 	 * @param string $comment
 	 * @param string $pageText
 	 * @param Authority $performer
-	 * @param array|false $props
-	 * @param string|false $timestamp Can be in any format accepted by ConvertibleTimestamp
+	 * @param bool|array $props
+	 * @param string|bool $timestamp
 	 * @param string[] $tags
 	 * @param bool $createNullRevision Set to false to avoid creation of a null revision on file
 	 *   upload, see T193621
@@ -1826,7 +1839,7 @@ class LocalFile extends File {
 				'img_media_type' => $this->media_type,
 				'img_major_mime' => $this->major_mime,
 				'img_minor_mime' => $this->minor_mime,
-				'img_timestamp' => $dbw->timestamp( $timestamp ),
+				'img_timestamp' => $timestamp,
 				'img_metadata' => $this->getMetadataForDb( $dbw ),
 				'img_sha1' => $this->sha1
 			] + $commentFields + $actorFields,
@@ -1901,7 +1914,7 @@ class LocalFile extends File {
 					'img_media_type' => $this->media_type,
 					'img_major_mime' => $this->major_mime,
 					'img_minor_mime' => $this->minor_mime,
-					'img_timestamp' => $dbw->timestamp( $timestamp ),
+					'img_timestamp' => $timestamp,
 					'img_metadata' => $this->getMetadataForDb( $dbw ),
 					'img_sha1' => $this->sha1
 				] + $commentFields + $actorFields,
@@ -2000,6 +2013,7 @@ class LocalFile extends File {
 		$purgeUpdate = new AutoCommitUpdate(
 			$dbw,
 			__METHOD__,
+			/** @suppress PhanTypeArraySuspiciousNullable False positives with $this->status->value */
 			function () use (
 				$reupload, $wikiPage, $newPageContent, $comment, $performer,
 				$logEntry, $logId, $descId, $tags, $fname
@@ -2019,13 +2033,17 @@ class LocalFile extends File {
 						EDIT_NEW | EDIT_SUPPRESS_RC
 					);
 
-					$revRecord = $status->getNewRevision();
-					if ( $revRecord ) {
+					if ( isset( $status->value['revision-record'] ) ) {
+						/** @var RevisionRecord $revRecord */
+						$revRecord = $status->value['revision-record'];
 						// Associate new page revision id
 						$logEntry->setAssociatedRevId( $revRecord->getId() );
-
-						// This relies on the resetArticleID() call in WikiPage::insertOn(),
-						// which is triggered on $descTitle by doUserEditContent() above.
+					}
+					// This relies on the resetArticleID() call in WikiPage::insertOn(),
+					// which is triggered on $descTitle by doUserEditContent() above.
+					if ( isset( $status->value['revision-record'] ) ) {
+						/** @var RevisionRecord $revRecord */
+						$revRecord = $status->value['revision-record'];
 						$updateLogPage = $revRecord->getPageId();
 					}
 				} else {
@@ -2422,11 +2440,14 @@ class LocalFile extends File {
 	/**
 	 * Get the URL of the file description page.
 	 * @stable to override
-	 * @return string|false
+	 * @return string|bool
 	 */
 	public function getDescriptionUrl() {
-		// Avoid hard failure when the file does not exist. T221812
-		return $this->title ? $this->title->getLocalURL() : false;
+		if ( !$this->title ) {
+			return false; // Avoid hard failure when the file does not exist. T221812
+		}
+
+		return $this->title->getLocalURL();
 	}
 
 	/**
@@ -2505,7 +2526,7 @@ class LocalFile extends File {
 
 	/**
 	 * @stable to override
-	 * @return string|false TS_MW timestamp, a string with 14 digits
+	 * @return bool|string
 	 */
 	public function getTimestamp() {
 		$this->load();
@@ -2515,7 +2536,7 @@ class LocalFile extends File {
 
 	/**
 	 * @stable to override
-	 * @return string|false
+	 * @return bool|string
 	 */
 	public function getDescriptionTouched() {
 		if ( !$this->exists() ) {

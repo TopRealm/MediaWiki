@@ -25,8 +25,6 @@
 
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\StubObject\StubUserLang;
-use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
 
 /**
@@ -332,7 +330,7 @@ class LogPage {
 	 * @param string $action One of '', 'block', 'protect', 'rights', 'delete',
 	 *   'upload', 'move', 'move_redir'
 	 * @param Title $target
-	 * @param string|null $comment Description associated
+	 * @param string $comment Description associated
 	 * @param array $params Parameters passed later to wfMessage function
 	 * @param int|UserIdentity $performer The user doing the action, or their user id.
 	 *   Calling with user ID is deprecated since 1.36.
@@ -345,8 +343,12 @@ class LogPage {
 			$params = [ $params ];
 		}
 
+		if ( $comment === null ) {
+			$comment = '';
+		}
+
 		# Trim spaces on user supplied text
-		$comment = trim( $comment ?? '' );
+		$comment = trim( $comment );
 
 		$this->action = $action;
 		$this->target = $target;

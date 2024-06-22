@@ -109,6 +109,7 @@ class CleanupPreferences extends Maintenance {
 		$iterator->addConditions( $where );
 		$iterator->setCaller( __METHOD__ );
 
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		$dbw = $this->getDB( DB_PRIMARY );
 		$total = 0;
 		foreach ( $iterator as $batch ) {
@@ -138,7 +139,7 @@ class CleanupPreferences extends Maintenance {
 					__METHOD__
 				);
 
-				$this->waitForReplication();
+				$lbFactory->waitForReplication();
 			}
 		}
 		$this->output( "DONE! (handled $total entries)\n" );

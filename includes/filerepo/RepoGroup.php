@@ -20,7 +20,6 @@
 
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\Page\PageIdentity;
-use MediaWiki\Title\Title;
 
 /**
  * Prioritized list of file repositories.
@@ -424,7 +423,7 @@ class RepoGroup {
 	 * @return string[] Containing repo, zone and rel
 	 */
 	private function splitVirtualUrl( $url ) {
-		if ( !str_starts_with( $url, 'mwrepo://' ) ) {
+		if ( substr( $url, 0, 9 ) != 'mwrepo://' ) {
 			throw new MWException( __METHOD__ . ': unknown protocol' );
 		}
 
@@ -442,7 +441,7 @@ class RepoGroup {
 	 */
 	public function getFileProps( $fileName ) {
 		if ( FileRepo::isVirtualUrl( $fileName ) ) {
-			[ $repoName, /* $zone */, /* $rel */ ] = $this->splitVirtualUrl( $fileName );
+			list( $repoName, /* $zone */, /* $rel */ ) = $this->splitVirtualUrl( $fileName );
 			if ( $repoName === '' ) {
 				$repoName = 'local';
 			}

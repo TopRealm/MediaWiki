@@ -21,11 +21,6 @@
  * @ingroup Actions
  */
 
-use MediaWiki\Feed\AtomFeed;
-use MediaWiki\Feed\FeedItem;
-use MediaWiki\Feed\FeedUtils;
-use MediaWiki\Feed\RSSFeed;
-use MediaWiki\Html\Html;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use Wikimedia\Rdbms\FakeResultWrapper;
@@ -314,8 +309,7 @@ class HistoryAction extends FormlessAction {
 			$d,
 			$services->getLinkBatchFactory(),
 			$watchlistManager,
-			$services->getCommentFormatter(),
-			$services->getHookContainer()
+			$services->getCommentFormatter()
 		);
 		$out->addHTML(
 			$pager->getNavigationBar() .
@@ -346,9 +340,9 @@ class HistoryAction extends FormlessAction {
 		$dbr = wfGetDB( DB_REPLICA );
 
 		if ( $direction === self::DIR_PREV ) {
-			[ $dirs, $oper ] = [ "ASC", ">=" ];
+			list( $dirs, $oper ) = [ "ASC", ">=" ];
 		} else { /* $direction === self::DIR_NEXT */
-			[ $dirs, $oper ] = [ "DESC", "<=" ];
+			list( $dirs, $oper ) = [ "DESC", "<=" ];
 		}
 
 		if ( $offset ) {
@@ -432,7 +426,7 @@ class HistoryAction extends FormlessAction {
 	}
 
 	/**
-	 * Generate a MediaWiki\Feed\FeedItem object from a given revision table row
+	 * Generate a FeedItem object from a given revision table row
 	 * Borrows Recent Changes' feed generation functions for formatting;
 	 * includes a diff to the previous revision (if any).
 	 *

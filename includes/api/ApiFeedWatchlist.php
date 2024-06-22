@@ -20,10 +20,7 @@
  * @file
  */
 
-use MediaWiki\Feed\FeedItem;
 use MediaWiki\MainConfigNames;
-use MediaWiki\Request\FauxRequest;
-use MediaWiki\Title\Title;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
@@ -230,7 +227,7 @@ class ApiFeedWatchlist extends ApiBase {
 		// Create an anchor to section.
 		// The anchor won't work for sections that have dupes on page
 		// as there's no way to strip that info from ApiWatchlist (apparently?).
-		// RegExp in the line below is equal to MediaWiki\CommentFormatter\CommentParser::doSectionLinks().
+		// RegExp in the line below is equal to Linker::formatAutocomments().
 		if ( $this->linkToSections && $comment !== null &&
 			preg_match( '!(.*)/\*\s*(.*?)\s*\*/(.*)!', $comment, $matches )
 		) {
@@ -251,8 +248,10 @@ class ApiFeedWatchlist extends ApiBase {
 	}
 
 	private function getWatchlistModule() {
-		$this->watchlistModule ??= $this->getMain()->getModuleManager()->getModule( 'query' )
-			->getModuleManager()->getModule( 'watchlist' );
+		if ( $this->watchlistModule === null ) {
+			$this->watchlistModule = $this->getMain()->getModuleManager()->getModule( 'query' )
+				->getModuleManager()->getModule( 'watchlist' );
+		}
 
 		return $this->watchlistModule;
 	}

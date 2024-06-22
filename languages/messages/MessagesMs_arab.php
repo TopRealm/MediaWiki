@@ -1,6 +1,8 @@
 <?php
 /** Malay (Arabic Jawi script; بهاس ملايو)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  *

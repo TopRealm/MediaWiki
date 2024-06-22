@@ -27,21 +27,23 @@ class MWCryptHash {
 	/**
 	 * The hash algorithm being used
 	 */
-	protected static ?string $algo = null;
+	protected static $algo = null;
 
 	/**
 	 * The number of bytes outputted by the hash algorithm
 	 */
-	protected static int $hashLength;
+	protected static $hashLength = [
+		'binary' => null,
+		'hex' => null,
+	];
 
 	/**
 	 * Decide on the best acceptable hash algorithm we have available for hash()
 	 * @return string A hash algorithm
 	 */
 	public static function hashAlgo() {
-		$algorithm = self::$algo;
-		if ( $algorithm !== null ) {
-			return $algorithm;
+		if ( self::$algo !== null ) {
+			return self::$algo;
 		}
 
 		$algos = hash_hmac_algos();
@@ -50,7 +52,7 @@ class MWCryptHash {
 		foreach ( $preference as $algorithm ) {
 			if ( in_array( $algorithm, $algos, true ) ) {
 				self::$algo = $algorithm;
-				return $algorithm;
+				return self::$algo;
 			}
 		}
 
@@ -66,11 +68,13 @@ class MWCryptHash {
 	 * @return int Number of bytes the hash outputs
 	 */
 	public static function hashLength( $raw = true ) {
-		self::$hashLength ??= strlen( self::hash( '', true ) );
-		// Optimisation: Skip computing the length of non-raw hashes.
-		// The algos in hashAlgo() all produce a digest that is a multiple
-		// of 8 bits, where hex is always twice the length of binary byte length.
-		return $raw ? self::$hashLength : self::$hashLength * 2;
+		$key = $raw ? 'binary' : 'hex';
+		if ( self::$hashLength[$key] === null ) {
+			self::$hashLength[$key] = strlen( self::hash( '', $raw ) );
+		}
+
+		// @phan-suppress-next-line PhanTypeMismatchReturnNullable False positive
+		return self::$hashLength[$key];
 	}
 
 	/**

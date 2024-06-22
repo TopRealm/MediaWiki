@@ -22,9 +22,9 @@
  * @ingroup Maintenance
  */
 
-use MediaWiki\User\ActorMigration;
-
 require_once __DIR__ . '/Maintenance.php';
+
+use MediaWiki\MediaWikiServices;
 
 /**
  * Maintenance script that fixes the user_registration field.
@@ -42,6 +42,7 @@ class FixUserRegistration extends Maintenance {
 		$dbw = $this->getDB( DB_PRIMARY );
 
 		$lastId = 0;
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		do {
 			// Get user IDs which need fixing
 			$res = $dbw->select(
@@ -87,7 +88,7 @@ class FixUserRegistration extends Maintenance {
 				}
 			}
 			$this->output( "Waiting for replica DBs..." );
-			$this->waitForReplication();
+			$lbFactory->waitForReplication();
 			$this->output( " done.\n" );
 		} while ( $res->numRows() >= $this->getBatchSize() );
 	}

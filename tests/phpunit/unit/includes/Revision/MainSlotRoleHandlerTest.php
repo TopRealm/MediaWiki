@@ -3,19 +3,17 @@
 namespace MediaWiki\Tests\Unit\Revision;
 
 use ContentHandler;
+use MediaWiki\Content\IContentHandlerFactory;
 use MediaWiki\Revision\MainSlotRoleHandler;
-use MediaWiki\Revision\SlotRecord;
-use MediaWiki\Tests\Unit\DummyServicesTrait;
-use MediaWiki\Title\Title;
-use MediaWiki\Title\TitleFactory;
 use MediaWikiUnitTestCase;
 use MockTitleTrait;
+use Title;
+use TitleFactory;
 
 /**
  * @covers \MediaWiki\Revision\MainSlotRoleHandler
  */
 class MainSlotRoleHandlerTest extends MediaWikiUnitTestCase {
-	use DummyServicesTrait;
 	use MockTitleTrait;
 
 	/**
@@ -35,20 +33,18 @@ class MainSlotRoleHandlerTest extends MediaWikiUnitTestCase {
 		// handler that returns true directly
 		$contentHandler = $this->createMock( ContentHandler::class );
 		$contentHandler->method( 'canBeUsedOn' )->willReturn( true );
-		$contentHandlerFactory = $this->getDummyContentHandlerFactory( [
-			CONTENT_MODEL_WIKITEXT => $contentHandler,
-			CONTENT_MODEL_TEXT => $contentHandler,
-		] );
+		$contentHandlerFactory = $this->createMock( IContentHandlerFactory::class );
+		$contentHandlerFactory->method( 'getContentHandler' )->willReturn( $contentHandler );
 
 		// TitleFactory that for these tests is only called with Title objects, so just
 		// return them
 		$titleFactory = $this->createMock( TitleFactory::class );
 		$titleFactory->method( 'newFromLinkTarget' )
 			->with( $this->isInstanceOf( Title::class ) )
-			->willReturnArgument( 0 );
+			->will( $this->returnArgument( 0 ) );
 		$titleFactory->method( 'castFromPageIdentity' )
 			->with( $this->isInstanceOf( Title::class ) )
-			->willReturnArgument( 0 );
+			->will( $this->returnArgument( 0 ) );
 
 		return new MainSlotRoleHandler(
 			$namespaceContentModels,
@@ -66,7 +62,7 @@ class MainSlotRoleHandlerTest extends MediaWikiUnitTestCase {
 	 */
 	public function testConstruction() {
 		$handler = $this->getRoleHandler( [] );
-		$this->assertSame( SlotRecord::MAIN, $handler->getRole() );
+		$this->assertSame( 'main', $handler->getRole() );
 		$this->assertSame( 'slot-name-main', $handler->getNameMessageKey() );
 
 		$hints = $handler->getOutputLayoutHints();

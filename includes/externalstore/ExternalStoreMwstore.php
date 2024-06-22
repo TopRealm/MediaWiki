@@ -18,8 +18,6 @@
  * @file
  */
 
-use MediaWiki\WikiMap\WikiMap;
-
 /**
  * External storage in a FileBackend.
  *

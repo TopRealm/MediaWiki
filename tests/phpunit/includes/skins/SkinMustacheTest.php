@@ -1,8 +1,6 @@
 <?php
 
 use MediaWiki\MainConfigNames;
-use MediaWiki\Request\ContentSecurityPolicy;
-use MediaWiki\Title\Title;
 use PHPUnit\Framework\MockObject\MockObject;
 
 /**
@@ -42,8 +40,8 @@ class SkinMustacheTest extends MediaWikiIntegrationTestCase {
 			->willReturn( $mockContentSecurityPolicy );
 		$mock->method( 'isTOCEnabled' )
 			->willReturn( true );
-		$mock->method( 'getTOCData' )
-			->willReturn( null );
+		$mock->method( 'getSections' )
+			->willReturn( [] );
 		return $mock;
 	}
 
@@ -100,7 +98,6 @@ class SkinMustacheTest extends MediaWikiIntegrationTestCase {
 	 * @covers MediaWiki\Skin\SkinComponentLogo::getTemplateData
 	 * @covers MediaWiki\Skin\SkinComponentSearch::getTemplateData
 	 * @covers MediaWiki\Skin\SkinComponentTableOfContents::getTemplateData
-	 * @covers MediaWiki\Skin\SkinComponentFooter::getTemplateData
 	 */
 	public function testGetTemplateData() {
 		$config = $this->getServiceContainer()->getMainConfig();

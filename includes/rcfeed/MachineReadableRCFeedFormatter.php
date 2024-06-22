@@ -21,7 +21,6 @@
 
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\WikiMap\WikiMap;
 
 /**
  * Abstract class so there can be multiple formatters outputting the same data

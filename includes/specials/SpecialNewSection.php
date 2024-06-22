@@ -1,7 +1,4 @@
 <?php
-
-use MediaWiki\Title\Title;
-
 /**
  * Redirect from Special:NewSection/$1 to index.php?title=$1&action=edit&section=new.
  *

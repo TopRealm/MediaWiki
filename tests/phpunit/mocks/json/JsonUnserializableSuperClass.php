@@ -15,11 +15,11 @@ class JsonUnserializableSuperClass implements JsonUnserializable {
 
 	private $superClassField;
 
-	public function __construct( $superClassFieldValue ) {
+	public function __construct( string $superClassFieldValue ) {
 		$this->superClassField = $superClassFieldValue;
 	}
 
-	public function getSuperClassField() {
+	public function getSuperClassField(): string {
 		return $this->superClassField;
 	}
 

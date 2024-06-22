@@ -1,7 +1,6 @@
 'use strict';
 
-const Page = require( 'wdio-mediawiki/Page' ),
-	Util = require( 'wdio-mediawiki/Util' );
+const Page = require( 'wdio-mediawiki/Page' );
 
 class EditPage extends Page {
 	get content() { return $( '#wpTextbox1' ); }
@@ -11,36 +10,20 @@ class EditPage extends Page {
 	get save() { return $( '#wpSave' ); }
 	get previewButton() { return $( '#wpPreview' ); }
 
-	async openForEditing( title ) {
-		await super.openTitle( title, { action: 'submit', vehidebetadialog: 1, hidewelcomedialog: 1 } );
-		// Compatibility with CodeMirror extension (T324879)
-		Util.waitForModuleState( 'mediawiki.base' );
-		const hasToolbar = await this.save.isExisting() && await browser.execute( () => {
-			return mw.loader.getState( 'ext.wikiEditor' ) !== null;
-		} );
-		if ( !hasToolbar ) {
-			return;
-		}
-		await $( '#wikiEditor-ui-toolbar' ).waitForDisplayed();
-		const cmButton = $( '.mw-editbutton-codemirror-active' );
-		if ( await cmButton.isExisting() ) {
-			await cmButton.click();
-			await browser.waitUntil( async () => {
-				return !( await cmButton.getAttribute( 'class' ) ).includes( 'mw-editbutton-codemirror-active' );
-			} );
-		}
+	openForEditing( title ) {
+		super.openTitle( title, { action: 'edit', vehidebetadialog: 1, hidewelcomedialog: 1 } );
 	}
 
-	async preview( name, content ) {
-		await this.openForEditing( name );
-		await this.content.setValue( content );
-		await this.previewButton.click();
+	preview( name, content ) {
+		this.openForEditing( name );
+		this.content.setValue( content );
+		this.previewButton.click();
 	}
 
-	async edit( name, content ) {
-		await this.openForEditing( name );
-		await this.content.setValue( content );
-		await this.save.click();
+	edit( name, content ) {
+		this.openForEditing( name );
+		this.content.setValue( content );
+		this.save.click();
 	}
 }
 

@@ -19,8 +19,6 @@
  */
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Revision\SlotRecord;
-use MediaWiki\Title\Title;
 use Wikimedia\Http\HttpAcceptNegotiator;
 use Wikimedia\Http\HttpAcceptParser;
 
@@ -52,7 +50,7 @@ class PageDataRequestHandler {
 		$parts = explode( '/', $subPage, 2 );
 		$slot = $parts[0];
 		$title = $parts[1] ?? '';
-		return ( $slot === SlotRecord::MAIN || $slot === '' ) && $title !== '';
+		return ( $slot === 'main' || $slot === '' ) && $title !== '';
 	}
 
 	/**

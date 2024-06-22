@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Page\Hook;
 
-use MediaWiki\Title\Title;
+use Title;
 use WikiPage;
 
 /**

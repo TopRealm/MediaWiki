@@ -1,8 +1,6 @@
 <?php
 
 use MediaWiki\Skin\SkinComponentTableOfContents;
-use Wikimedia\Parsoid\Core\SectionMetadata;
-use Wikimedia\Parsoid\Core\TOCData;
 
 /**
  * @covers \MediaWiki\Skin\SkinComponentTableOfContents
@@ -10,10 +8,6 @@ use Wikimedia\Parsoid\Core\TOCData;
  * @group Output
  */
 class SkinComponentTableOfContentsTest extends MediaWikiUnitTestCase {
-
-	private function addDefaults( array $sectionData ): array {
-		return SectionMetadata::fromLegacy( $sectionData )->toLegacy();
-	}
 
 	public function provideGetSectionsData(): array {
 		// byteoffset and fromtitle are redacted from this test.
@@ -69,16 +63,16 @@ class SkinComponentTableOfContentsTest extends MediaWikiUnitTestCase {
 				[
 					'number-section-count' => 2,
 					'array-sections' => [
-						$this->addDefaults( $SECTION_1 ) + [
+						$SECTION_1 + [
 							'array-sections' => [],
 							'is-top-level-section' => true,
 							'is-parent-section' => false,
-						],
-						$this->addDefaults( $SECTION_2 ) + [
+							],
+						$SECTION_2 + [
 							'array-sections' => [],
 							'is-top-level-section' => true,
 							'is-parent-section' => false,
-						]
+							]
 					]
 				]
 			],
@@ -95,9 +89,9 @@ class SkinComponentTableOfContentsTest extends MediaWikiUnitTestCase {
 				[
 					'number-section-count' => 3,
 					'array-sections' => [
-						$this->addDefaults( $SECTION_1 ) + [
+						$SECTION_1 + [
 							'array-sections' => [
-								$this->addDefaults( $SECTION_1_1 ) + [
+								$SECTION_1_1 + [
 									'array-sections' => [],
 									'is-top-level-section' => false,
 									'is-parent-section' => false,
@@ -106,7 +100,7 @@ class SkinComponentTableOfContentsTest extends MediaWikiUnitTestCase {
 							'is-top-level-section' => true,
 							'is-parent-section' => true,
 						],
-						$this->addDefaults( $SECTION_2 ) + [
+						$SECTION_2 + [
 							'array-sections' => [],
 							'is-top-level-section' => true,
 							'is-parent-section' => false,
@@ -130,16 +124,16 @@ class SkinComponentTableOfContentsTest extends MediaWikiUnitTestCase {
 				[
 					'number-section-count' => 6,
 					'array-sections' => [
-						$this->addDefaults( $SECTION_1 ) + [
+						$SECTION_1 + [
 							'array-sections' => [
-								$this->addDefaults( $SECTION_1_1 ) + [
+								$SECTION_1_1 + [
 									'array-sections' => [],
 									'is-top-level-section' => false,
 									'is-parent-section' => false,
 								],
-								$this->addDefaults( $SECTION_1_2 ) + [
+								$SECTION_1_2 + [
 									'array-sections' => [
-										$this->addDefaults( $SECTION_1_2_1 ) + [
+										$SECTION_1_2_1 + [
 											'array-sections' => [],
 											'is-top-level-section' => false,
 											'is-parent-section' => false,
@@ -148,7 +142,7 @@ class SkinComponentTableOfContentsTest extends MediaWikiUnitTestCase {
 									'is-top-level-section' => false,
 									'is-parent-section' => true,
 								],
-								$this->addDefaults( $SECTION_1_3 ) + [
+								$SECTION_1_3 + [
 									'array-sections' => [],
 									'is-top-level-section' => false,
 									'is-parent-section' => false,
@@ -157,7 +151,7 @@ class SkinComponentTableOfContentsTest extends MediaWikiUnitTestCase {
 							'is-top-level-section' => true,
 							'is-parent-section' => true,
 						],
-						$this->addDefaults( $SECTION_2 ) + [
+						$SECTION_2 + [
 							'array-sections' => [],
 							'is-top-level-section' => true,
 							'is-parent-section' => false,
@@ -177,17 +171,9 @@ class SkinComponentTableOfContentsTest extends MediaWikiUnitTestCase {
 	 * @param array $expected
 	 */
 	public function testGetTemplateData( $isTocEnabled, $sectionsData, $expected ) {
-		// Convert to first class objects
-		$tocData = new TOCData;
-		array_map(
-			static function ( $s ) use ( $tocData ) {
-				$tocData->addSection( SectionMetadata::fromLegacy( $s ) );
-			},
-			$sectionsData
-		);
 		$mockOutput = $this->createMock( OutputPage::class );
 		$mockOutput->method( 'isTOCEnabled' )->willReturn( $isTocEnabled );
-		$mockOutput->method( 'getTOCData' )->willReturn( $tocData );
+		$mockOutput->method( 'getSections' )->willReturn( $sectionsData );
 		$skinComponent = new SkinComponentTableOfContents( $mockOutput );
 
 		$data = $skinComponent->getTemplateData();

@@ -388,9 +388,10 @@ CREATE TABLE /*_*/externallinks (
   el_to BLOB NOT NULL,
   el_index BLOB NOT NULL,
   el_index_60 VARBINARY(60) NOT NULL,
-  el_to_domain_index VARBINARY(255) DEFAULT '' NOT NULL,
-  el_to_path BLOB DEFAULT NULL,
-  INDEX el_from (el_from),
+  INDEX el_from (
+    el_from,
+    el_to(40)
+  ),
   INDEX el_to (
     el_to(60),
     el_from
@@ -400,10 +401,6 @@ CREATE TABLE /*_*/externallinks (
   ),
   INDEX el_index_60 (el_index_60, el_id),
   INDEX el_from_index_60 (el_from, el_index_60, el_id),
-  INDEX el_to_domain_index_to_path (
-    el_to_domain_index,
-    el_to_path(60)
-  ),
   PRIMARY KEY(el_id)
 ) /*$wgDBTableOptions*/;
 

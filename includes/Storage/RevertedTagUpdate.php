@@ -16,6 +16,8 @@
  * http://www.gnu.org/copyleft/gpl.html
  *
  * @file
+ *
+ * @author Ostrzyciel
  */
 
 namespace MediaWiki\Storage;
@@ -36,7 +38,6 @@ use Wikimedia\Rdbms\ILoadBalancer;
  * This class is used by RevertedTagUpdateJob to perform the actual update.
  *
  * @since 1.36
- * @author Ostrzyciel
  */
 class RevertedTagUpdate implements DeferrableUpdate {
 
@@ -131,7 +132,7 @@ class RevertedTagUpdate implements DeferrableUpdate {
 
 		if ( count( $revertedRevisionIds ) > $maxDepth ) {
 			// This revert exceeds the depth limit
-			$this->logger->info(
+			$this->logger->notice(
 				'The revert is deeper than $wgRevertedTagMaxDepth. Skipping...',
 				$extraParams
 			);
@@ -148,7 +149,11 @@ class RevertedTagUpdate implements DeferrableUpdate {
 				continue;
 			}
 
-			$previousRevision ??= $this->revisionStore->getPreviousRevision( $revertedRevision );
+			if ( $previousRevision === null ) {
+				$previousRevision = $this->revisionStore->getPreviousRevision(
+					$revertedRevision
+				);
+			}
 			if ( $previousRevision !== null &&
 				$revertedRevision->hasSameContent( $previousRevision )
 			) {
@@ -215,7 +220,7 @@ class RevertedTagUpdate implements DeferrableUpdate {
 		if ( $this->getRevertRevision()->isDeleted( RevisionRecord::DELETED_TEXT ) ) {
 			// The revert's text is marked as deleted, which probably means the update
 			// shouldn't be executed.
-			$this->logger->info(
+			$this->logger->notice(
 				'The revert\'s text had been marked as deleted before the update was ' .
 				'executed. Skipping...',
 				$extraParams
@@ -228,7 +233,7 @@ class RevertedTagUpdate implements DeferrableUpdate {
 			// This is already marked as reverted, which means the update was delayed
 			// until the edit is approved. Apparently, the edit was not approved, as
 			// it was reverted, so the update should not be performed.
-			$this->logger->info(
+			$this->logger->notice(
 				'The revert had been reverted before the update was executed. Skipping...',
 				$extraParams
 			);

@@ -32,7 +32,7 @@ class SpamChecker {
 	 * Check whether content text is considered spam
 	 *
 	 * @param string $text
-	 * @return string|false Matching string or false
+	 * @return bool|string Matching string or false
 	 */
 	public function checkContent( string $text ) {
 		return self::checkInternal( $text, $this->spamRegex );
@@ -42,7 +42,7 @@ class SpamChecker {
 	 * Check whether summary text is considered spam
 	 *
 	 * @param string $summary
-	 * @return string|false Matching string or false
+	 * @return bool|string Matching string or false
 	 */
 	public function checkSummary( string $summary ) {
 		return self::checkInternal( $summary, $this->summaryRegex );
@@ -51,7 +51,7 @@ class SpamChecker {
 	/**
 	 * @param string $text
 	 * @param array $regexes
-	 * @return string|false
+	 * @return bool|string
 	 */
 	private static function checkInternal( string $text, array $regexes ) {
 		foreach ( $regexes as $regex ) {

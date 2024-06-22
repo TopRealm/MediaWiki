@@ -21,7 +21,6 @@
  */
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Title\Title;
 use MediaWiki\User\UserRigorOptions;
 
 /**
@@ -113,20 +112,17 @@ class ExternalUserNames {
 		}
 
 		if ( $this->assignKnownUsers ) {
-			$userIdentityLookup = MediaWikiServices::getInstance()->getUserIdentityLookup();
-			$userIdentity = $userIdentityLookup->getUserIdentityByName( $name );
-			if ( $userIdentity && $userIdentity->isRegistered() ) {
+			if ( User::idFromName( $name ) ) {
 				return $name;
 			}
 
 			// See if any extension wants to create it.
 			if ( !isset( $this->triedCreations[$name] ) ) {
 				$this->triedCreations[$name] = true;
-				if ( !Hooks::runner()->onImportHandleUnknownUser( $name ) ) {
-					$userIdentity = $userIdentityLookup->getUserIdentityByName( $name, IDBAccessObject::READ_LATEST );
-					if ( $userIdentity && $userIdentity->isRegistered() ) {
-						return $name;
-					}
+				if ( !Hooks::runner()->onImportHandleUnknownUser( $name ) &&
+					User::idFromName( $name, User::READ_LATEST )
+				) {
+					return $name;
 				}
 			}
 		}
@@ -151,7 +147,7 @@ class ExternalUserNames {
 	 * @return bool true if it's external, false otherwise.
 	 */
 	public static function isExternal( $username ) {
-		return str_contains( $username, '>' );
+		return strpos( $username, '>' ) !== false;
 	}
 
 	/**

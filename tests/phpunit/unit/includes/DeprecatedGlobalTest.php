@@ -18,8 +18,6 @@
  * @file
  */
 
-use MediaWiki\StubObject\DeprecatedGlobal;
-
 /**
  * @covers DeprecatedGlobal
  */

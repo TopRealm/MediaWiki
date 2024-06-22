@@ -27,8 +27,6 @@ use MediaWiki\MainConfigNames;
 use MediaWiki\ParamValidator\TypeDef\TitleDef;
 use MediaWiki\Permissions\PermissionStatus;
 use MediaWiki\Permissions\RestrictionStore;
-use MediaWiki\Title\Title;
-use MediaWiki\Title\TitleFactory;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\EnumDef;
 
@@ -192,8 +190,9 @@ class ApiQueryInfo extends ApiQueryBase {
 		if ( $this->params['continue'] !== null ) {
 			// Throw away any titles we're gonna skip so they don't
 			// clutter queries
-			$cont = $this->parseContinueParamOrDie( $this->params['continue'], [ 'int', 'string' ] );
-			$conttitle = $this->titleFactory->makeTitleSafe( $cont[0], $cont[1] );
+			$cont = explode( '|', $this->params['continue'] );
+			$this->dieContinueUsageIf( count( $cont ) != 2 );
+			$conttitle = $this->titleFactory->makeTitleSafe( (int)$cont[0], $cont[1] );
 			$this->dieContinueUsageIf( !$conttitle );
 			foreach ( $this->everything as $pageid => $title ) {
 				if ( Title::compare( $title, $conttitle ) >= 0 ) {
@@ -495,7 +494,7 @@ class ApiQueryInfo extends ApiQueryBase {
 				array_values( $this->restrictionStore->listApplicableRestrictionTypes( $title ) );
 		}
 
-		[ $blNamespace, $blTitle ] = $this->linksMigration->getTitleFields( 'templatelinks' );
+		list( $blNamespace, $blTitle ) = $this->linksMigration->getTitleFields( 'templatelinks' );
 		$queryInfo = $this->linksMigration->getQueryInfo( 'templatelinks' );
 
 		if ( count( $others ) ) {

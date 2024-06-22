@@ -24,10 +24,12 @@
  * Profiler that captures all function calls from the XHProf PHP extension.
  *
  * This extension can be installed via PECL or your operating system's package manager.
- * This also supports the Tideways-XHProf PHP extension.
+ * This also supports the Tideways-XHProf PHP extension, as well as the older
+ * (discontinued) Tideways extension
  *
  * @ingroup Profiler
  * @see $wgProfiler
+ * @see Xhprof
  * @see https://php.net/xhprof
  * @see https://github.com/tideways/php-xhprof-extension
  */
@@ -46,7 +48,7 @@ class ProfilerXhprof extends Profiler {
 	/**
 	 * @see $wgProfiler
 	 * @param array $params Associative array of parameters:
-	 *  - int flags: Bitmask of constants from the XHProf or Tideways-XHProf extension
+	 *  - int flags: Bitmask of constants from the Xhprof or Tideways extension
 	 *    that will be passed to its enable function,
 	 *    such as `XHPROF_FLAGS_CPU | XHPROF_FLAGS_MEMORY | XHPROF_FLAGS_NO_BUILTINS`.
 	 *    With Tideways-XHProf, use `TIDEWAYS_XHPROF_FLAGS_*` instead.
@@ -70,19 +72,11 @@ class ProfilerXhprof extends Profiler {
 		// See T180183 and T247332 for why we need the 'running' option.
 		if ( empty( $params['running'] ) ) {
 			$flags = $params['flags'] ?? 0;
-			if ( function_exists( 'xhprof_enable' ) ) {
-				$options = isset( $params['exclude'] )
-					? [ 'ignored_functions' => $params['exclude'] ]
-					: [];
-				xhprof_enable( $flags, $options );
-			} elseif ( function_exists( 'tideways_xhprof_enable' ) ) {
-				if ( isset( $params['exclude'] ) ) {
-					throw new Exception( 'The exclude option is not supported in tideways_xhprof' );
-				}
-				tideways_xhprof_enable( $flags );
-			} else {
-				throw new Exception( 'Neither xhprof nor tideways_xhprof is installed' );
-			}
+			$options = isset( $params['exclude'] )
+				? [ 'ignored_functions' => $params['exclude'] ]
+				: [];
+
+			Xhprof::enable( $flags, $options );
 		}
 
 		$this->sprofiler = new SectionProfiler();
@@ -93,14 +87,7 @@ class ProfilerXhprof extends Profiler {
 	 */
 	public function getXhprofData() {
 		if ( !$this->xhprofData ) {
-			if ( function_exists( 'xhprof_disable' ) ) {
-				$data = xhprof_disable();
-			} elseif ( function_exists( 'tideways_xhprof_disable' ) ) {
-				$data = tideways_xhprof_disable();
-			} else {
-				throw new Exception( 'Neither xhprof nor tideways_xhprof is installed' );
-			}
-			$this->xhprofData = new XhprofData( $data, $this->params );
+			$this->xhprofData = new XhprofData( Xhprof::disable(), $this->params );
 		}
 		return $this->xhprofData;
 	}

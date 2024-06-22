@@ -5,6 +5,7 @@ namespace MediaWiki\Page;
 use BadMethodCallException;
 use BagOStuff;
 use ChangeTags;
+use CommentStore;
 use Content;
 use DeferrableUpdate;
 use DeferredUpdates;
@@ -14,13 +15,11 @@ use JobQueueGroup;
 use LogicException;
 use ManualLogEntry;
 use MediaWiki\Cache\BacklinkCacheFactory;
-use MediaWiki\CommentStore\CommentStore;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Deferred\LinksUpdate\LinksDeletionUpdate;
 use MediaWiki\Deferred\LinksUpdate\LinksUpdate;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\HookContainer\HookRunner;
-use MediaWiki\Language\RawMessage;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Permissions\Authority;
@@ -32,6 +31,7 @@ use MediaWiki\Revision\SlotRecord;
 use MediaWiki\User\UserFactory;
 use Message;
 use NamespaceInfo;
+use RawMessage;
 use SearchUpdate;
 use SiteStatsUpdate;
 use Status;
@@ -39,6 +39,7 @@ use StatusValue;
 use Wikimedia\IPUtils;
 use Wikimedia\Message\ITextFormatter;
 use Wikimedia\Message\MessageValue;
+use Wikimedia\Rdbms\ILoadBalancer;
 use Wikimedia\Rdbms\LBFactory;
 use Wikimedia\RequestTimeout\TimeoutException;
 use WikiPage;
@@ -69,6 +70,8 @@ class DeletePage {
 	private $revisionStore;
 	/** @var LBFactory */
 	private $lbFactory;
+	/** @var ILoadBalancer */
+	private $loadBalancer;
 	/** @var JobQueueGroup */
 	private $jobQueueGroup;
 	/** @var CommentStore */
@@ -169,6 +172,7 @@ class DeletePage {
 		$this->hookRunner = new HookRunner( $hookContainer );
 		$this->revisionStore = $revisionStore;
 		$this->lbFactory = $lbFactory;
+		$this->loadBalancer = $this->lbFactory->getMainLB();
 		$this->jobQueueGroup = $jobQueueGroup;
 		$this->commentStore = $commentStore;
 		$serviceOptions->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
@@ -343,6 +347,18 @@ class DeletePage {
 	}
 
 	/**
+	 * @return bool Whether (part of) the deletion was scheduled
+	 * @throws BadMethodCallException If no deletions were attempted
+	 * @deprecated since 1.38, use ::deletionsWereScheduled() instead.
+	 */
+	public function deletionWasScheduled(): bool {
+		wfDeprecated( __METHOD__, '1.38' );
+		$this->assertDeletionAttempted();
+		// @phan-suppress-next-line PhanTypeArraySuspiciousNullable,PhanTypeMismatchReturnNullable
+		return $this->wasScheduled[self::PAGE_BASE];
+	}
+
+	/**
 	 * @return bool[] Whether the deletions were scheduled
 	 * @throws BadMethodCallException If no deletions were attempted
 	 */
@@ -397,7 +413,7 @@ class DeletePage {
 			return false;
 		}
 
-		$dbr = $this->lbFactory->getReplicaDatabase();
+		$dbr = $this->loadBalancer->getConnectionRef( DB_REPLICA );
 		$revCount = $this->revisionStore->countRevisionsByPageId( $dbr, $this->page->getId() );
 		if ( $this->associatedTalk ) {
 			$revCount += $this->revisionStore->countRevisionsByPageId( $dbr, $this->associatedTalk->getId() );
@@ -419,7 +435,7 @@ class DeletePage {
 	 * @return bool True if deletion would be batched, false otherwise
 	 */
 	public function isBatchedDelete( int $safetyMargin = 0 ): bool {
-		$dbr = $this->lbFactory->getReplicaDatabase();
+		$dbr = $this->loadBalancer->getConnectionRef( DB_REPLICA );
 		$revCount = $this->revisionStore->countRevisionsByPageId( $dbr, $this->page->getId() );
 		$revCount += $safetyMargin;
 
@@ -534,7 +550,7 @@ class DeletePage {
 		$title = $page->getTitle();
 		$status = Status::newGood();
 
-		$dbw = $this->lbFactory->getPrimaryDatabase();
+		$dbw = $this->loadBalancer->getConnectionRef( DB_PRIMARY );
 		$dbw->startAtomic( __METHOD__ );
 
 		$page->loadPageData( WikiPage::READ_LATEST );
@@ -714,7 +730,7 @@ class DeletePage {
 		$namespace = $page->getTitle()->getNamespace();
 		$dbKey = $page->getTitle()->getDBkey();
 
-		$dbw = $this->lbFactory->getPrimaryDatabase();
+		$dbw = $this->loadBalancer->getConnectionRef( DB_PRIMARY );
 
 		$revQuery = $this->revisionStore->getQueryInfo();
 		$bitfield = false;
@@ -736,18 +752,16 @@ class DeletePage {
 		// Note array_intersect() preserves keys from the first arg, and we're
 		// assuming $revQuery has `revision` primary and isn't using subtables
 		// for anything we care about.
-		$lockQuery = $revQuery;
-		$lockQuery['tables'] = array_intersect(
-			$revQuery['tables'],
-			[ 'revision', 'revision_comment_temp' ]
+		$dbw->lockForUpdate(
+			array_intersect(
+				$revQuery['tables'],
+				[ 'revision', 'revision_comment_temp' ]
+			),
+			[ 'rev_page' => $id ],
+			__METHOD__,
+			[],
+			$revQuery['joins']
 		);
-		unset( $lockQuery['fields'] );
-		$dbw->newSelectQueryBuilder()
-			->queryInfo( $lockQuery )
-			->where( [ 'rev_page' => $id ] )
-			->forUpdate()
-			->caller( __METHOD__ )
-			->acquireRowLocks();
 
 		$deleteBatchSize = $this->options->get( MainConfigNames::DeleteRevisionsBatchSize );
 		// Get as many of the page revisions as we are allowed to.  The +1 lets us recognize the
@@ -805,9 +819,7 @@ class DeletePage {
 			$dbw->insert( 'archive', $rowsInsert, __METHOD__ );
 
 			$dbw->delete( 'revision', [ 'rev_id' => $revids ], __METHOD__ );
-			if ( $this->commentStore->getTempTableMigrationStage( 'rev_comment' ) & SCHEMA_COMPAT_WRITE_OLD ) {
-				$dbw->delete( 'revision_comment_temp', [ 'revcomment_rev' => $revids ], __METHOD__ );
-			}
+			$dbw->delete( 'revision_comment_temp', [ 'revcomment_rev' => $revids ], __METHOD__ );
 			// Also delete records from ip_changes as applicable.
 			if ( count( $ipRevIds ) > 0 ) {
 				$dbw->delete( 'ip_changes', [ 'ipc_rev_id' => $ipRevIds ], __METHOD__ );

@@ -25,11 +25,6 @@
 
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Request\FauxRequest;
-use MediaWiki\Request\FauxResponse;
-use MediaWiki\Request\PathRouter;
-use MediaWiki\Request\WebRequestUpload;
-use MediaWiki\Request\WebResponse;
 use MediaWiki\Session\Session;
 use MediaWiki\Session\SessionId;
 use MediaWiki\Session\SessionManager;
@@ -56,13 +51,13 @@ class WebRequest {
 	/**
 	 * The parameters from $_GET. The parameters from the path router are
 	 * added by interpolateTitle() during Setup.php.
-	 * @var (string|string[])[]
+	 * @var string[]
 	 */
 	protected $queryAndPathParams;
 
 	/**
 	 * The parameters from $_GET only.
-	 * @var (string|string[])[]
+	 * @var string[]
 	 */
 	protected $queryParams;
 
@@ -266,7 +261,9 @@ class WebRequest {
 	 * @return string
 	 */
 	public static function detectServer( $assumeProxiesUseDefaultProtocolPorts = null ) {
-		$assumeProxiesUseDefaultProtocolPorts ??= $GLOBALS['wgAssumeProxiesUseDefaultProtocolPorts'];
+		if ( $assumeProxiesUseDefaultProtocolPorts === null ) {
+			$assumeProxiesUseDefaultProtocolPorts = $GLOBALS['wgAssumeProxiesUseDefaultProtocolPorts'];
+		}
 
 		$proto = self::detectProtocol();
 		$stdPort = $proto === 'https' ? 443 : 80;
@@ -372,7 +369,9 @@ class WebRequest {
 	 * @return string
 	 */
 	public function getProtocol() {
-		$this->protocol ??= self::detectProtocol();
+		if ( $this->protocol === null ) {
+			$this->protocol = self::detectProtocol();
+		}
 		return $this->protocol;
 	}
 
@@ -729,7 +728,7 @@ class WebRequest {
 	 * No transformation is performed on the values.
 	 *
 	 * @codeCoverageIgnore
-	 * @return (string|string[])[] Might contain arrays in case there was a `&param[]=…` parameter
+	 * @return string[]
 	 */
 	public function getQueryValues() {
 		return $this->queryAndPathParams;
@@ -742,7 +741,7 @@ class WebRequest {
 	 * values.
 	 *
 	 * @since 1.34
-	 * @return (string|string[])[] Might contain arrays in case there was a `&param[]=…` parameter
+	 * @return string[]
 	 */
 	public function getQueryValuesOnly() {
 		return $this->queryParams;
@@ -754,7 +753,7 @@ class WebRequest {
 	 *
 	 * @since 1.32
 	 * @codeCoverageIgnore
-	 * @return (string|string[])[] Might contain arrays in case there was a `&param[]=…` parameter
+	 * @return string[]
 	 */
 	public function getPostValues() {
 		return $_POST;
@@ -793,7 +792,9 @@ class WebRequest {
 	 */
 	public function getRawInput() {
 		static $input = null;
-		$input ??= file_get_contents( 'php://input' );
+		if ( $input === null ) {
+			$input = file_get_contents( 'php://input' );
+		}
 		return $input;
 	}
 
@@ -1083,7 +1084,7 @@ class WebRequest {
 	}
 
 	/**
-	 * Return a MediaWiki\Request\WebRequestUpload object corresponding to the key
+	 * Return a WebRequestUpload object corresponding to the key
 	 *
 	 * @param string $key
 	 * @return WebRequestUpload

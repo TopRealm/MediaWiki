@@ -22,8 +22,8 @@
  * @author Brian Wolff
  */
 
-use MediaWiki\Title\Title;
 use Wikimedia\Rdbms\ILoadBalancer;
+use Wikimedia\RequestTimeout\TimeoutException;
 
 /**
  * Special page to direct the user to a random page
@@ -96,7 +96,11 @@ class SpecialRandomInCategory extends FormSpecialPage {
 		];
 	}
 
-	public function requiresPost() {
+	public function requiresWrite() {
+		return false;
+	}
+
+	public function requiresUnblock() {
 		return false;
 	}
 
@@ -108,8 +112,9 @@ class SpecialRandomInCategory extends FormSpecialPage {
 		$form->setSubmitTextMsg( 'randomincategory-submit' );
 	}
 
-	protected function getSubpageField() {
-		return 'category';
+	protected function setParameter( $par ) {
+		// if subpage present, fake form submission
+		$this->onSubmit( [ 'category' => $par ] );
 	}
 
 	public function onSubmit( array $data ) {
@@ -201,6 +206,7 @@ class SpecialRandomInCategory extends FormSpecialPage {
 	 * @param int $offset Extra offset to fudge randomness
 	 * @param bool $up True to get the result above the random number, false for below
 	 * @return array Query information.
+	 * @throws MWException
 	 * @note The $up parameter is supposed to counteract what would happen if there
 	 *   was a large gap in the distribution of cl_timestamp values. This way instead
 	 *   of things to the right of the gap being favoured, both sides of the gap
@@ -210,7 +216,7 @@ class SpecialRandomInCategory extends FormSpecialPage {
 		$op = $up ? '>=' : '<=';
 		$dir = $up ? 'ASC' : 'DESC';
 		if ( !$this->category instanceof Title ) {
-			throw new BadMethodCallException( 'No category set' );
+			throw new MWException( 'No category set' );
 		}
 		$qi = [
 			'tables' => [ 'categorylinks', 'page' ],
@@ -248,12 +254,14 @@ class SpecialRandomInCategory extends FormSpecialPage {
 			return false;
 		}
 		if ( !$this->minTimestamp || !$this->maxTimestamp ) {
-			$minAndMax = $this->getMinAndMaxForCat();
-			if ( $minAndMax === null ) {
-				// No entries in this category.
+			try {
+				list( $this->minTimestamp, $this->maxTimestamp ) = $this->getMinAndMaxForCat( $this->category );
+			} catch ( TimeoutException $e ) {
+				throw $e;
+			} catch ( Exception $e ) {
+				// Possibly no entries in category.
 				return false;
 			}
-			[ $this->minTimestamp, $this->maxTimestamp ] = $minAndMax;
 		}
 
 		$ts = ( $this->maxTimestamp - $this->minTimestamp ) * $rand + $this->minTimestamp;
@@ -264,9 +272,11 @@ class SpecialRandomInCategory extends FormSpecialPage {
 	/**
 	 * Get the lowest and highest timestamp for a category.
 	 *
-	 * @return array|null The lowest and highest timestamp, or null if the category has no entries.
+	 * @param Title $category
+	 * @return array The lowest and highest timestamp
+	 * @throws MWException If category has no entries.
 	 */
-	protected function getMinAndMaxForCat() {
+	protected function getMinAndMaxForCat( Title $category ) {
 		$dbr = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_REPLICA );
 		$res = $dbr->selectRow(
 			'categorylinks',
@@ -280,7 +290,7 @@ class SpecialRandomInCategory extends FormSpecialPage {
 			__METHOD__
 		);
 		if ( !$res ) {
-			return null;
+			throw new MWException( 'No entries in category' );
 		}
 
 		return [ (int)wfTimestamp( TS_UNIX, $res->low ), (int)wfTimestamp( TS_UNIX, $res->high ) ];

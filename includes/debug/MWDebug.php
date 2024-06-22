@@ -20,7 +20,6 @@
  * @file
  */
 
-use MediaWiki\Html\Html;
 use MediaWiki\Logger\LegacyLogger;
 use MediaWiki\ResourceLoader\ResourceLoader;
 use Wikimedia\WrappedString;
@@ -379,7 +378,7 @@ class MWDebug {
 		}
 
 		if ( $sendToLog ) {
-			trigger_error( $msg, E_USER_DEPRECATED );
+			@trigger_error( $msg, E_USER_DEPRECATED );
 		}
 
 		if ( self::$enabled ) {

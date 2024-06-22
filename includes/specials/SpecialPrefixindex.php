@@ -21,8 +21,6 @@
  * @ingroup SpecialPage
  */
 
-use MediaWiki\Html\Html;
-use MediaWiki\Title\Title;
 use Wikimedia\Rdbms\ILoadBalancer;
 
 /**
@@ -176,8 +174,8 @@ class SpecialPrefixindex extends SpecialAllPages {
 			$out = $this->msg( 'allpages-bad-ns', $namespace )->parse();
 			$namespace = NS_MAIN;
 		} else {
-			[ $namespace, $prefixKey, $prefix ] = $prefixList;
-			[ /* $fromNS */, $fromKey, ] = $fromList;
+			list( $namespace, $prefixKey, $prefix ) = $prefixList;
+			list( /* $fromNS */, $fromKey, ) = $fromList;
 
 			# ## @todo FIXME: Should complain if $fromNs != $namespace
 

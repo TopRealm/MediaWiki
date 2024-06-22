@@ -246,7 +246,6 @@
 	"anontalkpagetext": "----\n<em>Эта страница обсуждения анонимного участника, который ещё не создал учётной записи или не использует её.</em>\nПоэтому мы вынуждены для его/её идентификации использовать цифровой IP-адрес.\nЭтот же адрес может использоваться несколькими участниками.\nЕсли вы анонимный участник и полагаете, что получили сообщения, адресованные не вам, пожалуйста, [[Special:CreateAccount|создайте учётную запись]] или [[Special:UserLogin|представьтесь системе]], чтобы впредь избежать возможной путаницы с другими анонимными участниками.",
 	"noarticletext": "Мид джара аIбысыма текст адишь.\nВады ыIкыс [[Special:Search/{{PAGENAME}}|ахтармиш ыIын мид джарды дур]] мадды джарма, <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} кикад журналбыр ахтармиш ]</span>, я [{{fullurl:{{FULLPAGENAME}}|action=edit}} яратмиш мид джар]</span>.",
 	"noarticletext-nopermission": "Мид джара аIбысыма текст адишь.\nВады ыIкыс [[Special:Search/{{PAGENAME}}|ахтармиш ыIын мид джарды дур]] мадды джарма, я <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} кикад журналбыр ахтармиш ]</span>, амма вас ихтияр адишь мид джар кихьес.",
-	"userpage-userdoesnotexist-view": "Аккаунт \"$1\" мид вики-я регистрация адишь.",
 	"previewnote": "<strong>Йик1иы хака, мид йIи предпросмотр.</strong>\nВыды дегишбыр гьала ки опубликваны дишь!",
 	"continue-editing": "Редакторад гъуIля йирхын",
 	"editing": "Дегиш гьыъын $1",
@@ -530,13 +529,5 @@
 	"searchsuggest-containing": "Мид-кид джарбыр ахтармиш",
 	"duration-days": "$1 {{PLURAL:$1|йыгъа|йыгъади}}",
 	"pagelang-submit": "Сигын",
-	"log-action-filter-all": "Сиене",
-	"blockedtext-made-by": "Блок ыIыр $1.",
-	"blockedtext-reason-comment": "Блокад себеб: <em>$1</em>",
-	"blockedtext-start-time": "Блокад сифте: $1",
-	"blockedtext-expiration-time": "Блокад ахир: $1",
-	"blockedtext-intended-blockee": "Блокад мырад: $1",
-	"blockedtext-contact-blocker-admin": "Вады ыIкыс кихьес $1 я мадды [[{{MediaWiki:Grouppage-sysop}}|администраторас]], блокировка гьалгын бадана.",
-	"blockedtext-include-details-queries": "Башуста, кихь син мид йиъидкалбыр выды шыв йигарди худкунбырма.",
-	"renameusersubmit": "Сигын"
+	"log-action-filter-all": "Сиене"
 }

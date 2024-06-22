@@ -22,7 +22,6 @@
 
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Permissions\PermissionStatus;
 use MediaWiki\User\TalkPageNotificationManager;
 use MediaWiki\User\UserEditTracker;
 use MediaWiki\User\UserGroupManager;
@@ -292,15 +291,6 @@ class ApiQueryUserInfo extends ApiQueryBase {
 			}
 		}
 
-		if ( isset( $this->prop['cancreateaccount'] ) ) {
-			$status = PermissionStatus::newEmpty();
-			$vals['cancreateaccount'] = $user->definitelyCan( 'createaccount',
-				SpecialPage::getTitleFor( 'CreateAccount' ), $status );
-			if ( !$status->isGood() ) {
-				$vals['cancreateaccounterror'] = $this->getErrorFormatter()->arrayFromStatus( $status );
-			}
-		}
-
 		return $vals;
 	}
 
@@ -385,7 +375,6 @@ class ApiQueryUserInfo extends ApiQueryBase {
 					'unreadcount',
 					'centralids',
 					'latestcontrib',
-					'cancreateaccount',
 				],
 				ApiBase::PARAM_HELP_MSG_PER_VALUE => [
 					'unreadcount' => [

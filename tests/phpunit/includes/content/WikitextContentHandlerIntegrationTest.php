@@ -1,7 +1,5 @@
 <?php
 
-use MediaWiki\MainConfigNames;
-
 /**
  * @group ContentHandler
  * @group Database
@@ -37,7 +35,7 @@ class WikitextContentHandlerIntegrationTest extends TextContentHandlerIntegratio
 		yield 'TOC' => [
 			'title' => 'WikitextContentTest_testGetParserOutput',
 			'model' => CONTENT_MODEL_WIKITEXT,
-			'text' => "==One==\n==Two==\n==Three==\n==Four==\n<h2>Five</h2>\n===Six+Seven %2525===",
+			'text' => "==One==\n==Two==\n==Three==\n==Four==\n<h2>Five</h2>\n",
 			'expectedHtml' => null,
 			'expectedFields' => [
 				'Links' => [
@@ -52,7 +50,6 @@ class WikitextContentHandlerIntegrationTest extends TextContentHandlerIntegratio
 						'fromtitle' => 'WikitextContentTest_testGetParserOutput',
 						'byteoffset' => 0,
 						'anchor' => 'One',
-						'linkAnchor' => 'One',
 					],
 					[
 						'toclevel' => 1,
@@ -63,7 +60,6 @@ class WikitextContentHandlerIntegrationTest extends TextContentHandlerIntegratio
 						'fromtitle' => 'WikitextContentTest_testGetParserOutput',
 						'byteoffset' => 8,
 						'anchor' => 'Two',
-						'linkAnchor' => 'Two',
 					],
 					[
 						'toclevel' => 1,
@@ -74,7 +70,6 @@ class WikitextContentHandlerIntegrationTest extends TextContentHandlerIntegratio
 						'fromtitle' => 'WikitextContentTest_testGetParserOutput',
 						'byteoffset' => 16,
 						'anchor' => 'Three',
-						'linkAnchor' => 'Three',
 					],
 					[
 						'toclevel' => 1,
@@ -85,7 +80,6 @@ class WikitextContentHandlerIntegrationTest extends TextContentHandlerIntegratio
 						'fromtitle' => 'WikitextContentTest_testGetParserOutput',
 						'byteoffset' => 26,
 						'anchor' => 'Four',
-						'linkAnchor' => 'Four',
 					],
 					[
 						'toclevel' => 1,
@@ -96,34 +90,9 @@ class WikitextContentHandlerIntegrationTest extends TextContentHandlerIntegratio
 						'fromtitle' => false,
 						'byteoffset' => null,
 						'anchor' => 'Five',
-						'linkAnchor' => 'Five',
-					],
-					[
-						'toclevel' => 2,
-						'level' => '3',
-						'line' => 'Six+Seven %2525',
-						'number' => '5.1',
-						'index' => '5',
-						'fromtitle' => 'WikitextContentTest_testGetParserOutput',
-						'byteoffset' => 49,
-						'anchor' => 'Six+Seven_%2525',
-						'linkAnchor' => 'Six+Seven_%252525',
 					],
 				],
 			],
 		];
-	}
-
-	/**
-	 * @dataProvider provideGetParserOutput
-	 * @covers WikitextContentHandler::fillParserOutput
-	 */
-	public function testGetParserOutput( $title, $model, $text, $expectedHtml,
-		$expectedFields = null
-	) {
-		$this->overrideConfigValue( MainConfigNames::FragmentMode, [ 'html5' ] );
-		parent::testGetParserOutput(
-			$title, $model, $text, $expectedHtml, $expectedFields
-		);
 	}
 }

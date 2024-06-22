@@ -30,8 +30,6 @@
 require_once __DIR__ . '/Maintenance.php';
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Settings\SettingsBuilder;
-use MediaWiki\WikiMap\WikiMap;
 use Wikimedia\Rdbms\DatabaseSqlite;
 
 /**
@@ -85,6 +83,9 @@ class UpdateMediaWiki extends Maintenance {
 
 	public function setup() {
 		global $wgMessagesDirs;
+
+		parent::setup();
+
 		// T206765: We need to load the installer i18n files as some of errors come installer/updater code
 		// T310378: We have to ensure we do this before execute()
 		$wgMessagesDirs['MediawikiInstaller'] = dirname( __DIR__ ) . '/includes/installer/i18n';
@@ -195,13 +196,13 @@ class UpdateMediaWiki extends Maintenance {
 
 		$updater = DatabaseUpdater::newForDB( $db, $shared, $this );
 
-		// Avoid upgrading from versions older than 1.35
-		// Using an implicit marker (ar_user was dropped in 1.34)
+		// Avoid upgrading from versions older than 1.31
+		// Using an implicit marker (slots table didn't exist until 1.31)
 		// TODO: Use an explicit marker
 		// See T259771
-		if ( $updater->fieldExists( 'archive', 'ar_user' ) ) {
+		if ( !$updater->tableExists( 'slots' ) ) {
 			$this->fatalError(
-				"Can not upgrade from versions older than 1.35, please upgrade to that version or later first."
+				"Can not upgrade from versions older than 1.31, please upgrade to that version or later first."
 			);
 		}
 
@@ -248,6 +249,8 @@ class UpdateMediaWiki extends Maintenance {
 	}
 
 	/**
+	 * @throws FatalError
+	 * @throws MWException
 	 * @suppress PhanPluginDuplicateConditionalNullCoalescing
 	 */
 	public function validateParamsAndArgs() {
@@ -282,29 +285,24 @@ class UpdateMediaWiki extends Maintenance {
 	}
 
 	private function validateSettings() {
-		$settings = SettingsBuilder::getInstance();
+		global $wgSettings;
 
 		$warnings = [];
-		if ( $settings->getWarnings() ) {
-			$warnings = $settings->getWarnings();
+		if ( $wgSettings->getWarnings() ) {
+			$warnings = $wgSettings->getWarnings();
 		}
 
-		$status = $settings->validate();
-		if ( !$status->isOK() ) {
+		$status = $wgSettings->validate();
+		if ( !$status->isOk() ) {
 			foreach ( $status->getErrorsByType( 'error' ) as $msg ) {
 				$msg = wfMessage( $msg['message'], ...$msg['params'] );
 				$warnings[] = $msg->text();
 			}
 		}
 
-		$deprecations = $settings->detectDeprecatedConfig();
+		$deprecations = $wgSettings->detectDeprecatedConfig();
 		foreach ( $deprecations as $key => $msg ) {
 			$warnings[] = "$key is deprecated: $msg";
-		}
-
-		$obsolete = $settings->detectObsoleteConfig();
-		foreach ( $obsolete as $key => $msg ) {
-			$warnings[] = "$key is obsolete: $msg";
 		}
 
 		if ( $warnings ) {

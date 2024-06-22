@@ -21,7 +21,7 @@
 
 namespace MediaWiki\Block;
 
-use MediaWiki\CommentStore\CommentStoreComment;
+use CommentStoreComment;
 use MediaWiki\DAO\WikiAwareEntity;
 use MediaWiki\User\UserIdentity;
 

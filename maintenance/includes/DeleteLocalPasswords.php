@@ -146,7 +146,7 @@ ERROR
 			);
 		}
 		$this->total += $dbw->affectedRows();
-		$this->waitForReplication();
+		MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->waitForReplication();
 	}
 
 	/**

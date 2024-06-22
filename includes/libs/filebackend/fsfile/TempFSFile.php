@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\FileBackend\FSFile\TempFSFileFactory;
+
 /**
  * Location holder of files stored temporarily
  *
@@ -22,7 +24,6 @@
  * @ingroup FileBackend
  */
 
-use MediaWiki\FileBackend\FSFile\TempFSFileFactory;
 use Wikimedia\AtEase\AtEase;
 
 /**

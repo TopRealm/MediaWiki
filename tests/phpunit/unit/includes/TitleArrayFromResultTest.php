@@ -1,8 +1,5 @@
 <?php
 
-use MediaWiki\Title\Title;
-use MediaWiki\Title\TitleArrayFromResult;
-
 /**
  * @author Addshore
  * @covers TitleArrayFromResult
@@ -10,7 +7,10 @@ use MediaWiki\Title\TitleArrayFromResult;
 class TitleArrayFromResultTest extends MediaWikiUnitTestCase {
 
 	private function getMockResultWrapper( $row = null, $numRows = 1 ) {
-		$resultWrapper = $this->createMock( Wikimedia\Rdbms\IResultWrapper::class );
+		$resultWrapper = $this->getMockBuilder( Wikimedia\Rdbms\IResultWrapper::class )
+			->disableOriginalConstructor();
+
+		$resultWrapper = $resultWrapper->getMock();
 		$resultWrapper->expects( $this->atLeastOnce() )
 			->method( 'current' )
 			->willReturn( $row );

@@ -1,6 +1,8 @@
 <?php
 /** S'gaw Karen (စှီၤ)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  *

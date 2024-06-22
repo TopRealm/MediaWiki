@@ -39,18 +39,18 @@ class RevertAction extends FormAction {
 	private $repoGroup;
 
 	/**
-	 * @param Article $article
+	 * @param Page $page
 	 * @param IContextSource $context
 	 * @param Language $contentLanguage
 	 * @param RepoGroup $repoGroup
 	 */
 	public function __construct(
-		Article $article,
+		Page $page,
 		IContextSource $context,
 		Language $contentLanguage,
 		RepoGroup $repoGroup
 	) {
-		parent::__construct( $article, $context );
+		parent::__construct( $page, $context );
 		$this->contentLanguage = $contentLanguage;
 		$this->repoGroup = $repoGroup;
 	}

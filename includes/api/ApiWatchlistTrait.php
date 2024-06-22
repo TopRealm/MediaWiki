@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserOptionsLookup;
 use MediaWiki\Watchlist\WatchlistManager;
@@ -39,8 +38,12 @@ trait ApiWatchlistTrait {
 		}
 		// This trait is used outside of core and therefor fallback to global state - T263904
 		$services = MediaWikiServices::getInstance();
-		$this->watchlistManager ??= $services->getWatchlistManager();
-		$this->userOptionsLookup ??= $services->getUserOptionsLookup();
+		if ( $this->watchlistManager === null ) {
+			$this->watchlistManager = $services->getWatchlistManager();
+		}
+		if ( $this->userOptionsLookup === null ) {
+			$this->userOptionsLookup = $services->getUserOptionsLookup();
+		}
 	}
 
 	/**

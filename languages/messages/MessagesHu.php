@@ -1,6 +1,8 @@
 <?php
 /** Hungarian (magyar)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  */
@@ -104,7 +106,6 @@ $specialPageAliases = [
 	'Randomredirect'            => [ 'Átirányítás_találomra' ],
 	'Recentchanges'             => [ 'Friss_változtatások' ],
 	'Recentchangeslinked'       => [ 'Kapcsolódó_változtatások' ],
-	'Renameuser'                => [ 'Szerkesztő_átnevezése' ],
 	'Revisiondelete'            => [ 'Változat_törlése' ],
 	'Search'                    => [ 'Keresés' ],
 	'Shortpages'                => [ 'Rövid_lapok' ],

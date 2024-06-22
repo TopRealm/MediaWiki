@@ -1,6 +1,8 @@
 <?php
 /** Chinese (China) (‪中文(中国大陆)‬)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  *

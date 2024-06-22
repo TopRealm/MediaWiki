@@ -85,7 +85,7 @@ abstract class FileOp {
 	) {
 		$this->backend = $backend;
 		$this->logger = $logger;
-		[ $required, $optional, $paths ] = $this->allowedParams();
+		list( $required, $optional, $paths ) = $this->allowedParams();
 		foreach ( $required as $name ) {
 			if ( isset( $params[$name] ) ) {
 				$this->params[$name] = $params[$name];
@@ -360,12 +360,14 @@ abstract class FileOp {
 		$status = StatusValue::newGood();
 		// Record the size of source file/string
 		$this->sourceSize = $this->getSourceSize(); // FS file or data string
-		// file in storage?
-		$this->sourceSize ??= $this->fileSize( $this->params['src'], $predicates );
+		if ( $this->sourceSize === null ) { // file in storage?
+			$this->sourceSize = $this->fileSize( $this->params['src'], $predicates );
+		}
 		// Record the hash of source file/string
 		$this->sourceSha1 = $this->getSourceSha1Base36(); // FS file or data string
-		// file in storage?
-		$this->sourceSha1 ??= $this->fileSha1( $this->params['src'], $predicates );
+		if ( $this->sourceSha1 === null ) { // file in storage?
+			$this->sourceSha1 = $this->fileSha1( $this->params['src'], $predicates );
+		}
 		// Record the existence of destination file
 		$this->destExists = $this->fileExists( $this->params['dst'], $predicates );
 		// Check if an incompatible file exists at the destination

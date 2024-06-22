@@ -22,25 +22,19 @@
  */
 
 use MediaWiki\Cache\LinkBatchFactory;
-use MediaWiki\CommentFormatter\CommentFormatter;
-use MediaWiki\CommentStore\CommentStore;
 use MediaWiki\Content\IContentHandlerFactory;
-use MediaWiki\Html\Html;
-use MediaWiki\Linker\Linker;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Page\UndeletePage;
 use MediaWiki\Page\UndeletePageFactory;
 use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Revision\ArchivedRevisionLookup;
-use MediaWiki\Revision\RevisionArchiveRecord;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\RevisionRenderer;
 use MediaWiki\Revision\RevisionStore;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Storage\NameTableAccessException;
 use MediaWiki\Storage\NameTableStore;
-use MediaWiki\Title\Title;
 use MediaWiki\User\UserOptionsLookup;
 use Wikimedia\Rdbms\ILoadBalancer;
 use Wikimedia\Rdbms\IResultWrapper;
@@ -125,9 +119,6 @@ class SpecialUndelete extends SpecialPage {
 	/** @var ArchivedRevisionLookup */
 	private $archivedRevisionLookup;
 
-	/** @var CommentFormatter */
-	private $commentFormatter;
-
 	/**
 	 * @param PermissionManager $permissionManager
 	 * @param RevisionStore $revisionStore
@@ -142,7 +133,6 @@ class SpecialUndelete extends SpecialPage {
 	 * @param SearchEngineFactory $searchEngineFactory
 	 * @param UndeletePageFactory $undeletePageFactory
 	 * @param ArchivedRevisionLookup $archivedRevisionLookup
-	 * @param CommentFormatter $commentFormatter
 	 */
 	public function __construct(
 		PermissionManager $permissionManager,
@@ -157,8 +147,7 @@ class SpecialUndelete extends SpecialPage {
 		WikiPageFactory $wikiPageFactory,
 		SearchEngineFactory $searchEngineFactory,
 		UndeletePageFactory $undeletePageFactory,
-		ArchivedRevisionLookup $archivedRevisionLookup,
-		CommentFormatter $commentFormatter
+		ArchivedRevisionLookup $archivedRevisionLookup
 	) {
 		parent::__construct( 'Undelete', 'deletedhistory' );
 		$this->permissionManager = $permissionManager;
@@ -174,7 +163,6 @@ class SpecialUndelete extends SpecialPage {
 		$this->searchEngineFactory = $searchEngineFactory;
 		$this->undeletePageFactory = $undeletePageFactory;
 		$this->archivedRevisionLookup = $archivedRevisionLookup;
-		$this->commentFormatter = $commentFormatter;
 	}
 
 	public function doesWrites() {
@@ -511,8 +499,7 @@ class SpecialUndelete extends SpecialPage {
 				Html::rawElement(
 					'li',
 					[ 'class' => 'undeleteResult' ],
-					$item . $this->msg( 'word-separator' )->escaped() .
-						$this->msg( 'parentheses' )->rawParams( $revs )->escaped()
+					"{$item} ({$revs})"
 				)
 			);
 		}
@@ -527,7 +514,6 @@ class SpecialUndelete extends SpecialPage {
 			return;
 		}
 		$out = $this->getOutput();
-		$out->addModuleStyles( 'mediawiki.interface.helpers.styles' );
 
 		// When viewing a specific revision, add a subtitle link back to the overall
 		// history, see T284114
@@ -564,7 +550,7 @@ class SpecialUndelete extends SpecialPage {
 				$msg = $revRecord->isDeleted( RevisionRecord::DELETED_RESTRICTED )
 					? [ 'rev-suppressed-text-permission', $titleText ]
 					: [ 'rev-deleted-text-permission', $titleText ];
-				$out->addHTML(
+				$out->addHtml(
 					Html::warningBox(
 						$this->msg( $msg[0], $msg[1] )->parse(),
 						'plainlinks'
@@ -576,7 +562,7 @@ class SpecialUndelete extends SpecialPage {
 			$msg = $revRecord->isDeleted( RevisionRecord::DELETED_RESTRICTED )
 				? [ 'rev-suppressed-text-view', $titleText ]
 				: [ 'rev-deleted-text-view', $titleText ];
-			$out->addHTML(
+			$out->addHtml(
 				Html::warningBox(
 					$this->msg( $msg[0], $msg[1] )->parse(),
 					'plainlinks'
@@ -671,7 +657,7 @@ class SpecialUndelete extends SpecialPage {
 				$revRecord,
 				$popts,
 				$user,
-				[ 'audience' => RevisionRecord::FOR_THIS_USER, 'causeAction' => 'undelete-preview' ]
+				[ 'audience' => RevisionRecord::FOR_THIS_USER ]
 			);
 
 			// Fail hard if the audience check fails, since we already checked
@@ -783,15 +769,16 @@ class SpecialUndelete extends SpecialPage {
 	 * @return string
 	 */
 	private function diffHeader( RevisionRecord $revRecord, $prefix ) {
-		if ( $revRecord instanceof RevisionArchiveRecord ) {
-			// Revision in the archive table, only viewable via this special page
+		$isDeleted = !( $revRecord->getId() && $revRecord->getPageAsLinkTarget() );
+		if ( $isDeleted ) {
+			// @todo FIXME: $rev->getTitle() is null for deleted revs...?
 			$targetPage = $this->getPageTitle();
 			$targetQuery = [
 				'target' => $this->mTargetObj->getPrefixedText(),
 				'timestamp' => wfTimestamp( TS_MW, $revRecord->getTimestamp() )
 			];
 		} else {
-			// Revision in the revision table, viewable by oldid
+			// @todo FIXME: getId() may return non-zero for deleted revs...
 			$targetPage = $revRecord->getPageAsLinkTarget();
 			$targetQuery = [ 'oldid' => $revRecord->getId() ];
 		}
@@ -844,7 +831,7 @@ class SpecialUndelete extends SpecialPage {
 			Linker::revUserTools( $revRecord ) . '<br />' .
 			'</div>' .
 			'<div id="mw-diff-' . $prefix . 'title3">' .
-			$minor . $this->commentFormatter->formatRevision( $revRecord, $user ) . $rdel . '<br />' .
+			$minor . Linker::revComment( $revRecord ) . $rdel . '<br />' .
 			'</div>' .
 			'<div id="mw-diff-' . $prefix . 'title5">' .
 			$tagSummary[0] . '<br />' .
@@ -906,7 +893,6 @@ class SpecialUndelete extends SpecialPage {
 		if ( $this->mAllowed ) {
 			$out->addModules( 'mediawiki.misc-authed-ooui' );
 		}
-		$out->addModuleStyles( 'mediawiki.interface.helpers.styles' );
 		$out->wrapWikiMsg(
 			"<div class='mw-undelete-pagetitle'>\n$1\n</div>\n",
 			[ 'undeletepagetitle', wfEscapeWikiText( $this->mTargetObj->getPrefixedText() ) ]
@@ -1201,11 +1187,11 @@ class SpecialUndelete extends SpecialPage {
 		}
 
 		// Edit summary
-		$comment = $this->commentFormatter->formatRevision( $revRecord, $user );
+		$comment = Linker::revComment( $revRecord );
 
 		// Tags
 		$attribs = [];
-		[ $tagSummary, $classes ] = ChangeTags::formatSummaryRow(
+		list( $tagSummary, $classes ) = ChangeTags::formatSummaryRow(
 			$row->ts_tags,
 			'deletedhistory',
 			$this->getContext()
@@ -1289,10 +1275,11 @@ class SpecialUndelete extends SpecialPage {
 
 		if ( !$revRecord->userCan( RevisionRecord::DELETED_TEXT, $this->getAuthority() ) ) {
 			// TODO The condition cannot be true when the function is called
-			return Html::element(
+			// TODO use Html::element and let it handle escaping
+			return Html::rawElement(
 				'span',
 				[ 'class' => 'history-deleted' ],
-				$time
+				htmlspecialchars( $time )
 			);
 		}
 
@@ -1329,10 +1316,11 @@ class SpecialUndelete extends SpecialPage {
 		$time = $this->getLanguage()->userTimeAndDate( $ts, $user );
 
 		if ( !$file->userCan( File::DELETED_FILE, $user ) ) {
-			return Html::element(
+			// TODO use Html::element and let it handle escaping
+			return Html::rawElement(
 				'span',
 				[ 'class' => 'history-deleted' ],
-				$time
+				htmlspecialchars( $time )
 			);
 		}
 
@@ -1404,7 +1392,7 @@ class SpecialUndelete extends SpecialPage {
 		}
 
 		$comment = $file->getDescription( File::FOR_THIS_USER, $this->getAuthority() );
-		$link = $this->commentFormatter->formatBlock( $comment );
+		$link = Linker::commentBlock( $comment );
 
 		if ( $file->isDeleted( File::DELETED_COMMENT ) ) {
 			$link = Html::rawElement(

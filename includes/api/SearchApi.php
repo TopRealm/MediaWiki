@@ -41,7 +41,7 @@ trait SearchApi {
 		// are responsible for setting them (since api modules *can* have services
 		// injected). Double check that the api module did indeed set them
 		if ( !$this->searchEngineConfig || !$this->searchEngineFactory ) {
-			throw new LogicException(
+			throw new MWException(
 				'SearchApi requires both a SearchEngineConfig and SearchEngineFactory to be set'
 			);
 		}
@@ -94,7 +94,9 @@ trait SearchApi {
 
 		$alternatives = $this->searchEngineConfig->getSearchTypes();
 		if ( count( $alternatives ) > 1 ) {
-			$alternatives[0] ??= self::$BACKEND_NULL_PARAM;
+			if ( $alternatives[0] === null ) {
+				$alternatives[0] = self::$BACKEND_NULL_PARAM;
+			}
 			$params['backend'] = [
 				ParamValidator::PARAM_DEFAULT => $this->searchEngineConfig->getSearchType(),
 				ParamValidator::PARAM_TYPE => $alternatives,

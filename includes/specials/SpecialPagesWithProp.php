@@ -22,8 +22,6 @@
  * @ingroup SpecialPage
  */
 
-use MediaWiki\Html\Html;
-use MediaWiki\Title\Title;
 use Wikimedia\Rdbms\ILoadBalancer;
 
 /**
@@ -120,7 +118,7 @@ class SpecialPagesWithProp extends QueryPage {
 			->setTitle( $this->getPageTitle() ) // Remove subpage
 			->setSubmitCallback( [ $this, 'onSubmit' ] )
 			->setWrapperLegendMsg( 'pageswithprop-legend' )
-			->addHeaderHtml( $this->msg( 'pageswithprop-text' )->parseAsBlock() )
+			->addHeaderText( $this->msg( 'pageswithprop-text' )->parseAsBlock() )
 			->setSubmitTextMsg( 'pageswithprop-submit' )
 			->prepareForm();
 		$form->displayForm( false );
@@ -224,7 +222,7 @@ class SpecialPagesWithProp extends QueryPage {
 		if ( $result->pp_value !== '' ) {
 			// Do not show very long or binary values on the special page
 			$valueLength = strlen( $result->pp_value );
-			$isBinary = str_contains( $result->pp_value, "\0" );
+			$isBinary = strpos( $result->pp_value, "\0" ) !== false;
 			$isTooLong = $valueLength > 1024;
 
 			if ( $isBinary || $isTooLong ) {

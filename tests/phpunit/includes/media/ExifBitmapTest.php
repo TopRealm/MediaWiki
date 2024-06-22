@@ -5,7 +5,6 @@ use MediaWiki\MainConfigNames;
 /**
  * @group Media
  * @covers ExifBitmapHandler
- * @requires extension exif
  */
 class ExifBitmapTest extends MediaWikiMediaTestCase {
 
@@ -16,6 +15,7 @@ class ExifBitmapTest extends MediaWikiMediaTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();
+		$this->checkPHPExtension( 'exif' );
 
 		$this->overrideConfigValue( MainConfigNames::ShowEXIF, true );
 

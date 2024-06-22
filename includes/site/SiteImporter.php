@@ -1,5 +1,11 @@
 <?php
+
+use Wikimedia\RequestTimeout\TimeoutException;
+
 /**
+ * Utility for importing site entries from XML.
+ * For the expected format of the input, see docs/sitelist.md and docs/sitelist-1.0.xsd.
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -15,18 +21,12 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  * http://www.gnu.org/copyleft/gpl.html
  *
- * @file
- */
-
-use Wikimedia\RequestTimeout\TimeoutException;
-
-/**
- * Utility for importing site entries from XML.
- *
- * For the expected format of the input, see docs/sitelist.md and docs/sitelist-1.0.xsd.
- *
  * @since 1.25
+ *
+ * @file
  * @ingroup Site
+ *
+ * @license GPL-2.0-or-later
  * @author Daniel Kinzler
  */
 class SiteImporter {
@@ -204,7 +204,7 @@ class SiteImporter {
 	/**
 	 * @param DOMElement $element
 	 * @param string $name
-	 * @param string|null|false $default
+	 * @param string|null|bool $default
 	 *
 	 * @return null|string
 	 * @throws MWException If the attribute is not found and no default is provided
@@ -228,7 +228,7 @@ class SiteImporter {
 	/**
 	 * @param DOMElement $element
 	 * @param string $name
-	 * @param string|null|false $default
+	 * @param string|null|bool $default
 	 *
 	 * @return null|string
 	 * @throws MWException If the child element is not found and no default is provided

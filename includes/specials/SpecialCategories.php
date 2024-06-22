@@ -22,7 +22,6 @@
  */
 
 use MediaWiki\Cache\LinkBatchFactory;
-use MediaWiki\Html\Html;
 use Wikimedia\Rdbms\ILoadBalancer;
 
 /**

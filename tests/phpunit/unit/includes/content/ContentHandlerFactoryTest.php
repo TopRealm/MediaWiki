@@ -57,23 +57,20 @@ class ContentHandlerFactoryTest extends MediaWikiUnitTestCase {
 			$hookContainer,
 			$this->logger
 		);
-
-		$expectedParams = [];
+		$i = 0;
 		foreach ( $handlerSpecs as $modelID => $handlerSpec ) {
-			$expectedParams[] = [
-				$handlerSpec,
-				[
-					'assertClass' => ContentHandler::class,
-					'allowCallable' => true,
-					'allowClassName' => true,
-					'extraArgs' => [ $modelID ],
-				]
-			];
+			$objectFactory
+				->expects( $this->at( $i++ ) )
+				->method( 'createObject' )
+				->with( $handlerSpec,
+					[
+						'assertClass' => ContentHandler::class,
+						'allowCallable' => true,
+						'allowClassName' => true,
+						'extraArgs' => [ $modelID ],
+					] )
+				->willReturn( $contentHandlerExpected );
 		}
-		$objectFactory
-			->method( 'createObject' )
-			->withConsecutive( ...$expectedParams )
-			->willReturn( $contentHandlerExpected );
 
 		foreach ( $handlerSpecs as $modelID => $handlerSpec ) {
 			$this->assertSame( $contentHandlerExpected, $factory->getContentHandler( $modelID ) );
@@ -365,9 +362,15 @@ class ContentHandlerFactoryTest extends MediaWikiUnitTestCase {
 		$contentHandler3->method( 'getSupportedFormats' )->willReturn( [ 'format 3' ] );
 
 		$objectFactory = $this->createMock( ObjectFactory::class );
-		$objectFactory
+		$objectFactory->expects( $this->at( 0 ) )
 			->method( 'createObject' )
-			->willReturnOnConsecutiveCalls( $contentHandler1, $contentHandler2, $contentHandler3 );
+			->willReturn( $contentHandler1 );
+		$objectFactory->expects( $this->at( 1 ) )
+			->method( 'createObject' )
+			->willReturn( $contentHandler2 );
+		$objectFactory->expects( $this->at( 2 ) )
+			->method( 'createObject' )
+			->willReturn( $contentHandler3 );
 
 		$factory = new ContentHandlerFactory(
 			[

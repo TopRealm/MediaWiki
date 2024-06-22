@@ -21,8 +21,6 @@
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageReference;
-use MediaWiki\Title\Title;
-use MediaWiki\Title\TitleArray;
 
 /**
  * Job to purge the HTML/file cache for all pages that link to or use another page or file
@@ -51,7 +49,7 @@ class HTMLCacheUpdateJob extends Job {
 			// Multiple pages per job make matches unlikely
 			!( isset( $params['pages'] ) && count( $params['pages'] ) != 1 )
 		);
-		$this->params += [ 'causeAction' => 'HTMLCacheUpdateJob', 'causeAgent' => 'unknown' ];
+		$this->params += [ 'causeAction' => 'unknown', 'causeAgent' => 'unknown' ];
 	}
 
 	/**
@@ -142,7 +140,7 @@ class HTMLCacheUpdateJob extends Job {
 		$config = $services->getMainConfig();
 
 		$lbFactory = $services->getDBLoadBalancerFactory();
-		$dbw = $lbFactory->getPrimaryDatabase();
+		$dbw = $lbFactory->getMainLB()->getConnectionRef( DB_PRIMARY );
 		$ticket = $lbFactory->getEmptyTransactionTicket( __METHOD__ );
 		// Update page_touched (skipping pages already touched since the root job).
 		// Check $wgUpdateRowsPerQuery; batch jobs are sized by that already.

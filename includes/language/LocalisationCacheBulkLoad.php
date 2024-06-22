@@ -119,7 +119,8 @@ class LocalisationCacheBulkLoad extends LocalisationCache {
 	 */
 	protected function trimCache() {
 		while ( count( $this->data ) > $this->maxLoadedLangs && count( $this->mruLangs ) ) {
-			$code = array_key_first( $this->mruLangs );
+			reset( $this->mruLangs );
+			$code = key( $this->mruLangs );
 			wfDebug( __METHOD__ . ": unloading $code" );
 			$this->unload( $code );
 		}

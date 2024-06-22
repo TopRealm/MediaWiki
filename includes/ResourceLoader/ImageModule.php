@@ -56,6 +56,7 @@ class ImageModule extends Module {
 	protected $prefix = null;
 	protected $selectorWithoutVariant = '.{prefix}-{name}';
 	protected $selectorWithVariant = '.{prefix}-{name}-{variant}';
+	protected $targets = [ 'desktop', 'mobile' ];
 
 	/**
 	 * Constructs a new module from an options array.
@@ -183,7 +184,7 @@ class ImageModule extends Module {
 						// Backwards compatibility
 						$option = [ 'default' => $option ];
 					}
-					foreach ( $option as $data ) {
+					foreach ( $option as $skin => $data ) {
 						if ( !is_array( $data ) ) {
 							throw new InvalidArgumentException(
 								"Invalid list error. '$data' given, array expected."
@@ -385,17 +386,23 @@ class ImageModule extends Module {
 	}
 
 	/**
-	 * This method formerly provided fallback rasterized images for browsers that do not support SVG.
-	 * Now kept for backwards-compatibility.
+	 * SVG support using a transparent gradient to guarantee cross-browser
+	 * compatibility (browsers able to understand gradient syntax support also SVG).
+	 * http://pauginer.tumblr.com/post/36614680636/invisible-gradient-technique
+	 *
+	 * Keep synchronized with the .background-image-svg LESS mixin in
+	 * /resources/src/mediawiki.less/mediawiki.mixins.less.
 	 *
 	 * @param string $primary Primary URI
-	 * @param string $fallback Fallback URI (unused)
+	 * @param string $fallback Fallback URI
 	 * @return string[] CSS declarations to use given URIs as background-image
 	 */
 	protected function getCssDeclarations( $primary, $fallback ): array {
 		$primaryUrl = CSSMin::buildUrlValue( $primary );
+		$fallbackUrl = CSSMin::buildUrlValue( $fallback );
 		return [
-			"background-image: $primaryUrl;",
+			"background-image: $fallbackUrl;",
+			"background-image: linear-gradient(transparent, transparent), $primaryUrl;",
 		];
 	}
 
@@ -443,7 +450,7 @@ class ImageModule extends Module {
 	private function getFileHashes( Context $context ) {
 		$this->loadFromDefinition();
 		$files = [];
-		foreach ( $this->getImages( $context ) as $image ) {
+		foreach ( $this->getImages( $context ) as $name => $image ) {
 			$files[] = $image->getPath( $context );
 		}
 		$files = array_values( array_unique( $files ) );
@@ -473,11 +480,15 @@ class ImageModule extends Module {
 	public static function extractLocalBasePath( array $options, $localBasePath = null ) {
 		global $IP;
 
+		if ( $localBasePath === null ) {
+			$localBasePath = $IP;
+		}
+
 		if ( array_key_exists( 'localBasePath', $options ) ) {
 			$localBasePath = (string)$options['localBasePath'];
 		}
 
-		return $localBasePath ?? $IP;
+		return $localBasePath;
 	}
 
 	/**

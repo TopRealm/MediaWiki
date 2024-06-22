@@ -20,7 +20,6 @@
 
 use MediaWiki\EditPage\Constraint\IEditConstraint;
 use MediaWiki\EditPage\Constraint\SimpleAntiSpamConstraint;
-use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentityValue;
 use Psr\Log\LogLevel;
 use Psr\Log\NullLogger;

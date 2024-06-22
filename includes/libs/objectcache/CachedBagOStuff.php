@@ -203,7 +203,7 @@ class CachedBagOStuff extends BagOStuff {
 		);
 	}
 
-	protected function makeKeyInternal( $keyspace, $components ) {
+	public function makeKeyInternal( $keyspace, $components ) {
 		return $this->genericKeyFromComponents( $keyspace, ...$components );
 	}
 
@@ -268,6 +268,30 @@ class CachedBagOStuff extends BagOStuff {
 		);
 	}
 
+	public function incr( $key, $value = 1, $flags = 0 ) {
+		$this->procCache->delete( $key );
+
+		return $this->store->proxyCall(
+			__FUNCTION__,
+			self::ARG0_KEY,
+			self::RES_NONKEY,
+			func_get_args(),
+			$this
+		);
+	}
+
+	public function decr( $key, $value = 1, $flags = 0 ) {
+		$this->procCache->delete( $key );
+
+		return $this->store->proxyCall(
+			__FUNCTION__,
+			self::ARG0_KEY,
+			self::RES_NONKEY,
+			func_get_args(),
+			$this
+		);
+	}
+
 	public function incrWithInit( $key, $exptime, $step = 1, $init = null, $flags = 0 ) {
 		$this->procCache->delete( $key );
 
@@ -282,6 +306,16 @@ class CachedBagOStuff extends BagOStuff {
 
 	public function addBusyCallback( callable $workCallback ) {
 		$this->store->addBusyCallback( $workCallback );
+	}
+
+	public function setNewPreparedValues( array $valueByKey ) {
+		return $this->store->proxyCall(
+			__FUNCTION__,
+			self::ARG0_KEYMAP,
+			self::RES_NONKEY,
+			func_get_args(),
+			$this
+		);
 	}
 
 	public function setMockTime( &$time ) {

@@ -132,6 +132,9 @@ class FileModule extends Module {
 	/** @var bool Link to raw files in debug mode */
 	protected $debugRaw = true;
 
+	/** @var string[] */
+	protected $targets = [ 'desktop' ];
+
 	/** @var bool Whether CSSJanus flipping should be skipped for this module */
 	protected $noflip = false;
 
@@ -178,7 +181,7 @@ class FileModule extends Module {
 		$hasTemplates = false;
 		// localBasePath and remoteBasePath both have unbelievably long fallback chains
 		// and need to be handled separately.
-		[ $this->localBasePath, $this->remoteBasePath ] =
+		list( $this->localBasePath, $this->remoteBasePath ) =
 			self::extractBasePaths( $options, $localBasePath, $remoteBasePath );
 
 		// Extract, validate and normalise remaining options
@@ -284,6 +287,9 @@ class FileModule extends Module {
 		// The different ways these checks are done, and their ordering, look very silly,
 		// but were preserved for backwards-compatibility just in case. Tread lightly.
 
+		if ( $localBasePath === null ) {
+			$localBasePath = $IP;
+		}
 		if ( $remoteBasePath === null ) {
 			$remoteBasePath = MediaWikiServices::getInstance()->getMainConfig()
 				->get( MainConfigNames::ResourceBasePath );
@@ -321,7 +327,7 @@ class FileModule extends Module {
 			$remoteBasePath = '/';
 		}
 
-		return [ $localBasePath ?? $IP, $remoteBasePath ];
+		return [ $localBasePath, $remoteBasePath ];
 	}
 
 	/**
@@ -723,10 +729,16 @@ class FileModule extends Module {
 		foreach ( $list as $key => $value ) {
 			if ( is_int( $key ) ) {
 				// File name as the value
+				if ( !isset( $collatedFiles['all'] ) ) {
+					$collatedFiles['all'] = [];
+				}
 				$collatedFiles['all'][] = $value;
 			} elseif ( is_array( $value ) ) {
 				// File name as the key, options array as the value
 				$optionValue = $value['media'] ?? 'all';
+				if ( !isset( $collatedFiles[$optionValue] ) ) {
+					$collatedFiles[$optionValue] = [];
+				}
 				$collatedFiles[$optionValue][] = $key;
 			}
 		}
@@ -830,7 +842,7 @@ class FileModule extends Module {
 
 			// Add new file paths, remapping them to refer to our directories and not use settings
 			// from the module we're modifying, which come from the base definition.
-			[ $localBasePath, $remoteBasePath ] = self::extractBasePaths( $overrides );
+			list( $localBasePath, $remoteBasePath ) = self::extractBasePaths( $overrides );
 
 			foreach ( $paths as $path ) {
 				$styleFiles[] = new FilePath( $path, $localBasePath, $remoteBasePath );
@@ -905,7 +917,7 @@ class FileModule extends Module {
 
 		$result = [];
 
-		foreach ( $collatedStyleFiles as $styleFiles ) {
+		foreach ( $collatedStyleFiles as $media => $styleFiles ) {
 			foreach ( $styleFiles as $styleFile ) {
 				$result[] = $this->getLocalPath( $styleFile );
 			}

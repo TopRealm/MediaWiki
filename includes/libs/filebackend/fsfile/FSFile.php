@@ -124,9 +124,9 @@ class FSFile {
 			$info['mime'] = $mime;
 
 			if ( strpos( $mime, '/' ) !== false ) {
-				[ $info['major_mime'], $info['minor_mime'] ] = explode( '/', $mime, 2 );
+				list( $info['major_mime'], $info['minor_mime'] ) = explode( '/', $mime, 2 );
 			} else {
-				[ $info['major_mime'], $info['minor_mime'] ] = [ $mime, 'unknown' ];
+				list( $info['major_mime'], $info['minor_mime'] ) = [ $mime, 'unknown' ];
 			}
 		}
 

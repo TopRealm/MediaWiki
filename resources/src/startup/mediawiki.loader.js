@@ -6,8 +6,6 @@
  */
 /* global $VARS, $CODE, mw */
 
-/* eslint-disable es-x/no-set, es-x/no-promise-prototype-finally, es-x/no-regexp-prototype-flags */
-
 ( function () {
 	'use strict';
 
@@ -37,7 +35,7 @@
 	defineFallbacks();
 
 	// In test mode, this generates `mw.redefineFallbacksForTest = defineFallbacks;`.
-	// Otherwise, it produces nothing. See also ResourceLoader\StartUpModule::getScript().
+	// Otherwise, it produces nothing. See also ResourceLoaderStartUpModule::getScript().
 	$CODE.maybeRedefineFallbacksForTest();
 
 	/**
@@ -76,11 +74,11 @@
 		}
 
 		hash = ( hash >>> 0 ).toString( 36 ).slice( 0, 5 );
-		/* eslint-enable no-bitwise */
-
 		while ( hash.length < 5 ) {
 			hash = '0' + hash;
 		}
+		/* eslint-enable no-bitwise */
+
 		return hash;
 	}
 
@@ -146,7 +144,7 @@
 	 *     {
 	 *         'moduleName': {
 	 *             // From mw.loader.register()
-	 *             'version': '#####' (five-character hash)
+	 *             'version': '########' (hash)
 	 *             'dependencies': ['required.foo', 'bar.also', ...]
 	 *             'group': string, integer, (or) null
 	 *             'source': 'local', (or) 'anotherwiki'
@@ -620,7 +618,7 @@
 				// removed, otherwise made redundant, or omitted from the registry
 				// by the ResourceLoader "target" system or "requiresES6" flag.
 				//
-				// These errors can be common, e.g. queuing an ES6-only module
+				// These errors can be comon common, e.g. queuing an ES6-only module
 				// unconditionally from the server-side is OK and should fail gracefully
 				// in ES5 browsers.
 				mw.log.warn( 'Skipped unavailable module ' + modules[ i ] );
@@ -1017,23 +1015,24 @@
 		// Process styles (see also mw.loader.implement)
 		// * { "css": [css, ..] }
 		// * { "url": { <media>: [url, ..] } }
-		var style = registry[ module ].style;
-		if ( style ) {
-			// Array of CSS strings under key 'css'
-			// { "css": [css, ..] }
-			if ( 'css' in style ) {
-				for ( var i = 0; i < style.css.length; i++ ) {
-					addEmbeddedCSS( style.css[ i ], cssHandle() );
-				}
-			}
+		if ( registry[ module ].style ) {
+			for ( var key in registry[ module ].style ) {
+				var value = registry[ module ].style[ key ];
 
-			// Plain object with array of urls under a media-type key
-			// { "url": { <media>: [url, ..] } }
-			if ( 'url' in style ) {
-				for ( var media in style.url ) {
-					var urls = style.url[ media ];
-					for ( var j = 0; j < urls.length; j++ ) {
-						addLink( urls[ j ], media, marker );
+				// Array of CSS strings under key 'css'
+				// { "css": [css, ..] }
+				if ( key === 'css' ) {
+					for ( var i = 0; i < value.length; i++ ) {
+						addEmbeddedCSS( value[ i ], cssHandle() );
+					}
+				// Plain object with array of urls under a media-type key
+				// { "url": { <media>: [url, ..] } }
+				} else if ( key === 'url' ) {
+					for ( var media in value ) {
+						var urls = value[ media ];
+						for ( var j = 0; j < urls.length; j++ ) {
+							addLink( urls[ j ], media, marker );
+						}
 					}
 				}
 			}
@@ -1236,12 +1235,11 @@
 					// If the url would become too long, create a new one, but don't create empty requests.
 					// The value of `length` only reflects the request-specific bytes relating to the
 					// accumulated entries in moduleMap so far. It does not include the base length,
-					// which we account for separately with `currReqBaseLength` so that length is 0
-					// when moduleMap is empty.
+					// which we account for separately so that length is 0 when moduleMap is empty.
 					if ( length && length + currReqBaseLength + bytesAdded > mw.loader.maxQueryLength ) {
 						// Dispatch what we've got...
 						doRequest();
-						// .. and start preparing a new request.
+						// .. and start again.
 						length = 0;
 						moduleMap = Object.create( null );
 					}
@@ -1644,7 +1642,7 @@
 			} else {
 				// One or more modules
 				modules = typeof modules === 'string' ? [ modules ] : modules;
-				// Resolve modules into a flat list for internal queuing.
+				// Resolve modules into flat list for internal queuing.
 				// This also filters out unknown modules and modules with
 				// unknown dependencies, allowing the rest to continue. (T36853)
 				// Omit ready and error parameters, we don't have callbacks
@@ -1795,7 +1793,7 @@
 		/**
 		 * A string containing various factors by which the module cache should vary.
 		 *
-		 * Defined by ResourceLoader\StartupModule::getStoreVary() in PHP.
+		 * Defined by ResourceLoaderStartupModule::getStoreVary() in PHP.
 		 *
 		 * @property {string}
 		 */

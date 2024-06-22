@@ -1,9 +1,7 @@
 <?php
 
 use MediaWiki\MainConfigNames;
-use MediaWiki\Page\MergeHistory;
 use MediaWiki\Tests\Unit\Permissions\MockAuthorityTrait;
-use MediaWiki\Title\Title;
 
 /**
  * @group Database
@@ -84,8 +82,8 @@ class MergeHistoryTest extends MediaWikiIntegrationTestCase {
 		$mh = $this->getMockBuilder( MergeHistory::class )
 			->onlyMethods( [ 'getRevisionCount' ] )
 			->setConstructorArgs( [
-				Title::makeTitle( NS_MAIN, 'Test' ),
-				Title::makeTitle( NS_MAIN, 'Test2' ),
+				Title::newFromText( 'Test' ),
+				Title::newFromText( 'Test2' ),
 				null,
 				$this->getServiceContainer()->getDBLoadBalancer(),
 				$this->getServiceContainer()->getContentHandlerFactory(),
@@ -117,8 +115,8 @@ class MergeHistoryTest extends MediaWikiIntegrationTestCase {
 	public function testCheckPermissions() {
 		$factory = $this->getServiceContainer()->getMergeHistoryFactory();
 		$mh = $factory->newMergeHistory(
-			Title::makeTitle( NS_MAIN, 'Test' ),
-			Title::makeTitle( NS_MAIN, 'Test2' )
+			Title::newFromText( 'Test' ),
+			Title::newFromText( 'Test2' )
 		);
 
 		foreach ( [ 'authorizeMerge', 'probablyCanMerge' ] as $method ) {
@@ -144,8 +142,8 @@ class MergeHistoryTest extends MediaWikiIntegrationTestCase {
 	public function testGetMergedRevisionCount() {
 		$factory = $this->getServiceContainer()->getMergeHistoryFactory();
 		$mh = $factory->newMergeHistory(
-			Title::makeTitle( NS_MAIN, 'Merge1' ),
-			Title::makeTitle( NS_MAIN, 'Merge2' )
+			Title::newFromText( 'Merge1' ),
+			Title::newFromText( 'Merge2' )
 		);
 
 		$sysop = static::getTestSysop()->getUser();
@@ -160,8 +158,8 @@ class MergeHistoryTest extends MediaWikiIntegrationTestCase {
 	 * @covers MergeHistory::merge
 	 */
 	public function testSourceUpdateWithRedirectSupport() {
-		$title = Title::makeTitle( NS_MAIN, 'Merge1' );
-		$title2 = Title::makeTitle( NS_MAIN, 'Merge2' );
+		$title = Title::newFromText( 'Merge1' );
+		$title2 = Title::newFromText( 'Merge2' );
 
 		$factory = $this->getServiceContainer()->getMergeHistoryFactory();
 		$mh = $factory->newMergeHistory( $title, $title2 );
@@ -197,9 +195,9 @@ class MergeHistoryTest extends MediaWikiIntegrationTestCase {
 			]
 		] );
 
-		$title = Title::makeTitle( NS_MAIN, 'Merge3' );
+		$title = Title::newFromText( 'Merge3' );
 		$title->setContentModel( 'testing' );
-		$title2 = Title::makeTitle( NS_MAIN, 'Merge4' );
+		$title2 = Title::newFromText( 'Merge4' );
 		$title2->setContentModel( 'testing' );
 
 		$factory = $this->getServiceContainer()->getMergeHistoryFactory();

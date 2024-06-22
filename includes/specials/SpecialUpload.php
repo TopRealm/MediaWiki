@@ -22,11 +22,8 @@
  * @ingroup Upload
  */
 
-use MediaWiki\Html\Html;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Request\FauxRequest;
-use MediaWiki\Title\Title;
 use MediaWiki\User\UserOptionsLookup;
 use MediaWiki\Watchlist\WatchlistManager;
 
@@ -65,7 +62,7 @@ class SpecialUpload extends SpecialPage {
 		parent::__construct( 'Upload', 'upload' );
 		// This class is extended and therefor fallback to global state - T265300
 		$services = MediaWikiServices::getInstance();
-		$repoGroup ??= $services->getRepoGroup();
+		$repoGroup = $repoGroup ?? $services->getRepoGroup();
 		$this->localRepo = $repoGroup->getLocalRepo();
 		$this->userOptionsLookup = $userOptionsLookup ?? $services->getUserOptionsLookup();
 		$this->nsInfo = $nsInfo ?? $services->getNamespaceInfo();
@@ -181,6 +178,13 @@ class SpecialUpload extends SpecialPage {
 
 	/**
 	 * @param string|null $par
+	 * @throws ErrorPageError
+	 * @throws Exception
+	 * @throws FatalError
+	 * @throws MWException
+	 * @throws PermissionsError
+	 * @throws ReadOnlyError
+	 * @throws UserBlockedError
 	 */
 	public function execute( $par ) {
 		$this->useTransactionalTimeLimit();
@@ -207,6 +211,16 @@ class SpecialUpload extends SpecialPage {
 			throw new UserBlockedError(
 				// @phan-suppress-next-line PhanTypeMismatchArgumentNullable Block is checked and not null
 				$user->getBlock(),
+				$user,
+				$this->getLanguage(),
+				$this->getRequest()->getIP()
+			);
+		}
+
+		// Global blocks
+		if ( $user->isBlockedGlobally() ) {
+			throw new UserBlockedError(
+				$user->getGlobalBlock(),
 				$user,
 				$this->getLanguage(),
 				$this->getRequest()->getIP()
@@ -252,6 +266,11 @@ class SpecialUpload extends SpecialPage {
 	 * @param HTMLForm|string $form An HTMLForm instance or HTML string to show
 	 */
 	protected function showUploadForm( $form ) {
+		# Add links if file was previously deleted
+		if ( $this->mDesiredDestName ) {
+			$this->showViewDeletedLinks();
+		}
+
 		if ( $form instanceof HTMLForm ) {
 			$form->show();
 		} else {
@@ -286,8 +305,7 @@ class SpecialUpload extends SpecialPage {
 			$this->getLinkRenderer(),
 			$this->localRepo,
 			$this->getContentLanguage(),
-			$this->nsInfo,
-			$this->getHookContainer()
+			$this->nsInfo
 		);
 		$form->setTitle( $this->getPageTitle() ); // Remove subpage
 
@@ -329,6 +347,34 @@ class SpecialUpload extends SpecialPage {
 		}
 
 		return $form;
+	}
+
+	/**
+	 * Shows the "view X deleted revisions link""
+	 */
+	protected function showViewDeletedLinks() {
+		$title = Title::makeTitleSafe( NS_FILE, $this->mDesiredDestName );
+		$user = $this->getUser();
+		// Show a subtitle link to deleted revisions (to sysops et al only)
+		if ( $title instanceof Title ) {
+			$count = $title->getDeletedEditsCount();
+			if ( $count > 0 && $this->getAuthority()->isAllowed( 'deletedhistory' ) ) {
+				$restorelink = $this->getLinkRenderer()->makeKnownLink(
+					SpecialPage::getTitleFor( 'Undelete', $title->getPrefixedText() ),
+					$this->msg( 'restorelink' )->numParams( $count )->text()
+				);
+				$link = $this->msg(
+					$this->getAuthority()->isAllowed( 'delete' ) ? 'thisisdeleted' : 'viewdeleted'
+				)->rawParams( $restorelink )->parseAsBlock();
+				$this->getOutput()->addHTML(
+					Html::rawElement(
+						'div',
+						[ 'id' => 'contentSub2' ],
+						$link
+					)
+				);
+			}
+		}
 	}
 
 	/**
@@ -626,7 +672,7 @@ class SpecialUpload extends SpecialPage {
 
 		$pageText = $comment . "\n";
 		$headerText = '== ' . $msg['filedesc'] . ' ==';
-		if ( $comment !== '' && !str_contains( $comment, $headerText ) ) {
+		if ( $comment !== '' && strpos( $comment, $headerText ) === false ) {
 			// prepend header to page text unless it's already there (or there is no content)
 			$pageText = $headerText . "\n" . $pageText;
 		}
@@ -687,6 +733,7 @@ class SpecialUpload extends SpecialPage {
 	 * Provides output to the user for a result of UploadBase::verifyUpload
 	 *
 	 * @param array $details Result of UploadBase::verifyUpload
+	 * @throws MWException
 	 */
 	protected function processVerificationError( $details ) {
 		switch ( $details['status'] ) {
@@ -755,7 +802,7 @@ class SpecialUpload extends SpecialPage {
 				$this->showUploadError( $this->msg( $error, $args )->parse() );
 				break;
 			default:
-				throw new UnexpectedValueException( __METHOD__ . ": Unknown value `{$details['status']}`" );
+				throw new MWException( __METHOD__ . ": Unknown value `{$details['status']}`" );
 		}
 	}
 

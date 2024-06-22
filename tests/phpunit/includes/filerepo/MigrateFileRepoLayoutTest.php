@@ -1,6 +1,5 @@
 <?php
 
-use MediaWiki\WikiMap\WikiMap;
 use Wikimedia\Rdbms\FakeResultWrapper;
 
 /**

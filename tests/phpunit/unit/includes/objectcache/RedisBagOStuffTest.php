@@ -3,7 +3,6 @@
 use Wikimedia\TestingAccessWrapper;
 
 /**
- * @covers RedisBagOStuff
  * @group BagOStuff
  */
 class RedisBagOStuffTest extends MediaWikiUnitTestCase {
@@ -19,6 +18,7 @@ class RedisBagOStuffTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
+	 * @covers RedisBagOStuff::unserialize
 	 * @dataProvider unserializeProvider
 	 */
 	public function testUnserialize( $expected, $input, $message ) {
@@ -57,6 +57,7 @@ class RedisBagOStuffTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
+	 * @covers RedisBagOStuff::serialize
 	 * @dataProvider serializeProvider
 	 */
 	public function testSerialize( $expected, $input, $message ) {

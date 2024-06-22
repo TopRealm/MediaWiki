@@ -16,18 +16,18 @@ use Wikimedia\TestingAccessWrapper;
 class WikiAwareEntityTraitTest extends MediaWikiUnitTestCase {
 
 	/**
-	 * @param string|false $wikiId
+	 * @param string|bool $wikiId
 	 * @return WikiAwareEntity
 	 */
 	public function getEntityInstance( $wikiId ) {
 		$entity = new class( $wikiId ) implements WikiAwareEntity {
 			use WikiAwareEntityTrait;
 
-			/** @var string|false */
+			/** @var string|bool */
 			private $wikiId;
 
 			/**
-			 * @param string|false $wikiId
+			 * @param string|bool $wikiId
 			 */
 			public function __construct( $wikiId ) {
 				$this->wikiId = $wikiId;

@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Page\Hook;
 
-use MediaWiki\Category\Category;
+use Category;
 use WikiPage;
 
 /**

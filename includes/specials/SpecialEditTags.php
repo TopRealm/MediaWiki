@@ -19,10 +19,7 @@
  * @ingroup SpecialPage
  */
 
-use MediaWiki\CommentStore\CommentStore;
-use MediaWiki\Html\Html;
 use MediaWiki\Permissions\PermissionManager;
-use MediaWiki\Title\Title;
 
 /**
  * Special page for adding and removing change tags to individual revisions.
@@ -409,7 +406,10 @@ class SpecialEditTags extends UnlistedSpecialPage {
 		}
 
 		// Evaluate incoming request data
-		$tagList = $request->getArray( 'wpTagList' ) ?? [];
+		$tagList = $request->getArray( 'wpTagList' );
+		if ( $tagList === null ) {
+			$tagList = [];
+		}
 		$existingTags = $request->getVal( 'wpExistingTags' );
 		if ( $existingTags === null || $existingTags === '' ) {
 			$existingTags = [];
@@ -423,7 +423,7 @@ class SpecialEditTags extends UnlistedSpecialPage {
 			if ( $request->getBool( 'wpRemoveAllTags' ) ) {
 				$tagsToRemove = $existingTags;
 			} else {
-				$tagsToRemove = $request->getArray( 'wpTagsToRemove', [] );
+				$tagsToRemove = $request->getArray( 'wpTagsToRemove' );
 			}
 		} else {
 			// single revision selected

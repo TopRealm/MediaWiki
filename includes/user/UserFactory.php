@@ -198,7 +198,7 @@ class UserFactory implements IDBAccessObject, UserRigorOptions {
 	 * @param ?int $userId
 	 * @param ?string $userName
 	 * @param ?int $actorId
-	 * @param string|false $dbDomain
+	 * @param bool|string $dbDomain
 	 * @return User
 	 * @throws InvalidArgumentException if none of userId, userName, and actorId are specified
 	 */
@@ -266,7 +266,7 @@ class UserFactory implements IDBAccessObject, UserRigorOptions {
 		string $confirmationCode,
 		int $flags = self::READ_NORMAL
 	) {
-		[ $index, $options ] = DBAccessObjectUtils::getDBOptions( $flags );
+		list( $index, $options ) = DBAccessObjectUtils::getDBOptions( $flags );
 
 		$db = $this->loadBalancer->getConnectionRef( $index );
 

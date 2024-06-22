@@ -1,10 +1,5 @@
 <?php
 
-use MediaWiki\HookContainer\HookContainer;
-use MediaWiki\HookContainer\StaticHookRegistry;
-use MediaWiki\MainConfigSchema;
-use MediaWiki\MediaWikiServices;
-use MediaWiki\Permissions\SimpleAuthority;
 use MediaWiki\Rest\CorsUtils;
 use MediaWiki\Rest\EntryPoint;
 use MediaWiki\Rest\Handler;
@@ -12,10 +7,6 @@ use MediaWiki\Rest\PathTemplateMatcher\PathMatcher;
 use MediaWiki\Rest\RequestData;
 use MediaWiki\Rest\ResponseFactory;
 use MediaWiki\Rest\Router;
-use MediaWiki\Session\Session;
-use MediaWiki\Tests\Unit\DummyServicesTrait;
-use MediaWiki\Title\Title;
-use MediaWiki\User\UserIdentityValue;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\TestingAccessWrapper;
 
@@ -24,99 +15,17 @@ use Wikimedia\TestingAccessWrapper;
  * - parameters in path have correct PARAM_SOURCE
  * - path parameters not in path are not required
  * - do not have inconsistencies in the parameter definitions
- *
- * @coversNothing
  */
 class RestStructureTest extends MediaWikiIntegrationTestCase {
-	use DummyServicesTrait;
 
-	/** @var ?Router */
-	private $router = null;
-
-	/**
-	 * Constructs a fake MediaWikiServices instance for use in data providers.
-	 *
-	 * @return MediaWikiServices
-	 */
-	private function getFakeServiceContainer(): MediaWikiServices {
-		$config = new HashConfig( iterator_to_array( MainConfigSchema::listDefaultValues() ) );
-
-		$objectFactory = $this->getDummyObjectFactory();
-		$hookContainer = new HookContainer(
-			new StaticHookRegistry(),
-			$objectFactory
-		);
-
-		$services = $this->createNoOpMock(
-			MediaWikiServices::class,
-			[
-				'getMainConfig',
-				'getHookContainer',
-				'getObjectFactory',
-				'getLocalServerObjectCache',
-				'getStatsdDataFactory',
-			]
-		);
-		$services->method( 'getMainConfig' )->willReturn( $config );
-		$services->method( 'getHookContainer' )->willReturn( $hookContainer );
-		$services->method( 'getObjectFactory' )->willReturn( $objectFactory );
-		$services->method( 'getLocalServerObjectCache' )->willReturn( new EmptyBagOStuff() );
-		$services->method( 'getStatsdDataFactory' )->willReturn( new NullStatsdDataFactory() );
-
-		return $services;
-	}
-
-	/**
-	 * Return all routes. Safe to use in data providers.
-	 * @return Iterator<array>
-	 */
-	private function getAllRoutes(): Iterator {
-		static $router = null;
-
-		if ( !$router ) {
-			$language = $this->createNoOpMock( Language::class, [ 'getCode' ] );
-			$language->method( 'getCode' )->willReturn( 'en' );
-
-			$title = Title::makeTitle( NS_SPECIAL, 'Badtitle/dummy title for RestStructureTest' );
-			$authority = new SimpleAuthority( new UserIdentityValue( 0, 'Testor' ), [] );
-
-			$request = $this->createNoOpMock(
-				WebRequest::class,
-				[ 'getSession' ]
-			);
-			$request->method( 'getSession' )->willReturn(
-				$this->createNoOpMock( Session::class )
-			);
-
-			$context = $this->createNoOpMock(
-				RequestContext::class,
-				[ 'getLanguage', 'getTitle', 'getAuthority', 'getRequest' ]
-			);
-			$context->method( 'getLanguage' )->willReturn( $language );
-			$context->method( 'getTitle' )->willReturn( $title );
-			$context->method( 'getAuthority' )->willReturn( $authority );
-			$context->method( 'getRequest' )->willReturn( $request );
-
-			$responseFactory = $this->createNoOpMock( ResponseFactory::class );
-			$cors = $this->createNoOpMock( CorsUtils::class );
-
-			$services = $this->getFakeServiceContainer();
-
-			// NOTE: createRouter() implements the logic for determining the list of route files to load.
-			$entryPoint = TestingAccessWrapper::newFromClass( EntryPoint::class );
-			$router = $entryPoint->createRouter( $services, $context, new RequestData(), $responseFactory, $cors );
-			$router = TestingAccessWrapper::newFromObject( $router );
-		}
-
-		return $router->getAllRoutes();
-	}
+	/** @var Router */
+	private $router;
 
 	/**
 	 * Initialize/fetch the Router instance for testing
-	 * @warning Must not be called in data providers!
 	 * @return Router
 	 */
-	private function getRouter(): Router {
+	private function getRouter() {
 		if ( !$this->router ) {
 			$context = new DerivativeContext( RequestContext::getMain() );
 			$context->setLanguage( 'en' );
@@ -128,13 +37,13 @@ class RestStructureTest extends MediaWikiIntegrationTestCase {
 			$cors = $this->createNoOpMock( CorsUtils::class );
 
 			$this->router = TestingAccessWrapper::newFromClass( EntryPoint::class )
-				->createRouter( $this->getServiceContainer(), $context, new RequestData(), $responseFactory, $cors );
+				->createRouter( $context, new RequestData(), $responseFactory, $cors );
 		}
 		return $this->router;
 	}
 
 	/**
-	 * @dataProvider provideRoutes
+	 * @dataProvider providePathParameters
 	 */
 	public function testPathParameters( array $spec ): void {
 		$router = TestingAccessWrapper::newFromObject( $this->getRouter() );
@@ -173,8 +82,10 @@ class RestStructureTest extends MediaWikiIntegrationTestCase {
 		$this->addToAssertionCount( 1 );
 	}
 
-	public function provideRoutes(): Iterator {
-		foreach ( $this->getAllRoutes() as $spec ) {
+	public function providePathParameters(): Iterator {
+		$router = TestingAccessWrapper::newFromObject( $this->getRouter() );
+
+		foreach ( $router->getAllRoutes() as $spec ) {
 			$method = $spec['method'] ?? 'GET';
 			$method = implode( ",", (array)$method );
 
@@ -183,30 +94,16 @@ class RestStructureTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @dataProvider provideRoutes
+	 * @dataProvider provideParameters
 	 */
-	public function testParameters( array $routeSpec ): void {
-		$router = TestingAccessWrapper::newFromObject( $this->getRouter() );
-
-		$request = new RequestData();
-		$handler = $router->createHandler( $request, $routeSpec );
-
-		$params = $handler->getParamSettings();
-		foreach ( $params as $param => $settings ) {
-			$method = $routeSpec['method'] ?? 'GET';
-			$method = implode( ",", (array)$method );
-
-			$this->assertParameter( $param, $settings, "Handler {$method} {$routeSpec['path']}, parameter $param" );
-		}
-	}
-
-	private function assertParameter( string $name, $settings, $msg ) {
+	public function testParameters( array $spec, string $name, $settings ): void {
 		static $sources = [ 'path', 'query', 'post' ];
 
 		$router = TestingAccessWrapper::newFromObject( $this->getRouter() );
+		$request = new RequestData();
 
 		$dataName = $this->dataName();
-		$this->assertNotSame( '', $name, "$msg: $dataName: Name cannot be empty" );
+		$this->assertNotSame( '', $name, "$dataName: Name cannot be empty" );
 
 		$paramValidator = TestingAccessWrapper::newFromObject( $router->restValidator )->paramValidator;
 		$ret = $paramValidator->checkSettings( $name, $settings, [ 'source' => 'unspecified' ] );
@@ -225,15 +122,15 @@ class RestStructureTest extends MediaWikiIntegrationTestCase {
 			);
 			if ( $keys ) {
 				$this->addWarning(
-					"$msg: $dataName: Unrecognized settings keys were used: " . implode( ', ', $keys )
+					"$dataName: Unrecognized settings keys were used: " . implode( ', ', $keys )
 				);
 			}
 		}
 
 		if ( count( $ret['issues'] ) === 1 ) {
-			$this->fail( "$msg: $dataName: Validation failed: " . reset( $ret['issues'] ) );
+			$this->fail( "$dataName: Validation failed: " . reset( $ret['issues'] ) );
 		} elseif ( $ret['issues'] ) {
-			$this->fail( "$msg: $dataName: Validation failed:\n* " . implode( "\n* ", $ret['issues'] ) );
+			$this->fail( "$dataName: Validation failed:\n* " . implode( "\n* ", $ret['issues'] ) );
 		}
 
 		// Check message existence
@@ -244,7 +141,23 @@ class RestStructureTest extends MediaWikiIntegrationTestCase {
 			if ( !isset( $done[$key] ) ) {
 				$done[$key] = true;
 				$this->assertTrue( Message::newFromKey( $key )->exists(),
-					"$msg: $dataName: Parameter message $key exists" );
+					"$dataName: Parameter message $key exists" );
+			}
+		}
+	}
+
+	public function provideParameters(): Iterator {
+		$router = TestingAccessWrapper::newFromObject( $this->getRouter() );
+		$request = new RequestData();
+
+		foreach ( $router->getAllRoutes() as $spec ) {
+			$handler = $router->createHandler( $request, $spec );
+			$params = $handler->getParamSettings();
+			foreach ( $params as $param => $settings ) {
+				$method = $spec['method'] ?? 'GET';
+				$method = implode( ",", (array)$method );
+
+				yield "Handler {$method} {$spec['path']}, parameter $param" => [ $spec, $param, $settings ];
 			}
 		}
 	}

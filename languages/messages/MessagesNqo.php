@@ -1,6 +1,8 @@
 <?php
 /** N'Ko (ߒߞߏ)
  *
+ * To improve a translation please visit https://translatewiki.net
+ *
  * @file
  * @ingroup Languages
  */

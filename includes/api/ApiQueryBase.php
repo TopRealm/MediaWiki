@@ -21,7 +21,6 @@
  */
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Title\Title;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IResultWrapper;
 use Wikimedia\Rdbms\SelectQueryBuilder;
@@ -116,7 +115,9 @@ abstract class ApiQueryBase extends ApiBase {
 	 * @return IDatabase
 	 */
 	protected function getDB() {
-		$this->mDb ??= $this->getQuery()->getDB();
+		if ( $this->mDb === null ) {
+			$this->mDb = $this->getQuery()->getDB();
+		}
 
 		return $this->mDb;
 	}
@@ -170,7 +171,9 @@ abstract class ApiQueryBase extends ApiBase {
 	 * @return SelectQueryBuilder
 	 */
 	protected function getQueryBuilder() {
-		$this->queryBuilder ??= $this->getDB()->newSelectQueryBuilder();
+		if ( $this->queryBuilder === null ) {
+			$this->queryBuilder = $this->getDB()->newSelectQueryBuilder();
+		}
 		return $this->queryBuilder;
 	}
 
@@ -494,16 +497,17 @@ abstract class ApiQueryBase extends ApiBase {
 	 * @return bool Whether the element fit in the result
 	 */
 	protected function addPageSubItem( $pageId, $item, $elemname = null ) {
+		if ( $elemname === null ) {
+			$elemname = $this->getModulePrefix();
+		}
 		$result = $this->getResult();
 		$fit = $result->addValue( [ 'query', 'pages', $pageId,
 			$this->getModuleName() ], null, $item );
 		if ( !$fit ) {
 			return false;
 		}
-		$result->addIndexedTagName(
-			[ 'query', 'pages', $pageId, $this->getModuleName() ],
-			$elemname ?? $this->getModulePrefix()
-		);
+		$result->addIndexedTagName( [ 'query', 'pages', $pageId,
+			$this->getModuleName() ], $elemname );
 
 		return true;
 	}

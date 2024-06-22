@@ -41,6 +41,8 @@ class PermissionsError extends ErrorPageError {
 	 * @throws \InvalidArgumentException
 	 */
 	public function __construct( $permission, $errors = [] ) {
+		global $wgLang;
+
 		if ( $errors instanceof PermissionStatus ) {
 			$errors = $errors->toLegacyErrorArray();
 		}
@@ -63,7 +65,7 @@ class PermissionsError extends ErrorPageError {
 			}
 
 			if ( $groups ) {
-				$errors[] = [ 'badaccess-groups', Message::listParam( $groups, 'comma' ), count( $groups ) ];
+				$errors[] = [ 'badaccess-groups', $wgLang->commaList( $groups ), count( $groups ) ];
 			} else {
 				$errors[] = [ 'badaccess-group0' ];
 			}

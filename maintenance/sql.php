@@ -110,7 +110,7 @@ class MwSql extends Maintenance {
 		if ( $this->hasOption( 'query' ) ) {
 			$query = $this->getOption( 'query' );
 			$res = $this->sqlDoQuery( $db, $query, /* dieOnError */ true );
-			$this->waitForReplication();
+			$lbFactory->waitForReplication();
 			if ( $this->hasOption( 'status' ) && !$res ) {
 				$this->fatalError( 'Failed.', 2 );
 			}
@@ -158,12 +158,12 @@ class MwSql extends Maintenance {
 			$res = $this->sqlDoQuery( $db, $wholeLine, $doDie );
 			if ( $this->getBatchSize() && ++$batchCount >= $this->getBatchSize() ) {
 				$batchCount = 0;
-				$this->waitForReplication();
+				$lbFactory->waitForReplication();
 			}
 			$prompt = $newPrompt;
 			$wholeLine = '';
 		}
-		$this->waitForReplication();
+		$lbFactory->waitForReplication();
 		if ( $this->hasOption( 'status' ) && !$res ) {
 			$this->fatalError( 'Failed.', 2 );
 		}

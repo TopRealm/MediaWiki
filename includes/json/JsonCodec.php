@@ -24,7 +24,6 @@ namespace MediaWiki\Json;
 use FormatJson;
 use InvalidArgumentException;
 use JsonSerializable;
-use stdClass;
 use Wikimedia\Assert\Assert;
 
 /**
@@ -37,7 +36,7 @@ use Wikimedia\Assert\Assert;
 class JsonCodec implements JsonUnserializer, JsonSerializer {
 
 	public function unserialize( $json, string $expectedClass = null ) {
-		Assert::parameterType( [ 'stdClass', 'array', 'string' ], $json, '$json' );
+		Assert::parameterType( [ 'object', 'array', 'string' ], $json, '$json' );
 		Assert::precondition(
 			!$expectedClass || is_subclass_of( $expectedClass, JsonUnserializable::class ),
 			'$expectedClass parameter must be subclass of JsonUnserializable, got ' . $expectedClass
@@ -51,14 +50,8 @@ class JsonCodec implements JsonUnserializer, JsonSerializer {
 			$json = $jsonStatus->getValue();
 		}
 
-		if ( $json instanceof stdClass ) {
+		if ( is_object( $json ) ) {
 			$json = (array)$json;
-		}
-
-		if ( $this->containsComplexValue( $json ) ) {
-			// Recursively unserialize the array values before unserializing
-			// the array itself.
-			$json = $this->unserializeArray( $json );
 		}
 
 		if ( !$this->canMakeNewFromValue( $json ) ) {
@@ -69,9 +62,7 @@ class JsonCodec implements JsonUnserializer, JsonSerializer {
 		}
 
 		$class = $json[JsonConstants::TYPE_ANNOTATION];
-		if ( $class !== stdClass::class &&
-			 !( class_exists( $class ) && is_subclass_of( $class, JsonUnserializable::class ) )
-		) {
+		if ( !class_exists( $class ) || !is_subclass_of( $class, JsonUnserializable::class ) ) {
 			throw new InvalidArgumentException( "Invalid target class {$class}" );
 		}
 
@@ -80,22 +71,13 @@ class JsonCodec implements JsonUnserializer, JsonSerializer {
 				"Refusing to unserialize: expected $expectedClass, got $class"
 			);
 		}
-		if ( $class === stdClass::class ) {
-			unset( $json[JsonConstants::TYPE_ANNOTATION] );
-			return (object)$json;
-		}
 		return $class::newFromJsonArray( $this, $json );
 	}
 
 	public function unserializeArray( array $array ): array {
 		$unserializedExtensionData = [];
 		foreach ( $array as $key => $value ) {
-			if ( $key === JsonConstants::COMPLEX_ANNOTATION ) {
-				/* don't include this in the result */
-			} elseif (
-				$this->canMakeNewFromValue( $value ) ||
-				$this->containsComplexValue( $value )
-			) {
+			if ( $this->canMakeNewFromValue( $value ) ) {
 				$unserializedExtensionData[$key] = $this->unserialize( $value );
 			} else {
 				$unserializedExtensionData[$key] = $value;
@@ -104,64 +86,28 @@ class JsonCodec implements JsonUnserializer, JsonSerializer {
 		return $unserializedExtensionData;
 	}
 
-	private function serializeOne( &$value ) {
+	public function serialize( $value ) {
 		if ( $value instanceof JsonSerializable ) {
 			$value = $value->jsonSerialize();
-			$value[JsonConstants::COMPLEX_ANNOTATION] = true;
-			// The returned array may still have instance of JsonSerializable,
-			// stdClass, or array, so fall through to recursively handle these.
-		} elseif ( is_object( $value ) && get_class( $value ) === stdClass::class ) {
-			// T312589: if $value is stdObject, mark the type
-			// so we unserialize as stdObject as well.
-			$value = (array)$value;
-			$value[JsonConstants::TYPE_ANNOTATION] = stdClass::class;
-			$value[JsonConstants::COMPLEX_ANNOTATION] = true;
-			// Fall through to handle the property values
 		}
-		if ( is_array( $value ) ) {
-			$is_complex = false;
-			// Recursively convert array values to serializable form
-			foreach ( $value as &$v ) {
-				if ( is_object( $v ) || is_array( $v ) ) {
-					$v = $this->serializeOne( $v );
-					if ( isset( $v[JsonConstants::COMPLEX_ANNOTATION] ) ) {
-						$is_complex = true;
-					}
-				}
-			}
-			if ( $is_complex ) {
-				$value[JsonConstants::COMPLEX_ANNOTATION] = true;
-			}
-		} elseif ( !is_scalar( $value ) && $value !== null ) {
-				throw new InvalidArgumentException(
-					'Unable to serialize JSON.'
-				);
-		}
-		return $value;
-	}
-
-	public function serialize( $value ) {
-		// Detect if the array contained any properties non-serializable
-		// to json.
-		// TODO: make detectNonSerializableData not choke on cyclic structures.
-		$unserializablePath = $this->detectNonSerializableDataInternal(
-			$value, false, '$'
-		);
-		if ( $unserializablePath ) {
-			// TODO: Make it JsonException
-			throw new InvalidArgumentException(
-				"Non-unserializable property set at {$unserializablePath}"
-			);
-		}
-		// Recursively convert stdClass and JsonSerializable
-		// to serializable arrays
-		$value = $this->serializeOne( $value );
-		// Format as JSON
 		$json = FormatJson::encode( $value, false, FormatJson::ALL_OK );
 		if ( !$json ) {
 			// TODO: make it JsonException
 			throw new InvalidArgumentException(
 				'Failed to encode JSON. Error ' . json_last_error_msg()
+			);
+		}
+
+		// Detect if the array contained any properties non-serializable
+		// to json. We will not be able to deserialize the value correctly
+		// anyway, so return null. This is done after calling FormatJson::encode
+		// to avoid walking over circular structures.
+		// TODO: make detectNonSerializableData not choke on cyclic structures.
+		$unserializablePath = $this->detectNonSerializableData( $value, true );
+		if ( $unserializablePath ) {
+			// TODO: Make it JsonException
+			throw new InvalidArgumentException(
+				"Non-unserializable property set at {$unserializablePath}"
 			);
 		}
 
@@ -176,26 +122,11 @@ class JsonCodec implements JsonUnserializer, JsonSerializer {
 	private function canMakeNewFromValue( $json ): bool {
 		$classAnnotation = JsonConstants::TYPE_ANNOTATION;
 		if ( is_array( $json ) ) {
-			return array_key_exists( $classAnnotation, $json ) &&
-				# T313818: conflict with ParserOutput::detectAndEncodeBinary()
-				$json[$classAnnotation] !== 'string';
+			return array_key_exists( $classAnnotation, $json );
 		}
 
 		if ( is_object( $json ) ) {
-			return property_exists( $json, $classAnnotation );
-		}
-		return false;
-	}
-
-	/**
-	 * Does this serialized array contain a complex value (a serialized class
-	 * or an array which itself contains a serialized class)?
-	 * @param mixed $json
-	 * @return bool
-	 */
-	private function containsComplexValue( $json ): bool {
-		if ( is_array( $json ) ) {
-			return array_key_exists( JsonConstants::COMPLEX_ANNOTATION, $json );
+			return $json->$classAnnotation;
 		}
 		return false;
 	}
@@ -213,19 +144,9 @@ class JsonCodec implements JsonUnserializer, JsonSerializer {
 		bool $expectUnserialize,
 		string $accumulatedPath
 	): ?string {
-		if (
-			$this->canMakeNewFromValue( $value ) ||
-			$this->containsComplexValue( $value )
-		) {
-			// Contains a conflicting use of JsonConstants::TYPE_ANNOTATION or
-			// JsonConstants::COMPLEX_ANNOTATION; in the future we might use
-			// an alternative encoding for these objects to allow them.
-			return $accumulatedPath;
-		}
-		if ( is_array( $value ) || (
-			is_object( $value ) && get_class( $value ) === stdClass::class
-		) ) {
-			foreach ( $value as $key => &$propValue ) {
+		if ( is_array( $value ) ||
+			( is_object( $value ) && get_class( $value ) === 'stdClass' ) ) {
+			foreach ( $value as $key => $propValue ) {
 				$propValueNonSerializablePath = $this->detectNonSerializableDataInternal(
 					$propValue,
 					$expectUnserialize,
@@ -235,8 +156,7 @@ class JsonCodec implements JsonUnserializer, JsonSerializer {
 					return $propValueNonSerializablePath;
 				}
 			}
-		} elseif (
-			( $expectUnserialize && $value instanceof JsonUnserializable )
+		} elseif ( ( $expectUnserialize && $value instanceof JsonUnserializable )
 			// Trust that JsonSerializable will correctly serialize.
 			|| ( !$expectUnserialize && $value instanceof JsonSerializable )
 		) {

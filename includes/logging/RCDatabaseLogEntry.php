@@ -25,7 +25,6 @@
 
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
 use Wikimedia\Rdbms\IDatabase;
 
@@ -120,7 +119,7 @@ class RCDatabaseLogEntry extends DatabaseLogEntry {
 	}
 
 	public function getComment() {
-		return MediaWikiServices::getInstance()->getCommentStore()
+		return CommentStore::getStore()
 			// Legacy because the row may have used RecentChange::selectFields()
 			->getCommentLegacy( wfGetDB( DB_REPLICA ), 'rc_comment', $this->row )->text;
 	}

@@ -1,8 +1,6 @@
 <?php
 
 use MediaWiki\MainConfigNames;
-use MediaWiki\Title\Title;
-use MediaWiki\WikiMap\WikiMap;
 
 /**
  * @group API
@@ -63,7 +61,7 @@ class ApiUploadTest extends ApiUploadTestCase {
 		$user = self::$users['uploader']->getUser();
 
 		$this->fakeUploadFile( 'file', $fileName, $mimeType, $filePath );
-		[ $result ] = $this->doApiRequestWithToken( [
+		list( $result ) = $this->doApiRequestWithToken( [
 			'action' => 'upload',
 			'filename' => $fileName,
 			'file' => 'dummy content',
@@ -118,7 +116,7 @@ class ApiUploadTest extends ApiUploadTestCase {
 		// first upload .... should succeed
 
 		$this->fakeUploadFile( 'file', $fileName, $mimeType, $filePaths[0] );
-		[ $result ] = $this->doApiRequestWithToken( $params, null,
+		list( $result ) = $this->doApiRequestWithToken( $params, null,
 			self::$users['uploader']->getUser() );
 		$this->assertArrayHasKey( 'upload', $result );
 		$this->assertEquals( 'Success', $result['upload']['result'] );
@@ -126,7 +124,7 @@ class ApiUploadTest extends ApiUploadTestCase {
 		// second upload with the same name (but different content)
 
 		$this->fakeUploadFile( 'file', $fileName, $mimeType, $filePaths[1] );
-		[ $result ] = $this->doApiRequestWithToken( $params, null,
+		list( $result ) = $this->doApiRequestWithToken( $params, null,
 			self::$users['uploader']->getUser() );
 		$this->assertArrayHasKey( 'upload', $result );
 		$this->assertEquals( 'Warning', $result['upload']['result'] );
@@ -141,7 +139,7 @@ class ApiUploadTest extends ApiUploadTestCase {
 
 		// first upload .... should succeed
 		$this->fakeUploadFile( 'file', $fileNames[0], $mimeType, $filePath );
-		[ $result ] = $this->doApiRequestWithToken( [
+		list( $result ) = $this->doApiRequestWithToken( [
 			'action' => 'upload',
 			'filename' => $fileNames[0],
 			'file' => 'dummy content',
@@ -153,7 +151,7 @@ class ApiUploadTest extends ApiUploadTestCase {
 
 		// second upload with the same content (but different name)
 		$this->fakeUploadFile( 'file', $fileNames[1], $mimeType, $filePath );
-		[ $result ] = $this->doApiRequestWithToken( [
+		list( $result ) = $this->doApiRequestWithToken( [
 				'action' => 'upload',
 				'filename' => $fileNames[1],
 				'file' => 'dummy content',
@@ -175,7 +173,7 @@ class ApiUploadTest extends ApiUploadTestCase {
 		$filePath = $this->filePath( 'yuv420.jpg' );
 
 		$this->fakeUploadFile( 'file', $fileName, $mimeType, $filePath );
-		[ $result ] = $this->doApiRequestWithToken( [
+		list( $result ) = $this->doApiRequestWithToken( [
 			'action' => 'upload',
 			'stash' => 1,
 			'filename' => $fileName,
@@ -197,7 +195,7 @@ class ApiUploadTest extends ApiUploadTestCase {
 
 		// now we should try to release the file from stash
 		$this->clearFakeUploads();
-		[ $result ] = $this->doApiRequestWithToken( [
+		list( $result ) = $this->doApiRequestWithToken( [
 			'action' => 'upload',
 			'filekey' => $filekey,
 			'filename' => $fileName,
@@ -236,7 +234,7 @@ class ApiUploadTest extends ApiUploadTestCase {
 			// Upload the current chunk into the $_FILE object:
 			$this->fakeUploadChunk( 'chunk', 'blob', $mimeType, $chunkData );
 			if ( !$filekey ) {
-				[ $result ] = $this->doApiRequestWithToken( $params, null,
+				list( $result ) = $this->doApiRequestWithToken( $params, null,
 					self::$users['uploader']->getUser() );
 				// Make sure we got a valid chunk continue:
 				$this->assertArrayHasKey( 'upload', $result );
@@ -255,7 +253,7 @@ class ApiUploadTest extends ApiUploadTestCase {
 				// Make sure param offset is insync with resultOffset:
 				$this->assertEquals( $resultOffset, $params['offset'] );
 				// Upload current chunk
-				[ $result ] = $this->doApiRequestWithToken( $params, null,
+				list( $result ) = $this->doApiRequestWithToken( $params, null,
 					self::$users['uploader']->getUser() );
 				// Make sure we got a valid chunk continue:
 				$this->assertArrayHasKey( 'upload', $result );
@@ -281,7 +279,7 @@ class ApiUploadTest extends ApiUploadTestCase {
 
 		// Now we should try to release the file from stash
 		$this->clearFakeUploads();
-		[ $result ] = $this->doApiRequestWithToken( [
+		list( $result ) = $this->doApiRequestWithToken( [
 			'action' => 'upload',
 			'filekey' => $filekey,
 			'filename' => $fileName,

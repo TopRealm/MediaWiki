@@ -45,7 +45,7 @@ class UserIdentityValue implements UserIdentity {
 	 */
 	private $name;
 
-	/** @var string|false */
+	/** @var bool|string */
 	private $wikiId;
 
 	/**

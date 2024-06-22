@@ -34,20 +34,18 @@ use MediaWiki\MainConfigNames;
 use MediaWiki\Permissions\Authority;
 use MediaWiki\Permissions\GroupPermissionsLookup;
 use MediaWiki\User\TempUser\TempUserConfig;
-use MediaWiki\WikiMap\WikiMap;
 use Psr\Log\LoggerInterface;
 use ReadOnlyMode;
 use Sanitizer;
 use User;
 use UserGroupExpiryJob;
 use UserGroupMembership;
+use WikiMap;
 use Wikimedia\Assert\Assert;
 use Wikimedia\IPUtils;
 use Wikimedia\Rdbms\DBConnRef;
-use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\ILBFactory;
 use Wikimedia\Rdbms\ILoadBalancer;
-use Wikimedia\Rdbms\SelectQueryBuilder;
 
 /**
  * Managers user groups.
@@ -169,7 +167,7 @@ class UserGroupManager implements IDBAccessObject {
 	 * @param LoggerInterface $logger
 	 * @param TempUserConfig $tempUserConfig
 	 * @param callable[] $clearCacheCallbacks
-	 * @param string|false $dbDomain
+	 * @param string|bool $dbDomain
 	 */
 	public function __construct(
 		ServiceOptions $options,
@@ -389,12 +387,13 @@ class UserGroupManager implements IDBAccessObject {
 			return [];
 		}
 
-		$res = $this->getDBConnectionRefForQueryFlags( $queryFlags )->newSelectQueryBuilder()
-			->select( 'ufg_group' )
-			->from( 'user_former_groups' )
-			->where( [ 'ufg_user' => $user->getId() ] )
-			->caller( __METHOD__ )
-			->fetchResultSet();
+		$db = $this->getDBConnectionRefForQueryFlags( $queryFlags );
+		$res = $db->select(
+			'user_former_groups',
+			[ 'ufg_group' ],
+			[ 'ufg_user' => $user->getId() ],
+			__METHOD__
+		);
 		$formerGroups = [];
 		foreach ( $res as $row ) {
 			$formerGroups[] = $row->ufg_group;
@@ -769,11 +768,16 @@ class UserGroupManager implements IDBAccessObject {
 			return [];
 		}
 
-		$queryBuilder = $this->newQueryBuilder( $this->getDBConnectionRefForQueryFlags( $queryFlags ) );
-		$res = $queryBuilder
-			->where( [ 'ug_user' => $user->getId() ] )
-			->caller( __METHOD__ )
-			->fetchResultSet();
+		$db = $this->getDBConnectionRefForQueryFlags( $queryFlags );
+		$queryInfo = $this->getQueryInfo();
+		$res = $db->select(
+			$queryInfo['tables'],
+			$queryInfo['fields'],
+			[ 'ug_user' => $user->getId() ],
+			__METHOD__,
+			[],
+			$queryInfo['joins']
+		);
 
 		$ugms = [];
 		foreach ( $res as $row ) {
@@ -996,27 +1000,33 @@ class UserGroupManager implements IDBAccessObject {
 	}
 
 	/**
-	 * Return the query builder to build upon and query
+	 * Return the tables and fields to be selected to construct new UserGroupMembership object
+	 * using newGroupMembershipFromRow method.
 	 *
-	 * @param IDatabase $db
-	 * @return SelectQueryBuilder
+	 * @return array[] With three keys:
+	 *  - tables: (string[]) to include in the `$table` to `IDatabase->select()` or `SelectQueryBuilder::tables`
+	 *  - fields: (string[]) to include in the `$vars` to `IDatabase->select()` or `SelectQueryBuilder::fields`
+	 *  - joins: (array) to include in the `$join_conds` to `IDatabase->select()` or `SelectQueryBuilder::joinConds`
 	 * @internal
+	 * @phan-return array{tables:string[],fields:string[],joins:array}
 	 */
-	public function newQueryBuilder( IDatabase $db ): SelectQueryBuilder {
-		 return $db->newSelectQueryBuilder()
-			->select( [
+	public function getQueryInfo(): array {
+		return [
+			'tables' => [ 'user_groups' ],
+			'fields' => [
 				'ug_user',
 				'ug_group',
 				'ug_expiry',
-			] )
-			->from( 'user_groups' );
+			],
+			'joins' => []
+		];
 	}
 
 	/**
 	 * Purge expired memberships from the user_groups table
 	 * @internal
 	 * @note this could be slow and is intended for use in a background job
-	 * @return int|false false if purging wasn't attempted (e.g. because of
+	 * @return int|bool false if purging wasn't attempted (e.g. because of
 	 *  readonly), the number of rows purged (might be 0) otherwise
 	 */
 	public function purgeExpired() {
@@ -1035,14 +1045,18 @@ class UserGroupManager implements IDBAccessObject {
 
 		$now = time();
 		$purgedRows = 0;
+		$queryInfo = $this->getQueryInfo();
 		do {
 			$dbw->startAtomic( __METHOD__ );
-			$res = $this->newQueryBuilder( $dbw )
-				->where( [ 'ug_expiry < ' . $dbw->addQuotes( $dbw->timestamp( $now ) ) ] )
-				->forUpdate()
-				->limit( 100 )
-				->caller( __METHOD__ )
-				->fetchResultSet();
+
+			$res = $dbw->select(
+				$queryInfo['tables'],
+				$queryInfo['fields'],
+				[ 'ug_expiry < ' . $dbw->addQuotes( $dbw->timestamp( $now ) ) ],
+				__METHOD__,
+				[ 'FOR UPDATE', 'LIMIT' => 100 ],
+				$queryInfo['joins']
+			);
 
 			if ( $res->numRows() > 0 ) {
 				$insertData = []; // array of users/groups to insert to user_former_groups
@@ -1217,7 +1231,7 @@ class UserGroupManager implements IDBAccessObject {
 	 * @return DBConnRef
 	 */
 	private function getDBConnectionRefForQueryFlags( int $queryFlags ): DBConnRef {
-		[ $mode, ] = DBAccessObjectUtils::getDBOptions( $queryFlags );
+		list( $mode, ) = DBAccessObjectUtils::getDBOptions( $queryFlags );
 		return $this->loadBalancer->getConnectionRef( $mode, [], $this->dbDomain );
 	}
 

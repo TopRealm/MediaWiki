@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\MainConfigNames;
-use MediaWiki\Request\ContentSecurityPolicy;
 use Wikimedia\TestingAccessWrapper;
 
 class ContentSecurityPolicyTest extends MediaWikiIntegrationTestCase {

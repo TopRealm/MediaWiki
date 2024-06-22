@@ -25,8 +25,6 @@
 
 require_once __DIR__ . '/Maintenance.php';
 
-use MediaWiki\Title\Title;
-
 /**
  * Maintenance script that erases a page record from the database.
  *

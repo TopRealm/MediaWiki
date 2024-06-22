@@ -21,7 +21,6 @@
  * @author Matthew Flaschen
  */
 
-use MediaWiki\Html\FormOptions;
 use Wikimedia\Rdbms\IDatabase;
 
 /**
@@ -111,7 +110,7 @@ class ChangesListStringOptionsFilterGroup extends ChangesListFilterGroup {
 	 */
 	public function __construct( array $groupDefinition ) {
 		if ( !isset( $groupDefinition['isFullCoverage'] ) ) {
-			throw new InvalidArgumentException( 'You must specify isFullCoverage' );
+			throw new MWException( 'You must specify isFullCoverage' );
 		}
 
 		$groupDefinition['type'] = self::TYPE;
@@ -123,7 +122,7 @@ class ChangesListStringOptionsFilterGroup extends ChangesListFilterGroup {
 		if ( isset( $groupDefinition['default'] ) ) {
 			$this->setDefault( $groupDefinition['default'] );
 		} else {
-			throw new InvalidArgumentException( 'You must specify a default' );
+			throw new MWException( 'You must specify a default' );
 		}
 	}
 

@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Storage\Hook;
 
-use MediaWiki\CommentStore\CommentStoreComment;
+use CommentStoreComment;
 use MediaWiki\Revision\RenderedRevision;
 use MediaWiki\User\UserIdentity;
 use Status;

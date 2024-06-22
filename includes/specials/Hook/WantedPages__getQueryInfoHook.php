@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Hook;
 
-use MediaWiki\Specials\SpecialWantedPages;
+use WantedPagesPage;
 
 // phpcs:disable Squiz.Classes.ValidClassName.NotCamelCaps
 /**
@@ -14,11 +14,11 @@ use MediaWiki\Specials\SpecialWantedPages;
  */
 interface WantedPages__getQueryInfoHook {
 	/**
-	 * This hook is called in SpecialWantedPages::getQueryInfo(). Can be used to alter the SQL query.
+	 * This hook is called in WantedPagesPage::getQueryInfo(). Can be used to alter the SQL query.
 	 *
 	 * @since 1.35
 	 *
-	 * @param SpecialWantedPages $wantedPages
+	 * @param WantedPagesPage $wantedPages
 	 * @param array &$query Query array. See QueryPage::getQueryInfo() for format documentation.
 	 * @return bool|void True or no return value to continue or false to abort
 	 */
