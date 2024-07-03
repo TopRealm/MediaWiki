@@ -259,9 +259,6 @@ $wgImportSources = [
 // 项目别名配置区
 require_once "/www/wwwroot/mw-utils/YsArchives-Settings/NameSpaces.php";
 
-$wgContentNamespaces = [ 0, 300, ];
-$wgNamespacesToBeSearchedDefault[NS_FANMADE] = true;
-
 //页底
 $wgFooterIcons["copyright"] = [
 	"myicon" => [
