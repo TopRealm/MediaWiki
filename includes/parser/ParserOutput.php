@@ -2487,9 +2487,6 @@ class ParserOutput extends CacheTime implements ContentMetadataCollector {
 			$data['MaxAdaptiveExpiry'] = $this->mMaxAdaptiveExpiry;
 		}
 
-		$trunc_data = substr(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE), 0, 35);
-		wfDebugLog('pcd', "ParserOutput: $trunc_data");
-
 		return $data;
 	}
 

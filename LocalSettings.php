@@ -400,7 +400,6 @@ require_once "/www/wwwroot/mw-utils/YsArchives-Skins/LoadSkins.php";
 
 // debug only
 $wgReadOnly = false ;
-#$wgDebugLogGroups['pcd'] = '/www/wwwroot/mwlogs'
 // Use ?forceprofile=1 to generate a trace log, written to /w/logs/speedscope.json
 	/*
 if ( extension_loaded( 'excimer' ) && isset( $_GET['forceprofile'] ) ) {

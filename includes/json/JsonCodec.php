@@ -25,8 +25,6 @@ use FormatJson;
 use InvalidArgumentException;
 use JsonSerializable;
 use Wikimedia\Assert\Assert;
-use CacheTime;
-use MediaWiki\Json\JsonUnserializable;
 
 /**
  * Helper class to serialize/unserialize things to/from JSON.
@@ -89,20 +87,10 @@ class JsonCodec implements JsonUnserializer, JsonSerializer {
 	}
 
 	public function serialize( $value ) {
-		$valclass = get_class($value);
-		$v1 = $value instanceof JsonSerializable;
-		$v2 = $value instanceof CacheTime;
-		$v3 = $value instanceof JsonUnserializable;
 		if ( $value instanceof JsonSerializable ) {
-			wfDebugLog('pcd', "JC: calling jsonSerialize");
-			$value = $value->jsonSerialize();
-		} elseif ( $value instanceof CacheTime ) {
 			$value = $value->jsonSerialize();
 		}
 		$json = FormatJson::encode( $value, false, FormatJson::ALL_OK );
-		wfDebugLog('pcd', "JC: $valclass; $json");
-		wfDebugLog('pcd', "JsonSerializable $v1; CacheTime $v2; JsonUnserializable $v3");
-		usleep(1000);
 		if ( !$json ) {
 			// TODO: make it JsonException
 			throw new InvalidArgumentException(
