@@ -196,6 +196,7 @@ $wgApiFrameOptions = 'SAMEORIGIN';
 
 // CDN
 $wgUseCdn = true;
+$wgUsePrivateIPs = true;
 $wgCdnServersNoPurge[] = "0.0.0.0/0";
 #$wgCdnServersNoPurge[] = "103.15.97.0/24";
 #$wgCdnServersNoPurge[] = "49.7.41.0/24";
