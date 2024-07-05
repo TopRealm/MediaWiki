@@ -215,8 +215,17 @@ $wgAllowSiteCSSOnRestrictedPages = true;
 
 $wgPFEnableStringFunctions = true;
 
+## Cookies策略
+## Strict - 只有在同站点请求时发送
+$wgCookieSameSite = 'Strict';
+## 只有在HTTPS连接时发送
+$wgCookieSecure = true;
+
 ## 空编辑摘要提醒
 #$wgDefaultUserOptions['forceeditsummary'] = 1;
+
+#修复页面移动产生的双重重定向
+$wgFixDoubleRedirects = true;
 
 $wgUploadNavigationUrl = '/wiki/Special:UploadWizard';
 
@@ -269,6 +278,14 @@ $wgFooterIcons["copyright"] = [
 		"height" => "31",
 		"width" => "88",
 	],
+];
+
+$wgFooterIcons['joinedin']['travelling'] = [
+    "src" => "https://www.travellings.cn/assets/logo.svg",
+    "url" => "https://www.travellings.cn/go.html",
+    "alt" => "开往-友链接力",
+	"height" => "31",
+	"width" => "88",
 ];
 
 $wgRightsIcon = null;
