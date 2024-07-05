@@ -280,14 +280,6 @@ $wgFooterIcons["copyright"] = [
 	],
 ];
 
-$wgFooterIcons['joinedin']['travelling'] = [
-    "src" => "https://www.travellings.cn/assets/logo.svg",
-    "url" => "https://www.travellings.cn/go.html",
-    "alt" => "开往-友链接力",
-	"height" => "31",
-	"width" => "88",
-];
-
 $wgRightsIcon = null;
 
 // Add a link to this page (https://www.mediawiki.org/wiki/?curid=6031)
