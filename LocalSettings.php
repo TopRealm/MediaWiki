@@ -115,7 +115,7 @@ $wgParserCacheExpireTime = 60 * 60 * 24; // 1 week
 
 # 启用匿名访问的HTML直出
 $wgUseFileCache = true;
-$wgFileCacheDirectory = "$IP/cache/html";
+$wgFileCacheDirectory = __DIR__ . "/cache/html";
 # i18n/l10n缓存、侧边栏缓存、扩展缓存
 $wgEnableSidebarCache = true;
 $wgUseLocalMessageCache = true;
