@@ -35,6 +35,12 @@ $namespaceNames = [
 	NS_HELP_TALK        => 'Help_talk',
 	NS_CATEGORY         => 'Category',
 	NS_CATEGORY_TALK    => 'Category_talk',
+	NS_FANMADE          => 'Fanmade',
+	NS_FANMADE_TALK     => 'Fanmade_talk',
+	NS_DRAFT            => 'Draft',
+	NS_DRAFT_TALK       => 'Draft_talk',
+	NS_SMWDATA          => 'SMWData',
+	NS_SMWDATA_TALK     => 'SMWData_talk',
 ];
 
 # T296188: Store namespace aliases of language variants

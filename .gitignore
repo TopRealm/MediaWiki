@@ -23,8 +23,24 @@ sftp-config.json
 ## Visual Studio Code
 *.vscode/
 
+# Ysarxiv-Settings
+/.well-known
+/matomo-tracking-code.js
+# sitemaps
+/sitemap
+
+# site auth
+/baidu_verify_*
+/google*.html
+/BingSiteAuth.xml
+/sogousiteverification.txt
+
+# sitemaps
+/sitemap
+
 # MediaWiki install & usage
 /cache
+/logs
 /docs/coverage
 /docs/js
 /docs/latex
@@ -39,14 +55,17 @@ sftp-config.json
 /images/timeline
 ## Extension:Score
 /images/lilypond
+## Extension:Phonos
+/images/phonos-render
 ## Extension:TimedMediaHandler
 /images/transcoded
 /images/tmp
 /maintenance/.mweval_history
 /maintenance/.mwsql_history
 /maintenance/dev/data
-/LocalSettings.php
 /includes/PlatformSettings.php
+## Extension:Avatar
+/images/avatars
 
 # Building & testing
 npm-debug.log
@@ -62,6 +81,7 @@ phpunit.xml
 .phan/local-config.php
 
 # Composer
+/vendor
 /composer.lock
 /composer.local.json
 /composer.phar
