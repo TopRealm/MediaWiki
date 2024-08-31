@@ -87,6 +87,12 @@ $namespaceNames = [
 	NS_HELP_TALK        => '說明討論',
 	NS_CATEGORY         => '分類',
 	NS_CATEGORY_TALK    => '分類討論',
+	NS_FANMADE         => '同人',
+	NS_FANMADE_TALK    => '同人討論',
+	NS_DRAFT         => '草稿',
+	NS_DRAFT_TALK    => '草稿討論',
+	NS_SMWDATA         => 'SMW數據',
+	NS_SMWDATA_TALK    => 'SMW數據討論',
 ];
 
 $namespaceAliases = [
@@ -137,6 +143,15 @@ $namespaceAliases = [
 	'分類' => NS_CATEGORY,
 	'分類討論' => NS_CATEGORY_TALK,
 	'分類對話' => NS_CATEGORY_TALK,
+	'同人'	=> NS_FANMADE,
+	'同人對話' => NS_FANMADE_TALK,
+	'同人討論' => NS_FANMADE_TALK,
+	'草稿'  => NS_DRAFT,
+	'草稿對話' => NS_DRAFT_TALK,
+	'草稿討論' => NS_DRAFT_TALK,
+	'SMW數據'  => NS_SMWDATA,
+	'SMW數據對話' => NS_SMWDATA_TALK,
+	'SMW數據討論' => NS_SMWDATA_TALK,
 ];
 
 /** @phpcs-require-sorted-array */
