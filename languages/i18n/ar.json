@@ -113,7 +113,8 @@
 			"Riad Salih",
 			"Lolekek",
 			"عبد الإله صديقي",
-			"Gerges"
+			"Gerges",
+			"Mohammed Qays"
 		]
 	},
 	"tog-underline": "سطر تحت الوصلات:",
@@ -454,7 +455,7 @@
 	"viewsource": "عرض المصدر",
 	"skin-action-viewsource": "عرض المصدر",
 	"viewsource-title": "عرض مصدر $1",
-	"actionthrottled": "تم كبح الفعل",
+	"actionthrottled": "كُبح الفعل",
 	"actionthrottledtext": "احترازًا من الإساء، يُحظر إجراء هذا الفعل مرات كثيرة في فترةٍ زمنية قصيرة، ولقد تجاوزت هذا الحد.\nمن فضلك حاول مجددًا بعد عدة دقائق.",
 	"protectedpagetext": "هذه الصفحة تمت حمايتها لمنع التعديل أو أية عمليات أخرى.",
 	"viewsourcetext": "يمكنك مطالعة و نسخ مصدر هذه الصفحة.",
@@ -3756,7 +3757,7 @@
 	"protectpage": "حماية صفحة",
 	"specialprotectpage-page": "الصفحة المستهدفة",
 	"specialprotectpage-submit": "انتقل إلى الصفحة",
-	"purge": "إفراغ الكاش",
+	"purge": "إفراغ الإختزان",
 	"specialpurge-page": "الصفحة المستهدفة",
 	"specialpurge-submit": "انتقل إلى صفحة",
 	"dberr-problems": "عذرا! هذا الموقع يعاني من صعوبات تقنية.",
@@ -4258,7 +4259,7 @@
 	"nstab-mainpage": "الصفحة الرئيسية",
 	"skin-view-edit-local": "عدل الوصف المحلي",
 	"skin-action-protect": "احمِ",
-	"skin-action-undelete": "ألغ الحذف",
+	"skin-action-undelete": "استرجع",
 	"skin-action-delete": "احذف",
 	"skin-action-move": "انقل",
 	"parsoid-stash-rate-limit-error": "فشل التخزين لأنه تم تجاوز حد المعدل. الرجاء معاودة المحاولة في وقت قليل.",
