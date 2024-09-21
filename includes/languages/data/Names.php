@@ -525,12 +525,12 @@ class Names {
 		'zh-cn' => '中文（中国大陆）', # Chinese (PRC)
 		'zh-hans' => '中文（简体）', # Mandarin Chinese (Simplified Chinese script) (cmn-hans)
 		'zh-hant' => '中文（繁體）', # Mandarin Chinese (Traditional Chinese script) (cmn-hant)
-		'zh-hk' => '中文（香港）', # Chinese (Hong Kong)
+		'zh-hk' => '中文（中國香港）', # Chinese (Hong Kong)
 		'zh-min-nan' => 'Bân-lâm-gú', # Min-nan -- (see T10217)
-		'zh-mo' => '中文（澳門）', # Chinese (Macau)
+		'zh-mo' => '中文（中國澳門）', # Chinese (Macau)
 		'zh-my' => '中文（马来西亚）', # Chinese (Malaysia)
 		'zh-sg' => '中文（新加坡）', # Chinese (Singapore)
-		'zh-tw' => '中文（臺灣）', # Chinese (Taiwan)
+		'zh-tw' => '中文（中國臺灣）', # Chinese (Taiwan)
 		'zh-yue' => '粵語', # Cantonese -- (see T10217)
 		'zu' => 'isiZulu' # Zulu
 	];

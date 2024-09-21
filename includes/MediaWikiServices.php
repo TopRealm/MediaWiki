@@ -136,6 +136,7 @@ use MediaWiki\User\ActorStore;
 use MediaWiki\User\ActorStoreFactory;
 use MediaWiki\User\BotPasswordStore;
 use MediaWiki\User\CentralId\CentralIdLookupFactory;
+use MediaWiki\User\Registration\UserRegistrationLookup;
 use MediaWiki\User\TalkPageNotificationManager;
 use MediaWiki\User\TempUser\RealTempUserConfig;
 use MediaWiki\User\TempUser\TempUserCreator;
@@ -1957,6 +1958,15 @@ class MediaWikiServices extends ServiceContainer {
 	}
 
 	/**
+	 * @since 1.41
+	 * @return UserRegistrationLookup
+	 */
+	public function getUserRegistrationLookup(): UserRegistrationLookup {
+		return $this->getService( 'UserRegistrationLookup' );
+	}
+
+	/**
+	 * @deprecated since 1.41, Use MultiHttpClient instead.
 	 * @since 1.28
 	 * @return VirtualRESTServiceClient
 	 */
