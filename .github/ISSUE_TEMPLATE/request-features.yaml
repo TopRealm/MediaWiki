@@ -1,0 +1,49 @@
+name: 功能建议
+description: 提出新的建议。
+title: "[FEATURE]: "
+labels: ["enhancement"]
+assignees:
+  - OasisAkari
+body:
+  - type: markdown
+    attributes:
+      value: |
+        向档案馆提出更多功能建议。 Suggest more features about YouShou Archives.
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: 开始之前……
+      options:
+        - label: 我已在[漏洞追踪器](https://github.com/TopRealm/MediaWiki/issues)中搜索过我的建议，确定没有人提出过此建议<br>I double checked [Issues](https://github.com/TopRealm/MediaWiki/issues) and no one has suggested it.
+          required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: 建议描述 Feture Description
+      description: 请描述你的建议。 Please describe your suggestions.
+      placeholder: 建议添加114514个插件
+    validations:
+      required: true
+  - type: textarea
+    id: reproducing
+    attributes:
+      label: 实现方法 How To Achieve This
+      description: 你认为可以实现的方法。Ways you think this feature can be achieved
+      placeholder: OAuth 启动！
+    validations:
+      required: false
+  - type: input
+    id: api
+    attributes:
+      label: 接口 APIS Or Docs
+      description: 你是否有便于实现这个功能的接口链接/文档？ Do you have any documents to achieve this?
+      placeholder: https://docs.github.com/cn/rest/reference/search
+    validations:
+      required: false
+  - type: textarea
+    id: other
+    attributes:
+      label: 备注 P.S.
+      description: 还想告诉我们什么？ What else?
+    validations:
+      required: falsefalsefalsefalse
