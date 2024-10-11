@@ -1,4 +1,8 @@
 <?php
+
+## 设置用户代理
+ini_set('user_agent', 'YsArchives/1.1');
+
 ## 防止外部执行PHP
 if ( !defined( 'MEDIAWIKI' ) ) {
 	exit;
