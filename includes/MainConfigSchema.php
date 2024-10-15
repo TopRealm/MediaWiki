@@ -49,6 +49,7 @@ use LocalisationCache;
 use LocalRepo;
 use LogFormatter;
 use MediaWiki\Settings\Source\JsonSchemaTrait;
+use MediaWiki\User\Registration\LocalUserRegistrationProvider;
 use MediaWikiSite;
 use MemcachedPeclBagOStuff;
 use MemcachedPhpBagOStuff;
@@ -6685,6 +6686,22 @@ class MainConfigSchema {
 	public const CentralIdLookupProvider = [
 		'default' => 'local',
 		'type' => 'string',
+	];
+
+	/**
+	 * User registration timestamp provider classes
+	 * @since 1.41
+	 */
+	public const UserRegistrationProviders = [
+		'default' => [
+			LocalUserRegistrationProvider::TYPE => [
+				'class' => LocalUserRegistrationProvider::class,
+				'services' => [
+					'UserFactory'
+				]
+			]
+		],
+		'type' => 'map',
 	];
 
 	/**

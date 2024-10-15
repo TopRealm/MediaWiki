@@ -1,0 +1,62 @@
+name: 报告漏洞 Report Bugs
+description: 汇报 MediaWiki 软件问题 Report MediaWiki software bugs.
+title: "[BUG]: "
+labels: ["bug"]
+assignees:
+  - ZoruaFox
+  - Blossomstripe
+  - windaoist
+body:
+  - type: markdown
+    attributes:
+      value: |
+        若您在使用档案馆时发现相关漏洞，请使用本模板汇报。<br>If you encountered bugs while using YouShou Archives, please report bugs here
+
+        **请注意**，若您的 Issue 与档案馆敏感信息（如令牌、密码等）有关，请使用最下方的“安全漏洞汇报”模板，请勿使用本模板。<br>NOTICE: If your issue is about security problems (tokens, passwords, etc.), please use "Report a security vulnerability" issue template, do not use this template.
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: 紧急程度 Urgency
+      description: 漏洞紧急程度 Bug urgency
+      options:
+        - 低 Low
+        - 中 Medium
+        - 高 High
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: 漏洞描述 Description
+      description: 具体描述漏洞 Describe the bug
+    validations:
+      required: false
+  - type: textarea
+    id: reproducing
+    attributes:
+      label: 复现方法 Reproduction
+      description: 你是如何触发这个问题的 How this bug happened? 
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: 截图 Screenshots
+      description: （选填）漏洞截图 (Optional)Bug Screenshots
+    validations:
+      required: false
+  - type: input
+    id: usermame
+    attributes:
+      label: 用户名 Username
+      description: 你的档案馆用户名 You username on YouShou Archives.
+      placeholder: e.g. ZoruaFox
+    validations:
+      required: true
+  - type: textarea
+    id: other
+    attributes:
+      label: 备注 P.S.
+      description: 还想告诉我们什么？ What else?
+    validations:
+      required: false
