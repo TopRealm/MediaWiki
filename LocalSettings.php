@@ -32,7 +32,7 @@ $wgGitRepositoryViewers['https://git.qiuwen.net.cn/(.*?)(.git)?'] = 'https://git
 $wgGitRepositoryViewers['https://git.qiuwen.wiki/(.*?)(.git)?'] = 'https://git.qiuwen.net.cn/$1/commit/%H';
 $wgGitRepositoryViewers['https://github.com/(.*?)(.git)?'] = 'https://github.com/$1/commit/%H';
 $wgGitRepositoryViewers['https://mirror.ghproxy.com/https://github.com/(.*?)(.git)?'] = 'https://github.com/$1/commit/%H';
-$wgGitRepositoryViewers['https://ghp.ci/https://github.com/(.*?)(.git)?'] = 'https://github.com/$1/commit/%H';
+$wgGitRepositoryViewers['https://ghgo.xyz/https://github.com/(.*?)(.git)?'] = 'https://github.com/$1/commit/%H';
 $wgGitRepositoryViewers['https://gitee.com/(.*?)(.git)?'] = 'https://gitee.com/$1/commit/%H';
 $wgGitInfoCacheDirectory = "/www/wwwroot/MediaWiki/cache/gitinfo";
 
