@@ -150,7 +150,8 @@
 			"לערי ריינהארט",
 			"아라",
 			"Ciampix",
-			"VittGam"
+			"VittGam",
+			"Gmelfi"
 		]
 	},
 	"sunday": "domenica",
@@ -1489,7 +1490,7 @@
 	"rcfilters-filtergroup-user-experience-level": "Registrazione utente ed esperienza",
 	"rcfilters-filter-user-experience-level-registered-label": "Registrato",
 	"rcfilters-filter-user-experience-level-registered-description": "Contributori che hanno effettuato l'accesso.",
-	"rcfilters-filter-user-experience-level-unregistered-label": "Non registrato",
+	"rcfilters-filter-user-experience-level-unregistered-label": "Nun riggistratu",
 	"rcfilters-filter-user-experience-level-unregistered-description": "Contributori che non hanno effettuato l'accesso.",
 	"rcfilters-filter-user-experience-level-newcomer-label": "Nuovi utenti",
 	"rcfilters-filter-user-experience-level-newcomer-description": "Utenti registrati che hanno fatto meno di 10 modifiche o 4 giorni di attività.",
@@ -2548,7 +2549,7 @@
 	"sp-contributions-concurrency-user": "Spiacenti, sono state effettuate troppe richieste dalla tua utenza. Per favore, riprova più tardi",
 	"sp-contributions-concurrency-ip": "Spiacenti, sono state effettuate troppe richieste dal tuo indirizzo IP. Per favore, riprova più tardi.",
 	"whatlinkshere": "Puntano qui",
-	"whatlinkshere-count": "Visualizzando $1 {{PLURAL:$1|elemento|elementi}}.",
+	"whatlinkshere-count": "Visualizzazione di $1 {{PLURAL:$1|pagina|pagine}}.",
 	"whatlinkshere-title": "Pagine che puntano a \"$1\"",
 	"whatlinkshere-page": "Pagina:",
 	"linkshere": "Le seguenti pagine contengono dei collegamenti a <strong>$2</strong>:",
@@ -2637,7 +2638,7 @@
 	"block-target-placeholder": "Nome utente, 1.1.1.42, o 1.1.1.42/16",
 	"block-pages-placeholder": "Aggiungi altre pagine...",
 	"block-namespaces-placeholder": "Aggiungi altri namespace...",
-	"unblockip": "Sblocca l'utente",
+	"unblockip": "Sblocca utente",
 	"unblockiptext": "Usare il modulo sottostante per restituire l'accesso in scrittura ad un utente o indirizzo IP bloccato.",
 	"ipusubmit": "Rimuovi questo blocco",
 	"unblocked": "L'utente [[User:$1|$1]] è stato sbloccato",
