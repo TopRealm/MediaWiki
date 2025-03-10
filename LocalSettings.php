@@ -29,10 +29,8 @@ $wgMemoryLimit = "128M";
 ## git版本显示
 $wgGitBin = '/usr/bin/git';
 $wgGitRepositoryViewers['https://git.qiuwen.net.cn/(.*?)(.git)?'] = 'https://git.qiuwen.net.cn/$1/commit/%H';
-$wgGitRepositoryViewers['https://git.qiuwen.wiki/(.*?)(.git)?'] = 'https://git.qiuwen.net.cn/$1/commit/%H';
 $wgGitRepositoryViewers['https://github.com/(.*?)(.git)?'] = 'https://github.com/$1/commit/%H';
-$wgGitRepositoryViewers['https://mirror.ghproxy.com/https://github.com/(.*?)(.git)?'] = 'https://github.com/$1/commit/%H';
-$wgGitRepositoryViewers['https://ghgo.xyz/https://github.com/(.*?)(.git)?'] = 'https://github.com/$1/commit/%H';
+$wgGitRepositoryViewers['https://ghfast.top/https://github.com/(.*?)(.git)?'] = 'https://github.com/$1/commit/%H';
 $wgGitRepositoryViewers['https://gitee.com/(.*?)(.git)?'] = 'https://gitee.com/$1/commit/%H';
 $wgGitInfoCacheDirectory = "/www/wwwroot/MediaWiki/cache/gitinfo";
 
@@ -228,12 +226,6 @@ $wgAllowUserCss = true;
 $wgAllowSiteCSSOnRestrictedPages = true;
 
 $wgPFEnableStringFunctions = true;
-
-## Cookies策略
-## Strict - 只有在同站点请求时发送
-$wgCookieSameSite = 'Strict';
-## 只有在HTTPS连接时发送
-$wgCookieSecure = true;
 
 ## 空编辑摘要提醒
 #$wgDefaultUserOptions['forceeditsummary'] = 1;
