@@ -274,10 +274,17 @@ require_once "/www/wwwroot/mw-utils/YsArchives-Settings/NameSpaces.php";
 
 //页底
 $wgFooterIcons["copyright"] = [
-	"myicon" => [
+	"copyrighticon" => [
 		"src" => "/resources/assets/cc-by-sa-button.png",
 		"url" => "https://creativecommons.org/licenses/by-sa/4.0/",
 		"alt" => "知识共享署名-相同方式共享 4.0",
+		"height" => "31",
+		"width" => "88",
+	],
+	"WAF" => [
+		"src" => "/resources/assets/SafeLine logo.svg",
+		"url" => "https://waf-ce.chaitin.cn/",
+		"alt" => "WAF Powered by SafeLine",
 		"height" => "31",
 		"width" => "88",
 	],
