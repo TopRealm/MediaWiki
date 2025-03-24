@@ -279,7 +279,7 @@ require_once "/www/wwwroot/mw-utils/YsArchives-Settings/NameSpaces.php";
 //页底
 $wgFooterIcons["copyright"] = [
 	"copyrighticon" => [
-		"src" => "/resources/assets/cc-by-sa-button.png",
+		"src" => "/resources/assets/cc-by-sa.svg",
 		"url" => "https://creativecommons.org/licenses/by-sa/4.0/",
 		"alt" => "知识共享署名-相同方式共享 4.0",
 		"height" => "31",
