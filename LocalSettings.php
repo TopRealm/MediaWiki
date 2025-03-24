@@ -201,6 +201,10 @@ $wgRightsIcon = "$wgResourceBasePath/resources/assets/licenses/cc-by-sa.png";
 $wgDiffEngine = "wikidiff2";
 $wgDiff3 = "/usr/bin/diff3";
 
+# 编辑缓存
+$wgEnableEditRecovery = true;
+$wgEditRecoveryExpiry = 60 * 60 * 24 * 7; // 7 days
+
 # The following permissions were set based on your choice in the installer
 $wgApiFrameOptions = 'SAMEORIGIN';
 
