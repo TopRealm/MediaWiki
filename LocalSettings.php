@@ -329,11 +329,11 @@ $wgHooks['SkinAddFooterLinks'][] = function ( Skin $skin, string $key, array &$f
 
 $wgHooks['SkinAddFooterLinks'][] = function ( Skin $skin, string $key, array &$footerlinks ) {
     if ( $key === 'places' ) {
-        $footerlinks['copyrightfooter'] = Html::element( 'a',
+        $footerlinks['copyrightfooterlink'] = Html::element( 'a',
             [
                 'href' => 'https://youshou.wiki/wiki/LIB:著作权条例',
             ],
-        $skin->msg( 'copyright-footer' )->text()
+        $skin->msg( 'copyright-footerlink' )->text()
         );
     };
 };
