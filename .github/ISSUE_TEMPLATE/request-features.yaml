@@ -48,4 +48,4 @@ body:
       label: 备注 P.S.
       description: 还想告诉我们什么？ What else?
     validations:
-      required: falsefalsefalsefalse
+      required: false
