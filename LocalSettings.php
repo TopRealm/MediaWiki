@@ -75,9 +75,9 @@ $wgLogos = [
 $wgFavicon = "$wgScriptPath/favicon.ico";
 
 # 利用钩子添加主题色
-$wgHooks['BeforePageDisplay'][] = function (Outputpage $out, Skin $skin) {
-    $out->addMeta('theme-color', '#338c60');
-};
+#$wgHooks['BeforePageDisplay'][] = function (Outputpage $out, Skin $skin) {
+#    $out->addMeta('theme-color', '#338c60');
+#};
 
 ## 邮件系统
 require_once "/www/wwwroot/mw-utils/YsArchives-Settings/EmailSmtpPassword.php";
