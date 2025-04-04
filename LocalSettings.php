@@ -175,11 +175,7 @@ $wgUseInstantCommons = false;
 $wgPingback = false;
 
 # 站点语言代码及变体
-// 定义一个常量来保存语言代码
-define('MW_LANGUAGE_CODE', 'zh');
-
-// 使用常量来设置语言代码
-$wgLanguageCode = MW_LANGUAGE_CODE;
+$wgLanguageCode = "zh";
 $wgDefaultLanguageVariant = "zh-cn";
 $wgVariantArticlePath = "/$2/$1";
 # Time zone
