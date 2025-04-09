@@ -216,10 +216,6 @@ $wgCdnServersNoPurge[] = "0.0.0.0/0";
 #$wgCdnServersNoPurge[] = "49.7.41.0/24";
 #$wgCdnServersNoPurge[] = "36.110.205.0/24";
 
-// 扩展
-$wgExtensionDirectory = "/www/wwwroot/mw-utils/YsArchives-Extensions";
-require_once "/www/wwwroot/mw-utils/YsArchives-Extensions/LoadExtensions.php";
-
 ## 旧版imagetag配置
 $wgAllowImageTag = true;
 
@@ -275,6 +271,10 @@ $wgImportSources = [
 
 // 项目别名配置区
 require_once "/www/wwwroot/mw-utils/YsArchives-Settings/NameSpaces.php";
+
+// 扩展
+$wgExtensionDirectory = "/www/wwwroot/mw-utils/YsArchives-Extensions";
+require_once "/www/wwwroot/mw-utils/YsArchives-Extensions/LoadExtensions.php";
 
 //页底
 $wgFooterIcons["copyright"] = [
