@@ -24,7 +24,7 @@ $wgUsePathInfo = true;
 ## 性能限制
 $wgMaxArticleSize = 81920;
 $wgAPIMaxResultSize = 335544320;
-$wgMemoryLimit = "128M";
+$wgMemoryLimit = "512M";
 
 ## git版本显示
 $wgGitBin = '/usr/bin/git';
@@ -113,6 +113,8 @@ $wgMessageCacheType = CACHE_ACCEL; // optional
 $wgSessionCacheType = CACHE_MEMCACHED;
 $wgMemCachedServers = [ '127.0.0.1:11211' ];
 $wgMemCachedPersistent = true;
+
+// Alpha: Redis
 
 $wgParserCacheExpireTime = 60 * 60 * 24; // 1 week
 
