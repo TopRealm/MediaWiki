@@ -241,7 +241,7 @@ $wgForeignUploadTargets = [];
 //$wgAllowSiteCSSOnRestrictedPages = true;
 
 // 工作队列
-$wgJobRunRate = 1;
+$wgJobRunRate = 0.5;
 $wgRunJobsAsync = true;
 
 //用户偏好默认不监视
