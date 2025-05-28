@@ -63,11 +63,11 @@ $wgUseSiteCss = true;
 
 ## 有兽档案馆Logo、favicon图标
 $wgLogos = [
-	'1x' => "{$wgScriptPath}/images/e/e1/有兽档案馆绿色图书Logo.svg",
-	'icon' => "{$wgScriptPath}/images/e/e1/有兽档案馆绿色图书Logo.svg",
+	'1x' => "https://image.youshou.wiki/e/e1/有兽档案馆绿色图书Logo.svg",
+	'icon' => "https://image.youshou.wiki/e/e1/有兽档案馆绿色图书Logo.svg",
 	'wordmark' => [
-		'src' => "{$wgScriptPath}/images/4/4f/有兽档案馆文字标志.svg",	// path to wordmark version
-		'1x' => "{$wgScriptPath}/images/4/4f/有兽档案馆文字标志.svg",		// optional if you want to support browsers with SVG support with an SVG logo.
+		'src' => "https://image.youshou.wiki/4/4f/有兽档案馆文字标志.svg",	// path to wordmark version
+		'1x' => "https://image.youshou.wiki/4/4f/有兽档案馆文字标志.svg",		// optional if you want to support browsers with SVG support with an SVG logo.
 		'width' => 145,
 		'height' => 45,
 	],
