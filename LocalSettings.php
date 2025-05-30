@@ -51,7 +51,7 @@ $wgSitemapNamespaces = [
 ];
 
 ## iOS“添加到主页”指定图标
-$wgAppleTouchIcon = "/images/thumb/0/0c/Touch-icon.png/150px-Touch-icon.png";
+$wgAppleTouchIcon = "https://image.youshou.wiki/thumb/0/0c/Touch-icon.png/150px-Touch-icon.png";
 
 ## 静态资源地址
 $wgResourceBasePath = $wgScriptPath;
@@ -64,7 +64,10 @@ $wgUseSiteCss = true;
 ## 有兽档案馆Logo、favicon图标
 $wgLogos = [
 	'1x' => "https://image.youshou.wiki/e/e1/有兽档案馆绿色图书Logo.svg",
+	'1.5x' => "https://image.youshou.wiki/e/e1/有兽档案馆绿色图书Logo.svg", // optional if you want to support browsers with SVG support with an SVG logo.
+	'2x' => "https://image.youshou.wiki/e/e1/有兽档案馆绿色图书Logo.svg", // optional if you want to support browsers with SVG support with an SVG logo.
 	'icon' => "https://image.youshou.wiki/e/e1/有兽档案馆绿色图书Logo.svg",
+	'svg' => "https://image.youshou.wiki/e/e1/有兽档案馆绿色图书Logo.svg", // optional if you want to support browsers with SVG support with an SVG logo.
 	'wordmark' => [
 		'src' => "https://image.youshou.wiki/4/4f/有兽档案馆文字标志.svg",	// path to wordmark version
 		'1x' => "https://image.youshou.wiki/4/4f/有兽档案馆文字标志.svg",		// optional if you want to support browsers with SVG support with an SVG logo.
