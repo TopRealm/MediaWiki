@@ -6,8 +6,15 @@ following names for their contribution to the product.
 The following list can be found parsed under Special:Version/Credits -->
 
 == Contributors ==
-<!-- Updates to this list made with maintenance/updateCredits.php -->
+=== 档案馆编者 ===
+档案馆使用MediaWiki作为底层软件，有多位编者对档案馆使用的MediaWiki代码和文档做出了贡献。
+
+排名不分先后顺序
+* [[User:Rpuboh|'''Rpuboh''']]
+* [[User:Zorua_Fox|'''Zorua_Fox''']]
+* [[User:Blossomstripe|'''华纹''']]
 <!-- BEGIN CONTRIBUTOR LIST -->
+=== Others ===
 * 4shadoww
 * 4nn1l2
 * aalekhN
@@ -825,7 +832,6 @@ The following list can be found parsed under Special:Version/Credits -->
 * Roman Tsukanov
 * Rotem Liss
 * Rowan Collins
-* [[User:Rpuboh|'''Rpuboh''']]
 * rrana-wmf
 * Ruben Barkow-Kuder
 * runntb
@@ -1071,8 +1077,6 @@ The following list can be found parsed under Special:Version/Credits -->
 * محمد شعیب
 * 星耀晨曦
 * 沈澄心
-* [[User:Zorua_Fox|'''Zorua_Fox''']]
-* [[User:Blossomstripe|'''华纹''']]
 <!-- END CONTRIBUTOR LIST -->
 
 == Translators ==
