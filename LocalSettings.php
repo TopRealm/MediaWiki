@@ -14,6 +14,14 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 ## 档案馆{{Sitename}}名称
 $wgSitename = "有兽档案馆";
 
+# 站点语言代码及变体
+$wgLanguageCode = "zh";
+$wgDefaultLanguageVariant = "zh-cn";
+$wgVariantArticlePath = "/$2/$1";
+# Time zone
+$wgLocaltimezone = "Asia/Shanghai";
+date_default_timezone_set( $wgLocaltimezone );
+
 ## 脚本目录
 $wgScriptPath = "";
 
@@ -178,14 +186,6 @@ $wgUseInstantCommons = false;
 
 # 向 WMF 上报信息
 $wgPingback = false;
-
-# 站点语言代码及变体
-$wgLanguageCode = "zh";
-$wgDefaultLanguageVariant = "zh-cn";
-$wgVariantArticlePath = "/$2/$1";
-# Time zone
-$wgLocaltimezone = "Asia/Shanghai";
-date_default_timezone_set( $wgLocaltimezone );
 
 ## 缓存目录，公共不可读写
 $wgCacheDirectory = "$IP/cache";
