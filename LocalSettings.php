@@ -122,7 +122,6 @@ $wgMainCacheType = CACHE_ACCEL;
 $wgParserCacheType = CACHE_MEMCACHED; // optional
 $wgMessageCacheType = CACHE_ACCEL; // optional
 $wgSessionCacheType = CACHE_MEMCACHED;
-$wgMemCachedServers = [ '127.0.0.1:11211' ];
 $wgMemCachedPersistent = true;
 
 // Alpha: Redis
