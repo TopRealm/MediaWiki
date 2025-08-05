@@ -121,7 +121,7 @@ $wgSharedTables[] = "actor";
 $wgMainCacheType = CACHE_ACCEL;
 $wgParserCacheType = CACHE_ACCEL; // optional
 $wgMessageCacheType = CACHE_ACCEL; // optional
-$wgSessionCacheType = CACHE_ACCEL;
+$wgSessionCacheType = CACHE_MEMCACHED;
 $wgMemCachedPersistent = true;
 
 // Alpha: Redis
