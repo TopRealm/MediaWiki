@@ -196,7 +196,8 @@
 			"Pavel200071",
 			"Vanished 904959300",
 			"Megitsune-chan",
-			"Null the Great"
+			"Null the Great",
+			"IJzeren Jan"
 		]
 	},
 	"sunday": "воскресенье",
@@ -786,7 +787,7 @@
 	"temp-user-banner-tooltip-title": "Временная учётная запись",
 	"temp-user-banner-tooltip-description-expiration-soon": "<strong>Срок действия вашей временной учётной записи истекает через {{PLURAL:$1|$1 день|$1 дня|$1 дней}}.</strong> По истечении срока её действия при следующем редактировании без входа в систему будет создана новая.",
 	"temp-user-banner-tooltip-description-expiration-soon-day": "<strong>Срок действия вашей временной учётной записи истечёт менее чем через день.</strong> По истечении срока её действия при следующем редактировании без входа в систему будет создана новая.",
-	"temp-user-banner-tooltip-description-learn-more": "Эта временная учётная запись была создана после внесения правок без учётной записи в этом браузере и устройстве. [[mw:Help:Temporary_accounts|Подробнее]].",
+	"temp-user-banner-tooltip-description-learn-more": "Эта временная учётная запись была создана после внесения правок без учётной записи в этом браузере и устройстве. [[mw:Special:MyLanguage/Help:Temporary_accounts|Подробнее]].",
 	"temp-user-banner-tooltip-description-login": "[[Special:UserLogin|Войдите]] или [[Special:CreateAccount|создайте учётную запись]], чтобы сохранить авторство будущих правок и получить доступ к другим функциям.",
 	"blankarticle": "<strong>Предупреждение:</strong> Страница, которую вы создаёте, пуста.\nЕсли снова нажмёте кнопку «$1», страница будет создана без какого-либо содержания.",
 	"anoneditwarning": "<strong>Внимание:</strong> Вы не вошли в систему. Ваш IP-адрес будет общедоступен, если вы запишете какие-либо изменения. Если вы <strong>[$1 войдёте]</strong> или <strong>[$2 создадите учётную запись]</strong>, её имя будет использоваться вместо IP-адреса, наряду с другими преимуществами.",
@@ -3820,12 +3821,12 @@
 	"revdelete-unrestricted": "ограничения сняты для администраторов",
 	"logentry-block-block": "$1 заблокировал{{GENDER:$2||а}} {{GENDER:$4|$3}} на период $5 $6",
 	"logentry-block-unblock": "$1 разблокировал{{GENDER:$2||а}} {{GENDER:$4|$3}}",
-	"logentry-block-reblock": "$1 изменил{{GENDER:$2||а}} параметры блокировки для {{GENDER:$4|$3}} на период $5 $6",
+	"logentry-block-reblock": "$1 изменил{{GENDER:$2||а}} настройки блокировки для {{GENDER:$4|$3}} на период $5 $6",
 	"logentry-partialblock-block-page": "на {{PLURAL:$1|страницу|страницы}} $2",
 	"logentry-partialblock-block-ns": "на {{PLURAL:$1|пространство имён|пространства имён}} $2",
 	"logentry-partialblock-block-action": "{{PLURAL:$1|действия|действий}} «$2»",
 	"logentry-partialblock-block": "$1 {{GENDER:$2|заблокировал|заблокировала}} {{GENDER:$4|$3}} с запретом $7 на период $5 $6",
-	"logentry-partialblock-reblock": "$1 изменил{{GENDER:$2||а}} параметры блокировки для {{GENDER:$4|$3}}, заблокировав $7 на период $5 $6",
+	"logentry-partialblock-reblock": "$1 изменил{{GENDER:$2||а}} настройки блокировки для {{GENDER:$4|$3}}, заблокировав $7 на период $5 $6",
 	"logentry-non-editing-block-block": "$1 {{GENDER:$2|заблокировал|заблокировала}} {{GENDER:$4|$3}} от определённых действий, не связанных с редактированием, на период $5 $6",
 	"logentry-non-editing-block-reblock": "$1 {{GENDER:$2|изменил|изменила}} настройки блокировки {{GENDER:$4|$3}} для определённых действий, не связанных с редактированием, на период $5 $6",
 	"logentry-suppress-block": "$1 {{GENDER:$2|заблокировал}} {{GENDER:$4|$3}} сроком на $5 $6",
