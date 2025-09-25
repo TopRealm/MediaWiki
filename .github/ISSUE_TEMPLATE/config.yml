@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🔐 Security / 安全漏洞报告
+    url: https://github.com/TopRealm/MediaWiki/security/policy
+    about: 报告潜在安全问题（不要在公开 issue 中透露敏感信息）。Report potential security vulnerabilities.
+  - name: 💬 Discussions / 讨论区
+    url: https://github.com/TopRealm/MediaWiki/discussions
+    about: 一般性问答、想法、开放式讨论 General Q&A and open discussions.
+  - name: 🌐 MediaWiki 官方文档
+    url: https://www.mediawiki.org/
+    about: 查阅上游 MediaWiki 文档 / Upstream documentation.

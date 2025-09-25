@@ -1,0 +1,43 @@
+name: "❓ 问题咨询 / Question"
+description: "一般性使用或配置疑问 / General usage or configuration question"
+title: "[QUESTION]: 简要描述 / short summary"
+labels: [question]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        若是调试 / 安装 / 配置使用疑问，请尽量先查阅官方 MediaWiki 文档。For general usage questions, consult official docs first.
+
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: 提交前检查 Pre‑submission checklist
+      options:
+        - label: 我已搜索 issues 与 discussions (Searched issues & discussions)
+          required: true
+        - label: 我确认这不是一个已知 Bug (Not an existing bug)
+          required: false
+
+  - type: textarea
+    id: question
+    attributes:
+      label: 你的问题 What is your question?
+      placeholder: 如何在不修改核心代码的情况下……
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: 背景 / 环境 Context / environment
+      description: 版本、配置、相关扩展 Versions, configs, extensions
+    validations:
+      required: false
+
+  - type: textarea
+    id: attempts
+    attributes:
+      label: 已尝试的步骤 Attempts
+      description: 你已经尝试了哪些方式？What have you tried?
+    validations:
+      required: false

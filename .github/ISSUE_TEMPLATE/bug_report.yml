@@ -1,0 +1,127 @@
+name: "🐞 报告漏洞 / Bug report"
+description: "报告 MediaWiki/档案馆实例中的缺陷 / Report a problem in this MediaWiki instance"
+title: "[BUG]: 简要描述 / short summary"
+labels: [bug]
+assignees:
+  - ZoruaFox
+  - Blossomstripe
+  - windaoist
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢报告问题！Please fill in as much as possible.  
+        安全相关问题请不要用此模板，而是使用下方“Security”联系渠道。For security issues use the Security contact link instead.
+
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: 提交前检查 Pre‑submission checklist
+      options:
+        - label: 我已搜索现有 issues & discussions，未发现重复 (Searched existing issues & discussions)
+          required: true
+        - label: 这是应用逻辑或功能异常，而非配置/权限/网络问题 (Not a config / permission / network issue)
+          required: false
+        - label: 我已在最新发布版本或当前分支复现 (Reproduced on latest release / current branch)
+          required: false
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: 严重程度 Severity
+      description: 问题对系统影响 / Impact
+      options:
+        - 低 | Low – 轻微影响 Minor inconvenience
+        - 中 | Medium – 核心功能受影响 Core feature impacted
+        - 高 | High – 主要功能不可用 Major feature broken
+        - 关键 | Critical – 服务不可用 / 数据损坏 Service down / data corruption
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 描述 Description
+      description: 简要描述发生了什么 What happened?
+      placeholder: 登录后点击“上传文件”出现空白页……
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤 Steps to reproduce
+      description: 列出可复现该问题的最小步骤 Minimal reproducible steps
+      placeholder: |-
+        1. 进入 …
+        2. 点击 …
+        3. 看到 …
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为 Expected behavior
+      placeholder: 应显示成功消息……
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为 Actual behavior / Error messages
+      placeholder: 实际跳转到空白页，控制台报 500 …
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: 运行环境 Environment
+      description: 填写相关运行信息 (Runtime details)
+      value: |-
+        MediaWiki 版本 (MediaWiki version): 
+        部署来源 (Source) : 发行版包 / Git clone / Docker / 其它
+        PHP 版本 (PHP version): 
+        数据库 (DB type & version): MySQL / MariaDB / PostgreSQL / SQLite / 其它
+        Web 服务器 (Web server): Apache / Nginx / 内置 / 其它
+        操作系统 (OS): 
+        浏览器 (Browser & version): 
+        已安装扩展 (Enabled extensions): 
+        使用的皮肤 (Active skin): 
+        是否为回归 (Regression): 是/否，如果是，之前正常工作的版本 which earlier version worked
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 相关日志 / 栈追踪 Logs / stack traces
+      description: 粘贴相关错误（请脱敏）Relevant errors (redact secrets)
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: 截图 / Screen recordings
+      description: 可选 Optional
+    validations:
+      required: false
+
+  - type: textarea
+    id: workaround
+    attributes:
+      label: 临时规避 Workaround
+      description: 目前是否有临时解决方案？Any temporary workaround?
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: 其它补充 Additional context
+    validations:
+      required: false
