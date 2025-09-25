@@ -20,12 +20,12 @@
 
 ## 2. 关联 Issue
 
-Fixes # (如自动关闭：`Fixes #123`)  
+Fixes # (如自动关闭：`Fixes #123`)
 Related #
 
 ## 3. 背景与动机 / Motivation & Context
 
-为什么需要这些更改？What problem does this solve?  
+为什么需要这些更改？What problem does this solve?
 _简述使用者痛点 / user pain points, 业务或性能驱动理由。_
 
 ## 4. 变更内容概述 / Summary of changes
@@ -67,8 +67,8 @@ _描述关键设计、算法、数据结构、依赖调整。Explain design, alg
 
 ## 9. 国际化与本地化 / i18n & l10n
 
-- 新增消息键 (new message keys): (列出或说明)  
-- 是否提供英文默认与中文翻译：Yes/No  
+- 新增消息键 (new message keys): (列出或说明)
+- 是否提供英文默认与中文翻译：Yes/No
 - 需更新的翻译文件：
 
 ## 10. 测试覆盖 / Tests
@@ -92,8 +92,8 @@ _描述关键设计、算法、数据结构、依赖调整。Explain design, alg
 
 ## 11. 文档 / Documentation
 
-- [ ] README / 用户指南已更新 (updated docs)  
-- [ ] 开发文档 / 架构文档更新 (developer/arch docs)  
+- [ ] README / 用户指南已更新 (updated docs)
+- [ ] 开发文档 / 架构文档更新 (developer/arch docs)
 - [ ] 不需要 (not needed)
 
 若需要文档但未补齐，请解释计划：
@@ -141,7 +141,7 @@ _描述关键设计、算法、数据结构、依赖调整。Explain design, alg
 
 建议的观测指标 / Suggested metrics
 
-- 
+-
 
 ## 17. 额外说明 / Additional notes
 
