@@ -261,7 +261,9 @@ $wgSecureLogin = true;
 
 ## 此处承接庞大的用户组和权限信息
 # 保护级别指定
+$wgAvailableRights[] = 'officialprotected';
 $wgRestrictionLevels[] = 'officialprotected';
+$wgAvailableRights[] = 'templateeditor';
 $wgRestrictionLevels[] = 'templateeditor';
 require_once "/www/wwwroot/mw-utils/YsArchives-Settings/UserRights.php";
 
