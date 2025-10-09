@@ -5,12 +5,22 @@ PHP 8.2 workboard: https://phabricator.wikimedia.org/tag/php_8.2_support/
 PHP 8.3 workboard: https://phabricator.wikimedia.org/tag/php_8.3_support/
 PHP 8.4 workboard: https://phabricator.wikimedia.org/tag/php_8.4_support/
 
-== MediaWiki 1.43.5 ==
+== MediaWiki 1.43.6 ==
 
 THIS IS NOT A RELEASE YET
 
-=== Changes since MediaWiki 1.43.4 ===
+=== Changes since 1.43.5 ===
 * Localisation updates.
+
+== MediaWiki 1.43.5 ==
+
+This is a security and maintenance release of the MediaWiki 1.43 branch.
+
+=== Changes since MediaWiki 1.43.4 ===
+* Add missing backport for Extension:DiscussionTools.
+* Add missing backport for Extension:Thanks.
+* (T406322, CVE-2025-11261) SECURITY: Escape system messages in
+  mw.language.listToText.
 
 == MediaWiki 1.43.4 ==
 
