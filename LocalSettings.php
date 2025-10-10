@@ -259,14 +259,6 @@ $wgMaxCredits = 3;
 ## 强制登录使用HTTPS
 $wgSecureLogin = true;
 
-## 此处承接庞大的用户组和权限信息
-# 保护级别指定
-$wgAvailableRights[] = 'officialprotected';
-$wgRestrictionLevels[] = 'officialprotected';
-$wgAvailableRights[] = 'templateeditor';
-$wgRestrictionLevels[] = 'templateeditor';
-require_once "/www/wwwroot/mw-utils/YsArchives-Settings/UserRights.php";
-
 // 密码策略
 $wgPasswordPolicy['policies']['default']['MinimalPasswordLength'] = 8;
 $wgPasswordPolicy['policies']['default']['MaximalPasswordLength'] = 128;
@@ -281,6 +273,14 @@ require_once "/www/wwwroot/mw-utils/YsArchives-Settings/NameSpaces.php";
 // 扩展
 $wgExtensionDirectory = "/www/wwwroot/mw-utils/YsArchives-Extensions";
 require_once "/www/wwwroot/mw-utils/YsArchives-Extensions/LoadExtensions.php";
+
+## 此处为用户组和权限信息
+# 保护级别指定
+$wgAvailableRights[] = 'officialprotected';
+$wgRestrictionLevels[] = 'officialprotected';
+$wgAvailableRights[] = 'templateeditor';
+$wgRestrictionLevels[] = 'templateeditor';
+require_once "/www/wwwroot/mw-utils/YsArchives-Settings/UserRights.php";
 
 //页底
 $wgFooterIcons["copyright"] = [
