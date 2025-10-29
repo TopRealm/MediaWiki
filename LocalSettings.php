@@ -106,9 +106,6 @@ $wgEmailConfirmToEdit = true;
 ## 数据库设置
 require_once "/www/wwwroot/mw-utils/YsArchives-Settings/DBPassword.php";
 
-# 数据库前缀设置
-$wgDBprefix = "zhysy_";
-
 # 数据库表结构设置
 $wgDBTableOptions = "ENGINE=InnoDB, DEFAULT CHARSET=binary";
 
