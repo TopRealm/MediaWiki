@@ -47,6 +47,11 @@ use MediaWiki\Watchlist\WatchlistManager;
 use MediaWiki\WikiMap\WikiMap;
 use MediaWiki\Xml\Xml;
 use MediaWiki\Xml\XmlSelect;
+use OOUI\ButtonInputWidget;
+use OOUI\CheckboxInputWidget;
+use OOUI\DropdownInputWidget;
+use OOUI\FieldLayout;
+use OOUI\TextInputWidget;
 use PermissionsError;
 use UserBlockedError;
 use Wikimedia\Rdbms\IDBAccessObject;
@@ -222,6 +227,15 @@ class SpecialUserRights extends SpecialPage {
 		$this->setHeaders();
 		$this->outputHeader();
 
+		// Enable OOUI styles and PHP widgets for this page so that manual controls render with OOUI
+		$out->enableOOUI();
+		// Ensure widget-specific styles and common icon sets are present
+		$out->addModuleStyles( [
+			'oojs-ui-widgets',
+			'oojs-ui.styles.icons-interactions',
+			'oojs-ui.styles.icons-content',
+		] );
+
 		$out->addModuleStyles( 'mediawiki.special' );
 		$this->addHelpLink( 'Help:Assigning permissions' );
 
@@ -333,7 +347,7 @@ class SpecialUserRights extends SpecialPage {
 
 		// @todo FIXME: Non-qualified absolute times are not in users specified timezone
 		// and there isn't notice about it in the ui (see ProtectionForm::getExpiry)
-		return wfTimestamp( TS_MW, $unix );
+	return wfTimestamp( TS_MW, $unix );
 	}
 
 	/**
@@ -863,43 +877,49 @@ class SpecialUserRights extends SpecialPage {
 				->rawParams( $userToolLinks )->parse()
 		);
 		if ( $canChangeAny ) {
+			// Help and current group lists
 			$this->getOutput()->addHTML(
 				$this->msg( 'userrights-groups-help', $user->getName() )->parse() .
 				$grouplist .
-				$groupCheckboxes .
-				Html::openElement( 'table', [ 'id' => 'mw-userrights-table-outer' ] ) .
-					"<tr>
-						<td class='mw-label'>" .
-							Html::label( $this->msg( 'userrights-reason' )->text(), 'wpReason' ) .
-						"</td>
-						<td class='mw-input'>" .
-							Xml::input( 'user-reason', 60, $this->getRequest()->getVal( 'user-reason' ) ?? false, [
-								'id' => 'wpReason',
-								// HTML maxlength uses "UTF-16 code units", which means that characters outside BMP
-								// (e.g. emojis) count for two each. This limit is overridden in JS to instead count
-								// Unicode codepoints.
-								'maxlength' => CommentStore::COMMENT_CHARACTER_LIMIT,
-							] ) .
-						"</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td class='mw-submit'>" .
-							Html::submitButton( $this->msg( 'saveusergroups', $user->getName() )->text(),
-								[ 'name' => 'saveusergroups' ] +
-									Linker::tooltipAndAccesskeyAttribs( 'userrights-set' )
-							) .
-						"</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td class='mw-input'>" .
-							Html::check( 'wpWatch', false, [ 'id' => 'wpWatch' ] ) .
-							'&nbsp;' . Html::label( $this->msg( 'userrights-watchuser' )->text(), 'wpWatch' ) .
-						"</td>
-					</tr>" .
-				Xml::closeElement( 'table' ) . "\n"
+				$groupCheckboxes
 			);
+
+			// Reason field (OOUI styled)
+			$reasonInput = new TextInputWidget( [
+				'name' => 'user-reason',
+				'id' => 'wpReason',
+				'value' => (string)( $this->getRequest()->getVal( 'user-reason' ) ?? '' ),
+				'maxlength' => CommentStore::COMMENT_CHARACTER_LIMIT,
+				'infusable' => true,
+				'classes' => [ 'mw-userrights-reason' ],
+			] );
+			$reasonField = new FieldLayout( $reasonInput, [
+				'label' => $this->msg( 'userrights-reason' )->text(),
+				'align' => 'top',
+			] );
+			$this->getOutput()->addHTML( (string)$reasonField );
+
+			// Submit button (OOUI styled)
+			$submitButton = new ButtonInputWidget( [
+				'label' => $this->msg( 'saveusergroups', $user->getName() )->text(),
+				'name' => 'saveusergroups',
+				'type' => 'submit',
+				'flags' => [ 'primary', 'progressive' ],
+				'attributes' => Linker::tooltipAndAccesskeyAttribs( 'userrights-set' ),
+			] );
+			$this->getOutput()->addHTML( Html::rawElement( 'div', [ 'class' => 'mw-submit' ], (string)$submitButton ) );
+
+			// Watch checkbox (OOUI styled)
+			$watchCheckbox = new CheckboxInputWidget( [
+				'name' => 'wpWatch',
+				'id' => 'wpWatch',
+				'selected' => false,
+			] );
+			$watchField = new FieldLayout( $watchCheckbox, [
+				'label' => $this->msg( 'userrights-watchuser' )->text(),
+				'align' => 'inline',
+			] );
+			$this->getOutput()->addHTML( (string)$watchField );
 		} else {
 			$this->getOutput()->addHTML( $grouplist );
 		}
@@ -963,8 +983,7 @@ class SpecialUserRights extends SpecialPage {
 				$columns['changeable'][$group] = $checkbox;
 			}
 		}
-
-		// Build the HTML table
+		// Build the HTML table (keep structure, replace form controls with OOUI widgets)
 		$ret .= Xml::openElement( 'table', [ 'class' => 'mw-userrights-groups' ] ) .
 			"<tr>\n";
 		foreach ( $columns as $name => $column ) {
@@ -996,12 +1015,18 @@ class SpecialUserRights extends SpecialPage {
 				} else {
 					$text = $member;
 				}
-				$checkboxHtml = Html::element( 'input', [
-					'type' => 'checkbox', 'name' => "wpGroup-$group", 'value' => '1',
-					'id' => "wpGroup-$group", 'checked' => $checkbox['set'],
-					'class' => 'mw-userrights-groupcheckbox',
-					'disabled' => $checkbox['disabled'],
-				] ) . '&nbsp;' . Html::label( $text, "wpGroup-$group" );
+
+				// Main group checkbox as OOUI
+				$cbWidget = new CheckboxInputWidget( [
+					'name' => "wpGroup-$group",
+					'value' => '1',
+					'id' => "wpGroup-$group",
+					'classes' => [ 'mw-userrights-groupcheckbox' ],
+					'selected' => (bool)$checkbox['set'],
+					'disabled' => (bool)$checkbox['disabled'],
+				] );
+				$field = new FieldLayout( $cbWidget, [ 'label' => $text, 'align' => 'inline' ] );
+				$checkboxHtml = (string)$field;
 
 				if ( $this->canProcessExpiries() ) {
 					$uiUser = $this->getUser();
@@ -1010,8 +1035,7 @@ class SpecialUserRights extends SpecialPage {
 						$usergroups[$group]->getExpiry() :
 						null;
 
-					// If the user can't modify the expiry, print the current expiry below
-					// it in plain text. Otherwise provide UI to set/change the expiry
+					// If the user can't modify the expiry, show current expiry text and a hidden input
 					if ( $checkbox['set'] &&
 						( $checkbox['irreversible'] || $checkbox['disabled-expiry'] )
 					) {
@@ -1019,78 +1043,65 @@ class SpecialUserRights extends SpecialPage {
 							$expiryFormatted = $uiLanguage->userTimeAndDate( $currentExpiry, $uiUser );
 							$expiryFormattedD = $uiLanguage->userDate( $currentExpiry, $uiUser );
 							$expiryFormattedT = $uiLanguage->userTime( $currentExpiry, $uiUser );
-							$expiryHtml = Xml::element( 'span', null,
-								$this->msg( 'userrights-expiry-current' )->params(
-								$expiryFormatted, $expiryFormattedD, $expiryFormattedT )->text() );
+							$expiryText = $this->msg( 'userrights-expiry-current' )->params(
+								$expiryFormatted, $expiryFormattedD, $expiryFormattedT )->text();
 						} else {
-							$expiryHtml = Xml::element( 'span', null,
-								$this->msg( 'userrights-expiry-none' )->text() );
+							$expiryText = $this->msg( 'userrights-expiry-none' )->text();
 						}
-						// T171345: Add a hidden form element so that other groups can still be manipulated,
-						// otherwise saving errors out with an invalid expiry time for this group.
-						$expiryHtml .= Html::hidden( "wpExpiry-$group",
-							$currentExpiry ? 'existing' : 'infinite' );
-						$expiryHtml .= "<br />\n";
+						$expiryHtml = Html::element( 'span', [], $expiryText );
+						$expiryHtml .= Html::hidden( "wpExpiry-$group", $currentExpiry ? 'existing' : 'infinite' );
+						$divAttribs = [
+							'id' => "mw-userrights-nested-wpGroup-$group",
+							'class' => 'mw-userrights-nested',
+						];
+						$checkboxHtml .= Html::rawElement( 'div', $divAttribs, $expiryHtml );
 					} else {
-						$expiryHtml = Html::element( 'span', [],
-							$this->msg( 'userrights-expiry' )->text() );
-						$expiryHtml .= Html::openElement( 'span' );
-
-						// add a form element to set the expiry date
-						$expiryFormOptions = new XmlSelect(
-							"wpExpiry-$group",
-							"mw-input-wpExpiry-$group", // forward compatibility with HTMLForm
-							$currentExpiry ? 'existing' : 'infinite'
-						);
-						if ( $checkbox['disabled-expiry'] ) {
-							$expiryFormOptions->setAttribute( 'disabled', 'disabled' );
-						}
-
+						// Editable expiry: Dropdown + optional custom field
+						$options = [];
 						if ( $currentExpiry ) {
 							$timestamp = $uiLanguage->userTimeAndDate( $currentExpiry, $uiUser );
 							$d = $uiLanguage->userDate( $currentExpiry, $uiUser );
 							$t = $uiLanguage->userTime( $currentExpiry, $uiUser );
-							$existingExpiryMessage = $this->msg( 'userrights-expiry-existing',
-								$timestamp, $d, $t );
-							$expiryFormOptions->addOption( $existingExpiryMessage->text(), 'existing' );
+							$options[] = [ 'data' => 'existing', 'label' => $this->msg( 'userrights-expiry-existing', $timestamp, $d, $t )->text() ];
+						}
+						$options[] = [ 'data' => 'infinite', 'label' => $this->msg( 'userrights-expiry-none' )->text() ];
+						$options[] = [ 'data' => 'other', 'label' => $this->msg( 'userrights-expiry-othertime' )->text() ];
+						// Add configured options
+						foreach ( $expiryOptions as $label => $data ) {
+							// XmlSelect::parseOptionsMessage returns [ label => data ] mapping
+							$options[] = [ 'data' => $data, 'label' => $label ];
 						}
 
-						$expiryFormOptions->addOption(
-							$this->msg( 'userrights-expiry-none' )->text(),
-							'infinite'
-						);
-						$expiryFormOptions->addOption(
-							$this->msg( 'userrights-expiry-othertime' )->text(),
-							'other'
-						);
-
-						$expiryFormOptions->addOptions( $expiryOptions );
-
-						// Add expiry dropdown
-						$expiryHtml .= $expiryFormOptions->getHTML() . '<br />';
-
-						// Add custom expiry field
-						$expiryHtml .= Html::element( 'input', [
-							'name' => "wpExpiry-$group-other", 'size' => 30, 'value' => '',
-							'id' => "mw-input-wpExpiry-$group-other",
-							'class' => 'mw-userrights-expiryfield',
-							'disabled' => $checkbox['disabled-expiry'],
+						$dropdown = new DropdownInputWidget( [
+							'name' => "wpExpiry-$group",
+							'id' => "mw-input-wpExpiry-$group",
+							'options' => $options,
+							'value' => $currentExpiry ? 'existing' : 'infinite',
+							'disabled' => (bool)$checkbox['disabled-expiry'],
 						] );
 
-						// If the user group is set but the checkbox is disabled, mimic a
-						// checked checkbox in the form submission
+						$other = new TextInputWidget( [
+							'name' => "wpExpiry-$group-other",
+							'id' => "mw-input-wpExpiry-$group-other",
+							'classes' => [ 'mw-userrights-expiryfield' ],
+							'value' => '',
+							'disabled' => (bool)$checkbox['disabled-expiry'],
+						] );
+
+						// If the group is set but checkbox disabled, mimic checked in submission
+						$hiddenChecked = '';
 						if ( $checkbox['set'] && $checkbox['disabled'] ) {
-							$expiryHtml .= Html::hidden( "wpGroup-$group", 1 );
+							$hiddenChecked = Html::hidden( "wpGroup-$group", 1 );
 						}
 
-						$expiryHtml .= Html::closeElement( 'span' );
+						$expiryLabel = Html::element( 'span', [], $this->msg( 'userrights-expiry' )->text() );
+						$expiryPanelHtml = $expiryLabel . (string)$dropdown . '<br />' . (string)$other . $hiddenChecked;
+						$divAttribs = [
+							'id' => "mw-userrights-nested-wpGroup-$group",
+							'class' => 'mw-userrights-nested',
+						];
+						$checkboxHtml .= Html::rawElement( 'div', $divAttribs, $expiryPanelHtml );
 					}
-
-					$divAttribs = [
-						'id' => "mw-userrights-nested-wpGroup-$group",
-						'class' => 'mw-userrights-nested',
-					];
-					$checkboxHtml .= "\t\t\t" . Html::rawElement( 'div', $divAttribs, $expiryHtml ) . "\n";
 				}
 				$ret .= "\t\t" . ( ( $checkbox['disabled'] && $checkbox['disabled-expiry'] )
 					? Html::rawElement( 'div', [ 'class' => 'mw-userrights-disabled' ], $checkboxHtml )
