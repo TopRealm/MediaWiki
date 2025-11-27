@@ -90,6 +90,7 @@ Thumbs.db
 # Docker
 docker-compose.override.yml
 .env
+/.stylelintcache
 
 # Ysarxiv-Settings
 /.well-known
