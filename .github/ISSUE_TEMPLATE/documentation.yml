@@ -1,0 +1,46 @@
+name: "📝 文档改进 / Documentation"
+description: "报告文档问题或提出改进 / Report or improve documentation"
+title: "[DOC]: 简要描述 / short summary"
+labels: [documentation]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        用于报告 README / 内部 docs / 注释 等文档相关问题。Use this for documentation issues.
+
+  - type: dropdown
+    id: docArea
+    attributes:
+      label: 文档范围 Area
+      options:
+        - README
+        - 安装 / Installation
+        - 配置 / Configuration
+        - 扩展开发 / Extension development
+        - API / Hooks
+        - 运维 / Operations
+        - 其它 / Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: issue
+    attributes:
+      label: 问题描述 Issue description
+      placeholder: 某段示例代码过期 / 链接失效 …
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: 改进建议 Suggested fix / improvement
+    validations:
+      required: false
+
+  - type: textarea
+    id: references
+    attributes:
+      label: 参考链接 References
+    validations:
+      required: false

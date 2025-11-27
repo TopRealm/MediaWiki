@@ -25,7 +25,6 @@ sftp-config.json
 
 # MediaWiki install & usage
 /cache
-/logs
 /docs/coverage
 /docs/js
 /docs/latex
@@ -47,7 +46,7 @@ sftp-config.json
 /images/tmp
 /maintenance/.mweval_history
 /maintenance/.mwsql_history
-/LocalSettings.php
+
 /includes/PlatformSettings.php
 
 # Building & testing
@@ -92,3 +91,15 @@ Thumbs.db
 docker-compose.override.yml
 .env
 /.stylelintcache
+
+# Ysarxiv-Settings
+/.well-known
+/matomo-tracking-code.js
+# sitemaps
+/sitemap
+
+# site auth
+/baidu_verify_*
+/google*.html
+/BingSiteAuth.xml
+/sogousiteverification.txt

@@ -1,0 +1,86 @@
+name: "✨ 功能请求 / Feature request"
+description: "提出新功能或改进建议 / Propose a new feature or enhancement"
+title: "[FEATURE]: 简要描述 / short summary"
+labels: [enhancement]
+assignees:
+  - ZoruaFox
+  - Blossomstripe
+  - windaoist
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请先确认没有重复建议。Search existing issues & discussions first.
+
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: 提交前检查 Pre‑submission checklist
+      options:
+        - label: 我已搜索现有 issues & discussions (Searched existing issues & discussions)
+          required: true
+        - label: 我确认这是功能改进而非 Bug (This is a feature / enhancement, not a bug)
+          required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 关联的问题 / 背景 Problem to solve / context
+      description: 该功能要解决什么问题？What problem does this feature solve?
+      placeholder: 用户无法在移动端快速……
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 你的解决思路 Proposed solution
+      description: 描述你理想的实现 / Describe desired solution
+      placeholder: 添加一个… 按钮用于…
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 备选方案 Alternatives considered
+      description: 你考虑过的其它实现 / Other approaches you considered
+    validations:
+      required: false
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: 影响范围 Scope
+      options:
+        - 前端 UI / Front-end UI
+        - 后端逻辑 / Back-end logic
+        - 数据结构 / Schema
+        - 配置 / Configuration
+        - 文档 / Documentation
+        - 部署 / Deployment
+    validations:
+      required: false
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: 价值 / 影响 Value / impact
+      description: 带来哪些收益？Performance, UX, maintainability, security...
+    validations:
+      required: false
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: 依赖 / 风险 Dependencies / risks
+      description: 是否引入新库 / 升级版本 / 风险点 New libraries, upgrades, risks
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: 其它补充 Additional context
+    validations:
+      required: false
