@@ -83,7 +83,7 @@ $wgLogos = [
 		'height' => 45,
 	],
 ];
-$wgFavicon = "$wgScriptPath/favicon.ico";
+$wgFavicon = "https://youshou.wiki/favicon.ico";
 
 # 利用钩子添加主题色
 #$wgHooks['BeforePageDisplay'][] = function (Outputpage $out, Skin $skin) {
