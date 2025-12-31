@@ -169,7 +169,6 @@ class SpecialUserRights extends SpecialPage {
 		$out = $this->getOutput();
 
 		$out->addModules( [ 'mediawiki.special.userrights' ] );
-		$out->addModuleStyles( [ 'codex-styles' ] );
 
 		$this->mTarget = $par ?? $request->getVal( 'user' );
 		if ( $this->mTarget === null ) {
@@ -887,7 +886,7 @@ class SpecialUserRights extends SpecialPage {
 						<td></td>
 						<td class='mw-submit'>" .
 							Html::submitButton( $this->msg( 'saveusergroups', $user->getName() )->text(),
-								[ 'name' => 'saveusergroups', 'class' => 'cdx-button cdx-button--action-progressive cdx-button--weight-primary' ] +
+								[ 'name' => 'saveusergroups' ] +
 									Linker::tooltipAndAccesskeyAttribs( 'userrights-set' )
 							) .
 						"</td>
@@ -895,11 +894,8 @@ class SpecialUserRights extends SpecialPage {
 					<tr>
 						<td></td>
 						<td class='mw-input'>" .
-							Html::openElement( 'div', [ 'class' => 'cdx-checkbox' ] ) .
-							Html::check( 'wpWatch', false, [ 'id' => 'wpWatch', 'class' => 'cdx-checkbox__input' ] ) .
-							Html::element( 'span', [ 'class' => 'cdx-checkbox__icon' ] ) .
-							Html::label( $this->msg( 'userrights-watchuser' )->text(), 'wpWatch', [ 'class' => 'cdx-checkbox__label' ] ) .
-							Html::closeElement( 'div' ) .
+							Html::check( 'wpWatch', false, [ 'id' => 'wpWatch' ] ) .
+							'&nbsp;' . Html::label( $this->msg( 'userrights-watchuser' )->text(), 'wpWatch' ) .
 						"</td>
 					</tr>" .
 				Xml::closeElement( 'table' ) . "\n"
@@ -1000,16 +996,12 @@ class SpecialUserRights extends SpecialPage {
 				} else {
 					$text = $member;
 				}
-				$checkboxHtml = Html::openElement( 'div', [ 'class' => 'cdx-checkbox' ] ) .
-					Html::element( 'input', [
-						'type' => 'checkbox', 'name' => "wpGroup-$group", 'value' => '1',
-						'id' => "wpGroup-$group", 'checked' => $checkbox['set'],
-						'class' => 'mw-userrights-groupcheckbox cdx-checkbox__input',
-						'disabled' => $checkbox['disabled'],
-					] ) .
-					Html::element( 'span', [ 'class' => 'cdx-checkbox__icon' ] ) .
-					Html::label( $text, "wpGroup-$group", [ 'class' => 'cdx-checkbox__label' ] ) .
-					Html::closeElement( 'div' );
+				$checkboxHtml = Html::element( 'input', [
+					'type' => 'checkbox', 'name' => "wpGroup-$group", 'value' => '1',
+					'id' => "wpGroup-$group", 'checked' => $checkbox['set'],
+					'class' => 'mw-userrights-groupcheckbox',
+					'disabled' => $checkbox['disabled'],
+				] ) . '&nbsp;' . Html::label( $text, "wpGroup-$group" );
 
 				if ( $this->canProcessExpiries() ) {
 					$uiUser = $this->getUser();
@@ -1075,21 +1067,15 @@ class SpecialUserRights extends SpecialPage {
 						$expiryFormOptions->addOptions( $expiryOptions );
 
 						// Add expiry dropdown
-						// Note: We do not use the full cdx-select wrapper here because it is a block element
-						// and disrupts the inline layout of the form. We apply the handle class to the select
-						// element to get some basic styling, but rely on browser default arrow and border.
-						$expiryFormOptions->setAttribute( 'class', 'cdx-select__handle' );
 						$expiryHtml .= $expiryFormOptions->getHTML() . '<br />';
 
 						// Add custom expiry field
-						$expiryHtml .= Html::rawElement( 'div', [ 'class' => 'cdx-text-input' ],
-							Html::element( 'input', [
-								'name' => "wpExpiry-$group-other", 'size' => 30, 'value' => '',
-								'id' => "mw-input-wpExpiry-$group-other",
-								'class' => 'mw-userrights-expiryfield cdx-text-input__input',
-								'disabled' => $checkbox['disabled-expiry'],
-							] )
-						);
+						$expiryHtml .= Html::element( 'input', [
+							'name' => "wpExpiry-$group-other", 'size' => 30, 'value' => '',
+							'id' => "mw-input-wpExpiry-$group-other",
+							'class' => 'mw-userrights-expiryfield',
+							'disabled' => $checkbox['disabled-expiry'],
+						] );
 
 						// If the user group is set but the checkbox is disabled, mimic a
 						// checked checkbox in the form submission

@@ -17,12 +17,4 @@ $( () => {
 	$( '#username' ).on( 'change', ( e ) => {
 		$( '#wpWatch' ).prop( 'disabled', e.target.value.indexOf( userrightsInterwikiDelimiter ) !== -1 );
 	} ).trigger( 'change' );
-
-	// Toggle the expiry dropdown visibility based on the checkbox state
-	// This replaces the CSS-based toggle which doesn't work with the new Codex HTML structure
-	$( '.mw-userrights-groupcheckbox' ).on( 'change', function () {
-		const $checkboxDiv = $( this ).closest( '.cdx-checkbox' );
-		const $nested = $checkboxDiv.next( '.mw-userrights-nested' );
-		$nested.toggle( this.checked );
-	} ).trigger( 'change' );
 } );
