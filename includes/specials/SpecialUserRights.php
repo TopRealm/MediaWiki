@@ -36,6 +36,7 @@ use MediaWiki\Status\Status;
 use MediaWiki\Title\Title;
 use MediaWiki\User\ActorStoreFactory;
 use MediaWiki\User\TempUser\TempUserConfig;
+use MediaWiki\User\User;
 use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserGroupManager;
 use MediaWiki\User\UserGroupManagerFactory;
@@ -146,8 +147,7 @@ class SpecialUserRights extends SpecialPage {
 
 		$isself = $this->getUser()->equals( $targetUser );
 		if ( ( $available['add-self'] || $available['remove-self'] )
-			&& ( $isself || !$checkIfSelf )
-		) {
+			&& ( ( $isself || !$checkIfSelf ) ) ) {
 			// can change some rights for self
 			return true;
 		}
@@ -168,6 +168,7 @@ class SpecialUserRights extends SpecialPage {
 		$session = $request->getSession();
 		$out = $this->getOutput();
 
+		$out->addModuleStyles( 'codex-styles' );
 		$out->addModules( [ 'mediawiki.special.userrights' ] );
 
 		$this->mTarget = $par ?? $request->getVal( 'user' );
@@ -733,17 +734,50 @@ class SpecialUserRights extends SpecialPage {
 			]
 		];
 
-		$htmlForm = HTMLForm::factory( 'ooui', $formDescriptor, $this->getContext() );
-		$htmlForm
-			->setMethod( 'GET' )
-			->setAction( wfScript() )
-			->setName( 'uluser' )
-			->setTitle( SpecialPage::getTitleFor( 'Userrights' ) )
-			->setWrapperLegendMsg( 'userrights-lookup-user' )
-			->setId( 'mw-userrights-form1' )
-			->setSubmitTextMsg( 'editusergroup' )
-			->prepareForm()
-			->displayForm( true );
+		$form = Html::openElement( 'form', [
+				'method' => 'get',
+				'action' => wfScript(),
+				'name' => 'uluser',
+				'id' => 'mw-userrights-form1',
+				'class' => 'mw-user-right-form-container'
+			] ) . "\n";
+
+		$form .= Html::openElement( 'fieldset', [ 'class' => 'cdx-field' ] ) . "\n";
+
+		$form .= Html::openElement( 'legend', [ 'class' => 'cdx-label' ] ) . "\n";
+		$form .= Html::rawElement( 'span', [ 'class' => 'cdx-label__label' ],
+			Html::element( 'span', [ 'class' => 'cdx-label__label__text' ],
+				$this->msg( 'userrights-lookup-user' )->text() )
+		);
+		$form .= Html::closeElement( 'legend' ) . "\n";
+
+		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedText() ) . "\n";
+
+		$form .= Html::rawElement(
+				'div',
+				[ 'class' => 'cdx-field__item' ],
+				Html::label( $this->msg( 'userrights-user-editname' )->text(), 'username',
+					[ 'class' => 'cdx-label__label' ] ) .
+				Html::input( 'user', $this->mTarget !== null ? str_replace( '_', ' ', $this->mTarget ) : '', 'text', [
+					'id' => 'username',
+					'class' => 'cdx-text-input__input mw-autocomplete-user',
+					'size' => 30,
+					'autofocus' => $this->mFetchedUser === null ? '' : null
+				] )
+			) . "\n";
+
+		$form .= Html::rawElement(
+				'div',
+				[ 'class' => 'cdx-field__control' ],
+				Html::submitButton( $this->msg( 'editusergroup' )->text(), [
+					'class' => 'cdx-button'
+				] )
+			) . "\n";
+
+		$form .= Html::closeElement( 'fieldset' ) . "\n";
+		$form .= Html::closeElement( 'form' ) . "\n";
+
+		$this->getOutput()->addHTML( $form );
 	}
 
 	/**
@@ -832,81 +866,245 @@ class SpecialUserRights extends SpecialPage {
 
 		[ $groupCheckboxes, $canChangeAny ] =
 			$this->groupCheckboxes( $groupMemberships, $user );
-		$this->getOutput()->addHTML(
-			Html::openElement(
-				'form',
-				[
-					'method' => 'post',
-					'action' => $this->getPageTitle()->getLocalURL(),
-					'name' => 'editGroup',
-					'id' => 'mw-userrights-form2'
-				]
-			) .
-			Html::hidden( 'user', $this->mTarget ) .
-			Html::hidden( 'wpEditToken', $this->getUser()->getEditToken( $this->mTarget ) ) .
-			Html::hidden(
+
+		$form = Html::openElement( 'form', [
+				'method' => 'post',
+				'action' => $this->getPageTitle()->getLocalURL(),
+				'name' => 'editGroup',
+				'id' => 'mw-userrights-form2',
+				'class' => 'mw-user-right-form-container'
+			] ) . "\n";
+
+		$form .= Html::hidden( 'user', $this->mTarget ) . "\n";
+		$form .= Html::hidden( 'wpEditToken', $this->getUser()->getEditToken( $this->mTarget ) ) . "\n";
+		$form .= Html::hidden(
 				'conflictcheck-originalgroups',
 				implode( ',', $this->userGroupManager->getUserGroups( $user ) )
-			) . // Conflict detection
-			Html::openElement( 'fieldset' ) .
-			Html::element(
-				'legend',
-				[],
+			) . "\n"; // Conflict detection
+
+		$form .= Html::openElement( 'fieldset', [ 'class' => 'cdx-field' ] ) . "\n";
+
+		$form .= Html::openElement( 'legend', [ 'class' => 'cdx-label' ] ) . "\n";
+		$form .= Html::rawElement( 'span', [ 'class' => 'cdx-label__label' ],
+			Html::element( 'span', [ 'class' => 'cdx-label__label__text' ],
 				$this->msg(
 					$canChangeAny ? 'userrights-editusergroup' : 'userrights-viewusergroup',
 					$user->getName()
 				)->text()
-			) .
+			)
+		);
+		$form .= Html::closeElement( 'legend' ) . "\n";
+
+		$form .= Html::rawElement(
+			'div',
+			[ 'class' => 'cdx-label__description' ],
 			$this->msg(
 				$canChangeAny ? 'editinguser' : 'viewinguserrights'
 			)->params( wfEscapeWikiText( $this->getDisplayUsername( $user ) ) )
 				->rawParams( $userToolLinks )->parse()
 		);
+
 		if ( $canChangeAny ) {
-			$this->getOutput()->addHTML(
-				$this->msg( 'userrights-groups-help', $user->getName() )->parse() .
+			$form .= $this->msg( 'userrights-groups-help', $user->getName() )->parse() .
 				$grouplist .
 				$groupCheckboxes .
-				Html::openElement( 'table', [ 'id' => 'mw-userrights-table-outer' ] ) .
-					"<tr>
-						<td class='mw-label'>" .
-							Html::label( $this->msg( 'userrights-reason' )->text(), 'wpReason' ) .
-						"</td>
-						<td class='mw-input'>" .
-							Xml::input( 'user-reason', 60, $this->getRequest()->getVal( 'user-reason' ) ?? false, [
-								'id' => 'wpReason',
-								// HTML maxlength uses "UTF-16 code units", which means that characters outside BMP
-								// (e.g. emojis) count for two each. This limit is overridden in JS to instead count
-								// Unicode codepoints.
-								'maxlength' => CommentStore::COMMENT_CHARACTER_LIMIT,
-							] ) .
-						"</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td class='mw-submit'>" .
-							Html::submitButton( $this->msg( 'saveusergroups', $user->getName() )->text(),
-								[ 'name' => 'saveusergroups' ] +
-									Linker::tooltipAndAccesskeyAttribs( 'userrights-set' )
-							) .
-						"</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td class='mw-input'>" .
-							Html::check( 'wpWatch', false, [ 'id' => 'wpWatch' ] ) .
-							'&nbsp;' . Html::label( $this->msg( 'userrights-watchuser' )->text(), 'wpWatch' ) .
-						"</td>
-					</tr>" .
-				Xml::closeElement( 'table' ) . "\n"
-			);
+				Html::openElement( 'div', [ 'class' => 'cdx-field__control' ] ) . "\n" .
+				Html::openElement( 'div', [ 'class' => 'cdx-field__item' ] ) . "\n" .
+				Html::label( $this->msg( 'userrights-reason' )->text(), 'wpReason',
+					[ 'class' => 'cdx-label__label' ] ) .
+				Html::input( 'user-reason', $this->getRequest()->getVal( 'user-reason' ) ?? false, 'text', [
+					'id' => 'wpReason',
+					'class' => 'cdx-text-input__input',
+					'size' => 60,
+					// HTML maxlength uses "UTF-16 code units", which means that characters outside BMP
+					// (e.g. emojis) count for two each. This limit is overridden in JS to instead count
+					// Unicode codepoints.
+					'maxlength' => CommentStore::COMMENT_CHARACTER_LIMIT,
+				] ) .
+				Html::closeElement( 'div' ) . "\n" .
+				Html::rawElement(
+					'div',
+					[ 'class' => 'cdx-field__control' ],
+					Html::submitButton( $this->msg( 'saveusergroups', $user->getName() )->text(), [
+							'class' => 'cdx-button cdx-button--action-progressive',
+							'name' => 'saveusergroups'
+						] + Linker::tooltipAndAccesskeyAttribs( 'userrights-set' ) )
+				) . "\n" .
+				Html::rawElement(
+					'div',
+					[ 'class' => 'cdx-field__control' ],
+					Html::rawElement( 'span', [ 'class' => 'cdx-checkbox cdx-checkbox--inline' ],
+						Html::check( 'wpWatch', false, [
+							'id' => 'wpWatch',
+							'class' => 'cdx-checkbox__input'
+						] ) .
+						Html::rawElement( 'span', [ 'class' => 'cdx-checkbox__icon' ], '' ) .
+						Html::rawElement(
+							'div',
+							[ 'class' => 'cdx-checkbox__label cdx-label' ],
+							Html::label( $this->msg( 'userrights-watchuser' )->text(), 'wpWatch',
+								[ 'class' => 'cdx-label__label' ] )
+						)
+					)
+				) . "\n" .
+				Html::closeElement( 'div' ) . "\n";
 		} else {
-			$this->getOutput()->addHTML( $grouplist );
+			$form .= $grouplist;
 		}
-		$this->getOutput()->addHTML(
-			Xml::closeElement( 'fieldset' ) .
-			Xml::closeElement( 'form' ) . "\n"
+
+		$form .= Html::closeElement( 'fieldset' ) . "\n";
+		$form .= Html::closeElement( 'form' ) . "\n";
+
+		$this->getOutput()->addHTML( $form );
+	}
+
+	/**
+	 * Generates the HTML for a checkbox and its associated elements.
+	 *
+	 * @param string $group The name of the group.
+	 * @param array $checkbox Array containing the checkbox properties (set, disabled, disabled-expiry, irreversible).
+	 * @param UserIdentity $user The user identity object.
+	 * @param array $usergroups Array of user group memberships.
+	 * @param array $expiryOptions Array of expiry options.
+	 *
+	 * @return string The generated HTML for the checkbox.
+	 */
+	private function generateCheckboxHtml( string $group, array $checkbox, UserIdentity $user,
+		array $usergroups, array $expiryOptions ): string {
+		$uiLanguage = $this->getLanguage();
+		$userName = htmlspecialchars( $user->getName(), ENT_QUOTES, 'UTF-8' );
+		$member = htmlspecialchars( $uiLanguage->getGroupMemberName( $group, $userName ), ENT_QUOTES, 'UTF-8' );
+		if ( $checkbox['disabled'] && !$checkbox['disabled-expiry'] ) {
+			$text = htmlspecialchars( $this->msg( 'userrights-no-shorten-expiry-marker', $member )->text(),
+				ENT_QUOTES, 'UTF-8' );
+		} else {
+			$text = $member;
+		}
+
+		$checkboxHtml = Html::openElement( 'span', [ 'class' => 'cdx-checkbox' ] ) . "\n";
+		$checkboxHtml .= Html::rawElement( 'input', [
+			'type' => 'checkbox',
+			'name' => "wpGroup-" . $group,
+			'value' => '1',
+			'id' => "wpGroup-" . $group,
+			'checked' => $checkbox['set'],
+			'class' => 'cdx-checkbox__input mw-userrights-groupcheckbox',
+			'disabled' => $checkbox['disabled'],
+			'onclick' => "toggleExpiry('" . $group . "')"
+		] );
+		$checkboxHtml .= Html::rawElement( 'span', [ 'class' => 'cdx-checkbox__icon' ], '' ) . "\n";
+		$checkboxHtml .= Html::openElement( 'div', [ 'class' => 'cdx-checkbox__label cdx-label' ] ) . "\n";
+		$checkboxHtml .= Html::rawElement( 'label', [
+			'for' => "wpGroup-" . $group,
+			'class' => 'cdx-label__label'
+		], Html::rawElement( 'span', [ 'class' => 'cdx-label__label__text' ], $text ) );
+		$checkboxHtml .= Html::closeElement( 'div' ) . "\n";
+		$checkboxHtml .= Html::closeElement( 'span' ) . "\n";
+
+		$expiryHtml = $this->generateExpiryHtml( $group, $checkbox, $usergroups, $expiryOptions );
+		$divAttribs = [
+			'id' => "mw-userrights-nested-wpGroup-" . $group,
+			'class' => 'mw-userrights-nested',
+			'style' => $checkbox['set'] ? '' : 'display: none;',
+		];
+		$checkboxHtml .= Html::rawElement( 'div', $divAttribs, $expiryHtml ) . "\n";
+
+		return $checkboxHtml;
+	}
+
+	/**
+	 * Generates the HTML for the expiry elements associated with a checkbox.
+	 *
+	 * @param string $group The name of the group.
+	 * @param array $checkbox Array containing the checkbox properties (set, disabled, disabled-expiry, irreversible).
+	 * @param array $usergroups Array of user group memberships.
+	 * @param array $expiryOptions Array of expiry options.
+	 *
+	 * @return string The generated HTML for the expiry elements.
+	 */
+	private function generateExpiryHtml( string $group, array $checkbox, array $usergroups,
+		array $expiryOptions ): string {
+		$expiryHtml = '';
+		if ( $this->canProcessExpiries() ) {
+			$uiUser = $this->getUser();
+			$currentExpiry = isset( $usergroups[$group] ) ? $usergroups[$group]->getExpiry() : null;
+
+			if ( $checkbox['set'] && ( $checkbox['irreversible'] || $checkbox['disabled-expiry'] ) ) {
+				$expiryFormatted = $currentExpiry ? htmlspecialchars( $this->formatExpiry( $currentExpiry, $uiUser ) ) :
+					htmlspecialchars( $this->msg( 'userrights-expiry-none' )->text(), ENT_QUOTES, 'UTF-8' );
+				$expiryHtml = Html::rawElement( 'div', [ 'class' => 'cdx-info-chip' ],
+					Html::rawElement( 'span', [ 'class' => 'cdx-info-chip--text' ], $expiryFormatted ) );
+				$expiryHtml .= Html::hidden( "wpExpiry-$group", $currentExpiry ? 'existing' : 'infinite' );
+			} else {
+				$expiryHtml = Html::rawElement( 'div', [ 'class' => 'cdx-info-chip' ],
+					Html::rawElement( 'span', [ 'class' => 'cdx-info-chip--text' ],
+						htmlspecialchars( $this->msg( 'userrights-expiry' )->text(), ENT_QUOTES, 'UTF-8' )
+					) );
+				$expiryFormOptions = $this->createExpiryDropdown( $group, $currentExpiry, $expiryOptions );
+				$expiryHtml .= $expiryFormOptions->getHTML() . "\n";
+				$expiryHtml .= Html::rawElement( 'div', [ 'class' => 'cdx-text-input' ],
+					Html::element( 'input', [
+						'name' => "wpExpiry-$group-other",
+						'id' => "mw-input-wpExpiry-$group-other",
+						'type' => 'datetime-local',
+						'class' => 'cdx-text-input__input mw-userrights-expiryfield',
+						'disabled' => $checkbox['disabled-expiry'],
+					] ) );
+				if ( $checkbox['set'] && $checkbox['disabled'] ) {
+					$expiryHtml .= Html::hidden( "wpGroup-$group", 1 );
+				}
+			}
+		}
+		return $expiryHtml;
+	}
+
+	/**
+	 * Creates a dropdown for selecting expiry options.
+	 *
+	 * @param string $group The name of the group.
+	 * @param string|null $currentExpiry The current expiry timestamp or null if none.
+	 * @param array $expiryOptions Array of expiry options.
+	 *
+	 * @return XmlSelect The generated expiry dropdown.
+	 */
+	private function createExpiryDropdown( string $group, ?string $currentExpiry, array $expiryOptions ): XmlSelect {
+		$expiryFormOptions = new XmlSelect( "wpExpiry-$group", "mw-input-wpExpiry-$group",
+			$currentExpiry ? 'existing' : 'infinite' );
+		if ( $currentExpiry ) {
+			$expiryFormatted = $this->formatExpiry( $currentExpiry, $this->getUser() );
+			$expiryFormOptions->addOption(
+				$expiryFormatted,
+				'existing'
+			);
+		}
+		$expiryFormOptions->addOption(
+			$this->msg( 'userrights-expiry-none' )->text(),
+			'infinite'
 		);
+		$expiryFormOptions->addOption(
+			$this->msg( 'userrights-expiry-othertime' )->text(),
+			'other'
+		);
+		$expiryFormOptions->addOptions( $expiryOptions );
+		$expiryFormOptions->setAttribute( 'class', 'cdx-select' );
+		return $expiryFormOptions;
+	}
+
+	/**
+	 * Formats the expiry timestamp into a human-readable string.
+	 *
+	 * @param string $currentExpiry The current expiry timestamp.
+	 * @param User $uiUser The user object for the current user.
+	 *
+	 * @return string The formatted expiry string.
+	 */
+	private function formatExpiry( string $currentExpiry, User $uiUser ): string {
+		$uiLanguage = $this->getLanguage();
+		$expiryFormatted = $uiLanguage->userTimeAndDate( $currentExpiry, $uiUser );
+		$expiryFormattedD = $uiLanguage->userDate( $currentExpiry, $uiUser );
+		$expiryFormattedT = $uiLanguage->userTime( $currentExpiry, $uiUser );
+		return $this->msg( 'userrights-expiry-existing', $expiryFormatted, $expiryFormattedD,
+			$expiryFormattedT )->text();
 	}
 
 	/**
@@ -920,35 +1118,20 @@ class SpecialUserRights extends SpecialPage {
 	 */
 	private function groupCheckboxes( $usergroups, UserIdentity $user ) {
 		$allgroups = $this->userGroupManager->listAllGroups();
-		$ret = '';
-
-		// Get the list of preset expiry times from the system message
 		$expiryOptionsMsg = $this->msg( 'userrights-expiry-options' )->inContentLanguage();
-		$expiryOptions = $expiryOptionsMsg->isDisabled()
-			? []
-			: XmlSelect::parseOptionsMessage( $expiryOptionsMsg->text() );
+		$expiryOptions = $expiryOptionsMsg->isDisabled() ? [] :
+			XmlSelect::parseOptionsMessage( $expiryOptionsMsg->text() );
 
-		// Put all column info into an associative array so that extensions can
-		// more easily manage it.
 		$columns = [ 'unchangeable' => [], 'changeable' => [] ];
 
 		foreach ( $allgroups as $group ) {
 			$set = isset( $usergroups[$group] );
-			// Users who can add the group, but not remove it, can only lengthen
-			// expiries, not shorten them. So they should only see the expiry
-			// dropdown if the group currently has a finite expiry
 			$canOnlyLengthenExpiry = ( $set && $this->canAdd( $group ) &&
 				!$this->canRemove( $group ) && $usergroups[$group]->getExpiry() );
-			// Should the checkbox be disabled?
-			$disabledCheckbox = !(
-				( $set && $this->canRemove( $group ) ) ||
-				( !$set && $this->canAdd( $group ) ) );
-			// Should the expiry elements be disabled?
+			$disabledCheckbox = !( ( $set && $this->canRemove( $group ) ) || ( !$set && $this->canAdd( $group ) ) );
 			$disabledExpiry = $disabledCheckbox && !$canOnlyLengthenExpiry;
-			// Do we need to point out that this action is irreversible?
-			$irreversible = !$disabledCheckbox && (
-				( $set && !$this->canAdd( $group ) ) ||
-				( !$set && !$this->canRemove( $group ) ) );
+			$irreversible = !$disabledCheckbox &&
+				( ( $set && !$this->canAdd( $group ) ) || ( !$set && !$this->canRemove( $group ) ) );
 
 			$checkbox = [
 				'set' => $set,
@@ -964,142 +1147,45 @@ class SpecialUserRights extends SpecialPage {
 			}
 		}
 
-		// Build the HTML table
-		$ret .= Xml::openElement( 'table', [ 'class' => 'mw-userrights-groups' ] ) .
-			"<tr>\n";
-		foreach ( $columns as $name => $column ) {
-			if ( $column === [] ) {
-				continue;
-			}
-			// Messages: userrights-changeable-col, userrights-unchangeable-col
-			$ret .= Xml::element(
-				'th',
-				null,
-				$this->msg( 'userrights-' . $name . '-col', count( $column ) )->text()
-			);
-		}
+		$ret = Html::openElement( 'div', [ 'class' => 'user-rights-groups-wrapper' ] ) . "\n";
 
-		$ret .= "</tr>\n<tr>\n";
-		$uiLanguage = $this->getLanguage();
-		$userName = $user->getName();
-		foreach ( $columns as $column ) {
-			if ( $column === [] ) {
-				continue;
-			}
-			$ret .= "\t<td style='vertical-align:top;'>\n";
-			foreach ( $column as $group => $checkbox ) {
-				$member = $uiLanguage->getGroupMemberName( $group, $userName );
-				if ( $checkbox['irreversible'] ) {
-					$text = $this->msg( 'userrights-irreversible-marker', $member )->text();
-				} elseif ( $checkbox['disabled'] && !$checkbox['disabled-expiry'] ) {
-					$text = $this->msg( 'userrights-no-shorten-expiry-marker', $member )->text();
-				} else {
-					$text = $member;
-				}
-				$checkboxHtml = Html::element( 'input', [
-					'type' => 'checkbox', 'name' => "wpGroup-$group", 'value' => '1',
-					'id' => "wpGroup-$group", 'checked' => $checkbox['set'],
-					'class' => 'mw-userrights-groupcheckbox',
-					'disabled' => $checkbox['disabled'],
-				] ) . '&nbsp;' . Html::label( $text, "wpGroup-$group" );
-
-				if ( $this->canProcessExpiries() ) {
-					$uiUser = $this->getUser();
-
-					$currentExpiry = isset( $usergroups[$group] ) ?
-						$usergroups[$group]->getExpiry() :
-						null;
-
-					// If the user can't modify the expiry, print the current expiry below
-					// it in plain text. Otherwise provide UI to set/change the expiry
-					if ( $checkbox['set'] &&
-						( $checkbox['irreversible'] || $checkbox['disabled-expiry'] )
-					) {
-						if ( $currentExpiry ) {
-							$expiryFormatted = $uiLanguage->userTimeAndDate( $currentExpiry, $uiUser );
-							$expiryFormattedD = $uiLanguage->userDate( $currentExpiry, $uiUser );
-							$expiryFormattedT = $uiLanguage->userTime( $currentExpiry, $uiUser );
-							$expiryHtml = Xml::element( 'span', null,
-								$this->msg( 'userrights-expiry-current' )->params(
-								$expiryFormatted, $expiryFormattedD, $expiryFormattedT )->text() );
-						} else {
-							$expiryHtml = Xml::element( 'span', null,
-								$this->msg( 'userrights-expiry-none' )->text() );
-						}
-						// T171345: Add a hidden form element so that other groups can still be manipulated,
-						// otherwise saving errors out with an invalid expiry time for this group.
-						$expiryHtml .= Html::hidden( "wpExpiry-$group",
-							$currentExpiry ? 'existing' : 'infinite' );
-						$expiryHtml .= "<br />\n";
-					} else {
-						$expiryHtml = Html::element( 'span', [],
-							$this->msg( 'userrights-expiry' )->text() );
-						$expiryHtml .= Html::openElement( 'span' );
-
-						// add a form element to set the expiry date
-						$expiryFormOptions = new XmlSelect(
-							"wpExpiry-$group",
-							"mw-input-wpExpiry-$group", // forward compatibility with HTMLForm
-							$currentExpiry ? 'existing' : 'infinite'
-						);
-						if ( $checkbox['disabled-expiry'] ) {
-							$expiryFormOptions->setAttribute( 'disabled', 'disabled' );
-						}
-
-						if ( $currentExpiry ) {
-							$timestamp = $uiLanguage->userTimeAndDate( $currentExpiry, $uiUser );
-							$d = $uiLanguage->userDate( $currentExpiry, $uiUser );
-							$t = $uiLanguage->userTime( $currentExpiry, $uiUser );
-							$existingExpiryMessage = $this->msg( 'userrights-expiry-existing',
-								$timestamp, $d, $t );
-							$expiryFormOptions->addOption( $existingExpiryMessage->text(), 'existing' );
-						}
-
-						$expiryFormOptions->addOption(
-							$this->msg( 'userrights-expiry-none' )->text(),
-							'infinite'
-						);
-						$expiryFormOptions->addOption(
-							$this->msg( 'userrights-expiry-othertime' )->text(),
-							'other'
-						);
-
-						$expiryFormOptions->addOptions( $expiryOptions );
-
-						// Add expiry dropdown
-						$expiryHtml .= $expiryFormOptions->getHTML() . '<br />';
-
-						// Add custom expiry field
-						$expiryHtml .= Html::element( 'input', [
-							'name' => "wpExpiry-$group-other", 'size' => 30, 'value' => '',
-							'id' => "mw-input-wpExpiry-$group-other",
-							'class' => 'mw-userrights-expiryfield',
-							'disabled' => $checkbox['disabled-expiry'],
-						] );
-
-						// If the user group is set but the checkbox is disabled, mimic a
-						// checked checkbox in the form submission
-						if ( $checkbox['set'] && $checkbox['disabled'] ) {
-							$expiryHtml .= Html::hidden( "wpGroup-$group", 1 );
-						}
-
-						$expiryHtml .= Html::closeElement( 'span' );
-					}
-
-					$divAttribs = [
-						'id' => "mw-userrights-nested-wpGroup-$group",
-						'class' => 'mw-userrights-nested',
-					];
-					$checkboxHtml .= "\t\t\t" . Html::rawElement( 'div', $divAttribs, $expiryHtml ) . "\n";
-				}
-				$ret .= "\t\t" . ( ( $checkbox['disabled'] && $checkbox['disabled-expiry'] )
-					? Html::rawElement( 'div', [ 'class' => 'mw-userrights-disabled' ], $checkboxHtml )
-					: Html::rawElement( 'div', [], $checkboxHtml )
+		if ( !empty( $columns['unchangeable'] ) ) {
+			$ret .= Html::openElement( 'fieldset', [ 'class' => 'cdx-field' ] ) . "\n";
+			$ret .= Html::rawElement( 'legend', [ 'class' => 'cdx-label' ],
+					Html::element( 'span', [ 'class' => 'cdx-label__label__text' ],
+						$this->msg( 'userrights-unchangeable-col', count( $columns['unchangeable'] ) )->text()
+					)
 				) . "\n";
+			$ret .= Html::openElement( 'div', [ 'class' => 'cdx-field__control' ] ) . "\n";
+
+			foreach ( $columns['unchangeable'] as $group => $checkbox ) {
+				$ret .= Html::rawElement( 'span', [ 'class' => 'mw-userrights-disabled' ],
+						$this->generateCheckboxHtml( $group, $checkbox, $user, $usergroups, $expiryOptions )
+					) . "\n";
 			}
-			$ret .= "\t</td>\n";
+			$ret .= Html::closeElement( 'div' ) . "\n";
+			$ret .= Html::closeElement( 'fieldset' ) . "\n";
 		}
-		$ret .= Html::closeElement( 'tr' ) . Html::closeElement( 'table' );
+
+		if ( !empty( $columns['changeable'] ) ) {
+			$ret .= Html::openElement( 'fieldset', [ 'class' => 'cdx-field' ] ) . "\n";
+			$ret .= Html::rawElement( 'legend', [ 'class' => 'cdx-label' ],
+					Html::element( 'span', [ 'class' => 'cdx-label__label__text' ],
+						$this->msg( 'userrights-changeable-col', count( $columns['changeable'] ) )->text()
+					)
+				) . "\n";
+			$ret .= Html::openElement( 'div', [ 'class' => 'cdx-field__control' ] ) . "\n";
+
+			foreach ( $columns['changeable'] as $group => $checkbox ) {
+				$ret .= Html::rawElement( 'span', [],
+						$this->generateCheckboxHtml( $group, $checkbox, $user, $usergroups, $expiryOptions )
+					) . "\n";
+			}
+			$ret .= Html::closeElement( 'div' ) . "\n";
+			$ret .= Html::closeElement( 'fieldset' ) . "\n";
+		}
+
+		$ret .= Html::closeElement( 'div' ) . "\n";
 
 		return [ $ret, (bool)$columns['changeable'] ];
 	}

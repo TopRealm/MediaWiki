@@ -2,7 +2,8 @@
  * Styles for Special:UserRights
  */
 .mw-userrights-nested {
-	margin-left: 1.2em;
+	margin-left: 1.7em;
+	display: inline-block;
 }
 
 .mw-userrights-nested span {
@@ -33,4 +34,5 @@ input.mw-userrights-groupcheckbox:not( :checked ) ~ .mw-userrights-nested {
 /* The input fields gets unhidden by JavaScript when needed */
 .client-js .mw-userrights-expiryfield {
 	display: none;
+	margin-top: 10px;
 }
