@@ -887,7 +887,7 @@ class SpecialUserRights extends SpecialPage {
 						<td></td>
 						<td class='mw-submit'>" .
 							Html::submitButton( $this->msg( 'saveusergroups', $user->getName() )->text(),
-								[ 'name' => 'saveusergroups' ] +
+								[ 'name' => 'saveusergroups', 'class' => 'cdx-button cdx-button--action-progressive cdx-button--weight-primary' ] +
 									Linker::tooltipAndAccesskeyAttribs( 'userrights-set' )
 							) .
 						"</td>
@@ -1075,15 +1075,21 @@ class SpecialUserRights extends SpecialPage {
 						$expiryFormOptions->addOptions( $expiryOptions );
 
 						// Add expiry dropdown
-						$expiryHtml .= $expiryFormOptions->getHTML() . '<br />';
+						$expiryFormOptions->setAttribute( 'class', 'cdx-select__handle' );
+						$expiryHtml .= Html::rawElement( 'div', [ 'class' => 'cdx-select' ],
+							$expiryFormOptions->getHTML() .
+							Html::element( 'span', [ 'class' => 'cdx-select__icon' ] )
+						) . '<br />';
 
 						// Add custom expiry field
-						$expiryHtml .= Html::element( 'input', [
-							'name' => "wpExpiry-$group-other", 'size' => 30, 'value' => '',
-							'id' => "mw-input-wpExpiry-$group-other",
-							'class' => 'mw-userrights-expiryfield',
-							'disabled' => $checkbox['disabled-expiry'],
-						] );
+						$expiryHtml .= Html::rawElement( 'div', [ 'class' => 'cdx-text-input' ],
+							Html::element( 'input', [
+								'name' => "wpExpiry-$group-other", 'size' => 30, 'value' => '',
+								'id' => "mw-input-wpExpiry-$group-other",
+								'class' => 'mw-userrights-expiryfield cdx-text-input__input',
+								'disabled' => $checkbox['disabled-expiry'],
+							] )
+						);
 
 						// If the user group is set but the checkbox is disabled, mimic a
 						// checked checkbox in the form submission
