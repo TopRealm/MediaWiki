@@ -17,15 +17,4 @@ $( () => {
 	$( '#username' ).on( 'change', ( e ) => {
 		$( '#wpWatch' ).prop( 'disabled', e.target.value.indexOf( userrightsInterwikiDelimiter ) !== -1 );
 	} ).trigger( 'change' );
-
-	// Define toggleExpiry function
-	window.toggleExpiry = function ( group ) {
-		var checkbox = document.getElementById( 'wpGroup-' + group );
-		var nestedDiv = document.getElementById( 'mw-userrights-nested-wpGroup-' + group );
-		if ( checkbox.checked ) {
-			nestedDiv.style.display = 'block';
-		} else {
-			nestedDiv.style.display = 'none';
-		}
-	};
 } );
