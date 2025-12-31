@@ -169,6 +169,7 @@ class SpecialUserRights extends SpecialPage {
 		$out = $this->getOutput();
 
 		$out->addModules( [ 'mediawiki.special.userrights' ] );
+		$out->addModuleStyles( [ 'codex-styles' ] );
 
 		$this->mTarget = $par ?? $request->getVal( 'user' );
 		if ( $this->mTarget === null ) {
@@ -894,8 +895,11 @@ class SpecialUserRights extends SpecialPage {
 					<tr>
 						<td></td>
 						<td class='mw-input'>" .
-							Html::check( 'wpWatch', false, [ 'id' => 'wpWatch' ] ) .
-							'&nbsp;' . Html::label( $this->msg( 'userrights-watchuser' )->text(), 'wpWatch' ) .
+							Html::openElement( 'div', [ 'class' => 'cdx-checkbox' ] ) .
+							Html::check( 'wpWatch', false, [ 'id' => 'wpWatch', 'class' => 'cdx-checkbox__input' ] ) .
+							Html::element( 'span', [ 'class' => 'cdx-checkbox__icon' ] ) .
+							Html::label( $this->msg( 'userrights-watchuser' )->text(), 'wpWatch', [ 'class' => 'cdx-checkbox__label' ] ) .
+							Html::closeElement( 'div' ) .
 						"</td>
 					</tr>" .
 				Xml::closeElement( 'table' ) . "\n"
@@ -996,12 +1000,16 @@ class SpecialUserRights extends SpecialPage {
 				} else {
 					$text = $member;
 				}
-				$checkboxHtml = Html::element( 'input', [
-					'type' => 'checkbox', 'name' => "wpGroup-$group", 'value' => '1',
-					'id' => "wpGroup-$group", 'checked' => $checkbox['set'],
-					'class' => 'mw-userrights-groupcheckbox',
-					'disabled' => $checkbox['disabled'],
-				] ) . '&nbsp;' . Html::label( $text, "wpGroup-$group" );
+				$checkboxHtml = Html::openElement( 'div', [ 'class' => 'cdx-checkbox' ] ) .
+					Html::element( 'input', [
+						'type' => 'checkbox', 'name' => "wpGroup-$group", 'value' => '1',
+						'id' => "wpGroup-$group", 'checked' => $checkbox['set'],
+						'class' => 'mw-userrights-groupcheckbox cdx-checkbox__input',
+						'disabled' => $checkbox['disabled'],
+					] ) .
+					Html::element( 'span', [ 'class' => 'cdx-checkbox__icon' ] ) .
+					Html::label( $text, "wpGroup-$group", [ 'class' => 'cdx-checkbox__label' ] ) .
+					Html::closeElement( 'div' );
 
 				if ( $this->canProcessExpiries() ) {
 					$uiUser = $this->getUser();
