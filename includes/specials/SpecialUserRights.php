@@ -1075,11 +1075,11 @@ class SpecialUserRights extends SpecialPage {
 						$expiryFormOptions->addOptions( $expiryOptions );
 
 						// Add expiry dropdown
+						// Note: We do not use the full cdx-select wrapper here because it is a block element
+						// and disrupts the inline layout of the form. We apply the handle class to the select
+						// element to get some basic styling, but rely on browser default arrow and border.
 						$expiryFormOptions->setAttribute( 'class', 'cdx-select__handle' );
-						$expiryHtml .= Html::rawElement( 'div', [ 'class' => 'cdx-select' ],
-							$expiryFormOptions->getHTML() .
-							Html::element( 'span', [ 'class' => 'cdx-select__icon' ] )
-						) . '<br />';
+						$expiryHtml .= $expiryFormOptions->getHTML() . '<br />';
 
 						// Add custom expiry field
 						$expiryHtml .= Html::rawElement( 'div', [ 'class' => 'cdx-text-input' ],
