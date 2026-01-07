@@ -105,7 +105,8 @@ class ProfilerXhprof extends Profiler {
 		return $this->xhprofData;
 	}
 
-	public function scopedProfileIn( $section ) {
+	#[\NoDiscard]
+	public function scopedProfileIn( $section ): ?SectionProfileCallback {
 		$key = 'section.' . ltrim( $section, '.' );
 		return $this->sprofiler->scopedProfileIn( $key );
 	}

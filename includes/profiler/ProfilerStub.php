@@ -24,7 +24,8 @@
  * @ingroup Profiler
  */
 class ProfilerStub extends Profiler {
-	public function scopedProfileIn( $section ) {
+	#[\NoDiscard]
+	public function scopedProfileIn( $section ): ?SectionProfileCallback {
 		return null; // no-op
 	}
 

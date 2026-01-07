@@ -223,7 +223,7 @@ class LoadMonitor implements ILoadMonitor {
 		// Double check for circular recursion in computeServerStates()/getWeightScale().
 		// Mainly, connection attempts should use LoadBalancer::getServerConnection()
 		// rather than something that will pick a server based on the server states.
-		$this->acquireServerStatesLoopGuard();
+		$scope = $this->acquireServerStatesLoopGuard();
 
 		$cluster = $this->lb->getClusterName();
 		$serverName = $this->lb->getServerName( $i );
@@ -313,10 +313,8 @@ class LoadMonitor implements ILoadMonitor {
 		return $this->getCurrentTime() - $state[self::STATE_AS_OF] > self::STATE_TARGET_TTL;
 	}
 
-	/**
-	 * @return ScopedCallback
-	 */
-	private function acquireServerStatesLoopGuard() {
+	#[\NoDiscard]
+	private function acquireServerStatesLoopGuard(): ScopedCallback {
 		if ( $this->serverStatesKeyLocked ) {
 			throw new RuntimeException(
 				"Circular recursion detected while regenerating server states cache. " .
