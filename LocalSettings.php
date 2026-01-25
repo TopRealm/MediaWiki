@@ -186,6 +186,10 @@ $wgPingback = false;
 ## 缓存目录，公共不可读写
 $wgCacheDirectory = "$IP/cache";
 
+# 文件缓存
+$wgUseFileCache = true;
+$wgFileCacheDirectory = $wgCacheDirectory;
+
 ## SecretKeys
 require_once "/www/wwwroot/mw-utils/YsArchives-Settings/SecretKeys.php";
 
