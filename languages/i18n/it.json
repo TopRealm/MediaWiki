@@ -156,7 +156,8 @@
 			"JorgeElias2302",
 			"9Aaron3",
 			"Giorgx12",
-			"GseSro"
+			"GseSro",
+			"Amedeo463"
 		]
 	},
 	"sunday": "domenica",
@@ -451,7 +452,7 @@
 	"viewsource-title": "Visualizza wikitesto di $1",
 	"actionthrottled": "Azione ritardata",
 	"actionthrottledtext": "Come misura di sicurezza contro lo spam, l'esecuzione di alcune azioni è limitata a un numero massimo di volte in un determinato periodo di tempo, limite che tu hai superato. Si prega di riprovare tra qualche minuto.",
-	"protectedpagetext": "Questa pagina è stata protetta per impedirne la modifica o altre operazioni.",
+	"protectedpagetext": "Questa pagina è stata protetta  per impedirne la modifica o altre operazioni.",
 	"viewsourcetext": "È possibile visualizzare e copiare il codice sorgente di questa pagina.",
 	"viewyourtext": "È possibile visualizzare e copiare il codice sorgente delle <strong>tue modifiche</strong> a questa pagina.",
 	"protectedinterface": "Questa pagina contiene un elemento che fa parte dell'interfaccia utente del software di questo sito ed è protetta per evitare possibili abusi.\nPer aggiungere o modificare le traduzioni valide su tutti i wiki, usa [https://translatewiki.net/ translatewiki.net], il progetto di localizzazione di MediaWiki.",
@@ -3396,6 +3397,7 @@
 	"version-entrypoints-scriptpath": "[https://www.mediawiki.org/wiki/Special:MyLanguage/Manual:$wgScriptPath Percorso script]",
 	"version-libraries": "Librerie installate",
 	"version-libraries-server": "Librerie lato server installate",
+	"version-libraries-client": "Librerie lato client installate",
 	"version-libraries-library": "Libreria",
 	"version-libraries-version": "Versione",
 	"version-libraries-license": "Licenza",

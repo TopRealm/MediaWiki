@@ -25,7 +25,8 @@
 			"아라",
 			"Whatback11",
 			"YeBoy371",
-			"Gustmd7410"
+			"Gustmd7410",
+			"Bisang"
 		]
 	},
 	"preferences": "환경 설정",
@@ -67,8 +68,8 @@
 	"prefs-user-restoreprefs-info": "모든 기본 환경 설정 복구 (모든 부문에서)",
 	"prefs-i18n": "국제화",
 	"yourlanguage": "언어:",
-	"yourgender": "어느 성별로 묘사하기를 원하시나요?",
-	"gender-notknown": "위키 문서를 편집합니다 (성별 미공개)",
+	"yourgender": "어느 성별로 묘사되기를 원하시나요?",
+	"gender-notknown": "이 사람은 위키 문서를 편집합니다 (성별 비공개)",
 	"gender-unknown": "언급할 때 소프트웨어는 가능한 항상 중성적인 단어를 사용합니다.",
 	"gender-female": "이 여성은 위키 문서를 편집합니다",
 	"gender-male": "이 남성은 위키 문서를 편집합니다",

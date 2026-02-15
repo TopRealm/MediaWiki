@@ -157,7 +157,8 @@
 			"Winston Sung",
 			"Yaakiyu.jp",
 			"Shulmj",
-			"YeBoy371"
+			"YeBoy371",
+			"X200b"
 		]
 	},
 	"sunday": "日曜日",
@@ -261,7 +262,7 @@
 	"history_small": "履歴",
 	"updatedmarker": "前回の閲覧以降に更新されました",
 	"printableversion": "印刷用バージョン",
-	"printableversion-deprecated-warning": "印刷用ページはサポート対象外です。表示エラーが発生する可能性があります。ブラウザーのブックマークを更新し、印刷にはブラウザーの印刷機能を使用してください。",
+	"printableversion-deprecated-warning": "印刷用ページはサポート対象外になりました。そのため表示エラーが発生している場合があります。ブラウザーのブックマークを更新するとともに、印刷にはブラウザー組み込みの印刷機能を使用してください。",
 	"permalink": "この版への固定リンク",
 	"print": "印刷",
 	"view": "閲覧",
@@ -454,7 +455,7 @@
 	"viewsource-title": "$1のソースを表示",
 	"actionthrottled": "許容されている時間当たりの操作数の上限に達しました",
 	"actionthrottledtext": "短時間にこの操作を大量に行ったため、スパム対策として設定されている制限を超えました。\n少し時間をおいてからもう一度操作してください。",
-	"protectedpagetext": "このページは編集や他の操作ができないように保護されています。",
+	"protectedpagetext": "このページは編集や他の操作ができないように保護（$3）されています。",
 	"viewsourcetext": "このページのソースの閲覧やコピーができます。",
 	"viewyourtext": "このページへの<strong>あなたの編集</strong>のソースの閲覧やコピーができます。",
 	"protectedinterface": "このページにはこのウィキのソフトウェアのインターフェイスに使用されるテキストが保存されており、いたずらなどの防止のために保護されています。\nすべてのウィキに対して翻訳を追加/変更する場合は、MediaWiki の地域化プロジェクト [https://translatewiki.net/wiki/Main_Page?setlang=ja translatewiki.net] を使用してください。",

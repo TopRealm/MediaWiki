@@ -422,7 +422,7 @@
 	"createacct-emailoptional": "Adresa e-pošte",
 	"createacct-email-ph": "Upišite svoju adresu e-pošte",
 	"createacct-another-email-ph": "Upišite adresu e-pošte",
-	"createaccountmail": "Uporabite nasumice odabranu privremenu zaporku i pošaljite ju na navedenu adresu e-pošte",
+	"createaccountmail": "Uporabite nasumce odabranu privremenu zaporku i pošaljite je na navedenu adresu e-pošte",
 	"createaccountmail-help": "Može se rabiti da se nekome stvori račun bez da se sazna zaporka.",
 	"createacct-realname": "Stvarno ime (neobvezatno)",
 	"createacct-reason": "Razlog (javno zapisan)",

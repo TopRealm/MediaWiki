@@ -7,7 +7,9 @@
 			"捍粵者",
 			"August.C",
 			"Peterxy12",
-			"Taiwania Justo"
+			"Taiwania Justo",
+			"LowensteinYang",
+			"臺灣象象"
 		]
 	},
 	"rest-prefix-mismatch": "請求的路徑（$1）不在REST API的基本路徑（$2）內",
@@ -38,7 +40,7 @@
 	"rest-compare-permission-denied": "使用者沒有權限來存取請求修訂",
 	"rest-compare-nonexistent": "由參數$1指定的修訂不存在。",
 	"rest-compare-inaccessible": "由參數$1指定的修訂不可公開存取。",
-	"rest-compare-wrong-content": "由參數$2指定的修訂部份$1，內容類型無法轉換成文字。",
+	"rest-compare-wrong-content": "由參數$2指定的修訂部份$1插槽，擁有無法轉換成文字的內容類型。",
 	"rest-compare-wikidiff2": "此端點需要 wikidiff2 1.9.0 或以上的版本。",
 	"rest-pagehistorycount-too-many-revisions": "指定的標題包含太多的修訂而無法取得計數。",
 	"rest-search-error": "當回傳搜尋結果時發生錯誤：$1",
