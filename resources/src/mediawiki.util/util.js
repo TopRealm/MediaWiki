@@ -1068,6 +1068,49 @@ const util = {
 	},
 
 	/**
+	 * Adjust the thumbnail size to fit the width steps defined in config via
+	 * config.ThumbnailSteps, according to whether config.ThumbnailStepsRatio is set.
+	 *
+	 * NOTE: Keep in sync with server-side logic in ImageHandler::getSteppedThumbWidth.
+	 *
+	 * @param {number} thumbWidth target width in pixels
+	 * @param {number} originalWidth original file width
+	 */
+	adjustThumbWidthForSteps(
+		thumbWidth,
+		originalWidth
+	) {
+		const steps = config.ThumbnailSteps;
+		const ratio = config.ThumbnailStepsRatio;
+		if ( !steps || !ratio ) {
+			return thumbWidth;
+		}
+
+		// Note: non-integral thumbnailStepsRatio values are treated
+		// as equivalent to 1 here. This is a transitional setting
+		// for content generation and should be ok to ignore client-side.
+
+		let prevStep = steps[ 0 ];
+		for ( const widthStep of steps ) {
+			if ( widthStep > originalWidth ) {
+				if ( widthStep === steps[ 0 ] ) {
+					// FIXME: non-standard thumbnail T418745
+					return originalWidth;
+				} else {
+					return prevStep;
+				}
+			}
+			if ( widthStep >= thumbWidth ) {
+				return widthStep;
+			}
+			prevStep = widthStep;
+		}
+
+		// T418745: Avoid non-standard widths beyond last step
+		return prevStep;
+	},
+
+	/**
 	 * Escape string for safe inclusion in regular expression.
 	 *
 	 * The following characters are escaped:
