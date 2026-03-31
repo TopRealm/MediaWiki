@@ -177,7 +177,7 @@ abstract class ImageHandler extends MediaHandler {
 	 * Adjust the thumbnail size to fit the width steps defined in config via
 	 * $wgThumbnailSteps, according to whether $wgThumbnailStepsRatio is set.
 	 *
-	 * NOTE: Keep in sync with client-side logic in mw.util.adjustThumbWidthForSteps.
+	 * This logic is duplicated client-side in mw.util.adjustThumbWidthForSteps.
 	 *
 	 * @since 1.46 (also backported to 1.43.7, 1.44.4, 1.45.2)
 	 */
@@ -205,44 +205,21 @@ abstract class ImageHandler extends MediaHandler {
 			}
 		}
 
-		$prevStep = $thumbnailSteps[0];
-		foreach ( $thumbnailSteps as $i => $widthStep ) {
+		foreach ( $thumbnailSteps as $widthStep ) {
 			if ( ( $widthStep > $srcWidth ) && !$image->isVectorized() ) {
-				if ( $i === 0 ) {
-					// We reach this if the original is smaller than the first configured step.
-					// In this case, we have no steps to choose from, because upscaling is
-					// generally denied/unsupported, and thus may be required to
-					// generate a non-standard thumbnail (T418745).
-					//
-					// In lieu of a standard step, use the original width as
-					// the fallback step. This is preferred because:
-					//
-					// 1. Optimization: Prefer the original width so that we share and reuse one
-					//    custom thumbnail for non-standard widths of this image, not multiple.
-					//    This scenario is limited to widths under the first step, so the
-					//    bandwidth increase is negligible compared to how other steps round up.
-					// 2. For web-safe formats like JPEG, we later swap this for
-					//    the original and thus won't need a thumbnail at all.
-					//    This only works we return the original width exactly.
-					//
-					// FIXME: non-standard thumbnail T418745
-					return $srcWidth;
-				} else {
-					return $prevStep;
-				}
+				// Round up to original width if there is no step between
+				// desired thumb width & original file width
+				return $srcWidth;
 			}
-			if ( $widthStep >= $requestWidth ) {
+			if ( $widthStep == $requestWidth ) {
+				return $requestWidth;
+			}
+			if ( $widthStep > $requestWidth ) {
 				return $widthStep;
 			}
-
-			$prevStep = $widthStep;
 		}
 
-		// T418745: Avoid non-standard widths beyond last step
-		// It is a sysadmin responsibility, when choosing to enable $wgThumbnailSteps,
-		// to include adequate sizes that cover traditional thumbnails, full-screen previews,
-		// and wallpaper downloads ($wgImageLimits).
-		return $prevStep;
+		return $requestWidth;
 	}
 
 	/**
