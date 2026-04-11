@@ -6,9 +6,23 @@ PHP 8.3 workboard: https://phabricator.wikimedia.org/tag/php_8.3_support/
 PHP 8.4 workboard: https://phabricator.wikimedia.org/tag/php_8.4_support/
 PHP 8.5 workboard: https://phabricator.wikimedia.org/tag/php_8.5_support/
 
-== MediaWiki 1.43.7 ==
+== MediaWiki 1.43.9 ==
 
 THIS IS NOT A RELEASE YET
+
+=== Changes since 1.43.8 ===
+* Localisation updates.
+
+== MediaWiki 1.43.8 ==
+
+This is a maintenance release of the MediaWiki 1.43 branch.
+
+=== Changes since 1.43.7 ===
+* Fixed backport issues.
+
+== MediaWiki 1.43.7 ==
+
+This is a security and maintenance release of the MediaWiki 1.43 branch.
 
 === Changes since 1.43.6 ===
 * Localisation updates.
@@ -112,6 +126,23 @@ THIS IS NOT A RELEASE YET
   content.
 * (T417819) ParserOutputFlags: Back-port new flags added in 1.46 for
   forward compat.
+* (T382566) Installer: Fix db type radio button.
+* (T384147, CVE-2026-34092) SECURITY: Block UI elements in 'tools'-sidebar
+  shows presence of an autoblocked IP.
+* (T410429, CVE-2026-34088) SECURITY: RecentChanges entries expose suppressed
+  content via generated log page html.
+* (T411305, CVE-2026-34091) SECURITY: User localization leaked by AbuseFilter
+  + EventStream.
+* (T411366, CVE-2026-34090) SECURITY: Suggested investigations: Handle
+  suppressed usernames.
+* (T414547, CVE-2026-34093) SECURITY: Special:UserRights allows viewing user
+  rights from private wiki.
+* (T416090, CVE-2026-34094) SECURITY: Customized help link for page protection
+  indicator is relative to subpage name, because the link target is missing the
+  "/wiki/" prefix.
+* (T419192, CVE-2026-34095) SECURITY: action=raw with Special:Mypage subpage
+  title responds with "Content-Type) SECURITY: text/html" on
+  ctype=text/javascript request.
 
 == MediaWiki 1.43.6 ==
 
