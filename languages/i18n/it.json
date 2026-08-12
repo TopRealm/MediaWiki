@@ -160,7 +160,8 @@
 			"Amedeo463",
 			"Asteralee",
 			"Neonsn0w",
-			"FL2226"
+			"FL2226",
+			"Reedy"
 		]
 	},
 	"sunday": "domenica",
@@ -741,7 +742,7 @@
 	"publishpage-start": "Pubblica pagina…",
 	"publishchanges-start": "Pubblica modifiche…",
 	"preview": "Anteprima",
-	"showpreview": "Visualizza anteprima",
+	"showpreview": "Mostra anteprima",
 	"showdiff": "Mostra modifiche",
 	"temp-user-banner-description": "Stai utilizzando un'utenza temporanea",
 	"temp-user-banner-tooltip-label": "Ulteriori informazioni sulle utenze temporanee",
