@@ -431,7 +431,7 @@
 	"categorypage": "Used as link text in Talk page of category page.",
 	"viewtalkpage": "Used in Standard (a.k.a. Classic) skin as a link to talk page for all namespaces, in edit or history mode.",
 	"otherlanguages": "This message is shown under the toolbox. It is used if there are interwiki links added to the page, like <code><nowiki>[[</nowiki>en:Interwiki article]]</code>.\n{{Identical|Otherlanguages}}",
-	"redirectedfrom": "The text displayed when a certain page is redirected to another page. Parameters:\n* $1 - the name of the page user came from\n\nSimilar to {{msg-mw|Mobile-frontend-redirected-from}}",
+	"redirectedfrom": "The text displayed when a certain page is redirected to another page. Parameters:\n* $1 - the name of the page user came from\n\nSimilar to {{msg-mw|Mobile-frontend-redirected-from}} and {{msg-mw|searchsuggest-redirected-from}}.",
 	"redirectpagesub": "Displayed under the page title of a page which is a redirect to another page, see [{{fullurl:Project:Translators|redirect=no}} Project:Translators] for example.\n\n{{Identical|Redirect page}}",
 	"redirectto": "Alt text of the arrow icon shown on redirect pages ([[commons:File:Sample redirect page.jpg]]).\n\n{{Identical|Redirect to}}\n\nOn Wikidata, this message is shown directly on redirect pages.\n\n\"Redirect\" is a noun, not a verb. That is, translate \"redirect\" as in \"This is a redirect to:\"",
 	"talkpageheader": "{{notranslate}}",
@@ -3603,7 +3603,7 @@
 	"file-info-png-looped": "Part of the information provided about a [[w:APNG|.apng file]] on its file description page. Looped means repeating indefinitely in the context of an animated png. It is a sequence of images, each displayed after the other, and the first one displayed after the last, in a never ending loop.\n{{Identical|Looped}}",
 	"file-info-png-repeat": "Part of the information provided about a [[w:APNG|.apng file]] on its file description page. The sequence of images is repeating a limited amount of time. It is a sequence of images, each displayed after the other, and the first one displayed after the last, for $1 times.",
 	"file-info-png-frames": "Part of the information provided about a [[w:APNG|.apng file]] on its file description page.\n\nThe variable $1 is the number of individual frames in an animated gif file.\n\nFor example of message in use see [[:File:Mouse10.gif]].\n{{Identical|Frame}}",
-	"file-no-thumb-animation": "We cannot animate thumbnails of this file.\n\nThis notice is shown on the image description page on animated svg files just below {{msg-mw|File-info-size}}.\n\nThis message may be overridden by a more specific message:\n* {{msg-mw|File-no-thumb-animation-gif}}.",
+	"file-no-thumb-animation": "We cannot animate thumbnails of this file.\n\nThis notice is shown on the image description page on animated svg files just below {{msg-mw|File-info-size}}.\n\nThis message may be overridden by a more specific message:\n* {{msg-mw|File-no-thumb-animation-gif}}.\n* {{msg-mw|File-no-thumb-animation-webp}}.",
 	"file-no-thumb-animation-gif": "Cannot animate thumbnails of this gif file, because it has too big a resolution. The cut off resolution can vary between wikis ([[mw:manual:$wgMaxAnimatedGifArea|$wgMaxAnimatedGifArea]]). Note that resolution is calculated as width times height times number of frames. See {{msg-mw|file-no-thumb-animation}}.",
 	"newimages": "Page title of [[Special:NewImages]].",
 	"newimagestext": "Text in [[Special:NewImages]].",
@@ -4827,5 +4827,6 @@
 	"benefit-3-description": "The text for the third benefit shown on signup for temporary users.",
 	"temp-user-unable-to-acquire": "The error message shown when the server was unable to acquire a temporary account username for the user.",
 	"table-of-contents-show-button-aria-label": "ARIA label for the table of contents show toggle button",
-	"table-of-contents-hide-button-aria-label": "ARIA label for the table of contents hide toggle button"
+	"table-of-contents-hide-button-aria-label": "ARIA label for the table of contents hide toggle button",
+	"mypage-disallowed-action": "Shown when you visit a URL such as w/index.php?title=Special:MyPage&action=raw. Parameters:\n* $1 - ?action= from the URL (e.g. delete, protect, etc.)"
 }

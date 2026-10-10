@@ -335,9 +335,9 @@ class ApiQueryImageInfo extends ApiQueryBase {
 		if ( !isset( $thumbParams['width'] ) && isset( $thumbParams['height'] ) ) {
 			// We want to limit only by height in this situation, so pass the
 			// image's full width as the limiting width. But some file types
-			// don't have a width of their own, so pick something arbitrary so
-			// thumbnailing the default icon works.
-			if ( $image->getWidth() <= 0 ) {
+			// don't have a width of their own, or are scalable, so pick
+			// something arbitrary so thumbnailing the default icon works.
+			if ( $image->getWidth() <= 0 || $image->isVectorized() ) {
 				$thumbParams['width'] =
 					max( $this->getConfig()->get( MainConfigNames::ThumbLimits ) );
 			} else {
@@ -359,6 +359,16 @@ class ApiQueryImageInfo extends ApiQueryBase {
 		}
 
 		$paramList = $h->parseParamString( $otherParams );
+		if ( !$paramList ) {
+			// Handlers require a trailing "-<n>px" width (e.g. "langde-40px").
+			// Synthesise the default thumbnail size so width-less variants parse;
+			// it is discarded again per-size for thumburls.
+			$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+			$thumbKey = $userOptionsLookup->getDefaultOption( 'thumbsize' ) ?: 0;
+			$thumbWidth = $this->getConfig()->get( MainConfigNames::ThumbLimits )[ $thumbKey ];
+			$width = $thumbParams['width'] ?? $thumbWidth;
+			$paramList = $h->parseParamString( $otherParams . "-{$width}px" );
+		}
 		if ( !$paramList ) {
 			// Just set a warning (instead of dieWithError), as in many cases
 			// we could still render the image using width and height parameters,
@@ -622,6 +632,57 @@ class ApiQueryImageInfo extends ApiQueryBase {
 			}
 		}
 
+		if ( $exists && isset( $prop['thumburls'] ) ) {
+			$urlUtils = $services->getUrlUtils();
+			$config = $services->getMainConfig();
+			$thumbnailSteps = $config->get( MainConfigNames::ThumbnailSteps );
+			$sizes = [];
+			if ( is_array( $thumbnailSteps ) ) {
+				// When $wgThumbnailSteps is enabled
+				foreach ( $thumbnailSteps as $width ) {
+					$sizes[] = [ 'width' => $width ];
+				}
+			} else {
+				// Default to union of the default thumbnail size and $wgImageLimits
+				$userOptionsLookup = $services->getUserOptionsLookup();
+				$thumbKey = $userOptionsLookup->getDefaultOption( 'thumbsize' ) ?: 0;
+				$thumbWidth = $config->get( MainConfigNames::ThumbLimits )[ $thumbKey ];
+				$sizes[] = [ 'width' => $thumbWidth ];
+				if ( $config->get( MainConfigNames::ResponsiveImages ) ) {
+					$sizes[] = [ 'width' => $thumbWidth * 2 ];
+				}
+				foreach ( $config->get( MainConfigNames::ImageLimits ) as [ $width, $height ] ) {
+					$sizes[] = [ 'width' => $width, 'height' => $height ];
+				}
+			}
+			// Carry handler params (e.g. SVG "lang", PDF "page") into every
+			// suggested URL so they share the variant; only width/height vary.
+			$handlerParams = $thumbParams ? array_diff_key(
+				$thumbParams,
+				[ 'width' => true, 'height' => true, 'requestProvenance' => true ]
+			) : [];
+			$vals['thumburls'] = [];
+			foreach ( $sizes as $size ) {
+				$size += $handlerParams;
+				$size['requestProvenance'] = 'imageinfo';
+				$size['usePhysicalSize'] = true;
+				$mto = $file->transform( $size );
+				if ( !$mto || $mto->isError() ) {
+					continue;
+				}
+				if ( isset( $vals['thumburls'][$mto->getWidth()] ) ) {
+					continue;
+				}
+				self::$transformCount++;
+				$thumburl = (string)$urlUtils->expand( $mto->getUrl(), PROTO_CURRENT );
+				$vals['thumburls'][$mto->getWidth()] = [
+					'url' => $thumburl,
+					'width' => $mto->getWidth(),
+					'height' => $mto->getHeight(),
+				];
+			}
+		}
+
 		if ( !$exists ) {
 			$vals['filemissing'] = true;
 		}
@@ -689,6 +750,13 @@ class ApiQueryImageInfo extends ApiQueryBase {
 	 */
 	protected static function getTransformCount() {
 		return self::$transformCount;
+	}
+
+	/**
+	 * Reset the count of image transformations performed. Solely used for phpunit.
+	 */
+	public static function resetTransformCountForUnitTest() {
+		self::$transformCount = 0;
 	}
 
 	/**
@@ -832,6 +900,7 @@ class ApiQueryImageInfo extends ApiQueryBase {
 				'sha1' => 'apihelp-query+imageinfo-paramvalue-prop-sha1',
 				'mime' => 'apihelp-query+imageinfo-paramvalue-prop-mime',
 				'thumbmime' => 'apihelp-query+imageinfo-paramvalue-prop-thumbmime',
+				'thumburls' => 'apihelp-query+imageinfo-paramvalue-prop-thumburls',
 				'mediatype' => 'apihelp-query+imageinfo-paramvalue-prop-mediatype',
 				'metadata' => 'apihelp-query+imageinfo-paramvalue-prop-metadata',
 				'commonmetadata' => 'apihelp-query+imageinfo-paramvalue-prop-commonmetadata',

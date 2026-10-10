@@ -420,7 +420,7 @@
 	"versionrequiredtext": "使用本页需要$1版本的MediaWiki。请参见[[Special:Version|版本页面]]。",
 	"ok": "确定",
 	"backlinksubtitle": "←$1",
-	"retrievedfrom": "检索自“$1”",
+	"retrievedfrom": "取自“$1”",
 	"new-messages": "{{PLURAL:$3|您}}有$1（$2）。",
 	"new-messages-from-users": "{{PLURAL:$4|您}}有来自{{PLURAL:$3|其他用户|$3个用户}}的$1（$2）。",
 	"new-messages-from-many-users": "您有来自多个用户的$1（$2）。",
@@ -536,9 +536,9 @@
 	"protectedpagetext": "此页面已受到保护，以防止编辑或其他操作。",
 	"viewsourcetext": "您可以查看和复制此页面的源代码。",
 	"viewyourtext": "您可以查看和复制<strong>您对此页面作出编辑后</strong>的源代码。",
-	"protectedinterface": "此页面为本wiki上的软件提供界面文本，并受到保护以防止滥用。如欲修改所有wiki的翻译，请访问[https://translatewiki.net/ translatewiki.net]上的MediaWiki本地化项目。",
-	"editinginterface": "<strong>警告：</strong>您正在编辑的页面用于为软件提供界面文本。更改此页面将影响此wiki上其他用户的用户界面外观。",
-	"translateinterface": "如欲添加或更改所有wiki的翻译，请访问[https://translatewiki.net/ translatewiki.net]上的MediaWiki本地化项目。",
+	"protectedinterface": "本页面提供本维基软件的界面文本，并受到保护以防止滥用。\n要添加或更改所有维基的翻译，请使用MediaWiki的本地化项目[https://translatewiki.net/ translatewiki.net]。",
+	"editinginterface": "<strong>警告：</strong>您正在编辑用于提供软件界面文本的页面。\n对此页面的更改将影响此维基上其他用户的用户界面外观。",
+	"translateinterface": "要添加或更改所有维基的翻译，请使用MediaWiki的本地化项目[https://translatewiki.net/ translatewiki.net]。",
 	"cascadeprotected": "此页面已受到保护，不能编辑，因为它被嵌入以下开启“连锁保护”选项的{{PLURAL:$1|页面}}：$2",
 	"namespaceprotected": "您没有权限编辑<strong>$1</strong>命名空间内的页面。",
 	"customcssprotected": "您没有权限编辑此CSS页面，因为此页面包含另一位用户的个人设置。",
@@ -3862,7 +3862,7 @@
 	"logentry-partialblock-block-page": "{{PLURAL:$1|页面}}$2",
 	"logentry-partialblock-block-ns": "{{PLURAL:$1|命名空间}}$2",
 	"logentry-partialblock-block-action": "{{PLURAL:$1|操作}}$2",
-	"logentry-partialblock-block": "$1{{GENDER:$2|封禁了}}{{GENDER:$4|$3}}对$7的编辑，期限为$5$6",
+	"logentry-partialblock-block": "$1{{GENDER:$2|封禁了}}{{GENDER:$4|$3}}，涉及$7，期限为$5$6",
 	"logentry-partialblock-reblock": "$1{{GENDER:$2|更改了}}{{GENDER:$4|$3}}的$7的封禁设置，期限为$5 $6",
 	"logentry-non-editing-block-block": "$1{{GENDER:$2|封禁了}}{{GENDER:$4|$3}}的特定非编辑操作，期限为$5$6",
 	"logentry-non-editing-block-reblock": "$1{{GENDER:$2|更改了}}{{GENDER:$4|$3}}的特定非编辑操作的封禁设置，期限为$5$6",
@@ -4353,5 +4353,6 @@
 	"benefit-3-description": "参数设置，允许您定制使用体验。",
 	"temp-user-unable-to-acquire": "无法获取临时账号的用户名。请再试一次。",
 	"table-of-contents-show-button-aria-label": "显示目录",
-	"table-of-contents-hide-button-aria-label": "隐藏目录"
+	"table-of-contents-hide-button-aria-label": "隐藏目录",
+	"mypage-disallowed-action": "出于安全原因，Special:MyPage页面不能使用操作“$1”。"
 }
