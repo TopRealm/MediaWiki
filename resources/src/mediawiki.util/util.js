@@ -505,7 +505,7 @@ const util = {
 	 * have been added to the page e.g. mediawiki.codex.messagebox.styles.
 	 *
 	 * @since 1.43
-	 * @param {string|Element} textOrElement text or node.
+	 * @param {string|Node} textOrElement text or node.
 	 * @param {string} [type] defaults to notice.
 	 * @param {boolean} [inline] whether the notice should be inline.
 	 * @return {Element}
@@ -513,15 +513,23 @@ const util = {
 	messageBox: function ( textOrElement, type = 'notice', inline = false ) {
 		const msgBoxElement = document.createElement( 'div' );
 		msgBoxElement.classList.add( 'cdx-message' );
+
 		if ( [ 'error', 'warning', 'success', 'notice' ].indexOf( type ) > -1 ) {
 			// The following CSS classes are used here:
 			// * cdx-message--notice
 			// * cdx-message--warning
 			// * cdx-message--error
+			// * cdx-message--success
 			msgBoxElement.classList.add( `cdx-message--${ type }` );
 		}
 		msgBoxElement.classList.add( inline ? 'cdx-message--inline' : 'cdx-message--block' );
-		msgBoxElement.setAttribute( 'aria-live', 'polite' );
+
+		if ( type === 'error' ) {
+			msgBoxElement.setAttribute( 'role', 'alert' );
+		} else {
+			msgBoxElement.setAttribute( 'aria-live', 'polite' );
+		}
+
 		const iconElement = document.createElement( 'span' );
 		iconElement.classList.add( 'cdx-message__icon' );
 		const contentElement = document.createElement( 'div' );
@@ -1010,21 +1018,22 @@ const util = {
 				// /<hash prefix>/<name>/[<options>-]<width>-<name*>[.<ext>]
 				// where <name*> could be the filename, 'thumbnail.<ext>' (for long filenames)
 				// or the base-36 SHA1 of the filename.
+				// Tolerate two dashes after width, because TimedMediaHandler (T442324).
 
-				/\/[\da-f]\/[\da-f]{2}\/([^\s/]+)\/(?:[^\s/]+-)?(\d+)px-(?:\1|thumbnail|[a-z\d]{31})(\.[^\s/]+)?$/,
+				/\/[\da-f]\/[\da-f]{2}\/([^\s/]+)\/(?:[^\s/]+-)?(\d+)px--?(?:\1|thumbnail|[a-z\d]{31})(?:\.[^\s/?]+)?(?:\?[^\s]+)?$/,
 
-				// Full size images
+				// Original files
 				// /<hash prefix>/<name>
-				/\/[\da-f]\/[\da-f]{2}\/([^\s/]+)$/,
+				/\/[\da-f]\/[\da-f]{2}\/([^\s/?]+)(?:\?[^\s]+)?$/,
 
-				// Thumbnails in non-hashed upload directories
+				// Thumbnails in non-hashed directories
 				// /<name>/[<options>-]<width>-<name*>[.<ext>]
 
-				/\/([^\s/]+)\/(?:[^\s/]+-)?(\d+)px-(?:\1|thumbnail|[a-z\d]{31})[^\s/]*$/,
+				/\/([^\s/]+)\/(?:[^\s/]+-)?(\d+)px-(?:\1|thumbnail|[a-z\d]{31})[^\s/?]*(?:\?[^\s]+)?$/,
 
-				// Full-size images in non-hashed upload directories
+				// Orignal files in non-hashed directories
 				// /<name>
-				/\/([^\s/]+)$/
+				/\/([^\s/?]+)(?:\?[^\s]+)?$/
 			];
 			for ( let i = 0; i < regexes.length; i++ ) {
 				const match = url.match( regexes[ i ] );
